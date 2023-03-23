@@ -291,16 +291,45 @@ public static class RulesetActorPatcher
     [UsedImplicitly]
     public static class RollDie_Patch
     {
+        //PATCH: supports DieRollModifierDamageTypeDependent
+        private static void EnumerateIDieRollModificationProvider(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition,
+                RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse);
+
+            var damageType = RulesetCharacterPatcher.RollMagicAttack_Patch
+                .CurrentMagicEffect?.EffectDescription.FindFirstDamageForm()?.damageType;
+
+            if (damageType != null)
+            {
+                featuresToBrowse.RemoveAll(x =>
+                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y && !y.damageTypes.Contains(damageType));
+            }
+        }
+
+
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateIDieRollModificationProvider).Method;
 
-            return instructions.ReplaceCalls(rollDieMethod, "RulesetActor.RollDie",
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Call, myRollDieMethod));
+            return instructions
+                .ReplaceCalls(rollDieMethod, "RulesetActor.RollDie.1",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Call, myRollDieMethod))
+                .ReplaceEnumerateFeaturesToBrowse("IDieRollModificationProvider",
+                    -1, "RulesetCharacter.RefreshSpellRepertoires",
+                    new CodeInstruction(OpCodes.Call, enumerate));
         }
 
         [UsedImplicitly]
@@ -483,54 +512,6 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
                 new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
-        }
-    }
-
-    //PATCH: supports DieRollModifierDamageTypeDependent
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
-    internal class RulesetActor_RollDamage_Patch
-    {
-        internal static DamageForm CurrentDamageForm;
-
-        [UsedImplicitly]
-        public static void Prefix(DamageForm damageForm)
-        {
-            CurrentDamageForm = damageForm;
-        }
-
-        [UsedImplicitly]
-        public static void Postfix()
-        {
-            CurrentDamageForm = null;
-        }
-    }
-
-    //PATCH: supports DieRollModifierDamageTypeDependent
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RulesetActor_RerollDieAsNeeded_Patch
-    {
-        [UsedImplicitly]
-        public static bool Prefix(
-            FeatureDefinitionDieRollModifier dieRollModifier,
-            int rollScore,
-            ref int __result)
-        {
-            if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
-                    featureDefinitionDieRollModifierDamageTypeDependent
-                || RulesetActor_RollDamage_Patch.CurrentDamageForm == null
-                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(
-                    RulesetActor_RollDamage_Patch.CurrentDamageForm.damageType))
-            {
-                return true;
-            }
-
-            __result = rollScore;
-            return false;
         }
     }
 }
