@@ -1,6 +1,6 @@
-- added custom Ancestries level up selection
-- added custom Kindred Spirits level up selection
-- added Ranger Hell Walker subclass
-- added Ranger Light Bearer subclass
+- added custom level up screen for Ancestries and Kindred Spirits
+- added Oath of Altruism level 15 and Way of the Dragon level 17 features
+- added Ranger Hell Walker and Light Bearer subclasses
 - fixed Grenadier not able to use items as a bonus action
 - fixed interaction between Spear Mastery and Polearm Expert
+- fixed Sanctuary not allowing cast on self

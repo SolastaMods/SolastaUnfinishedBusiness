@@ -19,5 +19,7 @@ Reaction/&CustomReactionSpiritualShieldingDescription=<b>{0}</b> 即将被 <b>{1
 Reaction/&CustomReactionSpiritualShieldingTitle=引导神力：精神护盾
 Reaction/&CustomReactionSpiritualShieldingReactDescription=花费引导神力保护盟友免受攻击。
 Reaction/&CustomReactionSpiritualShieldingReactTitle=花费
+Feature/&PowerOathOfAltruismTakeThePainDescription=作为附赠动作，花费引导神力与盟友交换生命值。你获得的临时生命值等于你的熟练加值的两倍加上你的魅力调整值。
+Feature/&PowerOathOfAltruismTakeThePainTitle=引导神性：承受痛苦
 Subclass/&OathOfAltruismDescription=英雄知道他们的呼唤，利他主义誓言向那些将保护温顺者置于首位的无私英雄致敬。这个誓言的追随者，是真正无私的保护者，他们冒着生命危险，愿意为保护他们所关心的人而死。这个誓言的圣骑士并不寻求荣耀，并且经常与那些寻求更大目标的人结盟。他们借出盾牌和剑是为了团队的更大利益，而不是为了自己的利益。
 Subclass/&OathOfAltruismTitle=利他主义誓言
