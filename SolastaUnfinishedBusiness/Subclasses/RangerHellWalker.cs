@@ -7,12 +7,11 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 

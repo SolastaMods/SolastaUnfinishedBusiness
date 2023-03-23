@@ -80,8 +80,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         Level 17 - Ascension
         As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
         */
-         var conditionAscension = ConditionDefinitionBuilder
-            .Create(ConditionFlying12,$"Condition{Name}Ascension")
+        var conditionAscension = ConditionDefinitionBuilder
+            .Create(ConditionFlying12, $"Condition{Name}Ascension")
             .SetGuiPresentation(Category.Condition, ConditionFlying12)
             .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierHasted)
             .AddToDB();
@@ -93,10 +93,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                 .AddEffectForms(EffectFormBuilder
-                 .Create()
-                 .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
-                 .Build())
+                .AddEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .SetDurationData(DurationType.Minute, 1)
                 .Build())
             .AddToDB();

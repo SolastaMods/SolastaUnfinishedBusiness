@@ -369,6 +369,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierElfAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierHasted { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHasted");
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical");
