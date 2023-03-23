@@ -54,7 +54,10 @@ public static class RulesetImplementationManagerPatcher
             EffectGroupInfo effectGroupInfo)
         {
             var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
-            var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber / 2;
+
+            effectGroupInfo.diceNumber /= 2;
+            
+            var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber;
 
             damageForm.bonusDamage += bonusDamage;
             effectGroupInfo.bonusValue += bonusDamage;
@@ -211,7 +214,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, false, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
