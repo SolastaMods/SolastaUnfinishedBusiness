@@ -372,11 +372,11 @@ internal static partial class SpellBuilders
             .Create("AdditionalDamageResonatingStrike")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ResonatingStrike")
-            .SetDamageDice(DieType.D8, 0)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetAttackModeOnly()
+            .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
+            .SetAttackModeOnly()
             .SetIgnoreCriticalDoubleDice(true)
             .AddToDB();
 
@@ -489,7 +489,6 @@ internal static partial class SpellBuilders
                                     .SetNotificationTag("SunlightBlade")
                                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                     .SetAttackModeOnly()
-                                    .SetAttackOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(DamageTypeRadiant)
                                     .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)

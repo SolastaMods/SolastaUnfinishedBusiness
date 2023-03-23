@@ -35,7 +35,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("ArcaneFighter")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetDamageDice(DieType.D8, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();

@@ -25,16 +25,16 @@ internal static class InvocationsBuilders
             .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(WarlockHolder.Instance)
+                .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(EldritchSmiteTag)
+                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
+                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
+                .SetAttackModeOnly()
                 .SetDamageDice(RuleDefinitions.DieType.D8, 0)
                 .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetAttackModeOnly()
-                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
                 .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
+                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
+                .SetCustomSubFeatures(WarlockHolder.Instance)
                 .AddToDB())
             .AddToDB();
     }
