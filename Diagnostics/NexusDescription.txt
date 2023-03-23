@@ -547,7 +547,7 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, Path of the Reaver, Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, Path of the Reaver, Ranger Hell Walker, Ranger Light Bearer, Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
 [*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
@@ -566,5 +566,6 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
 [*][b]Balmz[/b]: powers and spells icons
+[*][b]Stuffies12[/b]: Ranger homebrew content design [Ranger Hell Walker, Ranger Light Bearer]
 [/list]
 
