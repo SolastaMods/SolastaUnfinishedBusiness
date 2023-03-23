@@ -19,5 +19,7 @@ Reaction/&CustomReactionSpiritualShieldingDescription=<b>{0}</b> is about to be 
 Reaction/&CustomReactionSpiritualShieldingTitle=Channel Divinity: Spiritual Shielding
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Spend Channel Divinity to shield ally from attack.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=Spend
+Feature/&PowerOathOfAltruismTakeThePainDescription=As a bonus action, spend a Channel Divinity to exchange hit points with an ally. You gain temporary hit points equal to twice your proficiency bonus plus your charisma modifier.
+Feature/&PowerOathOfAltruismTakeThePainTitle=Channel Divinity: Take the Pain
 Subclass/&OathOfAltruismDescription=Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 Subclass/&OathOfAltruismTitle=Oath of Altruism
