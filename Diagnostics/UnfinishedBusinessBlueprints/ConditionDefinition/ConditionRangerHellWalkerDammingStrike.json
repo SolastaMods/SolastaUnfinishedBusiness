@@ -59,9 +59,7 @@
       "filterId": 0
     }
   ],
-  "cancellingConditions": [
-    "Definition:ConditionRangerHellWalkerMarkOfTheDammed:4b354cf2-da7e-5be5-98bd-0578e3779188"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",

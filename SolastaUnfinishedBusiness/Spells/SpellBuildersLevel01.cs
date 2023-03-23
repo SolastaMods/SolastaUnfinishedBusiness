@@ -654,7 +654,6 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
                     .Build())
-                .ExcludeCaster()
                 .Build())
             .AddToDB();
 

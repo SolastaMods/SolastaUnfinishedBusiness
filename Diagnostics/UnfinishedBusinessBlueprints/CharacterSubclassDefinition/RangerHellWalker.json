@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRangerHellWalkerMarkOfTheDammed:03a0e584-de86-5c13-9178-41bdb8cc2593",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerHellWalkerFiendishSpawn:6c765350-7756-5877-9b40-821b11bda7ac",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

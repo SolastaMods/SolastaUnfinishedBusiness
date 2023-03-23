@@ -1,15 +1,18 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -132,7 +135,6 @@ internal sealed class RangerHellWalker : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.NotFlying)
                     // .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                     //     EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
@@ -154,7 +156,50 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         // Fiendish Spawn
 
-        // You can cast summon fiend as a 6th level spell without expending a spell slot. When cast this way the spell duration becomes 1 min. You can use this feature once per long rest.
+        var fiendMonsters = new List<MonsterDefinition>
+        {
+            MonsterDefinitions.Hezrou_MonsterDefinition, MonsterDefinitions.Marilith_MonsterDefinition
+        };
+
+        var powerFiendishSpawnPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}FiendishSpawn")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerFiendishSpawn", Resources.PowerFiendishSpawn, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .AddToDB();
+
+        var powerFiendishSpawnList = fiendMonsters
+            .Select(monsterDefinition => new
+            {
+                monsterDefinition, monsterName = monsterDefinition.Name.Replace("_MonsterDefinition", string.Empty)
+            })
+            .Select(t => new
+            {
+                t,
+                newMonsterDefinition = MonsterDefinitionBuilder.Create($"Monster{t.monsterName}")
+                    .SetDefaultFaction(FactionDefinitions.Party)
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+                    .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
+                    .SetFullyControlledWhenAllied(true)
+                    .SetDroppedLootDefinition(null)
+                    .AddToDB()
+            })
+            .Select(t => FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{Name}FiendishSpawn{t.t.monsterName}")
+                .SetGuiPresentation(t.newMonsterDefinition.GuiPresentation)
+                .SetSharedPool(ActivationTime.Action, powerFiendishSpawnPool)
+                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetSummonCreatureForm(1, t.newMonsterDefinition.Name)
+                        .Build())
+                    .Build())
+                .AddToDB())
+            .Cast<FeatureDefinitionPower>()
+            .ToList();
+
+        PowerBundle.RegisterPowerBundle(powerFiendishSpawnPool, true, powerFiendishSpawnList);
 
         // MAIN
 
@@ -170,7 +215,8 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 featureSetBurningConstitution)
             .AddFeaturesAtLevel(11,
                 powerMarkOfTheDammed)
-            .AddFeaturesAtLevel(15)
+            .AddFeaturesAtLevel(15,
+                powerFiendishSpawnPool)
             .AddToDB();
     }
 
