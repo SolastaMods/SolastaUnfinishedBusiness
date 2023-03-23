@@ -33,6 +33,7 @@ Feat/&FeatWarCasterTitle=War Caster
 Feature/&CastSpellFeatMagicInitiateTitle=Initiate
 Feature/&CastSpellFeatSpellSniperTitle=Sniper
 Feature/&DieRollModifierFeatElementalAdeptReroll=Because of Elemental Adept {0} re-rolls the {1} die from a {2} to a {3}.
+Feature/&DieRollModifierFeatElementalMasterReroll=Because of Elemental Master {0} re-rolls the {1} die from a {2} to a {3}.
 Feature/&PowerFeatHealerMedKitDescription=You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feature/&PowerFeatHealerMedKitTitle=Use Medicine
 Feature/&PowerFeatHealerResuscitateDescription=Use an action to revive a creature that died within the last 12 seconds.
