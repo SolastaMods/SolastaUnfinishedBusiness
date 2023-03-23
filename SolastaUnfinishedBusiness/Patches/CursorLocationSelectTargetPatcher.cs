@@ -13,9 +13,12 @@ public static class CursorLocationSelectTargetPatcher
     public static class IsFilteringValid_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(CursorLocationSelectTarget __instance, GameLocationCharacter target,
+        public static void Postfix(
+            CursorLocationSelectTarget __instance,
+            GameLocationCharacter target,
             ref bool __result)
         {
+            //TODO: replace with IFilterTargetingMagicEffect
             //PATCH: support for target spell filtering based on custom spell filters
             // used for melee cantrips to limit targets to weapon attack range
             if (!__result)
@@ -23,6 +26,30 @@ public static class CursorLocationSelectTargetPatcher
                 return;
             }
 
+            __result = IsFilteringValidMeleeCantrip(__instance, target);
+
+            //PATCH: supports IFilterTargetingMagicEffect
+            if (!__result)
+            {
+                return;
+            }
+
+            foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
+            {
+                __result = filterTargetingMagicEffect.IsValid(__instance, target);
+
+                if (!__result)
+                {
+                    return;
+                }
+            }
+        }
+
+        private static bool IsFilteringValidMeleeCantrip(
+            CursorLocationSelectTarget __instance,
+            GameLocationCharacter target)
+        {
             var actionParams = __instance.actionParams;
             var canBeUsedToAttack = actionParams?.RulesetEffect
                 ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
@@ -30,11 +57,12 @@ public static class CursorLocationSelectTargetPatcher
             if (canBeUsedToAttack == null || canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
                     out var failure))
             {
-                return;
+                return true;
             }
 
-            __result = false;
             __instance.actionModifier.FailureFlags.Add(failure);
+
+            return false;
         }
     }
 }
