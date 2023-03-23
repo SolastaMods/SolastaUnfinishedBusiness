@@ -176,7 +176,9 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .Select(t => new
             {
                 t,
-                newMonsterDefinition = MonsterDefinitionBuilder.Create($"Monster{t.monsterName}")
+                newMonsterDefinition = MonsterDefinitionBuilder
+                    .Create(t.monsterDefinition, $"Monster{t.monsterName}")
+                    .SetOrUpdateGuiPresentation(Category.Monster)
                     .SetDefaultFaction(FactionDefinitions.Party)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
@@ -188,7 +190,8 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 .Create($"Power{Name}FiendishSpawn{t.t.monsterName}")
                 .SetGuiPresentation(t.newMonsterDefinition.GuiPresentation)
                 .SetSharedPool(ActivationTime.Action, powerFiendishSpawnPool)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                     .SetEffectForms(EffectFormBuilder.Create()
