@@ -27,7 +27,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     {
         // LEVEL 03
 
-        // Light Bearer Magic
+        // Lightbearer Magic
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")

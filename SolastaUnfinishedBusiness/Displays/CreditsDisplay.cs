@@ -18,7 +18,7 @@ internal static class CreditsDisplay
             "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
             "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, " +
             "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, " +
-            "Path of the Reaver, Ranger Hell Walker, Ranger Light Bearer, Ranger Wild Master, Slayer, " +
+            "Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Slayer, " +
             "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
@@ -42,7 +42,7 @@ internal static class CreditsDisplay
         ("Pikachar2", "spells"),
         ("Narria", "modKit, UI Improvements, Party Editor"),
         ("Balmz", "powers and spells icons"),
-        ("Stuffies12", "Ranger homebrew content design [Ranger Hell Walker, Ranger Light Bearer]")
+        ("Stuffies12", "Ranger homebrew content design [Ranger Hellwalker, Ranger Lightbearer]")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

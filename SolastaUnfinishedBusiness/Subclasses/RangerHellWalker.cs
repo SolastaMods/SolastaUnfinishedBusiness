@@ -23,7 +23,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     {
         // LEVEL 03
 
-        // Hell Walker Magic
+        // Hellwalker Magic
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -43,6 +43,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentation(FireBolt.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(FireBolt.EffectDescription)
+            .SetCustomSubFeatures(RangerClassHolder.Marker)
             .AddToDB();
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
@@ -51,7 +52,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .AddFeatureSet(powerFirebolt)
             .AddToDB();
 
-        // Damming Strike
+        // Damning Strike
 
         var conditionDammingStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}DammingStrike")
@@ -112,7 +113,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         var conditionMarkOfTheDammed = ConditionDefinitionBuilder
             .Create($"Condition{Name}MarkOfTheDammed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDispellingEvilAndGood)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPoisoned)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
@@ -228,6 +229,21 @@ internal sealed class RangerHellWalker : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
+    //
+    //
+
+    internal class RangerClassHolder : IClassHoldingFeature
+    {
+        private RangerClassHolder()
+        {
+        }
+
+        public static RangerClassHolder Marker { get; } = new();
+
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Ranger;
+    }
+
+    //
     // DammingStrike
     //
 
@@ -277,6 +293,12 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+            {
+                return true;
+            }
+
             var isValid = target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
 
             if (!isValid)
@@ -284,14 +306,18 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveDammingStrikeCondition");
             }
 
-            return target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
+            return isValid;
         }
 
         public bool CanIgnoreDamageAffinity(
             IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
         {
-            return !rulesetActor.HasConditionOfType(_conditionDefinition.Name) ||
-                   (provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire);
+            if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
+            {
+                return provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire;
+            }
+
+            return false;
         }
 
         public void OnAfterAction(CharacterAction action)
