@@ -1,0 +1,14 @@
+﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Sie fügen Ihrer Rüstungsklasse die Hälfte Ihres Fertigkeitsbonus hinzu, während Sie einen Kampfstab in zwei Händen führen, und Sie tragen keine Rüstung oder leichte Rüstung.
+Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Acrobat-Beschützer
+Feature/&FeatureRoguishAcrobatTrooperDescription=Du erhältst die Fähigkeit, einen Kampfstab als Finesse-Waffe zu verwenden, und die Reichweite des Kampfstabs erhöht sich auf 3 m.\nWenn du die Angriffsaktion mit einem Kampfstab ausführst, kannst du deine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende des Kampfstabs auszuführen Waffe. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff und verursacht 1W4 Wuchtschaden.
+Feature/&FeatureRoguishAcrobatTrooperTitle=Akrobat Trooper
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Der vielseitige Schadenswürfel deines Kampfstabs ändert sich von einem W8 zu einem W10.\nKlettern kostet dich keine zusätzlichen Züge mehr und du kannst weitere 10 Fuß springen.\nDu hast einen Vorteil bei Liegend- und Stoßversuchen.\nDas musst du sein einen Quarterstaff in zwei Händen schwingen, damit diese funktionieren.
+Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Schnell wie der Wind
+Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=Schwieriges Gelände macht dir nichts aus.\nDu kannst dich an Wänden entlang bewegen und erleidest bei Stürzen aus bis zu 9 m Höhe keinen Schaden.\nGelegenheitsangriffe werden mit Nachteilen gegen dich ausgeführt.\nDu musst einen Kampfstab führen in zwei Händen, damit diese funktionieren.
+Feature/&MovementAffinityRoguishAcrobatFluidMotionsTitle=Fließende Bewegungen
+Feature/&PowerRoguishAcrobatReflexesDescription=Du kannst Ausweichen als Bonusaktion so oft ausführen, wie es deinem Geschicklichkeitsmodifikator entspricht.
+Feature/&PowerRoguishAcrobatReflexesTitle=Akrobatische Reflexe
+Feature/&ProficiencyRoguishAcrobatMavenDescription=Sie erwerben Kenntnisse oder Fachkenntnisse in der Akrobatenfertigkeit.
+Feature/&ProficiencyRoguishAcrobatMavenTitle=Akrobat Maven
+Subclass/&RoguishAcrobatDescription=Der Acrobat Rogue ist ein natürlicher Performer. Wo Gelände und Hindernisse sind, sieht der Akrobat ein Mittel zu einem ganz bestimmten Zweck: Leistung!
+Subclass/&RoguishAcrobatTitle=Akrobat

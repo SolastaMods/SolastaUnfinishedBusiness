@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -43,6 +43,7 @@ internal static class OtherFeats
 
         var spellSniperGroup = BuildSpellSniper(feats);
         var elementalAdeptGroup = BuildElementalAdept(feats);
+        var elementalMasterGroup = BuildElementalMaster(feats);
 
         BuildMagicInitiate(feats);
 
@@ -73,6 +74,7 @@ internal static class OtherFeats
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
             elementalAdeptGroup,
+            elementalMasterGroup,
             featWarCaster,
             spellSniperGroup);
 
@@ -193,7 +195,8 @@ internal static class OtherFeats
     {
         var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
             .Create("PowerFeatInspiringLeader")
-            .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
+            .SetGuiPresentation("FeatInspiringLeader", Category.Feat,
+                Sprites.GetSprite("PowerInspiringLeader", Resources.PowerInspiringLeader, 256, 128))
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -428,7 +431,7 @@ internal static class OtherFeats
 
         public static bool ValidWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            return ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) && !attackMode.ranged;
+            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
         }
     }
 
@@ -472,7 +475,7 @@ internal static class OtherFeats
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", NAME, elementalAdeptFeats);
+        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", null, elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -488,9 +491,80 @@ internal static class OtherFeats
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor, string damageType)
         {
             return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
+        }
+    }
+
+    #endregion
+
+    #region Elemental Master
+
+    private static FeatDefinition BuildElementalMaster(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatElementalMaster";
+
+        var elementalAdeptFeats = new List<FeatDefinition>();
+
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder
+        };
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var guiPresentation = new GuiPresentationBuilder(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                .Build();
+
+            var feat = FeatDefinitionBuilder
+                .Create($"{NAME}{damageType}")
+                .SetGuiPresentation(guiPresentation)
+                .SetFeatures(
+                    FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                        .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
+                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                        .SetCustomSubFeatures(new IgnoreDamageResistanceElementalMaster(damageType))
+                        .AddToDB(),
+                    FeatureDefinitionDamageAffinityBuilder
+                        .Create($"DamageAffinity{NAME}{damageType}")
+                        .SetGuiPresentation(guiPresentation)
+                        .SetDamageAffinityType(DamageAffinityType.Resistance)
+                        .SetDamageType(damageType)
+                        .AddToDB())
+                .SetMustCastSpellsPrerequisite()
+                .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
+                .AddToDB();
+
+            elementalAdeptFeats.Add(feat);
+        }
+
+        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalMaster", null, elementalAdeptFeats);
+
+        feats.AddRange(elementalAdeptFeats);
+
+        return elementalAdeptGroup;
+    }
+
+    private sealed class IgnoreDamageResistanceElementalMaster : IIgnoreDamageAffinity
+    {
+        private readonly List<string> _damageTypes = new();
+
+        public IgnoreDamageResistanceElementalMaster(params string[] damageTypes)
+        {
+            _damageTypes.AddRange(damageTypes);
+        }
+
+        public bool CanIgnoreDamageAffinity(
+            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+        {
+            return provider.DamageAffinityType == DamageAffinityType.Immunity && _damageTypes.Contains(damageType);
         }
     }
 
@@ -661,9 +735,8 @@ internal static class OtherFeats
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                 .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build())
             .SetDurationData(DurationType.Minute, 1)
             .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
@@ -694,7 +767,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsUnarmedWeapon(rulesetAttacker, attackMode) || attackMode.ranged ||
+            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) || attackMode.ranged ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;

@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Advantage on Strength checks and saving throws. +1d4 damage with melee Strength weapons
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Advantage on Strength checks and saving throws. +1d4 damage with melee Strength weapons.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Stone Strength
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Strength +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Ability Score Increase

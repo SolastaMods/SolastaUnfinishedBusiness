@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -249,7 +249,7 @@ public static class RulesetActorPatcher
             var caster = rulesetEntity as RulesetCharacter;
             var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
 
-            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, damageType)))
+            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, actor, damageType)))
             {
                 return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
                     wasFirstDamage,
@@ -322,8 +322,26 @@ public static class RulesetActorPatcher
             }
             else
             {
-                result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
-                    rollAlterationScore);
+                var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>()
+                    .Where(x => x.IsValid(rollContext, actor as RulesetCharacter))
+                    .ToList();
+
+                foreach (var changeDiceRoll in changeDiceRollList)
+                {
+                    changeDiceRoll.BeforeRoll(rollContext, actor as RulesetCharacter,
+                        ref dieType,
+                        ref advantageType);
+                }
+
+                result = RuleDefinitions.RollDie(
+                    dieType, advantageType, out firstRoll, out secondRoll, rollAlterationScore);
+
+                foreach (var changeDiceRoll in changeDiceRollList)
+                {
+                    changeDiceRoll.AfterRoll(rollContext, actor as RulesetCharacter,
+                        ref firstRoll,
+                        ref secondRoll);
+                }
             }
 
             if (rollContext != RuleDefinitions.RollContext.AttackRoll)
@@ -423,6 +441,7 @@ public static class RulesetActorPatcher
                 foreach (var modifier in attribute.Value.ActiveModifiers
                              .Where(x => x.Operation
                                  is AttributeModifierOperation.MultiplyByClassLevel
+                                 or AttributeModifierOperation.Additive
                                  or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
                     var level = attribute.Key switch
@@ -439,6 +458,13 @@ public static class RulesetActorPatcher
                     if (level > 0)
                     {
                         modifier.Value = level;
+                    }
+
+                    //TODO: make this more generic. it supports Ranger Light Bearer subclass
+                    if (modifier.Operation == AttributeModifierOperation.Additive &&
+                        attribute.Key == AttributeDefinitions.HealingPool)
+                    {
+                        modifier.Value = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger) * 5;
                     }
                 }
             }
@@ -465,7 +491,7 @@ public static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
-    internal class RulesetActor_RollDamage
+    internal class RulesetActor_RollDamage_Patch
     {
         internal static DamageForm CurrentDamageForm;
 
@@ -486,7 +512,7 @@ public static class RulesetActorPatcher
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class RulesetActor_RerollDieAsNeeded
+    public static class RulesetActor_RerollDieAsNeeded_Patch
     {
         [UsedImplicitly]
         public static bool Prefix(
@@ -496,9 +522,9 @@ public static class RulesetActorPatcher
         {
             if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
                     featureDefinitionDieRollModifierDamageTypeDependent
-                || RulesetActor_RollDamage.CurrentDamageForm == null
-                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(RulesetActor_RollDamage
-                    .CurrentDamageForm.damageType))
+                || RulesetActor_RollDamage_Patch.CurrentDamageForm == null
+                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(
+                    RulesetActor_RollDamage_Patch.CurrentDamageForm.damageType))
             {
                 return true;
             }

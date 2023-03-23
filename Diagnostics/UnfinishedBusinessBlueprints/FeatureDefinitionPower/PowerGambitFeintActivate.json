@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitFeint",
           "conditionDefinition": "Definition:ConditionGambitFeint:d84fa4a7-ac3e-5c82-9b61-a6c43b616b52",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitFeint:d84fa4a7-ac3e-5c82-9b61-a6c43b616b52"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

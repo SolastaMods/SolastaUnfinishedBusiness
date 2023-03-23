@@ -75,19 +75,27 @@ public static class RulesetImplementationManagerPatcher
         {
             rulesetActor.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(rulesetActor.featuresToBrowse);
 
-            var total = 0;
             var maxDie = RuleDefinitions.DiceMaxValue[(int)diceType];
+            var total = 0;
 
             for (var index = 0; index < diceNumber; ++index)
             {
                 var roll = maxDie;
 
-                while (roll == maxDie)
+                if (maxDie > 1)
                 {
-                    roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
-                        out _, out _, false, canRerollDice, skill);
-                    rolledValues?.Add(roll);
-                    total += roll;
+                    while (roll == maxDie)
+                    {
+                        roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
+                            out _, out _, false, canRerollDice, skill);
+                        rolledValues?.Add(roll);
+                        total += roll;
+                    }
+                }
+                else
+                {
+                    rolledValues?.Add(1);
+                    total += 1;
                 }
             }
 
@@ -203,7 +211,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, false, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
@@ -542,19 +550,19 @@ public static class RulesetImplementationManagerPatcher
             var weaponDescription = typeof(ItemDefinition).GetMethod("get_WeaponDescription");
             var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");
             var customWeaponDescription =
-                new Func<ItemDefinition, WeaponDescription>(ShieldAttack.CustomWeaponDescription).Method;
+                new Func<ItemDefinition, WeaponDescription>(ShieldAttack.EnhancedWeaponDescription).Method;
 
             //PATCH: support for AddTagToWeapon
             var weaponTags = typeof(WeaponDescription)
                 .GetProperty(nameof(WeaponDescription.WeaponTags))
-                .GetGetMethod();
+                ?.GetGetMethod();
             var customWeaponTags = new Func<
                 WeaponDescription,
                 RulesetCharacter,
                 RulesetAttackMode,
                 List<string>
             >(AddTagToWeapon.GetCustomWeaponTags).Method;
-            var customIsWeapon = new Func<ItemDefinition, bool>(ShieldAttack.CustomIsWeapon).Method;
+            var customIsWeapon = new Func<ItemDefinition, bool>(ShieldAttack.IsWeaponOrShield).Method;
 
             return instructions
                 .ReplaceCalls(weaponDescription,

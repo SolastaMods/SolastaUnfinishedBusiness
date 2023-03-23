@@ -64,7 +64,10 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Construct",
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -91,9 +94,7 @@
           "conditionDefinitionName": "ConditionWrack",
           "conditionDefinition": "Definition:ConditionWrack:886b855a-3d41-5c6a-87e5-f9327ecde519",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWrack:886b855a-3d41-5c6a-87e5-f9327ecde519"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

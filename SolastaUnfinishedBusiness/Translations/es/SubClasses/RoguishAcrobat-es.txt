@@ -1,0 +1,14 @@
+﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Añades la mitad de tu bonificación de competencia a tu clase de armadura mientras empuñas un bastón con las dos manos y no llevas armadura o armadura ligera.
+Feature/&AttributeModifierRoguishAcrobatProtectorTitle=protector acróbata
+Feature/&FeatureRoguishAcrobatTrooperDescription=Obtienes la capacidad de usar un bastón como arma delicada y el alcance del bastón aumenta a 10 pies.\nCuando realizas la acción de ataque con un bastón, puedes usar tu acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del bastón. arma. Este ataque usa el mismo modificador de habilidad que el ataque principal e inflige 1d4 de daño contundente.
+Feature/&FeatureRoguishAcrobatTrooperTitle=Soldado acróbata
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=El dado de daño versátil de tu bastón cambia de un d8 a un d10.\nSubir ya no te cuesta movimientos adicionales y puedes saltar 10 pies adicionales.\nTienes ventaja en los intentos de tumbado y de empujón.\nDebes estar empuñando un bastón en dos manos para que estos funcionen.
+Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Veloz como el viento
+Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=No te afectan los terrenos difíciles.\nPuedes moverte a lo largo de las paredes y no sufres daños en caídas de hasta 30 pies.\nLos ataques de oportunidad se realizan con desventaja contra ti.\nDebes estar empuñando un bastón en dos manos para que estos funcionen.
+Feature/&MovementAffinityRoguishAcrobatFluidMotionsTitle=Movimientos fluidos
+Feature/&PowerRoguishAcrobatReflexesDescription=Puedes elegir esquivar como acción adicional un número de veces igual a tu modificador de destreza.
+Feature/&PowerRoguishAcrobatReflexesTitle=Reflejos acróbatas
+Feature/&ProficiencyRoguishAcrobatMavenDescription=Ganas competencia o experiencia en la habilidad de acróbata.
+Feature/&ProficiencyRoguishAcrobatMavenTitle=Experto acróbata
+Subclass/&RoguishAcrobatDescription=El Acrobat Rogue es un artista natural. Donde hay terreno y obstáculos, Acrobat ve un medio para un fin muy específico: ¡Rendimiento!
+Subclass/&RoguishAcrobatTitle=Acróbata

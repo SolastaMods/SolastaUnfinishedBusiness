@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionWrathfulSmite",
           "conditionDefinition": "Definition:ConditionWrathfulSmite:b551eee2-5f52-552d-a943-4fba57fea5cb",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWrathfulSmite:b551eee2-5f52-552d-a943-4fba57fea5cb"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

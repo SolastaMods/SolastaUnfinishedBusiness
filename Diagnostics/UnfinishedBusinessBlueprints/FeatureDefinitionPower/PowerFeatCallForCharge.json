@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatCallForCharge",
           "conditionDefinition": "Definition:ConditionFeatCallForCharge:c16ce32f-da15-54c8-ad3c-e26c5428988e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatCallForCharge:c16ce32f-da15-54c8-ad3c-e26c5428988e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -330,9 +328,9 @@
     "description": "Feature/&PowerFeatCallForChargeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "baf1a359fedb47a439598aa6cde022b9",
-      "m_SubObjectName": "GoldenSpeech",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "e8a86dd2-37a3-5683-aea0-dfb46bfcc151",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
@@ -15,27 +15,34 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Circle of The Ancient Forest, Arcane Scoundrel, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Slayer, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
+            "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, " +
+            "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, " +
+            "Path of the Reaver, Ranger Hell Walker, Ranger Light Bearer, Ranger Wild Master, Slayer, " +
+            "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
-            "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
-        ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
-        ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Way of Dragon"),
-        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
+            "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
+            "quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital", "builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
-        ("N".color(RGBA.cyan).bold() + "arria " + "T".color(RGBA.pink).bold() + "oy ".orange() + "M".yellow().bold() + "aker",
-            "ModKit, UI Improvements, Party Editor (coming  soon)"),
-        ("tivie", "Circle of The Night, Path of The Spirits"),
-        ("ElAntonius", "feats, fighting styles, Arcanist"),
-        ("RedOrca", "Path of The Light"),
-        ("DreadMaker", "Circle of The Forest Guardian"),
+        ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
+        ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("DubhHerder", "quality of life, spells, homebrew content design [subclasses]"),
+        ("Taco",
+            "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, " +
+            "powers and weapons icons, favored terrain and preferred enemy icons"),
+        ("HiddenHax", "homebrew content design [subclasses]"),
+        ("tivie", "Circle of the Night, Path of the Spirits"),
+        ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
+        ("RedOrca", "Path of the Light"),
+        ("DreadMaker", "Circle of the Forest Guardian"),
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Pikachar2", "spells"),
-        ("Taco", "homebrew content design [feats, metamagic, subclasses], power and weapon icons"),
-        ("HiddenHax", "homebrew content design [subclasses]"),
-        ("Balmz", "some power and spell icons")
+        ("Narria", "modKit, UI Improvements, Party Editor"),
+        ("Balmz", "powers and spells icons"),
+        ("Stuffies12", "Ranger homebrew content design [Ranger Hell Walker, Ranger Light Bearer]")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
@@ -64,7 +71,7 @@ internal static class CreditsDisplay
 
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width((float)150));
             UI.Label();
         }
 
@@ -82,8 +89,8 @@ internal static class CreditsDisplay
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Label(author.Orange(), UI.Width(150));
-                    UI.Label(content, UI.Width(600));
+                    UI.Label(author.Orange(), UI.Width((float)150));
+                    UI.Label(content, UI.Width((float)600));
                 }
             }
         }

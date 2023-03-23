@@ -46,9 +46,9 @@
     "description": "Subclass/&WizardArcaneFighterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7b10e54d6037d314e93fd7e7f81c4798",
-      "m_SubObjectName": "Spellblade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1a0ddf2f-5a6c-5ff5-a342-c814c35e374f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

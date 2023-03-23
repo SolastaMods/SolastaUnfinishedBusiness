@@ -51,9 +51,9 @@
     "description": "Subclass/&CollegeOfHarlequinDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
-      "m_SubObjectName": "Rogue_Shadowcaster",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "75038cfb-6d4a-5cf9-afab-d9153781c87c",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

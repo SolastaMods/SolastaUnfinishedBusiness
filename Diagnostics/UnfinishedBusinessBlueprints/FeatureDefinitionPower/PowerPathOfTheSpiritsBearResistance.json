@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -30,8 +30,8 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Permanent",
+    "targetSide": "Ally",
+    "durationType": "Dispelled",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheSpiritsBearResistance",
           "conditionDefinition": "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

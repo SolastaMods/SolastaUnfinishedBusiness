@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.DataViewer;
 using UnityEngine;
@@ -40,7 +40,7 @@ internal static class BlueprintDisplay
 
     private static readonly GUIStyle ButtonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
-    private static IEnumerable<BaseDefinition> GetBlueprints()
+    internal static IEnumerable<BaseDefinition> GetBlueprints()
     {
         if (_allBlueprints != null)
         {
@@ -94,7 +94,7 @@ internal static class BlueprintDisplay
         if (!string.IsNullOrEmpty(_selectionSearchText))
         {
             _bpTypes = _bpTypes
-                .Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText))
+                .Where(type => type == null || type.Name.Matches(_selectionSearchText))
                 .ToArray();
         }
 
@@ -156,7 +156,8 @@ internal static class BlueprintDisplay
             {
                 if (GetBlueprints() == null)
                 {
-                    GUILayout.Label("Loading: " + BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                    GUILayout.Label("Loading: " +
+                                    BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                     return;
                 }
 

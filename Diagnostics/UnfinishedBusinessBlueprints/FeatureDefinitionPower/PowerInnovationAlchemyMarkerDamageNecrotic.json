@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageNecrotic",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageNecrotic:07f532b4-0556-57d8-9796-a99240eeaee0",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageNecrotic:07f532b4-0556-57d8-9796-a99240eeaee0"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

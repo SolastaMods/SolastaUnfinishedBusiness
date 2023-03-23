@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -70,7 +70,7 @@ internal class ReturningWeapon
         return proximity;
     }
 
-    internal static void AddCustomTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddReturningWeaponTag(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (item.HasSubFeatureOfType<ReturningWeapon>())
         {

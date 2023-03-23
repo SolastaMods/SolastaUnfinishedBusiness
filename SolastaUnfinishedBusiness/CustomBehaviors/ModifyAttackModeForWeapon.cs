@@ -1,5 +1,6 @@
-﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -135,25 +136,30 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 {
     private readonly GetWeaponDiceHandler getWeaponDice;
 
-    internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+    internal UpgradeWeaponDice(
+        GetWeaponDiceHandler getWeaponDice,
+        IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         this.getWeaponDice = getWeaponDice;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character,
+        [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
+        // if we don't want to upgrade the dice on a bonus attack to avoid cheesing add below to IF
+        // || attackMode.actionType != ActionDefinitions.ActionType.Main)
         if (damage == null)
         {
             return;
         }
 
         var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
-
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
 
@@ -161,6 +167,13 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         {
             damage.DieType = newDie;
             damage.DiceNumber = newNumber;
+        }
+
+        //TODO: treat this in a better way maybe with a marker to ignore dice upgrades
+        if (character.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == "FeaturePolearm") &&
+            ValidatorsCharacter.IsFreeOffhand(character))
+        {
+            return;
         }
 
         newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;

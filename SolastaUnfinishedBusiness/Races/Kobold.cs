@@ -128,8 +128,7 @@ internal static class KoboldRaceBuilder
                 .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add,
-                        false, false)
+                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .SetUniqueInstance()

@@ -22,7 +22,7 @@ internal static class CustomReactionsContext
     private static void MakeReactDefinition(string name)
     {
         ReactionDefinitionBuilder
-            .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name)
+            .Create(name)
             .SetGuiPresentation(Category.Reaction)
             .AddToDB();
     }

@@ -1,9 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -57,9 +58,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionFrightenedFear,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -90,12 +89,10 @@ internal sealed class OathOfHatred : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionScornfulPrayer,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetDurationData(DurationType.Round, 3)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 10, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -118,20 +115,35 @@ internal sealed class OathOfHatred : AbstractSubclass
 
         //Dauntless Pursuer being a carried by the wind that only processes on successful reaction hit
         var featureDauntlessPursuer = FeatureDefinitionBuilder
-            .Create("FeatureDauntlessPursuer")
+            .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new OnAttackEffectsDauntlessPursuer(conditionDauntlessPursuer))
             .AddToDB();
 
+        //
+        // Level 15
+        //
+
+        // TODO: implement Soul of Vengeance instead
+        var featureSetHatredResistance = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetHatredResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("OathOfHatred")
-            .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfHatred", Resources.OathOfHatred, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsHatred,
                 featureSetHatredElevatedHate,
                 powerHatredHatefulGaze,
                 powerHatredScornfulPrayer)
             .AddFeaturesAtLevel(7, featureDauntlessPursuer)
+            .AddFeaturesAtLevel(15, featureSetHatredResistance)
             .AddToDB();
     }
 
@@ -140,6 +152,7 @@ internal sealed class OathOfHatred : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class OnAttackEffectsDauntlessPursuer : IAfterAttackEffect
@@ -164,7 +177,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                 return;
             }
 
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }

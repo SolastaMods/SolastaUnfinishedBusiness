@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -157,7 +157,7 @@ internal static class DefensiveStrikeAttack
             yield return enums.Current;
         }
 
-        //Rerturn our copied attack mode to the pool
+        //return our copied attack mode to the pool
         RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
     }
 }

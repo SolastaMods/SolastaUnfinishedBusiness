@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Вы можете использовать бонусное действие, чтобы телепортироваться на расстояние до 60 футов в незанятое пространство, которое вы видите.
+﻿Condition/&ConditionFarStepDescription=Вы можете использовать бонусное действие, чтобы телепортироваться на расстояние до 60 футов в незанятое место, которое вы видите.
 Condition/&ConditionFarStepTitle=Дальний шаг
 Feature/&AdditionalDamageBanishingSmiteDescription=Вы получили силовой урон.
 Feature/&AdditionalDamageBanishingSmiteTitle=Изгоняющая кара
@@ -8,7 +8,5 @@ Spell/&BanishingSmiteDescription=Ваш следующий удар причин
 Spell/&BanishingSmiteTitle=Изгоняющая кара
 Spell/&FarStepDescription=Вы телепортируетесь на расстояние до 60 футов в незанятое пространство, которое видите. В каждый свой ход до того, как заклинание закончится, вы можете использовать бонусное действие, чтобы снова телепортироваться таким образом.
 Spell/&FarStepTitle=Дальний шаг
-Spell/&MantleOfThornsDescription=Окружите себя терновой аурой. Те, кто начинают или проходят, получают колющий урон 2d8. Этот урон увеличивается на более высоких уровнях на 1d8 за ячейку.
+Spell/&MantleOfThornsDescription=Окружите себя терновой аурой. Те, кто начинают или проходят, получают колющий урон 2d8. Этот урон увеличивается на более высоких уровнях на 1d8 за слот.
 Spell/&MantleOfThornsTitle=Терновая мантия
-Spell/&MantleOfThornsDescription=用荆棘的光环包围自己。那些开始或穿过的人会受到 2d8 穿刺伤害。这种伤害在更高的等级上按每格 1d8 的比例增加。
-Spell/&MantleOfThornsTitle=荆棘衬肩

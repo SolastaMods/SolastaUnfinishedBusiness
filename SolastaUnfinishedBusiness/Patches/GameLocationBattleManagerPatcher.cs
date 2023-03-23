@@ -7,7 +7,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -477,8 +477,15 @@ public static class GameLocationBattleManagerPatcher
             foreach (var feature in defenderCharacter
                          .GetFeaturesByType<FeatureDefinitionReduceDamage>())
             {
-                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious
-                               && defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                var isValid = defenderCharacter.IsValid(feature.GetAllSubFeaturesOfType<IsCharacterValidHandler>());
+
+                if (!isValid)
+                {
+                    continue;
+                }
+
+                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious &&
+                               defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
                                ActionDefinitions.ActionStatus.Available;
 
                 //TODO: add ability to specify whether this feature can reduce magic damage
@@ -489,12 +496,14 @@ public static class GameLocationBattleManagerPatcher
                 if (rulesetEffect?.EffectDescription != null)
                 {
                     var canForceHalfDamage = false;
+
                     if (rulesetEffect is RulesetEffectSpell activeSpell)
                     {
                         canForceHalfDamage = attacker.RulesetCharacter.CanForceHalfDamage(activeSpell.SpellDefinition);
                     }
 
                     var effectDescription = rulesetEffect.EffectDescription;
+
                     if (rolledSavingThrow)
                     {
                         damage = saveOutcomeSuccess
@@ -551,6 +560,7 @@ public static class GameLocationBattleManagerPatcher
                         };
 
                         actionService.ReactToSpendSpellSlot(reactionParams);
+
                         yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
 
                         if (!reactionParams.ReactionValidated)
@@ -598,6 +608,7 @@ public static class GameLocationBattleManagerPatcher
 
                 var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,
                     RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+
                 damage.bonusDamage -= totalReducedDamage;
                 damage.DamageBonusTrends.Add(trendInfo);
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
@@ -955,6 +966,37 @@ public static class GameLocationBattleManagerPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackInitiated))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleCharacterPhysicalAttackInitiated_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates
+            foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
+                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>()))
+            {
+                yield return attackInitiated.OnAttackInitiated(
+                    __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -979,8 +1021,8 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: allow custom behavior when physical attack finished
             foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackFinished>())
             {
-                yield return feature.OnAttackFinished(__instance, attackAction, attacker, defender, attackerAttackMode,
-                    attackRollOutcome,
+                yield return feature.OnAttackFinished(
+                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                     damageAmount);
             }
         }

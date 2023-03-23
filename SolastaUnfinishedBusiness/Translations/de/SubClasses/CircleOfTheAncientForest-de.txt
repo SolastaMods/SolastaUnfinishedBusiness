@@ -14,7 +14,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=Erhaltet 1 Stund
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Gebräu des strahlenden Schutzes
 Equipment/&HerbalBrewHealingTitle=Gebräu der Beschleunigung
 Equipment/&HerbalBrewToxifyingTitle=Gebräu der Vergiftung
-Feature/&AttributeModifierAncientForestBarkskinDescription=AC ist auf 16 eingestellt.
+Feature/&AttributeModifierAncientForestBarkskinDescription=Rüstungsklasse ist auf 16 gesetzt.
 Feature/&AttributeModifierAncientForestBarkskinTitle=Rindenleder
 Feature/&BonusCantripAncientForestDescription=Sie erfahren Geheimnisse über die Natur, wie natürliche Magie und Lebensenergie miteinander verbunden sind. Du lernst Shillelagh und Chill Touch.
 Feature/&BonusCantripAncientForestTitle=Bonus-Cantrips aus dem alten Wald
@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=Sie haben einen Pool an Heilkraft
 Feature/&PowerAncientForestRegrowthTitle=Nachwachsen
 Feature/&PowerAncientForestRootedDescription=Baumranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird 0 und du erhältst einen Vorteil bei Rettungswürfen, um dich zu stoßen, zu ziehen oder dich zu Boden zu werfen. Du kannst Verschränken nach Belieben wirken.
 Feature/&PowerAncientForestRootedTitle=Verwurzelt
-Feature/&PowerPoolAncientForestHerbalBrewDescription=Sie können Kräutersud herstellen, die jeweils bis zur nächsten langen Ruhezeit reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte:\n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Toxifying Brew</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
+Feature/&PowerPoolAncientForestHerbalBrewDescription=Sie können Kräutersud herstellen, die jeweils bis zur nächsten langen Ruhezeit reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte:\n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Vergiftendes Gebräu</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Kräuterbrauen
 Feature/&PowerPoolAncientForestWallOfThornsDescription=Du kannst Wall of Thorns so oft wirken, wie es deinem Weisheitsmodifikator entspricht. Es lädt sich bei langen Pausen wieder auf.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Dornenwand

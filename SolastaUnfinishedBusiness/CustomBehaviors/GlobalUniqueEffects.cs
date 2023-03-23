@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -72,7 +72,7 @@ internal static class GlobalUniqueEffects
     }
 
     private static List<RulesetEffectPower> GetLimitedPowerEffects(
-        RulesetCharacter character,
+        RulesetEntity character,
         ILimitEffectInstances limit)
     {
         return EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)

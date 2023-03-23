@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionDomainSmithAdamantBenediction",
           "conditionDefinition": "Definition:ConditionDomainSmithAdamantBenediction:1f2c6121-c970-5a0e-911a-aa4711365b7f",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionDomainSmithAdamantBenediction:1f2c6121-c970-5a0e-911a-aa4711365b7f"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

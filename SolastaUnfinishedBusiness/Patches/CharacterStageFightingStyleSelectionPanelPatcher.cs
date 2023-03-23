@@ -22,23 +22,22 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
         public static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
         {
             //PATCH: changes the fighting style layout to allow more offerings
-            var gridLayoutGroup = __instance.fightingStylesTable.GetComponent<GridLayoutGroup>();
-            var rectTransform = __instance.fightingStylesTable.GetComponent<RectTransform>();
+            var table = __instance.fightingStylesTable;
+            var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
+            var rectTransform = table.GetComponent<RectTransform>();
             var count = __instance.compatibleFightingStyles.Count;
 
             switch (count)
             {
                 case > 15:
                 {
-                    const float TWO_THIRDS = 2 / 3f;
-
-                    gridLayoutGroup.constraintCount = 3;
-                    rectTransform.localScale = new Vector3(TWO_THIRDS, TWO_THIRDS, TWO_THIRDS);
+                    gridLayoutGroup.constraintCount = 4;
+                    rectTransform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     break;
                 }
                 case > 12:
                     gridLayoutGroup.constraintCount = 3;
-                    rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                    rectTransform.localScale = new Vector3(0.85f, 0.85f, 0.85f);
                     break;
                 case > 6:
                     gridLayoutGroup.constraintCount = 3;

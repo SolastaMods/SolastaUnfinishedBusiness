@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -15,7 +16,7 @@ internal sealed class Executioner : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(ExecutionerName)
-        .SetGuiPresentation(Category.FightingStyle, PathMagebane)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Executioner", Resources.Executioner, 256))
         .SetFeatures(FeatureDefinitionBuilder
             .Create("FeatureFightingStyleExecutioner")
             .SetGuiPresentationNoContent(true)

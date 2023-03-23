@@ -17,7 +17,7 @@
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionSanctuary",
           "conditionDefinition": "Definition:ConditionSanctuary:a81385c4-353b-5e6d-b3d8-c69f99443eb0",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionSanctuary:a81385c4-353b-5e6d-b3d8-c69f99443eb0"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

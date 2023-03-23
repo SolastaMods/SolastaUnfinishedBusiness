@@ -41,9 +41,7 @@ internal static partial class SpellBuilders
                             FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
                             FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze)
                         .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
+                    ConditionForm.ConditionOperation.Add)
                 .Build())
             .Build();
 
@@ -283,9 +281,7 @@ internal static partial class SpellBuilders
                         .SetInterruptionDamageThreshold(1)
                         .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
                         .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
+                    ConditionForm.ConditionOperation.Add)
                 .Build())
             .ExcludeCaster()
             .Build();
@@ -323,11 +319,8 @@ internal static partial class SpellBuilders
                         .Create(ConditionDefinitions.ConditionFrightenedPhantasmalKiller, "ConditionWeird")
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                    ConditionForm.ConditionOperation.Add)
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                 .Build())
             .Build();
 

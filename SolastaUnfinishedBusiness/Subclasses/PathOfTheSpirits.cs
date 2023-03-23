@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -119,6 +118,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
@@ -153,9 +153,10 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsBearResistance")
-            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature,
+                ConditionDefinitions.ConditionBarkskin)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
             .SetFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -175,7 +176,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.Dispelled)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
@@ -197,15 +199,16 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
-            .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
-                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Feature)
+                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
                 .AddToDB())
             .AddToDB();
 
-        var conditionPathOfTheSpiritsWolfLeadershipLeader = ConditionDefinitionBuilder
+        // BACKWARD COMPATIBILITY
+        _ = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -213,7 +216,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("OnAfterActionWolfLeadership")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnAfterActionWolfLeadership(conditionPathOfTheSpiritsWolfLeadershipPack))
                 .AddToDB())
             .AddToDB();
 
@@ -225,13 +227,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(
-                        conditionPathOfTheSpiritsWolfLeadershipLeader,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build())
                 .Build())
+            .SetCustomSubFeatures(new OnAfterActionWolfLeadership(conditionPathOfTheSpiritsWolfLeadershipPack))
             .AddToDB();
     }
 
@@ -260,7 +257,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private class OnAfterActionWolfLeadership : IOnAfterActionFeature
+    private class OnAfterActionWolfLeadership : IOnAfterActionFeature, ICharacterTurnStartListener
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -269,46 +266,55 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            AddCondition(locationCharacter);
+        }
+
         public void OnAfterAction(CharacterAction action)
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            if (action is CharacterActionRageStart)
+            {
+                AddCondition(action.ActingCharacter);
+            }
+        }
 
-            if (gameLocationCharacterService == null)
+        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battle = gameLocationBattleService?.Battle;
+
+            if (battle == null)
             {
                 return;
             }
 
-            var myself = action.ActingCharacter.RulesetCharacter;
+            var sourceRulesetCharacter = sourceLocationCharacter.RulesetCharacter;
 
-            if (!myself.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionRagingNormal") &&
-                !myself.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionRagingPersistent"))
+            if (!sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    "ConditionRagingNormal") &&
+                !sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    "ConditionRagingPersistent"))
             {
                 return;
             }
 
-            foreach (var rulesetCharacter in gameLocationCharacterService.ValidCharacters
-                         .Select(x => x.RulesetCharacter)
+            foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
-                             x.CurrentFaction == FactionDefinitions.Party &&
-                             x != myself &&
-                             myself.DistanceTo(x) <= 3)) // 15 feet
+                             x.Side == sourceLocationCharacter.Side &&
+                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 3)))
             {
-                if (rulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                        _conditionDefinition.Name, out _))
-                {
-                    continue;
-                }
-
                 var condition = RulesetCondition.CreateActiveCondition(
-                    rulesetCharacter.guid,
+                    targetLocationCharacter.Guid,
                     _conditionDefinition,
                     DurationType.Round,
                     1,
-                    TurnOccurenceType.StartOfTurn,
-                    myself.guid,
-                    myself.CurrentFaction.Name);
+                    TurnOccurenceType.EndOfSourceTurn,
+                    sourceLocationCharacter.Guid,
+                    sourceRulesetCharacter.CurrentFaction.Name);
 
-                rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect, condition);
+                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(
+                    AttributeDefinitions.TagEffect, condition);
             }
         }
     }

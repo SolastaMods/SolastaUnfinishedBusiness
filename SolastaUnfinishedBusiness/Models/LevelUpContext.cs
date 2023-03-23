@@ -4,8 +4,8 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
@@ -219,14 +219,7 @@ internal static class LevelUpContext
     {
         var selectedClass = GetSelectedClass(rulesetCharacterHero);
 
-        if (selectedClass != null &&
-            rulesetCharacterHero.ClassesAndLevels.TryGetValue(selectedClass, out var classLevel))
-        {
-            return classLevel;
-        }
-
-        // first time hero is getting this class
-        return 1;
+        return Math.Max(1, rulesetCharacterHero.GetClassLevel(selectedClass));
     }
 
     internal static bool IsClassSelectionStage([NotNull] RulesetCharacterHero rulesetCharacterHero)

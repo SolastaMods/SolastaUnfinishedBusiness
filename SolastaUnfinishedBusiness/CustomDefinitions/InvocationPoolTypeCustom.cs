@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine.AddressableAssets;
@@ -124,7 +124,25 @@ internal class InvocationPoolTypeCustom
     internal static class Pools
     {
         internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
-            Register("ArmamentAdroitness", CharacterClassDefinitions.Fighter.ClassPictogramReference, hidden: true);
+            Register("ArmamentAdroitness", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom PathClawDraconicChoice =
+            Register("PathClawDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom SorcererDraconicChoice =
+            Register("SorcererDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom WayOfTheDragonDraconicChoice =
+            Register("WayOfTheDragonDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom KindredSpiritChoice =
+            Register("KindredSpiritChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
+            Register("RangerTerrainTypeAffinity", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
+            Register("RangerPreferredEnemy", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
@@ -136,6 +154,9 @@ internal class InvocationPoolTypeCustom
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
+
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
+            Register("MartialWeaponMaster", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic",

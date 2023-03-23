@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageThunder",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageThunder:daddf18b-40ff-5b13-aecc-779a47363bac",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageThunder:daddf18b-40ff-5b13-aecc-779a47363bac"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

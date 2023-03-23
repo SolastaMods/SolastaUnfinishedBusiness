@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionEnsnaringStrike",
           "conditionDefinition": "Definition:ConditionEnsnaringStrike:d88af821-2d98-5dd1-a112-f644dfb01001",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionEnsnaringStrike:d88af821-2d98-5dd1-a112-f644dfb01001"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

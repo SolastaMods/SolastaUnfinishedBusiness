@@ -31,9 +31,9 @@
     "description": "Subclass/&FieldManipulatorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
-      "m_SubObjectName": "Rogue_Shadowcaster",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4af159fc-4640-5314-927a-840169cdc277",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

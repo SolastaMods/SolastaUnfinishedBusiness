@@ -1,6 +1,10 @@
-﻿UI/&Quickies=rapidinhas
+﻿UI/&Quickies=Rapidinhas
 UI/&Current Party=Parte Atual
-UI/&Party Editor=editor de festas
-UI/&Experimental Preview:=Visualização Experimental (<color=Yellow>salvar backup antes de usar</color>):
-UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=Este editor de festa simples permite editar personagens em uma sessão de jogo carregada. No momento, ele permite que você edite o nome e as estatísticas do seu personagem. Mais recursos estão chegando em breve (tm). Por favor, clique no seguinte para relatar problemas:
+UI/&Party Editor=Editor de festas
+UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
+UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=Este editor de festa simples permite editar personagens em uma sessão de jogo carregada. Por favor, clique no seguinte para relatar problemas:
 UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor indisponível: Por favor, carregue um jogo salvo ******
+UI/&Add=Add
+UI/&Remove=Remover
+UI/&Skilled=Especializado
+UI/&Expert=Especialista

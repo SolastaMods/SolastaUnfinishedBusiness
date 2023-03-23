@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=Moon Touched
 Feature/&BonusCantripsMoonlitDescription=Your control of moon light has increased to a new level. You can cast the spells <b>Moonbeam</b> and <b>Faerie Fire</b> at will.
 Feature/&BonusCantripsMoonlitTitle=Light Control
-Feature/&FeatureSetMoonlitSuperiorSightDescription=You can see perfectly in all lighting conditions and have blindsight up to 16 cells, allowing you to perceive enemies even through invisibility and magical darkness.
+Feature/&FeatureSetMoonlitSuperiorSightDescription=You can see perfectly in all lighting conditions and have blind sight up to 80 ft, allowing you to perceive enemies even through invisibility and magical darkness.
 Feature/&FeatureSetMoonlitSuperiorSightTitle=Superior Sight
 Feature/&LightAffinityMoonlitStrongDescription=Umbral Cloak now works in dim light and magical darkness.
 Feature/&LightAffinityMoonlitStrongTitle=Improved Umbral Cloak

@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamagePsychic",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamagePsychic:d9752d0d-4ea0-5981-8f30-521d116efdc1",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamagePsychic:d9752d0d-4ea0-5981-8f30-521d116efdc1"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

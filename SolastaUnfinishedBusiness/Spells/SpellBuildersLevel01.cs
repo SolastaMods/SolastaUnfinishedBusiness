@@ -169,7 +169,6 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.Create()
                             .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
                                 GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
                                     provider))
@@ -263,7 +262,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SpellRadiantMotes, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.RadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -381,7 +380,6 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetUniqueInstance()
                 .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
                 .AddToDB();
 
@@ -404,15 +402,12 @@ internal static partial class SpellBuilders
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(title,
-                    Gui.Format(SUB_SPELL_DESCRIPTION, title),
-                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128)
-                )
+                .SetGuiPresentation(title, Gui.Format(SUB_SPELL_DESCRIPTION, title),
+                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
                 .SetVerboseComponent(false)
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
-                .SetUniqueInstance()
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -424,8 +419,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true,
-                                false)
+                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
@@ -654,7 +648,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()

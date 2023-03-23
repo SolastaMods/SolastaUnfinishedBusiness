@@ -46,9 +46,9 @@
     "description": "Subclass/&MartialMarshalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
-      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "cc9f17ff-18a7-509e-abea-c08d5cef0781",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

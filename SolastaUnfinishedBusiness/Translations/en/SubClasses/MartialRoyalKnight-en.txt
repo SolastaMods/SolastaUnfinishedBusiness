@@ -1,8 +1,12 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=You receive +1 to your armor class if your health is below 25%.
+Condition/&ConditionRoyalKnightProtectionTitle=Inspiring Protection
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
-Feature/&PowerRoyalKnightInspiringSurgeDescription=As a bonus action, you can grant an ally an additional main action for 1 round. This action does not stack with Action Surge. Once you use this feature, you can't use it again until you finish a long rest.
+Feature/&PowerRoyalKnightInspiringSurgeDescription=As a bonus action, you can grant an ally an additional main action for 1 round. This action doesn't stack with Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspiring Surge
-Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 6 cells. Can be used a number of times equal to your CHA modifier (minimum of once) per short rest.
+Feature/&PowerRoyalKnightProtectionDescription=Your actions inspire others to keep on fighting. At the start of each of your turns, you and your allies within 30 ft gain temporary hit points equal to twice your proficiency bonus. Your allies receive +1 to their armor class if their health is below 25%.
+Feature/&PowerRoyalKnightProtectionTitle=Inspiring Protection
+Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30 ft.
 Feature/&PowerRoyalKnightRallyingCryTitle=Rallying Cry
 Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 Subclass/&MartialRoyalKnightTitle=Royal Knight

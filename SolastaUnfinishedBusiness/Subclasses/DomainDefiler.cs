@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -298,12 +299,10 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 conditionMarkForDeath,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -420,7 +419,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return;
             }
 
-            hero.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Cleric, out var levels);
+            var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric);
 
             foreach (var rulesetCondition in attackMode.EffectDescription.effectForms
                          .Where(x => x.DamageForm.DamageType == DamageTypeNecrotic)

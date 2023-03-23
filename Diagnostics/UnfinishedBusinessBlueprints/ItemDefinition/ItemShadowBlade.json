@@ -163,9 +163,7 @@
             "conditionDefinitionName": "ConditionShadowBlade",
             "conditionDefinition": "Definition:ConditionShadowBlade:7f7a5735-9143-5616-a6d5-659c5da3026d",
             "operation": "Add",
-            "conditionsList": [
-              "Definition:ConditionShadowBlade:7f7a5735-9143-5616-a6d5-659c5da3026d"
-            ],
+            "conditionsList": [],
             "applyToSelf": false,
             "forceOnSelf": false
           },

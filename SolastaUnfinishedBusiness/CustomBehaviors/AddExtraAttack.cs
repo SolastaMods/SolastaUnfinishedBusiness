@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
@@ -145,14 +145,6 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
 internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 {
-    // internal AddExtraUnarmedAttack(
-    //     ActionDefinitions.ActionType actionType,
-    //     bool clearSameType,
-    //     params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
-    // {
-    //     // Empty
-    // }
-
     internal AddExtraUnarmedAttack(
         ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
@@ -163,7 +155,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
         var hero = character as RulesetCharacterHero;
-        var hero2 = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var originalHero = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
         var monster = character as RulesetCharacterMonster;
 
         if (hero == null && monster == null)
@@ -171,14 +163,12 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero?.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
-
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
+        var mainHandItem = hero.GetMainWeapon();
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(mainHandItem.ItemDefinition, null);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
-            : hero2 != null
-                ? hero2.UnarmedStrikeDefinition
+            : originalHero != null
+                ? originalHero.UnarmedStrikeDefinition
                 : DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
 
         var attackModifiers = hero?.attackModifiers ?? monster?.attackModifiers;
@@ -187,7 +177,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhandForUnarmedTa(hero),
+            ValidatorsCharacter.IsFreeOffhandVanilla(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -215,8 +205,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
+        var mainHandItem = hero.GetMainWeapon();
 
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
@@ -228,7 +217,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 
         var attackModifiers = hero.attackModifiers;
 
-        //TODO: check this...
         var attackMode = hero.RefreshAttackMode(
             ActionType,
             strikeDefinition,
@@ -249,9 +237,8 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler weaponValidator;
 
-    internal AddExtraRangedAttack(
+    internal AddExtraRangedAttack(ActionDefinitions.ActionType actionType,
         IsWeaponValidHandler weaponValidator,
-        ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
         this.weaponValidator = weaponValidator;
@@ -299,19 +286,23 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = ValidatorsWeapon.IsThrownWeapon(item);
+        attackMode.Thrown = ValidatorsWeapon.HasAnyWeaponTag(item, TagsDefinitions.WeaponTagThrown);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);
     }
 }
 
-internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
+internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 {
-    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
-        ValidatorsCharacter.HasPolearm)
+    private readonly WeaponTypeDefinition _weaponTypeDefinition;
+
+    internal AddPolearmFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
+        ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedWeaponType(weaponTypeDefinition),
+        ValidatorsCharacter.HasWeaponType(weaponTypeDefinition))
     {
-        // Empty
+        _weaponTypeDefinition = weaponTypeDefinition;
     }
 
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
@@ -336,7 +327,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !ValidatorsWeapon.IsPolearm(item))
+        if (item == null || !ValidatorsWeapon.IsWeaponType(item, _weaponTypeDefinition))
         {
             return;
         }
@@ -392,10 +383,9 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             return null;
         }
 
-        var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
-        var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+        var offHandItem = hero.GetOffhandWeapon();
 
-        if (!ShieldStrike.IsShield(offHandItem))
+        if (offHandItem == null || !ValidatorsWeapon.IsShield(offHandItem))
         {
             return null;
         }

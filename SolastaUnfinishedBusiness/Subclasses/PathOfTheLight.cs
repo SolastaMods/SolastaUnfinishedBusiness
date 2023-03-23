@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -240,8 +241,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             .SetCustomSubFeatures(new ConditionIlluminatedByBurst())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
-                    .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                     .Build(),
                 EffectFormBuilder
                     .Create()
@@ -311,6 +311,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
@@ -321,12 +322,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             return;
         }
 
-        if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out var levelsInClass))
-        {
-            return;
-        }
-
-        var amountHealed = (levelsInClass + 1) / 2;
+        var levels = conditionSource.GetClassLevel(CharacterClassDefinitions.Barbarian);
+        var amountHealed = (levels + 1) / 2;
 
         conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
     }

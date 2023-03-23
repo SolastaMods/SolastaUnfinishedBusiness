@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 

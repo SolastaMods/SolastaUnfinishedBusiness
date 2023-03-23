@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionWayOfTheDiscordanceDiscordance",
           "conditionDefinition": "Definition:ConditionWayOfTheDiscordanceDiscordance:62aab372-3ef3-5daa-931f-26c30b0aea91",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWayOfTheDiscordanceDiscordance:62aab372-3ef3-5daa-931f-26c30b0aea91"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

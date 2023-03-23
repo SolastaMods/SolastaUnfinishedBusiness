@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionAncientForestPhotosynthesisDescription=You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Photosynthesis
-Condition/&ConditionAncientForestRootedDescription=Arboreal tendrils grow from your feet and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
+Condition/&ConditionAncientForestRootedDescription=Arboreal tendrils grow from your ft and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
 Condition/&ConditionAncientForestRootedTitle=Rooted
 Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription=Gain resistance to acid damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle=Brew of Acid Protection
@@ -14,7 +14,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=Gain resistance 
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Brew of Radiant Protection
 Equipment/&HerbalBrewHealingTitle=Brew of Quickening
 Equipment/&HerbalBrewToxifyingTitle=Brew of Toxifying
-Feature/&AttributeModifierAncientForestBarkskinDescription=AC is set to 16.
+Feature/&AttributeModifierAncientForestBarkskinDescription=Armor class is set to 16.
 Feature/&AttributeModifierAncientForestBarkskinTitle=Barkskin
 Feature/&BonusCantripAncientForestDescription=Your learn secrets on the nature of how natural magic and life energy are connected. Your learn Shillelagh and Chill Touch.
 Feature/&BonusCantripAncientForestTitle=Ancient Forest Bonus Cantrips
@@ -26,7 +26,7 @@ Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription=When you dam
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle=Life Sap
 Feature/&PowerAncientForestRegrowthDescription=You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Druid level × 5.
 Feature/&PowerAncientForestRegrowthTitle=Regrowth
-Feature/&PowerAncientForestRootedDescription=Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
+Feature/&PowerAncientForestRootedDescription=Arboreal tendrils grow from your ft and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
 Feature/&PowerAncientForestRootedTitle=Rooted
 Feature/&PowerPoolAncientForestHerbalBrewDescription=You can create herbal brews, each of which lasts until the next long rest. You create a total of brews equal to your proficiency bonus. For each brew, choose one of the following effects:\n<color=#add8e6ff>Fortifying Brew</color>: grants resistance to different damage types for 1 hour.\n<color=#add8e6ff>Quickening Brew</color>: provides 2d4 hit points.\n<color=#add8e6ff>Toxifying Brew</color>: acts as poison that can be applied to a weapon that lasts for 1 minute. If the hit lands the target takes 1d4 poison damage on each hit.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Herbal Brewing
@@ -40,4 +40,4 @@ Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTr
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} creates {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} creates {1}
 Subclass/&CircleOfTheAncientForestDescription=You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
-Subclass/&CircleOfTheAncientForestTitle=Circle of The Ancient Forest
+Subclass/&CircleOfTheAncientForestTitle=Circle of the Ancient Forest

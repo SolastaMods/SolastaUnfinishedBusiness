@@ -1,4 +1,4 @@
-Condition/&ConditionFightingStyleCripplingDescription=Your speed is reduced by 10 ft and your AC by 1.
+Condition/&ConditionFightingStyleCripplingDescription=Your speed is reduced by 10 ft and your armor class by 1.
 Condition/&ConditionFightingStyleCripplingTitle=Crippled
 Feature/&PowerFightingStyleTorchbearerDescription=Attempt to set a melee target on fire!
 Feature/&PowerFightingStyleTorchbearerTitle=Torchbearer
@@ -6,7 +6,7 @@ Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!
 Feedback/&AdditionalDamageCripplingLine={1} suffers crippling damage.
 Feedback/&AdditionalDamageExecutionerFormat=Execution!
 Feedback/&AdditionalDamageExecutionerLine={0} executes {1} for +{2} extra damage!
-FightingStyle/&BlindFightingDescription=You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
+FightingStyle/&BlindFightingDescription=You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 FightingStyle/&BlindFightingTitle=Blind Fighting
 FightingStyle/&CripplingDescription=Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
 FightingStyle/&CripplingTitle=Crippling

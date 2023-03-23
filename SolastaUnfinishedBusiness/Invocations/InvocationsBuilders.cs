@@ -1,7 +1,7 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -49,6 +49,41 @@ internal static class InvocationsBuilders
             .SetGuiPresentation(Category.Invocation, SpellDefinitions.Invisibility)
             .SetRequirements(15)
             .SetGrantedSpell(SpellDefinitions.Invisibility)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildBreathOfTheNight()
+    {
+        const string NAME = "InvocationBreathOfTheNight";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.FogCloud)
+            .SetGrantedSpell(SpellDefinitions.FogCloud)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildCallOfTheBeast()
+    {
+        const string NAME = "InvocationCallOfTheBeast";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureAnimals)
+            .SetGrantedSpell(SpellDefinitions.ConjureAnimals, true, true)
+            .SetRequirements(5)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildTenaciousPlague()
+    {
+        const string NAME = "InvocationTenaciousPlague";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.InsectPlague)
+            .SetGrantedSpell(SpellDefinitions.InsectPlague, true, true)
+            .SetRequirements(9, pact: FeatureSetPactChain)
             .AddToDB();
     }
 

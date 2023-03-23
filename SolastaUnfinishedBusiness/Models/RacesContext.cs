@@ -83,10 +83,10 @@ internal static class RacesContext
 
     internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)
     {
-        if (!Races.Contains(characterRaceDefinition))
-        {
-            return;
-        }
+        // if (!Races.Contains(characterRaceDefinition))
+        // {
+        //     return;
+        // }
 
         var name = characterRaceDefinition.Name;
 

@@ -1,6 +1,10 @@
 ﻿UI/&Quickies=快手
 UI/&Current Party=当前党
 UI/&Party Editor=派对编辑
-UI/&Experimental Preview:=实验预览（<color=Yellow>使用前备份保存</color>）：
-UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=这个简单的派对编辑器可让您在加载的游戏会话中编辑角色。现在它可以让你编辑角色的名字和统计数据。更多功能即将推出 (tm)。请点击以下报告问题：
+UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份保存]</color></i>：
+UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=这个简单的派对编辑器可让您在加载的游戏会话中编辑角色。请点击以下报告问题：
 UI/&****** Party Editor unavailable: Please load a save game ******=****** 派对编辑器不可用：请加载游戏存档 ******
+UI/&Add=Add
+UI/&Remove=消除
+UI/&Skilled=技能的
+UI/&Expert=专家

@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=Lua Tocada
 Feature/&BonusCantripsMoonlitDescription=Seu controle da luz da lua aumentou para um novo nível. Você pode lançar os feitiços <b>Moonbeam</b> e <b>Faerie Fire</b> à vontade.
 Feature/&BonusCantripsMoonlitTitle=Controle de luz
-Feature/&FeatureSetMoonlitSuperiorSightDescription=Você pode ver perfeitamente em todas as condições de iluminação e ter visão cega de até 16 células, permitindo que você perceba os inimigos mesmo através da invisibilidade e da escuridão mágica.
+Feature/&FeatureSetMoonlitSuperiorSightDescription=Você pode ver perfeitamente em todas as condições de iluminação e ter visão cega de até 80 pés, permitindo que você perceba os inimigos mesmo através da invisibilidade e da escuridão mágica.
 Feature/&FeatureSetMoonlitSuperiorSightTitle=Visão Superior
 Feature/&LightAffinityMoonlitStrongDescription=Umbral Cloak agora funciona na penumbra e na escuridão mágica.
 Feature/&LightAffinityMoonlitStrongTitle=Manto Umbral Aprimorado

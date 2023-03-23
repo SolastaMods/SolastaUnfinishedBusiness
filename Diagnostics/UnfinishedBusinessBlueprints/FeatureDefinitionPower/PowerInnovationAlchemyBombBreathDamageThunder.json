@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamageThunder",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamageThunder:74411586-db63-5884-84f1-b9c30fdddb94",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamageThunder:74411586-db63-5884-84f1-b9c30fdddb94"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

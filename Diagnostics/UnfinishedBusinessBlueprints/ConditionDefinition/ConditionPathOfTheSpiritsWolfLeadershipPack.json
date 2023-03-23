@@ -15,7 +15,7 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
-    "description": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
+    "title": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
+    "description": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",

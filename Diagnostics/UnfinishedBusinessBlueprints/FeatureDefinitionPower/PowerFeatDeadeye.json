@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatDeadeye",
           "conditionDefinition": "Definition:ConditionFeatDeadeye:e52567dc-e3ed-5410-b116-8f57973a2422",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatDeadeye:e52567dc-e3ed-5410-b116-8f57973a2422"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -1,5 +1,69 @@
 ﻿CHANGES:
 
+1.4.33.64:
+
+- added custom Ancestries level up selection screen
+- added custom Kindred Spirits level up selection screen
+- added Ranger Hell Walker subclass by Stuffies12
+- added Ranger Light Bearer subclass by Stuffies12
+- fixed Grenadier not able to use items as a bonus action
+- fixed interaction between Spear Mastery and Polearm Expert
+
+1.4.33.63:
+
+- fixed action use soft lock introduced with Poison Expert feat
+- fixed Hardy feat to use fighter class level instead of character level
+- added new sprites to Call for Charge, Inspiring Leader, and Dragon Wings
+
+1.4.33.62:
+
+- added General > Character > Improve Ranger features selection setting
+- added Expand the Hunt, Longsword Finesse, Poison Expert and Slay thy Enemies feats
+- changed level prerequisites on Critical Virtuoso feats to 8 and 16
+- changed Weapon Specialization to grant on 8 and 16 instead of 2, 4, 10 and 12
+- changed extra feats selection to grant on 4, 10 and 16 instead of 2, 6, 10 and 14
+- fixed Hand-and-a-Half and Revenant Greatsword weapon validators
+- fixed Ranger Wild Master beast eyebite DC saving throw calculation
+- improved Path of the Reaver and Weapon Master translations
+
+1.4.33.61:
+
+- added Martial Weapon Master subclass
+- added Path of the Reaver subclass
+- fixed Bear Resistance keeping effects off rage
+- fixed critical damage calculation feature
+- fixed Ranged Mastery feat offhand bonus damage
+- fixed Skin of Retribution and Shared Spell
+- fixed Wolf Leadership not granting on self
+- updated Bolgrif, Gnome and Petal Storm sprites
+
+1.4.33.60:
+
+- added feats, invocations and spell sprites
+- fixed Hand Crossbow and Two Weapon Fighting
+- fixed Heavy Armor Master triggering logic
+- fixed Polearm Master weapon validators
+- fixed Skin of Retribution and Shared Spell
+- fixed Spear Mastery to allow benefits on offhand
+- fixed Distant Hand's flurry of blows in melee
+
+1.4.33.59:
+
+- added Roguish Acrobat subclass
+- changed some modded spell sprites
+- fixed Bow Mastery soft locking on multiple attacks
+- improved attribute modifiers presentation
+
+1.4.33.58:
+
+- added custom sprites to all fighting styles and all remaining subclasses
+- improved Party Editor with skills, feats and invocations browser and editor
+- improved Soul Blade with hex power at 1 and 14, new soul shield and spell list
+- improved Royal Knight, Oath of Ancients and Oath of Hatred with level 15 features
+- fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
+- fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
+- fixed Martial Marshal's encouragement granting the condition to allies outside the effect area
+
 1.4.33.57:
 
 ATTENTION:
@@ -9,10 +73,10 @@ ATTENTION:
 CHANGES:
 
 - added Domain Smith subclass
+- added custom sprites to 28 subclasses by TACO [awesome work there, he deserves all kudos on Discord]
 - added Elemental Weapon spell
-- added custom sprites to 22 subclasses by TACO [awesome work there]
 - fixed Opportunist null exception when targeting gadgets
-- fixed a null exception when exporting heroes with certain behaviors
+- fixed a null exception when exporting Inventors at campaign end
 - improved Royal Knight descriptions
 
 1.4.33.56:

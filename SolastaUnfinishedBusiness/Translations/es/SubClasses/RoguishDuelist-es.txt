@@ -1,12 +1,12 @@
-﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=No necesitas ventaja en la tirada de ataque para usar tu Ataque Furtivo contra una criatura si estás a 5 pies de ella, ninguna otra criatura está a 5 pies de ti y no tienes desventaja en la tirada de ataque. Todas las demás reglas de Sneak Attack aún se aplican.
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=No necesitas ventaja en la tirada de ataque para usar tu Ataque furtivo contra una criatura si estás a 5 pies de ella, no hay otras criaturas a 5 pies de ti y no tienes desventaja en la tirada de ataque. Todas las demás reglas de Sneak Attack aún se aplican.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Duelo atrevido
-Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Obtenga CA adicional igual a la mitad de su bonificación de competencia.
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gana una clase de armadura adicional igual a la mitad de tu bonificación de competencia.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Pie seguro
 Feature/&ActionAffinityRoguishDuelistGracefulTakeDownDescription=A partir del nivel 13, puedes usar tu acción adicional para hacer un intento de empujón.
 Feature/&ActionAffinityRoguishDuelistGracefulTakeDownTitle=Derribo elegante
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danza arremolinada
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Comenzando en el nivel 9, cuando una criatura te falla con una tirada de ataque cuerpo a cuerpo, puedes usar tu reacción para hacer un ataque de oportunidad inmediato contra esa criatura.
-Feature/&FeatureSetRoguishDuelistSureFootedDescription=Mientras no lleva armadura o lleva una armadura ligera sin escudo, obtiene CA adicional a la mitad de su bonificación de competencia y ventaja en las tiradas de iniciativa.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Mientras no lleva armadura o lleva una armadura ligera sin escudo, obtiene una clase de armadura adicional equivalente a la mitad de su bonificación por competencia y ventaja en las tiradas de iniciativa.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pie seguro
 Feedback/&AdditionalDamageSureFootedFormat=Pie seguro
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} daño extra!

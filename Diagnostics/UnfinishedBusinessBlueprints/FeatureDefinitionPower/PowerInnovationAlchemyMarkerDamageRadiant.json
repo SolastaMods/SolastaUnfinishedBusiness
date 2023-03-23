@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageRadiant",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageRadiant:ef93b484-d81b-5f1a-99c0-85666f2c3167",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageRadiant:ef93b484-d81b-5f1a-99c0-85666f2c3167"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

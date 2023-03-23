@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -12,17 +12,17 @@ internal static class CharacterDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width(200));
-            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(200));
-            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(200));
+            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width((float)200));
+            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width((float)200));
+            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width((float)200));
         }
 
         using (UI.HorizontalScope())
         {
             UI.ActionButton("<b>Donate:</b> GitHub Sponsors".Khaki(), BootContext.OpenDonateGithubSponsors,
-                UI.Width(200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width(200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width(200));
+                UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width((float)200));
         }
 
         UI.Label();
@@ -111,6 +111,14 @@ internal static class CharacterDisplay
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
+        toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
+        if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        UI.Label();
         UI.Label();
 
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;

@@ -1,6 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -53,13 +53,11 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
         return (TBuilder)this;
     }
 
-#if false
     internal TBuilder SetKnownFeatsPrerequisite(params string[] list)
     {
         Definition.knownFeatsPrerequisite.SetRange(list);
         return (TBuilder)this;
     }
-#endif
 
     internal TBuilder SetFeatFamily(string family)
     {

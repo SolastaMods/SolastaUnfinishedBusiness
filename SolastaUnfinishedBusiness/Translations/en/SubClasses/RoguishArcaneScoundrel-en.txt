@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=Cast Wizard spells and cantr
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Spellcasting
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gain proficiency with Arcana skill. If you are already proficient, gain expertise instead.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arcane Affinity
-Subclass/&RoguishArcaneScoundrelDescription=With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
+Subclass/&RoguishArcaneScoundrelDescription=With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 Subclass/&RoguishArcaneScoundrelTitle=Arcane Scoundrel

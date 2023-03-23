@@ -17,7 +17,7 @@
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -81,7 +81,7 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": true,
+        "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
@@ -116,7 +116,7 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": true,
+        "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
@@ -126,9 +126,7 @@
           "conditionDefinitionName": "ConditionAcidClaws",
           "conditionDefinition": "Definition:ConditionAcidClaws:479e2e19-8c6c-5718-8dbc-16d478177ae9",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionAcidClaws:479e2e19-8c6c-5718-8dbc-16d478177ae9"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using UnityEngine;
 using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private static Texture2D fillTexture;
-    private static GUIStyle fillStyle;
+    private static Texture2D _fillTexture;
+    private static GUIStyle _fillStyle;
 
     private static GUIStyle _buttonStyle;
 
@@ -14,7 +16,7 @@ internal static partial class UI
     private static GUIStyle _textBoxStyle;
 
     private static GUIStyle _toggleStyle;
-    public static GUIStyle divStyle;
+    private static GUIStyle _divStyle;
 
     private static Texture2D _rarityTexture;
     private static GUIStyle _rarityStyle;
@@ -24,35 +26,24 @@ internal static partial class UI
     private static GUIStyle _submenuButtonStyle;
     private static Color FillColor { get; } = new(1f, 1f, 1f, 0.65f);
 
-    public static GUIStyle buttonStyle
+    [UsedImplicitly]
+    public static GUIStyle ButtonStyle =>
+        _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+
+    [UsedImplicitly]
+    public static GUIStyle LargeStyle
     {
         get
         {
-            if (_buttonStyle == null)
-            {
-                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
-            }
+            _largeStyle ??= new GUIStyle(GUI.skin.box) { richText = true };
 
-            return _buttonStyle;
-        }
-    }
-
-    public static GUIStyle largeStyle
-    {
-        get
-        {
-            if (_largeStyle == null)
-            {
-                _largeStyle = new GUIStyle(GUI.skin.box) { richText = true };
-            }
-
-            _largeStyle.fixedHeight = 24.point();
+            _largeStyle.fixedHeight = 24.Point();
             //_largeStyle.contentOffset = new Vector2(0, -6.point());
-            _largeStyle.padding = new RectOffset(0, 0, -3.point(), 0);
+            _largeStyle.padding = new RectOffset(0, 0, -3.Point(), 0);
 #pragma warning disable CS0618 // Type or member is obsolete
-            _largeStyle.clipOffset = new Vector2(0, 3.point());
+            _largeStyle.clipOffset = new Vector2(0, 3.Point());
 #pragma warning restore CS0618 // Type or member is obsolete
-            _largeStyle.fontSize = 21.point();
+            _largeStyle.fontSize = 21.Point();
             _largeStyle.fontStyle = FontStyle.Bold;
             _largeStyle.normal.background = GUI.skin.label.normal.background;
 
@@ -60,43 +51,31 @@ internal static partial class UI
         }
     }
 
-    public static GUIStyle textBoxStyle
+    [UsedImplicitly]
+    public static GUIStyle TextBoxStyle
     {
         get
         {
-            if (_textBoxStyle == null)
-            {
-                _textBoxStyle = new GUIStyle(GUI.skin.box) { richText = true };
-            }
+            _textBoxStyle ??= new GUIStyle(GUI.skin.box) { richText = true };
 
-            _textBoxStyle.fontSize = 14.point();
-            _textBoxStyle.fixedHeight = 19.point();
-            _textBoxStyle.margin = new RectOffset(2.point(), 2.point(), 1.point(), 2.point());
-            _textBoxStyle.padding = new RectOffset(2.point(), 2.point(), 0.point(), 0);
-            _textBoxStyle.contentOffset = new Vector2(0, 2.point());
+            _textBoxStyle.fontSize = 14.Point();
+            _textBoxStyle.fixedHeight = 19.Point();
+            _textBoxStyle.margin = new RectOffset(2.Point(), 2.Point(), 1.Point(), 2.Point());
+            _textBoxStyle.padding = new RectOffset(2.Point(), 2.Point(), 0.Point(), 0);
+            _textBoxStyle.contentOffset = new Vector2(0, 2.Point());
 #pragma warning disable CS0618 // Type or member is obsolete
-            _textBoxStyle.clipOffset = new Vector2(0, 2.point());
+            _textBoxStyle.clipOffset = new Vector2(0, 2.Point());
 #pragma warning restore CS0618 // Type or member is obsolete
 
             return _textBoxStyle;
         }
     }
 
-    public static GUIStyle toggleStyle
-    {
-        get
-        {
-            if (_toggleStyle == null)
-            {
-                _toggleStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
-            }
+    [UsedImplicitly]
+    public static GUIStyle ToggleStyle =>
+        _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
 
-            return _toggleStyle;
-        }
-    }
-
-    public static GUIStyle ToggleStyle => toggleStyle;
-
+    [UsedImplicitly]
     public static Texture2D RarityTexture
     {
         get
@@ -106,41 +85,25 @@ internal static partial class UI
                 _rarityTexture = new Texture2D(1, 1);
             }
 
-            _rarityTexture.SetPixel(0, 0, RGBA.black.color());
+            _rarityTexture.SetPixel(0, 0, RichText.Rgba.Black.Color());
             _rarityTexture.Apply();
             return _rarityTexture;
         }
     }
 
-    public static GUIStyle rarityStyle
-    {
-        get
+    [UsedImplicitly]
+    public static GUIStyle RarityStyle =>
+        _rarityStyle ??= new GUIStyle(GUI.skin.button) { normal = { background = RarityTexture } };
+
+    [UsedImplicitly]
+    public static GUIStyle RarityButtonStyle =>
+        _rarityButtonStyle ??= new GUIStyle(GUI.skin.button)
         {
-            if (_rarityStyle == null)
-            {
-                _rarityStyle = new GUIStyle(GUI.skin.button);
-                _rarityStyle.normal.background = RarityTexture;
-            }
+            alignment = TextAnchor.MiddleLeft, normal = { background = RarityTexture }
+        };
 
-            return _rarityStyle;
-        }
-    }
-
-    public static GUIStyle rarityButtonStyle
-    {
-        get
-        {
-            if (_rarityButtonStyle == null)
-            {
-                _rarityButtonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
-                _rarityButtonStyle.normal.background = RarityTexture;
-            }
-
-            return _rarityButtonStyle;
-        }
-    }
-
-    public static Texture2D SubmenuTexture
+    [UsedImplicitly]
+    private static Texture2D SubmenuTexture
     {
         get
         {
@@ -155,87 +118,85 @@ internal static partial class UI
         }
     }
 
-    public static GUIStyle submenuButtonStyle
+    [UsedImplicitly]
+    private static GUIStyle SubmenuButtonStyle
     {
         get
         {
-            if (_submenuButtonStyle == null)
+            if (_submenuButtonStyle != null)
             {
-                _submenuButtonStyle = new GUIStyle(GUI.skin.button);
+                return _submenuButtonStyle;
+            }
+
+            _submenuButtonStyle = new GUIStyle(GUI.skin.button);
 #if false
                 {
                     alignment = TextAnchor.MiddleLeft
                 };
 
 #endif
-                _submenuButtonStyle.normal.background = SubmenuTexture;
-            }
+            _submenuButtonStyle.normal.background = SubmenuTexture;
 
             return _submenuButtonStyle;
         }
     }
 
-    public static int point(this int x)
+    [UsedImplicitly]
+    private static int Point(this int x)
     {
         return UnityModManager.UI.Scale(x);
     }
 
-    public static int Point(this int x)
+    [UsedImplicitly]
+    private static GUIStyle FillStyle(Color color)
     {
-        return UnityModManager.UI.Scale(x);
-    }
-
-    public static GUIStyle FillStyle(Color color)
-    {
-        if (fillTexture == null)
+        if (_fillTexture == null)
         {
-            fillTexture = new Texture2D(1, 1);
+            _fillTexture = new Texture2D(1, 1);
         }
 
-        if (fillStyle == null)
-        {
-            fillStyle = new GUIStyle();
-        }
+        _fillStyle ??= new GUIStyle();
 
-        fillTexture.SetPixel(0, 0, color);
-        fillTexture.Apply();
-        fillStyle.normal.background = fillTexture;
-        return fillStyle;
+        _fillTexture.SetPixel(0, 0, color);
+        _fillTexture.Apply();
+        _fillStyle.normal.background = _fillTexture;
+        return _fillStyle;
     }
 
-    public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
+    [UsedImplicitly]
+    private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {
-        if (fillTexture == null)
+        if (_fillTexture == null)
         {
-            fillTexture = new Texture2D(1, 1);
+            _fillTexture = new Texture2D(1, 1);
         }
 
         //if (divStyle == null) {
-        divStyle = new GUIStyle { fixedHeight = 1, };
+        _divStyle = new GUIStyle { fixedHeight = 1 };
         //}
-        fillTexture.SetPixel(0, 0, color);
-        fillTexture.Apply();
-        divStyle.normal.background = fillTexture;
-        if (divStyle.margin == null)
+        _fillTexture.SetPixel(0, 0, color);
+        _fillTexture.Apply();
+        _divStyle.normal.background = _fillTexture;
+        if (_divStyle.margin == null)
         {
-            divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
+            _divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
         }
         else
         {
-            divStyle.margin.left = (int)indent + 3;
+            _divStyle.margin.left = (int)indent + 3;
         }
 
         if (width > 0)
         {
-            divStyle.fixedWidth = width;
+            _divStyle.fixedWidth = width;
         }
         else
         {
-            divStyle.fixedWidth = 0;
+            _divStyle.fixedWidth = 0;
         }
 
         Space(2f * height / 3f);
-        GUILayout.Box(GUIContent.none, divStyle);
+        GUILayout.Box(GUIContent.none, _divStyle);
         Space(height / 3f);
     }
 }

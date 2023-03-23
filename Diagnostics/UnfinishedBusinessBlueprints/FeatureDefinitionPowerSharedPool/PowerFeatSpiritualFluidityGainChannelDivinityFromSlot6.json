@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot6",
           "conditionDefinition": "Definition:ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot6:24383945-41cc-5aca-9b92-fff3b47bee3f",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot6:24383945-41cc-5aca-9b92-fff3b47bee3f"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -327,7 +325,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Gain 2 Channel Divinity",
-    "description": "Gain 2 Channel Divinity by spending one slot of level 6",
+    "description": "Gain 2 Channel Divinity by spending one slot of level 6.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

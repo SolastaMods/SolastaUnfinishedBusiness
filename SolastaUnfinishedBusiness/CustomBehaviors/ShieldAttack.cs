@@ -11,7 +11,7 @@ internal static class ShieldAttack
         ref bool isThrown,
         ref bool leftHand)
     {
-        if (!ShieldStrike.IsShield(attackMode.SourceDefinition as ItemDefinition))
+        if (!ValidatorsWeapon.IsShield(attackMode.SourceDefinition as ItemDefinition))
         {
             return;
         }
@@ -21,19 +21,19 @@ internal static class ShieldAttack
         animation = ShieldStrike.ShieldWeaponType.AnimationTag;
     }
 
-    internal static WeaponDescription CustomWeaponDescription(ItemDefinition item)
+    internal static WeaponDescription EnhancedWeaponDescription(ItemDefinition itemDefinition)
     {
-        return ShieldStrike.IsShield(item)
+        return ValidatorsWeapon.IsShield(itemDefinition)
             ? ShieldStrike.ShieldWeaponDescription
-            : item.WeaponDescription;
+            : itemDefinition.WeaponDescription;
     }
 
-    internal static bool CustomIsWeapon(ItemDefinition item)
+    internal static bool IsWeaponOrShield(ItemDefinition itemDefinition)
     {
-        return item.IsWeapon || ShieldStrike.IsShield(item);
+        return itemDefinition.IsWeapon || ValidatorsWeapon.IsShield(itemDefinition);
     }
 
-    internal static bool IsMagicShield(RulesetItem shield)
+    internal static bool IsMagicalShield(RulesetItem shield)
     {
         if (shield == null)
         {

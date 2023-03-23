@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionSearingSmite",
           "conditionDefinition": "Definition:ConditionSearingSmite:dc927e03-08a7-5033-98d8-3adee1d952fd",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionSearingSmite:dc927e03-08a7-5033-98d8-3adee1d952fd"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

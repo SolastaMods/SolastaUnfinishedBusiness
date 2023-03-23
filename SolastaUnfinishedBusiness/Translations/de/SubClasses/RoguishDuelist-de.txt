@@ -1,12 +1,12 @@
-﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Hinterhältigen Angriff gegen eine Kreatur einzusetzen, wenn du dich innerhalb von 1,50 m von ihr befindest, keine anderen Kreaturen sich innerhalb von 1,50 m um dich befinden und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Schleichangriff gegen eine Kreatur einzusetzen, wenn du dich innerhalb von 1,50 m von ihr befindest, keine anderen Kreaturen sich innerhalb von 1,50 m um dich befinden und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Gewagtes Duell
-Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Erhalte zusätzliche RK in Höhe deines halben Kompetenzbonus.
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Erhalte eine zusätzliche Rüstungsklasse in Höhe deines halben Fertigkeitsbonus.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Trittsicher
 Feature/&ActionAffinityRoguishDuelistGracefulTakeDownDescription=Ab der 13. Stufe kannst du deine Bonusaktion nutzen, um einen Schubsversuch zu machen.
 Feature/&ActionAffinityRoguishDuelistGracefulTakeDownTitle=Anmutiger Takedown
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Wirbelnder Tanz
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Ab der 9. Stufe kannst du, wenn dich eine Kreatur mit einem Nahkampfangriffswurf verfehlt, deine Reaktion nutzen, um einen sofortigen Gelegenheitsangriff gegen diese Kreatur durchzuführen.
-Feature/&FeatureSetRoguishDuelistSureFootedDescription=Ohne Rüstung oder mit leichter Rüstung ohne Schild erhältst du zusätzliche RK zur Hälfte deines Kompetenzbonus und Vorteils bei Initiativewürfen.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Wenn du keine Rüstung trägst oder leichte Rüstung ohne Schild trägst, erhältst du eine zusätzliche Rüstungsklasse in Höhe deines halben Kompetenzbonus und Vorteils bei Initiativewürfen.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Trittsicher
 Feedback/&AdditionalDamageSureFootedFormat=Trittsicher
 Feedback/&AdditionalDamageSureFootedLine=Trittsicher verursacht zusätzlichen +{2} Schaden!

@@ -11,9 +11,9 @@
     "description": "FightingStyle/&ExecutionerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "41f600f15c0f69149b5d8c2cff9a44bb",
-      "m_SubObjectName": "Barbarian_Path_Magebane",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6883dda8-a418-566a-b9d3-3b24a4171a6f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

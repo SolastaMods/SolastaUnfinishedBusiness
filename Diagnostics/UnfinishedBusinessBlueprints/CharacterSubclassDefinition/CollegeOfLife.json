@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCasterCommandUndeadCharisma:c8b6e41f-5176-5718-860b-1066fc8b18c8",
+      "featureDefinition": "Definition:PowerCasterCommandUndead:b73f8a69-89ca-5b00-b016-582ac4cb73ba",
       "level": 14
     },
     {
@@ -36,9 +36,9 @@
     "description": "Subclass/&CollegeOfLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c291e4e1949a73241806e4d7d93d71bb",
-      "m_SubObjectName": "Rogue_Spider",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6ef69ac6-aafd-5e26-a233-2f4f5492a6a2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

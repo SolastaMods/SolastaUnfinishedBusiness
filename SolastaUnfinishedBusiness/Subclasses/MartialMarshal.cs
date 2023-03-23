@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -301,8 +301,6 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
-            .SetSpecialDuration(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-            .AddConditionTags("Buff")
             .AddToDB();
     }
 
@@ -321,8 +319,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
-                            false)
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetShowCasting(false)
@@ -345,8 +342,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
-                            false)
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetShowCasting(false)

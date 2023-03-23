@@ -51,7 +51,7 @@
     "description": "Subclass/&PatronRiftWalkerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dd6fa7d2-99ae-54f7-9f47-8614d2428b44",
+      "m_AssetGUID": "db8b49e2-f8d2-5260-b222-72e8c9b685eb",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

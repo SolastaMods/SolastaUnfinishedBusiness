@@ -1,8 +1,9 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -69,7 +70,8 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("FieldManipulator")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("SorcererFieldManipulator", Resources.SorcererFieldManipulator, 256))
             .AddFeaturesAtLevel(1,
                 // magicAffinityFieldManipulatorControlHeightened
                 autoPreparedSpellsFieldManipulator)
@@ -87,5 +89,6 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

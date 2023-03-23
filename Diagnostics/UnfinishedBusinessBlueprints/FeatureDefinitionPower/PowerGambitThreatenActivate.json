@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitThreaten",
           "conditionDefinition": "Definition:ConditionGambitThreaten:4be70ef4-02a2-5be8-be5d-342141bd66d8",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitThreaten:4be70ef4-02a2-5be8-be5d-342141bd66d8"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=Wirke Zaubererzauber und Can
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Zaubern
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Erwerben Sie Kenntnisse in der Arcana-Fähigkeit. Wenn Sie bereits kompetent sind, erwerben Sie stattdessen Fachwissen.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arkane Affinität
-Subclass/&RoguishArcaneScoundrelDescription=Mit schnellen Füßen und scharfem Verstand wenden Arcane Scoundrels eine Reihe magischer Tricks an, um ihre Gegner zu überlisten und zu schwächen.
+Subclass/&RoguishArcaneScoundrelDescription=Mit schnellen Bewegungen und scharfsinnigem Verstand wenden Arcane Scoundrels eine Reihe magischer Tricks an, um ihre Gegner zu überlisten und zu schwächen.
 Subclass/&RoguishArcaneScoundrelTitle=Arkaner Schurke

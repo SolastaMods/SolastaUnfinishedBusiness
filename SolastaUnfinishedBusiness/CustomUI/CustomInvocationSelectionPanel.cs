@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -498,6 +498,24 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         var poolTag = GetClassTag();
+        var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+        var hero = characterBuildingService.CurrentLocalHeroCharacter;
+
+        // note we assume pools from feats are merged on class tags
+        if (hero != null)
+        {
+            var heroBuildingData = hero.GetHeroBuildingData();
+
+            gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .SelectMany(f => f.Features)
+                .OfType<FeatureDefinitionCustomInvocationPool>()
+                .Where(x => x.PoolType != null)
+                .Select(f => (poolTag, f))
+            );
+        }
+
+        poolTag = GetClassTag();
 
         gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
                 .Where(f => f.Level == gainedClassLevel)
@@ -703,9 +721,6 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override void OnEndHide()
     {
-        learnedInvocations.Clear();
-        allPools.Clear();
-
         for (var i = 0; i < spellsByLevelTable.childCount; i++)
         {
             var child = spellsByLevelTable.GetChild(i);

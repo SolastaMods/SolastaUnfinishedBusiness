@@ -1,5 +1,5 @@
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -39,8 +39,8 @@ public static class InnovationWeapon
             .Create("ProficiencyInnovationWeaponBattleReady")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence,
-                ValidatorsWeapon.IsMagic))
+            .SetCustomSubFeatures(
+                new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
             .AddToDB();
     }
 

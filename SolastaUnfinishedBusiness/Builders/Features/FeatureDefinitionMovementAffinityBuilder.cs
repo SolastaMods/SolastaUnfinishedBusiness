@@ -47,6 +47,29 @@ internal class FeatureDefinitionMovementAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionMovementAffinityBuilder SetClimbing(
+        bool fastClimber = false, bool expertClimber = false, bool canMoveOnWalls = false)
+    {
+        Definition.fastClimber = fastClimber;
+        Definition.expertClimber = expertClimber;
+        Definition.canMoveOnWalls = canMoveOnWalls;
+        return this;
+    }
+
+    internal FeatureDefinitionMovementAffinityBuilder SetEnhancedJump(int additionalJumpCells)
+    {
+        Definition.enhancedJump = true;
+        Definition.additionalJumpCells = additionalJumpCells;
+        return this;
+    }
+
+    internal FeatureDefinitionMovementAffinityBuilder SetAdditionalFallThreshold(int additionalFallThreshold)
+    {
+        Definition.additionalFallThreshold = additionalFallThreshold;
+        return this;
+    }
+
+
     #region Constructors
 
     protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

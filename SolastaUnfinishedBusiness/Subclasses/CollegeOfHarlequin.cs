@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -135,7 +137,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfHarlequin")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("CollegeOfHarlequin", Resources.CollegeOfHarlequin, 256))
             .AddFeaturesAtLevel(3,
                 powerCombatInspiration,
                 powerTerrificPerformance,
@@ -154,6 +157,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class ConditionCombatInspired : ICustomConditionFeature

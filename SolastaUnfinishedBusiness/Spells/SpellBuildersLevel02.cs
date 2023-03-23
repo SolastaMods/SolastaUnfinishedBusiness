@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -198,9 +198,7 @@ internal static partial class SpellBuilders
         weaponDescription.EffectDescription.EffectForms.Add(
             EffectFormBuilder
                 .Create()
-                .SetConditionForm(
-                    conditionShadowBlade,
-                    ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
                 .Build());
 
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();

@@ -126,9 +126,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                                 .SetConditionType(ConditionType.Neutral)
                                 .SetFeatures(MoveModeFly2, MovementAffinityConditionLevitate)
                                 .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
+                            ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder

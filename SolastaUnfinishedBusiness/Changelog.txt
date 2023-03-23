@@ -1,12 +1,6 @@
-ATTENTION:
-
-- RESPEC any hero who took Deadeye or Power Attack feats before or on 1.4.33.54 version
-
-CHANGES:
-
-- added Domain Smith subclass
-- added Elemental Weapon spell
-- added custom sprites to 22 subclasses by TACO [awesome work there]
-- fixed Opportunist null exception when targeting gadgets
-- fixed a null exception when exporting heroes with certain behaviors
-- improved Royal Knight descriptions
+- added custom Ancestries level up selection
+- added custom Kindred Spirits level up selection
+- added Ranger Hell Walker subclass
+- added Ranger Light Bearer subclass
+- fixed Grenadier not able to use items as a bonus action
+- fixed interaction between Spear Mastery and Polearm Expert

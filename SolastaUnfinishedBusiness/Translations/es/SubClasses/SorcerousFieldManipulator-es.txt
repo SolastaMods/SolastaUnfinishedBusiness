@@ -3,6 +3,6 @@ Feature/&MagicAffinityFieldManipulatorDCTitle=Fuerza Arcana
 Feature/&PowerFieldManipulatorDominatePersonDescription=Puedes usar Dominar persona un número de veces por descanso prolongado igual a tu modificador de Carisma.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Dominar persona
 Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Gana competencia en tiradas de salvación con Inteligencia y Sabiduría.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Resistencia Mental
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Resistencia mental
 Subclass/&FieldManipulatorDescription=Los manipuladores de campo sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
 Subclass/&FieldManipulatorTitle=Manipulador de campo

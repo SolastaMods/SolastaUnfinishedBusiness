@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionBladeDancerDanceOfDefense",
           "conditionDefinition": "Definition:ConditionBladeDancerDanceOfDefense:43e4f784-80ef-51cf-b304-a42848b862a9",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBladeDancerDanceOfDefense:43e4f784-80ef-51cf-b304-a42848b862a9"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

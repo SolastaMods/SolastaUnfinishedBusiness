@@ -1,5 +1,7 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -18,26 +20,39 @@ internal static class CustomSituationalContext
             RulesetEntity.TryGetEntity(contextParams.sourceEffectId, out effectSource);
         }
 
+        // supports Martial Weapon Master use case
+        static bool HasSpecializedWeaponInHands(RulesetCharacter rulesetCharacter)
+        {
+            var specializedWeapons = MartialWeaponMaster.GetSpecializedWeaponTypes(rulesetCharacter);
+
+            return specializedWeapons.Any(x => ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter));
+        }
+
         return (ExtraSituationalContext)context switch
         {
+            ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
+
+            ExtraSituationalContext.HasLongswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
+                    (contextParams.source),
+
+            ExtraSituationalContext.HasGreatswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
+                    (contextParams.source),
+
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
-                ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source) ||
-                ValidatorsCharacter.MainHandIsUnarmed(contextParams.source),
+                ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
+                ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
-                ValidatorsCharacter.HasNoArmor(contextParams.source)
-                || (ValidatorsCharacter.LightArmor(contextParams.source)
-                    && ValidatorsCharacter.HasNoShield(contextParams.source)),
+                (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
+                 ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
+                ValidatorsCharacter.HasNoShield(contextParams.source),
 
-#if false
-            ExtraSituationalContext.MainWeaponIsFinesseOrLightRange =>
-                ValidatorsCharacter.MainHandIsFinesseWeapon(contextParams.source)
-                || ValidatorsCharacter.HasLightRangeWeapon(contextParams.source),
-
-            ExtraSituationalContext.MainWeaponIsVersatileWithoutShield =>
-                ValidatorsCharacter.MainHandIsVersatileWeapon(contextParams.source)
-                && ValidatorsCharacter.NoShield(contextParams.source),
-#endif
+            ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff =>
+                (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
+                 ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
+                ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
             ExtraSituationalContext.TargetIsNotEffectSource =>
                 contextParams.target != effectSource,

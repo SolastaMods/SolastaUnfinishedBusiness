@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -46,17 +46,15 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
             .Build();
 
@@ -418,8 +416,7 @@ internal static partial class SpellBuilders
                             .SetFeatures(additionalDamageResonatingStrike)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add,
-                        true,
-                        false)
+                        true)
                     .Build())
                 .Build())
             .AddToDB();
@@ -503,8 +500,7 @@ internal static partial class SpellBuilders
                                     .AddToDB())
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
+                            true)
                         .Build(),
                     EffectFormBuilder
                         .Create()
@@ -655,6 +651,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

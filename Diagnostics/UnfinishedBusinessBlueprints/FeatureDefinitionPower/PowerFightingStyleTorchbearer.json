@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionOnFire1D4",
           "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -330,9 +328,9 @@
     "description": "Feature/&PowerFightingStyleTorchbearerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3f9d7f1e19c5d0f4a9add3aedb41fcfc",
-      "m_SubObjectName": "BreathWeaponGold",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "9cb2e586-fd88-5836-919e-95121e5572c9",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

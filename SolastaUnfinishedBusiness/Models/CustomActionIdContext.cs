@@ -1,5 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -135,7 +135,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(baseAction, $"Action{NAME}")
-            .SetGuiPresentation(NAME, Category.Action, Sprites.SpellFarStep, 71)
+            .SetGuiPresentation(NAME, Category.Action, Sprites.FarStep, 71)
             .SetActionId(ExtraActionId.FarStep)
             .OverrideClassName("UsePower")
             .SetActionScope(ActionScope.All)

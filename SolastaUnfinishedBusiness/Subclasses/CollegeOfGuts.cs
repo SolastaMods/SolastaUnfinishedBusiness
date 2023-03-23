@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -11,7 +12,7 @@ internal sealed class CollegeOfGuts : AbstractSubclass
     {
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfGuts")
-            .SetGuiPresentation(Category.Subclass, DomainBattle)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("CollegeOfGuts", Resources.CollegeOfGuts, 256))
             .AddFeaturesAtLevel(3,
                 FeatureSetCasterFightingProficiency,
                 MagicAffinityCasterFightingCombatMagic)
@@ -28,5 +29,6 @@ internal sealed class CollegeOfGuts : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

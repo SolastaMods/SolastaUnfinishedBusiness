@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -46,7 +46,7 @@ internal static class ArmorFeats
                     .SetGuiPresentation("FeatHeavyArmorMaster", Category.Feat)
                     .SetNotificationTag("HeavyArmorMaster")
                     .SetFixedReducedDamage(3, DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
-                    .SetCustomSubFeatures(ValidatorsCharacter.HeavyArmor)
+                    .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
                     .AddToDB())
             .SetArmorProficiencyPrerequisite(EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();

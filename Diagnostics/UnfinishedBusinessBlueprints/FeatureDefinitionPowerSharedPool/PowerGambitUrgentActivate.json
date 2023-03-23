@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitUrgent",
           "conditionDefinition": "Definition:ConditionGambitUrgent:4d8a5ac8-ea3d-5e38-a470-3ef45a33ae26",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitUrgent:4d8a5ac8-ea3d-5e38-a470-3ef45a33ae26"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -48,10 +48,10 @@ namespace SolastaUnfinishedBusiness.DataMiner
             }
 
             contract.IsReference = false;
-            contract.OnSerializedCallbacks.Add((_, __) => contract.Converter = definitionConverter);
-            contract.OnSerializingCallbacks.Add((_, __) => contract.Converter = definitionReferenceConverter);
-            contract.OnDeserializedCallbacks.Add((_, __) => contract.Converter = definitionConverter);
-            contract.OnDeserializingCallbacks.Add((_, __) => contract.Converter = definitionReferenceConverter);
+            contract.OnSerializedCallbacks.Add((_, _) => contract.Converter = definitionConverter);
+            contract.OnSerializingCallbacks.Add((_, _) => contract.Converter = definitionReferenceConverter);
+            contract.OnDeserializedCallbacks.Add((_, _) => contract.Converter = definitionConverter);
+            contract.OnDeserializingCallbacks.Add((_, _) => contract.Converter = definitionReferenceConverter);
 
             return contract;
         }

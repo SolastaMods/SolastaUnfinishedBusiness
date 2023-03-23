@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=Lance feitiços e truques m�
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Feitiço
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Ganhe proficiência com a habilidade Arcana. Se você já é proficiente, adquira experiência.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Afinidade Arcana
-Subclass/&RoguishArcaneScoundrelDescription=Com rapidez de pés e inteligência aguçada, Arcane Scoundrels utiliza uma série de truques mágicos para enganar e debilitar seus oponentes.
+Subclass/&RoguishArcaneScoundrelDescription=Com rapidez de pés e perspicácia, Arcane Scoundrels utiliza uma série de truques mágicos para enganar e debilitar seus oponentes.
 Subclass/&RoguishArcaneScoundrelTitle=Canalha Arcano

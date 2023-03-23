@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -15,9 +15,14 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel4 =
+        ValidateIsClass(string.Empty, 4);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel16 =
+        ValidateIsClass(string.Empty, 16, Fighter);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
-        IsBarbarianLevel4 =
-            ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);
+        IsBarbarianLevel4 = ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsBardLevel4 =
         ValidateIsClass(Bard.FormatTitle(), 4, Bard);
@@ -28,6 +33,9 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
         ValidateIsClass(Druid.FormatTitle(), 4, Druid);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsFighterLevel4 = ValidateIsClass(Fighter.FormatTitle(), 4, Fighter);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsInventorLevel4 =
         ValidateIsClass(InventorClass.Class.FormatTitle(), 4, InventorClass.Class);
 
@@ -37,8 +45,17 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel4 =
         ValidateIsClass(Paladin.FormatTitle(), 4, Paladin);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRangerLevel1 =
+        ValidateIsClass(Ranger.FormatTitle(), 1, Ranger);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRangerLevel4 =
+        ValidateIsClass(Ranger.FormatTitle(), 4, Ranger);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
         ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsRangerOrRogueLevel4 = ValidateIsClass($"{Ranger.FormatTitle()} | {Rogue.FormatTitle()}", 4, Ranger, Rogue);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
@@ -155,13 +172,13 @@ internal static class ValidatorsFeat
 
     [NotNull]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
-        string description, int minLevels, CharacterClassDefinition characterClassDefinition)
+        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinition)
     {
         return (_, hero) =>
         {
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            if (!hero.ClassesHistory.Contains(characterClassDefinition))
+            if (characterClassDefinition.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinition).Any())
             {
                 return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
             }

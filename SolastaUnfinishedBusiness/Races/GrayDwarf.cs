@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -115,8 +115,7 @@ internal static class GrayDwarfSubraceBuilder
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add,
-                        false, false)
+                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
@@ -169,7 +168,7 @@ internal static class GrayDwarfSubraceBuilder
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (attackMode?.abilityScore != AttributeDefinitions.Strength || (!ValidatorsWeapon.IsMelee(attackMode) &&
-                                                                              !ValidatorsWeapon.IsUnarmedWeapon(
+                                                                              !ValidatorsWeapon.IsUnarmed(
                                                                                   character, attackMode)))
             {
                 return;

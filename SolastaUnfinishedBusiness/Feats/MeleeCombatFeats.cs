@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -16,6 +16,7 @@ using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -30,6 +31,7 @@ internal static class MeleeCombatFeats
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featFellHanded = BuildFellHanded();
+        var featLongSwordFinesse = BuildLongswordFinesse();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -45,6 +47,7 @@ internal static class MeleeCombatFeats
             featCrusherStr,
             featCrusherCon,
             featDefensiveDuelist,
+            featLongSwordFinesse,
             featFellHanded,
             featPiercerDex,
             featPiercerStr,
@@ -83,6 +86,7 @@ internal static class MeleeCombatFeats
             featCleavingAttack,
             featDefensiveDuelist,
             featFellHanded,
+            featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
@@ -129,7 +133,11 @@ internal static class MeleeCombatFeats
                             true)
                         .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set,
+                        ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
+                            TagsDefinitions.WeaponTagFinesse))))
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -292,7 +300,7 @@ internal static class MeleeCombatFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionFeatSpearMasteryCharge,
-                        ConditionForm.ConditionOperation.Add, true, false)
+                        ConditionForm.ConditionOperation.Add, true)
                     .Build())
                 .UseQuickAnimations()
                 .Build())
@@ -313,6 +321,42 @@ internal static class MeleeCombatFeats
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Longsword Finesse
+
+    private static FeatDefinition BuildLongswordFinesse()
+    {
+        const string Name = "FeatLongswordFinesse";
+
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType);
+
+        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ArmorClass")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
+            .AddToDB();
+
+        var modifyAttackModeFinesse = FeatureDefinitionBuilder
+            .Create($"ModifyAttackMode{Name}Finesse")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                attributeModifierArmorClass,
+                modifyAttackModeFinesse)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
@@ -476,6 +520,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -537,6 +582,7 @@ internal static class MeleeCombatFeats
                         new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
                         new AddExtraMainHandAttack(
                             ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.HasMeleeWeaponInMainHand,
                             ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
                     .AddToDB())
             .AddToDB();
@@ -734,7 +780,7 @@ internal static class MeleeCombatFeats
             .Create("FeatCrusherStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatCrusher,
                 FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
@@ -750,7 +796,7 @@ internal static class MeleeCombatFeats
             .Create("FeatCrusherCon")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
+                AttributeModifierCreed_Of_Arun,
                 FeatureFeatCrusher,
                 FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
@@ -869,7 +915,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -993,7 +1039,7 @@ internal static class MeleeCombatFeats
             .Create("FeatPiercerDex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                AttributeModifierCreed_Of_Misaye,
                 FeatureFeatPiercer)
             .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -1006,7 +1052,7 @@ internal static class MeleeCombatFeats
             .Create("FeatPiercerStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatPiercer)
             .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
@@ -1175,7 +1221,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(character, attackMode))
             {
                 return;
             }
@@ -1245,7 +1291,7 @@ internal static class MeleeCombatFeats
             .Create("FeatSlasherDex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                AttributeModifierCreed_Of_Misaye,
                 FeatureFeatSlasher)
             .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -1258,7 +1304,7 @@ internal static class MeleeCombatFeats
             .Create("FeatSlasherStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatSlasher)
             .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)

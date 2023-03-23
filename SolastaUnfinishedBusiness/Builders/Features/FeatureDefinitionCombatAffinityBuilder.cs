@@ -1,6 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -25,6 +25,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
         Definition.myAttackAdvantage = advantage;
+        return this;
+    }
+
+    internal FeatureDefinitionCombatAffinityBuilder SetAttackOfOpportunityOnMeAdvantage(
+        RuleDefinitions.AdvantageType advantage)
+    {
+        Definition.attackOfOpportunityOnMeAdvantageType = advantage;
         return this;
     }
 

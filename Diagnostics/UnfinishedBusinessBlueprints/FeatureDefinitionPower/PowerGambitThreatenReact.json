@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFrightenedFear",
           "conditionDefinition": "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

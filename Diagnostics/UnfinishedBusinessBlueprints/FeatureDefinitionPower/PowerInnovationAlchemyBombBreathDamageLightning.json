@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamageLightning",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamageLightning:335c1058-8477-5fe5-8b96-17e10a4a03e3",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamageLightning:335c1058-8477-5fe5-8b96-17e10a4a03e3"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

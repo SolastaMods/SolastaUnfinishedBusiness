@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -17,6 +17,7 @@ internal static class CriticalVirtuosoFeats
             .SetGuiPresentation("MartialChampionImprovedCritical", Category.Feature)
             .SetFeatures(AttributeModifierMartialChampionImprovedCritical)
             .SetValidators(
+                ValidatorsFeat.IsLevel4,
                 ValidatorsFeat.ValidateNotFeature(AttributeModifierMartialChampionImprovedCritical))
             .AddToDB();
 
@@ -26,6 +27,7 @@ internal static class CriticalVirtuosoFeats
             .SetGuiPresentation("MartialChampionSuperiorCritical", Category.Feature)
             .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .SetValidators(
+                ValidatorsFeat.IsLevel16,
                 ValidatorsFeat.ValidateHasFeature(AttributeModifierMartialChampionImprovedCritical),
                 ValidatorsFeat.ValidateNotFeature(AttributeModifierMartialChampionSuperiorCritical))
             .AddToDB();

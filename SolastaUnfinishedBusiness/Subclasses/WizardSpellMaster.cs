@@ -1,8 +1,9 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -100,7 +101,8 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardSpellMaster")
-            .SetGuiPresentation(Category.Subclass, DomainInsight)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WizardSpellMaster", Resources.WizardSpellMaster, 256))
             .AddFeaturesAtLevel(2,
                 magicAffinitySpellMasterKnowledge,
                 magicAffinitySpellMasterPrepared,
@@ -120,5 +122,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

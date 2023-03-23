@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumenta il danno del tuo prossimo attacco furtivo di 3d6 extra, fino alla fine del tuo prossimo turno. Questo danno aumenta a 4d6 al 13° livello e a 5d6 al 17° livello.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Catena di esecuzione
-Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Sei marchiato dallo Slayer.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Sei marchiato dalla Cacciatrice.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marchio dell'uccisore
 Feature/&FeatureRoguishSlayerChainOfExecutionDescription=A partire dal 9° livello, ogni volta che riduci una creatura a 0 punti ferita, o ogni volta che una creatura danneggiata dal tuo attacco furtivo muore prima dell'inizio del tuo prossimo turno, aumenta il danno del tuo prossimo attacco furtivo di 3d6 extra, fino alla fine del il tuo prossimo turno. Questo danno aumenta a 4d6 al 13° livello e a 5d6 al 17° livello.
 Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Catena di esecuzione

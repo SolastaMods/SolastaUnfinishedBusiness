@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -29,19 +29,15 @@ internal class EffectFormBuilder
         return new EffectFormBuilder();
     }
 
-    internal EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity,
-        TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn)
+    internal EffectFormBuilder HasSavingThrow(
+        EffectSavingThrowType savingThrowAffinity,
+        TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn,
+        bool canSaveToCancel = false)
     {
         effectForm.HasSavingThrow = true;
         effectForm.SavingThrowAffinity = savingThrowAffinity;
         effectForm.saveOccurence = saveOccurence;
-        return this;
-    }
-
-    internal EffectFormBuilder CanSaveToCancel(TurnOccurenceType saveOccurence)
-    {
-        effectForm.CanSaveToCancel = true;
-        effectForm.SaveOccurence = saveOccurence;
+        effectForm.canSaveToCancel = canSaveToCancel;
         return this;
     }
 
@@ -103,17 +99,10 @@ internal class EffectFormBuilder
 
     internal EffectFormBuilder SetConditionForm(
         ConditionDefinition condition,
-        ConditionForm.ConditionOperation operation)
-    {
-        return SetConditionForm(condition, operation, false, false, condition);
-    }
-
-    internal EffectFormBuilder SetConditionForm(
-        ConditionDefinition condition,
         ConditionForm.ConditionOperation operation,
-        bool applyToSelf,
-        bool forceOnSelf,
-        params ConditionDefinition[] detrimentalConditions)
+        bool applyToSelf = false,
+        bool forceOnSelf = false,
+        params ConditionDefinition[] conditionsList)
     {
         effectForm.FormType = EffectForm.EffectFormType.Condition;
 
@@ -123,7 +112,7 @@ internal class EffectFormBuilder
             ConditionDefinition = condition,
             applyToSelf = applyToSelf,
             forceOnSelf = forceOnSelf,
-            conditionsList = detrimentalConditions.ToList()
+            conditionsList = conditionsList.ToList()
         };
 
         if (condition != null)
@@ -377,7 +366,7 @@ internal class EffectFormBuilder
             shapeChangeType = shapeChangeType,
             keepMentalAbilityScores = keepMentalAbilityScores,
             specialSubstituteCondition = specialSubstituteCondition,
-            shapeOptions = shapeOptions,
+            shapeOptions = shapeOptions
         };
 
         effectForm.shapeChangeForm = shapeChangeForm;

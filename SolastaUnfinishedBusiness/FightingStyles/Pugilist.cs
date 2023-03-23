@@ -3,9 +3,10 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -16,7 +17,7 @@ internal sealed class Pugilist : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(PugilistName)
-        .SetGuiPresentation(Category.FightingStyle, TraditionOpenHand)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Pugilist", Resources.Pugilist, 256))
         .SetFeatures(
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityFightingStylePugilist")
@@ -38,7 +39,7 @@ internal sealed class Pugilist : AbstractFightingStyle
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) || attackMode.ranged)
+            if (!ValidatorsWeapon.IsUnarmed(character, attackMode) || attackMode.ranged)
             {
                 return;
             }

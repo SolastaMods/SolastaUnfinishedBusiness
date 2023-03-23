@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -27,12 +27,16 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
+    internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
+    internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
+    internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition Wrack = BuildWrack();
+    internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
     // ReSharper disable once MemberCanBePrivate.Global
     internal static HashSet<SpellDefinition> Spells { get; set; } = new();
@@ -213,7 +217,7 @@ internal static class SpellsContext
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
         RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
-        RegisterSpell(BuildWrathfulSmite(), 0, SpellListPaladin);
+        RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
@@ -222,17 +226,17 @@ internal static class SpellsContext
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 3rd level
-        RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
+        RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 4th level
-        RegisterSpell(BuildStaggeringSmite(), 0, SpellListPaladin);
+        RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
         //5th level
-        RegisterSpell(BuildBanishingSmite(), 0, SpellListPaladin);
+        RegisterSpell(BanishingSmite, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
 

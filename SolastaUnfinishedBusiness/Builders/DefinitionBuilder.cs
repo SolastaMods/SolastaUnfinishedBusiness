@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;

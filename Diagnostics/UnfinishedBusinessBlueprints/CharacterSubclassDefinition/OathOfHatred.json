@@ -23,8 +23,13 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureDauntlessPursuer:7b03bc40-f783-5e19-8021-c0e0ef6f7c7f",
+      "featureDefinition": "Definition:FeatureHatredDauntlessPursuer:f3b49825-68cd-539c-ad2f-18d93af67b0f",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetHatredResistance:81c3e52f-4b28-51d7-b838-43624a3e9598",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],
@@ -36,9 +41,9 @@
     "description": "Subclass/&OathOfHatredDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
-      "m_SubObjectName": "Sorcerer_HauntedSoul",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "35163f2a-b9c3-57ab-8c41-53eec6eb83c9",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

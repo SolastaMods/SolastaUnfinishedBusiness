@@ -6,7 +6,7 @@
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,
   "ritual": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
@@ -117,7 +117,7 @@
           "conditionDefinition": "Definition:ConditionSkinOfRetributionDamageAcid:2e89b309-e5fc-5863-9516-6247c0260e4a",
           "operation": "Add",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

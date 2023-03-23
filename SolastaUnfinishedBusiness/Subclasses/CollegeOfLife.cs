@@ -1,11 +1,12 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -56,8 +57,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -87,8 +87,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -111,8 +110,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -129,7 +127,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add, false, false)
+                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -158,7 +156,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfLife")
-            .SetGuiPresentation(Category.Subclass, RoguishDarkweaver)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("CollegeOfLife", Resources.CollegeOfLife, 256))
             .AddFeaturesAtLevel(3,
                 MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
@@ -166,7 +164,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 powerSharedPoolCollegeOfLifeHealingPool)
             .AddFeaturesAtLevel(14,
                 DamageAffinityGenericHardenToNecrotic,
-                PowerCasterCommandUndeadCharisma)
+                PowerCasterCommandUndead)
             .AddToDB();
     }
 
@@ -177,6 +175,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     internal static void LateLoad()

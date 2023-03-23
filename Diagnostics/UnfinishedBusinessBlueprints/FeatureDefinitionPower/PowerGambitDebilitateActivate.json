@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitDebilitateTrigger",
           "conditionDefinition": "Definition:ConditionGambitDebilitateTrigger:cf8ce16d-8680-5066-b215-e8db80b8bc43",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitDebilitateTrigger:cf8ce16d-8680-5066-b215-e8db80b8bc43"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

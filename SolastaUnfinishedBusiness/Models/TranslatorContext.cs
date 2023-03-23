@@ -14,7 +14,7 @@ using I2.Loc;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using UnityModManagerNet;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;

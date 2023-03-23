@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 5,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
+  "consumesSpellSlot": true,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationCallOfTheBeastTitle",
+    "description": "Invocation/&InvocationCallOfTheBeastDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b043283d50fe383458a825f8828307f0",
+      "m_SubObjectName": "ConjureAnimals",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "65771cb6-4af4-5c10-9a48-e93eb9075aec",
+  "contentPack": 9999,
+  "name": "InvocationCallOfTheBeast"
+}

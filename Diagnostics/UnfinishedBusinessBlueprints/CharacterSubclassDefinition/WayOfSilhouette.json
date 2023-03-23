@@ -41,9 +41,9 @@
     "description": "Subclass/&WayOfSilhouetteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
-      "m_SubObjectName": "Rogue_Shadowcaster",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "44016fda-05ad-5f44-a9a4-f2f36e7e0864",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

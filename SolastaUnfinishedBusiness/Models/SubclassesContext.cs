@@ -26,6 +26,7 @@ internal static class SubclassesContext
     {
         // Barbarian
         LoadSubclass(new PathOfTheLight());
+        LoadSubclass(new PathOfTheReaver());
         LoadSubclass(new PathOfTheSpirits());
 
         // Bard
@@ -48,6 +49,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
+        LoadSubclass(new MartialWeaponMaster());
 
         // Paladin
         LoadSubclass(new OathOfAltruism());
@@ -56,9 +58,12 @@ internal static class SubclassesContext
 
         // Ranger
         LoadSubclass(new RangerArcanist());
+        LoadSubclass(new RangerLightBearer());
+        LoadSubclass(new RangerHellWalker());
         LoadSubclass(new RangerWildMaster());
 
         // Rogue
+        LoadSubclass(new RoguishAcrobat());
         LoadSubclass(new RoguishArcaneScoundrel());
         LoadSubclass(new RoguishDuelist());
         LoadSubclass(new RoguishOpportunist());

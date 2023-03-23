@@ -15,4 +15,4 @@ Monster/&WildShapeDireBearTitle=Oso terrible
 Monster/&WildShapeWaterElementalDescription=Un elemental de agua es un torrente de agua sofocante por la presión de 3000 galones de agua en remolino.
 Monster/&WildShapeWaterElementalTitle=Elemental de agua
 Subclass/&CircleOfTheNightDescription=Los druidas del Círculo de la Noche son feroces guardianes de la naturaleza. Su orden se reúne bajo la luna llena para compartir noticias y advertencias comerciales. Ellos frecuentan las partes más profundas del desierto, donde pueden pasar semanas antes de cruzarse con otra criatura humanoide, y mucho menos con otro druida.
-Subclass/&CircleOfTheNightTitle=círculo de la noche
+Subclass/&CircleOfTheNightTitle=Círculo de la noche

@@ -24,6 +24,8 @@ internal static class InvocationsContext
         LoadInvocation(BuildAspectOfTheMoon());
         LoadInvocation(BuildBondOfTheTalisman());
         LoadInvocation(BuildBreakerAndBanisher());
+        LoadInvocation(BuildBreathOfTheNight());
+        LoadInvocation(BuildCallOfTheBeast());
         LoadInvocation(BuildChillingBlast());
         LoadInvocation(BuildCorrosiveBlast());
         LoadInvocation(BuildDiscerningGaze());
@@ -42,6 +44,7 @@ internal static class InvocationsContext
         LoadInvocation(BuildSpectralShield());
         LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
+        LoadInvocation(BuildTenaciousPlague());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());
         LoadInvocation(BuildUndyingServitude());

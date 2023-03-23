@@ -5,11 +5,12 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -130,6 +131,9 @@ public static class GameLocationCharacterPatcher
             {
                 effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
+
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 
@@ -220,6 +224,9 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
                 ignoreMovePoints);
+
+            //PATCH: support `Poisoner` feat to only allow poisons to be used on use item bonus
+            ClassFeats.TweakUseItemBonusActionId(__instance, ref __result, actionId);
         }
     }
 
