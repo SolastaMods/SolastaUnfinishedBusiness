@@ -3,13 +3,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolRangerPreferredEnemyLearnTitle",
-    "description": "Feature/&InvocationPoolRangerPreferredEnemyLearnDescription",
+    "title": "Feature/&RangerFavoredEnemyTitle",
+    "description": "Feature/&RangerFavoredEnemyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

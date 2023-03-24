@@ -7,7 +7,7 @@
   "maxRollValue": 0,
   "minRerollValue": 1,
   "rerollCount": 1,
-  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalAdeptReroll",
+  "rerollLocalizationKey": "Feature/&DieRollModifierFeatElementalMasterReroll",
   "forcedDamageOnDice": "None",
   "validityContext": "AttackRoll",
   "validSkills": [],

@@ -1,6 +1,6 @@
 Condition/&ConditionOpportunistDebilitatedDescription=Debilitado.
 Condition/&ConditionOpportunistDebilitatedTitle=Debilitado
-Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando um inimigo falha em um teste de resistência e não é a sua vez, você pode usar sua reação para fazer um ataque contra ele. Você pode ativar um ataque furtivo com esse recurso.
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando um inimigo falha em um teste de resistência e não é sua vez, você pode usar sua reação para fazer um ataque contra ele. Você pode ativar um ataque furtivo com esse recurso.
 Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Aproveite a chance
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Você tem vantagem atacando inimigos cuja iniciativa é menor que a sua. Além disso, você também tem vantagem ao realizar ataques de oportunidade.
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Golpe Rápido

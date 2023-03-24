@@ -18,7 +18,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -225,26 +224,6 @@ internal static class ClassFeats
     {
         const string NAME = "FeatAwakenTheBeastWithin";
 
-        var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
-            .AddToDB();
-
-        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create($"SummoningAffinity{NAME}")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
-            .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create($"Condition{NAME}")
-                    .SetGuiPresentationNoContent()
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
-                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
-                    .AddToDB())
-            .AddToDB();
-
         var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
             .Select(abilityScore => new
             {
@@ -261,22 +240,58 @@ internal static class ClassFeats
                             CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
                                 Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
                         Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
-                    .SetFeatures(t.attributeModifier, summoningAffinity)
+                    .SetFeatures(t.attributeModifier)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                    .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
                     .AddToDB())
+            .Cast<FeatDefinition>()
             .ToArray();
 
-        // avoid run-time exception on write operation
-        var temp = new List<FeatDefinition>();
-
-        temp.AddRange(awakenTheBeastWithinFeats);
-
         var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, awakenTheBeastWithinFeats);
 
         feats.AddRange(awakenTheBeastWithinFeats);
 
         return awakenTheBeastWithinGroup;
+    }
+
+    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IOnAfterActionFeature
+    {
+        // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
+        private const ulong TemporaryHitPointsGuid = 42424242;
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionRevertShape ||
+                action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+            {
+                return;
+            }
+
+            var rulesetCondition =
+                rulesetCharacterMonster.AllConditions.FirstOrDefault(x => x.SourceGuid == TemporaryHitPointsGuid);
+
+            if (rulesetCondition != null)
+            {
+                rulesetCharacterMonster.RemoveCondition(rulesetCondition);
+            }
+        }
+
+        // ReSharper disable once InconsistentNaming
+        internal static void GrantTempHP(RulesetCharacterMonster __instance)
+        {
+            if (__instance.OriginalFormCharacter is not RulesetCharacterHero rulesetCharacterHero ||
+                !rulesetCharacterHero.TrainedFeats.Exists(x => x.Name.StartsWith("FeatAwakenTheBeastWithin")))
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
+
+            __instance.ReceiveTemporaryHitPoints(2 * classLevel, DurationType.Hour, classLevel / 2,
+                TurnOccurenceType.EndOfTurn,
+                TemporaryHitPointsGuid);
+        }
     }
 
     #endregion
@@ -320,12 +335,15 @@ internal static class ClassFeats
             return;
         }
 
-        // no changes if character is Roguish Thief
+        // no changes if character is Roguish Thief or Grenadier
         var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
                    __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-        if (hero == null || (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
-                             characterSubclassDefinition.Name == "RoguishThief"))
+        if (hero == null ||
+            (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var rogueSub) &&
+             rogueSub.Name == "RoguishThief") ||
+            (hero.ClassesAndSubclasses.TryGetValue(InventorClass.Class, out var inventorSub) &&
+             inventorSub.Name == "InnovationAlchemy"))
         {
             return;
         }

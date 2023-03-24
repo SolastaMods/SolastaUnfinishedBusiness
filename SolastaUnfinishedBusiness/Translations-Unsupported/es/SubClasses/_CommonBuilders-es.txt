@@ -1,0 +1,16 @@
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=Obtienes un ataque adicional y ahora puedes atacar hasta 2 veces en tu turno.
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque adicional
+Feature/&DamageAffinityGenericHardenToNecroticDescription=Tienes inmunidad al daño necrótico y tu máximo de puntos de vida no se puede reducir.
+Feature/&DamageAffinityGenericHardenToNecroticTitle=Endurecer a necrótico
+Feature/&FeatureSetCasterFightingProficiencyDescription=Puedes usar armadura ligera, armadura media y escudo y también ganar competencia con armas marciales.
+Feature/&FeatureSetCasterFightingProficiencyTitle=Armadura y Armas
+Feature/&MagicAffinityCasterFightingCombatMagicDescription=Ventaja en las pruebas de concentración, así como la capacidad de realizar componentes somáticos de hechizos mientras sostiene objetos.
+Feature/&MagicAffinityCasterFightingCombatMagicTitle=Lanzamiento de guerra
+Feature/&PowerArcaneFighterEnchantWeaponDescription=Cuando está activo en un arma, sus ataques cuentan como mágicos y usas tu modificador de lanzamiento de hechizos para tus tiradas de ataque y daño.
+Feature/&PowerArcaneFighterEnchantWeaponTitle=Arma arcana
+Feature/&PowerCasterCommandUndeadDescription=Puedes usar tu acción un número de veces al día igual a tu bonificación de competencia, para poner a los muertos vivientes bajo tu control. El no-muerto debe realizar una salvación de Carisma (la CD es igual a 8 + tu bonificador de competencia + tu modificador de atributo de lanzador de conjuros) o ser controlado durante 1 minuto.
+Feature/&PowerCasterCommandUndeadTitle=Comandar muertos vivientes
+Feature/&PowerCasterFightingWarMagicDescription=Puedes usar tu acción adicional para atacar usando el arma en tu mano principal después de lanzar un hechizo.
+Feature/&PowerCasterFightingWarMagicTitle=Magia de guerra
+Feature/&ReplaceAttackWithCantripCasterFightingDescription=Puedes reemplazar uno de tus ataques con un cantrip.
+Feature/&ReplaceAttackWithCantripCasterFightingTitle=Ataque de cantrip

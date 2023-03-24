@@ -151,14 +151,15 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
-        // if we don't want to upgrade the dice on a bonus attack to avoid cheesing add below to IF
+        // below was interacting in a bad way with TWF and Spear Mastery so added an attack tag to polearm bonus only
         // || attackMode.actionType != ActionDefinitions.ActionType.Main)
-        if (damage == null)
+        if (damage == null || attackMode.AttackTags.Contains("Polearm"))
         {
             return;
         }
 
         var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
+
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
 

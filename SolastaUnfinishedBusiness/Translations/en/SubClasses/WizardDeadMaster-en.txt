@@ -1,5 +1,5 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
-Feature/&AutoPreparedSpellsDeadMasterTitle=Dead Master Spells
+Feature/&AutoPreparedSpellsDeadMasterTitle=Deadmaster Spells
 Feature/&BypassSpellConcentrationDeadMasterDescription=You've learned the ways of necromancy. If upcasted, you don't require concentration to raise dead.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Scatter
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=You gain a +1 DC bonus when casting necromancy spells.
@@ -10,5 +10,5 @@ Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Once per turn wh
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Stark Harvest
 Spell/&SpellRaiseDeadFormatDescription=Summons <b>{0}</b>:\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Raise {0}
-Subclass/&WizardDeadMasterDescription=Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
-Subclass/&WizardDeadMasterTitle=Dead Master
+Subclass/&WizardDeadMasterDescription=Deadmasters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
+Subclass/&WizardDeadMasterTitle=Deadmaster

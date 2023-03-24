@@ -320,8 +320,7 @@ internal static partial class SpellBuilders
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add)
-                .HasSavingThrow(EffectSavingThrowType.Negates)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                 .Build())
             .Build();
 

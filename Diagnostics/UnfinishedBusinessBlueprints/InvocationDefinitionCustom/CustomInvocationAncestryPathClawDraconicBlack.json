@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AncestryPathClawDraconicBlack:51eba7020ffaad344996a28e44ec1d44",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryPathClawDraconicBlackTitle",
+    "description": "Your draconic ancestry gives you an affinity to Acid damage type.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f21a32c6-17b4-5acf-b7bb-fca05f815974",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4c418281-141b-55f1-910f-2dbee317a4c1",
+  "contentPack": 9999,
+  "name": "CustomInvocationAncestryPathClawDraconicBlack"
+}

@@ -491,7 +491,7 @@ internal static class OtherFeats
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor, string damageType)
         {
             return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
         }
@@ -529,7 +529,7 @@ internal static class OtherFeats
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                            "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
                         .SetCustomSubFeatures(new IgnoreDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     FeatureDefinitionDamageAffinityBuilder
@@ -561,7 +561,8 @@ internal static class OtherFeats
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        public bool CanIgnoreDamageAffinity(
+            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
         {
             return provider.DamageAffinityType == DamageAffinityType.Immunity && _damageTypes.Contains(damageType);
         }
@@ -573,7 +574,7 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildMetamagic()
     {
-        // KEEP FOR BACKWARD COMPATIBILITY until next DLC
+        // BACKWARD COMPATIBILITY
         BuildMetamagicBackwardCompatibility();
 
         return FeatDefinitionBuilder
@@ -734,9 +735,8 @@ internal static class OtherFeats
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                 .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build())
             .SetDurationData(DurationType.Minute, 1)
             .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)

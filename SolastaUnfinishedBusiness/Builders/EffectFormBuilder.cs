@@ -29,19 +29,15 @@ internal class EffectFormBuilder
         return new EffectFormBuilder();
     }
 
-    internal EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity,
-        TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn)
+    internal EffectFormBuilder HasSavingThrow(
+        EffectSavingThrowType savingThrowAffinity,
+        TurnOccurenceType saveOccurence = TurnOccurenceType.EndOfTurn,
+        bool canSaveToCancel = false)
     {
         effectForm.HasSavingThrow = true;
         effectForm.SavingThrowAffinity = savingThrowAffinity;
         effectForm.saveOccurence = saveOccurence;
-        return this;
-    }
-
-    internal EffectFormBuilder CanSaveToCancel(TurnOccurenceType saveOccurence)
-    {
-        effectForm.CanSaveToCancel = true;
-        effectForm.SaveOccurence = saveOccurence;
+        effectForm.canSaveToCancel = canSaveToCancel;
         return this;
     }
 

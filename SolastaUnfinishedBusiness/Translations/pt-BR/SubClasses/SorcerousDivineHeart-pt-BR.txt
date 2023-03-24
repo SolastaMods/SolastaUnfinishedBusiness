@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se você lançar um feitiço de Cura neste turno, você rolará novamente o resultado de 1 ou 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Cura Fortalecida
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 ponto de vida por nível
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 ponto de vida por nível.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortaleza Divina
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=A proteção contra o mal e o bem é sempre conhecida e preparada.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun: Proteção contra o mal e o bem
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane é sempre 
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye: Quatro
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless é sempre conhecido e preparado.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri: abençoe
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Selecione a fonte divina de sua magia (e feitiço preparado de bônus)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Selecione a fonte divina de sua magia.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Escolha da Divindade
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Sua conexão com o divino permite que você aprenda e lance feitiços de clérigo como feitiços de feiticeiro.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magia Divina

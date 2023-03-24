@@ -966,6 +966,37 @@ public static class GameLocationBattleManagerPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackInitiated))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleCharacterPhysicalAttackInitiated_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates
+            foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
+                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>()))
+            {
+                yield return attackInitiated.OnAttackInitiated(
+                    __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -990,8 +1021,8 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: allow custom behavior when physical attack finished
             foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackFinished>())
             {
-                yield return feature.OnAttackFinished(__instance, attackAction, attacker, defender, attackerAttackMode,
-                    attackRollOutcome,
+                yield return feature.OnAttackFinished(
+                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                     damageAmount);
             }
         }

@@ -1,0 +1,12 @@
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Lorsque vous touchez avec une attaque ou infligez des dégâts avec un sort, ajoutez votre modificateur de charisme sous forme de dégâts de force supplémentaires à un jet de dégâts de cette attaque ou de ce sort.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Sorcier de guerre
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Vous maîtrisez les armures légères, les armures moyennes et les armes de guerre.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Entraînement martial
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Votre classe d'armure augmente de 2 et vous maîtrisez les jets de sauvegarde de dextérité.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Réflexes de combat
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Vous pouvez utiliser votre action bonus pour gagner des points de vie temporaires égaux à votre niveau d'ensorceleur + modificateur de charisme pendant une minute, un nombre de fois par repos long égal à votre bonus de maîtrise. Si vous êtes à court d'utilisations, vous pouvez dépenser deux points de sorcellerie à la place.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Bouclier de mana
+Feedback/&AdditionalDamageWarSorcererFormat=Sorcier de guerre
+Feedback/&AdditionalDamageWarSorcererLine={0} inflige des dégâts de Sorcier de guerre sur {1} (+{2})
+Subclass/&SorcerousSpellBladeDescription=Les Spellblades combinent des prouesses martiales avec des talents magiques innés pour surpasser leurs ennemis.
+Subclass/&SorcerousSpellBladeTitle=Sorcelame

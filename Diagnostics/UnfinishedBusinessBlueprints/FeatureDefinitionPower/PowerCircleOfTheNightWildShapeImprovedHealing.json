@@ -80,7 +80,7 @@
           "healingComputation": "Dice",
           "diceNumber": 2,
           "dieType": "D8",
-          "bonusHealing": 0,
+          "bonusHealing": 2,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
         },

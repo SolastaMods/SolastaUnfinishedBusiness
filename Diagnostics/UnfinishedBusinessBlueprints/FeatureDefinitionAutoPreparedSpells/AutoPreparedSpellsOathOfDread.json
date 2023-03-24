@@ -1,0 +1,75 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Oath",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+        "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&OathOfDreadTitle",
+    "description": "Feature/&DomainSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "be17a243-1d54-5e8c-a6f3-9f319aab0be4",
+  "contentPack": 9999,
+  "name": "AutoPreparedSpellsOathOfDread"
+}

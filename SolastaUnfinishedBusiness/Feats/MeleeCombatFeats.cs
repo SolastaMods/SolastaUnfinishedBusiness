@@ -194,7 +194,7 @@ internal static class MeleeCombatFeats
         const string NAME = "FeatSpearMastery";
         const string REACH_CONDITION = $"Condition{NAME}Reach";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponTypeWithoutAttackTag("Polearm", SpearType);
 
         var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
             .Create(REACH_CONDITION)
@@ -237,12 +237,11 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("SpearMastery")
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                .SetIgnoreCriticalDoubleDice(true)
-                // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
                 //Adding any property so that custom restricted context would trigger
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
                     (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                .SetIgnoreCriticalDoubleDice(true)
                 .AddToDB())
             .AddToDB();
 
@@ -737,11 +736,11 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
+        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
         .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.UsePowerReaction)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
         .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
-        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
         .SetCustomSubFeatures(
             new RestrictedContextValidator((_, _, _, _, ranged, mode, _) =>
                 (OperationType.Set,
@@ -751,9 +750,9 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
         .Create("FeatureFeatCrusherCriticalHit")
         .SetGuiPresentationNoContent(true)
+        .SetNotificationTag(GroupFeats.Crusher)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
-        .SetNotificationTag(GroupFeats.Crusher)
         .SetCustomSubFeatures(
             new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
                 (OperationType.Set,

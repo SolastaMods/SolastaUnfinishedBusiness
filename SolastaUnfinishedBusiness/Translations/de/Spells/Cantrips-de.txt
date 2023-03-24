@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=Die Rüstungsklasse wird um 1 verringert
+﻿Condition/&ConditionAcidClawsDescription=Die Rüstungsklasse wird um 1 verringert.
 Condition/&ConditionAcidClawsTitle=Säure brennen
 Condition/&ConditionMindSpikeDescription=Zieht 1W4 vom nächsten Rettungswurf ab.
 Condition/&ConditionMindSpikeTitle=Geistspitze
@@ -23,7 +23,7 @@ Spell/&BladeWardTitle=Blade Ward
 Spell/&BurstOfRadianceDescription=Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
 Spell/&BurstOfRadianceTitle=Strahlkraft
 Spell/&EnduringStingDescription=Du schwächst die Vitalität einer Kreatur, die du in Reichweite sehen kannst. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder es erleidet 1W4 nekrotischen Schaden und fällt zu Boden.
-Spell/&EnduringStingTitle=Dauerhafter Stachel
+Spell/&EnduringStingTitle=Dauerhafter Stich
 Spell/&IlluminatingSphereDescription=Lässt Lichtquellen wie Fackeln und Manalampen im Wirkungsbereich aufleuchten.
 Spell/&IlluminatingSphereTitle=Erleuchtende Sphäre
 Spell/&MindSpikeDescription=Du schleuderst eine desorientierende Spitze psychischer Energie in den Geist einer Kreatur, die du in Reichweite sehen kannst. Das Ziel muss einen Intelligenzrettungswurf bestehen oder 1W6 psychischen Schaden erleiden und 1W4 vom nächsten Rettungswurf abziehen, den es vor dem Ende deines nächsten Zuges macht.

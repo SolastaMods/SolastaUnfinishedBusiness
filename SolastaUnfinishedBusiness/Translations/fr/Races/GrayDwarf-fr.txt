@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Avantage aux tests de Force et aux jets de sauvegarde. +1d4 dégâts avec les armes de force de mêlée
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Avantage aux tests de Force et aux jets de sauvegarde. +1d4 dégâts avec les armes de force de mêlée.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Force de la pierre
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Force +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Augmentation du score de capacité

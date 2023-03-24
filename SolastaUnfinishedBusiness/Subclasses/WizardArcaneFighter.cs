@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -13,8 +12,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 {
     internal WizardArcaneFighter()
     {
-        const string PowerArcaneFighterEnchantWeapon = "PowerArcaneFighterEnchantWeapon";
-
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
@@ -35,47 +32,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("ArcaneFighter")
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetDamageDice(DieType.D8, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .AddToDB();
-
-        var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
-            .Create(PowerArcaneFighterEnchantWeapon)
-            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(
-                        Side.Ally,
-                        RangeType.Touch,
-                        0,
-                        TargetType.Item,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetDurationData(DurationType.Minute, 10)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetItemPropertyForm(
-                                ItemPropertyUsage.Unlimited,
-                                0,
-                                new FeatureUnlockByLevel(
-                                    FeatureDefinitionAttackModifierBuilder
-                                        .Create("AttackModifierArcaneFighterIntBonus")
-                                        .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature,
-                                            FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon)
-                                        .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                        .SetMagicalWeapon()
-                                        .SetAdditionalAttackTag(TagsDefinitions.Magical)
-                                        .AddToDB(),
-                                    0))
-                            .Build())
-                    .Build())
-            .SetCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
-                SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -85,7 +43,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
-                powerArcaneFighterEnchantWeapon)
+                PowerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
                 ReplaceAttackWithCantripCasterFighting)

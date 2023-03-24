@@ -15,17 +15,23 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, Path of the Reaver, Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
+            "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, " +
+            "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Sorcerous Field Manipulator, " +
+            "Sorcerous Spellblade, Oath of Dread, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, " +
+            "Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
-            "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
+            "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
+            "quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital", "builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
         ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
-        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("DubhHerder", "quality of life, spells, homebrew content design [subclasses]"),
         ("Taco",
-            "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, powers and weapons icons, favored terrain and preferred enemy icons"),
+            "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, " +
+            "powers and weapons icons, favored terrain and preferred enemy icons"),
         ("HiddenHax", "homebrew content design [subclasses]"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
@@ -35,7 +41,8 @@ internal static class CreditsDisplay
         ("Bazou", "fighting styles, rules, spells"),
         ("Pikachar2", "spells"),
         ("Narria", "modKit, UI Improvements, Party Editor"),
-        ("Balmz", "powers and spells icons")
+        ("Balmz", "powers and spells icons"),
+        ("Stuffies12", "Ranger homebrew content design [Ranger Hellwalker, Ranger Lightbearer]")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

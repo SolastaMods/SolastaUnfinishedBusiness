@@ -8,5 +8,5 @@ Feature/&FeatureRoguishSlayerEliminationDescription=À partir du niveau 3, vous 
 Feature/&FeatureRoguishSlayerEliminationTitle=Élimination
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=À partir du niveau 13, vous pouvez utiliser votre action bonus pour devenir invisible pendant 1 minute. Vous pouvez utiliser cette fonctionnalité une fois par repos court.
 Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Cape des ombres
-Subclass/&RoguishSlayerDescription=Les tueurs concentrent leur formation sur l'art sinistre de la mort. Ceux qui adhèrent à cet archétype sont divers : des tueurs à gage, des espions, des chasseurs de primes et même des prêtres spécialement oints formés pour exterminer les ennemis de leur divinité. La furtivité, le poison et le déguisement vous aident à éliminer vos ennemis avec une efficacité mortelle.
+Subclass/&RoguishSlayerDescription=Les tueurs concentrent leur formation sur l'art sinistre de la mort. Ceux qui adhèrent à cet archétype sont divers : des tueurs à gages, des espions, des chasseurs de primes et même des prêtres spécialement oints formés pour exterminer les ennemis de leur divinité. La furtivité, le poison et le déguisement vous aident à éliminer vos ennemis avec une efficacité mortelle.
 Subclass/&RoguishSlayerTitle=Tueur

@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -20,7 +21,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
     {
         var autoPreparedSpellsAltruism = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetGuiPresentation("Subclass/&OathOfAltruismTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, HealingWord, ShieldOfFaith),
@@ -68,6 +69,19 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .SetConditionForm(conditionAuraOfTheGuardian, ConditionForm.ConditionOperation.Add)
             .Build();
 
+        var powerTakeThePain = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TakeThePain")
+            .SetGuiPresentation(Category.Feature, BeaconOfHope)
+            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ChannelDivinity)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
+                        RuleDefinitions.TargetType.Individuals)
+                    .Build())
+            .SetCustomSubFeatures(new AfterActionTakeThePain())
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAltruism", Resources.OathOfAltruism, 256))
@@ -76,6 +90,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 featureDefensiveStrike,
                 featureSpiritualShielding)
             .AddFeaturesAtLevel(7, powerAuraOfTheGuardian)
+            .AddFeaturesAtLevel(15, powerTakeThePain)
             .AddToDB();
     }
 
@@ -86,4 +101,52 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class AfterActionTakeThePain : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action.ActionType != ActionDefinitions.ActionType.Bonus)
+            {
+                return;
+            }
+
+            if (action.ActingCharacter == null)
+            {
+                return;
+            }
+
+            var self = action.ActingCharacter;
+
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                !characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
+            {
+                return;
+            }
+
+            foreach (var character in action.ActionParams.targetCharacters)
+            {
+                var targetHitPoints = character.RulesetCharacter.currentHitPoints;
+                var casterHitPoints = self.RulesetCharacter.currentHitPoints;
+
+                if (casterHitPoints <= targetHitPoints)
+                {
+                    continue;
+                }
+
+                character.RulesetCharacter.ForceSetHealth(casterHitPoints, false);
+                self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
+
+                var profBonus = AttributeDefinitions.ComputeProficiencyBonus(self.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+
+                var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
+
+                self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier,
+                    RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                    self.RulesetCharacter.guid);
+            }
+        }
+    }
 }

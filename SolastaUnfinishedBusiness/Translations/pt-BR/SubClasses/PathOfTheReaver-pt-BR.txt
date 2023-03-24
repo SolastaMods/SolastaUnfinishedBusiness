@@ -1,4 +1,4 @@
-﻿Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=Começando no 3º nível, você pode canalizar sua corrupção interna em seus ataques corpo a corpo. Enquanto você está em fúria, a primeira criatura que você acertar em cada um de seus turnos com um ataque de arma corpo a corpo recebe dano necrótico adicional igual à sua proficiência e você recupera uma quantidade igual de pontos de vida. Dano e cura são dobrados em um ataque crítico.
+﻿Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=A partir do 3º nível, você pode canalizar sua corrupção interna em seus ataques corpo a corpo. Enquanto você está em fúria, a primeira criatura que você acertar em cada um de seus turnos com um ataque de arma corpo a corpo recebe dano necrótico adicional igual à sua proficiência e você recupera uma quantidade igual de pontos de vida. Dano e cura são dobrados em um ataque crítico.
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=Fúria Voraz
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partir do 6º nível, você ganha resistência a danos necróticos e venenosos.
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalidade Profana

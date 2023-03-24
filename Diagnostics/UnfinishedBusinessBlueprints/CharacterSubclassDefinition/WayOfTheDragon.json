@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfTheDragonFury:af962ee3-be8a-5109-9c75-8b3e5b32ebac",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDragonAscension:9178a214-cb9e-5432-a7a6-e510f5bc1e0a",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

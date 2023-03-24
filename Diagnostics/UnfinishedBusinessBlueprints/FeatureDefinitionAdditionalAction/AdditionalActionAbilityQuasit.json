@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackMain"
+  ],
+  "maxAttacksNumber": 1,
+  "triggerCondition": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c59cad05-8ced-59b9-ab1a-83788d33f5db",
+  "contentPack": 9999,
+  "name": "AdditionalActionAbilityQuasit"
+}

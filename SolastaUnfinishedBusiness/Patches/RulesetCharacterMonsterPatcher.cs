@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -34,6 +35,9 @@ public static class RulesetCharacterMonsterPatcher
             //PATCH: support for rage/ki/other stuff while shape-shifted
             //Transfers some of the ability modifiers to shape shifted form 
             MulticlassWildshapeContext.FinalizeMonster(__instance, keepMentalAbilityScores);
+
+            //PATCH: supports Awaken the Beast Within feat
+            ClassFeats.CustomBehaviorFeatAwakenTheBeastWithin.GrantTempHP(__instance);
         }
     }
 

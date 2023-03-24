@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfAltruismAuraOfTheGuardian:e2757560-390e-5633-99a5-aaeef4af6db7",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfAltruismTakeThePain:19b0060d-4f54-5782-a0ee-13d4b902ca62",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

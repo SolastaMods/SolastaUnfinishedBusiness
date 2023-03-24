@@ -84,7 +84,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(new FeatureDefinitionCustomCodeDistractingAmbush())
             .SetConditionOperations(

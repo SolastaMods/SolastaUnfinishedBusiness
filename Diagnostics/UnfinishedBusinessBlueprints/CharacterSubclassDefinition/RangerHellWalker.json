@@ -1,0 +1,69 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRangerHellWalkerCursedTongue:dfb0ae19-13dc-52c8-b2b7-5527821f0b71",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerHellWalkerDammingStrike:126ee439-bd45-5b73-bc3c-c90c33470095",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRangerHellWalker:dad8e064-e7a3-5968-956f-3c68d299c6b5",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerHellWalkerFirebolt:7f8c9b44-d62a-5425-9af3-6815b1e1a7d5",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerHellWalkerBurningConstitution:e6edb361-4b65-55f0-b7dd-8a2fd6ebe8f5",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerHellWalkerMarkOfTheDammed:03a0e584-de86-5c13-9178-41bdb8cc2593",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerHellWalkerFiendishSpawn:6c765350-7756-5877-9b40-821b11bda7ac",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerHellWalkerTitle",
+    "description": "Subclass/&RangerHellWalkerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "fcaa924f-f7b8-5c0d-bfba-2798d9106c83",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "91a75c02-2209-5dc6-8383-b21b14245f21",
+  "contentPack": 9999,
+  "name": "RangerHellWalker"
+}

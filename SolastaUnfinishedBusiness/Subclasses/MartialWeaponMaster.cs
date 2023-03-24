@@ -344,7 +344,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction] > 0)
+            if (!attacker.CanReact())
             {
                 yield break;
             }
@@ -354,7 +354,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (gameLocationActionService == null || gameLocationBattleService == null ||
+                !gameLocationBattleService.IsBattleInProgress)
             {
                 yield break;
             }
@@ -362,7 +363,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var specializedWeapons = GetSpecializedWeaponTypes(rulesetAttacker);
 
-            if (specializedWeapons.All(x => !ValidatorsCharacter.HasWeaponType(x)(rulesetAttacker)))
+            if (specializedWeapons.All(x => !ValidatorsWeapon.IsOfWeaponType(x)(attackMode, null, null)))
             {
                 yield break;
             }

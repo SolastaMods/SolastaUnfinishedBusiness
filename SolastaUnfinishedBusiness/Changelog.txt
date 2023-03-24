@@ -1,3 +1,9 @@
-- fixed action use soft lock introduced with Poison Expert feat
-- fixed Hardy feat to use fighter class level instead of character level
-- added new sprites to Call for Charge, Inspiring Leader, and Dragon Wings
+- added custom level up screen for Ancestries and Kindred Spirits
+- added Oath of Altruism level 15 and Way of the Dragon level 17 features
+- added Oath of Hatred, Ranger Hellwalker, Ranger Lightbearer and Sorcerous Spellblade subclasses
+- fixed Awaken the Beast Within to grant temp HP instead to beast and remove on shape reversal
+- fixed Circle of the Night missing combat healing bonus on level 6
+- fixed critical logic option 1 still granting double dice damage
+- fixed Grenadier not being able to use items as a bonus action
+- fixed Polearm Expert, Spear Mastery and Two Weapon Fighting die type interaction
+- fixed Sanctuary to not exclude the caster on targeting

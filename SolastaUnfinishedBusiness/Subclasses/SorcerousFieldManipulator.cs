@@ -18,11 +18,11 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Sleep)
-            .AddPreparedSpellGroup(2, Invisibility)
-            .AddPreparedSpellGroup(3, Counterspell)
-            .AddPreparedSpellGroup(4, Banishment)
-            .AddPreparedSpellGroup(5, HoldMonster)
-            .AddPreparedSpellGroup(6, GlobeOfInvulnerability)
+            .AddPreparedSpellGroup(3, Invisibility)
+            .AddPreparedSpellGroup(5, Counterspell)
+            .AddPreparedSpellGroup(7, Banishment)
+            .AddPreparedSpellGroup(9, HoldMonster)
+            .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
 #if false

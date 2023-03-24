@@ -54,10 +54,13 @@ internal static class SubclassesContext
         // Paladin
         LoadSubclass(new OathOfAltruism());
         LoadSubclass(new OathOfAncients());
+        LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
 
         // Ranger
         LoadSubclass(new RangerArcanist());
+        LoadSubclass(new RangerLightBearer());
+        LoadSubclass(new RangerHellWalker());
         LoadSubclass(new RangerWildMaster());
 
         // Rogue
@@ -71,6 +74,7 @@ internal static class SubclassesContext
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new SorcerousFieldManipulator());
+        LoadSubclass(new SorcerousSpellBlade());
 
         // Monk
         LoadSubclass(new WayOfTheDiscordance());

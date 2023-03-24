@@ -1,0 +1,12 @@
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Wenn du mit einem Angriff triffst oder mit einem Zauber Schaden zufügst, addiere deinen Charisma-Modifikator als zusätzlichen Kraftschaden zu einem Schadenswurf dieses Angriffs oder Zaubers.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Kriegszauberer
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Sie erwerben Kenntnisse im Umgang mit leichter Rüstung, mittlerer Rüstung und Kriegswaffen.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Kampftraining
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Deine Rüstungsklasse steigt um 2 und du erlernst Geschicklichkeitsrettungswürfe.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Kampfreflexe
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Du kannst deine Bonusaktion verwenden, um eine Minute lang temporäre Trefferpunkte in Höhe deiner Stufe als Zauberer + Charismamodifikator zu erhalten, und zwar so oft pro langer Pause, wie es deinem Fertigkeitsbonus entspricht. Wenn Sie keine Anwendungen mehr haben, können Sie stattdessen zwei Hexereipunkte ausgeben.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Mana-Schild
+Feedback/&AdditionalDamageWarSorcererFormat=Kriegszauberer
+Feedback/&AdditionalDamageWarSorcererLine={0} fügt {1} (+{2}) Kriegszauberer-Schaden zu
+Subclass/&SorcerousSpellBladeDescription=Zauberklingen kombinieren kriegerische Fähigkeiten mit angeborenen magischen Talenten, um ihre Feinde zu übertreffen.
+Subclass/&SorcerousSpellBladeTitle=Zauberklinge

@@ -26,7 +26,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         //Based on Oath of the Ancients prepared spells though changed Planet Growth to Spirit Guardians.
         var autoPreparedSpellsOathAncients = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetGuiPresentation("Subclass/&OathOfAncientsTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, EnsnaringStrike, AnimalFriendship),
@@ -55,8 +55,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 conditionNaturesWrath,
                                 ConditionForm.ConditionOperation.Add)
@@ -95,8 +94,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)

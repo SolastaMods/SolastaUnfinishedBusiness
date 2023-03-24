@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de soin ce tour-ci, vous relancez un résultat de 1 ou 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guérison renforcée
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 point de vie par niveau
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 point de vie par niveau.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Courage divin
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=La protection contre le mal et le bien est toujours connue et préparée.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun : Protection contre le mal et le bien
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane est toujou
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye : Quatre
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless est toujours connu et préparé.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri : bénisse
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Sélectionnez la source divine de votre magie (et le sort bonus préparé)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Sélectionnez la source divine de votre magie.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Choix de la divinité
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Votre connexion au divin vous permet d'apprendre et de lancer des sorts de Clerc comme des sorts de Sorcier.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magie divine

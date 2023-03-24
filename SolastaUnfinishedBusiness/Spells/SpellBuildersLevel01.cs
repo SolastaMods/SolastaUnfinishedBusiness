@@ -169,7 +169,6 @@ internal static partial class SpellBuilders
                         EffectFormBuilder.Create()
                             .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
                                 GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
                                     provider))
@@ -655,7 +654,6 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
                     .Build())
-                .ExcludeCaster()
                 .Build())
             .AddToDB();
 
