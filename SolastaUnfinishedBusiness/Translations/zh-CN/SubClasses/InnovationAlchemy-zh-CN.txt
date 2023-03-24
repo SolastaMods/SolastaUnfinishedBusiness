@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=目标无法治愈并在其回合结束时受到 2d6 坏死伤害。
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=坏死
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=目标在下一次攻击掷骰时处于劣势。
-Condition/&ConditionInnovationAlchemyDamagePsychicDescription=在力量、敏捷和体质豁免检定上获得 -1d4
+Condition/&ConditionInnovationAlchemyDamagePsychicDescription=在力量、敏捷和体质豁免检定上获得 -1d4。
 Condition/&ConditionInnovationAlchemyDamagePsychicTitle=不知所措
-Condition/&ConditionInnovationAlchemyDamageThunderDescription=在智力、智慧和魅力豁免检定上获得 -1d4
+Condition/&ConditionInnovationAlchemyDamageThunderDescription=在智力、智慧和魅力豁免检定上获得 -1d4。
 Condition/&ConditionInnovationAlchemyDamageThunderTitle=脑震荡
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=您已经学会了混合试剂和快速使用各种设备。您可以使用奖励动作来激活任何设备。
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=快手

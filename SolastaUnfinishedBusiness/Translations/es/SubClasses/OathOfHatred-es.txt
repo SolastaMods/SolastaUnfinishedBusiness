@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionDauntlessPursuerDescription=Obtienes 2 celdas de movimiento adicionales e ignoras las reacciones del oponente.
 Condition/&ConditionDauntlessPursuerTitle=Perseguidor intrépido
-Condition/&ConditionScornfulPrayerDescription=La fuerza y ​​la voz se desvanecen a medida que la oración envuelve. Mientras está bajo los efectos, la oración debilita al enemigo y lo maldice en las tiradas de ataque.
+Condition/&ConditionScornfulPrayerDescription=La fuerza y la voz se desvanecen a medida que la oración envuelve. Mientras está bajo los efectos, la oración debilita al enemigo y lo maldice en las tiradas de ataque.
 Condition/&ConditionScornfulPrayerTitle=Despreciado
 Feature/&FeatureHatredDauntlessPursuerDescription=En un ataque de oportunidad exitoso, gana 2 celdas de movimiento adicionales y una retirada gratuita.
 Feature/&FeatureHatredDauntlessPursuerTitle=Perseguidor intrépido

@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Vantaggio alle prove di Forza e ai tiri salvezza. +1d4 danni con armi da mischia Forza
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Vantaggio alle prove di Forza e ai tiri salvezza. +1d4 danni con armi da mischia Forza.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Forza di pietra
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Forza +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Aumento del punteggio di abilità

@@ -1,4 +1,4 @@
-﻿Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=从第 3 级开始，你可以将你内心的腐败引导到你的近战武器攻击中。当你狂暴时，你在你的每个回合中用近战武器攻击击中的第一个生物会受到额外的坏死伤害，其数值等同于你的熟练程度，并且你会恢复等量的生命值。暴击时伤害和治疗翻倍。
+﻿Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=从第 3 级开始，你可以将你内心的腐败引导到你的近战武器攻击中。当你狂暴时，你在你的每个回合中用近战武器攻击击中的第一个生物会受到额外的坏疽伤害，其数值等同于你的熟练程度，并且你会恢复等量的生命值。暴击时伤害和治疗翻倍。
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=贪婪之怒
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=从第 6 级开始，你获得对坏疽和毒素伤害的抗性。
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=亵渎活力

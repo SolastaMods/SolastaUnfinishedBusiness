@@ -19,5 +19,5 @@ Subclass/&RangerHellWalkerTitle=Andarilho do inferno
 Tooltip/&MustHaveDammingStrikeCondition=Não é marcado por Damning Strike
 Monster/&MonsterHezrouDescription=Hezrous eram grandes monstruosidades demoníacas. Eles tinham uma semelhança superficial com um sapo em forma humanóide, com braços e mãos em vez de patas dianteiras. Dentro de suas bocas largas havia fileiras de dentes rombudos que tinham uma poderosa força de esmagamento, e uma série de pontas longas desciam por suas costas.
 Monster/&MonsterHezrouTitle=Hezrou
-Monster/&MonsterMarilithDescription=Da cintura para cima, os mariliths pareciam mulheres humanóides atraentes com seis braços, mas suas metades inferiores eram de cobras verdes gigantes. Em cada mão eles carregavam armas altamente decoradas e se enfeitavam com pulseiras e joias.
+Monster/&MonsterMarilithDescription=Da cintura para cima, os mariliths pareciam ser atraentes mulheres humanóides com seis braços, mas suas metades inferiores eram de cobras verdes gigantes. Em cada mão eles carregavam armas altamente decoradas e se enfeitavam com pulseiras e joias.
 Monster/&MonsterMarilithTitle=Marilith

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMirrorImageDescription=I nemici possono prendere di mira accidentalmente questo duplicato al posto tuo. Se viene colpito il duplicato, scompare.
+﻿Condition/&ConditionMirrorImageDescription=I nemici possono prendere di mira accidentalmente questo duplicato al posto tuo. Se duplicato viene colpito, scompare.
 Condition/&ConditionMirrorImageTitle=Duplicato speculare
 Feedback/&MirrorImageAttackerHasSense={0} ha {1} e ignora {2}
 Feedback/&MirrorImageAttackerIsBlind={0} è {1} e ignora {2}

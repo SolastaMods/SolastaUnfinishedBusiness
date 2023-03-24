@@ -50,7 +50,7 @@ Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription=Obtienes 
 Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle=Entrenamiento con armas
 Feature/&PowerAfterRestIdentifyDescription=Identifica todos los objetos mágicos del inventario.
 Feature/&PowerAfterRestIdentifyTitle=Identificar
-Feature/&PowerHelpDescription=Puedes ayudar a una criatura aliada a atacar a una criatura a 5 pies de ti. Fintas, distraes al objetivo o te unes de alguna otra forma para que el ataque de tu aliado sea más eficaz. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se realiza con ventaja.
+Feature/&PowerHelpDescription=Puedes ayudar a una criatura aliada a atacar a una criatura a 5 pies de ti. Fintas, distraes al objetivo o te unes de alguna otra forma para que el ataque de tu aliado sea más efectivo. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se realiza con ventaja.
 Feature/&PowerHelpTitle=Ayuda
 Feature/&ToolGainChoicesPluralDescription=Elija {0} de estas herramientas: {1}
 Feature/&ToolGainChoicesSingleDescription=Elija una de estas herramientas: {1}
@@ -63,7 +63,7 @@ Message/&CharacterExportDuplicateNameErrorDescription=Exportación cancelada:\n\
 Message/&CharacterExportEmptyNameErrorDescription=Exportación cancelada:\n\nintente con un nombre que no esté vacío.
 Message/&CharacterExportModalContentDescription=Ingrese el nombre del héroe para exportar:
 Message/&CharacterExportModalTitleDescription=Exportar {0}
-Message/&MessageModWelcomeDescription=El Unfinished Business Mod está repleto de funciones interesantes, pero de forma predeterminada, ninguna está habilitada. Presiona <color=#F0DAA0>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el ícono de configuración junto a "Asuntos pendientes" para abrir las páginas de configuración. Explore las opciones y seleccione las que le gusten.\nEl botón de donación lo llevará a PayPal de manera predeterminada. Hay otras opciones de donación en Mod UI> Personaje.
+Message/&MessageModWelcomeDescription=El Unfinished Business Mod está repleto de funciones interesantes, pero de forma predeterminada, ninguna está habilitada. Presiona <color=#F0DAA0>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el ícono de configuración junto a "Asuntos pendientes" para abrir las páginas de configuración. Explore las opciones y seleccione las que le gusten.\nEl botón de donación lo llevará a PayPal de manera predeterminada. Hay otras opciones de donación en Mod UI> Carácter.
 Message/&MessageModWelcomeTitle=Mod de negocios inacabados
 Message/&RespecMultiplayerAbortDescription=No se puede respetar en un juego o mapa multijugador...
 Message/&RespecSuccessfulDescription=RESPEC tuvo éxito. No olvides recoger tus artículos en el suelo.

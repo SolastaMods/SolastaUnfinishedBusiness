@@ -2,6 +2,6 @@
 Feat/&FeatBowMasteryTitle=Padronanza dell'arco
 Feat/&FeatDeadeyeDescription=Hai imparato a scambiare la precisione per mettere a segno colpi più letali:\n• Quando attacchi con un'arma a distanza, puoi scegliere di subire una penalità di -5 al tuo colpo per infliggere +10 danni aggiuntivi.\n• Attacchi a il lungo raggio non impone svantaggio e l'attacco con armi a distanza ignora metà copertura e tre quarti di copertura.
 Feat/&FeatDeadeyeTitle=Occhio morto
-Feat/&FeatRangedExpertDescription=Il tuo addestramento esperto con le armi a distanza ti garantisce questi vantaggi:\n• Gli attacchi a distanza ravvicinata non comportano svantaggio.\n• Se esegui l'azione Attacco durante il tuo turno, puoi rendere bonus un attacco a distanza con una sola mano azione, aggiungendo il tuo modificatore di attributo al danno.
+Feat/&FeatRangedExpertDescription=Il tuo addestramento esperto con le armi a distanza ti garantisce questi vantaggi:\n• Gli attacchi a distanza ravvicinata non impongono svantaggio.\n• Se esegui l'azione di attacco durante il tuo turno, puoi effettuare un attacco bonus a distanza con una sola mano aggiungendo il tuo modificatore di attributo al danno.
 Feat/&FeatRangedExpertTitle=Esperto a distanza
 Tooltip/&DeadeyeConcentration=Disabilita Deadeye.

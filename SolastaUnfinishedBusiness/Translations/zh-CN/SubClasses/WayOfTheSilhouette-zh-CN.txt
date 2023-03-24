@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此传统时，你可以花费 2 点 Ki 来施展黑暗、黑暗视觉、无踪无踪或沉默，而无需提供材料成分。此外，如果您还不知道，您将获得光之咒语。
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此传统时，你可以花费 2 点 Ki 来施展黑暗术、黑暗视觉、无踪无踪或沉默术，而无需提供材料成分。此外，如果您还不知道，您将获得光之咒语。
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=剪影艺术
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=除了自然黑暗之外，剪影斗篷现在还可以在昏暗的光线和魔法黑暗中工作。
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=改进型轮廓斗篷

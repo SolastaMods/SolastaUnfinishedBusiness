@@ -1,10 +1,10 @@
 ﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Ottieni resistenza ai danni degli incantesimi.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protetto
-Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Quando sei ridotto a 0 punti ferita ma non ucciso sul colpo, scendi invece a 1 punto ferita. Non puoi beneficiare di nuovo di questo privilegio fino al termine di un riposo lungo.
+Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Quando vieni ridotto a 0 punti ferita ma non ucciso sul colpo, scendi invece a 1 punto ferita. Non puoi beneficiare di nuovo di questo privilegio fino al termine di un riposo lungo.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Sentinella immortale
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Puoi usare Channel Divinity per invocare forze primordiali per irretire un nemico. Come azione, puoi far spuntare rampicanti spettrali e raggiungere una creatura entro 3 metri da te che puoi vedere. La creatura deve superare un tiro salvezza su Forza o essere trattenuta. Mentre è trattenuta dai rampicanti, la creatura ripete il tiro salvezza alla fine di ogni suo turno. In caso di successo, si libera e le viti svaniscono.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Incanalare Divinità: Ira della Natura
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Puoi usare la tua Incanalare Divinità per pronunciare parole antiche che sono dolorose da sentire per folletti e immondi. Come azione, presenti il ​​tuo simbolo sacro e ogni folletto o immondo entro 9 metri da te che può sentirti deve effettuare un tiro salvezza su Saggezza. In caso di tiro salvezza fallito, la creatura viene girata per 1 minuto o finché non subisce danni.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Puoi usare la tua Incanalare Divinità per pronunciare parole antiche che sono dolorose da sentire per folletti e immondi. Come azione, presenti il tuo simbolo sacro e ogni folletto o immondo entro 9 metri da te che può sentirti deve effettuare un tiro salvezza su Saggezza. In caso di tiro salvezza fallito, la creatura viene girata per 1 minuto o finché non subisce danni.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: trasforma i senza fede
 Feature/&PowerOathOfAncientsAuraWardingDescription=A partire dal 7° livello, la magia antica grava così pesantemente su di te da formare una protezione mistica. Tu e le creature amiche entro 3 metri da te avete resistenza ai danni degli incantesimi.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura di Protezione

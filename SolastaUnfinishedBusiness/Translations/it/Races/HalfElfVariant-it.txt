@@ -2,5 +2,5 @@ Race/&RaceHalfElfDarkDescription=Gli Elfi Mezzoscuro sono discendenti di Elfi ch
 Race/&RaceHalfElfDarkTitle=Elfo Mezzoscuro
 Race/&RaceHalfElfHighDescription=I mezzo-alti elfi vengono addestrati a usare la magia molto presto.
 Race/&RaceHalfElfHighTitle=Elfo Mezzo-Alto
-Race/&RaceHalfElfSylvanDescription=Gli elfi mezzo silvani sono addestrati a sopravvivere nelle terre selvagge e sono particolarmente inclini a sopravvivere. Essendo la loro eredità elfica silvana, sono addestrati a combattere con spade e archi fin dall'infanzia.
+Race/&RaceHalfElfSylvanDescription=Gli elfi mezzi silvani sono addestrati a sopravvivere nelle terre selvagge e sono particolarmente inclini a sopravvivere. Essendo la loro eredità elfica silvana, sono addestrati a combattere con spade e archi fin dall'infanzia.
 Race/&RaceHalfElfSylvanTitle=Elfo Mezzo Silvano

@@ -1,12 +1,12 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre a essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi nel tuo turno, la tua portata è di 3 metri. Altre creature provocano un tuo attacco di opportunità quando entrano nella portata che hai con .
-Feat/&FeatAstralArmsTitle=Portata Astrale
+Feat/&FeatAstralArmsTitle=Portata astrale
 Feat/&FeatEldritchAdeptDescription=Apprendi un'opzione Invocazione Spettrale a tua scelta dalla classe Stregone. Se l'invocazione ha un prerequisito, puoi scegliere quell'invocazione solo se sei uno stregone e solo se soddisfi il prerequisito. Ogni volta che guadagni un livello, puoi sostituire l'invocazione con un'altra della classe warlock.
 Feat/&FeatEldritchAdeptTitle=Adepto Eldritch
 Feat/&FeatElementalAdeptDescription={0} incantesimi del tipo di danno che lanci ignorano la resistenza del bersaglio al danno. Inoltre, quando tiri i danni per questi incantesimi, puoi ritirare qualsiasi 1.
 Feat/&FeatElementalAdeptTitle=Adepto Elementale [{0}]
-Feat/&FeatElementalMasterDescription={0} incantesimi del tipo di danno che lanci ignorano l'immunità del bersaglio al danno. Inoltre, quando tiri l'attacco per questi incantesimi, puoi ritirare qualsiasi 1.
+Feat/&FeatElementalMasterDescription={0} incantesimi di tipo danno che lanci ignorano l'immunità del bersaglio al danno. Inoltre, quando tiri l'attacco per questi incantesimi, puoi ritirare qualsiasi 1.
 Feat/&FeatElementalMasterTitle=Maestro Elementale [{0}]
 Feat/&FeatHealerDescription=Ottieni competenza o esperienza nelle prove di Medicina. Ottieni la capacità di stabilizzare una creatura morente e di resuscitare una creatura morta negli ultimi 12 secondi una volta per riposo lungo. Si può usare un'azione per ripristinare 1d6 + 4 + punti ferita di livello del personaggio un numero di volte per riposo breve pari al proprio modificatore di Saggezza.
 Feat/&FeatHealerTitle=Guaritore

@@ -1,6 +1,6 @@
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci un incantesimo Curativo in questo turno, ripeti il ​​tiro con un risultato di 1 o 2.
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Se lanci un incantesimo Curativo in questo turno, tiri nuovamente un risultato di 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guarigione potenziata
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 punto ferita per livello
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 punto ferita per livello.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortezza Divina
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=La protezione dal male e dal bene è sempre conosciuta e preparata.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun: protezione dal male e dal bene
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane è sempre 
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye: Quattro
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless è sempre conosciuto e preparato.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri: Benedici
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Seleziona la fonte divina della tua magia (e l'incantesimo bonus preparato)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Seleziona la fonte divina della tua magia.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Scelta della divinità
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=La tua connessione con il divino ti consente di apprendere e lanciare incantesimi da chierico come incantesimi da stregone.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magia Divina

@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=在力量检定和豁免检定上具有优势。 +1d4 近战力量武器伤害
+Condition/&ConditionGrayDwarfStoneStrengthDescription=在力量检定和豁免检定上具有优势。 +1d4 近战力量武器伤害。
 Condition/&ConditionGrayDwarfStoneStrengthTitle=石头力量
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=力量+1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=能力值增加

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Fuerza +1
-Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Aumento de atributos
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Aumento de atributo
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Sabiduría +2
-Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Aumento de atributos
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Aumento de atributo
 Feature/&CastSpellBolgrifMagicDescription=Conoces un cantrip de tu elección de la lista de hechizos de druida. La sabiduría es tu habilidad para lanzar hechizos.
 Feature/&CastSpellBolgrifMagicTitle=Magia druídica
 Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=Cuenta su tamaño como Grande al determinar su capacidad de carga.

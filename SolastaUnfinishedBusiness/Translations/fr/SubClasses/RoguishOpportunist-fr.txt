@@ -1,7 +1,7 @@
 Condition/&ConditionOpportunistDebilitatedDescription=Débilité.
 Condition/&ConditionOpportunistDebilitatedTitle=Débilité
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Lorsqu'un ennemi échoue à un jet de sauvegarde et que ce n'est pas votre tour, vous pouvez utiliser votre réaction pour effectuer une attaque contre lui. Vous pouvez déclencher une attaque sournoise avec cette fonctionnalité.
-Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Saisir la chance
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Saisir l'occasion
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Vous avez l'avantage d'attaquer des ennemis dont l'initiative est inférieure à la vôtre. De plus, vous avez également un avantage lors de l'exécution d'attaques d'opportunité.
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Frappe rapide
 Feature/&PowerOpportunistDebilitatingStrikeDescription=Votre attaque sournoise oblige la cible à effectuer un jet de sauvegarde de Constitution (DD 8 + votre bonus de maîtrise + votre modificateur de Dextérité) ou à un jet de sauvegarde réduit de 1D6 pendant un round.

@@ -8,5 +8,5 @@ Feature/&FeatureRoguishSlayerEliminationDescription=A partir del 3.er nivel, ere
 Feature/&FeatureRoguishSlayerEliminationTitle=Eliminación
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=A partir del nivel 13, puedes usar tu acción adicional para volverte invisible durante 1 minuto. Puedes usar esta función una vez por descanso breve.
 Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Manto de sombras
-Subclass/&RoguishSlayerDescription=Los Slayers enfocan su entrenamiento en el sombrío arte de la muerte. Los que se adhieren a este arquetipo son diversos: asesinos a sueldo, espías, cazarrecompensas e incluso sacerdotes especialmente ungidos entrenados para exterminar a los enemigos de su deidad. El sigilo, el veneno y el disfraz te ayudan a eliminar a tus enemigos con una eficiencia letal.
+Subclass/&RoguishSlayerDescription=Los Slayers enfocan su entrenamiento en el sombrío arte de la muerte. Los que se adhieren a este arquetipo son diversos: asesinos a sueldo, espías, cazarrecompensas e incluso sacerdotes especialmente ungidos entrenados para exterminar a los enemigos de su deidad. El sigilo, el veneno y el disfraz te ayudan a eliminar a tus enemigos con una eficacia letal.
 Subclass/&RoguishSlayerTitle=Asesino

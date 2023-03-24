@@ -2,11 +2,11 @@
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Protettore Acrobata
 Feature/&FeatureRoguishAcrobatTrooperDescription=Ottieni la capacità di usare un bastone ferrato come arma di precisione e la portata del bastone ferrato aumenta a 3 metri.\nQuando esegui l'azione Attacco con un bastone ferrato, puoi usare la tua azione bonus per effettuare un attacco in mischia con l'estremità opposta del arma. Questo attacco utilizza lo stesso modificatore di caratteristica dell'attacco primario e infligge 1d4 danni contundenti.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldato acrobatico
-Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Il dado di danno versatile del tuo bastone ferrato passa da un d8 a un d10.\nArrampicare non ti costa più mosse extra e puoi saltare altri 3 metri.\nHai vantaggio nei tentativi di spinta e prono.\nDevi esserlo brandendo un bastone ferrato in due mani per farli funzionare.
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Il dado di danno versatile del tuo bastone ferrato passa da un d8 a un d10.\nArrampicarti non ti costa più mosse extra e puoi saltare altri 3 metri.\nHai vantaggio nei tentativi di spinta e prono.\nDevi esserlo brandendo un bastone ferrato in due mani per farli funzionare.
 Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Veloce come il vento
 Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=Non sei influenzato dal terreno difficile.\nPuoi muoverti lungo i muri e non subisci danni in caso di cadute fino a 9 metri.\nGli attacchi di opportunità vengono effettuati con svantaggio contro di te.\nDevi impugnare un bastone ferrato. in due mani perché queste funzionino.
 Feature/&MovementAffinityRoguishAcrobatFluidMotionsTitle=Movimenti fluidi
-Feature/&PowerRoguishAcrobatReflexesDescription=Puoi effettuare schivare come azione bonus un numero di volte pari al tuo modificatore di destrezza.
+Feature/&PowerRoguishAcrobatReflexesDescription=Schivare come azione bonus un numero di volte pari al proprio modificatore di destrezza.
 Feature/&PowerRoguishAcrobatReflexesTitle=Riflessi acrobatici
 Feature/&ProficiencyRoguishAcrobatMavenDescription=Acquisisci competenza o esperienza nell'abilità di acrobata.
 Feature/&ProficiencyRoguishAcrobatMavenTitle=Acrobata Esperto

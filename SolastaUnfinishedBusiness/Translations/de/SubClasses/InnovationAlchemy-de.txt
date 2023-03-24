@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=Das Ziel kann nicht heilen und erleidet am Ende seines Zuges 2W6 nekrotischen Schaden.
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=Nekrose
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=Das Ziel wird beim nächsten Angriffswurf benachteiligt.
-Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Erhält -1W4 auf Rettungswürfe auf Stärke, Geschicklichkeit und Konstitution
+Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Erhält -1W4 auf Rettungswürfe auf Stärke, Geschicklichkeit und Konstitution.
 Condition/&ConditionInnovationAlchemyDamagePsychicTitle=Überwältigt
-Condition/&ConditionInnovationAlchemyDamageThunderDescription=Erhält -1W4 auf Rettungswürfe für Intelligenz, Weisheit und Charisma
+Condition/&ConditionInnovationAlchemyDamageThunderDescription=Erhält -1W4 auf Rettungswürfe für Intelligenz, Weisheit und Charisma.
 Condition/&ConditionInnovationAlchemyDamageThunderTitle=Gehirnerschütterung
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=Sie haben gelernt, Reagenzien schnell zu mischen und verschiedene Geräte zu verwenden. Sie können eine Bonusaktion verwenden, um jedes Gerät zu aktivieren.
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=Schnelle Hände

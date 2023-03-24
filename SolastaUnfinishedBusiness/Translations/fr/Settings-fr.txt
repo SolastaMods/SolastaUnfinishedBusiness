@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Grande</color> et <color=#D89555>Petite restauration</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux éléments officiels du jeu <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></ je>
+ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage ou aux monstres contrôlés de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</couleur></i>
@@ -97,7 +97,7 @@ ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attribut
 ModUi/&EnableSaveByLocation=Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
-ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pourriez interrompre des quêtes si vous vous téléportez vers un lieu inconnu]</color></ je>
+ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pourriez interrompre des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
 ModUi/&EnableUpcastConjureElementalAndFey=Activer l'upcast de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
@@ -134,7 +134,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour u
 ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast et sous-classes Draconic choix]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
@@ -154,7 +154,7 @@ ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
-ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement par défaut du répertoire consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
+ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Offrir des noms conviviaux supplémentaires lors de la création de personnage
@@ -217,9 +217,9 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets PNJ
 ModUi/&UnleashNpcAsEnemy=Déverrouiller la sélection de monstres
 ModUi/&UnlockAllNpcFaces=Déverrouiller les visages des PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs éclatantes pour les yeux
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage

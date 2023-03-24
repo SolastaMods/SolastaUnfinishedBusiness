@@ -1,16 +1,16 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></ ich>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Umschalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
-ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&Advanced=<color =#f0daa0> Fortgeschritten: </color> <b><i><color =#C04040E0> [erfordert Neustart] </color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
 ModUi/&AllItemInDm=Alle Artikel in DM
@@ -56,7 +56,7 @@ ModUi/&Deities=<color=#F0DAA0>Gottheiten:</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -77,9 +77,9 @@ ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 4, 10 und 16
-ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, aber Nachteile mit allen anderen Waffentyp]</color></i>
+ModUi/&EnableFighterArmamentAdroitness=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber benachteilige mit allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
@@ -97,7 +97,7 @@ ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte a
 ModUi/&EnableSaveByLocation=Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
-ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></ ich>
+ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>

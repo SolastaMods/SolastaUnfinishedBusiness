@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Vorteil bei Stärkechecks und Rettungswürfen. +1W4 Schaden mit Nahkampfwaffen mit Stärke
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Vorteil bei Stärkechecks und Rettungswürfen. +1W4 Schaden mit Nahkampfwaffen mit Stärke.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Steinstärke
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Stärke +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Erhöhung des Fähigkeitswerts

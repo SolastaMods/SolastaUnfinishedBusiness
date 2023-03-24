@@ -17,4 +17,4 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Use reaction to ba
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Rift Strike
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Rift Strike
 Subclass/&PatronRiftWalkerDescription=Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
-Subclass/&PatronRiftWalkerTitle=The Rift Walker
+Subclass/&PatronRiftWalkerTitle=The Riftwalker

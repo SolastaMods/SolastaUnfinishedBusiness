@@ -8,5 +8,5 @@ Feature/&PowerRoyalKnightProtectionDescription=您的行为会激励他人继续
 Feature/&PowerRoyalKnightProtectionTitle=励志保护
 Feature/&PowerRoyalKnightRallyingCryDescription=用恢复 4 倍战士等级生命值的力量取代复苏之风，平均分配给 30 英尺内的一名或多名盟友。
 Feature/&PowerRoyalKnightRallyingCryTitle=集结呐喊
-Subclass/&MartialRoyalKnightDescription=一个通过在战斗中做出勇敢的行为来激发他人伟大的骑士。皇家骑士是一名技术娴熟的战士，但领导一队盟友甚至可以将装备最差的民兵转变为一支凶猛的战队。
+Subclass/&MartialRoyalKnightDescription=一个通过在战斗中做出勇敢的事迹来激发他人伟大的骑士。皇家骑士是一名技术娴熟的战士，但领导一队盟友甚至可以将装备最差的民兵转变为一支凶猛的战队。
 Subclass/&MartialRoyalKnightTitle=皇家骑士

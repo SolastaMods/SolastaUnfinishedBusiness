@@ -2,7 +2,7 @@
 Condition/&ConditionForesightTitle=Previsão
 Condition/&ConditionTimeStopDescription=O tempo é congelado para a criatura afetada.
 Condition/&ConditionTimeStopTitle=Tempo parado
-Condition/&ConditionWeirdDescription=Com medo. No final de cada turno, faça um teste de resistência de Sabedoria. Em caso de falha, receba 4d10 de dano psíquico. Em um sucesso, esta condição termina.
+Condition/&ConditionWeirdDescription=Com medo. Ao final de cada turno, faça um teste de resistência de Sabedoria. Em caso de falha, receba 4d10 de dano psíquico. Em um sucesso, esta condição termina.
 Condition/&ConditionWeirdTitle=Estranho
 Spell/&ForesightDescription=Você toca uma criatura voluntária e concede uma habilidade limitada de ver o futuro imediato. Pela duração, o alvo não pode ser surpreendido e tem vantagem nas jogadas de ataque, testes de habilidade e testes de resistência. Além disso, outras criaturas têm desvantagem nas jogadas de ataque contra o alvo pela duração.
 Spell/&ForesightTitle=Previsão

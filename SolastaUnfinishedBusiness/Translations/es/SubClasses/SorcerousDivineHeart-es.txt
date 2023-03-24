@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si lanzas un hechizo de curación este turno, vuelves a tirar un resultado de 1 o 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Sanación empoderada
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 punto de golpe por nivel
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Punto de Golpe por nivel.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Fortaleza Divina
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=La protección contra el mal y el bien siempre se conoce y se prepara.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun: protección contra el mal y el bien
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane siempre es
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye: Cuatro
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless siempre se sabe y se prepara.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri: Bendiga
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Selecciona la fuente divina de tu magia (y el hechizo adicional preparado)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Seleccione la fuente Divina de su magia.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Elección de la deidad
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Tu conexión con lo divino te permite aprender y lanzar hechizos de clérigo como hechizos de hechicero.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Magia Divina
