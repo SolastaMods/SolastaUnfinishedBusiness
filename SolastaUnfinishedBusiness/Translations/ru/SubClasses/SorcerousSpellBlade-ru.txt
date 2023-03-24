@@ -1,10 +1,12 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Когда вы попадаете атакой или наносите урон заклинанием, вы можете добавить дополнительный силовой урон, равный вашему модификатору харизмы. Если заклинание воздействует более чем на одну цель, бонус применяется к одной из них.
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=боевой колдун
-Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Ваш Класс Защиты увеличивается на 2, и вы получаете владение спасбросками ловкости.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Боевой колдун
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Вы получаете владение легкими доспехами, средними доспехами и боевым оружием.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Боевая подготовка
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Ваш класс брони увеличивается на 2, и вы получаете владение спасбросками ловкости.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Боевые рефлексы
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Вы можете использовать бонусное действие, чтобы получить временные хиты, равные вашему уровню чародея + модификатор харизмы, на одну минуту, количество раз за продолжительный отдых, равное вашему бонусу мастерства. Если вы не пользуетесь, вместо этого вы можете потратить два очка волшебства.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Щит маны
-Feedback/&AdditionalDamageWarSorcererFormat=боевой колдун
+Feedback/&AdditionalDamageWarSorcererFormat=Боевой колдун
 Feedback/&AdditionalDamageWarSorcererLine={0} наносит урон боевым колдуном на {1} (+{2})
 Subclass/&SorcerousSpellBladeDescription=Чародейские клинки сочетают боевое мастерство с врожденными магическими талантами, чтобы превзойти своих врагов.
 Subclass/&SorcerousSpellBladeTitle=Чародейский клинок

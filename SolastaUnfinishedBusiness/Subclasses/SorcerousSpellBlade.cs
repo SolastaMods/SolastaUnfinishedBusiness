@@ -22,7 +22,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
     internal SorcerousSpellBlade()
     {
-        // LEVEL 03
+        // LEVEL 01
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -37,6 +37,28 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
+        var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}MartialTraining")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}MartialTrainingArmor")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Armor,
+                        EquipmentDefinitions.LightArmorCategory,
+                        EquipmentDefinitions.MediumArmorCategory)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}MartialTrainingWeapon")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.Weapon,
+                        EquipmentDefinitions.SimpleWeaponCategory,
+                        EquipmentDefinitions.MartialWeaponCategory)
+                    .AddToDB())
+            .AddToDB();
+
+        // LEVEL 02
+
         // Mana Shield
 
         const string MANA_SHIELD_NAME = $"FeatureSet{Name}ManaShield";
@@ -45,6 +67,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .Create()
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerTraditionCourtMageSpellShield)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -59,20 +82,22 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(effectDescriptionManaShield)
-            .SetCustomSubFeatures(
-                new ModifyMagicEffectManaShield(false),
-                new PowerVisibilityModifierManaShield())
             .AddToDB();
 
         var powerManaShieldPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ManaShieldPoints")
             .SetGuiPresentation(MANA_SHIELD_NAME, Category.Feature, spriteManaShield)
-            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.SorceryPoints, 2)
             .SetEffectDescription(effectDescriptionManaShield)
-            .SetCustomSubFeatures(
-                new ModifyMagicEffectManaShield(true),
-                new PowerVisibilityModifierManaShieldPoints(powerManaShield))
             .AddToDB();
+
+        powerManaShield.SetCustomSubFeatures(
+            new ModifyMagicEffectManaShield(false, powerManaShieldPoints),
+            new PowerVisibilityModifierManaShield());
+
+        powerManaShieldPoints.SetCustomSubFeatures(
+            new ModifyMagicEffectManaShield(true, powerManaShieldPoints),
+            new PowerVisibilityModifierManaShieldPoints(powerManaShield));
 
         var featureSetManaShield = FeatureDefinitionFeatureSetBuilder
             .Create(MANA_SHIELD_NAME)
@@ -86,14 +111,35 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         // LEVEL 14
 
-        var additionalDamageWarSorcerer = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}WarSorcerer")
-            .SetGuiPresentation(Category.Feature)
+        const string WAR_SORCERER_NAME = $"AdditionalDamage{Name}WarSorcerer";
+
+        var additionalDamageWarSorcererMagic = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}WarSorcererMagic")
+            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
             .SetNotificationTag("WarSorcerer")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SpellcastingBonus)
             .SetSpecificDamageType(DamageTypeForce)
+            .SetIgnoreCriticalDoubleDice(true)
+            .AddToDB();
+
+        var additionalDamageWarSorcererWeapon = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}WarSorcererWeapon")
+            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
+            .SetNotificationTag("WarSorcerer")
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetAttackModeOnly()
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.SpellcastingBonus)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetIgnoreCriticalDoubleDice(true)
+            .AddToDB();
+
+        // had to keep this name off standard for reasons
+        var additionalDamageWarSorcerer = FeatureDefinitionFeatureSetBuilder
+            .Create($"AdditionalDamage{Name}WarSorcerer")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(additionalDamageWarSorcererMagic, additionalDamageWarSorcererWeapon)
             .AddToDB();
 
         // LEVEL 18
@@ -125,8 +171,8 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("SorcererSpellBlade", Resources.SorcererSpellBlade, 256))
             .AddFeaturesAtLevel(1,
-                FeatureSetCasterFightingProficiency,
                 PowerArcaneFighterEnchantWeapon,
+                featureSetMartialTraining,
                 autoPreparedSpells)
             .AddFeaturesAtLevel(2,
                 featureSetManaShield)
@@ -148,6 +194,10 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Mana Shield
+    //
+    
     private sealed class PowerVisibilityModifierManaShield : PowerVisibilityModifier
     {
         public PowerVisibilityModifierManaShield() : base((character, power, _) =>
@@ -174,11 +224,13 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
     private sealed class ModifyMagicEffectManaShield : IModifyMagicEffect
     {
-        private readonly bool _consumeSlots;
+        private readonly bool _consumedSlots;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ModifyMagicEffectManaShield(bool consumeSlots)
+        public ModifyMagicEffectManaShield(bool consumedSlots, FeatureDefinitionPower featureDefinitionPower)
         {
-            _consumeSlots = consumeSlots;
+            _consumedSlots = consumedSlots;
+            _featureDefinitionPower = featureDefinitionPower;
         }
 
         public EffectDescription ModifyEffect(
@@ -189,13 +241,15 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             var classLevel = character.GetClassLevel(CharacterClassDefinitions.Sorcerer);
             var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
-            var healing = classLevel + Math.Min(1, charismaModifier);
+            var healing = classLevel + Math.Max(1, charismaModifier);
 
             effect.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
-            if (_consumeSlots)
+            if (_consumedSlots)
             {
-                character.SpendSorceryPoints(2);
+                character.UsablePowers
+                    .FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower)
+                    ?.RepayUse();
             }
 
             return effect;

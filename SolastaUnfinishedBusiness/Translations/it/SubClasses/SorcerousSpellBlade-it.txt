@@ -1,6 +1,8 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando si colpisce con un attacco o si infliggono danni con un incantesimo, è possibile aggiungere danni da forza bonus pari al proprio modificatore di carisma. Se un incantesimo colpisce più di un bersaglio, il bonus si applica a uno di essi.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Stregone di guerra
-Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=La tua Classe Armatura aumenta di 2 e ottieni competenza nei tiri salvezza di Destrezza.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Ottieni competenza con le armature leggere, le armature medie e le armi da guerra.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Allenamento marziale
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=La tua classe armatura aumenta di 2 e ottieni competenza nei tiri salvezza di destrezza.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Riflessi di battaglia
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Puoi usare la tua azione bonus per ottenere punti ferita temporanei pari al tuo livello da Stregone + modificatore di carisma per un minuto, un numero di volte per riposo lungo pari al tuo bonus di competenza. Se sei fuori uso, puoi invece spendere due punti stregoneria.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Scudo di mana
