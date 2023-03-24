@@ -499,7 +499,13 @@ internal static class InvocationsBuilders
         var conditionAbilityQuasit = ConditionDefinitionBuilder
             .Create("ConditionAbilityQuasit")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainQuasit)
-            .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionHasted,
+            .AddFeatures(FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalActionAbilityQuasit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
