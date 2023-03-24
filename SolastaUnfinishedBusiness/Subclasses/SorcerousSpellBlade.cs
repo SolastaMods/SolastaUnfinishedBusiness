@@ -75,7 +75,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                     .Build())
             .Build();
 
-        var spriteManaShield = Sprites.GetSprite("PowerManaShield", Resources.PowerMedKit, 256, 128);
+        var spriteManaShield = Sprites.GetSprite("PowerManaShield", Resources.PowerManaShield, 256, 128);
 
         var powerManaShield = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ManaShield")
