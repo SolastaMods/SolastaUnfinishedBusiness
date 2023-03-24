@@ -197,7 +197,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     //
     // Mana Shield
     //
-    
+
     private sealed class PowerVisibilityModifierManaShield : PowerVisibilityModifier
     {
         public PowerVisibilityModifierManaShield() : base((character, power, _) =>

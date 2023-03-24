@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -160,7 +159,7 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         }
 
         var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
-        
+
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
 

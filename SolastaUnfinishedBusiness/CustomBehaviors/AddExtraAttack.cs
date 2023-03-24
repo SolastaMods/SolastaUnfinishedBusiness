@@ -351,7 +351,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
-        
+
         // this is required to correctly interact with Spear Mastery dice upgrade
         attackMode.AttackTags.Add("Polearm");
 
