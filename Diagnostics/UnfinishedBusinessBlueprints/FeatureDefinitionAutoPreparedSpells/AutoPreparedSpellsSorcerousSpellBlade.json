@@ -6,35 +6,35 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 1,
       "spellsList": [
-        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64"
+        "Definition:ThunderousSmite:f8f3cb7a-41c6-53d2-ae8a-4e5125cee783"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 7,
       "spellsList": [
-        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8"
+        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
-        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
       ]
     },
     {
@@ -71,7 +71,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "abca93d7-b427-5b34-87cc-13bb662efe9e",
+  "guid": "35a037d9-3bd7-5b00-ac6e-bac4801b32f4",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsFieldManipulator"
+  "name": "AutoPreparedSpellsSorcerousSpellBlade"
 }

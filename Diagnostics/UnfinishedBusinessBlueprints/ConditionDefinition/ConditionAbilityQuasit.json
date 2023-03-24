@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalActionHasted:7de0bb174ce429a458b357b5838edadb",
+    "Definition:AdditionalActionAbilityQuasit:c59cad05-8ced-59b9-ab1a-83788d33f5db",
     "Definition:SavingThrowAffinityConditionHasted:112a137c1bd1c254581f2f1a654985c0"
   ],
   "allowMultipleInstances": false,
