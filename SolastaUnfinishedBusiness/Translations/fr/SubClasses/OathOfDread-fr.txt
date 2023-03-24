@@ -1,0 +1,14 @@
+﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si vous êtes effrayé ou effrayé, votre vitesse est réduite à 0 et vous subissez des dégâts psychiques égaux à la moitié du niveau de paladin de l'émanateur.
+Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de domination
+Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Le marqueur a un avantage sur les jets d'attaque contre vous.
+Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marque de soumission
+Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Par une action bonus, vous pouvez exercer votre autorité sur une créature que vous pouvez voir dans un rayon de 3 mètres autour de vous, en utilisant votre Canalisation divine. Vous bénéficiez d'un avantage aux jets d'attaque contre la créature pendant 1 minute.
+Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Channel Divinity : marque de soumission
+Feature/&PowerOathOfDreadAuraOfDominationDescription=À partir du niveau 7, vous émettez constamment une aura menaçante sur tous les ennemis à moins de 3 mètres tant que vous n'êtes pas incapable d'agir. Si une créature est effrayée ou effrayée et commence son tour dans votre aura, sa vitesse est réduite à 0 et cette créature subit des dégâts psychiques égaux à la moitié de votre niveau de paladin. Au niveau 18, la portée de cette aura passe à 9 mètres.
+Feature/&PowerOathOfDreadAuraOfDominationTitle=Aura de domination
+Feature/&PowerOathOfDreadDreadfulPresenceDescription=Canalisez la Divinité pour dégager une aura menaçante. Chaque créature ennemie dans un rayon de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou devenir effrayée pendant 1 minute. Chaque créature effrayée peut répéter le jet de sauvegarde à la fin de son tour, mettant fin à l'effet sur elle-même en cas de réussite.
+Feature/&PowerOathOfDreadDreadfulPresenceTitle=Channel Divinity : Présence terrifiante
+Feature/&PowerOathOfDreadHarrowingCrusadeDescription=Lorsqu'une créature sous l'effet de votre marque de soumission ou de votre état d'effroi effectue une attaque, vous pouvez utiliser votre réaction pour effectuer une attaque au corps à corps avec une arme contre cette créature si elle est à portée.
+Feature/&PowerOathOfDreadHarrowingCrusadeTitle=Croisade déchirante
+Subclass/&OathOfDreadDescription=Les paladins qui prêtent le serment d'effroi appartiennent à un ordre nouvellement formé, dédié à vaincre le mal par l'intimidation et la peur. Les membres de cet ordre sont déjà connus pour avoir recours à des méthodes barbares comme moyen d'obtenir des informations, ce qui fait que la population générale les évite autant que possible. Sur le champ de bataille, ces guerriers zélés canalisent leurs pouvoirs divins pour soit terroriser les ennemis jusqu'à ce qu'ils se soumettent, soit les disperser.
+Subclass/&OathOfDreadTitle=Serment d'effroi

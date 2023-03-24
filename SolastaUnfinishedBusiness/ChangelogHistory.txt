@@ -4,13 +4,13 @@
 
 - added custom level up screen for Ancestries and Kindred Spirits
 - added Oath of Altruism level 15 and Way of the Dragon level 17 features
-- added Ranger Hellwalker, Ranger Lightbearer and Sorcerous Spellblade subclasses
+- added Oath of Hatred, Ranger Hellwalker, Ranger Lightbearer and Sorcerous Spellblade
 - fixed Awaken the Beast Within to grant temp HP to beast and remove on reversal
 - fixed Circle of the Night combat healing missing bonus on level 6
 - fixed critical logic option 1 still granting double dice damage
-- fixed Grenadier not able to use items as a bonus action [introduced in v62]
+- fixed Grenadier not able to use items as a bonus action that was introduced in v62
 - fixed Polearm Expert, Spear Mastery and Two Weapon Fighting die type interaction
-- fixed Sanctuary to not exclude caster on selection
+- fixed Sanctuary to not exclude caster on targeting
 
 1.4.33.63:
 

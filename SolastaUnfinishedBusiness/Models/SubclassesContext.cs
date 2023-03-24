@@ -54,6 +54,7 @@ internal static class SubclassesContext
         // Paladin
         LoadSubclass(new OathOfAltruism());
         LoadSubclass(new OathOfAncients());
+        LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
 
         // Ranger

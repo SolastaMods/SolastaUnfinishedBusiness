@@ -1,0 +1,14 @@
+﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=如果你感到害怕或恐惧，你的速度会降低到 0，并且你会受到等同于发射者圣武士等级一半的心灵伤害。
+Condition/&ConditionOathOfDreadAuraOfDominationTitle=统治光环
+Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=标记在针对您的攻击检定上具有优势。
+Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=提交标记
+Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=作为一个附赠动作，你可以使用你的引导神力对你 10 英尺内你能看到的生物施加你的权威。你在对该生物的攻击检定上获得优势，持续 1 分钟。
+Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=引导神力：顺服之印
+Feature/&PowerOathOfDreadAuraOfDominationDescription=从第 7 级开始，当你没有失能时，你不断地向 10 英尺内的所有敌人散发出威胁的光环。如果一个生物受到惊吓或恐惧，并在你的光环中开始它的回合，它的速度将降低为 0，并且该生物受到等同于你的圣武士等级一半的心灵伤害。在 18 级时，此光环的范围增加到 30 英尺。
+Feature/&PowerOathOfDreadAuraOfDominationTitle=统治光环
+Feature/&PowerOathOfDreadDreadfulPresenceDescription=引导神性散发出险恶的气息。 30 英尺内的每个敌方生物都必须成功进行感知豁免，否则会惊恐 1 分钟。每个受惊的生物都可以在其回合结束时重复豁免检定，成功则结束对自身的影响。
+Feature/&PowerOathOfDreadDreadfulPresenceTitle=引导神性：可怕的存在
+Feature/&PowerOathOfDreadHarrowingCrusadeDescription=当一个处于你的顺从标记或恐惧状态下的生物进行攻击时，如果该生物在射程内，你可以使用你的反应对该生物进行一次近战武器攻击。
+Feature/&PowerOathOfDreadHarrowingCrusadeTitle=悲惨的远征
+Subclass/&OathOfDreadDescription=宣誓恐惧誓言的圣骑士属于一个新成立的组织，致力于通过恐吓和恐惧来战胜邪恶。这个组织的成员已经因诉诸野蛮方法作为获取信息的方式而臭名昭著，这使得普通民众尽可能避免使用它们。在战场上，这些狂热的战士引导他们的神圣力量，要么恐吓敌人屈服，要么驱散他们。
+Subclass/&OathOfDreadTitle=恐惧誓言
