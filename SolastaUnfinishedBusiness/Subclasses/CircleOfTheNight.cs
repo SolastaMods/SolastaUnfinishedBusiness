@@ -80,7 +80,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create("PowerCircleOfTheNightWildShapeImprovedHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(CombatHealing(2))
+            .SetEffectDescription(CombatHealing(2, DieType.D8, 2))
             .SetCustomSubFeatures(CanUseCombatHealing())
             .SetOverriddenPower(powerCircleOfTheNightWildShapeHealing)
             .AddToDB();
