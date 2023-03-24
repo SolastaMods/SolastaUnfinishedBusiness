@@ -164,7 +164,7 @@ internal sealed class OathOfDread : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
             .AddFeaturesAtLevel(3,
-                autoPreparedSpells, featureHarrowingCrusade,
+                autoPreparedSpells,
                 featureSetMarkOfTheSubmission,
                 powerDreadfulPresence)
             .AddFeaturesAtLevel(7,
