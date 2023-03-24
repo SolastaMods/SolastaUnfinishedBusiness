@@ -123,7 +123,7 @@
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
-  <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
+  <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -206,6 +206,7 @@
     <string>MartialWeaponMaster</string>
     <string>RangerLightBearer</string>
     <string>RangerHellWalker</string>
+    <string>SorcerousSpellBlade</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
