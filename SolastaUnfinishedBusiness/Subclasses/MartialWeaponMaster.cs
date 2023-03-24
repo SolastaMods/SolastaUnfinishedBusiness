@@ -362,7 +362,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var specializedWeapons = GetSpecializedWeaponTypes(rulesetAttacker);
 
-            if (specializedWeapons.All(x => !ValidatorsCharacter.HasWeaponType(x)(rulesetAttacker)))
+            if (specializedWeapons.All(x => !ValidatorsWeapon.IsOfWeaponType(x)(attackMode, null, null)))
             {
                 yield break;
             }
