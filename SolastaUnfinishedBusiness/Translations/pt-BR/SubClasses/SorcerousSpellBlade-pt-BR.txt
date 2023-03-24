@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando você acerta com um ataque ou causa dano com um feitiço, você pode adicionar um bônus de dano de força igual ao seu modificador de carisma. Se um feitiço afetar mais de um alvo, o bônus se aplica a um deles.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando você acertar com um ataque ou causar dano com um feitiço, adicione seu modificador de carisma como dano de força bônus a uma jogada de dano desse ataque ou feitiço.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Feiticeiro de guerra
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Você ganha proficiência com armadura leve, armadura média e armas marciais.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Treinamento marcial

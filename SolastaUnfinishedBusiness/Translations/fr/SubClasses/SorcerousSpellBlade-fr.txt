@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Lorsque vous touchez avec une attaque ou infligez des dégâts avec un sort, vous pouvez ajouter des dégâts de force supplémentaires égaux à votre modificateur de charisme. Si un sort affecte plusieurs cibles, le bonus s'applique à l'une d'entre elles.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Lorsque vous touchez avec une attaque ou infligez des dégâts avec un sort, ajoutez votre modificateur de charisme sous forme de dégâts de force supplémentaires à un jet de dégâts de cette attaque ou de ce sort.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Sorcier de guerre
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Vous maîtrisez les armures légères, les armures moyennes et les armes de guerre.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Entraînement martial

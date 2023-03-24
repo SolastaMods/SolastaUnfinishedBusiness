@@ -18,8 +18,8 @@ internal static class CreditsDisplay
             "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
             "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, " +
             "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Sorcerous Field Manipulator, " +
-            "Sorcerous Spellblade, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Slayer, " +
-            "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
+            "Sorcerous Spellblade, Oath of Dread, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, " +
+            "Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
             "quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),

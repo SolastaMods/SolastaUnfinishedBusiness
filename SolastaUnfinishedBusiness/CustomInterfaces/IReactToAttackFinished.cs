@@ -26,3 +26,16 @@ public interface IReactToAttackOnMeFinished
         RulesetAttackMode mode,
         ActionModifier modifier);
 }
+
+public interface IReactToAttackOnAllyFinished
+{
+    [UsedImplicitly]
+    public IEnumerator HandleReactToAttackOnAllyFinished(
+        GameLocationCharacter attacker,
+        GameLocationCharacter me,
+        GameLocationCharacter ally,
+        RuleDefinitions.RollOutcome outcome,
+        CharacterActionParams actionParams,
+        RulesetAttackMode mode,
+        ActionModifier modifier);
+}

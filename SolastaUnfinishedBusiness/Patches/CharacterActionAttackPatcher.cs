@@ -88,6 +88,28 @@ public static class CharacterActionAttackPatcher
                 yield return feature.HandleReactToAttackOnMeFinished(
                     actingCharacter, defender, outcome, actionParams, mode, modifier);
             }
+
+            // this happens on battle end
+            if (Gui.Battle == null)
+            {
+                yield break;
+            }
+
+            foreach (var gameLocationDefender in Gui.Battle.GetOpposingContenders(actingCharacter.Side))
+            {
+                var allyFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
+
+                if (allyFeatures == null)
+                {
+                    yield break;
+                }
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnAllyFinished(
+                        actingCharacter, gameLocationDefender, defender, outcome, actionParams, mode, modifier);
+                }
+            }
         }
     }
 }

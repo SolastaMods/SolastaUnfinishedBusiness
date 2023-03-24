@@ -6,7 +6,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
         "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309"
       ]
     },
@@ -14,32 +14,32 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:CalmEmotions:a879080b607fd75458e0eca2dea58e8a",
-        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64"
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
-        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
-        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b"
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 13,
       "spellsList": [
-        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
-        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665"
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 17,
       "spellsList": [
-        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
-        "Definition:WallOfForce:6caa05c5d18ae2e46bdee90964638865"
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
       ]
     }
   ],
@@ -48,7 +48,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&OathOfAltruismTitle",
+    "title": "Subclass/&OathOfDreadTitle",
     "description": "Feature/&DomainSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f20c8cd2-1d92-5427-81a0-5fbc8a515199",
+  "guid": "be17a243-1d54-5e8c-a6f3-9f319aab0be4",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsOathOfAltruism"
+  "name": "AutoPreparedSpellsOathOfDread"
 }

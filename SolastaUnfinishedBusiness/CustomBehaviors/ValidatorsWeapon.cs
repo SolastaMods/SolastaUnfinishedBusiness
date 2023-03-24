@@ -20,6 +20,15 @@ internal static class ValidatorsWeapon
         return (attackMode, _, _) => attackMode?.EffectDescription.FindFirstDamageForm()?.DamageType == damageType;
     }
 
+    internal static IsWeaponValidHandler IsOfWeaponTypeWithoutAttackTag(
+        string weaponTag, params WeaponTypeDefinition[] weaponTypeDefinitions)
+    {
+        return (attackMode, rulesetItem, _) => attackMode is not { SourceObject: RulesetItem sourceRulesetItem } ||
+                                               attackMode.AttackTags.Contains(weaponTag)
+            ? IsWeaponType(rulesetItem, weaponTypeDefinitions)
+            : IsWeaponType(sourceRulesetItem, weaponTypeDefinitions);
+    }
+
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return (attackMode, rulesetItem, _) =>

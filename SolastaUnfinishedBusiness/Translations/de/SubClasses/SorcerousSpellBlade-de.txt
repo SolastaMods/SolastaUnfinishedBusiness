@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Wenn du mit einem Angriff triffst oder mit einem Zauber Schaden zufügst, kannst du zusätzlichen Kraftschaden in Höhe deines Charisma-Modifikators hinzufügen. Wenn ein Zauber mehr als ein Ziel betrifft, gilt der Bonus für eines von ihnen.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Wenn du mit einem Angriff triffst oder mit einem Zauber Schaden zufügst, addiere deinen Charisma-Modifikator als zusätzlichen Kraftschaden zu einem Schadenswurf dieses Angriffs oder Zaubers.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Kriegszauberer
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Sie erwerben Kenntnisse im Umgang mit leichter Rüstung, mittlerer Rüstung und Kriegswaffen.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Kampftraining

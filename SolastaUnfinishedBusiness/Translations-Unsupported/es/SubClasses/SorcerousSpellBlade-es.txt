@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Cuando golpeas con un ataque o infliges daño con un hechizo, puedes agregar daño de fuerza adicional igual a tu modificador de carisma. Si un hechizo afecta a más de un objetivo, la bonificación se aplica a uno de ellos.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Cuando golpeas con un ataque o infliges daño con un hechizo, agrega tu modificador de carisma como daño de fuerza adicional a una tirada de daño de ese ataque o hechizo.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Hechicero de guerra
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Obtienes competencia con armadura ligera, armadura intermedia y armas marciales.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Entrenamiento Marcial

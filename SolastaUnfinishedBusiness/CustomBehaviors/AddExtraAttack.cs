@@ -300,7 +300,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
     internal AddPolearmFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
         ActionDefinitions.ActionType.Bonus,
         ValidatorsCharacter.HasUsedWeaponType(weaponTypeDefinition),
-        ValidatorsCharacter.HasWeaponType(weaponTypeDefinition))
+        ValidatorsCharacter.HasMainHandWeaponType(weaponTypeDefinition))
     {
         _weaponTypeDefinition = weaponTypeDefinition;
     }
@@ -315,7 +315,10 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        // doesn't make sense to add a bonus attack from an offhand slot that already uses your bonus action
+
+        // AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
 
         return result;
     }
@@ -348,6 +351,9 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
+
+        // this is required to correctly interact with Spear Mastery dice upgrade
+        attackMode.AttackTags.Add("Polearm");
 
         var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
 
