@@ -513,11 +513,6 @@ RaceTiefling	Female	Damaia
 RaceTiefling	Female	Ea
 RaceTiefling	Female	Kallista
 RaceTiefling	Female	Lerissa
-RaceTiefling	Female	Makaria
-RaceTiefling	Female	Nemeia
-RaceTiefling	Female	Orianna
-RaceTiefling	Female	Phelaia
-RaceTiefling	Female	Rieta
 RaceTiefling	Male	Akmenos
 RaceTiefling	Male	Amnon
 RaceTiefling	Male	Barakas
@@ -527,11 +522,6 @@ RaceTiefling	Male	Iados
 RaceTiefling	Male	Kairon
 RaceTiefling	Male	Leucis
 RaceTiefling	Male	Melech
-RaceTiefling	Male	Mordai
-RaceTiefling	Male	Morthos
-RaceTiefling	Male	Pelaios
-RaceTiefling	Male	Skamos
-RaceTiefling	Male	Therai
 RaceTiefling	Sur	Bram
 RaceTiefling	Sur	Brightwater
 RaceTiefling	Sur	Graylock

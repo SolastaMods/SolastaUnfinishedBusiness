@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Когда вы попадаете атакой или наносите урон заклинанием, вы можете добавить дополнительный силовой урон, равный вашему модификатору харизмы. Если заклинание воздействует более чем на одну цель, бонус применяется к одной из них.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Когда вы попадаете атакой или наносите урон заклинанием, добавьте свой модификатор харизмы в качестве бонусного силового урона к одному броску урона этой атаки или заклинания.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Боевой колдун
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Вы получаете владение легкими доспехами, средними доспехами и боевым оружием.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Боевая подготовка

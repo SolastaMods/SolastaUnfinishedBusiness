@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando si colpisce con un attacco o si infliggono danni con un incantesimo, è possibile aggiungere danni da forza bonus pari al proprio modificatore di carisma. Se un incantesimo colpisce più di un bersaglio, il bonus si applica a uno di essi.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Quando colpisci con un attacco o infliggi danni con un incantesimo, aggiungi il tuo modificatore di carisma come danno di forza bonus a un tiro per i danni di quell'attacco o incantesimo.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Stregone di guerra
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Ottieni competenza con le armature leggere, le armature medie e le armi da guerra.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Allenamento marziale

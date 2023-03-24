@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, you can add bonus force damage equal to your charisma modifier. If a spell affects more than one target, the bonus applies to one of them.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, add your charisma modifier as bonus force damage to one damage roll of that attack or spell. 
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=War Sorcerer
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=You gain proficiency with light armor, medium armor, and martial weapons.
 Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Martial Training
