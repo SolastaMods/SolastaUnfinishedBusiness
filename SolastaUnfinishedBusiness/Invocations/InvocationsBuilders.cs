@@ -25,16 +25,16 @@ internal static class InvocationsBuilders
             .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageInvocationEldritchSmite")
-                .SetGuiPresentationNoContent()
-                .SetCustomSubFeatures(WarlockHolder.Instance)
+                .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(EldritchSmiteTag)
+                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
+                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
+                .SetAttackModeOnly()
                 .SetDamageDice(RuleDefinitions.DieType.D8, 0)
                 .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetAttackModeOnly()
-                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
                 .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
+                .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
+                .SetCustomSubFeatures(WarlockHolder.Instance)
                 .AddToDB())
             .AddToDB();
     }
@@ -499,7 +499,13 @@ internal static class InvocationsBuilders
         var conditionAbilityQuasit = ConditionDefinitionBuilder
             .Create("ConditionAbilityQuasit")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainQuasit)
-            .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionHasted,
+            .AddFeatures(FeatureDefinitionAdditionalActionBuilder
+                    .Create("AdditionalActionAbilityQuasit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB(),
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();

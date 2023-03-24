@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=La cible ne peut pas se soigner et subit 2d6 dégâts nécrotiques à la fin de son tour.
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=Nécrose
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=La cible est désavantagée au prochain jet d'attaque.
-Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Obtient -1d4 aux jets de sauvegarde de Force, Dextérité et Constitution
+Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Obtient -1d4 aux jets de sauvegarde de Force, Dextérité et Constitution.
 Condition/&ConditionInnovationAlchemyDamagePsychicTitle=Dépassé
-Condition/&ConditionInnovationAlchemyDamageThunderDescription=Obtient -1d4 aux jets de sauvegarde d'Intelligence, de Sagesse et de Charisme
+Condition/&ConditionInnovationAlchemyDamageThunderDescription=Obtient -1d4 aux jets de sauvegarde d'Intelligence, de Sagesse et de Charisme.
 Condition/&ConditionInnovationAlchemyDamageThunderTitle=Commotionné
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=Vous avez appris à mélanger les réactifs et à utiliser divers appareils rapidement. Vous pouvez utiliser une action bonus pour activer n'importe quel appareil.
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=Mains rapides

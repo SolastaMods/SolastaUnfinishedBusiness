@@ -2,7 +2,7 @@
 Feature/&AdditionalActionRavenKillingSpreeTitle=Amoklauf
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Dein Angriff erleidet einen Malus von -4 auf Treffer.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Herzsuchender Schuss
-Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdDescription=Ihre kritische Schwelle wird um 2 verringert.
+Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdDescription=Ihre kritische Schwelle wird um 2 reduziert.
 Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdTitle=Herzsuchender Schuss
 Feature/&DieRollModifierRavenPainMakerDescription=Du würfelst beliebige Einsen neu, wenn du für Schaden würfelst. Die zweite Rolle musst du behalten.
 Feature/&DieRollModifierRavenPainMakerReroll=Aufgrund von Pain Maker {0} würfelt der {1}-Würfel erneut von einer {2} zu einer {3}.

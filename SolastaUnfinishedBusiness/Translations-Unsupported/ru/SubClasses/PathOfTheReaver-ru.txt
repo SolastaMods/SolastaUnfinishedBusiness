@@ -1,0 +1,16 @@
+﻿Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=Начиная с 3-го уровня, вы можете направлять свою внутреннюю порчу на удары оружием ближнего боя. Пока вы в ярости, первое существо, по которому вы попадаете рукопашной атакой оружием в каждом из ваших ходов, получает дополнительный урон некротической энергией, равный вашему мастерству, и вы восстанавливаете равное количество очков жизни. Урон и исцеление удваиваются при критическом ударе.
+Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=Ненасытная ярость
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=Начиная с 6 уровня вы получаете сопротивление некротическому и ядовитому урону.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Нечестивая живучесть
+Feature/&PowerPathOfTheReaverCorruptedBloodDescription=Начиная с 14-го уровня, ваша кровь навсегда портится, нанося урон существам, соприкасающимся с ней. Всякий раз, когда существо в пределах 5 футов поражает вас рукопашной атакой, это существо получает урон некротической энергией, равный вашему модификатору Телосложения.
+Feature/&PowerPathOfTheReaverCorruptedBloodTitle=Порченая кровь
+Feature/&PowerPathOfTheReaverBloodbathDescription=Начиная с 10-го уровня, когда вы в ярости, всякий раз, когда вы уменьшаете хиты существа до 0 с помощью атаки оружием ближнего боя, вы можете выпотрошить это существо, восстанавливая количество хитов, равное удвоенному вашему уровню варвара. Вы можете использовать эту функцию один раз за короткий отдых.
+Feature/&PowerPathOfTheReaverBloodbathTitle=Кровавая баня
+Feedback/&AdditionalDamageVoraciousFuryFormat=Ненасытная ярость
+Feedback/&AdditionalDamageVoraciousFuryLine={0} бушует и накладывает Ненасытную ярость на {1} (+{2})
+Reaction/&CustomReactionBloodbathDescription=Вы можете выпотрошить это существо, восстановив {0} хитов.
+Reaction/&CustomReactionBloodbathTitle=Кровавая баня
+Reaction/&CustomReactionBloodbathReactDescription=Выпотрошите это существо.
+Reaction/&CustomReactionBloodbathReactTitle=Выпотрошить
+Subclass/&PathOfTheReaverDescription=Все Похитители проходят ритуал, который включает в себя питье испорченной крови дракона, постоянное наполнение их тел драконьей мощью и ненасытностью за счет постепенного увеличения порчи. Эти грозные воины наслаждаются смертью, восстанавливая энергию от страданий своих врагов.
+Subclass/&PathOfTheReaverTitle=Путь Разбойника

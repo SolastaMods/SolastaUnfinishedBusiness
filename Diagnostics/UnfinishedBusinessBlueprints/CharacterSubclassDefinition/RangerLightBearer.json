@@ -1,0 +1,84 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerLightBearerBlessedWarrior:aedc0c43-42ea-5a06-a568-3f4c34aa8b0b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRangerLightBearerLifeBringer:297460b6-6d7b-5ee1-ac17-ea9433a47be6",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRangerLightBearer:3e11815f-6e00-5577-912d-65c4aab5b1c9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerLightBearerLight:febcc1be-370a-5630-affa-931ccf1667a4",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerBase:f79600f2-ed73-5124-b23e-2754801f3f18",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierRangerLightBearerLifeBringerAdditive:cfa1d16d-e61b-5bda-aa39-6bb0f5c2b5d5",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerLightBearerBlessedGlow:b04e88fa-464d-5d6a-aa84-c7b7f21ca9af",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerLightBearerAngelicForm:ab53bd9f-15ac-5049-80ca-e2ddd9904bbd",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityRangerLightBearerWardingLight:69becd6a-7466-5c23-8cfd-c598e65ca738",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerLightBearerWardingLight:78c4478b-7ed0-54e5-a3b0-357e29defd74",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerLightBearerTitle",
+    "description": "Subclass/&RangerLightBearerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9ed9c846-68ad-5ee8-b41f-2cbd6999465f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3c1f7172-46b4-578a-9ee3-c518107cbf69",
+  "contentPack": 9999,
+  "name": "RangerLightBearer"
+}

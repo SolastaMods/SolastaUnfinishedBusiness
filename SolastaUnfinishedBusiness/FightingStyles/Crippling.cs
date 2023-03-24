@@ -22,10 +22,10 @@ internal sealed class Crippling : AbstractFightingStyle
             FeatureDefinitionAdditionalDamageBuilder
                 .Create(AdditionalDamageCircleBalanceColdEmbrace, "AdditionalDamageCrippling")
                 .SetGuiPresentationNoContent(true)
-                .SetDamageDice(DieType.D1, 0)
                 .SetNotificationTag(Name)
-                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetDamageDice(DieType.D1, 0)
                 .SetConditionOperations(
                     new ConditionOperationDescription
                     {

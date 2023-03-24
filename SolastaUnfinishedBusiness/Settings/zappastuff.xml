@@ -116,14 +116,14 @@
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <ImproveRangerFeaturesSelection>true</ImproveRangerFeaturesSelection>
+  <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
-  <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
+  <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -204,6 +204,9 @@
     <string>RoguishAcrobat</string>
     <string>PathOfTheReaver</string>
     <string>MartialWeaponMaster</string>
+    <string>RangerLightBearer</string>
+    <string>RangerHellWalker</string>
+    <string>SorcerousSpellBlade</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -883,7 +886,7 @@
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>2</OverridePartySize>
+  <OverridePartySize>1</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>

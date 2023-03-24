@@ -124,14 +124,25 @@ internal class InvocationPoolTypeCustom
     internal static class Pools
     {
         internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
-            Register("ArmamentAdroitness", CharacterClassDefinitions.Fighter.ClassPictogramReference, hidden: true);
+            Register("ArmamentAdroitness", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom PathClawDraconicChoice =
+            Register("PathClawDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom SorcererDraconicChoice =
+            Register("SorcererDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom WayOfTheDragonDraconicChoice =
+            Register("WayOfTheDragonDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom KindredSpiritChoice =
+            Register("KindredSpiritChoice", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
-            Register("RangerTerrainTypeAffinity", CharacterClassDefinitions.Ranger.ClassPictogramReference,
-                hidden: true);
+            Register("RangerTerrainTypeAffinity", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
-            Register("RangerPreferredEnemy", CharacterClassDefinitions.Ranger.ClassPictogramReference, hidden: true);
+            Register("RangerPreferredEnemy", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
@@ -145,7 +156,7 @@ internal class InvocationPoolTypeCustom
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
         internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
-            Register("MartialWeaponMaster", CharacterClassDefinitions.Fighter.ClassPictogramReference, hidden: true);
+            Register("MartialWeaponMaster", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic",

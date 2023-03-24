@@ -33,6 +33,7 @@ Feat/&FeatWarCasterTitle=Lanceur de guerre
 Feature/&CastSpellFeatMagicInitiateTitle=Lancer
 Feature/&CastSpellFeatSpellSniperTitle=Tireur d'élite
 Feature/&DieRollModifierFeatElementalAdeptReroll=A cause de Elemental Adept {0} relance le {1} dé d'un {2} vers un {3}.
+Feature/&DieRollModifierFeatElementalMasterReroll=A cause de Elemental Master, {0} relance le {1} dé d'un {2} vers un {3}.
 Feature/&PowerFeatHealerMedKitDescription=Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie du niveau du personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
 Feature/&PowerFeatHealerMedKitTitle=Utiliser des médicaments
 Feature/&PowerFeatHealerResuscitateDescription=Utilisez une action pour faire revivre une créature qui est morte au cours des 12 dernières secondes.

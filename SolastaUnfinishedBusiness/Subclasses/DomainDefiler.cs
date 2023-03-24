@@ -299,7 +299,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 conditionMarkForDeath,
                                 ConditionForm.ConditionOperation.Add)

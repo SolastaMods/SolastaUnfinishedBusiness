@@ -11,35 +11,35 @@
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 2,
+      "classLevel": 3,
       "spellsList": [
         "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 5,
       "spellsList": [
         "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 4,
+      "classLevel": 7,
       "spellsList": [
         "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 5,
+      "classLevel": 9,
       "spellsList": [
         "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 6,
+      "classLevel": 11,
       "spellsList": [
         "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
       ]

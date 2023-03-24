@@ -2,5 +2,5 @@
 Feature/&AdditionalDamageStaggeringSmiteTitle=Punição Impressionante
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Smite impressionante!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} causa mais dano a {1} por meio de um golpe impressionante (+{2})
-Spell/&StaggeringSmiteDescription=Na próxima vez que você atingir uma criatura com um ataque de arma durante a duração desta magia, sua arma perfura corpo e mente, e o ataque causa 4d6 de dano psíquico extra ao alvo. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha no teste, ele tem desvantagem nas jogadas de ataque e testes de habilidade, e não pode realizar reações até o final de seu próximo turno.
+Spell/&StaggeringSmiteDescription=Na próxima vez que você acertar uma criatura com um ataque de arma durante a duração desta magia, sua arma perfura corpo e mente, e o ataque causa 4d6 de dano psíquico extra ao alvo. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha no teste, ele tem desvantagem nas jogadas de ataque e testes de habilidade, e não pode realizar reações até o final de seu próximo turno.
 Spell/&StaggeringSmiteTitle=Punição Impressionante

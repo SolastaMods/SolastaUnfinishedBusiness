@@ -12,8 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
-    "Definition:SummoningAffinityFeatAwakenTheBeastWithin:698e1537-52f4-519e-8431-8ac097aac552"
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

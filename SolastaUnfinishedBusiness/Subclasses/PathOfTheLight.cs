@@ -241,8 +241,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             .SetCustomSubFeatures(new ConditionIlluminatedByBurst())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
-                    .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                     .Build(),
                 EffectFormBuilder
                     .Create()

@@ -2,12 +2,12 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
+    "rangeType": "Touch",
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Item",
-    "itemSelectionType": "Carried",
+    "itemSelectionType": "Weapon",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -80,12 +80,12 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierSoulBladeEmpowerWeapon:1dc172b2-415c-5f50-a3c5-d1e1a11574ad",
+              "featureDefinition": "Definition:AttackModifierArcaneFighterIntBonus:db532d78-0c3f-5c19-b8c6-a68b5ce75ae5",
               "level": 0
             }
           ],
           "usageLimitation": "Unlimited",
-          "useAmount": 1
+          "useAmount": 0
         },
         "hasFilterId": false,
         "filterId": 0

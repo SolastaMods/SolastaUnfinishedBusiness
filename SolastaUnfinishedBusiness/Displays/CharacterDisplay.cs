@@ -87,13 +87,6 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.ImproveRangerFeaturesSelection;
-        if (UI.Toggle(Gui.Localize("ModUi/&ImproveRangerFeaturesSelection"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ImproveRangerFeaturesSelection = toggle;
-            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
-        }
-
         toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
         {
@@ -118,6 +111,14 @@ internal static class CharacterDisplay
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
 
+        toggle = Main.Settings.ImproveLevelUpFeaturesSelection;
+        if (UI.Toggle(Gui.Localize("ModUi/&ImproveLevelUpFeaturesSelection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ImproveLevelUpFeaturesSelection = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
+        UI.Label();
         UI.Label();
 
         var intValue = Main.Settings.TotalFeatsGrantedFirstLevel;

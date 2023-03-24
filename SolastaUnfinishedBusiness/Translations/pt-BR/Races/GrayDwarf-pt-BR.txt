@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Vantagem em testes de Força e testes de resistência. +1d4 de dano com armas corpo a corpo de Força
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Vantagem em testes de Força e testes de resistência. +1d4 de dano com armas corpo a corpo de Força.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Força da Pedra
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Força +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Aumento de pontuação de habilidade

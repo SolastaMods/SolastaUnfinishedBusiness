@@ -19,7 +19,15 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WayOfTheDragon : AbstractSubclass
 {
-    private const string Name = "WayOfTheDragon";
+    internal const string Name = "WayOfTheDragon";
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheDragonDisciple =
+        FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .AddToDB();
 
     internal WayOfTheDragon()
     {
@@ -71,10 +79,27 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         /*
         Level 17 - Ascension
         As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
-
-        Level 17 - Wing Sweep
-        When you successfully land an unarmed strike, you may spend 2 Ki points as a reaction to impose a Strength saving throw upon all hostile creatures within 5 feet (DC = 8 + proficiency + Wisdom). Any creature that fails the save receives damage equal to your martial arts die + Strength or Dexterity modifier (whichever is higher) and gets knocked back 10 ft and knocked prone.
         */
+        var conditionAscension = ConditionDefinitionBuilder
+            .Create(ConditionFlying12, $"Condition{Name}Ascension")
+            .SetGuiPresentation(Category.Condition, ConditionFlying12)
+            .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierHasted)
+            .AddToDB();
+
+        var powerAscension = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Ascension")
+            .SetGuiPresentation(Category.Feature, Fly)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 4)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .AddEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .SetDurationData(DurationType.Minute, 1)
+                .Build())
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -82,6 +107,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), damageAffinityAncestry, powerReactiveHide)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
+            .AddFeaturesAtLevel(17, powerAscension)
             .AddToDB();
     }
 
@@ -95,13 +121,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
-        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
-            .AddToDB();
-
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
@@ -113,10 +132,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            featureSetDisciple.FeatureSet.Add(ancestry);
+            FeatureSetPathOfTheDragonDisciple.FeatureSet.Add(ancestry);
         }
 
-        return featureSetDisciple;
+        return FeatureSetPathOfTheDragonDisciple;
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
@@ -129,7 +148,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Create(PowerDragonbornBreathWeaponBlack.EffectDescription)
                 .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlack)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Wisdom,
@@ -145,7 +164,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Create(PowerDragonbornBreathWeaponBlue.EffectDescription)
                 .SetParticleEffectParameters(PowerDragonbornBreathWeaponBlue)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Wisdom,
@@ -172,7 +191,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     StinkingCloud.EffectDescription
                         .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Wisdom,
@@ -188,7 +207,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Create(PowerDragonbornBreathWeaponGold.EffectDescription)
                 .SetParticleEffectParameters(PowerDragonbornBreathWeaponGold)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Wisdom,
@@ -204,7 +223,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Create(PowerDragonbornBreathWeaponSilver)
                 .SetParticleEffectParameters(PowerDragonbornBreathWeaponSilver)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution,
+                    AttributeDefinitions.Dexterity,
                     false,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Wisdom,
