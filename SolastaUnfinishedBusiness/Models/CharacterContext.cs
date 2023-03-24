@@ -100,7 +100,9 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
+        // BACKWARD COMPATIBILITY
         LoadFighterArmamentAdroitness();
+
         LoadHelpPower();
         LoadVision();
         LoadEpicArray();
@@ -894,7 +896,6 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    // BACKWARD COMPATIBILITY
     private static void LoadFighterArmamentAdroitness()
     {
         _ = CustomInvocationPoolDefinitionBuilder

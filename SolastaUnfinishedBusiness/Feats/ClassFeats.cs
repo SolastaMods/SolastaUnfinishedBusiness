@@ -260,22 +260,6 @@ internal static class ClassFeats
         // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
         private const ulong TemporaryHitPointsGuid = 42424242;
 
-        // ReSharper disable once InconsistentNaming
-        internal static void GrantTempHP(RulesetCharacterMonster __instance)
-        {
-            if (__instance.OriginalFormCharacter is not RulesetCharacterHero rulesetCharacterHero ||
-                !rulesetCharacterHero.TrainedFeats.Exists(x => x.Name.StartsWith("FeatAwakenTheBeastWithin")))
-            {
-                return;
-            }
-
-            var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
-
-            __instance.ReceiveTemporaryHitPoints(2 * classLevel, DurationType.Hour, classLevel / 2,
-                TurnOccurenceType.EndOfTurn,
-                TemporaryHitPointsGuid);
-        }
-
         public void OnAfterAction(CharacterAction action)
         {
             if (action is not CharacterActionRevertShape ||
@@ -291,6 +275,22 @@ internal static class ClassFeats
             {
                 rulesetCharacterMonster.RemoveCondition(rulesetCondition);
             }
+        }
+
+        // ReSharper disable once InconsistentNaming
+        internal static void GrantTempHP(RulesetCharacterMonster __instance)
+        {
+            if (__instance.OriginalFormCharacter is not RulesetCharacterHero rulesetCharacterHero ||
+                !rulesetCharacterHero.TrainedFeats.Exists(x => x.Name.StartsWith("FeatAwakenTheBeastWithin")))
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
+
+            __instance.ReceiveTemporaryHitPoints(2 * classLevel, DurationType.Hour, classLevel / 2,
+                TurnOccurenceType.EndOfTurn,
+                TemporaryHitPointsGuid);
         }
     }
 

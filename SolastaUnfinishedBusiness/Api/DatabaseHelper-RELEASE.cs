@@ -600,7 +600,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
         internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
-        internal static FeatureDefinitionPower PowerOathOfDevotionSacredWeapon { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionSacredWeapon");
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
         internal static FeatureDefinitionPower PowerPactChainImp { get; } = GetDefinition<FeatureDefinitionPower>("PowerPactChainImp");
         internal static FeatureDefinitionPower PowerPactChainPseudodragon { get; } = GetDefinition<FeatureDefinitionPower>("PowerPactChainPseudodragon");
@@ -620,6 +619,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
         internal static FeatureDefinitionPower PowerSorcererManaPainterDrain { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterDrain");
         internal static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud");
+        internal static FeatureDefinitionPower PowerTraditionCourtMageSpellShield { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageSpellShield");
         internal static FeatureDefinitionPower PowerWightLord_CircleOfDeath { get; } = GetDefinition<FeatureDefinitionPower>("PowerWightLord_CircleOfDeath");
         internal static FeatureDefinitionPower PowerWindShelteringBreeze { get; } = GetDefinition<FeatureDefinitionPower>("PowerWindShelteringBreeze");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");

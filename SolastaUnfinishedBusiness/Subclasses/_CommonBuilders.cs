@@ -15,7 +15,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal static class CommonBuilders
 {
-    // BACKWARD COMPATIBILITY
     internal static readonly FeatureDefinitionAdditionalDamage AdditionalDamageMarshalFavoredEnemyHumanoid =
         FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageMarshalFavoredEnemyHumanoid")

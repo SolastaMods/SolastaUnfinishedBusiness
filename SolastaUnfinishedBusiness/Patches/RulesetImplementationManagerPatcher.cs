@@ -56,7 +56,7 @@ public static class RulesetImplementationManagerPatcher
             var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
 
             effectGroupInfo.diceNumber /= 2;
-            
+
             var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber;
 
             damageForm.bonusDamage += bonusDamage;

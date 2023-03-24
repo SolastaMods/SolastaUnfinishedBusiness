@@ -574,7 +574,7 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildMetamagic()
     {
-        // KEEP FOR BACKWARD COMPATIBILITY until next DLC
+        // BACKWARD COMPATIBILITY
         BuildMetamagicBackwardCompatibility();
 
         return FeatDefinitionBuilder
