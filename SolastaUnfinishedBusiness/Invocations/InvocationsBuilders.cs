@@ -500,7 +500,7 @@ internal static class InvocationsBuilders
             .Create("ConditionAbilityQuasit")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainQuasit)
             .AddFeatures(FeatureDefinitionAdditionalActionBuilder
-                    .Create($"AdditionalActionAbilityQuasit")
+                    .Create("AdditionalActionAbilityQuasit")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
