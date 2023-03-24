@@ -48,8 +48,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ExpandedSpellsTitle",
-    "description": "Feature/&ExpandedSpellsDescription",
+    "title": "Subclass/&OathOfAltruismTitle",
+    "description": "Feature/&DomainSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

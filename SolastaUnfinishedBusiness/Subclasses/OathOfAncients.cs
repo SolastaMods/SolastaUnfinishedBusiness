@@ -26,7 +26,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         //Based on Oath of the Ancients prepared spells though changed Planet Growth to Spirit Guardians.
         var autoPreparedSpellsOathAncients = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetGuiPresentation("Subclass/&OathOfAncientsTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, EnsnaringStrike, AnimalFriendship),
