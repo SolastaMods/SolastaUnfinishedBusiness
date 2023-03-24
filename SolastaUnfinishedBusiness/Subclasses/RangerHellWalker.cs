@@ -38,12 +38,12 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 BuildSpellGroup(17, SpellsContext.FarStep))
             .AddToDB();
 
+        // had to keep this name off standard for reasons
         var powerFirebolt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Firebolt")
-            .SetGuiPresentation(FireBolt.GuiPresentation)
+            .SetGuiPresentation(SpellsContext.EnduringSting.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(FireBolt.EffectDescription)
-            .SetCustomSubFeatures(RangerClassHolder.Marker)
+            .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
             .AddToDB();
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
@@ -230,21 +230,6 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    //
-    //
-
-    internal class RangerClassHolder : IClassHoldingFeature
-    {
-        private RangerClassHolder()
-        {
-        }
-
-        public static RangerClassHolder Marker { get; } = new();
-
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Ranger;
-    }
 
     //
     // DammingStrike
