@@ -125,7 +125,8 @@ internal static class CommonBuilders
     internal static readonly FeatureDefinitionPower PowerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
         .Create("PowerArcaneFighterEnchantWeapon")
         .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
-        .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
+        .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+        .SetUniqueInstance()
         .SetEffectDescription(
             EffectDescriptionBuilder
                 .Create()
@@ -135,7 +136,7 @@ internal static class CommonBuilders
                     0,
                     TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                .SetDurationData(DurationType.Minute, 10)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()

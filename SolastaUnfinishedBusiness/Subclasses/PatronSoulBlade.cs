@@ -45,38 +45,24 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierSoulBladeEmpowerWeapon")
+            .SetGuiPresentation("PowerSoulBladeEmpowerWeapon", Category.Feature)
+            .SetMagicalWeapon()
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .AddToDB();
+
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeEmpowerWeapon")
+            .Create(PowerArcaneFighterEnchantWeapon, "PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerSoulEmpower", Resources.PowerSoulEmpower, 256, 128))
-            .SetUniqueInstance()
+            .SetBonusToAttack(false, false, AttributeDefinitions.Charisma)
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanWeaponBeEmpowered))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
-                            FeatureDefinitionAttackModifierBuilder
-                                .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetMagicalWeapon()
-                                .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                .AddToDB(),
-                            0))
-                    .Build())
-                .Build())
             .AddToDB();
 
         // Common Hex Feature
