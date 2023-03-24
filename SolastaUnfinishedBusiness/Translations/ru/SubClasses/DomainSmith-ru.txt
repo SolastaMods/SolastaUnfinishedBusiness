@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ваша броня становится адамантиновой, вдвое уменьшая критический урон.
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ваша броня становится адамантиновой, что вдвое снижает критический урон.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Адамантиновая броня
 Feature/&AttributeModifierDomainSmithReinforceArmorDescription=Эта броня была усилена, обеспечивая дополнительный +{0} AC.
 Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Усиленный
@@ -8,7 +8,7 @@ Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз за
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Божественный удар
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Действием укрепите броню союзников в радиусе 30 футов. Их броня приобретает прочность адамантовой брони, получая иммунитет к критическому удару на 1 минуту.
 Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Непреклонное благословение
-Feature/&PowerDomainSmithReinforceArmorDescription=По одному за продолжительный отдых вы можете усилить немагический доспех или щит. Усиленный объект получает дополнительный +{0} AC.
+Feature/&PowerDomainSmithReinforceArmorDescription=Один раз за продолжительный отдых вы можете усилить немагический элемент доспеха или щита. Усиленный объект получает дополнительный +{0} AC.
 Feature/&PowerDomainSmithReinforceArmorTitle=Укрепить броню
 Feature/&BonusProficiencyDomainSmithDescription=Получите мастерство в кузнечных инструментах и ​​тяжелых доспехах.
 Feature/&BonusProficiencyDomainSmithTitle=Бонусные навыки

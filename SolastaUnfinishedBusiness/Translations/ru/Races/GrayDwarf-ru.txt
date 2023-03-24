@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=Преимущество на проверках Силы и спасбросках. +1к4 к урону оружием ближнего боя Силы
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Преимущество на проверках Силы и спасбросках. +1к4 к урону рукопашным оружием Силы.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=Каменная сила
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Сила +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Увеличение показателя способности

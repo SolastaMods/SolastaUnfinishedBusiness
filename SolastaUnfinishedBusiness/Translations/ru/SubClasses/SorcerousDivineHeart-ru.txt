@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=Если вы разыгрываете заклинание Исцеление в этом ходу, вы перебрасываете результат 1 или 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Усиленное исцеление
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 очко жизни за уровень
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 очко жизни за уровень.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Божественная стойкость
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=Защита от Зла и Добра всегда известна и подготовлена.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Арун: Защита от зла ​​и добра
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Мисайе — Бэй�
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Мисайе: четыре
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Пакри - Благословение всегда известно и подготовлено.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Пакри: Благослови
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Выберите Божественный источник вашей магии (и бонусное подготовленное заклинание)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Выберите Божественный источник вашей магии.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Выбор божества
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Ваша связь с божественным позволяет вам изучать и применять заклинания клириков как заклинания чародея.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Божественная магия

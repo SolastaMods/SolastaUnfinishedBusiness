@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=Класс брони снижен на 1
+﻿Condition/&ConditionAcidClawsDescription=Класс брони снижен на 1.
 Condition/&ConditionAcidClawsTitle=Кислотный ожог
 Condition/&ConditionMindSpikeDescription=Вычитает 1d4 из следующего спасброска.
 Condition/&ConditionMindSpikeTitle=Спайк разума

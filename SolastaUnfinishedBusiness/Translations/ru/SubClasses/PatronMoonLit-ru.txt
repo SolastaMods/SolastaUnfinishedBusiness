@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=Луна коснулась
 Feature/&BonusCantripsMoonlitDescription=Ваш контроль над лунным светом поднялся на новый уровень. Вы можете использовать заклинания <b>Лунный луч</b> и <b>Волшебный огонь</b> по желанию.
 Feature/&BonusCantripsMoonlitTitle=Управление светом
-Feature/&FeatureSetMoonlitSuperiorSightDescription=Вы можете отлично видеть при любом освещении и иметь слепое зрение до 80 футов, что позволяет вам видеть врагов даже сквозь невидимость и магическую тьму.
+Feature/&FeatureSetMoonlitSuperiorSightDescription=Вы можете прекрасно видеть при любом освещении и иметь слепое зрение до 80 футов, что позволяет вам видеть врагов даже сквозь невидимость и магическую темноту.
 Feature/&FeatureSetMoonlitSuperiorSightTitle=Превосходное зрение
 Feature/&LightAffinityMoonlitStrongDescription=Umbral Cloak теперь работает при тусклом свете и магической тьме.
 Feature/&LightAffinityMoonlitStrongTitle=Улучшенный темный плащ
@@ -16,5 +16,5 @@ Feature/&PowerMoonlitFullMoonDescription=Вы можете сотворить <b
 Feature/&PowerMoonlitFullMoonTitle=Полнолуние
 Feature/&PowerMoonlitMoonTouchedDescription=Вы вызываете гравитационное притяжение луны в небольшой области, заставляя существ, проваливших спасбросок, парить вверх.
 Feature/&PowerMoonlitMoonTouchedTitle=Луна коснулась
-Subclass/&PatronMoonlitDescription=Ваш покровитель — дух луны, сущность, воплощающая циклическую природу света и тьмы. Эти духи стремятся поддерживать власть луны над ночным небом, удерживая при этом нечестивые силы, преследующие тьму, и поручают своим колдунам то же самое, предоставляя им власть над силами луны и ее эффектами.
-Subclass/&PatronMoonlitTitle=залитый лунным светом
+Subclass/&PatronMoonlitDescription=Ваш покровитель — дух луны, сущность, воплощающая циклическую природу света и тьмы. Эти духи стремятся сохранить власть луны над ночным небом, одновременно сдерживая нечестивые силы, преследующие тьму, и поручают им своих колдунов, предоставляя им власть над силами луны и ее эффектами.
+Subclass/&PatronMoonlitTitle=Залитый лунным светом

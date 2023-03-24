@@ -17,6 +17,6 @@ Reaction/&CustomReactionMomentumDescription=Вы развиваете импул
 Reaction/&CustomReactionMomentumReactDescription=Набирать обороты.
 Reaction/&CustomReactionMomentumReactTitle=Импульс
 Reaction/&CustomReactionMomentumTitle=Импульс
-Subclass/&MartialWeaponMasterDescription=Мастера оружия — это первоклассные воины, посвятившие все свое время и энергию овладению одним типом оружия. Они чрезвычайно искусны в использовании слабостей и могут прорезать линии врага со смертельной эффективностью.
+Subclass/&MartialWeaponMasterDescription=Мастера оружия — первоклассные воины, посвятившие все свое время и энергию овладению одним типом оружия. Они чрезвычайно искусны в использовании слабостей и могут прорезать линии врага со смертельной эффективностью.
 Subclass/&MartialWeaponMasterTitle=Мастер оружия
 UI/&CustomFeatureSelectionTooltipTypeMartialWeaponMaster=Специализация оружия
