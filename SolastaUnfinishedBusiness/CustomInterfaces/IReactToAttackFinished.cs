@@ -33,6 +33,7 @@ public interface IReactToAttackOnAllyFinished
     public IEnumerator HandleReactToAttackOnAllyFinished(
         GameLocationCharacter attacker,
         GameLocationCharacter me,
+        GameLocationCharacter ally,
         RuleDefinitions.RollOutcome outcome,
         CharacterActionParams actionParams,
         RulesetAttackMode mode,

@@ -153,7 +153,7 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // name has a deeper dependency with the reaction so not tagging with {name} on purpose
         var featureHarrowingCrusade = FeatureDefinitionBuilder
-            .Create($"FeatureHarrowingCrusade")
+            .Create("FeatureHarrowingCrusade")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackOnMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
@@ -270,25 +270,30 @@ internal sealed class OathOfDread : AbstractSubclass
             _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
 
-        public IEnumerator HandleReactToAttackOnAllyFinished(GameLocationCharacter attacker, GameLocationCharacter me,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        public IEnumerator HandleReactToAttackOnAllyFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            GameLocationCharacter ally,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
         {
-            yield return HandleReactToAttack(attacker, me, outcome, actionParams, mode, modifier);
+            yield return HandleReactToAttack(attacker, me);
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
-        {
-            yield return HandleReactToAttack(attacker, me, outcome, actionParams, mode, modifier);
-        }
-
-        private IEnumerator HandleReactToAttack(
+        public IEnumerator HandleReactToAttackOnMeFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter me,
             RollOutcome outcome,
             CharacterActionParams actionParams,
             RulesetAttackMode mode,
             ActionModifier modifier)
+        {
+            yield return HandleReactToAttack(attacker, me);
+        }
+
+        private IEnumerator HandleReactToAttack(GameLocationCharacter attacker, GameLocationCharacter me)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -339,7 +344,7 @@ internal sealed class OathOfDread : AbstractSubclass
             reactionParams.AttackMode = retaliationMode;
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack($"HarrowingCrusade", reactionParams);
+            var reactionRequest = new ReactionRequestReactionAttack("HarrowingCrusade", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
