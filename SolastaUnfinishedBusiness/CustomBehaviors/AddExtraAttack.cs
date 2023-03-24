@@ -315,7 +315,10 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        // doesn't make sense to add a bonus attack from an offhand slot that already uses your bonus action
+
+        // AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
 
         return result;
     }
