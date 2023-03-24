@@ -1,0 +1,10 @@
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=When you hit with an attack or deal damage with a spell, you can add bonus force damage equal to your charisma modifier. If a spell affects more than one target, the bonus applies to one of them.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=War Sorcerer
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Your Armor Class increases by 2, and you gain proficiency in dexterity saving throws.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Battle Reflexes
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=You can use your bonus action to gain temporary hit points equal to your sorcerer level + charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. If you are out of uses, you can spend two sorcery points instead.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Mana Shield
+Feedback/&AdditionalDamageWarSorcererFormat=War Sorcerer
+Feedback/&AdditionalDamageWarSorcererLine={0} deals War Sorcerer damage on {1} (+{2})
+Subclass/&SorcerousSpellBladeDescription=Spellblades combine martial prowess with inborn magical talents to outmatch their enemies.
+Subclass/&SorcerousSpellBladeTitle=Spellblade

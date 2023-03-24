@@ -35,6 +35,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+    internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
@@ -216,7 +217,7 @@ internal static class SpellsContext
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
-        RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
+        RegisterSpell(ThunderousSmite, 0, SpellListPaladin);
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level

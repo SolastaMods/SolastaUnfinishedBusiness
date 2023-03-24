@@ -1,0 +1,10 @@
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Cuando golpeas con un ataque o infliges daño con un hechizo, puedes agregar daño de fuerza adicional igual a tu modificador de carisma. Si un hechizo afecta a más de un objetivo, la bonificación se aplica a uno de ellos.
+Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Hechicero de guerra
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Tu Clase de armadura aumenta en 2 y ganas competencia en las tiradas de salvación de destreza.
+Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Reflejos de batalla
+Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Puedes usar tu acción de bonificación para obtener puntos de golpe temporales iguales a tu nivel de hechicero + modificador de carisma durante un minuto, un número de veces por descanso prolongado igual a tu bonificación de competencia. Si no tienes usos, puedes gastar dos puntos de hechicería en su lugar.
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Escudo de maná
+Feedback/&AdditionalDamageWarSorcererFormat=Hechicero de guerra
+Feedback/&AdditionalDamageWarSorcererLine={0} inflige daño de War Sorcerer en {1} (+{2})
+Subclass/&SorcerousSpellBladeDescription=Los Spellblades combinan destreza marcial con talentos mágicos innatos para superar a sus enemigos.
+Subclass/&SorcerousSpellBladeTitle=hoja de hechizo

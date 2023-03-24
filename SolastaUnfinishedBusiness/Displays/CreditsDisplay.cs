@@ -17,8 +17,8 @@ internal static class CreditsDisplay
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
             "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, " +
-            "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, " +
-            "Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Slayer, " +
+            "Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Sorcerous Field Manipulator, " +
+            "Sorcerous Spellblade, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Slayer, " +
             "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
@@ -27,7 +27,7 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital", "builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
         ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
-        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("DubhHerder", "quality of life, spells, homebrew content design [subclasses]"),
         ("Taco",
             "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, " +
