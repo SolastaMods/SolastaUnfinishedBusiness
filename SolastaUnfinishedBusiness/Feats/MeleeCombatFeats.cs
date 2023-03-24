@@ -194,7 +194,7 @@ internal static class MeleeCombatFeats
         const string NAME = "FeatSpearMastery";
         const string REACH_CONDITION = $"Condition{NAME}Reach";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponTypeWithoutAttackTag("Polearm", SpearType);
 
         var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
             .Create(REACH_CONDITION)

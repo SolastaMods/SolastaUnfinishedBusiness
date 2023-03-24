@@ -5,5 +5,5 @@
 - fixed Circle of the Night combat healing missing bonus on level 6
 - fixed critical logic option 1 still granting double dice damage
 - fixed Grenadier not able to use items as a bonus action [introduced in v62]
-- fixed interaction between Spear Mastery and Polearm Expert
-- fixed Sanctuary not allowing cast on self
+- fixed Polearm Expert, Spear Mastery and Two Weapon Fighting die type interaction
+- fixed Sanctuary to not exclude caster on selection
