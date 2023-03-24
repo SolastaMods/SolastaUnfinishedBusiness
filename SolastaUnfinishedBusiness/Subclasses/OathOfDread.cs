@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -148,11 +151,11 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Harrowing Crusade
 
-        var powerHarrowingCrusade = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}HarrowingCrusade")
+        // name has a deeper dependency with the reaction so not tagging with {name} on purpose
+        var featureHarrowingCrusade = FeatureDefinitionBuilder
+            .Create($"FeatureHarrowingCrusade")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ReactionTriggerContext.HitByMelee)
+            .SetCustomSubFeatures(new ReactToAttackOnMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
 
         // MAIN
@@ -161,13 +164,13 @@ internal sealed class OathOfDread : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfDread, 256))
             .AddFeaturesAtLevel(3,
-                autoPreparedSpells,
+                autoPreparedSpells, featureHarrowingCrusade,
                 featureSetMarkOfTheSubmission,
                 powerDreadfulPresence)
             .AddFeaturesAtLevel(7,
                 powerAuraOfDomination)
             .AddFeaturesAtLevel(15,
-                powerHarrowingCrusade)
+                featureHarrowingCrusade)
             .AddToDB();
     }
 
@@ -185,11 +188,11 @@ internal sealed class OathOfDread : AbstractSubclass
 
     private sealed class CharacterTurnStartListenerAuraOfDomination : ICharacterTurnStartListener
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        private readonly ConditionDefinition _conditionAuraOfDomination;
 
-        public CharacterTurnStartListenerAuraOfDomination(ConditionDefinition conditionDefinition)
+        public CharacterTurnStartListenerAuraOfDomination(ConditionDefinition conditionAuraOfDomination)
         {
-            _conditionDefinition = conditionDefinition;
+            _conditionAuraOfDomination = conditionAuraOfDomination;
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
@@ -203,7 +206,7 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
-                x.ConditionDefinition == _conditionDefinition);
+                x.ConditionDefinition == _conditionAuraOfDomination);
 
             if (rulesetCondition == null)
             {
@@ -211,8 +214,8 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var locationCharacterAttacker =
-                gameLocationCharacterService.PartyCharacters.FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
+            var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
+                .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
 
             if (locationCharacterAttacker == null)
             {
@@ -222,7 +225,7 @@ internal sealed class OathOfDread : AbstractSubclass
             var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
             var newCondition = RulesetCondition.CreateActiveCondition(
                 rulesetDefender.Guid,
-                ConditionDefinitions.ConditionRestrained,
+                CustomConditionsContext.StopMovement,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
@@ -255,76 +258,92 @@ internal sealed class OathOfDread : AbstractSubclass
     }
 
     //
-    //
+    // Harrowing Crusade
     //
 
-#if false
-    private class TargetReducedToZeroHpMomentum : ITargetReducedToZeroHp
+    private class ReactToAttackOnMeFinishedHarrowingCrusade : IReactToAttackOnMeFinished, IReactToAttackOnAllyFinished
     {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinition _featureDefinition;
+        private readonly ConditionDefinition _conditionMarkOfTheSubmission;
 
-        public TargetReducedToZeroHpMomentum(
-            FeatureDefinition featureDefinition,
-            ConditionDefinition conditionDefinition)
+        public ReactToAttackOnMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
         {
-            _featureDefinition = featureDefinition;
-            _conditionDefinition = conditionDefinition;
+            _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
 
-        public IEnumerator HandleCharacterReducedToZeroHp(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
+        public IEnumerator HandleReactToAttackOnAllyFinished(GameLocationCharacter attacker, GameLocationCharacter me,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
         {
-            if (attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction] > 0)
-            {
-                yield break;
-            }
+            yield return HandleReactToAttack(attacker, me, outcome, actionParams, mode, modifier);
+        }
 
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
+            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        {
+            yield return HandleReactToAttack(attacker, me, outcome, actionParams, mode, modifier);
+        }
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
-            {
-                yield break;
-            }
-
+        private IEnumerator HandleReactToAttack(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
+        {
             var rulesetAttacker = attacker.RulesetCharacter;
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "Reaction/&CustomReactionMomentumDescription"
-                };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("Momentum", reactionParams);
 
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
+            if (!rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightened) &&
+                !rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightenedFear) &&
+                !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
             {
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinition);
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetAttacker.Guid,
-                _conditionDefinition,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                rulesetAttacker.Guid,
-                rulesetAttacker.CurrentFaction.Name);
+            if (!me.CanReact())
+            {
+                yield break;
+            }
 
-            rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            if (!battle.IsWithinBattleRange(me, attacker))
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
+
+            if (retaliationMode == null)
+            {
+                yield break;
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack($"HarrowingCrusade", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
         }
     }
-#endif
 }
