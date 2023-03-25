@@ -2,7 +2,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Pris au piège
 Condition/&ConditionMuleDescription=Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
 Condition/&ConditionMuleTitle=Mule
-Condition/&ConditionSanctuaryDescription=Les attaques contre vous doivent faire un jet de sauvegarde de sagesse. Sur un jet de sauvegarde raté, l'attaque rate. Les coups critiques en infligent la moitié.
+Condition/&ConditionSanctuaryDescription=Les attaques contre vous doivent faire un jet de sauvegarde de Sagesse. Sur un jet de sauvegarde raté, l'attaque rate. Les coups critiques en infligent la moitié.
 Condition/&ConditionSanctuaryTitle=Gardé par Sanctuaire
 Condition/&ConditionSkinOfRetributionDescription=Si une créature vous touche avec une attaque au corps à corps alors que vous avez ces points de vie temporaires, la créature subit 5 {0} par niveau de sort.
 Condition/&ConditionSkinOfRetributionTitle=Peau de châtiment
@@ -18,7 +18,7 @@ Feedback/&AdditionalDamageEnsnaringStrikeFormat=Pris au piège !
 Feedback/&AdditionalDamageEnsnaringStrikeLine={0} prend au piège {1} par une Frappe prise au piège (+{2})
 Feedback/&AdditionalDamageSearingSmiteFormat=Châtiment brûlant !
 Feedback/&AdditionalDamageSearingSmiteLine={0} inflige plus de dégâts à {1} par un châtiment brûlant (+{2})
-Feedback/&AdditionalDamageThunderousSmiteFormat=Châtiment du tonnerre !
+Feedback/&AdditionalDamageThunderousSmiteFormat=Frappe du tonnerre !
 Feedback/&AdditionalDamageThunderousSmiteLine={0} inflige plus de dégâts à {1} par un coup de tonnerre (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=Châtiment courroucé !
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} inflige plus de dégâts à {1} par un châtiment courroucé (+{2})

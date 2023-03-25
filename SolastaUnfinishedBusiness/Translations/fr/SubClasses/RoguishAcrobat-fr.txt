@@ -1,4 +1,4 @@
-﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Vous ajoutez la moitié de votre bonus de compétence à votre classe d'armure tout en maniant un bâton à deux mains, et vous ne portez ni armure ni armure légère.
+﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Vous ajoutez la moitié de votre bonus de maîtrise à votre classe d'armure tout en maniant un bâton à deux mains, et vous ne portez ni armure ni armure légère.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Acrobate Protecteur
 Feature/&FeatureRoguishAcrobatTrooperDescription=Vous obtenez la possibilité d'utiliser un bâton comme arme de finesse et la portée du bâton passe à 3 mètres.\nLorsque vous effectuez l'action Attaquer avec un bâton, vous pouvez utiliser votre action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée du bâton. arme. Cette attaque utilise le même modificateur de caractéristique que l'attaque principale et inflige 1d4 dégâts contondants.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldat acrobate
@@ -6,7 +6,7 @@ Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Votre dé de dégâts poly
 Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Rapide comme le vent
 Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=Vous n'êtes pas affecté par un terrain difficile.\nVous pouvez vous déplacer le long des murs et vous ne subissez pas de dégâts lors de chutes jusqu'à 9 mètres.\nLes attaques d'opportunité sont faites avec un désavantage contre vous.\nVous devez manier un bâton à deux mains pour que ceux-ci fonctionnent.
 Feature/&MovementAffinityRoguishAcrobatFluidMotionsTitle=Mouvements fluides
-Feature/&PowerRoguishAcrobatReflexesDescription=Esquivez en tant qu'action bonus un nombre de fois égal à votre modificateur de dextérité.
+Feature/&PowerRoguishAcrobatReflexesDescription=Esquivez en tant qu'action bonus un nombre de fois égal à votre modificateur de Dextérité.
 Feature/&PowerRoguishAcrobatReflexesTitle=Réflexes d'acrobate
 Feature/&ProficiencyRoguishAcrobatMavenDescription=Vous gagnez en maîtrise ou en expertise dans la compétence d'acrobate.
 Feature/&ProficiencyRoguishAcrobatMavenTitle=Acrobate Maven

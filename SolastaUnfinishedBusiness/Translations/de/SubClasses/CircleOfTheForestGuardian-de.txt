@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Beschützt von den Geistern des Waldes. Erhalte 4 temporäre HP für jede Druidenstufe, die 10 Minuten lang anhält.
+Condition/&ConditionForestGuardianBarkWardDescription=Beschützt von den Geistern des Waldes. Erhalte 4 temporäre Trefferpunkte für jede Druidenstufe, die 10 Minuten lang anhält.
 Condition/&ConditionForestGuardianBarkWardTitle=Rinde Ward
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=Die Geister des Waldes fügen Kreaturen, die sie mit einem Nahkampfangriff treffen, 2W8 Stichschaden zu.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Verbesserter Bark Ward

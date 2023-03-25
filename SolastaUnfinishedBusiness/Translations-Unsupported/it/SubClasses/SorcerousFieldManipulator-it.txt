@@ -1,8 +1,0 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del tiro salvezza aumenta di 2.
-Feature/&MagicAffinityFieldManipulatorDCTitle=Forza Arcana
-Feature/&PowerFieldManipulatorDominatePersonDescription=Puoi usare Dominare Persone un numero di volte per riposo lungo pari al tuo modificatore di Carisma.
-Feature/&PowerFieldManipulatorDominatePersonTitle=Persona dominante
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Ottieni competenza nei tiri salvezza con Intelligenza e Saggezza.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Resistenza mentale
-Subclass/&FieldManipulatorDescription=I Field Manipulator eccellono nel controllare il campo di battaglia e nell'impedire ai nemici di attaccarli.
-Subclass/&FieldManipulatorTitle=Manipolatore di campo

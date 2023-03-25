@@ -17,4 +17,4 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Utilisez la réact
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Frappe de faille
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Frappe de faille
 Subclass/&PatronRiftWalkerDescription=Votre patron est l'un des rares êtres qui habitent le vide entre les mondes. Ils se glissent facilement entre les plans et les connaissances que vous avez acquises en interagissant avec eux vous permettent d'exploiter les énergies de faille persistantes à votre avantage au sein de solasta. Vous pourriez parfois être rempli d'un désir ardent pour le royaume lointain de votre patron, d'un désir d'errer entre les dimensions pour le reste de vos jours, ou de surveiller les signes d'un autre événement Rift, que ce soit pour prévenir ou encourager.
-Subclass/&PatronRiftWalkerTitle=Le marcheur de la faille
+Subclass/&PatronRiftWalkerTitle=Le marcheur des failles

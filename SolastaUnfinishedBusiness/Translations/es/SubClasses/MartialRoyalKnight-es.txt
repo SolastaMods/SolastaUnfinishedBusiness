@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Recibes +1 a tu clase de armadura si tu salud está por debajo del 25%.
+Condition/&ConditionRoyalKnightProtectionTitle=Protección inspiradora
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Suma la mitad de tu bonificación por competencia a cualquier prueba de Carisma que realices y que aún no utilice tu bonificación por competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Enviado real
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Como acción adicional, puedes otorgar a un aliado una acción principal adicional durante 1 ronda. Esta acción no se acumula con Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeTitle=Oleada inspiradora
+Feature/&PowerRoyalKnightProtectionDescription=Tus acciones inspiran a otros a seguir luchando. Al comienzo de cada uno de tus turnos, tú y tus aliados en un radio de 30 pies obtienen puntos de golpe temporales equivalentes al doble de tu bonificación de competencia. Tus aliados reciben +1 en su clase de armadura si su salud está por debajo del 25 %.
+Feature/&PowerRoyalKnightProtectionTitle=Protección inspiradora
+Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder que restaura puntos de golpe equivalentes a 4x tu nivel de luchador, distribuidos uniformemente, a uno o más aliados dentro de los 30 pies.
+Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra
+Subclass/&MartialRoyalKnightDescription=Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un Royal Knight es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.
+Subclass/&MartialRoyalKnightTitle=Caballero real

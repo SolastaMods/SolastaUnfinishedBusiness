@@ -4,5 +4,5 @@ Condition/&ConditionDistractedByAllyDescription=Это существо было
 Condition/&ConditionDistractedByAllyTitle=Несосредоточенный
 Condition/&ConditionLightSensitivityDescription=Вы совершаете Недостаток по проверкам Мудрости (Восприятие) при ярком свете и получаете штраф -1d4 к броскам атаки.
 Condition/&ConditionLightSensitivityTitle=Светочувствительность
-Condition/&ConditionStopMovementDescription=Не в состоянии двигаться. Скорость установлена ​​на 0.
+Condition/&ConditionStopMovementDescription=Не в состоянии двигаться. Скорость установлена на 0.
 Condition/&ConditionStopMovementTitle=Остановлено

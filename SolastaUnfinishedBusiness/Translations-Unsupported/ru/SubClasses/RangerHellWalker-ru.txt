@@ -2,7 +2,7 @@
 Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Проклятый удар
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Вы получаете урон некротической энергией 1d6 в конце каждого своего хода, вы напуганы, а огненные атаки от маркера обходят ваше сопротивление.
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Отмечено проклятыми
-Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Когда вы впервые попадаете по существу атакой в ​​свой ход, вы можете заставить его преуспеть в спасброске Телосложения против Сл вашего заклинания или пометить его. Пока существо помечено таким образом, оно получает урон огнём 1d6 в начале каждого своего хода в течение 1 минуты. В конце каждого своего хода существо может повторять этот спасбросок, оканчивая эффекты при успехе.
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Когда вы впервые попадаете по существу атакой в свой ход, вы можете заставить его преуспеть в спасброске Телосложения против Сл вашего заклинания или пометить его. Пока существо помечено таким образом, оно получает урон огнём 1d6 в начале каждого своего хода в течение 1 минуты. В конце каждого своего хода существо может повторять этот спасбросок, оканчивая эффекты при успехе.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Проклятый удар
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Вы можете разыграть <b>Укус стойкости</b> действием и получить бонусные заклинания, которые считаются для вас заклинаниями рейнджера и не учитываются при подсчете количества известных вам заклинаний:\n{0}
 Feature/&AutoPreparedSpellsRangerHellWalkerTitle=Магия адского странника

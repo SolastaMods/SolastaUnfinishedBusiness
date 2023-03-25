@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Hinterhältigen Angriff gegen eine Kreatur einzusetzen, wenn du dich innerhalb von 1,50 m von ihr befindest, keine anderen Kreaturen sich innerhalb von 1,50 m um dich befinden und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Schleichangriff gegen eine Kreatur einzusetzen, wenn du dich innerhalb von 1,50 m von ihr befindest, keine anderen Kreaturen sich innerhalb von 1,50 m um dich befinden und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Gewagtes Duell
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Erhalte eine zusätzliche Rüstungsklasse in Höhe deines halben Fertigkeitsbonus.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Trittsicher
