@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 #if DEBUG
@@ -129,6 +130,7 @@ internal static class BootContext
 
             // Set anything on subs that depends on spells and others
             SubclassesContext.LateLoad();
+            InventorClass.LateLoadSpellStoringItem();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
