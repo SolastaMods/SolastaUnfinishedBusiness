@@ -574,9 +574,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildMetamagic()
     {
-        // BACKWARD COMPATIBILITY
-        BuildMetamagicBackwardCompatibility();
-
         return FeatDefinitionBuilder
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
@@ -597,36 +594,6 @@ internal static class OtherFeats
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
-    }
-
-    private static void BuildMetamagicBackwardCompatibility()
-    {
-        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
-                AttributeDefinitions.SorceryPoints)
-            .AddToDB();
-
-        var metaMagicFeats = new List<FeatDefinition>();
-        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
-
-        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
-                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
-                .SetGuiPresentationNoContent(true)
-                .SetFeatures(
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus3,
-                    FeatureDefinitionBuilder
-                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
-                        .AddToDB())
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                .AddToDB()));
     }
 
     private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode

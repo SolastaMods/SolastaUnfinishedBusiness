@@ -207,18 +207,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 .AddToDB())
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("OnAfterActionWolfLeadership")
-                .SetGuiPresentationNoContent(true)
-                .AddToDB())
-            .AddToDB();
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
