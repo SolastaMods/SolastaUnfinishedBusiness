@@ -66,6 +66,12 @@ internal static class InventoryManagementContext
         SelectionChanged = () =>
         {
             var container = containerPanel.Container;
+
+            if (container == null)
+            {
+                return;
+            }
+
             var inspectedCharacter = containerPanel.InspectedCharacter;
             var dropAreaClicked = containerPanel.DropAreaClicked;
             var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;
