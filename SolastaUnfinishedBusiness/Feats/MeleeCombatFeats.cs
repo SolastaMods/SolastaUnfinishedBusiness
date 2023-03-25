@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using MonoMod.Utils;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -717,60 +718,21 @@ internal static class MeleeCombatFeats
 
     #region Crusher
 
-    private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
-        .Create("PowerFeatCrusherHit")
-        .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
-        .SetShowCasting(false)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                .Build())
-            .Build())
-        .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
+    private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
-        .SetGuiPresentationNoContent(true)
-        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.UsePowerReaction)
-        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-        .SetDamageDice(DieType.D1, 0)
-        .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
-        .SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, _, ranged, mode, _) =>
-                (OperationType.Set,
-                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, null))))
-        .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
-        .Create("FeatureFeatCrusherCriticalHit")
-        .SetGuiPresentationNoContent(true)
-        .SetNotificationTag(GroupFeats.Crusher)
-        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-        .SetDamageDice(DieType.D1, 0)
-        .SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                (OperationType.Set,
-                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, character))),
-            new AfterAttackEffectFeatCrusher(
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatCrusherCriticalHit")
-                    .SetGuiPresentation("FeatCrusherStr", Category.Feat)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
-                    .SetFeatures(
-                        FeatureDefinitionCombatAffinityBuilder
-                            .Create("CombatAffinityFeatCrusher")
-                            .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
-                            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                            .AddToDB())
-                    .AddToDB(),
-                DamageTypeBludgeoning))
+        .SetCustomSubFeatures(new AttackFinishedCrusher(
+            ConditionDefinitionBuilder
+                .Create("ConditionFeatCrusherCriticalHit")
+                .SetGuiPresentation(Category.Feat)
+                .SetSpecialDuration(DurationType.Round, 1)
+                .SetPossessive()
+                .SetFeatures(
+                    FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityFeatCrusher")
+                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
+                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                        .AddToDB())
+                .AddToDB()))
         .AddToDB();
 
     private static FeatDefinition BuildCrusherStr()
@@ -780,12 +742,9 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
-                FeatureFeatCrusher,
-                FeatureFeatCrusherCriticalHit,
-                PowerFeatCrusherHit)
+                FeatureFeatCrusher)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -796,46 +755,93 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Arun,
-                FeatureFeatCrusher,
-                FeatureFeatCrusherCriticalHit,
-                PowerFeatCrusherHit)
+                FeatureFeatCrusher)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
-    private sealed class AfterAttackEffectFeatCrusher : IAfterAttackEffect
+    private sealed class AttackFinishedCrusher : IAttackFinished
     {
-        private readonly ConditionDefinition _criticalConditionDefinition;
-        private readonly string _damageType;
+        private const string SpecialFeatureName = "FeatureCrusher";
 
-        internal AfterAttackEffectFeatCrusher(
-            ConditionDefinition criticalConditionDefinition,
-            string damageType)
+        private readonly ConditionDefinition _criticalConditionDefinition;
+
+        public AttackFinishedCrusher(ConditionDefinition conditionDefinition)
         {
-            _criticalConditionDefinition = criticalConditionDefinition;
-            _damageType = damageType;
+            _criticalConditionDefinition = conditionDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public IEnumerator OnAttackFinished(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null || damage.DamageType != _damageType)
+            if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName))
             {
-                return;
+                yield break;
             }
 
-            if (outcome is not RollOutcome.CriticalSuccess)
+            var actionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionService == null || !battleManager.IsBattleInProgress)
             {
-                return;
+                yield break;
+            }
+
+            if (attackerAttackMode.ranged ||
+                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackerAttackMode, null, null))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "Reaction/&CustomReactionCrusherDescription"
+                };
+            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
+
+            actionService.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(
+                attacker, actionService, previousReactionCount);
+
+            if (reactionParams.ReactionValidated)
+            {
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = attacker.RulesetCharacter,
+                    targetCharacter = defender.RulesetCharacter,
+                    position = defender.LocationPosition
+                };
+
+                implementationService.ApplyEffectForms(
+                    new List<EffectForm>
+                    {
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .Build()
+                    },
+                    applyFormsParams,
+                    new List<string>(),
+                    out _,
+                    out _);
+
+                attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            }
+
+            if (attackRollOutcome is not RollOutcome.CriticalSuccess)
+            {
+                yield break;
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
