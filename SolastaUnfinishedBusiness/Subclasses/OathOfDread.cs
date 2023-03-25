@@ -326,14 +326,20 @@ internal sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            if (!battle.IsWithinBattleRange(me, attacker))
-            {
-                yield break;
-            }
-
             var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
+            {
+                (retaliationMode, retaliationModifier) = me.GetFirstRangedModeThatCanAttack(attacker);
+
+                if (retaliationMode == null)
+                {
+                    yield break;
+                }
+            }
+
+            // do I need to check this as well?
+            if (!battle.IsWithinBattleRange(me, attacker))
             {
                 yield break;
             }
