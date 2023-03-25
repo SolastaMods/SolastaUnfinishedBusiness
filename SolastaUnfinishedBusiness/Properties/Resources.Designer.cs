@@ -832,6 +832,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ElementalWeapon {
+            get {
+                object obj = ResourceManager.GetObject("ElementalWeapon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] EmptyBody {
             get {
                 object obj = ResourceManager.GetObject("EmptyBody", resourceCulture);
@@ -1955,9 +1965,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerMarkOfTheSubmission {
+        public static byte[] PowerMarkOfTheDammed {
             get {
-                object obj = ResourceManager.GetObject("PowerMarkOfTheSubmission", resourceCulture);
+                object obj = ResourceManager.GetObject("PowerMarkOfTheDammed", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1965,9 +1975,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerMarkOfTheDammed {
+        public static byte[] PowerMarkOfTheSubmission {
             get {
-                object obj = ResourceManager.GetObject("PowerMarkOfTheDammed", resourceCulture);
+                object obj = ResourceManager.GetObject("PowerMarkOfTheSubmission", resourceCulture);
                 return ((byte[])(obj));
             }
         }

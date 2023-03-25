@@ -238,13 +238,13 @@ internal sealed class OathOfDread : AbstractSubclass
             var totalDamage = classLevel / 2;
             var damageForm = new DamageForm
             {
-                DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
+                DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,
-                DamageTypeNecrotic,
+                DamageTypePsychic,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
@@ -279,7 +279,7 @@ internal sealed class OathOfDread : AbstractSubclass
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
-            yield return HandleReactToAttack(attacker, me);
+            yield return HandleReactToAttack(attacker, me, ally);
         }
 
         public IEnumerator HandleReactToAttackOnMeFinished(
@@ -290,10 +290,13 @@ internal sealed class OathOfDread : AbstractSubclass
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
-            yield return HandleReactToAttack(attacker, me);
+            yield return HandleReactToAttack(attacker, me, me);
         }
 
-        private IEnumerator HandleReactToAttack(GameLocationCharacter attacker, GameLocationCharacter me)
+        private IEnumerator HandleReactToAttack(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            GameLocationCharacter ally)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -340,6 +343,7 @@ internal sealed class OathOfDread : AbstractSubclass
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.StringParameter = ally.Name;
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
