@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
-using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -583,7 +582,7 @@ internal static class CharacterContext
             var guiPresentation = monsterDefinition.GuiPresentation;
             var powerName = featureDefinitionPower.Name;
             var sprite = kindredSpiritsSprites.TryGetValue(powerName, out var resource)
-                ? Sprites.GetSprite(powerName, kindredSpiritsSprites[powerName], 128)
+                ? Sprites.GetSprite(powerName, resource, 128)
                 : monsterDefinition.GuiPresentation.SpriteReference;
 
             _ = CustomInvocationDefinitionBuilder
