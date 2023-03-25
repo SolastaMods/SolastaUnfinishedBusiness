@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription=敏捷+1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle=森林侏儒属性增加
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription=智力+2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle=地精属性增加
+Feature/&CastSpellGnomeNaturalIllusionistDescription=您知道 <b>烦人的蜜蜂</b> 戏法。智力是你的施法修饰符。
+Feature/&CastSpellGnomeNaturalIllusionistTitle=天生魔术师
+Feature/&ProficiencyGnomeLanguagesDescription=普通，侏儒。
+Feature/&ProficiencyGnomeLanguagesTitle=语言
+Feature/&SavingThrowAffinityGnomeCunningFeatureDescription=你在所有对抗魔法的智力、感知和魅力豁免上都具有优势。
+Feature/&SavingThrowAffinityGnomeCunningFeatureTitle=狡猾
+Language/&LanguageGnomishDescription=一种古老的索拉斯坦语，由生活在索拉斯塔森林深处的侏儒保存，在大灾变中幸存下来。
+Language/&LanguageGnomishTitle=侏儒
+Race/&RaceGnomeDescription=侏儒们形成紧密联系的社区的沃伦斯和社区中弥漫着忙碌活动的持续嗡嗡声。更响亮的声音打断了嗡嗡声：这里有齿轮的嘎吱声，那里有轻微的爆炸声，惊喜或胜利的叫喊声，尤其是阵阵笑声。侏儒喜欢生活，享受发明、探索、调查、创造和玩耍的每一刻。
+Race/&RaceGnomeTitle=地精
