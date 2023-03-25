@@ -418,6 +418,11 @@ internal static class SpellsContext
                 return;
             }
 
+            if (spellDefinition.SpellLevel is 1 or 2)
+            {
+                InventorClass.SwitchSpellStoringItemSubPower(spellDefinition, active);
+            }
+
             if (!Main.Settings.AllowAssigningOfficialSpells &&
                 spellDefinition.ContentPack != CeContentPackContext.CeContentPack)
             {
