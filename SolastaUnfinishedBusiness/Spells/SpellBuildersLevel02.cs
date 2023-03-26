@@ -1,8 +1,12 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -227,6 +231,98 @@ internal static partial class SpellBuilders
         itemPropertyForm.FeatureBySlotLevel[3].level = 7;
 
         return spell;
+    }
+
+    #endregion
+
+    #region Web
+
+    internal static SpellDefinition BuildWeb()
+    {
+        var feature = FeatureDefinitionBuilder
+            .Create("FeatureOnRoundStartWeb")
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionRestrained, "ConditionRestrainedBySpellWeb")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddFeatures(feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new CharacterTurnStartListenerWeb(condition));
+
+        var spell = SpellDefinitionBuilder
+            .Create(Entangle, "SpellWeb")
+            .SetGuiPresentation(Category.Spell)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetSpellLevel(2)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Entangle.EffectDescription)
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 2, 1)
+                .SetDurationData(DurationType.Hour, 1)
+                .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    Entangle.EffectDescription.EffectForms[0],
+                    Entangle.EffectDescription.EffectForms[1],
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .Build())
+                .Build())
+            .SetRequiresConcentration(false)
+            .AddToDB();
+
+        return spell;
+    }
+
+    private sealed class CharacterTurnStartListenerWeb : ICharacterTurnStartListener
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public CharacterTurnStartListenerWeb(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var rulesetCondition =
+                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+            var actionTypeStatus = locationCharacter.GetActionTypeStatus(
+                ActionDefinitions.ActionType.Main, ActionDefinitions.ActionScope.Battle, true);
+
+            if (rulesetCondition == null || actionTypeStatus != ActionDefinitions.ActionStatus.Available)
+            {
+                return;
+            }
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
+                .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
+            var checkDC = locationCharacterAttacker.RulesetCharacter.SpellRepertoires
+                .Select(x => x.SaveDC)
+                .Max();
+
+            locationCharacter.RollAbilityCheck(
+                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None,
+                new ActionModifier(), false, -1, out var outcome, out _, true);
+
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            locationCharacter.currentActionRankByType.TryAdd(ActionDefinitions.ActionType.Main, 1);
+            locationCharacterAttacker.ActionsRefreshed?.Invoke(locationCharacter);
+        }
     }
 
     #endregion
