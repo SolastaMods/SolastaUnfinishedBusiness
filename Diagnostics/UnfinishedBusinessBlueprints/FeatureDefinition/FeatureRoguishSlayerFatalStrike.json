@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureRoguishSlayerFatalStrikeTitle",
+    "description": "Feature/&FeatureRoguishSlayerFatalStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c99e9d2-65bd-5d35-93aa-0d4f3deaaf2e",
+  "guid": "9c5400eb-53e3-53f5-bb38-0edde8e5d8d6",
   "contentPack": 9999,
-  "name": "FeatureDeadlyAim"
+  "name": "FeatureRoguishSlayerFatalStrike"
 }

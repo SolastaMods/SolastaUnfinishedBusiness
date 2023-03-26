@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityRoguishDuelistGracefulTakeDown:cb1cc178-02dc-52d7-8207-e95e178c93ff",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRoguishDuelistMasterDuelist:5d99dc80-7367-54d7-91b3-d16b353fa581",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

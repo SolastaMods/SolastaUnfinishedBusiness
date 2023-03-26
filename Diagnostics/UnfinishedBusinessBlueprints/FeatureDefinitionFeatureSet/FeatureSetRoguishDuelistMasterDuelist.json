@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRavenDeadlyAim:7256f900-6af9-529e-8541-99e7a22dba4e",
-    "Definition:FeatureRavenDeadlyAim:60e6bcf1-5a16-5717-96c2-ec2ee8a00570"
+    "Definition:PowerRoguishDuelistMasterDuelist:72556349-367c-5ee0-9745-17169f6c4821",
+    "Definition:FeatureRoguishDuelistMasterDuelist:8f1d4252-d73f-5a80-b2be-38838ce3eb73"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetRavenDeadlyAimTitle",
-    "description": "Feature/&FeatureSetRavenDeadlyAimDescription",
+    "title": "Feature/&FeatureSetRoguishDuelistMasterDuelistTitle",
+    "description": "Feature/&FeatureSetRoguishDuelistMasterDuelistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2054a720-6d41-5d51-b3e4-55417928d432",
+  "guid": "5d99dc80-7367-54d7-91b3-d16b353fa581",
   "contentPack": 9999,
-  "name": "FeatureSetRavenDeadlyAim"
+  "name": "FeatureSetRoguishDuelistMasterDuelist"
 }
