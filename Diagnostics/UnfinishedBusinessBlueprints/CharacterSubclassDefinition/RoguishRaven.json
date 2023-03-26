@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DieRollModifierRavenPainMaker:25a9ae90-8b6e-5d20-9267-392f89a96dac",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRavenDeadlyAim:2054a720-6d41-5d51-b3e4-55417928d432",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],

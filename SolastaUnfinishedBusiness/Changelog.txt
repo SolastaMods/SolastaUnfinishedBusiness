@@ -1,4 +1,5 @@
-- improved Crusher to be friendly on multiplayer sessions with not more lags at all
-- improved Inventor spell storing item to be aware of changes on spell selection UI
-- improved Oath of Dread's harrowing crusade to show the ally name getting attacked 
-- fixed Squat Nimbleness feat with a wrong skill assignment on DEX and STR versions
+- added Raven's deadly aim at 13th and perfect shot at 17th finishing the subclass
+- improved Crusher to be friendly on multiplayer sessions with no more lags at all
+- improved Inventor spell storing item to be aware of changes from spell selection UI
+- improved Ranged Expert to allow Inventor's lightning launcher as an off hand attack
+- fixed Squat Nimbleness feat with wrong skills assignment on DEX and STR versions

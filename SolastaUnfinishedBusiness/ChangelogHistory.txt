@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.65:
+
+- added Raven's deadly aim at 13th and perfect shot at 17th finishing the subclass
+- improved Crusher to be friendly on multiplayer sessions with no more lags at all
+- improved Inventor spell storing item to be aware of changes on spell selection UI
+- improved Ranged Expert to allow Inventor's lightning launcher as an off hand attack
+- fixed Squat Nimbleness feat with a wrong skill assignment on DEX and STR versions
+
 1.4.33.64:
 
 - added custom level up screen for Ancestries and Kindred Spirits
