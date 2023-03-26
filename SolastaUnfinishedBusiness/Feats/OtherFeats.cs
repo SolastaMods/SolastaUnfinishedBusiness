@@ -383,6 +383,34 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Metamagic
+
+    private static FeatDefinition BuildMetamagic()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatMetamagicAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                ActionAffinitySorcererMetamagicToggle,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.SorceryPoints,
+                        2)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolFeatMetamagicAdept")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
+                    .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Common Helpers
 
     internal sealed class SpellTag
@@ -565,54 +593,6 @@ internal static class OtherFeats
             IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
         {
             return provider.DamageAffinityType == DamageAffinityType.Immunity && _damageTypes.Contains(damageType);
-        }
-    }
-
-    #endregion
-
-    #region Metamagic
-
-    private static FeatDefinition BuildMetamagic()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatMetamagicAdept")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                ActionAffinitySorcererMetamagicToggle,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.SorceryPoints,
-                        2)
-                    .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create("PointPoolFeatMetamagicAdept")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
-                    .AddToDB())
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
-    }
-
-    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
-    {
-        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
-        {
-            MetamagicOption = metamagicOption;
-        }
-
-        private MetamagicOptionDefinition MetamagicOption { get; }
-
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
-            {
-                return;
-            }
-
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
         }
     }
 

@@ -103,6 +103,8 @@ internal sealed class RoguishRaven : AbstractSubclass
                 dieRollModifierRavenPainMaker)
             .AddFeaturesAtLevel(13,
                 featureSetRavenDeadlyAim)
+            .AddFeaturesAtLevel(17,
+                dieRollModifierRavenPerfectShot)
             .AddToDB();
     }
 
@@ -313,7 +315,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 false, // check this
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out var _,
+                out _,
                 -1,
                 false);
 

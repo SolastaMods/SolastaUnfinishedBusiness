@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRavenDeadlyAim:2054a720-6d41-5d51-b3e4-55417928d432",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DieRollModifierRavenPerfectShot:3797c39c-0b61-5c4e-8df8-6a9b23a12a18",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],
