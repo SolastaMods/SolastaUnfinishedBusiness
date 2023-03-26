@@ -13,9 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
-    "Definition:FeatureFeatCrusher:64e6fea6-765a-5c24-ad0d-83be18d62d96",
-    "Definition:FeatureFeatCrusherCriticalHit:fd7dbcf1-90b9-57d6-9c36-2e0bc17c86a3",
-    "Definition:PowerFeatCrusherHit:8cf7eeb0-ebce-54ea-b64f-c9f8bb2111e7"
+    "Definition:FeatureFeatCrusher:64e6fea6-765a-5c24-ad0d-83be18d62d96"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
