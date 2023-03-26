@@ -68,8 +68,8 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
-        var featureDeadlyAim = FeatureDefinitionBuilder
-            .Create("FeatureDeadlyAim")
+        var featureRavenDeadlyAim = FeatureDefinitionBuilder
+            .Create("FeatureRavenDeadlyAim")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new AlterAttackOutcomeDeadlyAim(powerDeadlyAim))
             .AddToDB();
@@ -77,7 +77,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRavenDeadlyAim")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(featureDeadlyAim, powerDeadlyAim)
+            .AddFeatureSet(featureRavenDeadlyAim, powerDeadlyAim)
             .AddToDB();
 
         // Perfect Shot
@@ -97,6 +97,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 Sprites.GetSprite("RoguishRaven", Resources.RoguishRaven, 256))
             .AddFeaturesAtLevel(3,
                 featureSetRavenSharpShooter,
+                featureSetRavenDeadlyAim,
                 BuildHeartSeekingShot())
             .AddFeaturesAtLevel(9,
                 additionalActionRavenKillingSpree,
@@ -291,9 +292,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionDeadlyAimReactDescription"
+            };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("DeadlyAim", reactionParams);
+            var reactionRequest = new ReactionRequestCustom("RavenDeadlyAim", reactionParams);
 
             manager.AddInterruptRequest(reactionRequest);
 
