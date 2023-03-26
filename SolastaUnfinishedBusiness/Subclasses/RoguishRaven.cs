@@ -97,7 +97,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                 Sprites.GetSprite("RoguishRaven", Resources.RoguishRaven, 256))
             .AddFeaturesAtLevel(3,
                 featureSetRavenSharpShooter,
-                featureSetRavenDeadlyAim,
                 BuildHeartSeekingShot())
             .AddFeaturesAtLevel(9,
                 additionalActionRavenKillingSpree,
