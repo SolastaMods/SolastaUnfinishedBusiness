@@ -65,7 +65,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
-            .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature)
+            .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 

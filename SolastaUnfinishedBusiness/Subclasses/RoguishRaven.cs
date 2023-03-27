@@ -64,7 +64,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         // deadly aim
         var powerDeadlyAim = FeatureDefinitionPowerBuilder
             .Create("PowerRavenDeadlyAim")
-            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature)
+            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .AddToDB();
 
