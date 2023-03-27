@@ -476,7 +476,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            return __instance.battle
+            if (__instance.battle == null)
+            {
+                yield break;
+            }
+
+            yield return __instance.battle
                 .GetOpposingContenders(attacker.Side)
                 .Where(opposingContender =>
                     opposingContender != defender && opposingContender.RulesetCharacter is
