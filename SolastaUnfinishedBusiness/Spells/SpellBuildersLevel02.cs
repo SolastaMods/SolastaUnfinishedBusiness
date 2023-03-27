@@ -235,6 +235,7 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    #if false
     #region Web
 
     internal static SpellDefinition BuildWeb()
@@ -326,4 +327,5 @@ internal static partial class SpellBuilders
     }
 
     #endregion
+#endif
 }
