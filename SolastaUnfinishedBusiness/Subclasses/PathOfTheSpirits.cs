@@ -162,6 +162,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
                 DamageAffinityPiercingResistance,
