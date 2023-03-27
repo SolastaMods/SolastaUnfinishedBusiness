@@ -1,9 +1,8 @@
-- added custom level up screen for Ancestries and Kindred Spirits
-- added Oath of Altruism level 15 and Way of the Dragon level 17 features
-- added Oath of Hatred, Ranger Hellwalker, Ranger Lightbearer and Sorcerous Spellblade subclasses
-- fixed Awaken the Beast Within to grant temp HP instead to beast and remove on shape reversal
-- fixed Circle of the Night missing combat healing bonus on level 6
-- fixed critical logic option 1 still granting double dice damage
-- fixed Grenadier not being able to use items as a bonus action
-- fixed Polearm Expert, Spear Mastery and Two Weapon Fighting die type interaction
-- fixed Sanctuary to not exclude the caster on targeting
+- added Duelist's master duelist, and Slayer's fatal strike at 17th
+- added Tactician's gambits custom sprites
+- added Raven's deadly aim at 13th, and perfect shot at 17th
+- improved Crusher to be friendly on multiplayer sessions with no more lags
+- improved Inventor spell storing item to be aware of changes from spell selection UI
+- improved Ranged Expert to allow Inventor's lightning launcher as an off hand attack
+- fixed Squat Nimbleness feat with wrong skills assignment on DEX and STR versions
+- fixed some stability issues in the targeting system

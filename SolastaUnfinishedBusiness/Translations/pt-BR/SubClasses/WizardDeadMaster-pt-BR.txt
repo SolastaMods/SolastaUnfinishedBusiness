@@ -1,5 +1,5 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
-Feature/&AutoPreparedSpellsDeadMasterTitle=Feitiços de Mestre Morto
+Feature/&AutoPreparedSpellsDeadMasterTitle=Feitiços Deadmaster
 Feature/&BypassSpellConcentrationDeadMasterDescription=Você aprendeu os caminhos da necromancia. Se upcasted, você não precisa de concentração para ressuscitar os mortos.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersão
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Você ganha +1 de bônus na CD ao conjurar magias de necromancia.
@@ -10,5 +10,5 @@ Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Uma vez por turn
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Colheita Total
 Spell/&SpellRaiseDeadFormatDescription=Convocação <b>{0}</b>:\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Aumentar {0}
-Subclass/&WizardDeadMasterDescription=Os Mestres Mortos aprendem a manipular a energia que anima todos os seres vivos. À medida que avança, você aprende a sugar a força vital de uma criatura enquanto sua magia destrói seu corpo, transformando essa energia vital em poder mágico que você pode manipular.
+Subclass/&WizardDeadMasterDescription=Deadmasters aprendem a manipular a energia que anima todas as coisas vivas. À medida que avança, você aprende a sugar a força vital de uma criatura enquanto sua magia destrói seu corpo, transformando essa energia vital em poder mágico que você pode manipular.
 Subclass/&WizardDeadMasterTitle=Mestre morto

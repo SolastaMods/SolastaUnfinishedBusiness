@@ -287,6 +287,11 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 return true;
             }
 
+            if (target.RulesetCharacter == null)
+            {
+                return true;
+            }
+
             var isValid = target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
 
             if (!isValid)

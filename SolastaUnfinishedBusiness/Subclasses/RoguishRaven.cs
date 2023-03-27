@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -59,6 +61,36 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
 
+        // deadly aim
+        var powerDeadlyAim = FeatureDefinitionPowerBuilder
+            .Create("PowerRavenDeadlyAim")
+            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .AddToDB();
+
+        var featureRavenDeadlyAim = FeatureDefinitionBuilder
+            .Create("FeatureRavenDeadlyAim")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new AlterAttackOutcomeDeadlyAim(powerDeadlyAim))
+            .AddToDB();
+
+        var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetRavenDeadlyAim")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(featureRavenDeadlyAim, powerDeadlyAim)
+            .AddToDB();
+
+        // Perfect Shot
+        var dieRollModifierRavenPerfectShot = FeatureDefinitionDieRollModifierBuilder
+            .Create("DieRollModifierRavenPerfectShot")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifiers(RollContext.AttackDamageValueRoll, 1, 2, 1,
+                "Feature/&DieRollModifierRavenPainMakerReroll")
+            .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
+            .AddToDB();
+
+        // You now reroll any 1s and 2s when rolling for damage. You must keep the second roll.
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
             .SetGuiPresentation(Category.Subclass,
@@ -69,6 +101,10 @@ internal sealed class RoguishRaven : AbstractSubclass
             .AddFeaturesAtLevel(9,
                 additionalActionRavenKillingSpree,
                 dieRollModifierRavenPainMaker)
+            .AddFeaturesAtLevel(13,
+                featureSetRavenDeadlyAim)
+            .AddFeaturesAtLevel(17,
+                dieRollModifierRavenPerfectShot)
             .AddToDB();
     }
 
@@ -226,5 +262,69 @@ internal sealed class RoguishRaven : AbstractSubclass
         }
 
         public CharacterClassDefinition Class { get; }
+    }
+
+    private class AlterAttackOutcomeDeadlyAim : IAlterAttackOutcome
+    {
+        private readonly FeatureDefinitionPower _power;
+
+        public AlterAttackOutcomeDeadlyAim(FeatureDefinitionPower power)
+        {
+            _power = power;
+        }
+
+        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
+            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        {
+            var attackMode = action.actionParams.attackMode;
+            var character = me.RulesetCharacter;
+
+            if (character == null || character.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionDeadlyAimReactDescription"
+            };
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("RavenDeadlyAim", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            character.RollAttack(
+                attackMode.toHitBonus,
+                target.RulesetCharacter,
+                attackMode.sourceDefinition,
+                attackModifier.attackToHitTrends,
+                attackModifier.ignoreAdvantage,
+                attackModifier.attackAdvantageTrends,
+                attackMode.ranged,
+                false, // check this
+                attackModifier.attackRollModifier,
+                out var outcome,
+                out _,
+                -1,
+                false);
+
+            action.AttackRollOutcome = outcome;
+
+            GameConsoleHelper.LogCharacterUsedPower(character, _power);
+        }
     }
 }

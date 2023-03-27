@@ -581,7 +581,9 @@ internal static class CharacterContext
             var monsterDefinition = GetDefinition<MonsterDefinition>(monsterName);
             var guiPresentation = monsterDefinition.GuiPresentation;
             var powerName = featureDefinitionPower.Name;
-            var sprite = Sprites.GetSprite(powerName, kindredSpiritsSprites[powerName], 128);
+            var sprite = kindredSpiritsSprites.TryGetValue(powerName, out var resource)
+                ? Sprites.GetSprite(powerName, resource, 128)
+                : monsterDefinition.GuiPresentation.SpriteReference;
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{monsterName}")

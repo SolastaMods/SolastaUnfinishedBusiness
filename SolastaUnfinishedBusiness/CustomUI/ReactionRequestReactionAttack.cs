@@ -4,6 +4,7 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequestWithResource
 {
+    private readonly string ally;
     private readonly GuiCharacter target;
     private readonly string type;
 
@@ -12,6 +13,7 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
     {
         this.type = type;
         target = new GuiCharacter(reactionParams.TargetCharacters[0]);
+        ally = reactionParams.StringParameter;
     }
 
     public override bool IsStillValid
@@ -41,20 +43,20 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
     {
         var format = $"Reaction/&ReactionAttack{type}Description";
 
-        return Gui.Format(format, target.Name);
+        return Gui.Format(format, target.Name, ally);
     }
 
     public override string FormatReactTitle()
     {
         var format = $"Reaction/&ReactionAttack{type}ReactTitle";
 
-        return Gui.Format(format, target.Name);
+        return Gui.Format(format, target.Name, ally);
     }
 
     public override string FormatReactDescription()
     {
         var format = $"Reaction/&ReactionAttack{type}ReactDescription";
 
-        return Gui.Format(format, target.Name);
+        return Gui.Format(format, target.Name, ally);
     }
 }

@@ -126,6 +126,10 @@
     <value>../Resources/Spells/AirBlast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ElementalWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ElementalWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Inventor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Inventor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
@@ -1028,5 +1032,50 @@
   </data>
   <data name="SpiritWolf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spirits\SpiritWolf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitBlind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitBlind.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitBrace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitBrace.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitCounterAttack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitCounterAttack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitDebilitate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitDebilitate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitFeint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitFeint.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitKnockdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitKnockdown.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitParry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitParry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitPrecision" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitPrecision.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitProvoke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitProvoke.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitReach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitReach.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitRepel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitRepel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitReturnFire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitReturnFire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitSwitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitSwitch.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitThreaten" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitThreaten.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GambitUrgentOrders" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gambits\GambitUrgentOrders.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

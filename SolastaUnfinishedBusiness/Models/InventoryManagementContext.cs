@@ -40,6 +40,7 @@ internal static class InventoryManagementContext
         var rightGroup = characterInspectionScreen.transform.FindChildRecursive("RightGroup");
         var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
+        // ReSharper disable once Unity.UnknownResource
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
         var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform
             .FindChildRecursive("SortGroupAlphabetical");
@@ -66,6 +67,12 @@ internal static class InventoryManagementContext
         SelectionChanged = () =>
         {
             var container = containerPanel.Container;
+
+            if (container == null)
+            {
+                return;
+            }
+
             var inspectedCharacter = containerPanel.InspectedCharacter;
             var dropAreaClicked = containerPanel.DropAreaClicked;
             var visibleSlotsRefreshed = containerPanel.VisibleSlotsRefreshed;

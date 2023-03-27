@@ -15,7 +15,7 @@
     "description": "Feature/&GambitRepelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_AssetGUID": "2e38f845-2e9b-54d1-87c1-0f824891d0c7",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Protegido pelos espíritos da floresta. Ganhe 4 HP temporários para cada nível de Druida, com duração de 10 minutos.
+Condition/&ConditionForestGuardianBarkWardDescription=Protegido pelos espíritos da floresta. Ganhe 4 pontos de vida temporários para cada nível de Druida, com duração de 10 minutos.
 Condition/&ConditionForestGuardianBarkWardTitle=Bark Ward
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=Os espíritos da floresta causam 2d8 de dano perfurante a criaturas que atingem com um ataque corpo a corpo.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Bark Ward Aprimorado

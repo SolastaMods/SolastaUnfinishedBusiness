@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=你的盔甲强化为精金，暴击伤害减半。
+Condition/&ConditionDomainSmithAdamantBenedictionTitle=精金盔甲
+Feature/&AttributeModifierDomainSmithReinforceArmorDescription=这件盔甲已经过强化，提供额外的 +{0} AC。
+Feature/&AttributeModifierDomainSmithReinforceArmorTitle=强化
+Feature/&AttributeModifierDomainSmithForgeMasteryDescription=获得火焰抗性并在穿着盔甲时获得 +1 AC。
+Feature/&AttributeModifierDomainSmithForgeMasteryTitle=精通锻造
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=每回合一次，武器攻击造成 +{0}d8 火焰伤害。
+Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=神圣打击
+Feature/&PowerDomainSmithAdamantBenedictionDescription=使用一个动作，增强 30 英尺半径内盟友的护甲。他们的盔甲获得精金盔甲的力量，在 1 分钟内免疫重击。
+Feature/&PowerDomainSmithAdamantBenedictionTitle=引导神性：坚定的祝福
+Feature/&PowerDomainSmithReinforceArmorDescription=每次长休一次，你可以强化一件非魔法盔甲或盾牌。被强化的物体获得额外的 +{0} AC。
+Feature/&PowerDomainSmithReinforceArmorTitle=强化护甲
+Feature/&BonusProficiencyDomainSmithDescription=熟练使用铁匠工具和重甲。
+Feature/&BonusProficiencyDomainSmithTitle=奖励熟练度
+Subclass/&DomainSmithTitle=史密斯
+Subclass/&DomainSmithDescription=通过钢铁和锻造来引导他们的信仰的神圣铁匠。加强盟军装甲并重装自己。

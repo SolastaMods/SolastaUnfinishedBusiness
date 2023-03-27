@@ -297,9 +297,9 @@
     "description": "Spell/&ElementalWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cdbd83e68b3d8d44eb03f6852a7fd63b",
-      "m_SubObjectName": "MagicWeapon",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6e935222-17e3-5590-9230-e61bd1076599",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

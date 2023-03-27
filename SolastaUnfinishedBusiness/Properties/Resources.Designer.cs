@@ -832,6 +832,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ElementalWeapon {
+            get {
+                object obj = ResourceManager.GetObject("ElementalWeapon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] EmptyBody {
             get {
                 object obj = ResourceManager.GetObject("EmptyBody", resourceCulture);
@@ -972,9 +982,159 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GambitBlind {
+            get {
+                object obj = ResourceManager.GetObject("GambitBlind", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitBrace {
+            get {
+                object obj = ResourceManager.GetObject("GambitBrace", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitCounterAttack {
+            get {
+                object obj = ResourceManager.GetObject("GambitCounterAttack", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitDebilitate {
+            get {
+                object obj = ResourceManager.GetObject("GambitDebilitate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitFeint {
+            get {
+                object obj = ResourceManager.GetObject("GambitFeint", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitKnockdown {
+            get {
+                object obj = ResourceManager.GetObject("GambitKnockdown", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitParry {
+            get {
+                object obj = ResourceManager.GetObject("GambitParry", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitPrecision {
+            get {
+                object obj = ResourceManager.GetObject("GambitPrecision", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitProvoke {
+            get {
+                object obj = ResourceManager.GetObject("GambitProvoke", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitReach {
+            get {
+                object obj = ResourceManager.GetObject("GambitReach", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitRepel {
+            get {
+                object obj = ResourceManager.GetObject("GambitRepel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GambitResourceIcon {
             get {
                 object obj = ResourceManager.GetObject("GambitResourceIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitReturnFire {
+            get {
+                object obj = ResourceManager.GetObject("GambitReturnFire", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitSwitch {
+            get {
+                object obj = ResourceManager.GetObject("GambitSwitch", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitThreaten {
+            get {
+                object obj = ResourceManager.GetObject("GambitThreaten", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] GambitUrgentOrders {
+            get {
+                object obj = ResourceManager.GetObject("GambitUrgentOrders", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1955,9 +2115,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerMarkOfTheSubmission {
+        public static byte[] PowerMarkOfTheDammed {
             get {
-                object obj = ResourceManager.GetObject("PowerMarkOfTheSubmission", resourceCulture);
+                object obj = ResourceManager.GetObject("PowerMarkOfTheDammed", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1965,9 +2125,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerMarkOfTheDammed {
+        public static byte[] PowerMarkOfTheSubmission {
             get {
-                object obj = ResourceManager.GetObject("PowerMarkOfTheDammed", resourceCulture);
+                object obj = ResourceManager.GetObject("PowerMarkOfTheSubmission", resourceCulture);
                 return ((byte[])(obj));
             }
         }

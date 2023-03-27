@@ -1,0 +1,16 @@
+Feat/&FeatDragonWingsDescription=你长出了龙的翅膀。如果你没有穿着重甲，你将获得有限时间的飞行能力。
+Feat/&FeatDragonWingsTitle=龙翼
+Feat/&FeatFadeAwayDexDescription=你学会了一个在受到伤害时消失的神奇技巧。将你的敏捷值提高 1，最高为 20。在你受到伤害后，你可以立即使用一种反应神奇地隐形，直到你的下一轮结束或直到你攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
+Feat/&FeatFadeAwayDexTitle=淡出 [Dex]
+Feat/&FeatFadeAwayIntDescription=你学会了一个在受到伤害时消失的神奇技巧。将你的智力值提高 1，最高为 20。在你受到伤害后，你可以立即使用一种反应神奇地隐形，直到你的下一轮结束或直到你攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
+Feat/&FeatFadeAwayIntTitle=淡出 [Int]
+Feat/&FeatRevenantGreatSwordDexDescription=你是一位巨剑大师的后裔，其中的一些精湛技艺已经传给了你。您获得以下好处：\n• 将您的敏捷得分提高 1，最高为 20。\n• 当您持有一把大剑时，您的装甲等级获得 +1 奖励。\n• 伟大当你使用它时，剑具有精细属性。
+Feat/&FeatRevenantGreatSwordDexTitle=Revenant 大剑 [Dex]
+Feat/&FeatRevenantGreatSwordStrDescription=你是一位巨剑大师的后裔，其中的一些精湛技艺已经传给了你。您获得以下好处：\n• 将您的力量得分提高 1，最高为 20。\n• 当您持有一把大剑时，您的装甲等级获得 +1 奖励。\n• 伟大当你使用它时，剑具有精细属性。
+Feat/&FeatRevenantGreatSwordStrTitle=Revenant 大剑 [Str]
+Feat/&FeatSquatNimblenessDexDescription=你在你的种族中异常敏捷。将您的敏捷值提高 1，最高为 20。将您的步行速度提高 5 英尺。您获得杂技技能的熟练度或专业知识。
+Feat/&FeatSquatNimblenessDexTitle=下蹲灵活性 [Dex]
+Feat/&FeatSquatNimblenessStrDescription=你在你的种族中异常敏捷。将你的力量值提高 1，最高为 20。将你的步行速度提高 5 英尺。你获得运动技能的熟练度或专业知识。
+Feat/&FeatSquatNimblenessStrTitle=下蹲灵活性 [Str]
+Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=当你手持一把大剑时，你的盔甲等级获得+1加值。
+Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=归来大剑

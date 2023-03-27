@@ -328,7 +328,7 @@
     "description": "Feature/&GambitLungingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_AssetGUID": "b5d4d0ec-e078-5dac-9f4f-b120f67ad601",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
