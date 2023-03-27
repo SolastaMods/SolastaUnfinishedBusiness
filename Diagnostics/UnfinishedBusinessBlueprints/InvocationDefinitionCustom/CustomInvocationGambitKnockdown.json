@@ -15,7 +15,7 @@
     "description": "Feature/&GambitKnockdownDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_AssetGUID": "46c3cd95-0f22-589d-bd8a-cba28177f3be",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -3,11 +3,13 @@
 1.4.33.65:
 
 - added Duelist's master duelist, and Slayer's fatal strike at 17th
+- added Tactician's gambits custom sprites
 - added Raven's deadly aim at 13th, and perfect shot at 17th
 - improved Crusher to be friendly on multiplayer sessions with no more lags
 - improved Inventor spell storing item to be aware of changes from spell selection UI
 - improved Ranged Expert to allow Inventor's lightning launcher as an off hand attack
 - fixed Squat Nimbleness feat with wrong skills assignment on DEX and STR versions
+- fixed some stability issues in the targeting system
 
 1.4.33.64:
 

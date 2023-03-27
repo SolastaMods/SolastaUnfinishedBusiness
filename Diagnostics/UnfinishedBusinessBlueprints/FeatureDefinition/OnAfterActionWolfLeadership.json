@@ -2,12 +2,12 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&GambitReturnFireTitle",
-    "description": "Feature/&GambitReturnFireDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29eb7010-a150-52cb-9fd2-f1974969f216",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c0a0dfab-578d-5818-acc2-4128e97c587c",
+  "guid": "bf592162-2a39-5ce7-bab3-77f609df2c96",
   "contentPack": 9999,
-  "name": "FeatureGambitReturnFire"
+  "name": "OnAfterActionWolfLeadership"
 }

@@ -4,33 +4,19 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityForceDamageResistance:4255cfeca2edc0643bc2b1897930a815",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityRadiantResistance:8ea0757b1c53c0446a9d83a4f0c3ca4d",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
+    "Definition:OnAfterActionWolfLeadership:bf592162-2a39-5ce7-bab3-77f609df2c96"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Minute",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "RageStop",
-    "BattleEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -100,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -141,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsBearResistanceTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsBearResistanceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
-      "m_SubObjectName": "ConditionMageArmor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -163,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8257873c-04a1-5df1-9d65-3888968dc126",
+  "guid": "40f49eb4-4f31-5d0d-8d42-b13b1acc67cc",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSpiritsBearResistance"
+  "name": "ConditionPathOfTheSpiritsWolfLeadershipLeader"
 }
