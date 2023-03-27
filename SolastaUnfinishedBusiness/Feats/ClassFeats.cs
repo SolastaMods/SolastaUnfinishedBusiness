@@ -449,7 +449,7 @@ internal static class ClassFeats
 
             if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
             {
-                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 10,
+                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.UntilLongRest, 0,
                     TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
             }
         }
