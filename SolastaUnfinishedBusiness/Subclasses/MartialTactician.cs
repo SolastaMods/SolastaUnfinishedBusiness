@@ -324,7 +324,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var name = "GambitBlind";
         //TODO: add proper icon
-        var sprite = Sprites.ActionGambit;
+        var sprite = Sprites.GetSprite(name, Resources.GambitBlind, 128);
 
         ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -376,7 +376,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitKnockdown";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -428,7 +428,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitRepel";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -485,7 +485,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitThreaten";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -538,7 +538,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitDebilitate";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitDebilitate, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -596,7 +596,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitGoading";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitProvoke, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
@@ -657,7 +657,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitFeint";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitFeint, 128);
 
         power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
@@ -694,7 +694,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitLunging";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitReach, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
@@ -731,7 +731,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitUrgent";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitUrgentOrders, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
@@ -763,7 +763,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitSwitch";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitSwitch, 128);
 
         var good = ConditionDefinitionBuilder
             .Create($"Condition{name}Good")
@@ -831,7 +831,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitRiposte";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitCounterAttack, 128);
 
         var feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
@@ -847,7 +847,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitReturnFire";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitReturnFire, 128);
 
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
@@ -863,7 +863,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitBrace";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitBrace, 128);
 
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
@@ -879,7 +879,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitPrecise";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
 
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
@@ -897,7 +897,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         name = "GambitParry";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        sprite = Sprites.GetSprite(name, Resources.GambitParry, 128);
 
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
