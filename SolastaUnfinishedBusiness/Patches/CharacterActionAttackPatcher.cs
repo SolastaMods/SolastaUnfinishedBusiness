@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -78,15 +79,13 @@ public static class CharacterActionAttackPatcher
 
             var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
-            if (defenderFeatures == null)
+            if (defenderFeatures != null)
             {
-                yield break;
-            }
-
-            foreach (var feature in defenderFeatures)
-            {
-                yield return feature.HandleReactToAttackOnMeFinished(
-                    actingCharacter, defender, outcome, actionParams, mode, modifier);
+                foreach (var feature in defenderFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnMeFinished(
+                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                }
             }
 
             // this happens on battle end
@@ -95,9 +94,11 @@ public static class CharacterActionAttackPatcher
                 yield break;
             }
 
-            foreach (var gameLocationDefender in Gui.Battle.GetOpposingContenders(actingCharacter.Side))
+            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side)
+                         .Where(x => x != defender))
             {
-                var allyFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
+                var allyFeatures =
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
 
                 if (allyFeatures == null)
                 {
@@ -107,7 +108,7 @@ public static class CharacterActionAttackPatcher
                 foreach (var feature in allyFeatures)
                 {
                     yield return feature.HandleReactToAttackOnAllyFinished(
-                        actingCharacter, gameLocationDefender, defender, outcome, actionParams, mode, modifier);
+                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
                 }
             }
         }

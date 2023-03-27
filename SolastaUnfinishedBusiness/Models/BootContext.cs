@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -142,6 +143,7 @@ internal static class BootContext
             DiagnosticsContext.CacheCeDefinitions();
 
             // really don't have a better place for these fixes here ;-)
+            DumpSubclasses();
             ExpandColorTables();
             AddExtraTooltipDefinitions();
 
@@ -149,6 +151,42 @@ internal static class BootContext
             Load();
             Main.Enable();
         };
+    }
+
+    private static void DumpSubclasses()
+    {
+        var outString = new StringBuilder();
+        var db = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+
+        foreach (var subclass in db
+                     /*.Where(x => x.ContentPack == CeContentPackContext.CeContentPack*/
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            outString.Append($"# {subclass.FormatTitle()}\n\n");
+            outString.Append(subclass.FormatDescription());
+            outString.Append("\n\n");
+
+            var level = 0;
+
+            foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
+                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                         .OrderBy(x => x.level))
+            {
+                if (level != featureUnlockByLevel.level)
+                {
+                    outString.Append($"* Level {featureUnlockByLevel.level}\n\n");
+                    level = featureUnlockByLevel.level;
+                }
+
+                outString.Append($"\t\t* {featureUnlockByLevel.FeatureDefinition.FormatTitle()}\n\n");
+                outString.Append($"\t\t{featureUnlockByLevel.FeatureDefinition.FormatDescription()}\n\n");
+            }
+
+            outString.Append("\n\n");
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Subclasses.md");
+        sw.WriteLine(outString.ToString());
     }
 
     private static void ExpandColorTables()

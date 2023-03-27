@@ -23,4 +23,4 @@ Feature/&PowerPathOfTheLightIlluminatingBurstTitle=Erleuchtender Ausbruch
 Feedback/&AdditionalDamageIlluminatingStrikeFormat=Erleuchtender Schlag!
 Feedback/&AdditionalDamageIlluminatingStrikeLine=Illuminating Strike fügt dem Ziel zusätzlichen Schaden zu!
 Subclass/&PathOfTheLightDescription=Barbaren, die dem Pfad des Lichts folgen, erhellen die Dunkelheit und schützen ihre Verbündeten vor Gefahren, die darin lauern.
-Subclass/&PathOfTheLightTitle=Weg des Lichts
+Subclass/&PathOfTheLightTitle=Pfad des Lichts

@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Ricevi +1 alla tua classe di armatura se la tua salute è inferiore al 25%.
+Condition/&ConditionRoyalKnightProtectionTitle=Protezione ispiratrice
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Aggiungi metà del tuo bonus di competenza a qualsiasi prova di Carisma che effettui che non utilizzi già il tuo bonus di competenza. Inoltre, diventi competente nei tiri salvezza di Carisma.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Inviato Reale
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Come azione bonus, puoi concedere a un alleato un'azione principale aggiuntiva per 1 round. Questa azione non è cumulabile con Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeTitle=Impulso ispiratore
+Feature/&PowerRoyalKnightProtectionDescription=Le tue azioni ispirano gli altri a continuare a combattere. All'inizio di ogni tuo turno, tu e i tuoi alleati entro 9 metri ottenete punti ferita temporanei pari al doppio del vostro bonus di competenza. I tuoi alleati ricevono +1 alla loro classe armatura se la loro salute è inferiore al 25%.
+Feature/&PowerRoyalKnightProtectionTitle=Protezione ispiratrice
+Feature/&PowerRoyalKnightRallyingCryDescription=Sostituisce Second Wind con un potere che ripristina punti ferita pari a 4 volte il tuo livello di combattente, distribuiti equamente, a uno o più alleati entro 9 metri.
+Feature/&PowerRoyalKnightRallyingCryTitle=Grido di battaglia
+Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Royal Knight è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
+Subclass/&MartialRoyalKnightTitle=Cavaliere Reale

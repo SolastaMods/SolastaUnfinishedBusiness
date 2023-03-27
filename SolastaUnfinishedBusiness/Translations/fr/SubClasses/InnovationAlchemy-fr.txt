@@ -49,5 +49,5 @@ Feature/&PowerInnovationAlchemyPoolDescription=Vous gagnez 6 points d'alchimie �
 Feature/&PowerInnovationAlchemyPoolTitle=Points d'alchimie
 Screen/&InventorGrenadierSpellDescription=Ce sort Grenadier est toujours considéré comme préparé.\nIl ne compte pas dans votre limite de préparation de sorts.
 Screen/&InventorGrenadierSpellTitle=Grenadier
-Subclass/&InnovationAlchemyDescription=Les grenadiers étudient les substances instables et leur utilisation pour créer des explosions de différents types.
+Subclass/&InnovationAlchemyDescription=Les grenadiers étudient les substances instables et leur utilisation dans la création d'explosions de différents types.
 Subclass/&InnovationAlchemyTitle=Grenadier

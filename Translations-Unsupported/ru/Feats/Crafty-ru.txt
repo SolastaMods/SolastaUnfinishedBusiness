@@ -1,0 +1,14 @@
+Feat/&FeatApothecaryChaDescription=Увеличьте свою харизму на 1, максимум до 20.\nВы получаете владение набором для травничества и арканами или опыт, если уже владеете им.
+Feat/&FeatApothecaryChaTitle=Аптекарь [Ча]
+Feat/&FeatApothecaryIntDescription=Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете владение набором для травничества и Арканами или опыт, если уже владеете им.
+Feat/&FeatApothecaryIntTitle=Аптекарь [Инт]
+Feat/&FeatApothecaryWisDescription=Увеличьте свою Мудрость на 1, максимум до 20.\nВы получаете владение набором для травничества и Арканами или опыт, если уже владеете им.
+Feat/&FeatApothecaryWisTitle=Аптекарь [Мудрость]
+Feat/&FeatCraftyScriberDescription=Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете владение набором свитков и Магией или опыт, если уже владеете им.
+Feat/&FeatCraftyScriberTitle=Писец
+Feat/&FeatToxicologistChaDescription=Увеличьте свою харизму на 1, максимум до 20.\nВы получаете навыки работы с набором отравителя и обращением с животными или опыт, если он у вас уже есть.
+Feat/&FeatToxicologistChaTitle=Токсиколог [Ча]
+Feat/&FeatToxicologistIntDescription=Увеличьте свой Интеллект на 1, максимум до 20.\nВы получаете владение набором отравителя и Природой или опыт, если уже владеете им.
+Feat/&FeatToxicologistIntTitle=Токсиколог [Int]
+Feat/&FeatToxicologistWisDescription=Увеличьте свою Мудрость на 1, максимум до 20.\nВы получаете владение набором отравителя и Лекарством или опыт, если уже владеете им.
+Feat/&FeatToxicologistWisTitle=Токсиколог [Муд]

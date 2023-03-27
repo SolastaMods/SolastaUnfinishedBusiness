@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using MonoMod.Utils;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -720,10 +719,11 @@ internal static class MeleeCombatFeats
 
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
+        .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(new AttackFinishedCrusher(
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
-                .SetGuiPresentation(Category.Feat)
+                .SetGuiPresentation(Category.Condition)
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetPossessive()
                 .SetFeatures(

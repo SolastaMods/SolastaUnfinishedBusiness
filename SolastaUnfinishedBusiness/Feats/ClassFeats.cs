@@ -134,12 +134,6 @@ internal static class ClassFeats
     {
         const string Name = "FeatBlessedSoul";
 
-        // BACKWARD COMPATIBILITY
-        _ = FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var blessedSoulCleric = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Cleric")
             .SetGuiPresentation(Category.Feat)
@@ -455,7 +449,7 @@ internal static class ClassFeats
 
             if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
             {
-                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 10,
+                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.UntilLongRest, 0,
                     TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
             }
         }
@@ -633,12 +627,6 @@ internal static class ClassFeats
     private static FeatDefinition BuildPotentSpellcaster(List<FeatDefinition> feats)
     {
         const string Name = "FeatPotentSpellcaster";
-
-        // BACKWARD COMPATIBILITY
-        _ = FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
 
         var spellLists = new List<SpellListDefinition>
         {

@@ -163,7 +163,8 @@ internal static class RangedCombatFeats
                         $"AttackModifier{NAME}")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
-                        ValidatorsCharacter.HasOffhandWeaponType(CustomWeaponsContext.HandXbowWeaponType))
+                        ValidatorsCharacter.HasOffhandWeaponType(
+                            CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType))
                     .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
@@ -172,7 +173,8 @@ internal static class RangedCombatFeats
                         new RangedAttackInMeleeDisadvantageRemover(),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
-                            ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                            ValidatorsWeapon.IsOfWeaponType(
+                                CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
                             ValidatorsCharacter.HasAttacked))
                     .AddToDB())
             .AddToDB();

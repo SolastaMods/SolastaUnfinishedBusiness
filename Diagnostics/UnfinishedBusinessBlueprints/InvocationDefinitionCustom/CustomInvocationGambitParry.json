@@ -15,7 +15,7 @@
     "description": "Feature/&GambitParryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
+      "m_AssetGUID": "848f35d1-9245-5728-a652-8ca50cebd049",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

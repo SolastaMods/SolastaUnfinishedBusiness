@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master-Bonus
+﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wildmaster-Bonus
 Feature/&FeatureSetWildMaster03Description=Du erhältst einen Spirit Beast-Begleiter, der dich auf deinen Abenteuern begleitet und darauf trainiert ist, an deiner Seite zu kämpfen. Es erhält deinen Weisheitsmodifikator für Rüstungsklasse, Angriffswürfe und Schadenswürfe. Außerdem erhält es 4 HP pro Charakterstufe und kann in seinem Zug nur die Ausweichaktion ausführen, es sei denn, Sie befehlen ihm etwas anderes.\nSowohl Geisterbestie als auch Beschwörer haben dieselbe Initiative und Sie können einen Bären, einen Adler oder einen Wolf wählen :\n. Der Bär kann einen Feuerkegel speien\n. Der Adler eine Stromleitung\n. Der Wolf ein Kältekegel.
 Feature/&PowerSpiritBeastBreathWeaponBlueTitle=Blitzwaffe
 Feature/&PowerSpiritBeastBreathWeaponGoldTitle=Feuerwaffe
@@ -23,5 +23,5 @@ Feature/&PowerWildMasterSummonSpiritBeastDescription=Ein {0}, der an einen Range
 Feature/&PowerWildMasterSummonSpiritBeastPoolDescription=Beschwöre einen Bären, einen Adler oder einen Wolf.
 Feature/&PowerWildMasterSummonSpiritBeastPoolTitle=Beschwörung von Geisterbestien
 Feature/&PowerWildMasterSummonSpiritBeastTitle=Beschwöre {0}
-Subclass/&RangerWildMasterDescription=Der Archetyp des Wilden Meisters verkörpert eine Freundschaft zwischen den zivilisierten Rassen und den Bestien der Welt. Im Fokus vereint, arbeiten Geist und Ranger als Einheit, um die monströsen Feinde zu bekämpfen, die die Zivilisation und die Wildnis gleichermaßen bedrohen.
-Subclass/&RangerWildMasterTitle=Wilder Meister
+Subclass/&RangerWildMasterDescription=Der Wildmeister-Archetyp verkörpert eine Freundschaft zwischen den zivilisierten Rassen und den Bestien der Welt. Im Fokus vereint, arbeiten Geist und Ranger als Einheit, um die monströsen Feinde zu bekämpfen, die die Zivilisation und die Wildnis gleichermaßen bedrohen.
+Subclass/&RangerWildMasterTitle=Wildmeister

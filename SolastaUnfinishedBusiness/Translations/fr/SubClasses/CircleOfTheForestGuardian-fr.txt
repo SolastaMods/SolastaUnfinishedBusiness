@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Protégé par les esprits de la forêt. Gagne 4 PV temporaires pour chaque niveau de Druide, durant 10 minutes.
+Condition/&ConditionForestGuardianBarkWardDescription=Protégé par les esprits de la forêt. Gagnez 4 points de vie temporaires pour chaque niveau de druide, d'une durée de 10 minutes.
 Condition/&ConditionForestGuardianBarkWardTitle=Bark Ward
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=Les esprits de la forêt infligent 2d8 dégâts perforants aux créatures qui les touchent lors d'une attaque au corps à corps.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Bark Ward amélioré

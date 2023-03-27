@@ -6,5 +6,5 @@ Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Vous avez l'av
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Frappe rapide
 Feature/&PowerOpportunistDebilitatingStrikeDescription=Votre attaque sournoise oblige la cible à effectuer un jet de sauvegarde de Constitution (DD 8 + votre bonus de maîtrise + votre modificateur de Dextérité) ou à un jet de sauvegarde réduit de 1D6 pendant un round.
 Feature/&PowerOpportunistDebilitatingStrikeTitle=Frappe débilitante
-Subclass/&RoguishOpportunistDescription=Les opportunistes sont ceux qui ne laissent jamais passer une chance d'en finir avec leurs ennemis. Ils poignardent vite et poignardent là où ça compte. Peu de gens qui leur font face peuvent s'en sortir indemnes.
+Subclass/&RoguishOpportunistDescription=Les opportunistes sont ceux qui ne laissent jamais passer une chance d'achever leurs ennemis. Ils poignardent vite et poignardent là où ça compte. Peu de gens qui leur font face peuvent s'en sortir indemnes.
 Subclass/&RoguishOpportunistTitle=Opportuniste

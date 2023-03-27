@@ -1,0 +1,12 @@
+﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Tu mente explotará en daño psíquico si entras en discordancia por tercera vez.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordancia
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=A partir del 3er nivel, aprendes a manipular la desarmonía interna de tus enemigos para crear ondas de energía distorsionadora. Cada vez que golpeas a una criatura con un arma de monje o un ataque desarmado, la criatura recibe una condición de Discordancia durante 1 minuto. Cuando una criatura recibe la tercera instancia, todas las instancias se eliminan y la criatura recibe un daño psíquico igual a tu dado de Artes Marciales + la mitad de tu bonificación de competencia.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Discordancia
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=A partir del nivel 6, aplicas una instancia adicional de condición de Discordancia cuando aturdes con éxito a una criatura con tu habilidad Golpe aturdidor. Además, mientras dure la condición de aturdimiento, la criatura aturdida recibe una instancia adicional de Discordancia de tus ataques y habilidades.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Cisma
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=En el nivel 11, ganas la habilidad de provocar una erupción de energía negativa acumulada. Puedes aumentar el daño gastando puntos Ki. Cada punto que gastas, hasta un máximo de tu bonificador de competencia, aumenta el daño en 1d6.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Explosión de desarmonía
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gasta {0} Ki Point para infligir {1}d6 de daño.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosión de desarmonía [{0} Ki]
+Subclass/&WayOfTheDiscordanceDescription=Mientras que la mayoría de los monjes buscan la iluminación a través de la contemplación y el logro de la paz interior, los monjes del Camino de la Discordancia, por otro lado, se centran en aprovechar las energías caóticas del universo. Estos eruditos místicos de la desarmonía explotan los conflictos internos de sus enemigos manipulando su Ki, devastándolos con ráfagas de energía distorsionadora.
+Subclass/&WayOfTheDiscordanceTitle=Camino de la discordancia

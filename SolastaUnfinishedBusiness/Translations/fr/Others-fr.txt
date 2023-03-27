@@ -66,11 +66,11 @@ Message/&CharacterExportModalTitleDescription=Exporter {0}
 Message/&MessageModWelcomeDescription=Le module Business inachevé regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface utilisateur Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Affaire inachevée" pour ouvrir les pages de paramètres. Explorez les options et sélectionnez celles que vous aimez.\nLe bouton Faire un don vous redirigera vers PayPal par défaut. Il existe d'autres options de don sous Mod UI> Character.
 Message/&MessageModWelcomeTitle=Mod d'affaires inachevée
 Message/&RespecMultiplayerAbortDescription=Impossible de respécialiser un jeu ou une carte multijoueur...
-Message/&RespecSuccessfulDescription=Le RESPEC a réussi. N'oubliez pas de ramasser vos affaires au sol.
+Message/&RespecSuccessfulDescription=Le RESPEC a réussi. N'oubliez pas de ramasser vos objets au sol.
 Message/&SpawnCustomEncounterDescription=Générer une rencontre aux coordonnées ({0}, {1}) ?
 Message/&SpawnCustomEncounterErrorDescription=Impossible de générer des rencontres sur un jeu multijoueur...
 Message/&SpawnCustomEncounterTitle=Rencontre
-Message/&TeleportPartyDescription=Téléporter le groupe aux coordonnées ({0}, {1}) ?\nVous risquez d'interrompre des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu.
+Message/&TeleportPartyDescription=Téléporter le groupe aux coordonnées ({0}, {1}) ?\nVous risquez de casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu.
 Message/&TeleportPartyTitle=Téléportation
 Reaction/&CastSpellInRetributionDescription={0} attaque {1} ! Vous pouvez lancer {2} en réponse !
 Reaction/&CastSpellInRetributionReactDescription=Cliquez pour diffuser {0}.

@@ -43,7 +43,6 @@ public static class RulesetImplementationManagerPatcher
             RulesetActor rulesetActor,
             DamageForm damageForm,
             int addDice,
-            bool criticalSuccess,
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
@@ -54,16 +53,13 @@ public static class RulesetImplementationManagerPatcher
             EffectGroupInfo effectGroupInfo)
         {
             var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
-
-            effectGroupInfo.diceNumber /= 2;
-
             var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber;
 
             damageForm.bonusDamage += bonusDamage;
             effectGroupInfo.bonusValue += bonusDamage;
 
             return rulesetActor.RollDamage(
-                damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                damageForm, addDice, false, additionalDamage, damageRollReduction,
                 damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
         }
 
@@ -214,7 +210,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
@@ -229,7 +225,7 @@ public static class RulesetImplementationManagerPatcher
                 },
                 RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,

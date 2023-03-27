@@ -989,6 +989,11 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (__instance.battle == null)
+            {
+                yield break;
+            }
+
             //PATCH: allow custom behavior when physical attack initiates
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
                          .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>()))
