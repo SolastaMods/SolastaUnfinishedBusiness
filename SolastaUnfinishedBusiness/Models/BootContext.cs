@@ -147,6 +147,9 @@ internal static class BootContext
             ExpandColorTables();
             AddExtraTooltipDefinitions();
 
+            // avoid folks tweaking max party size directly on settings as we don't need any more bugs
+            Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+            
             // Manages update or welcome messages
             Load();
             Main.Enable();
