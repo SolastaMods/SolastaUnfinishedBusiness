@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.67:
+
+- SAME AS BELOW
+
 1.4.33.66:
 
 - changed Slayer's fatal strike to trigger on surprised enemies instead of first round

@@ -2,6 +2,6 @@
 - fixed critical calculation option 1 to prevent a null exception under certain scenarios
 - fixed multicaster heroes incorrectly calculating DC on powers' effects
 - fixed Ranged Expert and Lightning Launcher interactions
-- fixed Soulblade's hex incorrectly allowing gadget selections causing a null exception
+- fixed Soulblade's hex incorrectly allowing gadget selections
 - improved Crusher feat to have a toggle for pushes, and also fixed reaction consumption
 - improved Save by Location to have official campaigns in different folders
