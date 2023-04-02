@@ -33,9 +33,12 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
-    internal FeatureDefinitionFeatureSetBuilder SetAncestryType(ExtraAncestryType ancestryType)
+    internal FeatureDefinitionFeatureSetBuilder SetAncestryType(
+        ExtraAncestryType ancestryType,
+        params string[] ancestryDamageTypeMap)
     {
         Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
+        Definition.ancestryDamageTypeMap.AddRange(ancestryDamageTypeMap);
         return this;
     }
 
