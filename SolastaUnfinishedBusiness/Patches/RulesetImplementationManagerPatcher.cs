@@ -49,18 +49,31 @@ public static class RulesetImplementationManagerPatcher
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
-            bool canRerollDice,
-            EffectGroupInfo effectGroupInfo)
+            bool canRerollDice)
         {
+            var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
-            var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber;
 
-            damageForm.bonusDamage += bonusDamage;
-            effectGroupInfo.bonusValue += bonusDamage;
+            if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
+                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+            {
+                diceType = hero.GetBardicInspirationDieValue();
+            }
 
-            return rulesetActor.RollDamage(
-                damageForm, addDice, false, additionalDamage, damageRollReduction,
-                damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+            var totalDamage = rulesetActor.RollDiceAndSum(
+                diceType,
+                attackModeDamage
+                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
+                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                damageForm.DiceNumber + addDice,
+                rolledValues, canRerollDice);
+
+            // add additional dices equal with dice max value
+            rolledValues.AddRange(Enumerable.Repeat(diceMaxValue, rolledValues.Count));
+
+            return Mathf.FloorToInt(damageMultiplier *
+                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
+                                        int.MaxValue) + additionalDamage));
         }
 
         private static int RollDiceKeepRollingMaxAndSum(
@@ -185,8 +198,7 @@ public static class RulesetImplementationManagerPatcher
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
-            bool canRerollDice,
-            EffectGroupInfo effectGroupInfo)
+            bool canRerollDice)
         {
             var hero = rulesetActor as RulesetCharacterHero ??
                        (rulesetActor as RulesetCharacter)?.OriginalFormCharacter as RulesetCharacterHero;
@@ -212,7 +224,7 @@ public static class RulesetImplementationManagerPatcher
                 {
                     1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice, effectGroupInfo),
+                        canRerollDice),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
@@ -227,7 +239,7 @@ public static class RulesetImplementationManagerPatcher
                 {
                     1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice, effectGroupInfo),
+                        canRerollDice),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
@@ -251,12 +263,11 @@ public static class RulesetImplementationManagerPatcher
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
-                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, EffectGroupInfo, int>(
+                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, int>(
                     RollDamage).Method;
 
             return instructions.ReplaceCalls(rollDamageMethod,
                 "RulesetImplementationManager.ApplyDamageForm",
-                new CodeInstruction(OpCodes.Ldloc, Main.IsDebugBuild ? 54 : 15), // EffectGroupInfo
                 new CodeInstruction(OpCodes.Call, myRollDamageMethod));
         }
     }
