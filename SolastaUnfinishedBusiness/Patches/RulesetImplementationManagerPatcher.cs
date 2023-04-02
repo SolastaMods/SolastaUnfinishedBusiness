@@ -69,6 +69,7 @@ public static class RulesetImplementationManagerPatcher
                 rolledValues, canRerollDice);
 
             // add additional dices equal with dice max value
+            totalDamage += rolledValues.Count * diceMaxValue;
             rolledValues.AddRange(Enumerable.Repeat(diceMaxValue, rolledValues.Count));
 
             return Mathf.FloorToInt(damageMultiplier *
