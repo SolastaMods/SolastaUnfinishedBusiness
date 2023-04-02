@@ -734,7 +734,7 @@ internal static class GameUiContext
             .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "FeatCrusherToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.MonkKiPointsToggle)
+            .SetActionId(ExtraActionId.FeatCrusherToggle)
             .AddToDB();
 
         ActionAffinityFeatCrusherToggle = FeatureDefinitionActionAffinityBuilder
