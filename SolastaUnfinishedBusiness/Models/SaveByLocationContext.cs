@@ -47,8 +47,9 @@ internal static class SaveByLocationContext
 
             _allOfficialCampaigns = new List<CampaignDefinition>();
 
-            CampaignDefinition[] allElements = DatabaseRepository.GetDatabase<CampaignDefinition>().GetAllElements();
-            foreach (CampaignDefinition campaign in allElements)
+            var allElements = DatabaseRepository.GetDatabase<CampaignDefinition>().GetAllElements();
+
+            foreach (var campaign in allElements)
             {
                 if (campaign.GuiPresentation.Hidden || campaign.IsUserCampaign || campaign.EditorOnly)
                 {
@@ -250,16 +251,16 @@ internal static class SaveByLocationContext
         // add them together - each block sorted - can we have separators?
         var userContentList =
             AllUserCampaigns
-                .Select(l => new {LocationType = LocationType.CustomCampaign, l.Title})
+                .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                 .OrderBy(l => l.Title)
                 .Concat(AllUserLocations
-                    .Select(l => new {LocationType = LocationType.UserLocation, l.Title})
+                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
                     .OrderBy(l => l.Title)
                 )
                 .ToList();
 
         guiDropdown.AddOptions(
-            Enumerable.Repeat(new {LocationType = LocationType.Default, Title = "Default"}, 1)
+            Enumerable.Repeat(new { LocationType = LocationType.Default, Title = "Default" }, 1)
                 .Union(officialCampaigns)
                 .Union(userContentList)
                 .Select(opt => new
@@ -286,7 +287,7 @@ internal static class SaveByLocationContext
 
         var option = guiDropdown.options
             .Cast<LocationOptionData>()
-            .Select((o, i) => new {o.CampaignOrLocation, o.LocationType, Index = i})
+            .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
             .Where(opt => opt.LocationType == selectedCampaign.LocationType)
             .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
@@ -432,13 +433,13 @@ internal static class SaveByLocationContext
 
         internal void SetCampaignLocation(LocationType type, string name)
         {
-            string baseFolder = type switch
+            var baseFolder = type switch
             {
                 LocationType.Default => DefaultSaveGameDirectory,
                 LocationType.StandardCampaign => OfficialSaveGameDirectory,
                 LocationType.UserLocation => LocationSaveGameDirectory,
                 LocationType.CustomCampaign => CampaignSaveGameDirectory,
-                _ => throw new ArgumentOutOfRangeException()
+                _ => DefaultSaveGameDirectory
             };
 
             LocationType = type;

@@ -1099,13 +1099,13 @@ public static class RulesetCharacterPatcher
     public static class RefreshUsablePower_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(RulesetCharacter __instance,  
+        public static void Prefix(RulesetCharacter __instance,
             RulesetUsablePower usablePower,
             ref RulesetSpellRepertoire classSpellRepertoire)
         {
             //PATCH: MC: try getting proper class repertoire for the power
             var powerOriginClass = usablePower.OriginClass;
-            
+
             //Only try to get repertoire for powers that have origin class
             if (powerOriginClass == null)
             {
@@ -1113,7 +1113,7 @@ public static class RulesetCharacterPatcher
             }
 
             var repertoire = __instance.GetClassSpellRepertoire(powerOriginClass);
-            
+
             if (repertoire != null)
             {
                 classSpellRepertoire = repertoire;
