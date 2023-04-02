@@ -295,9 +295,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -317,7 +317,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e47c29ae-454d-5117-9da9-2c107c6e7e6a",
+  "guid": "fcf7651f-439e-5d9c-85e6-a83cc83ebc3c",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsWolfLeadership"
+  "name": "PowerPathOfTheElementsElementalBlessingStorm"
 }

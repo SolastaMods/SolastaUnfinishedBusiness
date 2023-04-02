@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityPathOfTheSpiritsWolfLeadershipPack:6f352fd3-4444-5b6d-af92-b7778c902dae"
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -128,12 +128,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
-    "description": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
+    "title": "Condition/&ConditionPathOfTheElementsElementalBlessingTitle",
+    "description": "Condition/&ConditionPathOfTheElementsElementalBlessingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f96be3e-93f0-5bab-9a3f-38b0d2522b17",
+  "guid": "279b058a-bb5d-534c-8f32-c8bb77237b9c",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSpiritsWolfLeadershipPack"
+  "name": "ConditionPathOfTheElementsElementalBlessingBlizzard"
 }
