@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -171,10 +172,12 @@ internal static class RangedCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new RangedAttackInMeleeDisadvantageRemover(),
+                        new InnovationArmor.AddLauncherAttack(ActionDefinitions.ActionType.Bonus,
+                            InnovationArmor.InInfiltratorMode,
+                            ValidatorsCharacter.HasAttacked),
                         new AddExtraRangedAttack(
                             ActionDefinitions.ActionType.Bonus,
-                            ValidatorsWeapon.IsOfWeaponType(
-                                CustomWeaponsContext.HandXbowWeaponType, CustomWeaponsContext.LightningLauncherType),
+                            ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                             ValidatorsCharacter.HasAttacked))
                     .AddToDB())
             .AddToDB();
