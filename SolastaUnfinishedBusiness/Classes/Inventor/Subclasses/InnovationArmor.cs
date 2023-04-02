@@ -138,7 +138,7 @@ public static class InnovationArmor
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(NotInfiltratorMode),
                 ValidatorsPowerUse.NotInCombat,
-                new AddLauncherAttack()
+                new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode)
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -207,7 +207,7 @@ public static class InnovationArmor
         return !character.HasConditionOfType(GuardianMarkerName);
     }
 
-    private static bool InInfiltratorMode(RulesetCharacter character)
+    internal static bool InInfiltratorMode(RulesetCharacter character)
     {
         return character.HasConditionOfType(InfiltratorMarkerName);
     }
@@ -362,10 +362,11 @@ public static class InnovationArmor
         }
     }
 
-
-    private class AddLauncherAttack : AddExtraAttackBase
+    internal class AddLauncherAttack : AddExtraAttackBase
     {
-        public AddLauncherAttack() : base(ActionDefinitions.ActionType.Main, InInfiltratorMode)
+        public AddLauncherAttack(
+            ActionDefinitions.ActionType actionType,
+            params IsCharacterValidHandler[] validators) : base(actionType, validators)
         {
         }
 

@@ -117,7 +117,7 @@ internal static class CharacterContext
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchAsiAndFeat();
-        SwitchEvenLevelFeats();
+        SwitchEveryFourLevelsFeats();
         SwitchFighterArmamentAdroitness();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
@@ -669,9 +669,9 @@ internal static class CharacterContext
             : FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion;
     }
 
-    internal static void SwitchEvenLevelFeats()
+    internal static void SwitchEveryFourLevelsFeats(bool isMiddle = false)
     {
-        var levels = new[] { 4, 10, 16 };
+        var levels = isMiddle ? new[] { 6, 14 } : new[] { 2, 10, 18 };
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
         var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
@@ -689,7 +689,7 @@ internal static class CharacterContext
                            (characterClassDefinition == Fighter && level is 6 or 14);
                 }
 
-                if (Main.Settings.EnableFeatsAtEvenLevels)
+                if (Main.Settings.EnableFeatsAtEveryFourLevels)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
                         ? featureUnlockPointPool2

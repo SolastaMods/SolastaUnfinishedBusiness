@@ -1093,6 +1093,34 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshUsablePower))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshUsablePower_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance,
+            RulesetUsablePower usablePower,
+            ref RulesetSpellRepertoire classSpellRepertoire)
+        {
+            //PATCH: MC: try getting proper class repertoire for the power
+            var powerOriginClass = usablePower.OriginClass;
+
+            //Only try to get repertoire for powers that have origin class
+            if (powerOriginClass == null)
+            {
+                return;
+            }
+
+            var repertoire = __instance.GetClassSpellRepertoire(powerOriginClass);
+
+            if (repertoire != null)
+            {
+                classSpellRepertoire = repertoire;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshUsableDeviceFunctions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

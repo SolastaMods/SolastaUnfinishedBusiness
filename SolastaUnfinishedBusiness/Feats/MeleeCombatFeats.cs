@@ -742,7 +742,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                GameUiContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
@@ -755,7 +756,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierCreed_Of_Arun,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                GameUiContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
@@ -781,7 +783,21 @@ internal static class MeleeCombatFeats
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName))
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
+            {
+                yield break;
+            }
+
+            if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
             {
                 yield break;
             }
@@ -801,7 +817,7 @@ internal static class MeleeCombatFeats
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter = "Reaction/&CustomReactionCrusherDescription"
                 };
@@ -818,8 +834,8 @@ internal static class MeleeCombatFeats
                 var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
                 var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
                 {
-                    sourceCharacter = attacker.RulesetCharacter,
-                    targetCharacter = defender.RulesetCharacter,
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetDefender,
                     position = defender.LocationPosition
                 };
 
@@ -845,15 +861,15 @@ internal static class MeleeCombatFeats
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
+                rulesetDefender.Guid,
                 _criticalConditionDefinition,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
+                rulesetAttacker.Guid,
+                rulesetAttacker.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

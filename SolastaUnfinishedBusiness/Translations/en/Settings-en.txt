@@ -76,7 +76,8 @@ ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to exp
 ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 4, 10 and 16
+ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
+ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 and 14
 ModUi/&EnableFighterArmamentAdroitness=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>

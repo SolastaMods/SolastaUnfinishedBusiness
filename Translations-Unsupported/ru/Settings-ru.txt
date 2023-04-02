@@ -3,8 +3,8 @@ ModUi/&AddBleedingToLesserRestoration=Добавьте состояние <color
 ModUi/&AddCustomIconsToOfficialItems=Добавьте пользовательские значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т. д.]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка] </цвет></i></b>
 ModUi/&AddHelpActionToAllRaces=Добавьте действие <color=#D89555>Помощь</color> для всех игровых рас <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить предпочитаемого врага-гуманоида к <color=#D89555>Рейнджерам</color>
-ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в дикой форме или управляемым монстрам выбирать, какую атаку использовать первой <i><color=#F0DAA0>[полезно при сочетании атак ближнего и дальнего боя]</цвет></я>
+ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно, чтобы свести к минимуму подсказки о реакции]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в дикой форме или управляемым монстрам выбирать, какую атаку использовать в первую очередь <i><color=#F0DAA0>[полезно при сочетании атак ближнего и дальнего боя]</цвет></я>
 ModUi/&AddNewBrightEyeColors=Добавьте новые яркие цвета глаз
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавьте новое оружие и рецепты в магазины <i><color=#F0DAA0>[бинты, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0> [Требуется перезагрузка]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>
@@ -76,8 +76,9 @@ ModUi/&EnableCharacterExport=Включите <color=#1E81B0>CTRL-SHIFT-(E)</col
 ModUi/&EnableCheatMenu=Включить меню читов
 ModUi/&EnableDungeonMakerModdedContent=Включите Dungeon Maker Pro\n<i><color=#F0DAA0>[включает плоские комнаты, размеры подземелий 150 x 150 и 200 x 200 и без излишеств смешивание ресурсов из всех сред]</color></i>
 ModUi/&EnableEpicPointsAndArray=Включить эпическую систему покупки 35 баллов и массив <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Включить выбор умений на уровнях класса 4, 10 и 16
-ModUi/&EnableFighterArmamentAdroitness=Включите <color=#D89555>Бойца</color> <b>Специализацию оружия</b> на уровнях класса 8 и 16 <i><color=#F0DAA0>[получите +1 к попаданию и урону, но в ущерб любому другому тип оружия]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Включить выбор умений на уровнях класса 2, 10 и 18
+ModUi/&EnableFeatsAtEvenLevelsMiddle=Включить выбор умений на уровнях класса 6 и 14
+ModUi/&EnableFighterArmamentAdroitness=Включите <color=#D89555>Боец</color> <b>Специализацию оружия</b> на уровнях класса 8 и 16 <i><color=#F0DAA0>[получите +1 к попаданию и урону, но в ущерб любым другим тип оружия]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Включить гибкие фоны <i><color=#F0DAA0>[выбрать навык и владение инструментами из фона]</color></i>
 ModUi/&EnableFlexibleRaces=Включить гибкие расы <i><color=#F0DAA0>[назначить очки способностей вместо расовых значений по умолчанию]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Включите <color=#1E81B0>CTRL-SHIFT-(D)</color>, чтобы отобразить наложение отладки

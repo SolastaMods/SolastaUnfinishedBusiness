@@ -141,11 +141,18 @@ internal static class CharacterDisplay
             CharacterContext.SwitchAsiAndFeat();
         }
 
-        toggle = Main.Settings.EnableFeatsAtEvenLevels;
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFeatsAtEvenLevels = toggle;
-            CharacterContext.SwitchEvenLevelFeats();
+            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats();
+        }
+
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats(true);
         }
 
         toggle = Main.Settings.EnableFighterArmamentAdroitness;

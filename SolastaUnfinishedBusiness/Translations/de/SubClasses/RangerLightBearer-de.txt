@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Du hast eine Fluggeschwindigkeit, die deiner Schrittgeschwindigkeit entspricht, und deine Angriffe zählen ebenfalls als magisch.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Engelsform
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn es vom Zaubernden mit einem Waffenangriff getroffen wird, explodiert das Mal, fügt dem Betroffenen 1W8 Strahlungsschaden zu und zerstört das Mal. Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W8.
+Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn du vom Zaubernden mit einem Waffenangriff getroffen wirst, wird der gesamte durch den Angriff verursachte Schaden zu Strahlenschaden, und du erleidest zusätzlich 1W8 Strahlenschaden durch den Angriff. Ab der 11. Stufe erhöht sich der Zusatzschaden auf 2W8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Gekennzeichnet durch den gesegneten Krieger
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Du kannst Licht als Aktion wirken und Bonuszauber erhalten, die für dich als Waldläuferzauber gelten und nicht auf die Anzahl der Zauber zählen, die du kennst:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magie des Lichtträgers
@@ -12,7 +12,7 @@ Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Du bist in der Lage,
 Feature/&PowerRangerLightBearerAngelicFormSproutTitle=Engelsform
 Feature/&PowerRangerLightBearerBlessedGlowDescription=Du hast die Fähigkeit, heiliges Licht zu beschwören. Wenn du Licht wirkst, kannst du alle Kreaturen innerhalb von 20 Fuß um die Lichtquelle dazu zwingen, einen Konstitutionswurf gegen deinen SG für Zauberrettung zu bestehen oder für 1 Minute geblendet zu werden. Ein Untoter oder Untoter ist bei diesem Rettungswurf im Nachteil. Du kannst diese Kraft einmal pro langer Pause verwenden.
 Feature/&PowerRangerLightBearerBlessedGlowTitle=Gesegnetes Leuchten
-Feature/&PowerRangerLightBearerBlessedWarriorDescription=Wähle als Bonusaktion eine Kreatur innerhalb von 30 Fuß von dir. Wenn du diese Kreatur in diesem Zug das nächste Mal mit einem Waffenangriff triffst, wird der gesamte durch den Angriff verursachte Schaden zu Strahlenschaden, und die Kreatur erleidet durch den Angriff zusätzlich 1W8 Strahlenschaden. Ab der 11. Stufe erhöht sich der Zusatzschaden auf 2W8.
+Feature/&PowerRangerLightBearerBlessedWarriorDescription=Wähle als Bonusaktion eine Kreatur innerhalb von 30 Fuß von dir. Wenn du diese Kreatur in diesem Zug das nächste Mal mit einem Waffenangriff triffst, wird der gesamte durch den Angriff verursachte Schaden zu Strahlungsschaden und die Kreatur erleidet zusätzlich 1W8 Strahlungsschaden durch den Angriff. Ab der 11. Stufe erhöht sich der Zusatzschaden auf 2W8.
 Feature/&PowerRangerLightBearerBlessedWarriorTitle=Gesegneter Krieger
 Feature/&PowerRangerLightBearerLifeBringerDescription=Du hast einen Pool an Trefferpunkten, der dem Fünffachen deines Ranger-Levels entspricht. Dieser Pool wird am Ende einer langen Ruhe wieder aufgefüllt. Als Aktion kannst du eine Kreatur innerhalb von 30 Fuß von dir auswählen und bis zur Hälfte ihres HP-Maximums wiederherstellen.
 Feature/&PowerRangerLightBearerLifeBringerTitle=Lebensbringer
