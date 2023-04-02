@@ -417,7 +417,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
-        internal static FeatureDefinitionCombatAffinity CombatAffinityRousingShout { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityRousingShout");
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
         internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
     }

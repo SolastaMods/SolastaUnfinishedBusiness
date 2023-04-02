@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -9,7 +10,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
@@ -201,36 +201,30 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
+                .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
                 .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
+                .SetMyAttackAdvantage(AdvantageType.Advantage)
                 .AddToDB())
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("OnAfterActionWolfLeadership")
-                .SetGuiPresentationNoContent(true)
-                .AddToDB())
-            .AddToDB();
-
-        return FeatureDefinitionPowerBuilder
+        var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.UntilShortRest)
                 .Build())
-            .SetCustomSubFeatures(new OnAfterActionWolfLeadership(conditionPathOfTheSpiritsWolfLeadershipPack))
             .AddToDB();
+
+        powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(new CustomBehaviorWolfLeadership(
+            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack));
+
+        return powerPathOfTheSpiritsWolfLeadership;
     }
 
     private static FeatureDefinition AbilityCheckAffinityPathOfTheSpiritsBearMight()
@@ -258,47 +252,85 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private class OnAfterActionWolfLeadership : IOnAfterActionFeature, ICharacterTurnStartListener
+    //
+    // Wolf Leadership
+    //
+
+    private class CustomBehaviorWolfLeadership : IOnAfterActionFeature, ICharacterTurnStartListener
     {
+        private readonly FeatureDefinitionPower _powerDefinition;
         private readonly ConditionDefinition _conditionDefinition;
 
-        public OnAfterActionWolfLeadership(ConditionDefinition conditionDefinition)
+        public CustomBehaviorWolfLeadership(FeatureDefinitionPower powerDefinition,
+            ConditionDefinition conditionDefinition)
         {
+            _powerDefinition = powerDefinition;
             _conditionDefinition = conditionDefinition;
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            AddCondition(locationCharacter);
+            var sourceRulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (sourceRulesetCharacter.HasAnyConditionOfType(ConditionRaging))
+            {
+                AddCondition(locationCharacter);
+            }
+            else
+            {
+                RemoveCondition(locationCharacter.RulesetCharacter);
+            }
         }
 
         public void OnAfterAction(CharacterAction action)
         {
-            if (action is CharacterActionRageStart)
+            switch (action)
             {
-                AddCondition(action.ActingCharacter);
+                case CharacterActionSpendPower characterActionSpendPower when
+                    characterActionSpendPower.activePower.PowerDefinition == _powerDefinition:
+                    AddCondition(action.ActingCharacter);
+                    break;
+                case CharacterActionRageStop:
+                    RemoveCondition(action.ActingCharacter.RulesetCharacter);
+                    break;
             }
         }
 
-        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
+        private void RemoveCondition(RulesetActor rulesetCharacter)
         {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var battle = gameLocationBattleService?.Battle;
+            var battle = Gui.Battle;
 
             if (battle == null)
             {
                 return;
             }
 
-            var sourceRulesetCharacter = sourceLocationCharacter.RulesetCharacter;
+            foreach (var targetLocationCharacter in battle.AllContenders
+                         .Where(x => x.Side == rulesetCharacter.Side))
+            {
+                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
+                var rulesetCondition =
+                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
+                        x.ConditionDefinition == _conditionDefinition);
 
-            if (!sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    "ConditionRagingNormal") &&
-                !sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    "ConditionRagingPersistent"))
+                if (rulesetCondition != null)
+                {
+                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
+                }
+            }
+        }
+
+        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null)
             {
                 return;
             }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var factionName = sourceLocationCharacter.RulesetCharacter.CurrentFaction.Name;
 
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
@@ -312,10 +344,10 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
                     sourceLocationCharacter.Guid,
-                    sourceRulesetCharacter.CurrentFaction.Name);
+                    factionName);
 
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(
-                    AttributeDefinitions.TagEffect, condition);
+                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
+                    condition);
             }
         }
     }
