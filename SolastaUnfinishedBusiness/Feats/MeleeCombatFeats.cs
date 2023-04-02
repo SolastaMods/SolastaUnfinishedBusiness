@@ -801,7 +801,7 @@ internal static class MeleeCombatFeats
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter = "Reaction/&CustomReactionCrusherDescription"
                 };
