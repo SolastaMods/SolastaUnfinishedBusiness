@@ -783,8 +783,18 @@ internal static class MeleeCombatFeats
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
+            {
+                yield break;
+            }
 
             if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName) ||
                 !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
