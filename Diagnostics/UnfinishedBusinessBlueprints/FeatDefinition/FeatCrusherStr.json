@@ -12,6 +12,7 @@
   "familyTag": "Crusher",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:ActionAffinityFeatCrusherToggle:d3ad399d-6f58-5787-b967-64355be1a0ff",
     "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
     "Definition:FeatureFeatCrusher:64e6fea6-765a-5c24-ad0d-83be18d62d96"
   ],

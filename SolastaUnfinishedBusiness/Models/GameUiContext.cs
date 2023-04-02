@@ -726,6 +726,25 @@ internal static class GameUiContext
         }
     }
 
+    internal static FeatureDefinitionActionAffinity ActionAffinityFeatCrusherToggle { get; private set; }
+
+    private static void LoadFeatCrusherToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "FeatCrusherToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MonkKiPointsToggle)
+            .AddToDB();
+
+        ActionAffinityFeatCrusherToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityFeatCrusherToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle)
+            .AddToDB();
+    }
+
     internal static FeatureDefinitionActionAffinity ActionAffinityMonkKiPointsToggle { get; private set; }
 
     private static void LoadMonkKiPointsToggle()
@@ -878,6 +897,7 @@ internal static class GameUiContext
         SwitchCrownOfTheMagister();
         SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
+        LoadFeatCrusherToggle();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
         LoadMonsterSwapAttackToggle();

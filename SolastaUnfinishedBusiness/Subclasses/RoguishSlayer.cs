@@ -478,21 +478,23 @@ internal sealed class RoguishSlayer : AbstractSubclass
         {
             var battle = Gui.Battle;
 
-            if (battle == null || battle.CurrentRound > 1)
+            if (battle == null || defender.RulesetCharacter is not { } rulesetDefender ||
+                !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
                 return;
             }
 
-            var modifierTrend = defender.RulesetCharacter.actionModifier.savingThrowModifierTrends;
-            var advantageTrends = defender.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
             var attackerDexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
             var attackerProficiencyBonus =
-                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var defenderConstitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                defender.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution));
+                rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution));
 
-            defender.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, defenderConstitutionModifier, 8 + attackerProficiencyBonus + attackerDexterityModifier,
                 false,
                 out var savingOutcome,
