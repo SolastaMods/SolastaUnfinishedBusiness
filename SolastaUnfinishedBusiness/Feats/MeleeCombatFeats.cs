@@ -723,9 +723,9 @@ internal static class MeleeCombatFeats
         .SetCustomSubFeatures(new AttackFinishedCrusher(
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
-                .SetGuiPresentation(Category.Condition)
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                 .SetSpecialDuration(DurationType.Round, 1)
-                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityFeatCrusher")
