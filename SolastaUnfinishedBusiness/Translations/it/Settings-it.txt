@@ -141,7 +141,7 @@ ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
 ModUi/&Input=<color=#F0DAA0>Inserimento:</color>
 ModUi/&Interface=Interfaccia
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e oggetti:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Inverti il ​​comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
+ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli in DM
 ModUi/&Items=<color=#F0DAA0>Oggetti:</color>

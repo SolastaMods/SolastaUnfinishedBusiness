@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem ou monstros controlados selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de ataques corpo a corpo e à distância]</cor></i>
@@ -56,8 +56,8 @@ ModUi/&Deities=<color=#F0DAA0>Divindades:</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em talentos vinculados à classe fornecidos por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
@@ -158,7 +158,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagem
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>

@@ -218,9 +218,9 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets PNJ
 ModUi/&UnleashNpcAsEnemy=Déverrouiller la sélection de monstres
 ModUi/&UnlockAllNpcFaces=Déverrouiller les visages des PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs éclatantes pour les yeux
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
