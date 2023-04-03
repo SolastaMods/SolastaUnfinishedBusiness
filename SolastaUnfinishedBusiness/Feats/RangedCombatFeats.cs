@@ -198,13 +198,13 @@ internal static class RangedCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType,
-                    CustomWeaponsContext.HandXbowWeaponType)(attackMode, null, null))
+            if (!ValidatorsWeapon.IsOfWeaponType(DartType)(attackMode, null, null) &&
+                attackMode is not { ranged: true })
             {
                 return;
             }
 
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {

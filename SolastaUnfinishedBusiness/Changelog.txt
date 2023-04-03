@@ -1,4 +1,5 @@
 - added Path of the Elements subclass
 - improved Crusher feat gui presentation
 - improved custom recipes to use primed items whenever possible
+- improved Deadeye to trigger with the lightning launcher and darts
 - improved Path of the Spirits' wolf leadership
