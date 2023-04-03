@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.68:
+
+- added Path of the Elements subclass
+- improved Crusher feat gui presentation
+- improved Path of the Spirits' wolf leadership
+
 1.4.33.67:
 
 - SAME AS BELOW
