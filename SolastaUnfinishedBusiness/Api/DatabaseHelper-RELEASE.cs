@@ -572,11 +572,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard");
         internal static FeatureDefinitionPower PowerClericTurnUndead14 { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14");
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
-        internal static FeatureDefinitionPower PowerDomainElementalDiscipleOfTheElementsCold { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalDiscipleOfTheElementsCold");
-        internal static FeatureDefinitionPower PowerDomainElementalDiscipleOfTheElementsFire { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalDiscipleOfTheElementsFire");
-        internal static FeatureDefinitionPower PowerDomainElementalDiscipleOfTheElementsLightning { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalDiscipleOfTheElementsLightning");
+        internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
         internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
+        internal static FeatureDefinitionPower PowerDomainElementalIceLance { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalIceLance");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");

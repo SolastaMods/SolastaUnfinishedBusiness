@@ -208,7 +208,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
         var powerElementalBurstStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Storm")
-            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -216,7 +216,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsLightning)
+                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -242,14 +242,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
         // Blizzard
 
-        var conditionElementalBurstBlizzard = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}{ElementalBurst}Blizzard")
-            .SetSpecialDuration(DurationType.Round, 1)
-            .AddToDB();
-
         var powerElementalBurstBlizzard = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Blizzard")
-            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalIceLance)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -257,7 +252,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsCold)
+                    .SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Strength,
@@ -273,7 +268,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionElementalBurstBlizzard, ConditionForm.ConditionOperation.Add)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -290,7 +285,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
         var powerElementalBurstWildfire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Wildfire")
-            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
+            .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -298,7 +293,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsFire)
+                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -487,6 +482,15 @@ internal sealed class PathOfTheElements : AbstractSubclass
                         break;
                 }
 
+                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+                {
+                    sourceCharacter = rulesetAttacker,
+                    targetCharacter = rulesetDefender,
+                    position = targetLocationCharacter.LocationPosition
+                };
+
                 var damageForm = new DamageForm
                 {
                     DamageType = _ancestry.damageType,
@@ -496,24 +500,14 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     IgnoreCriticalDoubleDice = true
                 };
 
-                rulesetAttacker.RollDie(dieType, RollContext.AttackDamageValueRoll, true, AdvantageType.None,
-                    out var firstRoll, out _);
+                implementationService.ApplyEffectForms(
+                    new List<EffectForm> { new() { damageForm = damageForm } },
+                    applyFormsParams,
+                    new List<string> { _ancestry.damageType },
+                    out _,
+                    out _);
 
                 GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _ancestry);
-
-                RulesetActor.InflictDamage(
-                    firstRoll,
-                    damageForm,
-                    _ancestry.damageType,
-                    new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                    rulesetDefender,
-                    false,
-                    rulesetAttacker.Guid,
-                    false,
-                    new List<string>(),
-                    new RollInfo(dieType, new List<int> { firstRoll }, 0),
-                    true,
-                    out _);
             }
         }
     }
@@ -721,7 +715,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     rulesetDefender.Guid,
                     CustomConditionsContext.StopMovement,
                     DurationType.Round,
-                    1,
+                    0,
                     TurnOccurenceType.EndOfTurn,
                     rulesetAttacker.Guid,
                     rulesetAttacker.BaseFaction.Name);
