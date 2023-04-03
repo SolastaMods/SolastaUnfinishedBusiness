@@ -138,10 +138,10 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
 
                 var profBonus = AttributeDefinitions.ComputeProficiencyBonus(self.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+                    .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
 
                 var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
+                    .TryGetAttributeValue(AttributeDefinitions.Charisma));
 
                 self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier,
                     RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn,

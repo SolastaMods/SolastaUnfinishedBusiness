@@ -314,8 +314,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         private static void ReceiveHealing(RulesetCharacter rulesetCharacter)
         {
-            var characterLevel = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var charisma = rulesetCharacter.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
+            var characterLevel = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var charisma = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healingReceived = characterLevel + charismaModifier;
 

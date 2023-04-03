@@ -152,7 +152,7 @@ internal static class GameLocationBattleManagerTweaks
             {
                 if (hero != null)
                 {
-                    var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    var characterLevel = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                     diceNumber = provider.GetDiceOfRank(characterLevel);
                 }
             }
@@ -256,7 +256,7 @@ internal static class GameLocationBattleManagerTweaks
 
                 //use previously saved original RulesetCharacterHero
                 additionalDamageForm.BonusDamage +=
-                    hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                    hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
                 /*
                  * Support for wild-shaped characters
@@ -296,12 +296,12 @@ internal static class GameLocationBattleManagerTweaks
                     featureDefinition == AdditionalDamageLifedrinker)
                 {
                     spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
-                        .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
+                        .TryGetAttributeValue(AttributeDefinitions.Charisma));
                 }
                 else if (featureDefinition == AdditionalDamageTraditionShockArcanistArcaneFury)
                 {
                     spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
-                        .GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+                        .TryGetAttributeValue(AttributeDefinitions.Intelligence));
                 }
 
                 /*

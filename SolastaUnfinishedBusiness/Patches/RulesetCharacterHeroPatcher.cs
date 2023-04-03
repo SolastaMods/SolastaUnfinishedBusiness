@@ -709,8 +709,8 @@ public static class RulesetCharacterHeroPatcher
         {
             var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;
-            var level = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var experience = __instance.GetAttribute(AttributeDefinitions.Experience).CurrentValue;
+            var level = __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var experience = __instance.TryGetAttributeValue(AttributeDefinitions.Experience);
             var nextLevelThreshold = RuleDefinitions.ComputeNextLevelThreshold(level + 1);
 
             __result = (Main.Settings.NoExperienceOnLevelUp ||

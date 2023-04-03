@@ -981,8 +981,7 @@ internal static class MeleeCombatFeats
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
 
-                    var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
-                        .CurrentValue;
+                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
                     if (strengthMod <= 0)
@@ -1256,7 +1255,7 @@ internal static class MeleeCombatFeats
             }
 
             const int TO_HIT = -3;
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var toDamage = 3 + proficiency;
 
             attackMode.ToHitBonus += TO_HIT;

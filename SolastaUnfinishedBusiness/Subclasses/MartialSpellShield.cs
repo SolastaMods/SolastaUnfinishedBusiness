@@ -110,11 +110,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
         public int GetSpellModifier(RulesetCharacter caster)
         {
             var strModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Strength)
-                    .CurrentValue);
+                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));
             var dexModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Dexterity)
-                    .CurrentValue);
+                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Dexterity));
 
             return Math.Max(strModifier, dexModifier);
         }

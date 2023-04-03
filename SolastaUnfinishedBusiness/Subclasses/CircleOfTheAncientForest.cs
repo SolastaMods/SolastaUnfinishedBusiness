@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -353,8 +354,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
             attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
 
-            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+            var classLevel = caster.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Druid);
+            var healing = used == 0 && belowHalfHealth ? classLevel : Mathf.CeilToInt(classLevel / 2f);
             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 

@@ -70,8 +70,8 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = rulesetCharacter.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
             var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
             {
                 saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)
