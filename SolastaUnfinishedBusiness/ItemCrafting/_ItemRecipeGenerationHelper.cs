@@ -51,7 +51,7 @@ internal static class ItemRecipeGenerationHelper
                 var newItem = isArmor
                     ? ItemBuilder.BuildNewMagicArmor(baseItem, itemData.Name, itemData.Item)
                     : ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemData.Item);
-                var primedItem = baseToPrimed.ContainsKey(baseItem)? baseToPrimed[baseItem] : baseItem;
+                var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
                 var ingredients = new List<ItemDefinition> { primedItem };
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
