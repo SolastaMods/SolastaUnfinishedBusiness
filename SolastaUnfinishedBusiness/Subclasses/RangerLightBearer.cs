@@ -397,7 +397,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter = "Reaction/&CustomReactionBlessedGlowDescription"
                 };
