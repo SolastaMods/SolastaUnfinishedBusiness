@@ -250,7 +250,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3406b6724a849a045a16346d63506fb5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -274,7 +274,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "72476ec2c3071fa449910d38162a16c9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -464,8 +464,8 @@
     "description": "Feature/&PowerPathOfTheElementsElementalBurstWildfireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3f9d7f1e19c5d0f4a9add3aedb41fcfc",
-      "m_SubObjectName": "BreathWeaponGold",
+      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
+      "m_SubObjectName": "FireBurst",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

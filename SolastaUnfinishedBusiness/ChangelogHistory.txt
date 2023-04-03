@@ -4,6 +4,7 @@
 
 - added Path of the Elements subclass
 - improved Crusher feat gui presentation
+- improved custom recipes to use primed items whenever possible
 - improved Path of the Spirits' wolf leadership
 
 1.4.33.67:

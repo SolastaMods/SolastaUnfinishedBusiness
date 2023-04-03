@@ -198,7 +198,7 @@
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Motion",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -211,14 +211,12 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBurstBlizzard",
-          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBurstBlizzard:31fc57af-afe2-5334-994a-e19f46bf244a",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "motionForm": {
+          "$type": "MotionForm, Assembly-CSharp",
+          "type": "FallProne",
+          "distance": 0,
+          "forceTurnTowardsSourceCharacterAfterPush": false,
+          "forceSourceCharacterTurnTowardsTargetAfterPush": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -250,7 +248,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6d4fa511dc2ad2c43bb20866b9461ca4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -274,7 +272,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "4e6973760763b794ba6f722d9c2423b9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -464,8 +462,8 @@
     "description": "Feature/&PowerPathOfTheElementsElementalBurstBlizzardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f766f330143e00642a785a4730c46289",
-      "m_SubObjectName": "BreathWeaponBlue",
+      "m_AssetGUID": "3350cb4c911e6354887c761c1f24e570",
+      "m_SubObjectName": "IceLance",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
