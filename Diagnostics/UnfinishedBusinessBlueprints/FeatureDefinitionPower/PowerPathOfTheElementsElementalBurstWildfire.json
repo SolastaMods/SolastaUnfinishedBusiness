@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 2,
+    "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Permanent",
+    "targetSide": "Enemy",
+    "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
-    "ignoreCover": false,
+    "ignoreCover": true,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "savingThrowDifficultyAbility": "Constitution",
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -62,6 +62,142 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Damage",
+        "addBonusMode": "None",
+        "applyLevel": "DiceNumberByLevelTable",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 1,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 2,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 3,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 4,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 5,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 6,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 7,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 8,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 9,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 10,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 11,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 12,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 13,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 14,
+            "diceNumber": 0
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 15,
+            "diceNumber": 5
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 16,
+            "diceNumber": 5
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 17,
+            "diceNumber": 5
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 18,
+            "diceNumber": 5
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 19,
+            "diceNumber": 5
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 20,
+            "diceNumber": 6
+          }
+        ],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "HalfDamage",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 4,
+          "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageFire",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
@@ -70,15 +206,15 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBlessingBlizzard",
-          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBlessingBlizzard:279b058a-bb5d-534c-8f32-c8bb77237b9c",
+          "conditionDefinitionName": "ConditionOnFire",
+          "conditionDefinition": "Definition:ConditionOnFire:16ca5e0ef0891e445a26be9ae27a72de",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -114,7 +250,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -289,7 +425,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnRageStartAutomatic",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -304,7 +440,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "ShortRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -323,14 +459,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerPathOfTheElementsElementalBurstWildfireTitle",
+    "description": "Feature/&PowerPathOfTheElementsElementalBurstWildfireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "3f9d7f1e19c5d0f4a9add3aedb41fcfc",
+      "m_SubObjectName": "BreathWeaponGold",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -345,7 +481,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d5620bb2-934e-5aa0-b853-c823c68affc5",
+  "guid": "de072fc8-7fe0-5780-901e-9353517c02a0",
   "contentPack": 9999,
-  "name": "PowerPathOfTheElementsElementalBlessingBlizzard"
+  "name": "PowerPathOfTheElementsElementalBurstWildfire"
 }

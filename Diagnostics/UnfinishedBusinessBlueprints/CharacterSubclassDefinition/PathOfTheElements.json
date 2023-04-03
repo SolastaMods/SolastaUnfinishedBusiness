@@ -10,6 +10,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetPathOfTheElementsElementalBlessing:e6c56f22-8cab-5050-897e-b82eb3d92717",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPathOfTheElementsElementalBurst:e90176c3-de39-50f0-a63a-be70aafe7796",
+      "level": 10
     }
   ],
   "personalityFlagOccurences": [],

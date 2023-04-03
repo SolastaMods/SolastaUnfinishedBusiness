@@ -1,14 +1,14 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerPathOfTheElementsElementalBlessingStorm:fcf7651f-439e-5d9c-85e6-a83cc83ebc3c",
     "Definition:PowerPathOfTheElementsElementalBlessingBlizzard:d5620bb2-934e-5aa0-b853-c823c68affc5",
+    "Definition:PowerPathOfTheElementsElementalBlessingStorm:fcf7651f-439e-5d9c-85e6-a83cc83ebc3c",
     "Definition:PowerPathOfTheElementsElementalBlessingWildfire:d375a137-21db-559f-9874-69d4d17bf698"
   ],
   "mode": "DeterminedByAncestry",
   "ancestryDamageTypeMap": [
-    "DamageLightning",
     "DamageCold",
+    "DamageLightning",
     "DamageFire"
   ],
   "ancestryType": 9001,

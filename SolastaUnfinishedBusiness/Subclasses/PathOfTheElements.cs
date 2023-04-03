@@ -4,11 +4,13 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -16,17 +18,18 @@ internal sealed class PathOfTheElements : AbstractSubclass
 {
     private const string Name = "PathOfTheElements";
     private const string ElementalBlessing = "ElementalBlessing";
+    private const string ElementalBurst = "ElementalBurst";
 
     internal PathOfTheElements()
     {
-        // LEVEL 03
+        #region LEVEL 03
 
         // Elemental Fury
 
         var ancestryStorm = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Storm")
             .SetGuiPresentation(Category.Feature,
-                Gui.Format($"Feature/&Ancestry{Name}Description", Gui.Localize("Rules/&DamageLightningTitle")))
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageLightningTitle")))
             .SetAncestry(ExtraAncestryType.PathOfTheElements)
             .SetDamageType(DamageTypeLightning)
             .AddToDB();
@@ -36,7 +39,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Blizzard")
             .SetGuiPresentation(Category.Feature,
-                Gui.Format($"Feature/&Ancestry{Name}Description", Gui.Localize("Rules/&DamageColdTitle")))
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageColdTitle")))
             .SetAncestry(ExtraAncestryType.PathOfTheElements)
             .SetDamageType(DamageTypeCold)
             .AddToDB();
@@ -46,7 +49,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
             .SetGuiPresentation(Category.Feature,
-                Gui.Format($"Feature/&Ancestry{Name}Description", Gui.Localize("Rules/&DamageFireTitle")))
+                Gui.Format($"Feature/&Ancestry{Name}AllDescription", Gui.Localize("Rules/&DamageFireTitle")))
             .SetAncestry(ExtraAncestryType.PathOfTheElements)
             .SetDamageType(DamageTypeFire)
             .AddToDB();
@@ -64,7 +67,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetAncestryType(ExtraAncestryType.PathOfTheElements)
             .AddToDB();
 
-        // LEVEL 06
+        #endregion
+
+        #region LEVEL 06
 
         // Storm
 
@@ -74,6 +79,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance)
             .AddToDB();
 
@@ -83,13 +89,23 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.UntilShortRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionElementalBlessingStorm, ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
             .AddToDB();
 
-        powerElementalBlessingStorm.SetCustomSubFeatures(new CustomBehaviorElementalBlessing(
-            powerElementalBlessingStorm, conditionElementalBlessingStorm));
+        var customBehaviorStorm = new CustomBehaviorElementalBlessing(
+            powerElementalBlessingStorm, conditionElementalBlessingStorm);
+
+        conditionElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
+        powerElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
 
         // Blizzard
 
@@ -99,6 +115,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance)
             .AddToDB();
 
@@ -108,13 +125,23 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.UntilShortRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionElementalBlessingBlizzard, ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
             .AddToDB();
 
-        powerElementalBlessingBlizzard.SetCustomSubFeatures(new CustomBehaviorElementalBlessing(
-            powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard));
+        var customBehaviorBlizzard = new CustomBehaviorElementalBlessing(
+            powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard);
+
+        conditionElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
+        powerElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
 
         // Wildfire
 
@@ -124,6 +151,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 ConditionDefinitions.ConditionBlessed)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance)
             .AddToDB();
 
@@ -133,13 +161,23 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.UntilShortRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionElementalBlessingWildfire, ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
             .AddToDB();
 
-        powerElementalBlessingWildfire.SetCustomSubFeatures(new CustomBehaviorElementalBlessing(
-            powerElementalBlessingWildfire, conditionElementalBlessingWildfire));
+        var customBehaviorWildfire = new CustomBehaviorElementalBlessing(
+            powerElementalBlessingWildfire, conditionElementalBlessingWildfire);
+
+        conditionElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
+        powerElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
 
         // Elemental Blessing
 
@@ -147,18 +185,150 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .Create($"FeatureSet{Name}{ElementalBlessing}")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
-            .SetAncestryType(ExtraAncestryType.PathOfTheElements, DamageTypeLightning, DamageTypeCold, DamageTypeFire)
+            .SetAncestryType(ExtraAncestryType.PathOfTheElements, DamageTypeCold, DamageTypeLightning, DamageTypeFire)
             .AddFeatureSet(
-                powerElementalBlessingStorm,
                 powerElementalBlessingBlizzard,
+                powerElementalBlessingStorm,
                 powerElementalBlessingWildfire)
             .AddToDB();
 
-        // LEVEL 10
+        #endregion
 
+        #region LEVEL 10
 
-        // LEVEL 14
+        // Storm
 
+        var powerElementalBurstStorm = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{ElementalBurst}Storm")
+            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetShowCasting(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsLightning)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeLightning, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 4, 1, 5, 15)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionShocked,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+            .AddToDB();
+
+        // Blizzard
+
+        var powerElementalBurstBlizzard = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{ElementalBurst}Blizzard")
+            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetShowCasting(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsCold)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 4, 1, 5, 15)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionProne,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+            .AddToDB();
+
+        // Wildfire
+
+        var powerElementalBurstWildfire = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{ElementalBurst}Wildfire")
+            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetShowCasting(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsFire)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Constitution)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeFire, 4, DieType.D6)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 5, 1, 5, 15)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionOnFire,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
+            .AddToDB();
+
+        // Elemental Burst
+
+        var featureSetElementalBurst = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}{ElementalBurst}")
+            .SetGuiPresentation(Category.Feature,
+                Gui.Format($"Feature/&FeatureSet{Name}{ElementalBurst}Description",
+                    Gui.Localize($"Feature/&Power{Name}{ElementalBurst}StormDescription"),
+                    Gui.Localize($"Feature/&Power{Name}{ElementalBurst}BlizzardDescription"),
+                    Gui.Localize($"Feature/&Power{Name}{ElementalBurst}WildfireDescription")))
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .SetAncestryType(ExtraAncestryType.PathOfTheElements, DamageTypeCold, DamageTypeLightning, DamageTypeFire)
+            .AddFeatureSet(
+                powerElementalBurstBlizzard,
+                powerElementalBurstStorm,
+                powerElementalBurstWildfire)
+            .AddToDB();
+
+        #endregion
+
+        #region LEVEL 14
+
+        #endregion
 
         // MAIN
 
@@ -167,7 +337,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
             .AddFeaturesAtLevel(3, featureSetElementalFury)
             .AddFeaturesAtLevel(6, featureSetElementalBlessing)
-            .AddFeaturesAtLevel(10)
+            .AddFeaturesAtLevel(10, featureSetElementalBurst)
             .AddFeaturesAtLevel(14)
             .AddToDB();
     }
@@ -186,7 +356,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
     private sealed class CharacterTurnEndedElementalFury : ICharacterTurnEndListener
     {
-        private static FeatureDefinitionAncestry _ancestry;
+        private readonly FeatureDefinitionAncestry _ancestry;
 
         public CharacterTurnEndedElementalFury(FeatureDefinitionAncestry ancestry)
         {
@@ -202,8 +372,15 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 return;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
             var rulesetAttacker = locationCharacter.RulesetCharacter;
+
+            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
 
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
@@ -237,7 +414,11 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
                 var damageForm = new DamageForm
                 {
-                    DamageType = _ancestry.damageType, DieType = dieType, DiceNumber = diceNumber
+                    DamageType = _ancestry.damageType,
+                    DieType = dieType,
+                    DiceNumber = diceNumber,
+                    BonusDamage = 0,
+                    IgnoreCriticalDoubleDice = true
                 };
 
                 rulesetAttacker.RollDie(dieType, RollContext.AttackDamageValueRoll, true, AdvantageType.None,
@@ -255,7 +436,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     rulesetAttacker.Guid,
                     false,
                     new List<string>(),
-                    new RollInfo(dieType, new List<int> { firstRoll }, firstRoll),
+                    new RollInfo(dieType, new List<int> { firstRoll }, 0),
                     true,
                     out _);
             }
@@ -266,10 +447,11 @@ internal sealed class PathOfTheElements : AbstractSubclass
     // Elemental Blessing
     //
 
-    private class CustomBehaviorElementalBlessing : IOnAfterActionFeature, ICharacterTurnStartListener
+    private class CustomBehaviorElementalBlessing :
+        INotifyConditionRemoval, IOnAfterActionFeature, ICharacterTurnStartListener
     {
-        private readonly FeatureDefinitionPower _powerDefinition;
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _powerDefinition;
 
         public CustomBehaviorElementalBlessing(
             FeatureDefinitionPower powerDefinition,
@@ -279,50 +461,47 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var sourceRulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (sourceRulesetCharacter.HasAnyConditionOfType(ConditionRaging))
-            {
-                AddCondition(locationCharacter);
-            }
-            else
-            {
-                RemoveCondition(locationCharacter.RulesetCharacter);
-            }
-        }
-
         public void OnAfterAction(CharacterAction action)
         {
-            switch (action)
+            if (action is CharacterActionSpendPower characterActionSpendPower &&
+                characterActionSpendPower.activePower.PowerDefinition == _powerDefinition)
             {
-                case CharacterActionSpendPower characterActionSpendPower when
-                    characterActionSpendPower.activePower.PowerDefinition == _powerDefinition:
-                    AddCondition(action.ActingCharacter);
-                    break;
-                case CharacterActionRageStop:
-                    RemoveCondition(action.ActingCharacter.RulesetCharacter);
-                    break;
+                AddCondition(action.ActingCharacter);
             }
         }
 
-        private void RemoveCondition(RulesetActor rulesetCharacter)
+        private void RemoveCondition(ISerializable rulesetActor)
         {
-            var battle = Gui.Battle;
-
-            if (battle == null)
+            if (rulesetActor is not RulesetCharacter sourceRulesetCharacter)
             {
                 return;
             }
 
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x => x.Side == rulesetCharacter.Side))
+            var rulesetEffectPower =
+                sourceRulesetCharacter.PowersUsedByMe.FirstOrDefault(x => x.PowerDefinition == _powerDefinition);
+
+            if (rulesetEffectPower == null)
             {
-                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
+                return;
+            }
+
+            sourceRulesetCharacter.TerminatePower(rulesetEffectPower);
+
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            if (gameLocationCharacterService == null)
+            {
+                return;
+            }
+
+            foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
+                         .Select(x => x.RulesetActor)
+                         .OfType<RulesetCharacter>()
+                         .Where(x => x.Side == sourceRulesetCharacter.Side && x != sourceRulesetCharacter))
+            {
                 var rulesetCondition =
                     targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == _conditionDefinition);
+                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == sourceRulesetCharacter.Guid);
 
                 if (rulesetCondition != null)
                 {
@@ -346,6 +525,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side == sourceLocationCharacter.Side &&
+                             x != sourceLocationCharacter &&
+                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2)))
             {
                 var condition = RulesetCondition.CreateActiveCondition(
@@ -359,6 +540,45 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
                 targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
                     condition);
+            }
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            RemoveCondition(removedFrom);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            RemoveCondition(rulesetActor);
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null)
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            foreach (var targetLocationCharacter in battle.AllContenders
+                         .Where(x =>
+                             x.Side == locationCharacter.Side &&
+                             x != locationCharacter &&
+                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x, 2)))
+            {
+                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
+                var rulesetCondition =
+                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
+                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == locationCharacter.Guid);
+
+                if (rulesetCondition != null)
+                {
+                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
+                }
             }
         }
     }
