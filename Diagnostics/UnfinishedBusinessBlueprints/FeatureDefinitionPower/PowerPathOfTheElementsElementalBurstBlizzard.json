@@ -213,8 +213,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionProne",
-          "conditionDefinition": "Definition:ConditionProne:c792a1e7b09cf9d4897b31e663a9ebfb",
+          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBurstBlizzard",
+          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBurstBlizzard:31fc57af-afe2-5334-994a-e19f46bf244a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

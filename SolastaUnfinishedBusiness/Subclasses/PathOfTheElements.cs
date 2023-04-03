@@ -198,6 +198,11 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
         // Storm
 
+        var conditionElementalBurstStorm = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionShocked, $"Condition{Name}{ElementalBurst}Storm")
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
+
         var powerElementalBurstStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Storm")
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
@@ -224,8 +229,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionShocked,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionElementalBurstStorm, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -234,6 +238,11 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         // Blizzard
+
+        var conditionElementalBurstBlizzard = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}{ElementalBurst}Blizzard")
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
 
         var powerElementalBurstBlizzard = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Blizzard")
@@ -261,8 +270,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionProne,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionElementalBurstBlizzard, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -271,6 +279,11 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         // Wildfire
+
+        var conditionElementalBurstWildfire = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionOnFire, $"Condition{Name}{ElementalBurst}Wildfire")
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .AddToDB();
 
         var powerElementalBurstWildfire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Wildfire")
@@ -281,7 +294,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
-                    .SetDurationData(DurationType.Instantaneous)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerDomainElementalDiscipleOfTheElementsFire)
                     .SetSavingThrowData(
                         false,
@@ -298,8 +311,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionOnFire,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionElementalBurstWildfire, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -461,6 +473,45 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null)
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            foreach (var targetLocationCharacter in battle.AllContenders
+                         .Where(x =>
+                             x.Side == locationCharacter.Side &&
+                             x != locationCharacter &&
+                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x, 2)))
+            {
+                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
+                var rulesetCondition =
+                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
+                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == locationCharacter.Guid);
+
+                if (rulesetCondition != null)
+                {
+                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
+                }
+            }
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            RemoveCondition(removedFrom);
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            RemoveCondition(rulesetActor);
+        }
+
         public void OnAfterAction(CharacterAction action)
         {
             if (action is CharacterActionSpendPower characterActionSpendPower &&
@@ -540,45 +591,6 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
                 targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
                     condition);
-            }
-        }
-
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            RemoveCondition(removedFrom);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            RemoveCondition(rulesetActor);
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.Side == locationCharacter.Side &&
-                             x != locationCharacter &&
-                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x, 2)))
-            {
-                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
-                var rulesetCondition =
-                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == locationCharacter.Guid);
-
-                if (rulesetCondition != null)
-                {
-                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
-                }
             }
         }
     }

@@ -213,8 +213,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShocked",
-          "conditionDefinition": "Definition:ConditionShocked:f61fc1425ede7a945b9291c9fc81164e",
+          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBurstStorm",
+          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBurstStorm:a4c2f1d5-96c2-58c7-b1c5-a0e5b6e33ea7",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
