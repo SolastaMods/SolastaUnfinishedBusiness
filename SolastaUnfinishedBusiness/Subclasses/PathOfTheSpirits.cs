@@ -1,8 +1,7 @@
-﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
@@ -203,6 +202,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
                 .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
@@ -216,13 +216,24 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.UntilShortRest)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
             .AddToDB();
 
-        powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(new CustomBehaviorWolfLeadership(
-            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack));
+        var customBehaviorWolfLeadership = new CustomRagingAura(
+            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack);
+
+        conditionPathOfTheSpiritsWolfLeadershipPack.SetCustomSubFeatures(customBehaviorWolfLeadership);
+        powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(customBehaviorWolfLeadership);
 
         return powerPathOfTheSpiritsWolfLeadership;
     }
@@ -255,100 +266,4 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     //
     // Wolf Leadership
     //
-
-    private class CustomBehaviorWolfLeadership : IOnAfterActionFeature, ICharacterTurnStartListener
-    {
-        private readonly FeatureDefinitionPower _powerDefinition;
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public CustomBehaviorWolfLeadership(FeatureDefinitionPower powerDefinition,
-            ConditionDefinition conditionDefinition)
-        {
-            _powerDefinition = powerDefinition;
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var sourceRulesetCharacter = locationCharacter.RulesetCharacter;
-
-            if (sourceRulesetCharacter.HasAnyConditionOfType(ConditionRaging))
-            {
-                AddCondition(locationCharacter);
-            }
-            else
-            {
-                RemoveCondition(locationCharacter.RulesetCharacter);
-            }
-        }
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            switch (action)
-            {
-                case CharacterActionSpendPower characterActionSpendPower when
-                    characterActionSpendPower.activePower.PowerDefinition == _powerDefinition:
-                    AddCondition(action.ActingCharacter);
-                    break;
-                case CharacterActionRageStop:
-                    RemoveCondition(action.ActingCharacter.RulesetCharacter);
-                    break;
-            }
-        }
-
-        private void RemoveCondition(RulesetActor rulesetCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x => x.Side == rulesetCharacter.Side))
-            {
-                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
-                var rulesetCondition =
-                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
-                {
-                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
-                }
-            }
-        }
-
-        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var factionName = sourceLocationCharacter.RulesetCharacter.CurrentFaction.Name;
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.Side == sourceLocationCharacter.Side &&
-                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 3)))
-            {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    targetLocationCharacter.Guid,
-                    _conditionDefinition,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    sourceLocationCharacter.Guid,
-                    factionName);
-
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
-                    condition);
-            }
-        }
-    }
 }

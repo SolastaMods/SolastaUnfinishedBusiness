@@ -104,8 +104,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var customBehaviorStorm = new CustomBehaviorElementalBlessing(
-            powerElementalBlessingStorm, conditionElementalBlessingStorm);
+        var customBehaviorStorm = new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm);
 
         conditionElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
         powerElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
@@ -140,8 +139,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var customBehaviorBlizzard = new CustomBehaviorElementalBlessing(
-            powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard);
+        var customBehaviorBlizzard =
+            new CustomRagingAura(powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard);
 
         conditionElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
         powerElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
@@ -176,8 +175,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var customBehaviorWildfire = new CustomBehaviorElementalBlessing(
-            powerElementalBlessingWildfire, conditionElementalBlessingWildfire);
+        var customBehaviorWildfire =
+            new CustomRagingAura(powerElementalBlessingWildfire, conditionElementalBlessingWildfire);
 
         conditionElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
         powerElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
@@ -508,146 +507,6 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     out _);
 
                 GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _ancestry);
-            }
-        }
-    }
-
-    //
-    // Elemental Blessing
-    //
-
-    private class CustomBehaviorElementalBlessing :
-        INotifyConditionRemoval, IOnAfterActionFeature, ICharacterTurnStartListener
-    {
-        private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatureDefinitionPower _powerDefinition;
-
-        public CustomBehaviorElementalBlessing(
-            FeatureDefinitionPower powerDefinition,
-            ConditionDefinition conditionDefinition)
-        {
-            _powerDefinition = powerDefinition;
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.Side == locationCharacter.Side &&
-                             x != locationCharacter &&
-                             !gameLocationBattleService.IsWithinXCells(locationCharacter, x, 2)))
-            {
-                var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
-                var rulesetCondition =
-                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == locationCharacter.Guid);
-
-                if (rulesetCondition != null)
-                {
-                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
-                }
-            }
-        }
-
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
-        {
-            RemoveCondition(removedFrom);
-        }
-
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
-        {
-            RemoveCondition(rulesetActor);
-        }
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            if (action is CharacterActionSpendPower characterActionSpendPower &&
-                characterActionSpendPower.activePower.PowerDefinition == _powerDefinition)
-            {
-                AddCondition(action.ActingCharacter);
-            }
-        }
-
-        private void RemoveCondition(ISerializable rulesetActor)
-        {
-            if (rulesetActor is not RulesetCharacter sourceRulesetCharacter)
-            {
-                return;
-            }
-
-            var rulesetEffectPower =
-                sourceRulesetCharacter.PowersUsedByMe.FirstOrDefault(x => x.PowerDefinition == _powerDefinition);
-
-            if (rulesetEffectPower == null)
-            {
-                return;
-            }
-
-            sourceRulesetCharacter.TerminatePower(rulesetEffectPower);
-
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-
-            if (gameLocationCharacterService == null)
-            {
-                return;
-            }
-
-            foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
-                         .Select(x => x.RulesetActor)
-                         .OfType<RulesetCharacter>()
-                         .Where(x => x.Side == sourceRulesetCharacter.Side && x != sourceRulesetCharacter))
-            {
-                var rulesetCondition =
-                    targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
-                        x.ConditionDefinition == _conditionDefinition && x.SourceGuid == sourceRulesetCharacter.Guid);
-
-                if (rulesetCondition != null)
-                {
-                    targetRulesetCharacter.RemoveCondition(rulesetCondition);
-                }
-            }
-        }
-
-        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var factionName = sourceLocationCharacter.RulesetCharacter.CurrentFaction.Name;
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.Side == sourceLocationCharacter.Side &&
-                             x != sourceLocationCharacter &&
-                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
-                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2)))
-            {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    targetLocationCharacter.Guid,
-                    _conditionDefinition,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    sourceLocationCharacter.Guid,
-                    factionName);
-
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
-                    condition);
             }
         }
     }
