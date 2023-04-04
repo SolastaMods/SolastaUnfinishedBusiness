@@ -17,6 +17,9 @@ AdditionalDamageDomainDefilerDivineStrike14	Description='Once per turn, deal +2d
 AdditionalDamageDomainDefilerDivineStrike6	Description='Once per turn, deal +1d8 necrotic damage on weapon attacks.'.
 AdditionalDamageDomainSmithDivineStrike14	Description='Once per turn, deal +2d8 fire damage on weapon attacks.'.
 AdditionalDamageDomainSmithDivineStrike6	Description='Once per turn, deal +1d8 fire damage on weapon attacks.'.
+AncestryPathOfTheElementsBlizzard	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
+AncestryPathOfTheElementsStorm	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
+AncestryPathOfTheElementsWildfire	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 AttackModifierDamageAcidElementalWeapon	Description='This weapon is imbued with a +1 to attack and damage rolls.'.
 AttackModifierDamageAcidElementalWeapon1	Description='This weapon is imbued with a +2 to attack and damage rolls.'.
 AttackModifierDamageAcidElementalWeapon2	Description='This weapon is imbued with a +3 to attack and damage rolls.'.
@@ -556,6 +559,8 @@ You gain proficiency with poisoner's kit and Nature, or expertise if already pro
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword'.
 FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade '.
 FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert'.
+FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.
@@ -598,6 +603,14 @@ FeatureSetDomainDefilerDefileLife5	Title='Channel Divinity: Defile Life'.
 FeatureSetDomainDefilerDefileLife5	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 FeatureSetDomainDefilerMarkForDeath	Title='Channel Divinity: Mark for Death'.
 FeatureSetDomainDefilerMarkForDeath	Description='Mark an enemy for death. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.'.
+FeatureSetPathOfTheElementsElementalBurst	Description='Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
+• <b>Storm</b>: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to call a bolt of lightning. On a failed Dexterity saving throw, each enemy creature within that area receives 3d10 lightning damage and becomes unable to use reactions for 1 round (save for half damage, save to prevent reaction loss). You can use this feature once per short rest. The damage increases to 4d10 at 15th level, and 5d10 at 20th level.
+• <b>Blizzard</b>: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to send a gust of freezing wind. On a failed Strength saving throw, each enemy creature within that area receives 3d8 cold damage and becomes prone (save for half damage, save to prevent becoming prone). You can use this feature once per short rest. The damage increases to 4d8 at 15th level, and 5d8 at 20th level.
+• <b>Wildfire</b>: While you are raging, you can target a 3x3 area within 60 feet and use your bonus action to hurl waves of intense heat. On a failed Dexterity saving throw, each enemy creature within that area receives 4d6 fire damage and becomes ignited (save for half damage, save to prevent being on fire). You can use this feature once per short rest. The damage increases to 5d6 at 15th level, and 6d6 at 20th level.'.
+FeatureSetPathOfTheElementsElementalConduit	Description='Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
+• <b>Storm</b>: While you are raging, you gain flying speed equal to your walking speed.
+• <b>Blizzard</b>: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.
+• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to half your barbarian level.'.
 InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.

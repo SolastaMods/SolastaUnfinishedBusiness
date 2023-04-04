@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AncestryPathOfTheElementsBlizzard:641734eb-6b25-5f30-a4b6-e1305d8abb54",
+    "Definition:AncestryPathOfTheElementsStorm:18135f9f-fb3f-59e4-a259-e73936605af6",
+    "Definition:AncestryPathOfTheElementsWildfire:8a10aebb-5f04-54d5-b412-5486f9b2a6e8"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": 9001,
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheElementsElementalFuryTitle",
+    "description": "Feature/&FeatureSetPathOfTheElementsElementalFuryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "89f104f7-fa74-5ef6-9717-e357b12e87bf",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheElementsElementalFury"
+}

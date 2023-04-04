@@ -7,7 +7,8 @@ internal enum ExtraReactionContext
 
 internal enum ExtraAncestryType
 {
-    WayOfTheDragon = 9000
+    WayOfTheDragon = 9000,
+    PathOfTheElements = 9001
 }
 
 internal enum ExtraSituationalContext

@@ -488,11 +488,11 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Constitution).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Constitution));
             var profBonus = AttributeDefinitions.ComputeProficiencyBonus(me.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
             var myWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(me.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, attackerConModifier, 8 + profBonus + myWisModifier, false, out var savingOutcome,
@@ -506,9 +506,9 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
                 out var damageType);
 
-            var myLevel = me.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var classLevel = me.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 
-            var damageInt = myLevel switch
+            var damageInt = classLevel switch
             {
                 <= 4 => 8,
                 <= 10 => 12,

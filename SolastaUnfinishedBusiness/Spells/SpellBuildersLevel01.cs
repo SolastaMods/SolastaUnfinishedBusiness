@@ -632,7 +632,7 @@ internal static partial class SpellBuilders
 
         var conditionSanctuary = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionAuraOfProtection)
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
             .AddSpecialInterruptions(ConditionInterruption.Attacks)
             .SetFeatures(featureSanctuary)
             .AddToDB();
@@ -645,7 +645,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)

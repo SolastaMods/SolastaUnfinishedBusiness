@@ -34,7 +34,8 @@ public static class GuiCharacterActionPatcher
         [UsedImplicitly]
         public static bool Prefix(GuiCharacterAction __instance, ref bool __result)
         {
-            if (__instance.actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
+            if (__instance.actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
+                __instance.actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
                 __instance.actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)
             {
                 return true;

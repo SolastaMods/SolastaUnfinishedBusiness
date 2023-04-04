@@ -145,7 +145,7 @@ internal static class CharacterExportContext
                     item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
             }
 
-            heroCharacter.currentHitPoints = heroCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue;
+            heroCharacter.currentHitPoints = heroCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints);
             heroCharacter.Unregister();
             heroCharacter.ResetForOutgame();
 

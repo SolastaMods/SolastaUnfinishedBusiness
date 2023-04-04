@@ -531,7 +531,7 @@ internal static class MulticlassContext
     {
         if (caster is RulesetCharacterHero hero && spell.SpellLevel == 0)
         {
-            return hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            return hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         }
 
         return repertoire.SpellCastingLevel;

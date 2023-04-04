@@ -109,6 +109,7 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Path of the Elements[/b]: Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Path of the Reaver[/b]: All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 [*][b]Path Of the Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
@@ -358,6 +359,12 @@ You gain proficiency with poisoner's kit and Nature, or expertise if already pro
 [*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 [*][b]Two Weapon Fighting[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+[*][b]Verdant Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Verdant Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Verdant Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
@@ -549,10 +556,10 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Sorcerous Field Manipulator, Sorcerous Spellblade, Oath of Dread, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
-[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Blade Dancer, Dead Master, Sorcerous Field Manipulator, Sorcerous Forceblade, Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wild Master, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
+[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Elementalist, Moonlit, Riftwalker, Soulblade, Tactician, Way of Distant Hand, Inventor, Multiclass
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
 [*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart

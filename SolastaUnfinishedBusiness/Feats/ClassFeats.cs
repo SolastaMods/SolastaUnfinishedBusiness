@@ -186,8 +186,8 @@ internal static class ClassFeats
 
         feats.AddRange(primalRageStr, primalRageCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupPrimalRage", Name, ValidatorsFeat.IsBarbarianLevel4, primalRageStr, primalRageCon);
     }
 
     #endregion
@@ -428,8 +428,8 @@ internal static class ClassFeats
 
         feats.AddRange(hardyStr, hardyCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupHardy", Name, hardyStr, hardyCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
     private sealed class OnAfterActionHardy : IOnAfterActionFeature
@@ -727,8 +727,7 @@ internal static class ClassFeats
                 return effect;
             }
 
-            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(
-                character.GetAttribute(attribute).CurrentValue);
+            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
@@ -793,9 +792,8 @@ internal static class ClassFeats
                                 .Build())
                         .Build())
                 .SetCustomSubFeatures(
-                    new ValidatorsPowerUse(
-                        c => c.GetAttribute(AttributeDefinitions.ChannelDivinityNumber).CurrentValue >
-                             c.UsedChannelDivinity))
+                    new ValidatorsPowerUse(c =>
+                        c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
                 .AddToDB();
 
             powerGainSlotPoolList.Add(powerGainSlot);

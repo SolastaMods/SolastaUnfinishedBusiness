@@ -122,7 +122,8 @@
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
+  <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
+  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -208,6 +209,7 @@
     <string>RangerLightBearer</string>
     <string>RangerHellWalker</string>
     <string>SorcerousSpellBlade</string>
+    <string>PathOfTheElements</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -347,6 +349,9 @@
     <string>FeatLongswordFinesse</string>
     <string>FeatPoisoner</string>
     <string>FeatSlayTheEnemies</string>
+    <string>FeatVerdantTouchedCha</string>
+    <string>FeatVerdantTouchedInt</string>
+    <string>FeatVerdantTouchedWis</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -398,6 +403,7 @@
     <string>FeatGroupPrimalRage</string>
     <string>FeatGroupElementalMaster</string>
     <string>FeatGroupHardy</string>
+    <string>FeatGroupVerdantTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -887,7 +893,7 @@
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>1</OverridePartySize>
+  <OverridePartySize>2</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>

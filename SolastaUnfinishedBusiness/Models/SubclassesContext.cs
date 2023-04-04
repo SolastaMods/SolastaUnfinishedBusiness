@@ -25,6 +25,7 @@ internal static class SubclassesContext
     internal static void Load()
     {
         // Barbarian
+        LoadSubclass(new PathOfTheElements());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheReaver());
         LoadSubclass(new PathOfTheSpirits());

@@ -12,6 +12,37 @@ internal static class ItemRecipeGenerationHelper
 {
     internal static void AddRecipesFromItemCollection(ItemCollection itemCollection, bool isArmor = false)
     {
+        var baseToPrimed = new Dictionary<ItemDefinition, ItemDefinition>
+        {
+            { Battleaxe, Primed_Battleaxe },
+            { Breastplate, Primed_Breastplate },
+            { ChainMail, Primed_ChainMail },
+            { ChainShirt, Primed_ChainShirt },
+            { Dagger, Primed_Dagger },
+            { Greataxe, Primed_Greataxe },
+            { Greatsword, Primed_Greatsword },
+            { HalfPlate, Primed_HalfPlate },
+            { HeavyCrossbow, Primed_HeavyCrossbow },
+            { HideArmor, Primed_HideArmor },
+            { LeatherDruid, Primed_LeatherDruid },
+            { Leather, Primed_Leather_Armor },
+            { LightCrossbow, Primed_LightCrossbow },
+            { Longbow, Primed_Longbow },
+            { Longsword, Primed_Longsword },
+            { Mace, Primed_Mace },
+            { Maul, Primed_Maul },
+            { Morningstar, Primed_Morningstar },
+            { Plate, Primed_Plate },
+            { Rapier, Primed_Rapier },
+            { ScaleMail, Primed_ScaleMail },
+            { Scimitar, Primed_Scimitar },
+            { Shortbow, Primed_Shortbow },
+            { Shortsword, Primed_Shortsword },
+            { Spear, Primed_Spear },
+            { StuddedLeather, Primed_StuddedLeather },
+            { Warhammer, Primed_Warhammer }
+        };
+
         foreach (var baseItem in itemCollection.BaseWeapons)
         {
             foreach (var itemData in itemCollection.MagicToCopy)
@@ -20,7 +51,8 @@ internal static class ItemRecipeGenerationHelper
                 var newItem = isArmor
                     ? ItemBuilder.BuildNewMagicArmor(baseItem, itemData.Name, itemData.Item)
                     : ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemData.Item);
-                var ingredients = new List<ItemDefinition> { baseItem };
+                var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
+                var ingredients = new List<ItemDefinition> { primedItem };
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
                     .Where(ingredient =>

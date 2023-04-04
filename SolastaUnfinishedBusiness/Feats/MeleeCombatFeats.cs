@@ -723,9 +723,9 @@ internal static class MeleeCombatFeats
         .SetCustomSubFeatures(new AttackFinishedCrusher(
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
-                .SetGuiPresentation(Category.Condition)
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                 .SetSpecialDuration(DurationType.Round, 1)
-                .SetPossessive()
+                .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(
                     FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityFeatCrusher")
@@ -783,15 +783,30 @@ internal static class MeleeCombatFeats
             RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
                 yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (attackRollOutcome is RollOutcome.CriticalSuccess)
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    rulesetDefender.Guid,
+                    _criticalConditionDefinition,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    rulesetAttacker.Guid,
+                    rulesetAttacker.CurrentFaction.Name);
+
+                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
+
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
             {
                 yield break;
             }
@@ -829,47 +844,33 @@ internal static class MeleeCombatFeats
             yield return battleManager.WaitForReactions(
                 attacker, actionService, previousReactionCount);
 
-            if (reactionParams.ReactionValidated)
-            {
-                var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
-                {
-                    sourceCharacter = rulesetAttacker,
-                    targetCharacter = rulesetDefender,
-                    position = defender.LocationPosition
-                };
-
-                implementationService.ApplyEffectForms(
-                    new List<EffectForm>
-                    {
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                            .Build()
-                    },
-                    applyFormsParams,
-                    new List<string>(),
-                    out _,
-                    out _);
-
-                attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
-            }
-
-            if (attackRollOutcome is not RollOutcome.CriticalSuccess)
+            if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetDefender.Guid,
-                _criticalConditionDefinition,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                rulesetAttacker.Guid,
-                rulesetAttacker.CurrentFaction.Name);
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
 
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            implementationService.ApplyEffectForms(
+                new List<EffectForm>
+                {
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                        .Build()
+                },
+                applyFormsParams,
+                new List<string>(),
+                out _,
+                out _);
+
+            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
         }
     }
 
@@ -980,8 +981,7 @@ internal static class MeleeCombatFeats
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
 
-                    var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
-                        .CurrentValue;
+                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
                     if (strengthMod <= 0)
@@ -1255,7 +1255,7 @@ internal static class MeleeCombatFeats
             }
 
             const int TO_HIT = -3;
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var toDamage = 3 + proficiency;
 
             attackMode.ToHitBonus += TO_HIT;

@@ -85,7 +85,7 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
         }
         else
         {
-            level = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            level = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
             var levelText = level.ToString();
 

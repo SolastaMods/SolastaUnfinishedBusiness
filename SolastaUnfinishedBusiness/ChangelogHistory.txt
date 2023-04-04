@@ -1,5 +1,17 @@
 ﻿CHANGES:
 
+1.4.33.68:
+
+- added Path of the Elements subclass
+- added Verdant Touched feats
+- fixed Grenadier precise bombs attack bonus
+- fixed Sanctuary spell concentration requirement
+- fixed Slayer's fatal strike damage calculation
+- improved Crusher feat gui presentation
+- improved Deadeye to work with launcher and darts
+- improved Path of the Spirits' wolf leadership aura
+- improved recipes to use primed items
+
 1.4.33.67:
 
 - SAME AS BELOW

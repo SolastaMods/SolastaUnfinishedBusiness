@@ -466,9 +466,9 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class AfterAttackEffectFatalStrike : IAfterAttackEffect
+    private sealed class AfterAttackEffectFatalStrike : IBeforeAttackEffect
     {
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

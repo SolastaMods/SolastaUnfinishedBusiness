@@ -429,7 +429,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         // Determine the last class and level
         CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
-        gainedCharacterLevel = currentHero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        gainedCharacterLevel = currentHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
         if (gainedClass == null)
         {

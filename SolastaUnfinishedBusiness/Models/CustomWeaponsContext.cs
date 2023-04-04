@@ -836,7 +836,7 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
             return;
         }
 
-        var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        var casterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
         damage.diceNumber = 1 + SpellAdvancementByCasterLevel[casterLevel - 1];
     }
