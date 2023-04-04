@@ -1,5 +1,6 @@
 - added Path of the Elements subclass
+- fixed Grenadier spell attack bonus
 - improved Crusher feat gui presentation
-- improved custom recipes to use primed items whenever possible
-- improved Deadeye to trigger with the lightning launcher and darts
-- improved Path of the Spirits' wolf leadership
+- improved recipes to use primed items
+- improved Deadeye to work with launcher and darts
+- improved Path of the Spirits' wolf leadership aura
