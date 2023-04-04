@@ -15,7 +15,7 @@ internal static class GreatSwordData
         {
             BaseWeapons =
                 new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Greatsword },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Battleaxe },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Primed_Battleaxe },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 new("Punisher", DatabaseHelper.ItemDefinitions.Enchanted_Battleaxe_Punisher,

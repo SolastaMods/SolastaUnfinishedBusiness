@@ -766,8 +766,8 @@ internal static class OtherFeats
 
         private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
         {
-            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
+            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
             {
                 saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)

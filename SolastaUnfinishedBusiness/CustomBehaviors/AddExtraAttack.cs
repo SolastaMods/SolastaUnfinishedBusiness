@@ -505,8 +505,8 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackMode.EffectDescription.Clear();
         attackMode.EffectDescription.Copy(torchPower.EffectDescription);
 
-        var proficiencyBonus = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
+        var proficiencyBonus = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        var dexterity = hero.TryGetAttributeValue(AttributeDefinitions.Dexterity);
 
         attackMode.EffectDescription.fixedSavingThrowDifficultyClass =
             8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);

@@ -4,19 +4,21 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:OnAfterActionWolfLeadership:bf592162-2a39-5ce7-bab3-77f609df2c96"
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Minute",
+  "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "RageStop"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -86,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionPathOfTheElementsElementalBlessingTitle",
+    "description": "Condition/&ConditionPathOfTheElementsElementalBlessingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "40f49eb4-4f31-5d0d-8d42-b13b1acc67cc",
+  "guid": "279b058a-bb5d-534c-8f32-c8bb77237b9c",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSpiritsWolfLeadershipLeader"
+  "name": "ConditionPathOfTheElementsElementalBlessingBlizzard"
 }

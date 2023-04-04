@@ -9,7 +9,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:LeatherDruid:35cc1b0e7bc264d42a1ab5eb4329166a"
+      "itemDefinition": "Definition:Primed_LeatherDruid:7cb9c20796c527243b1d5f4d01090124"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

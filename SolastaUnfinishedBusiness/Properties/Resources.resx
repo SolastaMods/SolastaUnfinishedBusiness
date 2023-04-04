@@ -856,6 +856,9 @@
   <data name="PatronElementalist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PatronElementalist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PathOfTheElements" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PathOfTheElements.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PathOfTheLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

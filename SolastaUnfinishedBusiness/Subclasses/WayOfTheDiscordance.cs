@@ -101,7 +101,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c => c.RemainingKiPoints >= a &&
-                             c.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue >= a))
+                             c.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) >= a))
                 .AddToDB();
 
             powerBurstOfDisharmonyList.Add(powerBurstOfDisharmony);
@@ -260,7 +260,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 }
 
                 damageForm.BonusDamage =
-                    rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue / 2;
+                    rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) / 2;
                 damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                     .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 

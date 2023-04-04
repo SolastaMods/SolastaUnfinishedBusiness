@@ -162,7 +162,7 @@ public static class RulesetEffectSpellPatcher
 
             if (__instance.SpellDefinition.SpellLevel == 0)
             {
-                __result = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                __result = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                 return;
             }
 

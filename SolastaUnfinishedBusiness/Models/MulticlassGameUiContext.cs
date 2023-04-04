@@ -727,7 +727,7 @@ internal static class MulticlassGameUiContext
 
         var characterLevelAttribute = hero.GetAttribute(AttributeDefinitions.CharacterLevel);
         var characterLevel = characterLevelAttribute.CurrentValue;
-        var experience = hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue;
+        var experience = hero.TryGetAttributeValue(AttributeDefinitions.Experience);
 
         if (characterLevel == characterLevelAttribute.MaxValue)
         {

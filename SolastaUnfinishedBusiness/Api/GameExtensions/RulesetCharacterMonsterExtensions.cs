@@ -28,7 +28,7 @@ public static class RulesetCharacterMonsterExtensions
         attackMode.SourceObject = null;
         if (actionType == ActionDefinitions.ActionType.Main)
         {
-            attackMode.AttacksNumber = monster.GetAttribute(AttributeDefinitions.AttacksNumber).CurrentValue;
+            attackMode.AttacksNumber = monster.TryGetAttributeValue(AttributeDefinitions.AttacksNumber);
         }
 
         var weaponType = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
@@ -151,7 +151,7 @@ public static class RulesetCharacterMonsterExtensions
         }
 
         var abilityScoreModifier =
-            AttributeDefinitions.ComputeAbilityScoreModifier(monster.Attributes[attackMode.AbilityScore].CurrentValue);
+            AttributeDefinitions.ComputeAbilityScoreModifier(monster.TryGetAttributeValue(attackMode.AbilityScore));
 
         attackMode.ToHitBonus += abilityScoreModifier;
         attackMode.ToHitBonusTrends.Add(new TrendInfo(abilityScoreModifier,

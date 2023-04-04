@@ -827,7 +827,7 @@ internal static class Level20Context
                 return 1;
             }
 
-            return character.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            return character.TryGetAttributeValue(AttributeDefinitions.Strength);
         }
     }
 

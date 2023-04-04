@@ -357,6 +357,7 @@ internal static class SaveByLocationContext
         {
             if (Dropdown == null)
             {
+                // ReSharper disable once Unity.UnknownResource
                 var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
                 Dropdown = Object.Instantiate(dropdownPrefab, __instance.loadButton.transform.parent.parent);
@@ -448,6 +449,7 @@ internal static class SaveByLocationContext
                 : Path.Combine(baseFolder, name.Trim());
             CampaignOrLocationName = name;
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log(
                 $"SelectedCampaignService: Type='{LocationType}', Name='{CampaignOrLocationName}', Folder='{SaveGameDirectory}'");
         }

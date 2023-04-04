@@ -417,7 +417,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
-        internal static FeatureDefinitionCombatAffinity CombatAffinityRousingShout { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityRousingShout");
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
         internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
     }
@@ -573,8 +572,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerClericDivineInterventionWizard { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionWizard");
         internal static FeatureDefinitionPower PowerClericTurnUndead14 { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14");
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
+        internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
         internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
+        internal static FeatureDefinitionPower PowerDomainElementalIceLance { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalIceLance");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");
@@ -1209,6 +1210,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AnnoyingBee { get; } = GetDefinition<SpellDefinition>("AnnoyingBee");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");
+        internal static SpellDefinition Barkskin { get; } = GetDefinition<SpellDefinition>("Barkskin");
         internal static SpellDefinition BeaconOfHope { get; } = GetDefinition<SpellDefinition>("BeaconOfHope");
         internal static SpellDefinition BestowCurse { get; } = GetDefinition<SpellDefinition>("BestowCurse");
         internal static SpellDefinition BlackTentacles { get; } = GetDefinition<SpellDefinition>("BlackTentacles");

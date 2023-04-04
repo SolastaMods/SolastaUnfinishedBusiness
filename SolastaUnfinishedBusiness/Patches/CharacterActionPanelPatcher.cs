@@ -87,6 +87,11 @@ public static class CharacterActionPanelPatcher
                 actions.Insert(overrideIndex < 0 ? powerNdx : overrideIndex, actionId);
             }
 
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle);
+            }
+
             if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
             {
                 DoReorder((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);

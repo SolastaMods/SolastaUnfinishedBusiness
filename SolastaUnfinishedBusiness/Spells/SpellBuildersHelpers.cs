@@ -23,7 +23,7 @@ internal static partial class SpellBuilders
     {
         public int GetEffectLevel([NotNull] RulesetActor caster)
         {
-            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            return caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         }
     }
 
@@ -111,7 +111,7 @@ internal static partial class SpellBuilders
     {
         public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
         {
-            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var level = caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             return SpellAdvancementByCasterLevel[level - 1];
         }
     }
@@ -289,11 +289,11 @@ internal static partial class SpellBuilders
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
             var profBonus = AttributeDefinitions.ComputeProficiencyBonus(defender.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
             var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(defender.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
                 advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier, false,

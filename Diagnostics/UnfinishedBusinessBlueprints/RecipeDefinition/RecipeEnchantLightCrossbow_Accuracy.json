@@ -9,7 +9,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7"
+      "itemDefinition": "Definition:Primed_LightCrossbow:e5c25c691d4b13e479dc84f3833edc6f"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

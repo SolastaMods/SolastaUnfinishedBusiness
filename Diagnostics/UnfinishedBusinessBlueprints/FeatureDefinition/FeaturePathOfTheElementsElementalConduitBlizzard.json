@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeaturePathOfTheElementsElementalConduitBlizzardTitle",
+    "description": "Feature/&FeaturePathOfTheElementsElementalConduitBlizzardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf592162-2a39-5ce7-bab3-77f609df2c96",
+  "guid": "4dfa57de-e873-5035-a0dd-9fec78ee57a0",
   "contentPack": 9999,
-  "name": "OnAfterActionWolfLeadership"
+  "name": "FeaturePathOfTheElementsElementalConduitBlizzard"
 }
