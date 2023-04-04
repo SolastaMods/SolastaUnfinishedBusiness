@@ -115,7 +115,10 @@ public static class InnovationArmor
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(NotGuardianMode),
                 ValidatorsPowerUse.NotInCombat,
-                new AddGauntletAttack()
+                new AddGauntletAttack(),
+                DoNotTerminateWhileUnconscious.Marker,
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -138,7 +141,10 @@ public static class InnovationArmor
             .SetCustomSubFeatures(
                 new ValidatorsPowerUse(NotInfiltratorMode),
                 ValidatorsPowerUse.NotInCombat,
-                new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode)
+                new AddLauncherAttack(ActionDefinitions.ActionType.Main, InInfiltratorMode),
+                DoNotTerminateWhileUnconscious.Marker,
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always
             )
             .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
