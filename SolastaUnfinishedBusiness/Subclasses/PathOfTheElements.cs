@@ -503,13 +503,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     IgnoreCriticalDoubleDice = true
                 };
 
-                var prefab = _magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle;
-
-                ParticleSentParameters sentParameters =
-                    new ParticleSentParameters(locationCharacter, targetLocationCharacter, _magicEffect.Name);
-
-                WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
-
+                EffectHelpers.StartVisualEffect(locationCharacter, targetLocationCharacter, _magicEffect);
                 implementationService.ApplyEffectForms(
                     new List<EffectForm> { new() { damageForm = damageForm } },
                     applyFormsParams,
@@ -690,13 +684,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
-            // apply hellish rebuke effect on impact
-            var prefab = SpellDefinitions.HellishRebuke.EffectDescription.EffectParticleParameters.ImpactParticle;
-
-            ParticleSentParameters sentParameters =
-                new ParticleSentParameters(me, attacker, SpellDefinitions.HellishRebuke.Name);
-            WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
-
+            EffectHelpers.StartVisualEffect(me, attacker, SpellDefinitions.HellishRebuke);
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,

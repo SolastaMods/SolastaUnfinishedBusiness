@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -241,13 +242,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
-            // apply Dreadful Omen effect on impact
-            var prefab = DreadfulOmen.EffectDescription.EffectParticleParameters.ImpactParticle;
-
-            ParticleSentParameters sentParameters =
-                new ParticleSentParameters(locationCharacterAttacker, locationCharacter, DreadfulOmen.Name);
-            WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
-
+            EffectHelpers.StartVisualEffect(locationCharacterAttacker, locationCharacter, DreadfulOmen);
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,
