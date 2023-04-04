@@ -241,6 +241,13 @@ internal sealed class OathOfDread : AbstractSubclass
                 DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
+            // apply Dreadful Omen effect on impact
+            var prefab = DreadfulOmen.EffectDescription.EffectParticleParameters.ImpactParticle;
+
+            ParticleSentParameters sentParameters =
+                new ParticleSentParameters(locationCharacterAttacker, locationCharacter, DreadfulOmen.Name);
+            WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
+
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,
