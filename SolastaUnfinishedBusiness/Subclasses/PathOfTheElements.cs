@@ -37,7 +37,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeLightning)
             .AddToDB();
 
-        ancestryStorm.SetCustomSubFeatures(new CharacterTurnEndedElementalFury(ancestryStorm));
+        ancestryStorm.SetCustomSubFeatures(
+            new CharacterTurnEndedElementalFury(ancestryStorm, SpellDefinitions.LightningBolt));
 
         var ancestryBlizzard = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Blizzard")
@@ -47,7 +48,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeCold)
             .AddToDB();
 
-        ancestryBlizzard.SetCustomSubFeatures(new CharacterTurnEndedElementalFury(ancestryBlizzard));
+        ancestryBlizzard.SetCustomSubFeatures(
+            new CharacterTurnEndedElementalFury(ancestryBlizzard, SpellDefinitions.RayOfFrost));
 
         var ancestryWildfire = FeatureDefinitionAncestryBuilder
             .Create($"Ancestry{Name}Wildfire")
@@ -57,7 +59,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
-        ancestryWildfire.SetCustomSubFeatures(new CharacterTurnEndedElementalFury(ancestryWildfire));
+        ancestryWildfire.SetCustomSubFeatures(
+            new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
         var featureSetElementalFury = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}ElementalFury")
@@ -424,10 +427,14 @@ internal sealed class PathOfTheElements : AbstractSubclass
     private sealed class CharacterTurnEndedElementalFury : ICharacterTurnEndListener
     {
         private readonly FeatureDefinitionAncestry _ancestry;
+        private readonly IMagicEffect _magicEffect;
 
-        public CharacterTurnEndedElementalFury(FeatureDefinitionAncestry ancestry)
+        public CharacterTurnEndedElementalFury(
+            FeatureDefinitionAncestry ancestry,
+            IMagicEffect magicEffect)
         {
             _ancestry = ancestry;
+            _magicEffect = magicEffect;
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -495,6 +502,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     BonusDamage = 0,
                     IgnoreCriticalDoubleDice = true
                 };
+
+                var prefab = _magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle;
+
+                ParticleSentParameters sentParameters =
+                    new ParticleSentParameters(locationCharacter, targetLocationCharacter, _magicEffect.Name);
+
+                WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
 
                 implementationService.ApplyEffectForms(
                     new List<EffectForm> { new() { damageForm = damageForm } },
@@ -675,6 +689,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
             {
                 DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
+
+            // apply hellish rebuke effect on impact
+            var prefab = SpellDefinitions.HellishRebuke.EffectDescription.EffectParticleParameters.ImpactParticle;
+
+            ParticleSentParameters sentParameters =
+                new ParticleSentParameters(me, attacker, SpellDefinitions.HellishRebuke.Name);
+            WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
 
             RulesetActor.InflictDamage(
                 totalDamage,
