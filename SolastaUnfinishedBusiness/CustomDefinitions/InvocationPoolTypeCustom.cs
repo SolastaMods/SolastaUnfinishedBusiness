@@ -123,9 +123,6 @@ internal class InvocationPoolTypeCustom
 
     internal static class Pools
     {
-        internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
-            Register("ArmamentAdroitness", hidden: true);
-
         internal static readonly InvocationPoolTypeCustom PathClawDraconicChoice =
             Register("PathClawDraconicChoice", hidden: true);
 

@@ -21,11 +21,11 @@ internal static class EffectHelpers
     {
         var prefab = magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle;
 
-        ParticleSentParameters sentParameters =
+        var sentParameters =
             new ParticleSentParameters(attacker, defender, magicEffect.Name);
-        WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);  
+        WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
     }
-    
+
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
         string className, int def = 10)
     {
