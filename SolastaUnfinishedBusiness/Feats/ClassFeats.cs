@@ -186,8 +186,8 @@ internal static class ClassFeats
 
         feats.AddRange(primalRageStr, primalRageCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupPrimalRage", Name, ValidatorsFeat.IsBarbarianLevel4, primalRageStr, primalRageCon);
     }
 
     #endregion
@@ -428,8 +428,8 @@ internal static class ClassFeats
 
         feats.AddRange(hardyStr, hardyCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupHardy", Name, hardyStr, hardyCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
     private sealed class OnAfterActionHardy : IOnAfterActionFeature
