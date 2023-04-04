@@ -202,14 +202,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
         var conditionElementalBurstStorm = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionShocked, $"Condition{Name}{ElementalBurst}Storm")
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
         var powerElementalBurstStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{ElementalBurst}Storm")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -227,7 +226,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeLightning, 3, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 4, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -245,7 +244,6 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBurst}Blizzard")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalIceLance)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -263,7 +261,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeCold, 3, DieType.D8)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 4, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -286,7 +284,6 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .Create($"Power{Name}{ElementalBurst}Wildfire")
             .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -304,7 +301,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Create()
                             .SetDamageForm(DamageTypeFire, 4, DieType.D6)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 5, 1, 5, 15)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 1, 1, 5, 15)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -615,6 +612,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
+            var rulesetAttacker = me.RulesetCharacter;
+
+            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            {
+                yield break;
+            }
+
             var battleManager =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var actionService =
@@ -642,7 +646,6 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAttacker = me.RulesetCharacter;
             var rulesetDefender = attacker.RulesetCharacter;
             var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
             var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
@@ -670,7 +673,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             var totalDamage = (classLevel + 1) / 2;
             var damageForm = new DamageForm
             {
-                DamageType = DamageTypePsychic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
+                DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
             RulesetActor.InflictDamage(
