@@ -15,16 +15,16 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, " +
-            "quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, " +
-            "College of Life, Circle of the Ancient Forest, Blade Dancer, Dead Master, Sorcerous Field Manipulator, " +
-            "Sorcerous Forceblade, Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, " +
-            "Ranger Wild Master, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
+            "Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, College of Life, " +
+            "Circle of the Ancient Forest, Bladedancer, Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, " +
+            "Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, " +
+            "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
-            "custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, " +
-            "quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
+            "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
+            "quality of life, Elementalist, Moonlit, Riftwalker, Soulblade, Tactician, Way of Distant Hand, Inventor, Multiclass"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
-        ("ChrisJohnDigital", "builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
+        ("ChrisJohnDigital", "builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
         ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),

@@ -1,6 +1,8 @@
 - added Path of the Elements subclass
+- added Verdant Touched feats
 - fixed Grenadier spell attack bonus
+- fixed Sanctuary spell to not require concentration
 - improved Crusher feat gui presentation
-- improved recipes to use primed items
 - improved Deadeye to work with launcher and darts
 - improved Path of the Spirits' wolf leadership aura
+- improved recipes to use primed items

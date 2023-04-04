@@ -559,6 +559,8 @@ You gain proficiency with poisoner's kit and Nature, or expertise if already pro
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword'.
 FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade '.
 FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert'.
+FeatGroupVerdantTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.
