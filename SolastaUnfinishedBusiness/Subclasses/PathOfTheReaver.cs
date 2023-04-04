@@ -177,6 +177,14 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
+            // apply Vampiric Touch effect on impact
+            var prefab = SpellDefinitions.VampiricTouch.EffectDescription.EffectParticleParameters.ImpactParticle;
+
+            ParticleSentParameters sentParameters =
+                new ParticleSentParameters(attacker, defender, SpellDefinitions.VampiricTouch.Name);
+            WorldLocationPoolManager.GetElement(prefab, true).GetComponent<ParticleSetup>().Setup(sentParameters);
+
+
             GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
 
             RulesetActor.InflictDamage(
