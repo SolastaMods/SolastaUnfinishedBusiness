@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FeatPrimalRage",
+  "familyTag": "FeatHardy",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupPrimalRageTitle",
-    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.",
+    "title": "Feat/&FeatGroupHardyTitle",
+    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fe465cae-c21b-50d6-b5ca-7d8102ef5a44",
+  "guid": "43734d1c-ff07-5ffc-8895-7c9b356cb46d",
   "contentPack": 9999,
-  "name": "FeatGroupPrimalRage"
+  "name": "FeatGroupHardy"
 }
