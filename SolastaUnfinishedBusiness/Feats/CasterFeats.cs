@@ -264,6 +264,53 @@ internal static class CasterFeats
 
         #endregion
 
+        #region Verdant Touched
+
+        const string VERDANT = "VerdantTouched";
+
+        spells = BuildSpellGroup(0, Barkskin, Entangle, Goodberry);
+
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatVerdantTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(VERDANT)
+            .AddToDB();
+
+        groupFeats.SetRange(
+            // verdant touched int
+            FeatDefinitionBuilder
+                .Create("FeatVerdantTouchedInt")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, VERDANT, AttributeDefinitions.Intelligence))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(VERDANT)
+                .AddToDB(),
+            // verdant touched wis
+            FeatDefinitionBuilder
+                .Create("FeatVerdantTouchedWis")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, VERDANT, AttributeDefinitions.Wisdom))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(VERDANT)
+                .AddToDB(),
+            // verdant touched cha
+            FeatDefinitionBuilder
+                .Create("FeatVerdantTouchedCha")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, VERDANT, AttributeDefinitions.Charisma))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(VERDANT)
+                .AddToDB()
+        );
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupVerdantTouched", SHADOW, groupFeats));
+        feats.AddRange(groupFeats);
+
+        #endregion
+
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 
