@@ -217,7 +217,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                    //.SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -238,6 +238,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -252,7 +253,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalIceLance)
+                    //.SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Strength,
@@ -273,6 +274,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -292,7 +294,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    //.SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -313,6 +315,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -513,6 +516,32 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
                 GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _ancestry);
             }
+        }
+    }
+
+    //
+    // Elemental Burst
+    //
+
+    private sealed class OnMagicalAttackDamageEffectElementalBurst : IOnMagicalAttackDamageEffect
+    {
+        private readonly IMagicEffect _magicEffect;
+
+        public OnMagicalAttackDamageEffectElementalBurst(IMagicEffect magicEffect)
+        {
+            _magicEffect = magicEffect;
+        }
+
+        public void AfterOnMagicalAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
         }
     }
 
