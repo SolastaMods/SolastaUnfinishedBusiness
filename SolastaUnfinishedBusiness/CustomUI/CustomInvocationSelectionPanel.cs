@@ -713,6 +713,11 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                                             CharacterStatsPanel.HitPointMaxFlag |
                                             CharacterStatsPanel.HitDiceFlag);
 
+        for (var i = currentLearnStep; i >= 0; i--)
+        {
+            ResetLearnings(i);
+        }
+
         BuildLearnSteps();
         spellsScrollRect.normalizedPosition = Vector2.zero;
         OnPreRefresh();
