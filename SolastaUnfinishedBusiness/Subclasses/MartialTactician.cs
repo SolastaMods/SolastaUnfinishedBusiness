@@ -70,7 +70,7 @@ internal sealed class MartialTactician : AbstractSubclass
     internal static FeatureDefinitionPower GambitPool { get; } = FeatureDefinitionPowerBuilder
         .Create("PowerPoolTacticianGambit")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(IsPowerPool.Marker)
+        .SetCustomSubFeatures(IsPowerPool.Marker, HasModifiedUses.Marker)
         // force to zero here and add 4 on same level for better integration with tactician adept feat
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
