@@ -244,6 +244,10 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
+        // only want the casting SFX
+        powerElementalBurstStorm.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalLightningBlade.EffectDescription.EffectParticleParameters.casterParticleReference;
+
         // Blizzard
 
         var powerElementalBurstBlizzard = FeatureDefinitionPowerBuilder
@@ -279,6 +283,10 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
+
+        // only want the casting SFX
+        powerElementalBurstBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalIceLance.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Wildfire
 
@@ -320,6 +328,10 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
+
+        // only want the casting SFX
+        powerElementalBurstWildfire.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalFireBurst.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Elemental Burst
 
