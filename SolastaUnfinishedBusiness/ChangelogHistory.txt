@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.69:
+
+- added Tactician Adept feat
+- added Web spell
+- improved Path of the Elements SFX
+
 1.4.33.68:
 
 - added Path of the Elements subclass

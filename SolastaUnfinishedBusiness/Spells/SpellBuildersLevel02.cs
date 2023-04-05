@@ -1,8 +1,12 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -231,26 +235,24 @@ internal static partial class SpellBuilders
 
     #endregion
 
-#if false
     #region Web
 
     internal static SpellDefinition BuildWeb()
     {
-        var feature = FeatureDefinitionBuilder
+        var featureOnRoundStartWeb = FeatureDefinitionBuilder
             .Create("FeatureOnRoundStartWeb")
             .AddToDB();
 
-        var condition = ConditionDefinitionBuilder
+        var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrained, "ConditionRestrainedBySpellWeb")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .AddFeatures(feature)
+            .AddFeatures(featureOnRoundStartWeb)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new CharacterTurnStartListenerWeb(condition));
+        featureOnRoundStartWeb.SetCustomSubFeatures(new CharacterTurnStartListenerWeb(conditionRestrainedBySpellWeb));
 
         var spell = SpellDefinitionBuilder
             .Create(Entangle, "SpellWeb")
-            .SetGuiPresentation(Category.Spell)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetSpellLevel(2)
@@ -269,8 +271,8 @@ internal static partial class SpellBuilders
                     Entangle.EffectDescription.EffectForms[1],
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build())
             .SetRequiresConcentration(false)
@@ -291,10 +293,10 @@ internal static partial class SpellBuilders
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var rulesetCondition =
-                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-            var actionTypeStatus = locationCharacter.GetActionTypeStatus(
-                ActionDefinitions.ActionType.Main, ActionDefinitions.ActionScope.Battle, true);
+            var rulesetCondition = rulesetCharacter.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+            var actionTypeStatus = locationCharacter
+                .GetActionTypeStatus(ActionDefinitions.ActionType.Main, ActionDefinitions.ActionScope.Battle, true);
 
             if (rulesetCondition == null || actionTypeStatus != ActionDefinitions.ActionStatus.Available)
             {
@@ -304,24 +306,28 @@ internal static partial class SpellBuilders
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
                 .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
-            var checkDC = locationCharacterAttacker.RulesetCharacter.SpellRepertoires
-                .Select(x => x.SaveDC)
-                .Max();
+            var checkDC = locationCharacterAttacker == null
+                ? 0
+                : locationCharacterAttacker.RulesetCharacter.SpellRepertoires
+                    .Select(x => x.SaveDC)
+                    .Max();
 
             locationCharacter.RollAbilityCheck(
                 AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None,
                 new ActionModifier(), false, -1, out var outcome, out _, true);
+
+            // consume a main action after the check
+            locationCharacter.currentActionRankByType.TryAdd(ActionDefinitions.ActionType.Main, 1);
+            locationCharacter.ActionsRefreshed?.Invoke(locationCharacter);
 
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
 
-            locationCharacter.currentActionRankByType.TryAdd(ActionDefinitions.ActionType.Main, 1);
-            locationCharacterAttacker.ActionsRefreshed?.Invoke(locationCharacter);
+            locationCharacter.RulesetCharacter.RemoveCondition(rulesetCondition);
         }
     }
 
     #endregion
-#endif
 }

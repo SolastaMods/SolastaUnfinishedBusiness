@@ -226,7 +226,7 @@ internal static class SpellsContext
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-
+        RegisterSpell(BuildWeb(), 0, SpellListSorcerer, SpellListWizard);
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);

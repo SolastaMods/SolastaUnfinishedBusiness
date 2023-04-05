@@ -14,3 +14,5 @@ Spell/&ProtectThresholdDescription=沿着它的边界追踪奥术印记，你可
 Spell/&ProtectThresholdTitle=保护阈值
 Spell/&ShadowBladeDescription=你将阴影的丝线编织在一起，在你的手中创造出一把凝固的黑暗之剑。
 Spell/&ShadowBladeTitle=影刃
+Spell/&SpellWebDescription=你在施法距离内你选择的位置召唤出一团厚而粘稠的织带。在持续时间内，蜘蛛网会从该点开始填满一个 20 英尺的立方体。蛛网是困难的地形并且稍微遮蔽了它们的区域。每个在蛛网中开始其回合或在其回合中进入蛛网的生物都必须进行一次敏捷豁免。如果豁免失败，该生物将一直被束缚在网中或直到挣脱。被蛛网束缚的生物可以用它的动作对你的法术豁免 DC 进行一次力量检定。若是成功，便不再被束缚。
+Spell/&SpellWebTitle=Web
