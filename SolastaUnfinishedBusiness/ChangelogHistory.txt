@@ -4,7 +4,7 @@
 
 - added Tactician Adept feat
 - added Web spell
-- improved Path of the Elements SFX
+- improved Path of the Elements sfx
 
 1.4.33.68:
 

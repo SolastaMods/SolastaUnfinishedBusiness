@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierTacticianEverVigilant:e0b4172a-9b57-5871-a28e-15b5f50e6c82",
       "level": 3
     },
@@ -38,7 +33,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
+      "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
       "level": 7
     },
     {
