@@ -25,22 +25,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         // 2nd level
 
-        #region Unused definitions kept to not break existing characters
-
-        ConditionDefinitionBuilder
-            .Create("ConditionCircleOfTheNightWildshape")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        ConditionDefinitionBuilder
-            .Create("ConditionCircleOfTheNightWildshapeAny")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        #endregion
-
         var combatWildshape = BuildWildShapePower();
 
         //remove regular WS action
