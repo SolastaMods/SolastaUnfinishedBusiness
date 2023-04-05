@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AncestryPathOfTheElementsBlizzard:641734eb-6b25-5f30-a4b6-e1305d8abb54",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryPathOfTheElementsBlizzardTitle",
+    "description": "While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3350cb4c911e6354887c761c1f24e570",
+      "m_SubObjectName": "IceLance",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a8c0eaa3-cf80-5ecd-a419-a05ff18a013e",
+  "contentPack": 9999,
+  "name": "CustomInvocationPathOfTheElementsBlizzard"
+}
