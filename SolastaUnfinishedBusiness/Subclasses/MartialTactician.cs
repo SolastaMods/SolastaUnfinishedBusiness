@@ -24,6 +24,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private const string MarkCondition = "ConditionTacticianDamagedByGambit";
     private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
+    private static int gambitPoolIncreases;
 
     internal MartialTactician()
     {
@@ -49,11 +50,11 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
             .AddFeaturesAtLevel(3,
-                BuildSharpMind(), GambitPool, Learn4Gambit, EverVigilant, PowerUseModifierTacticianGambitPool00)
+                BuildSharpMind(), GambitPool, Learn4Gambit, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), Learn1Gambit)
-            .AddFeaturesAtLevel(7, PowerUseModifierTacticianGambitPool01, Learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn1Gambit, unlearn, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, strategicPlan, PowerUseModifierTacticianGambitPool01, Learn2Gambit, unlearn,
+            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
                 BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
@@ -70,7 +71,7 @@ internal sealed class MartialTactician : AbstractSubclass
     internal static FeatureDefinitionPower GambitPool { get; } = FeatureDefinitionPowerBuilder
         .Create("PowerPoolTacticianGambit")
         .SetGuiPresentation(Category.Feature)
-        .SetCustomSubFeatures(IsPowerPool.Marker)
+        .SetCustomSubFeatures(IsPowerPool.Marker, HasModifiedUses.Marker)
         // force to zero here and add 4 on same level for better integration with tactician adept feat
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
@@ -93,8 +94,25 @@ internal sealed class MartialTactician : AbstractSubclass
         CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPoolGambitLearn4")
             .SetGuiPresentation(Category.Feature)
+            //adding base pool here instead of the pool power to make it properly work on pre-existing characters and not interfere with new feat
+            .SetCustomSubFeatures(InitialPool.Instance)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 4)
             .AddToDB();
+
+    private class InitialPool : IPowerUseModifier
+    {
+        private InitialPool()
+        {
+        }
+
+        public static IPowerUseModifier Instance { get; } = new InitialPool();
+        public FeatureDefinitionPower PowerPool => GambitPool;
+
+        public int PoolChangeAmount(RulesetCharacter character)
+        {
+            return 4;
+        }
+    }
 
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
@@ -183,29 +201,23 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    // kept this name for compability reasons - increases the pool by 4
-    private static FeatureDefinition PowerUseModifierTacticianGambitPool00 { get; } =
-        FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierTacticianGambitPool00")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
-            .SetFixedValue(GambitPool, 4)
-            .AddToDB();
-
-    // kept this name for compability reasons - increases the pool by 1
-    private static FeatureDefinition PowerUseModifierTacticianGambitPool01 { get; } =
-        FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierTacticianGambitPool01")
+    private static FeatureDefinition BuildGambitPoolIncrease()
+    {
+        return FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifierTacticianGambitPool{gambitPoolIncreases++:D2}")
             .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
             .SetFixedValue(GambitPool, 1)
             .AddToDB();
+    }
     
-    // kept this name for compability reasons - increases the pool by 1
-    internal static FeatureDefinition PowerUseModifierTacticianGambitPool02 { get; } =
-        FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierTacticianGambitPool02")
+    internal static FeatureDefinition BuildGambitPoolIncrease(int number, string name)
+    {
+        return FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifierTacticianGambitPool{name}")
             .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
-            .SetFixedValue(GambitPool, 2)
+            .SetFixedValue(GambitPool, number)
             .AddToDB();
+    }
 
     private static FeatureDefinition BuildAdaptiveStrategy()
     {
