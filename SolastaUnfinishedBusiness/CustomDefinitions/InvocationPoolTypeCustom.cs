@@ -129,6 +129,9 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom SorcererDraconicChoice =
             Register("SorcererDraconicChoice", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom PathOfTheElementsElementalFuryChoiceChoice =
+            Register("PathOfTheElementsElementalFuryChoice", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom WayOfTheDragonDraconicChoice =
             Register("WayOfTheDragonDraconicChoice", hidden: true);
 

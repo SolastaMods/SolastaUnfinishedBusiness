@@ -43,6 +43,13 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.PathClawDraconicChoice)
             .AddToDB();
 
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathOfTheElementsElementalFuryChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolPathOfTheElementsElementalFuryChoice")
+            .SetGuiPresentation(PathOfTheElements.FeatureSetElementalFury.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolSorcererDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolSorcererDraconicChoice")
@@ -122,6 +129,7 @@ internal static class CharacterContext
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
+        SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -608,6 +616,47 @@ internal static class CharacterContext
             .ToList();
 
         CircleKindred.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    private static void SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools()
+    {
+        var elementalFuries = PathOfTheElements.FeatureSetElementalFury.FeatureSet;
+
+        var elementalFuriesSprites = new Dictionary<string, BaseDefinition>
+        {
+            { "Storm", FeatureDefinitionPowers.PowerDomainElementalLightningBlade },
+            { "Blizzard", FeatureDefinitionPowers.PowerDomainElementalIceLance },
+            { "Wildfire", FeatureDefinitionPowers.PowerDomainElementalFireBurst }
+        };
+
+        foreach (var featureDefinitionAncestry in elementalFuries.OfType<FeatureDefinitionAncestry>())
+        {
+            var name = featureDefinitionAncestry.Name.Replace("AncestryPathOfTheElements", string.Empty);
+            var guiPresentation = featureDefinitionAncestry.guiPresentation;
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationPathOfTheElements{name}")
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, elementalFuriesSprites[name])
+                .SetPoolType(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
+                .SetGrantedFeature(featureDefinitionAncestry)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        // replace the original features with custom invocation pools
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        {
+            return;
+        }
+
+        var subclass = GetDefinition<CharacterSubclassDefinition>(PathOfTheElements.Name);
+        var replacedFeatures = subclass.FeatureUnlocks
+            .Select(x => x.FeatureDefinition == PathOfTheElements.FeatureSetElementalFury
+                ? new FeatureUnlockByLevel(InvocationPoolPathOfTheElementsElementalFuryChoice, x.Level)
+                : x)
+            .ToList();
+
+        subclass.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(
