@@ -70,8 +70,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
         ancestryWildfire.SetCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
-        FeatureSetElementalFury.FeatureSet.Add(ancestryStorm);
+        // keep sorted
         FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
+        FeatureSetElementalFury.FeatureSet.Add(ancestryStorm);
         FeatureSetElementalFury.FeatureSet.Add(ancestryWildfire);
 
         #endregion
