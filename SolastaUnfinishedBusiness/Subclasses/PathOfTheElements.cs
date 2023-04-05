@@ -18,10 +18,18 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PathOfTheElements : AbstractSubclass
 {
-    private const string Name = "PathOfTheElements";
+    internal const string Name = "PathOfTheElements";
     private const string ElementalBlessing = "ElementalBlessing";
     private const string ElementalBurst = "ElementalBurst";
     private const string ElementalConduit = "ElementalConduit";
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetElementalFury =
+        FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalFury")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.PathOfTheElements)
+            .AddToDB();
 
     internal PathOfTheElements()
     {
@@ -62,16 +70,10 @@ internal sealed class PathOfTheElements : AbstractSubclass
         ancestryWildfire.SetCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
-        var featureSetElementalFury = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}ElementalFury")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(
-                ancestryStorm,
-                ancestryBlizzard,
-                ancestryWildfire)
-            .SetAncestryType(ExtraAncestryType.PathOfTheElements)
-            .AddToDB();
+        // keep sorted
+        FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
+        FeatureSetElementalFury.FeatureSet.Add(ancestryStorm);
+        FeatureSetElementalFury.FeatureSet.Add(ancestryWildfire);
 
         #endregion
 
@@ -408,7 +410,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
-            .AddFeaturesAtLevel(3, featureSetElementalFury)
+            .AddFeaturesAtLevel(3, FeatureSetElementalFury)
             .AddFeaturesAtLevel(6, featureSetElementalBlessing)
             .AddFeaturesAtLevel(10, featureSetElementalBurst)
             .AddFeaturesAtLevel(14, featureSetElementalConduit)

@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, así como ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
-Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque desarmado en tu turno, tu alcance es de 10 pies. Otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con desarmado. .
+Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando haces un ataque desarmado en tu turno, tu alcance es de 10 pies. Otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con desarmado. .
 Feat/&FeatAstralArmsTitle=Alcance astral
 Feat/&FeatEldritchAdeptDescription=Aprendes una opción de Invocación sobrenatural de tu elección de la clase de brujo. Si la invocación tiene un requisito previo, puedes elegir esa invocación solo si eres un brujo y solo si cumples con el requisito previo. Siempre que ganes un nivel, puedes reemplazar la invocación con otra de la clase brujo.
 Feat/&FeatEldritchAdeptTitle=Adepto sobrenatural
@@ -26,6 +26,8 @@ Feat/&FeatPoisonousSkinDescription=Cualquier criatura que te agarre o entre en c
 Feat/&FeatPoisonousSkinTitle=Piel venenosa
 Feat/&FeatSpellSniperDescription=Aprendes dos cantrips de tu elección de la lista de hechizos {0}. Cuando lanzas un hechizo que requiere que hagas una tirada de ataque, el alcance del hechizo se duplica. Tus ataques de hechizos a distancia ignoran la cobertura media y la cobertura de tres cuartos.
 Feat/&FeatSpellSniperTitle=Francotirador de hechizos [{0}]
+Feat/&FeatTacticianAdeptDescription=Tienes entrenamiento marcial que te permite realizar maniobras de combate especiales:\n• Aprendes dos maniobras de tu elección de la subclase Táctico. Si la maniobra requiere una tirada de salvación, la CD es igual a 8 + tu bonificador de competencia + tu modificador de Inteligencia.\n• Ganas 2 dados de superioridad. El tipo es un d4, y no aumenta, si no eres un Táctico. Este dado se usa para alimentar tus maniobras. Se gasta cuando lo usas y se recupera cuando terminas un descanso corto o prolongado.
+Feat/&FeatTacticianAdeptTitle=Adepto táctico
 Feat/&FeatToughDescription=Tu máximo de puntos de vida aumenta en una cantidad igual al doble de tu nivel cuando obtienes esta dote. Siempre que ganes un nivel a partir de entonces, tu máximo de puntos de golpe aumenta en 2 puntos de golpe adicionales.
 Feat/&FeatToughTitle=Difícil
 Feat/&FeatWarCasterDescription=Obtienes ventaja en las pruebas para mantener la concentración.\nPuedes realizar los componentes somáticos de los hechizos incluso cuando tienes armas o un escudo en una o ambas manos.\nCuando el movimiento de una criatura hostil provoca un ataque de oportunidad tuyo, Puedes usar tu reacción para lanzar un cantrip a la criatura, en lugar de hacer un ataque de oportunidad. El cantrip debe tener un tiempo de lanzamiento de 1 acción o acción adicional y debe tener como objetivo solo a esa criatura.

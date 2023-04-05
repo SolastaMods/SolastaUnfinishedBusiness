@@ -420,6 +420,9 @@ A magic wand capable of revealing the hidden properties of unidentified magic it
 CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Title='Replica Wand of Magic Detection'.
 CustomInvocationCreateInfusedReplicaWandOfMagicDetection	Description='Create replica <b>Wand of Magic Detection</b>:
 Casts the spell detect magic by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.'.
+CustomInvocationPathOfTheElementsBlizzard	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Cold damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
+CustomInvocationPathOfTheElementsStorm	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
+CustomInvocationPathOfTheElementsWildfire	Description='While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.'.
 DamageAffinityFeatElementalMasterDamageAcid	Title='Elemental Master [Acid]'.
 DamageAffinityFeatElementalMasterDamageAcid	Description='Acid damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.'.
 DamageAffinityFeatElementalMasterDamageCold	Title='Elemental Master [Cold]'.
