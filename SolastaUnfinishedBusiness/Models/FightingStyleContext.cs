@@ -2,10 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.FightingStyles;
-using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -133,23 +130,6 @@ internal static class FightingStyleContext
 
                     break;
                 }
-
-#if false
-                    // Make One Handed Crossbow not benefit from Two Weapon Fighting Style
-                    if (mainHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(mainHandSlot.EquipedItem) &&
-                        ValidatorsWeapon.IsOneHanded(mainHandSlot.EquipedItem))
-                    {
-                        isActive = false;
-                    }
-
-                    if (offHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(offHandSlot.EquipedItem) &&
-                        ValidatorsWeapon.IsOneHanded(offHandSlot.EquipedItem))
-                    {
-                        isActive = false;
-                    }
-                
-                    break;
-#endif
             }
 
             if (isActive)
