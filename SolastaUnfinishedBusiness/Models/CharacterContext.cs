@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
@@ -969,41 +968,6 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
-    }
-
-    private sealed class ModifyAttackModeForWeaponFighterArmamentAdroitness : IModifyAttackModeForWeapon
-    {
-        private const string SourceName =
-            "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle";
-
-        private readonly WeaponTypeDefinition _weaponTypeDefinition;
-
-        public ModifyAttackModeForWeaponFighterArmamentAdroitness(WeaponTypeDefinition weaponTypeDefinition)
-        {
-            _weaponTypeDefinition = weaponTypeDefinition;
-        }
-
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                sourceDefinition.WeaponDescription.WeaponTypeDefinition != _weaponTypeDefinition)
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
-
-            damage.BonusDamage += 1;
-            damage.DamageBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
         }
     }
 }

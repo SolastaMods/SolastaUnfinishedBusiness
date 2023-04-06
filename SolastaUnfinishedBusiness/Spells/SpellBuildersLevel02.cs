@@ -280,10 +280,10 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
-        
+
         spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
-        
+
         spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
             Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 

@@ -132,7 +132,7 @@ internal static class OtherFeats
     }
 
     #endregion
-    
+
     #region Healer
 
     private static FeatDefinition BuildHealer()
