@@ -20,11 +20,11 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
-    private const string Name = "MartialTactician";
+    internal const string Name = "MartialTactician";
     private const string MarkCondition = "ConditionTacticianDamagedByGambit";
     private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
-    private static int gambitPoolIncreases;
+    private static int _gambitPoolIncreases;
 
     internal MartialTactician()
     {
@@ -78,41 +78,26 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPoolGambitLearn1")
+            .Create("InvocationPoolGambitLearn1")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit)
             .AddToDB();
 
     internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPoolGambitLearn2")
+            .Create("InvocationPoolGambitLearn2")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 2)
             .AddToDB();
 
     private static FeatureDefinitionCustomInvocationPool Learn4Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPoolGambitLearn4")
+            .Create("InvocationPoolGambitLearn4")
             .SetGuiPresentation(Category.Feature)
             //adding base pool here instead of the pool power to make it properly work on pre-existing characters and not interfere with new feat
             .SetCustomSubFeatures(InitialPool.Instance)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 4)
             .AddToDB();
-
-    private class InitialPool : IPowerUseModifier
-    {
-        private InitialPool()
-        {
-        }
-
-        public static IPowerUseModifier Instance { get; } = new InitialPool();
-        public FeatureDefinitionPower PowerPool => GambitPool;
-
-        public int PoolChangeAmount(RulesetCharacter character)
-        {
-            return 4;
-        }
-    }
 
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
@@ -204,12 +189,12 @@ internal sealed class MartialTactician : AbstractSubclass
     private static FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierTacticianGambitPool{gambitPoolIncreases++:D2}")
+            .Create($"PowerUseModifierTacticianGambitPool{_gambitPoolIncreases++:D2}")
             .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
             .SetFixedValue(GambitPool, 1)
             .AddToDB();
     }
-    
+
     internal static FeatureDefinition BuildGambitPoolIncrease(int number, string name)
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -966,6 +951,21 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGrantedFeature(feature)
             .SetRequirements(level)
             .AddToDB();
+    }
+
+    private class InitialPool : IPowerUseModifier
+    {
+        private InitialPool()
+        {
+        }
+
+        public static IPowerUseModifier Instance { get; } = new InitialPool();
+        public FeatureDefinitionPower PowerPool => GambitPool;
+
+        public int PoolChangeAmount(RulesetCharacter character)
+        {
+            return 4;
+        }
     }
 
     private class SpendPowerAfterAttack : IAfterAttackEffect
