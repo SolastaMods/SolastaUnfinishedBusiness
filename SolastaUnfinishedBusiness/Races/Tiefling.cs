@@ -41,7 +41,7 @@ internal static class TieflingRaceBuilder
 
         #region subraces
 
-        var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.Tiefling, 1024, 512);
+        // var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.Tiefling, 1024, 512);
 
         var attributeModifierTieflingIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingIntelligenceAbilityScoreIncrease")
@@ -73,7 +73,7 @@ internal static class TieflingRaceBuilder
         var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceTieflingAsmodeus")
             .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race, tieflingSpriteReference)
+            .SetGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingAsmodeus)
@@ -110,7 +110,7 @@ internal static class TieflingRaceBuilder
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceTieflingMephistopheles")
             .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race, tieflingSpriteReference)
+            .SetGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingDexterityAbilityScoreIncrease,
                 castSpellTieflingMephistopheles)
@@ -146,7 +146,7 @@ internal static class TieflingRaceBuilder
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceTieflingZariel")
             .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race, tieflingSpriteReference)
+            .SetGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingStrengthAbilityScoreIncrease,
                 castSpellTieflingZariel)
@@ -184,7 +184,7 @@ internal static class TieflingRaceBuilder
 
         var raceTiefling = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceTiefling")
-            .SetGuiPresentation(Category.Race, tieflingSpriteReference)
+            .SetGuiPresentation(Category.Race)
             .SetRacePresentation(tieflingRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetMinimalAge(20)
