@@ -123,7 +123,7 @@
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
-  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -352,6 +352,7 @@
     <string>FeatVerdantTouchedCha</string>
     <string>FeatVerdantTouchedInt</string>
     <string>FeatVerdantTouchedWis</string>
+    <string>FeatTacticianAdept</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -608,6 +609,7 @@
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
           <string>RadiantMotes</string>
+          <string>Sanctuary</string>
         </ArrayOfString>
       </value>
     </item>
@@ -660,6 +662,7 @@
           <string>EarthTremor</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
+          <string>SpellWeb</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
           <string>ReverseGravity</string>
@@ -721,6 +724,7 @@
           <string>RadiantMotes</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
+          <string>SpellWeb</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>FarStep</string>

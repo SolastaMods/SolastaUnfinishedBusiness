@@ -1,3 +1,5 @@
-- added Tactician Adept feat
-- added Web spell
-- improved Path of the Elements sfx
+- RESPEC required for Circle of the Night druid older than v52
+- RESPEC required for fighter with Weapon Specialization older than v61
+- added Tactician Adept feat and Web spell
+- improved Path of the Elements' elemental burst SFX
+- improved Resonating Strike to allow crit on first target

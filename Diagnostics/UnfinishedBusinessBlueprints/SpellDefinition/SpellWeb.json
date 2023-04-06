@@ -10,7 +10,7 @@
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": false,
+  "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -19,7 +19,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 2,
+    "targetParameter": 4,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -178,7 +178,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f1b52bd99e9db3f469abde55aa71ed35",
+        "m_AssetGUID": "f2663f24463bfa74eabff39bfeb7f077",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -214,7 +214,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c88f62febf1ce354a9fbfb01a4a88c0a",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -256,19 +256,19 @@
       },
       "activeEffectSurfaceStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b7f8a9ad515573d4da0ad6b67623b39d",
+        "m_AssetGUID": "b32e10247e6f4ad41ac5438cca2b07e9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "1729c3874306d324997d51f4fa4e4b61",
+        "m_AssetGUID": "114a8e82e7e78d44e923f99f375b4f3b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "27841309a2e42e24ebe0a2b5fc3a1714",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -343,9 +343,9 @@
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 4,
+      "cooldownForBattle": 3,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": true
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
@@ -353,12 +353,12 @@
   "aiParameters": {
     "$type": "SpellAIParameters, Assembly-CSharp",
     "learnPriority": "Low",
-    "preparePriority": "Medium"
+    "preparePriority": "Low"
   },
   "concentrationAction": "None",
   "verboseComponent": true,
   "somaticComponent": true,
-  "materialComponentType": "None",
+  "materialComponentType": "Mundane",
   "specificMaterialComponentTag": "Diamond",
   "specificMaterialComponentCostGp": 100,
   "specificMaterialComponentConsumed": true,
