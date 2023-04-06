@@ -1108,10 +1108,21 @@ internal static class GameUiContext
 
         internal static int3 GetLeaderPosition()
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+            var gameLocationCharacterService =
+                ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
 
-            return position;
+            if (gameLocationCharacterService == null)
+            {
+                return int3.invalid;
+            }
+
+            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+            var currentCharacter = Global.CurrentCharacter ??
+                                   gameLocationCharacterService.PartyCharacters[0].RulesetCharacter;
+            var locationCharacter = gameLocationCharacterService.AllValidEntities
+                .FirstOrDefault(x => x.RulesetCharacter == currentCharacter);
+
+            return locationCharacter?.LocationPosition ?? position;
         }
 
         private static void TeleportParty(int3 position)
