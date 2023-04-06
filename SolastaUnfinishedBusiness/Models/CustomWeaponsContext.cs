@@ -21,8 +21,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CustomWeaponsContext
 {
     private const string PolearmWeaponTag = "PolearmWeapon";
-
-    internal const string CeHandXbowType = "CEHandXbowType";
+    private const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
     internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;

@@ -18,10 +18,18 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class PathOfTheElements : AbstractSubclass
 {
-    private const string Name = "PathOfTheElements";
+    internal const string Name = "PathOfTheElements";
     private const string ElementalBlessing = "ElementalBlessing";
     private const string ElementalBurst = "ElementalBurst";
     private const string ElementalConduit = "ElementalConduit";
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetElementalFury =
+        FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ElementalFury")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.PathOfTheElements)
+            .AddToDB();
 
     internal PathOfTheElements()
     {
@@ -62,16 +70,10 @@ internal sealed class PathOfTheElements : AbstractSubclass
         ancestryWildfire.SetCustomSubFeatures(
             new CharacterTurnEndedElementalFury(ancestryWildfire, SpellDefinitions.FireBolt));
 
-        var featureSetElementalFury = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}ElementalFury")
-            .SetGuiPresentation(Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSet(
-                ancestryStorm,
-                ancestryBlizzard,
-                ancestryWildfire)
-            .SetAncestryType(ExtraAncestryType.PathOfTheElements)
-            .AddToDB();
+        // keep sorted
+        FeatureSetElementalFury.FeatureSet.Add(ancestryBlizzard);
+        FeatureSetElementalFury.FeatureSet.Add(ancestryStorm);
+        FeatureSetElementalFury.FeatureSet.Add(ancestryWildfire);
 
         #endregion
 
@@ -217,7 +219,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
+                    //.SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -238,8 +240,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
+
+        // only want the casting SFX
+        powerElementalBurstStorm.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalLightningBlade.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Blizzard
 
@@ -252,7 +259,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalIceLance)
+                    //.SetParticleEffectParameters(PowerDomainElementalIceLance)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Strength,
@@ -273,8 +280,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
+
+        // only want the casting SFX
+        powerElementalBurstBlizzard.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalIceLance.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Wildfire
 
@@ -292,7 +304,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerDomainElementalFireBurst)
+                    //.SetParticleEffectParameters(PowerDomainElementalFireBurst)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Dexterity,
@@ -313,8 +325,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
+                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
+
+        // only want the casting SFX
+        powerElementalBurstWildfire.EffectDescription.EffectParticleParameters.casterParticleReference =
+            PowerDomainElementalFireBurst.EffectDescription.EffectParticleParameters.casterParticleReference;
 
         // Elemental Burst
 
@@ -405,7 +422,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheElements, 256))
-            .AddFeaturesAtLevel(3, featureSetElementalFury)
+            .AddFeaturesAtLevel(3, FeatureSetElementalFury)
             .AddFeaturesAtLevel(6, featureSetElementalBlessing)
             .AddFeaturesAtLevel(10, featureSetElementalBurst)
             .AddFeaturesAtLevel(14, featureSetElementalConduit)
@@ -513,6 +530,32 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
                 GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _ancestry);
             }
+        }
+    }
+
+    //
+    // Elemental Burst
+    //
+
+    private sealed class OnMagicalAttackDamageEffectElementalBurst : IOnMagicalAttackDamageEffect
+    {
+        private readonly IMagicEffect _magicEffect;
+
+        public OnMagicalAttackDamageEffectElementalBurst(IMagicEffect magicEffect)
+        {
+            _magicEffect = magicEffect;
+        }
+
+        public void AfterOnMagicalAttackDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
         }
     }
 

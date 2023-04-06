@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -38,6 +39,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featTacticianAdept = BuildTacticianAdept();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
@@ -57,6 +59,7 @@ internal static class OtherFeats
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featTacticianAdept,
             featTough,
             featWarCaster);
 
@@ -108,6 +111,23 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Tactician Adept
+
+    private static FeatDefinition BuildTacticianAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatTacticianAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                MartialTactician.GambitPool,
+                MartialTactician.Learn2Gambit,
+                MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
+            .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
     }
 

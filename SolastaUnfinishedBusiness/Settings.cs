@@ -184,6 +184,7 @@ public class Settings : UnityModManager.ModSettings
 
     // House
     public bool AllowStackedMaterialComponent { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
 

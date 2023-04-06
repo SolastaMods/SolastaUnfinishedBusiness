@@ -6,7 +6,7 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde a
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage ou aux monstres contrôlés de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</couleur></i>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
-ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur l
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
 ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
+ModUi/&AllowClubsToBeThrown=Permettre aux clubs d'être lancés comme des poignards ou des haches
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
@@ -132,10 +133,10 @@ ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % 
 ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
-ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast et sous-classes Draconic choix]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
@@ -218,9 +219,9 @@ ModUi/&UnleashEnemyAsNpc=Autoriser la sélection de monstres sur les gadgets PNJ
 ModUi/&UnleashNpcAsEnemy=Déverrouiller la sélection de monstres
 ModUi/&UnlockAllNpcFaces=Déverrouiller les visages des PNJ
 ModUi/&UnlockEyeStyles=Déverrouiller les styles d'yeux
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages et tatouages
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
 ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs éclatantes pour les yeux
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages
+ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages ​​et tatouages ​​d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage

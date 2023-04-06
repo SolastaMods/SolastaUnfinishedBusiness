@@ -4,7 +4,7 @@ ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen S
 ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Umschalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
 ModUi/&AllowAssigningOfficialSpells=Lassen Sie zu, dass offizielle Zaubersprüche auf diesen Listen angezeigt werden
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
+ModUi/&AllowClubsToBeThrown=Lassen Sie Schläger wie Dolche oder Faustkeile werfen
 ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -56,7 +57,7 @@ ModUi/&Deities=<color=#F0DAA0>Gottheiten:</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -80,7 +81,7 @@ ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassens
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
 ModUi/&EnableFighterArmamentAdroitness=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber benachteilige mit allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
@@ -132,7 +133,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
-ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie und Unterklassen Drakonische Entscheidungen]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

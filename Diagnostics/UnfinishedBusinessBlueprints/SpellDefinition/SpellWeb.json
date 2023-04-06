@@ -1,5 +1,16 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SpellDefinition, Assembly-CSharp",
+  "spellsBundle": false,
+  "subspellsList": [],
+  "implemented": true,
+  "schoolOfMagic": "SchoolConjuration",
+  "spellLevel": 2,
+  "ritual": false,
+  "uniqueInstance": false,
+  "castingTime": "Action",
+  "reactionContext": "None",
+  "ritualCastingTime": "Action",
+  "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -8,13 +19,13 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 3,
-    "targetParameter2": 2,
+    "targetParameter": 4,
+    "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetProximityDistance": 30,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -22,7 +33,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,20 +41,20 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Round",
+    "targetSide": "All",
+    "durationType": "Hour",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
-    "ignoreCover": true,
+    "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Constitution",
+    "createdByCharacter": true,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -62,136 +73,53 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Damage",
+        "formType": "Summon",
         "addBonusMode": "None",
-        "applyLevel": "DiceNumberByLevelTable",
+        "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 1,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 2,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 3,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 4,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 5,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 6,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 7,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 8,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 9,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 10,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 11,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 12,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 13,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 14,
-            "diceNumber": 0
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 15,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 16,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 17,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 18,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 19,
-            "diceNumber": 1
-          },
-          {
-            "$type": "DiceByRank, Assembly-CSharp",
-            "rank": 20,
-            "diceNumber": 2
-          }
-        ],
-        "createdByCharacter": false,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
-        "savingThrowAffinity": "HalfDamage",
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "damageForm": {
-          "$type": "DamageForm, Assembly-CSharp",
-          "versatile": false,
-          "diceNumber": 4,
-          "dieType": "D6",
-          "overrideWithBardicInspirationDie": false,
-          "versatileDieType": "D1",
-          "bonusDamage": 0,
-          "damageType": "DamageFire",
-          "ancestryType": "Sorcerer",
-          "healFromInflictedDamage": "Never",
-          "hitPointsFloor": 0,
-          "forceKillOnZeroHp": false,
-          "specialDeathCondition": null,
-          "ignoreFlyingCharacters": false,
-          "ignoreCriticalDoubleDice": false
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "EffectProxy",
+          "itemDefinition": null,
+          "trackItem": false,
+          "monsterDefinitionName": "Adam_The_Twelth",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": false,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": "ProxyEntangle"
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Topology",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "topologyForm": {
+          "$type": "TopologyForm, Assembly-CSharp",
+          "changeType": "DifficultThrough",
+          "impactsFlyingCharacters": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -213,8 +141,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheElementsElementalBurstWildfire",
-          "conditionDefinition": "Definition:ConditionPathOfTheElementsElementalBurstWildfire:f37a5a33-6918-569c-b800-7d0f2eec8695",
+          "conditionDefinitionName": "ConditionRestrainedBySpellWeb",
+          "conditionDefinition": "Definition:ConditionRestrainedBySpellWeb:b63d586a-2923-53d5-b88c-861970521ba5",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -231,7 +159,7 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -242,7 +170,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": 5.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -250,7 +178,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3406b6724a849a045a16346d63506fb5",
+        "m_AssetGUID": "f2663f24463bfa74eabff39bfeb7f077",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -328,19 +256,19 @@
       },
       "activeEffectSurfaceStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b32e10247e6f4ad41ac5438cca2b07e9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "114a8e82e7e78d44e923f99f375b4f3b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "activeEffectSurfaceEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "27841309a2e42e24ebe0a2b5fc3a1714",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -383,19 +311,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b9a7b49165a2d4a4a8269ba50de2ed57",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "4f7aac5a0d8b3a74aa5c75817922ef5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ad634b16a4ab2c349a82fbd60cc1846d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -413,60 +341,40 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
+      "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
+      "cooldownForBattle": 3,
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "delegatedToAction": false,
-  "surrogateToSpell": null,
-  "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
-  "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "",
-  "autoActivationPowerTag": "",
-  "triggeringPower": null,
-  "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "None",
-  "reactionName": "",
-  "reactionActingCharacterParamIdx": 0,
-  "reactionAttackerParamIdx": -1,
-  "hasCastingFailure": false,
-  "castingSuccessComputation": "CasterLevel",
-  "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
-  "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
-  "costPerUse": 1,
-  "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
-  "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
-  "attackHitComputation": "AbilityScore",
-  "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": true,
-  "shortTitleOverride": "",
-  "overriddenPower": null,
-  "includeBaseDescription": false,
+  "aiParameters": {
+    "$type": "SpellAIParameters, Assembly-CSharp",
+    "learnPriority": "Low",
+    "preparePriority": "Low"
+  },
+  "concentrationAction": "None",
+  "verboseComponent": true,
+  "somaticComponent": true,
+  "materialComponentType": "Mundane",
+  "specificMaterialComponentTag": "Diamond",
+  "specificMaterialComponentCostGp": 100,
+  "specificMaterialComponentConsumed": true,
+  "terminateOnItemUnequip": false,
+  "displayConditionDuration": false,
+  "vocalSpellSemeType": "Debuff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPathOfTheElementsElementalBurstWildfireTitle",
-    "description": "Feature/&PowerPathOfTheElementsElementalBurstWildfireDescription",
+    "title": "Spell/&SpellWebTitle",
+    "description": "Spell/&SpellWebDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
-      "m_SubObjectName": "FireBurst",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3f48835e-d67d-51fc-bdcc-6c1949f5df89",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -481,7 +389,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "de072fc8-7fe0-5780-901e-9353517c02a0",
+  "guid": "1fd65e0f-7caf-5a2e-b7fe-84594e029367",
   "contentPack": 9999,
-  "name": "PowerPathOfTheElementsElementalBurstWildfire"
+  "name": "SpellWeb"
 }

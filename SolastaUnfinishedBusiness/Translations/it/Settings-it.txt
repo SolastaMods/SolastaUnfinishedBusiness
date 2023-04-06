@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nel
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
 ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi
 ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
+ModUi/&AllowClubsToBeThrown=Consentire il lancio di mazze come pugnali o asce
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena
@@ -132,7 +133,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Kindred Beast e sottoclassi Scelte Draconiche]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -141,7 +142,7 @@ ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
 ModUi/&Input=<color=#F0DAA0>Inserimento:</color>
 ModUi/&Interface=Interfaccia
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e oggetti:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
+ModUi/&InvertAltBehaviorOnTooltips=Inverti il ​​comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli in DM
 ModUi/&Items=<color=#F0DAA0>Oggetti:</color>

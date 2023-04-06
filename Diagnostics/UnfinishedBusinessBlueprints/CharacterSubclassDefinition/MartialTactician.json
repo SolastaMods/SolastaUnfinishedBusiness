@@ -23,22 +23,22 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
-      "level": 5
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD8:2e930de2-ade4-5563-b5cb-f65b3d4ba395",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
-      "level": 7
+      "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool00:7e5c2ac6-dfd6-5490-87ec-963cee6378ba",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
       "level": 7
     },
     {
@@ -63,17 +63,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
-      "level": 15
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
       "level": 15
     },
     {

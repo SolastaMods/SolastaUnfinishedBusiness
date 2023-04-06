@@ -20,23 +20,17 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
+    internal const string Name = "MartialTactician";
     private const string MarkCondition = "ConditionTacticianDamagedByGambit";
     private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
-
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
-
     private static int _gambitPoolIncreases;
 
     internal MartialTactician()
     {
-        BuildGambitPool();
-
         GambitDieDamage = BuildGambitDieDamage("");
         GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
-        var learn1Gambit = BuildLearn(1);
-        var learn2Gambits = BuildLearn(2);
-        var learnInitial = BuildLearn(4);
         var unlearn = BuildUnlearn();
 
         var strategicPlan = FeatureDefinitionFeatureSetBuilder
@@ -52,14 +46,15 @@ internal sealed class MartialTactician : AbstractSubclass
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("MartialTactician")
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("MartialTactician", Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), learn1Gambit)
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
+                Sprites.GetSprite(Name, Resources.MartialTactician, 256))
+            .AddFeaturesAtLevel(3,
+                BuildSharpMind(), GambitPool, Learn4Gambit, EverVigilant)
+            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), Learn1Gambit)
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn1Gambit, unlearn, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), learn2Gambits, unlearn,
+            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
                 BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
@@ -73,31 +68,62 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition => null;
 
-    internal static FeatureDefinitionPower GambitPool { get; private set; }
+    internal static FeatureDefinitionPower GambitPool { get; } = FeatureDefinitionPowerBuilder
+        .Create("PowerPoolTacticianGambit")
+        .SetGuiPresentation(Category.Feature)
+        .SetCustomSubFeatures(IsPowerPool.Marker, HasModifiedUses.Marker)
+        // force to zero here and add 4 on same level for better integration with tactician adept feat
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
+        .AddToDB();
+
+    private static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitLearn1")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
+            .AddToDB();
+
+    internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitLearn2")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 2)
+            .AddToDB();
+
+    private static FeatureDefinitionCustomInvocationPool Learn4Gambit { get; } =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitLearn4")
+            .SetGuiPresentation(Category.Feature)
+            //adding base pool here instead of the pool power to make it properly work on pre-existing characters and not interfere with new feat
+            .SetCustomSubFeatures(InitialPool.Instance)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 4)
+            .AddToDB();
+
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
     private static FeatureDefinition EverVigilant { get; set; }
 
-    private static void BuildGambitPool()
-    {
-        GambitPool = FeatureDefinitionPowerBuilder
-            .Create("PowerPoolTacticianGambit")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(IsPowerPool.Marker)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 4)
-            .AddToDB();
-    }
-
     private static DieType GetGambitDieSize(RulesetCharacter character)
     {
         var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
+
+        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+
+        // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
+        if (hero != null &&
+            hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
+                out var characterSubclassDefinition) && characterSubclassDefinition.Name != Name)
+        {
+            level = 1;
+        }
 
         return level switch
         {
             >= 15 => DieType.D12,
             >= 10 => DieType.D10,
             >= 5 => DieType.D8,
-            _ => DieType.D6
+            >= 3 => DieType.D6,
+            _ => DieType.D4
         };
     }
 
@@ -169,6 +195,15 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    internal static FeatureDefinition BuildGambitPoolIncrease(int number, string name)
+    {
+        return FeatureDefinitionPowerUseModifierBuilder
+            .Create($"PowerUseModifierTacticianGambitPool{name}")
+            .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
+            .SetFixedValue(GambitPool, number)
+            .AddToDB();
+    }
+
     private static FeatureDefinition BuildAdaptiveStrategy()
     {
         var feature = FeatureDefinitionBuilder
@@ -204,15 +239,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         return feature;
-    }
-
-    private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
-    {
-        return CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPoolGambitLearn{points}")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit, points)
-            .AddToDB();
     }
 
     private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
@@ -925,6 +951,21 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGrantedFeature(feature)
             .SetRequirements(level)
             .AddToDB();
+    }
+
+    private class InitialPool : IPowerUseModifier
+    {
+        private InitialPool()
+        {
+        }
+
+        public static IPowerUseModifier Instance { get; } = new InitialPool();
+        public FeatureDefinitionPower PowerPool => GambitPool;
+
+        public int PoolChangeAmount(RulesetCharacter character)
+        {
+            return 4;
+        }
     }
 
     private class SpendPowerAfterAttack : IAfterAttackEffect

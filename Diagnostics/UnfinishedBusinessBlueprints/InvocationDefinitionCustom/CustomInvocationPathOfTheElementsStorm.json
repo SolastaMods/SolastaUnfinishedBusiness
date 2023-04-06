@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:ModifyAttackModeForWeaponFighterArmamentAdroitnessJavelinType:e4447347-ad21-5341-83ea-d543eb5c0abe",
+  "grantedFeature": "Definition:AncestryPathOfTheElementsStorm:18135f9f-fb3f-59e4-a259-e73936605af6",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&JavelinTypeTitle",
-    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
+    "title": "Feature/&AncestryPathOfTheElementsStormTitle",
+    "description": "While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Lightning damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3fecf647c6a83564184546928f428a51",
-      "m_SubObjectName": "StandardJavelin",
+      "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
+      "m_SubObjectName": "LightningBlade",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "99285959-8861-5ff0-b77d-becce60d8673",
+  "guid": "2856ac6d-146f-502e-a063-b21709a26b3c",
   "contentPack": 9999,
-  "name": "CustomInvocationArmamentAdroitnessJavelinType"
+  "name": "CustomInvocationPathOfTheElementsStorm"
 }

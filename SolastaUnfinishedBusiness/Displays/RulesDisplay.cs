@@ -133,6 +133,13 @@ internal static class RulesDisplay
             Main.Settings.AllowStackedMaterialComponent = toggle;
         }
 
+        toggle = Main.Settings.AllowClubsToBeThrown;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowClubsToBeThrown = toggle;
+            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
@@ -146,6 +153,8 @@ internal static class RulesDisplay
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))

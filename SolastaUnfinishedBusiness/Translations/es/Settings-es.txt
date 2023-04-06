@@ -3,7 +3,7 @@ ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
-ModUi/&AddMonkKiPointsToggle=Agregue un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
+ModUi/&AddMonkKiPointsToggle=Agrega un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Agregue un interruptor para permitir que <color=#D89555>druidas</color> en forma salvaje o monstruos controlados seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color></i>
 ModUi/&AddNewBrightEyeColors=Añadir nuevos colores de ojos brillantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores e
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminado</color>
 ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Enanos</color> sin barba
+ModUi/&AllowClubsToBeThrown=Permitir que se arrojen garrotes como dagas o hachas de mano.
 ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
@@ -132,7 +133,7 @@ ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/5
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para identificar objetos mágicos durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar ballestas de mano
-ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín y subclases Draconic opciones]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -155,7 +156,7 @@ ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizos blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
@@ -188,7 +189,7 @@ ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&Settings=<color=#F0DAA0>Configuración:</color>
 ModUi/&SettingsExport=Exportar
-ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo en <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=. Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar

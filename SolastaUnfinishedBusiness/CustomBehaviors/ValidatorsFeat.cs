@@ -19,7 +19,7 @@ internal static class ValidatorsFeat
         ValidateIsClass(string.Empty, 4);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel16 =
-        ValidateIsClass(string.Empty, 16, Fighter);
+        ValidateIsClass(string.Empty, 16);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
         IsBarbarianLevel4 = ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);

@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle",
-    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
+    "title": "Feature/&FeatureSetPathOfTheElementsElementalFuryTitle",
+    "description": "Feature/&FeatureSetPathOfTheElementsElementalFuryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b6c914ad-3c24-5cf0-af8d-df5817a1bf9f",
+  "guid": "cc75e668-288d-514d-8164-13f4ba652e63",
   "contentPack": 9999,
-  "name": "ModifyAttackModeForWeaponFighterArmamentAdroitnessGreatswordType"
+  "name": "InvocationPoolPathOfTheElementsElementalFuryChoice"
 }

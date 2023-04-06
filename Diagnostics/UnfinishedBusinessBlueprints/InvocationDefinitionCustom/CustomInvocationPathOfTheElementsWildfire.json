@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:ModifyAttackModeForWeaponFighterArmamentAdroitnessShortswordType:2b8fbd85-1483-533c-9a0e-be1a0a9f8b64",
+  "grantedFeature": "Definition:AncestryPathOfTheElementsWildfire:8a10aebb-5f04-54d5-b412-5486f9b2a6e8",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,12 +11,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&ShortswordTypeTitle",
-    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
+    "title": "Feature/&AncestryPathOfTheElementsWildfireTitle",
+    "description": "While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 Fire damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3c633d5f6aeab3b4fb39a1ece46d6146",
-      "m_SubObjectName": "StandardShortsword",
+      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
+      "m_SubObjectName": "FireBurst",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d37a3b3-9497-5b03-88be-8d7e537fc565",
+  "guid": "d179df09-dc57-5302-a326-103aabe84529",
   "contentPack": 9999,
-  "name": "CustomInvocationArmamentAdroitnessShortswordType"
+  "name": "CustomInvocationPathOfTheElementsWildfire"
 }

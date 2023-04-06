@@ -713,7 +713,7 @@ public static class RulesetCharacterHeroPatcher
             var experience = __instance.TryGetAttributeValue(AttributeDefinitions.Experience);
             var nextLevelThreshold = RuleDefinitions.ComputeNextLevelThreshold(level + 1);
 
-            __result = (Main.Settings.NoExperienceOnLevelUp ||
+            __result = ((Main.Settings.NoExperienceOnLevelUp && Gui.GameLocation != null) ||
                         (nextLevelThreshold > 0 && experience >= nextLevelThreshold)) &&
                        __instance.ClassesHistory.Count < levelCap;
 
