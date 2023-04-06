@@ -17,8 +17,11 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
+        // BACKWARD COMPATIBILITY
+        _ = GnomeRaceBuilder.RaceGnome;
+        _ = TieflingRaceBuilder.RaceTiefling;
+
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
-        LoadRace(GnomeRaceBuilder.RaceGnome);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);

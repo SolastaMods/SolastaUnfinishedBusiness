@@ -141,14 +141,6 @@
     <value>../Resources/Races/Bolgrif.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Gnome" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Races/Gnome.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Tiefling" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Races/Tiefling.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BurstOfRadiance.png;System.Byte[], mscorlib, Version=4.0.0.0,
       Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

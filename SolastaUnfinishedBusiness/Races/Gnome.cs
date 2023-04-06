@@ -20,7 +20,7 @@ internal static class GnomeRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildGnome()
     {
-        var gnomeSpriteReference = Sprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
+        // var gnomeSpriteReference = Sprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
 
         var attributeModifierGnomeAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGnomeAbilityScoreIncrease")
@@ -84,7 +84,7 @@ internal static class GnomeRaceBuilder
 
         var raceGnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceGnome")
-            .SetGuiPresentation(Category.Race, gnomeSpriteReference)
+            .SetGuiPresentation(Category.Race)
             .SetRacePresentation(gnomeRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetMinimalAge(40)
