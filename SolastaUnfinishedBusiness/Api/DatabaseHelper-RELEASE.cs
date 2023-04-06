@@ -1,4 +1,4 @@
-// manually generated on 03/21/23
+// manually generated on 04/05/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -333,6 +333,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionAttackModifiers
     {
+        internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleArchery { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleArchery");
         internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon2 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon2");

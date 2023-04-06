@@ -2,8 +2,10 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.FightingStyles;
 using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -108,17 +110,11 @@ internal static class FightingStyleContext
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (trainedFightingStyle.Condition)
             {
-                // allow hand crossbows benefit from Archery Fighting Style
+                // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
                 case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
                 {
-                    static bool HasHandXbowInHands(RulesetItem rulesetItem)
-                    {
-                        return rulesetItem != null && rulesetItem.ItemDefinition.IsWeapon &&
-                               rulesetItem.ItemDefinition.WeaponDescription.WeaponType == CeHandXbowType;
-                    }
+                    isActive = true;
 
-                    isActive = HasHandXbowInHands(hero.GetMainWeapon()) ||
-                               HasHandXbowInHands(hero.GetOffhandWeapon());
                     break;
                 }
 

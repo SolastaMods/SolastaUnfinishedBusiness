@@ -125,6 +125,7 @@ internal static class SrdAndHouseRulesContext
         FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
         MakeGorillaWildShapeRocksUnlimited();
+        AddCustomWeaponValidatorToFightingStyleArchery();
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
@@ -589,6 +590,21 @@ internal static class SrdAndHouseRulesContext
         //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
+    }
+
+    // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
+    private static void AddCustomWeaponValidatorToFightingStyleArchery()
+    {
+        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
+                ValidatorsWeapon.IsWeaponType(item,
+                    CustomWeaponsContext.HandXbowWeaponType,
+                    CustomWeaponsContext.LightningLauncherType,
+                    WeaponTypeDefinitions.LongbowType,
+                    WeaponTypeDefinitions.ShortbowType,
+                    WeaponTypeDefinitions.HeavyCrossbowType,
+                    WeaponTypeDefinitions.LightCrossbowType,
+                    WeaponTypeDefinitions.DartType))));
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
