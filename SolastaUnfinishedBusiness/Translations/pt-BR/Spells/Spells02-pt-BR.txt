@@ -14,3 +14,5 @@ Spell/&ProtectThresholdDescription=Traçando sigilos arcanos ao longo de seus li
 Spell/&ProtectThresholdTitle=Limite de proteção
 Spell/&ShadowBladeDescription=Você entrelaça fios de sombra para criar uma espada de escuridão solidificada em sua mão.
 Spell/&ShadowBladeTitle=Lâmina Sombria
+Spell/&SpellWebDescription=Você conjura uma massa de teia grossa e pegajosa em um ponto à sua escolha dentro do alcance. As teias preenchem um cubo de 6 metros a partir desse ponto pela duração. As teias são terreno difícil e obscurecem levemente sua área. Cada criatura que começar seu turno nas teias ou que entrar nelas durante seu turno deve fazer um teste de resistência de Destreza. Se falhar na resistência, a criatura é impedida enquanto permanecer nas teias ou até se libertar. Uma criatura impedida pelas teias pode usar suas ações para fazer um teste de Força contra sua CD de resistência à magia. Se for bem sucedido, não é mais restringido.
+Spell/&SpellWebTitle=Web

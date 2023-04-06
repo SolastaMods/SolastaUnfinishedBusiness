@@ -127,7 +127,7 @@
   ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": true,
+  "ignoreCriticalDoubleDice": false,
   "hasSavingThrow": false,
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",

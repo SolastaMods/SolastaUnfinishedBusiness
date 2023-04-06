@@ -14,7 +14,7 @@
   "features": [
     "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
     "Definition:PowerPoolTacticianGambit:20212eff-ee31-5717-969d-22b9b8da2c95",
-    "Definition:PowerUseModifierTacticianGambitPool02:1af2a372-4876-5398-bea3-67403a566ad0"
+    "Definition:PowerUseModifierTacticianGambitPoolFeatTacticianAdept:b33418e8-2cd7-5940-983d-8107873b39e0"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

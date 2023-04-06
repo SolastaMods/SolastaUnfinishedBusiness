@@ -22,17 +22,19 @@ internal static class CreditsDisplay
             "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
-            "quality of life, Elementalist, Moonlit, Riftwalker, Soulblade, Tactician, Way of Distant Hand, Inventor, Multiclass"),
+            "quality of life, Soulblade, Tactician, Way of Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
-        ("ChrisJohnDigital", "builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
+        ("ChrisJohnDigital",
+            "builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
         ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
-        ("DubhHerder", "quality of life, spells, homebrew content design [subclasses]"),
+        ("DubhHerder", "quality of life, spells, Elementalist, Moonlit, Riftwalker"),
+        ("HiddenHax",
+            "homebrew content design [Path of the Elemental Fury, Forceblade, Weapon Master, Oath of Dread, Path of the Reaver, Arcane Scoundrel, Duelist, Slayer, Way of the Discordance, Way of the Dragon]"),
         ("Taco",
-            "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, " +
-            "powers and weapons icons, favored terrain and preferred enemy icons"),
-        ("HiddenHax", "homebrew content design [subclasses]"),
+            "homebrew content design [Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons"),
+        ("Stuffies12", "homebrew content design [Ranger Hellwalker, Ranger Lightbearer]"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("RedOrca", "Path of the Light"),
@@ -40,9 +42,7 @@ internal static class CreditsDisplay
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Pikachar2", "spells"),
-        ("Narria", "modKit, UI Improvements, Party Editor"),
-        ("Balmz", "powers and spells icons"),
-        ("Stuffies12", "Ranger homebrew content design [Ranger Hellwalker, Ranger Lightbearer]")
+        ("Narria", "modKit, UI Improvements, Party Editor")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

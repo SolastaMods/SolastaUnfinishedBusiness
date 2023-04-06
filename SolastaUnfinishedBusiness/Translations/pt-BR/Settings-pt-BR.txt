@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em s
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
 ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nessas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
+ModUi/&AllowClubsToBeThrown=Permitir que tacos sejam arremessados ​​como adagas ou machados de mão
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite o clique <color=#1E81B0>CTRL</color> para ignorar qualquer verificação ao colocar gadgets ou adereços

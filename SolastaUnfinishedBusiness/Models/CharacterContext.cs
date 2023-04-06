@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
@@ -106,9 +105,6 @@ internal static class CharacterContext
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
         }
-
-        // BACKWARD COMPATIBILITY
-        LoadFighterArmamentAdroitness();
 
         LoadHelpPower();
         LoadVision();
@@ -947,40 +943,6 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    private static void LoadFighterArmamentAdroitness()
-    {
-        _ = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolFighterArmamentAdroitness")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
-            .AddToDB();
-
-        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
-            .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
-                        x != CustomWeaponsContext.ThunderGauntletType &&
-                        x != CustomWeaponsContext.LightningLauncherType);
-
-        foreach (var weaponTypeDefinition in dbWeaponTypeDefinition)
-        {
-            var modifyAttackModeForWeaponFighterArmamentAdroitness = FeatureDefinitionBuilder
-                .Create($"ModifyAttackModeForWeaponFighterArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation("ModifyAttackModeForWeaponFighterArmamentAdroitness", Category.Feature)
-                .SetCustomSubFeatures(new ModifyAttackModeForWeaponFighterArmamentAdroitness(weaponTypeDefinition))
-                .AddToDB();
-
-            CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation(
-                    weaponTypeDefinition.GuiPresentation.Title,
-                    modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
-                .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
-                .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
-                .SetCustomSubFeatures(Hidden.Marker)
-                .AddToDB();
-        }
-    }
-
     internal static void SwitchFighterArmamentAdroitness()
     {
         var levels = new[] { 8, 16 };
@@ -1006,41 +968,6 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
-        }
-    }
-
-    private sealed class ModifyAttackModeForWeaponFighterArmamentAdroitness : IModifyAttackModeForWeapon
-    {
-        private const string SourceName =
-            "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle";
-
-        private readonly WeaponTypeDefinition _weaponTypeDefinition;
-
-        public ModifyAttackModeForWeaponFighterArmamentAdroitness(WeaponTypeDefinition weaponTypeDefinition)
-        {
-            _weaponTypeDefinition = weaponTypeDefinition;
-        }
-
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                sourceDefinition.WeaponDescription.WeaponTypeDefinition != _weaponTypeDefinition)
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
-
-            damage.BonusDamage += 1;
-            damage.DamageBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
         }
     }
 }

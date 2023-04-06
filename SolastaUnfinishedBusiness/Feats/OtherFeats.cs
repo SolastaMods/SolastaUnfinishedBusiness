@@ -126,13 +126,13 @@ internal static class OtherFeats
             .SetFeatures(
                 MartialTactician.GambitPool,
                 MartialTactician.Learn2Gambit,
-                MartialTactician.PowerUseModifierTacticianGambitPool02)
+                MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
     }
 
     #endregion
-    
+
     #region Healer
 
     private static FeatDefinition BuildHealer()

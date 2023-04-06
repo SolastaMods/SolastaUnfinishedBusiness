@@ -377,7 +377,6 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
             .SetAttackModeOnly()
-            .SetIgnoreCriticalDoubleDice(true)
             .AddToDB();
 
         // hack as the ResonatingStrike damage distribution is odd (4,6,5,5) and SetAdv doesn't cover that
