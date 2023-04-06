@@ -251,14 +251,15 @@ internal static partial class SpellBuilders
         featureOnRoundStartWeb.SetCustomSubFeatures(new CharacterTurnStartListenerWeb(conditionRestrainedBySpellWeb));
 
         var spell = SpellDefinitionBuilder
-            .Create(Entangle, "SpellWeb")
+            .Create("SpellWeb")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
             .SetSpellLevel(2)
+            .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
-                .Create(Entangle.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 2, 1)
+                .Create(Grease)
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                 .SetDurationData(DurationType.Hour, 1)
                 .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
@@ -275,8 +276,16 @@ internal static partial class SpellBuilders
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build())
-            .SetRequiresConcentration(false)
             .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
+        
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+        
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return spell;
     }
