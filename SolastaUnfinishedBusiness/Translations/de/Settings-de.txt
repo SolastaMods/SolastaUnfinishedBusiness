@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
 ModUi/&AllowAssigningOfficialSpells=Lassen Sie zu, dass offizielle Zaubersprüche auf diesen Listen angezeigt werden
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
+ModUi/&AllowClubsToBeThrown=Lassen Sie Schläger wie Dolche oder Faustkeile werfen
 ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen

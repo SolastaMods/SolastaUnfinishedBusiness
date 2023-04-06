@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur l
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
 ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
+ModUi/&AllowClubsToBeThrown=Permettre aux clubs d'être lancés comme des poignards ou des haches
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour ignorer toute vérification lors du placement de gadgets ou d'accessoires

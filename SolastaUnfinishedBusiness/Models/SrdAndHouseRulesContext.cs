@@ -119,6 +119,7 @@ internal static class SrdAndHouseRulesContext
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
         SwitchMakeLargeWildshapeFormsMedium();
+        SwitchAllowClubsToBeThrown();
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
@@ -518,6 +519,26 @@ internal static class SrdAndHouseRulesContext
                 : CharacterSizeDefinitions.Large;
         }
     }
+
+    internal static void SwitchAllowClubsToBeThrown()
+    {
+        var db = DatabaseRepository.GetDatabase<ItemDefinition>();
+
+        foreach (var itemDefinition in db
+                     .Where(x => x.IsWeapon &&
+                                 x.WeaponDescription.WeaponTypeDefinition == WeaponTypeDefinitions.ClubType))
+        {
+            if (Main.Settings.AllowClubsToBeThrown)
+            {
+                itemDefinition.WeaponDescription.WeaponTags.Add(TagsDefinitions.WeaponTagThrown);
+            }
+            else
+            {
+                itemDefinition.WeaponDescription.WeaponTags.Remove(TagsDefinitions.WeaponTagThrown);
+            }
+        }
+    }
+
 
     private static void FixMartialArtsProgression()
     {

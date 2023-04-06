@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nel
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
 ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi
 ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
+ModUi/&AllowClubsToBeThrown=Consentire il lancio di mazze come pugnali o asce
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Abilita il <color=#1E81B0>CTRL</color> clic per ignorare qualsiasi controllo quando si posizionano gadget o oggetti di scena

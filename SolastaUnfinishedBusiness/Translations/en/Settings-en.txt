@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative s
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowAssigningOfficialSpells=Allow official spells to display on these lists
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
+ModUi/&AllowClubsToBeThrown=Allow clubs to be thrown like daggers or hand axes
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
