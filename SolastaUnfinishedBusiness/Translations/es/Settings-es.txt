@@ -92,7 +92,7 @@ ModUi/&EnableLevel20=Habilite el nivel 20 <b><i><color=#C04040E0>[Requiere reini
 ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la consola de juegos durante las secuencias narrativas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de las puntuaciones de habilidad</i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo <i><color=#F0DAA0>[útil con grupos de 5 o 6]</color></i>
+ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo en torno al héroe seleccionado o al líder si no se selecciona ninguno<i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
 ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>

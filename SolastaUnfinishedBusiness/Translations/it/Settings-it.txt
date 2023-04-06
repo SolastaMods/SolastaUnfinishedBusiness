@@ -92,7 +92,7 @@ ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riav
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
+ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se nessuno è selezionato<i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
