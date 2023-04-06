@@ -863,7 +863,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             var group = child.GetComponent<SpellsByLevelGroup>();
             var featureLevel = allLevels[i];
             var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels != null
-                ? Math.Max(1, currentHero.GetClassLevel(featurePool.Type.RequireClassLevels))
+                ? Math.Max(1,
+                    InvocationPoolTypeCustom.GetClassOrSubclassLevel(currentHero, featurePool.Type.RequireClassLevels))
                 : gainedCharacterLevel);
 
             group.Selected = !IsFinalStep && !lowLevel;

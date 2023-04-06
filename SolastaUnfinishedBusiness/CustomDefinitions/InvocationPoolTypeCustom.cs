@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -37,6 +38,46 @@ internal class InvocationPoolTypeCustom
     private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
 
     internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
+
+    internal static int GetClassOrSubclassLevel(RulesetCharacterHero hero, string classOrSubclassName)
+    {
+        if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
+            classDefinition != null)
+        {
+            return hero.GetClassLevel(classDefinition);
+        }
+
+        if (!TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) ||
+            subclassDefinition == null)
+        {
+            return 0;
+        }
+
+        var classDefinitionFromSubclass = hero.ClassesAndSubclasses
+            .FirstOrDefault(x => x.Value == subclassDefinition);
+
+        return classDefinitionFromSubclass.Key != null
+            // ReSharper disable once TailRecursiveCall
+            ? GetClassOrSubclassLevel(hero, classDefinitionFromSubclass.Key.Name)
+            : 0;
+    }
+
+    internal static string GetClassOrSubclassTitle(string classOrSubclassName)
+    {
+        if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
+            classDefinition != null)
+        {
+            return classDefinition.FormatTitle();
+        }
+
+        if (TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) &&
+            subclassDefinition != null)
+        {
+            return subclassDefinition.FormatTitle();
+        }
+
+        return string.Empty;
+    }
 
     private static InvocationPoolTypeCustom Register(
         string name,
@@ -150,7 +191,7 @@ internal class InvocationPoolTypeCustom
 
         internal static readonly InvocationPoolTypeCustom Gambit =
             //TODO: add proper sprite
-            Register("Gambit", InventorClass.Pictogram, CharacterClassDefinitions.Fighter.Name,
+            Register("Gambit", InventorClass.Pictogram, MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);

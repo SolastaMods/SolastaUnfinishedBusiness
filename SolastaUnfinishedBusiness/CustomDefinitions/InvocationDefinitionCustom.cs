@@ -63,18 +63,10 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
 
         if (requiredClassName != null)
         {
-            var requiredClass = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                .FirstOrDefault(x => x.Name == requiredClassName);
-
-            level = hero.GetClassLevel(requiredClass);
+            level = InvocationPoolTypeCustom.GetClassOrSubclassLevel(hero, requiredClassName);
 
             var levelText = requiredLevel.ToString();
-            var classText = "<UNKNOWN>";
-
-            if (requiredClass != null)
-            {
-                classText = requiredClass.FormatTitle();
-            }
+            var classText = InvocationPoolTypeCustom.GetClassOrSubclassTitle(requiredClassName);
 
             if (level < requiredLevel)
             {
