@@ -121,6 +121,7 @@ internal static class CharacterContext
         SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchAsiAndFeat();
         SwitchEveryFourLevelsFeats();
+        SwitchEveryFourLevelsFeats(true);
         SwitchFighterArmamentAdroitness();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
