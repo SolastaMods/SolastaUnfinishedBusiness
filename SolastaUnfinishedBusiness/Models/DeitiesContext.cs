@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
@@ -60,3 +61,4 @@ internal static class DeitiesContext
         UpdateDeityVisibility(deityDefinition);
     }
 }
+#endif

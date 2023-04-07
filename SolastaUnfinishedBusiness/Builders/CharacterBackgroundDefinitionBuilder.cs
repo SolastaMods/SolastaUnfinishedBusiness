@@ -36,7 +36,7 @@ internal class CharacterBackgroundDefinitionBuilder
 
         return this;
     }
-    
+
     internal CharacterBackgroundDefinitionBuilder AddOptionalPersonality(string personalityFlag, int weight)
     {
         Definition.optionalPersonalityFlags.Add(
@@ -51,7 +51,7 @@ internal class CharacterBackgroundDefinitionBuilder
 
         return this;
     }
-    
+
     internal CharacterBackgroundDefinitionBuilder AddEquipmentRow(
         params IEnumerable<CharacterClassDefinition.HeroEquipmentOption>[] equipmentLists)
     {
@@ -69,7 +69,7 @@ internal class CharacterBackgroundDefinitionBuilder
 
         return this;
     }
-    
+
     #region Constructors
 
     protected CharacterBackgroundDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

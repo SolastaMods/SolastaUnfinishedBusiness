@@ -19,6 +19,7 @@ internal static class BackgroundsAndDeitiesDisplay
         Main.Settings.DisplayBackgroundsToggle = displayToggle;
         Main.Settings.BackgroundSliderPosition = sliderPos;
 
+#if false
         displayToggle = Main.Settings.DisplayDeitiesToggle;
         sliderPos = Main.Settings.DeitySliderPosition;
         ModUi.DisplayDefinitions(
@@ -30,6 +31,7 @@ internal static class BackgroundsAndDeitiesDisplay
             ref sliderPos);
         Main.Settings.DisplayDeitiesToggle = displayToggle;
         Main.Settings.DeitySliderPosition = sliderPos;
+#endif
 
         UI.Label();
     }
