@@ -29,6 +29,7 @@ internal static class SpellsContext
 
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
+    internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
@@ -223,11 +224,13 @@ internal static class SpellsContext
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
+        RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildWeb(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
