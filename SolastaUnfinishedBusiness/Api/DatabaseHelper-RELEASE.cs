@@ -479,11 +479,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
         internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
-        internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
         internal static FeatureDefinitionFeatureSet FeatureSetKindredSpiritChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritChoice");
-        
         internal static FeatureDefinitionFeatureSet FeatureSetMonkDiamondSoul { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDiamondSoul");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkFlurryOfBlows { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkFlurryOfBlows");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkStepOfTheWind { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStepOfTheWind");
