@@ -155,6 +155,8 @@ internal static class CharacterDisplay
             CharacterContext.SwitchEveryFourLevelsFeats(true);
         }
 
+        UI.Label();
+
         toggle = Main.Settings.EnableFighterArmamentAdroitness;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterArmamentAdroitness"), ref toggle, UI.AutoWidth()))
         {
@@ -168,6 +170,8 @@ internal static class CharacterDisplay
             Main.Settings.EnableMonkWeaponSpecialization = toggle;
             CharacterContext.SwitchMonkWeaponSpecialization();
         }
+
+        UI.Label();
 
         toggle = Main.Settings.EnableLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))

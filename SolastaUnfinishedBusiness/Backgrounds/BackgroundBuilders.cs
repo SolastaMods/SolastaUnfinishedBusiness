@@ -34,9 +34,7 @@ internal static class BackgroundsBuilders
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundFarmer}Weapons")
                     .SetGuiPresentation(Category.Feature)
-                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon,
-                        DatabaseHelper.WeaponTypeDefinitions.ClubType.Name,
-                        DatabaseHelper.WeaponTypeDefinitions.HandaxeType.Name)
+                    .SetProficiencies(RuleDefinitions.ProficiencyType.Weapon, ClubType.Name, HandaxeType.Name)
                     .AddToDB(),
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{BackgroundFarmer}Skills")
