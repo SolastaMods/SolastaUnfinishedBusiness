@@ -31,7 +31,8 @@ ModUi/&AllRecipesInDm=DM中的所有食谱
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 键只高亮派对视野中的小工具<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=将食物配给的重量减少到 2 磅
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>Arcane Shieldstaff</color>被任何职业调和
-ModUi/&Backgrounds=<color=#F0DAA0>背景：</color>
+ModUi/&BackgroundsAndDeities=背景与神灵
+ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=动物寓言
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> 使用 L5+ 法术位施放时不需要专注
@@ -53,7 +54,7 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>：游戏默认，掷任�
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最大结果相加并将其添加到攻击的伤害中 <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新投掷任何伤害骰子，投出最高可能的结果并将其添加到总伤害中
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>神灵：</color>
+ModUi/&Deities=<color=#F0DAA0>神灵</color>
 ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
 ModUi/&DisableAutoUpdate=禁用自动更新
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用此 mod 提供的类绑定专长的级别先决条件

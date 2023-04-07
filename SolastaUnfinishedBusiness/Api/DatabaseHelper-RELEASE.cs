@@ -799,6 +799,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ChainShirt { get; } = GetDefinition<ItemDefinition>("ChainShirt");
         internal static ItemDefinition CloakOfElvenkind { get; } = GetDefinition<ItemDefinition>("CloakOfElvenkind");
         internal static ItemDefinition CloakOfProtection { get; } = GetDefinition<ItemDefinition>("CloakOfProtection");
+        internal static ItemDefinition ClothesCommon { get; } = GetDefinition<ItemDefinition>("ClothesCommon");
         internal static ItemDefinition ClothesCommon_Tattoo { get; } = GetDefinition<ItemDefinition>("ClothesCommon_Tattoo");
         internal static ItemDefinition ClothesNoble_Valley { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley");
         internal static ItemDefinition ClothesNoble_Valley_Cherry { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley_Cherry");
@@ -991,6 +992,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition SplintArmor { get; } = GetDefinition<ItemDefinition>("SplintArmor");
         internal static ItemDefinition StaffOfHealing { get; } = GetDefinition<ItemDefinition>("StaffOfHealing");
         internal static ItemDefinition StuddedLeather { get; } = GetDefinition<ItemDefinition>("StuddedLeather");
+        internal static ItemDefinition Torch { get; } = GetDefinition<ItemDefinition>("Torch");
         internal static ItemDefinition UnarmedStrikeBase { get; } = GetDefinition<ItemDefinition>("UnarmedStrikeBase");
         internal static ItemDefinition WandMagicMissile { get; } = GetDefinition<ItemDefinition>("WandMagicMissile");
         internal static ItemDefinition WandOfIdentify { get; } = GetDefinition<ItemDefinition>("WandOfIdentify");
