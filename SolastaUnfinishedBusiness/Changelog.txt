@@ -1,3 +1,4 @@
 - added Character > General > Progression > Monk weapon specialization setting
-- improved rejoin party feature to rejoin around the selected hero instead
+- added Circle of the Night level 14 monstrous forms and superior healing
+- improved rejoin party setting for parties of six in official campaigns
 - removed Gnome and Tiefling from mod UI offering in anticipation to the DLC

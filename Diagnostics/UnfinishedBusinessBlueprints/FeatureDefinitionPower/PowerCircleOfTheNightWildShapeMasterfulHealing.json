@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -28,10 +28,10 @@
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
-    "targetConditionName": "",
-    "targetConditionAsset": null,
+    "targetConditionName": "ConditionWildShapeSubstituteForm",
+    "targetConditionAsset": "Definition:ConditionWildShapeSubstituteForm:7bb134227813c9340949c7c091077b11",
     "targetSide": "Ally",
-    "durationType": "HalfClassLevelHours",
+    "durationType": "Instantaneous",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ShapeChange",
+        "formType": "Healing",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,88 +75,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "shapeChangeForm": {
-          "$type": "ShapeChangeForm, Assembly-CSharp",
-          "shapeChangeType": "ClassLevelListSelection",
-          "shapeOptions": [
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 2,
-              "substituteMonster": "Definition:WildShapeBadlandsSpider:6081d9e27e4ebbb438538fb7682e6c45"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 2,
-              "substituteMonster": "Definition:WildshapeDirewolf:9ec0abda13d2a86489107fa46ea52053"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 2,
-              "substituteMonster": "Definition:WildShapeBrownBear:6e4e8a0f5d5e8154d8df69560a5817c3"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 4,
-              "substituteMonster": "Definition:WildshapeDeepSpider:4e5c627ba611c2042bb4b0952b3d9b1c"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 4,
-              "substituteMonster": "Definition:WildShapeDireBear:96c3d602-df80-5a9e-ae1b-5f3bbe628c59"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 6,
-              "substituteMonster": "Definition:WildShapeApe:73b214186870df3428237fbe6d1b8cb8"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 8,
-              "substituteMonster": "Definition:WildshapeTiger_Drake:b30db79c6af6d2344bf2e7477f140ca9"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 8,
-              "substituteMonster": "Definition:WildShapeGiant_Eagle:98c8258cf8d557e4089a46ac69daeb5d"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 10,
-              "substituteMonster": "Definition:WildShapeTundraTiger:49a8aa6ddedf04349b66e1ad4822504b"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 10,
-              "substituteMonster": "Definition:WildShapeAirElemental:00d41ce9-d5f6-50d6-ad70-fcc0b0f0e067"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 10,
-              "substituteMonster": "Definition:WildShapeFireElemental:c99a2686-3b2d-5d3e-8bb8-e80cb0a9fe8c"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 10,
-              "substituteMonster": "Definition:WildShapeEarthElemental:92cd8d63-3de3-557b-a28e-f80cd3da10f0"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 10,
-              "substituteMonster": "Definition:WildShapeWaterElemental:de973ed0-1ada-5d04-ad90-19f29f50cc6e"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 14,
-              "substituteMonster": "Definition:WildShapeCrimsonSpider:fa684900-8531-5b85-9127-fcd48a111e5e"
-            },
-            {
-              "$type": "ShapeOptionDescription, Assembly-CSharp",
-              "requiredLevel": 14,
-              "substituteMonster": "Definition:WildShapeMinotaurElite:1ae2b0da-c035-5c1d-9e72-728f034dae48"
-            }
-          ],
-          "keepMentalAbilityScores": true,
-          "specialSubstituteCondition": "Definition:ConditionWildShapeSubstituteForm:7bb134227813c9340949c7c091077b11"
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 4,
+          "dieType": "D8",
+          "bonusHealing": 9,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -188,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -206,7 +132,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "511002d2ecb0e4a49903dbe731487e3e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -360,7 +286,7 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "delegatedToAction": true,
+  "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "BonusAction",
@@ -378,13 +304,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -393,18 +319,18 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerDruidWildShape:5b4f6371d0bdffb4194ab22c82ff17a3",
+  "overriddenPower": "Definition:PowerCircleOfTheNightWildShapeImprovedHealing:6ba5156a-7b15-53e3-b0c7-44ffd76d0af5",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCircleOfTheNightWildShapeCombatTitle",
-    "description": "Feature/&PowerCircleOfTheNightWildShapeCombatDescription",
+    "title": "Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingTitle",
+    "description": "Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "31fcd144ed456374399a0af1e0977882",
+      "m_SubObjectName": "CureDisease",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -419,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c619b94c-d2d8-5e01-8921-65cdd7f32872",
+  "guid": "a6bfb9b6-888f-5978-86ce-87adc6655735",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheNightWildShapeCombat"
+  "name": "PowerCircleOfTheNightWildShapeMasterfulHealing"
 }

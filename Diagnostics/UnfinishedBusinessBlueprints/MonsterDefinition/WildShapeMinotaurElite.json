@@ -1,37 +1,59 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
-  "characterFamily": "Elemental",
+  "characterFamily": "Monstrosity",
   "creatureTags": [
     "WildShape"
   ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
-  "alignment": "Neutral",
+  "alignment": "ChaoticEvil",
   "armorClass": 14,
   "armor": "",
-  "hitDice": 12,
+  "hitDice": 13,
   "hitDiceType": "D10",
-  "hitPointsBonus": 48,
-  "standardHitPoints": 114,
+  "hitPointsBonus": 39,
+  "standardHitPoints": 110,
   "abilityScores": [
-    18,
-    14,
-    18,
-    5,
-    10,
-    8
+    20,
+    11,
+    16,
+    6,
+    16,
+    9
   ],
-  "savingThrowScores": [],
-  "skillScores": [],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 7
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 6
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 6
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Athletics",
+      "bonus": 7
+    }
+  ],
   "legendaryCreature": false,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:AirElementalCombatDecisions:d057e680f48389c44990f8cb99066fa1",
+  "defaultBattleDecisionPackage": "Definition:MinotaurCombatDecisions:fc86514f32d897646aa4a9bdb62f7438",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -53,70 +75,42 @@
       },
       "previousTargetRelatedMalus": 0.1
     },
-    "name": "PrioritizeDamageDealers"
+    "name": "PrioritizeHurtMeatyDamageDealers"
   },
-  "languages": [],
-  "audioSwitches": [],
-  "audioSwitchesOnHands": [
-    {
-      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": {
-        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
-        "WwiseSwitchGroupReference": {
-          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
-          "objectName": "Switch_Weapon",
-          "id": 3974273212,
-          "guid": "D2D6B922-8A9A-4873-B9AF-27E992B18419",
-          "name": "D2D6B922-8A9A-4873-B9AF-27E992B18419"
-        },
-        "objectName": "Elem_Air",
-        "id": 3766429825,
-        "guid": "7A427DB9-B504-45CF-802C-2AEF1D921B73",
-        "name": "7A427DB9-B504-45CF-802C-2AEF1D921B73"
-      },
-      "groupIdInternal": 0,
-      "groupGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      },
-      "idInternal": 0,
-      "valueGuidInternal": {
-        "$type": "System.Byte[], mscorlib",
-        "$value": ""
-      }
-    }
+  "languages": [
+    "Language_Terran"
   ],
-  "audioRaceRTPCValue": 35.0,
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 26.0,
   "challengeRating": 5.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Air_Elemental_loot_drop:4779bd25386fc734abf721d38adddb36",
+  "droppedLootDefinition": "Definition:Minotaur_Elite_loot_drop:e12b8853531ce2d4796c13d5a0af3f52",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
-    "Definition:ConditionAffinityGrappledImmunity:c71d4f4faab7c754fbe9d52fa8ca428b",
-    "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
-    "Definition:ConditionAffinityPetrifiedImmunity:7661e50eda0f67540b4bf452c5764ba1",
-    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
-    "Definition:ConditionAffinityRestrainedmmunity:76af0d7e11d8bf6488233fd523d0616b",
-    "Definition:ConditionAffinityUnconsciousImmunity:006c19a6f1d0e4044a7b435026bc426c",
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
-    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
-    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
-    "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
-    "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Ice_Elemental_Slam:a3c125ff494ee734bb1167e9c2a6e356"
+      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Greataxe:8203d1698b401b14d8a5f639b01e7354"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Charged_Gore:d102834a687662c49984b6cd11889185"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Gore:7aa03bb5ae32ca84ea683c04120f9305"
     }
   ],
   "sneakStance": "Stealth",
@@ -124,27 +118,27 @@
   "interceptStance": "Run",
   "dualSex": true,
   "minimalAge": 20,
-  "maximalAge": 100,
-  "height": 2,
-  "weight": 120,
+  "maximalAge": 60,
+  "height": 12,
+  "weight": 600,
   "isHusk": false,
   "isPet": false,
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
-    "z": -52.0
+    "z": -35.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "06c47c0864e779a46a5a53aa9b67f39f",
-    "m_SubObjectName": "Air_Elemental",
+    "m_AssetGUID": "1b928fe70295df64e8ee3a0f2cf2b62f",
+    "m_SubObjectName": "Albino_Minotaur",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
@@ -155,7 +149,7 @@
     "customMaterials": [],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "9667fd7f6bdb8be4c83933525757b80c",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -185,7 +179,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2a2913c5eec57a24da4af020cf0e0f0f",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -195,22 +189,24 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Minotaur_Elite_Albinos_Presentation:1537c1a6664917c4aa658ef26e3b6236"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a46093cfe46037a4ebe5747e0052a7f5",
+      "m_AssetGUID": "f297006430787884f81f44552c4770c6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.7,
+    "maleModelScale": 0.656,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a46093cfe46037a4ebe5747e0052a7f5",
+      "m_AssetGUID": "f297006430787884f81f44552c4770c6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.7,
+    "femaleModelScale": 0.656,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -220,9 +216,9 @@
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
-      "x": -1.0,
+      "x": 0.0,
       "y": -0.5,
-      "z": -5.0
+      "z": -6.5
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
@@ -247,12 +243,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&WildShapeWaterElementalTitle",
-    "description": "Monster/&WildShapeWaterElementalDescription",
+    "title": "Monster/&MinotaurElite_Title",
+    "description": "Monster/&MinotaurElite_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "050ecb18a08943846979502198fcc919",
-      "m_SubObjectName": "CustomPortrait_Air_Elemental",
+      "m_AssetGUID": "b325e8497ba1c6d48919ae5108204deb",
+      "m_SubObjectName": "CustomPortrait_MinotaurElite",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -268,7 +264,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "de973ed0-1ada-5d04-ad90-19f29f50cc6e",
+  "guid": "1ae2b0da-c035-5c1d-9e72-728f034dae48",
   "contentPack": 9999,
-  "name": "WildShapeWaterElemental"
+  "name": "WildShapeMinotaurElite"
 }

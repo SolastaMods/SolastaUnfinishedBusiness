@@ -88,6 +88,9 @@ All settings start disabled by default.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Dark Kobold[/b]: Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [*][b]Draconic Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+[*][b]Asmodeus[/b]: The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
+[*][b]Mephistopheles[/b]: Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
+[*][b]Zariel[/b]: Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 [/list]
 
 [size=3][b]Classes[/b][/size]

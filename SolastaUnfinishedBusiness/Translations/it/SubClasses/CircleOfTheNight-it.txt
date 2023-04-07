@@ -1,3 +1,5 @@
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsDescription=Al 14° livello, puoi spendere un uso di Forma Selvatica per trasformarti in un Ragno Cremisi o in un'élite del Minotauro.
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=Forme mostruose
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=Al 10° livello, puoi spendere un uso di Forma Selvaggia per trasformarti in un Elementale dell'Aria, Elementale della Terra o Elementale del Fuoco.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Forme elementali
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=A partire dal 6° livello, i tuoi attacchi in forma bestiale contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici. Puoi anche trasformarti in una bestia con un grado di sfida pari al tuo livello da druido diviso per 3, arrotondato per difetto.
@@ -10,6 +12,8 @@ Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=La tua cura da
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Guarigione in combattimento migliorata
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription=La tua Guarigione da combattimento ora ti cura di 3d8+6 punti ferita.
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle=Guarigione da combattimento superiore
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingDescription=La tua cura da combattimento ora ti cura di 4d8+9 punti ferita.
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingTitle=Guarigione da combattimento magistrale
 Monster/&WildShapeDireBearDescription=L'orso crudele onnivoro di solito non infastidisce le creature che cercano di evitarlo, ma difende in modo aggressivo un'uccisione o un'altra fonte di cibo. Non esiterà a fare a pezzi tutto ciò che potrebbe contenere qualcosa di commestibile.
 Monster/&WildShapeDireBearTitle=Orso crudele
 Monster/&WildShapeWaterElementalDescription=Un Elementale dell'Acqua è un soffocante torrente d'acqua dalla pressione di 3000 vorticosi litri d'acqua.

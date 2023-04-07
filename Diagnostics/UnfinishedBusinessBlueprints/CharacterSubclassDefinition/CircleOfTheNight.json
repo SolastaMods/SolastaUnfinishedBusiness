@@ -35,6 +35,16 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeSuperiorHealing:f51d8ec5-e1da-567b-9a04-aab5af3ed007",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeMasterfulHealing:a6bfb9b6-888f-5978-86ce-87adc6655735",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleOfTheNightMonstrousForms:458071ae-49cb-5726-b74e-679b6ed3ee33",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],
