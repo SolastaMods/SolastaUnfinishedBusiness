@@ -81,7 +81,7 @@ internal static class BootContext
         SubclassesContext.Load();
 
         // Deities may rely on spells and powers being in the DB before they can properly load.
-        DeitiesContext.Load();
+        // DeitiesContext.Load();
 
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();

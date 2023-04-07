@@ -10,7 +10,7 @@
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
-  "defaultSelection": 1,
+  "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,
   "hasRacialAffinity": false,

@@ -15,18 +15,6 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
-    internal FeatureDefinitionFeatureSetBuilder AddFeatureSetNoSort(params FeatureDefinition[] featureDefinitions)
-    {
-        Definition.FeatureSet.AddRange(featureDefinitions);
-        return this;
-    }
-
-    internal FeatureDefinitionFeatureSetBuilder ClearFeatureSet()
-    {
-        Definition.FeatureSet.Clear();
-        return this;
-    }
-
     internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
         Definition.mode = mode;

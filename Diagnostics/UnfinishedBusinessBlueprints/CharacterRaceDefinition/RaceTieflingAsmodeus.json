@@ -37,25 +37,40 @@
     "armorAssetPrefix": "Elf",
     "helmetAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
-    "maleNameOptions": [],
-    "femaleNameOptions": [],
+    "maleNameOptions": [
+      "Race/&ElfMaleName1Title",
+      "Race/&ElfMaleName2Title",
+      "Race/&ElfMaleName3Title",
+      "Race/&ElfMaleName4Title",
+      "Race/&ElfMaleName5Title",
+      "Race/&ElfMaleName6Title",
+      "Race/&ElfMaleName7Title",
+      "Race/&ElfMaleName8Title",
+      "Race/&ElfMaleName9Title",
+      "Race/&ElfMaleName10Title",
+      "Race/&ElfMaleName11Title",
+      "Race/&ElfMaleName12Title",
+      "Race/&ElfMaleName13Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&ElfFemaleName1Title",
+      "Race/&ElfFemaleName2Title",
+      "Race/&ElfFemaleName3Title",
+      "Race/&ElfFemaleName4Title",
+      "Race/&ElfFemaleName5Title",
+      "Race/&ElfFemaleName6Title",
+      "Race/&ElfFemaleName7Title",
+      "Race/&ElfFemaleName8Title",
+      "Race/&ElfFemaleName9Title",
+      "Race/&ElfFemaleName10Title",
+      "Race/&ElfFemaleName11Title",
+      "Race/&ElfFemaleName12Title",
+      "Race/&ElfFemaleName13Title",
+      "Race/&ElfFemaleName14Title"
+    ],
     "hasSurName": true,
     "surNameTitle": "Race/&ElfSurNameTitle",
-    "surNameOptions": [
-      "Race/&HumanSurName1Title",
-      "Race/&HumanSurName2Title",
-      "Race/&HumanSurName3Title",
-      "Race/&HumanSurName4Title",
-      "Race/&HumanSurName5Title",
-      "Race/&HumanSurName6Title",
-      "Race/&HumanSurName7Title",
-      "Race/&HumanSurName8Title",
-      "Race/&HumanSurName9Title",
-      "Race/&HumanSurName10Title",
-      "Race/&HumanSurName11Title",
-      "Race/&HumanSurName12Title",
-      "Race/&HumanSurName13Title"
-    ],
+    "surNameOptions": [],
     "availableMorphotypeCategories": [
       "FaceShape",
       "Skin",
@@ -70,8 +85,7 @@
       "Pronoun",
       "BodyDecorationColor",
       "Scars",
-      "Musculature",
-      "Horns"
+      "Musculature"
     ],
     "needBeard": false,
     "defaultMusculature": 0,
@@ -174,19 +188,9 @@
       "HairShape_None"
     ],
     "maleHornsOptions": [
-      "Horns_A",
-      "Horns_B",
-      "Horns_C",
-      "Horns_D",
-      "Horns_E",
       "Horns_None"
     ],
     "femaleHornsOptions": [
-      "Horns_A",
-      "Horns_B",
-      "Horns_C",
-      "Horns_D",
-      "Horns_E",
       "Horns_None"
     ],
     "maleTailOptions": [
@@ -211,13 +215,13 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 16,
-      "maxValue": 19
+      "minValue": 48,
+      "maxValue": 53
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 0,
-      "maxValue": 24
+      "minValue": 48,
+      "maxValue": 53
     },
     "musicalInstrumentScale": 1.0
   },
@@ -228,7 +232,7 @@
     "description": "Race/&RaceTieflingAsmodeusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "38b252c7-61f1-5d56-b869-25905a60d95b",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

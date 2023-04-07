@@ -31,7 +31,8 @@ ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione di cibo a 2 libbre
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
-ModUi/&Backgrounds=<color=#F0DAA0>Sfondi:</color>
+ModUi/&BackgroundsAndDeities=Sfondi e divinità
+ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
 ModUi/&Basic=<color=#F0DAA0> Base:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Infliggi Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
@@ -53,8 +54,9 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo per i dadi di danno e sommalo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il tiro di tutti i dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0> Divinità:</color>
+ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
+ModUi/&DisableAutoUpdate=Disabilita l'aggiornamento automatico
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -91,8 +93,9 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del M
 ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
+ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
+ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se nessuno è selezionato <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
@@ -133,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -181,6 +184,7 @@ ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]
 ModUi/&RestockCircleOfDanantar=Rifornisci il Circolo di Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Ignora le impostazioni predefinite per forzare il rifornimento di tutte le scorte del commerciante nel tempo <i><color=#F0DAA0>[esclusi manuali e tomi]</color></i>\n. Nota che alcuni oggetti possono richiedere fino a 7 giorni di gioco per essere riforniti
 ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=Rollback alla versione precedente <i><color=#F0DAA0>[chiudi mod UI per confermare]</color></i>
 ModUi/&Rules=Regole
 ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
@@ -226,5 +230,3 @@ ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableAutoUpdate=Disabilita l'aggiornamento automatico
-ModUi/&Rollback=Rollback alla versione precedente [chiudi mod UI per confermare]

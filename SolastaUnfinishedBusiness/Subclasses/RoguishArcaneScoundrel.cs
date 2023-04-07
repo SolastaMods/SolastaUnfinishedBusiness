@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -124,10 +125,15 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
             .AddToDB();
 
-        /*
-        Level 17 - Scoundrel's Gambit
-        Starting at 17th level, you can use your action to cast Mirror Image as 2nd level spell, without expanding a spell slot, once per short rest.
-        */
+        var powerGambit = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Gambit")
+            .SetGuiPresentation(Category.Feature, SpellsContext.MirrorImage)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellsContext.MirrorImage.EffectDescription)
+                    .Build())
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -141,6 +147,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .AddFeaturesAtLevel(13,
                 autoPreparedSpellsArcaneBackslash,
                 powerArcaneBacklash)
+            .AddFeaturesAtLevel(17,
+                powerGambit)
             .AddToDB();
     }
 

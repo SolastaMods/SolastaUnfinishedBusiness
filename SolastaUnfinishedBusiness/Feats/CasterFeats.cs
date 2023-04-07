@@ -306,7 +306,54 @@ internal static class CasterFeats
                 .AddToDB()
         );
 
-        groups.Add(GroupFeats.MakeGroup("FeatGroupVerdantTouched", SHADOW, groupFeats));
+        groups.Add(GroupFeats.MakeGroup("FeatGroupVerdantTouched", VERDANT, groupFeats));
+        feats.AddRange(groupFeats);
+
+        #endregion
+
+        #region Iridescent Touched
+
+        const string IRIDESCENT = "IridescentTouched";
+
+        spells = BuildSpellGroup(0, ColorSpray, FaerieFire, SpellsContext.ColorBurst);
+
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatIridescentTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(IRIDESCENT)
+            .AddToDB();
+
+        groupFeats.SetRange(
+            // iridescent touched int
+            FeatDefinitionBuilder
+                .Create("FeatIridescentTouchedInt")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, IRIDESCENT, AttributeDefinitions.Intelligence))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(IRIDESCENT)
+                .AddToDB(),
+            // iridescent touched wis
+            FeatDefinitionBuilder
+                .Create("FeatIridescentTouchedWis")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, IRIDESCENT, AttributeDefinitions.Wisdom))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(IRIDESCENT)
+                .AddToDB(),
+            // iridescent touched cha
+            FeatDefinitionBuilder
+                .Create("FeatIridescentTouchedCha")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, IRIDESCENT, AttributeDefinitions.Charisma))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(IRIDESCENT)
+                .AddToDB()
+        );
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupIridescentTouched", IRIDESCENT, groupFeats));
         feats.AddRange(groupFeats);
 
         #endregion

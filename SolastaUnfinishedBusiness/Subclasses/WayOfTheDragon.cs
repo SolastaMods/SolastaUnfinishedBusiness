@@ -9,7 +9,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -232,16 +231,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Breath")
+            .Create($"FeatureSet{Name}Breath")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
-            .AddFeatureSetNoSort(
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .AddFeatureSet(
                 powerBlackElementalBreath,
                 powerBlueElementalBreath,
                 powerGoldElementalBreath,
                 powerGreenElementalBreath,
                 powerSilverElementalBreath)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
+                DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonBreath;
@@ -445,16 +445,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonFury = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Fury")
+            .Create($"FeatureSet{Name}Fury")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
-            .AddFeatureSetNoSort(
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .AddFeatureSet(
                 powerDragonFuryAcid,
                 powerDragonFuryLightning,
                 powerDragonFuryFire,
                 powerDragonFuryPoison,
                 powerDragonFuryCold)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
+                DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonFury;

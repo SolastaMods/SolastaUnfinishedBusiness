@@ -1,0 +1,47 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "IridescentTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeatIridescentTouched:c1e44749-8d68-53db-b512-5eb26df5936b",
+    "Definition:CastSpellIridescentTouchedIntelligence:e2ce0739-1952-56e1-a358-12c3fe1e2e38",
+    "Definition:GrantInvocationsIridescentTouchedIntelligence:bbaf3fed-10c2-54c4-8ccc-b139fca11b5d"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatIridescentTouchedIntTitle",
+    "description": "Feat/&FeatIridescentTouchedIntDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "08aa1e5d-1ca1-5c19-aec5-85da07a3930b",
+  "contentPack": 9999,
+  "name": "FeatIridescentTouchedInt"
+}

@@ -1,3 +1,5 @@
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsDescription=Auf der 14. Stufe kannst du Wildform einmal verwenden, um dich in eine purpurrote Spinne oder einen Elite-Minotaurus zu verwandeln.
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=Monströse Formen
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=Auf der 10. Stufe kannst du Wildform einmal verwenden, um dich in einen Luftelementar, einen Erdelementar oder einen Feuerelementar zu verwandeln.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Elementare Formen
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=Ab der 6. Stufe zählen deine Angriffe in Bestiengestalt als magisch, um Widerstand und Immunität gegen nicht magische Angriffe und Schaden zu überwinden. Du kannst dich auch in eine Bestie verwandeln, deren Herausforderungswert so hoch ist wie deine Druidenstufe geteilt durch 3, abgerundet.
@@ -10,6 +12,8 @@ Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=Deine Kampfhei
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Verbesserte Kampfheilung
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription=Deine Kampfheilung heilt dich jetzt um 3W8+6 Trefferpunkte.
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle=Überlegene Kampfheilung
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingDescription=Deine Kampfheilung heilt dich jetzt um 4W8+9 Trefferpunkte.
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingTitle=Meisterhafte Kampfheilung
 Monster/&WildShapeDireBearDescription=Der allesfressende Schreckensbär stört Kreaturen, die versuchen, ihm auszuweichen, normalerweise nicht, verteidigt jedoch aggressiv eine Beute oder eine andere Nahrungsquelle. Es wird nicht zögern, alles auseinanderzureißen, was etwas Essbares enthalten könnte.
 Monster/&WildShapeDireBearTitle=Schrecklicher Bär
 Monster/&WildShapeWaterElementalDescription=Ein Wasserelementar ist ein erstickender Strom aus Wasser mit dem Druck von 3000 wirbelnden Gallonen Wasser.

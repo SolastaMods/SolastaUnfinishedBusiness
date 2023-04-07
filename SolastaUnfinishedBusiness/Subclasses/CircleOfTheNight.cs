@@ -88,6 +88,25 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // 14th level
+
+        // Superior Combat Healing
+        // At 14th level, your combat healing improves to 4d8 + 9
+        var powerCircleOfTheNightWildShapeMasterfulHealing = FeatureDefinitionPowerBuilder
+            .Create("PowerCircleOfTheNightWildShapeMasterfulHealing")
+            .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(CombatHealing(4, DieType.D8, 9))
+            .SetCustomSubFeatures(CanUseCombatHealing())
+            .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
+            .AddToDB();
+
+        // Monstrous Forms
+        var featureSetCircleOfTheNightMonstrousForms = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCircleOfTheNightMonstrousForms")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass,
@@ -102,6 +121,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 featureSetCircleOfTheNightElementalForms,
                 powerCircleOfTheNightWildShapeSuperiorHealing)
+            .AddFeaturesAtLevel(14,
+                featureSetCircleOfTheNightMonstrousForms,
+                powerCircleOfTheNightWildShapeMasterfulHealing)
             .AddToDB();
     }
 
@@ -129,20 +151,18 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(4, WildshapeDeepSpider),
             ShapeBuilder(4, HbWildShapeDireBear()),
             ShapeBuilder(6, WildShapeApe),
-            // flying
             ShapeBuilder(8, WildshapeTiger_Drake),
             ShapeBuilder(8, WildShapeGiant_Eagle),
-            // don't use future features
-            // ShapeBuilder(10, WildShapeTundraTiger),
+            ShapeBuilder(10, WildShapeTundraTiger),
             // elementals
-            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
-            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
             //TODO: Create a new feature for elemental transformation.
             //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
             ShapeBuilder(10, HbWildShapeAirElemental()),
             ShapeBuilder(10, HbWildShapeFireElemental()),
             ShapeBuilder(10, HbWildShapeEarthElemental()),
-            ShapeBuilder(10, HbWildShapeWaterElemental())
+            ShapeBuilder(10, HbWildShapeWaterElemental()),
+            ShapeBuilder(14, HbWildShapeCrimsonSpider()),
+            ShapeBuilder(14, HbWildShapeMinotaurElite())
         };
 
         const string NAME = "PowerCircleOfTheNightWildShapeCombat";
@@ -260,9 +280,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         // unable to breathe unless it can breathe water. If the saving throw is successful, the target
         // is pushed out of the elemental space.
 
-        // TODO FUTURE: when IceElemental is implemented in Base Game, replace Air_Elemental with Ice_Elemental
         var shape = MonsterDefinitionBuilder
-            .Create(Air_Elemental, "WildShapeWaterElemental")
+            .Create(Ice_Elemental, "WildShapeWaterElemental")
             .SetAbilityScores(18, 14, 18, 5, 10, 8)
             .SetArmorClass(14)
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
@@ -290,6 +309,26 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 MoveModeFly6
             )
             .SetOrUpdateGuiPresentation(Category.Monster, Air_Elemental)
+            .AddToDB();
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeCrimsonSpider()
+    {
+        var shape = MonsterDefinitionBuilder
+            .Create(CrimsonSpider, "WildShapeCrimsonSpider")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .AddToDB();
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeMinotaurElite()
+    {
+        var shape = MonsterDefinitionBuilder
+            .Create(MinotaurElite, "WildShapeMinotaurElite")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .AddToDB();
 
         return shape;

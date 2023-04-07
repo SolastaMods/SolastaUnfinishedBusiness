@@ -21,7 +21,7 @@
         <string>SpellListBard</string>
       </key>
       <value>
-        <boolean>false</boolean>
+        <boolean>true</boolean>
       </value>
     </item>
     <item>
@@ -125,6 +125,7 @@
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
   <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
+  <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -150,8 +151,6 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
-    <string>RaceGnome</string>
-    <string>RaceTiefling</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled />
@@ -353,6 +352,9 @@
     <string>FeatVerdantTouchedInt</string>
     <string>FeatVerdantTouchedWis</string>
     <string>FeatTacticianAdept</string>
+    <string>FeatIridescentTouchedCha</string>
+    <string>FeatIridescentTouchedInt</string>
+    <string>FeatIridescentTouchedWis</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -405,6 +407,7 @@
     <string>FeatGroupElementalMaster</string>
     <string>FeatGroupHardy</string>
     <string>FeatGroupVerdantTouched</string>
+    <string>FeatGroupIridescentTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -610,6 +613,8 @@
           <string>ThunderStrike</string>
           <string>RadiantMotes</string>
           <string>Sanctuary</string>
+          <string>ColorBurst</string>
+          <string>SpellWeb</string>
         </ArrayOfString>
       </value>
     </item>
@@ -660,6 +665,7 @@
           <string>ThunderStrike</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
@@ -722,6 +728,7 @@
           <string>EarthTremor</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
+          <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
@@ -755,6 +762,7 @@
   <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>true</FullyControlConjurations>

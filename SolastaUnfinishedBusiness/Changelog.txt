@@ -1,7 +1,8 @@
-- RESPEC required for Circle of the Night druid older than v52
-- RESPEC required for fighter with Weapon Specialization older than v61
-- added Gameplay > Rules > House setting to allow clubs to be thrown
-- added Tactician Adept feat and Web spell
-- improved Archery support for darts and lightning launcher
-- improved Path of the Elements' elemental burst SFX
-- improved Resonating Strike to allow crit on first target
+- added Character > General > Progression > Monk weapon specialization setting
+- added Circle of the Night level 14 monstrous forms and superior healing
+- added Color Burst level 2 spell affecting 8d10 creatures hit points within 10 ft
+- added Farmer background with +1 to hit on clubs, and hand axes
+- added Iridescent feats with color spray, faerie fire and color burst spells
+- added Roguish Arcane Scoundrel level 17 scoundrel's gambit
+- improved rejoin party setting for parties of six in official campaigns
+- removed Gnome and Tiefling from mod UI offering in anticipation to the DLC

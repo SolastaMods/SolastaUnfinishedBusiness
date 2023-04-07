@@ -2,18 +2,18 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerWayOfTheDragonElementalBreathBlack:159384fc-e99b-5c30-9651-3e2730d27780",
-    "Definition:PowerWayOfTheDragonElementalBreathBlue:ca30d282-4c2d-50cf-8a64-7686eec68a1f",
     "Definition:PowerWayOfTheDragonElementalBreathGold:3dd7aa6a-7335-51f0-81d7-eed5809a7ed1",
-    "Definition:PowerWayOfTheDragonElementalBreathGreen:6999a757-eb46-5e29-b9f1-458fdc13c075",
-    "Definition:PowerWayOfTheDragonElementalBreathSilver:80903e66-95c2-501c-95c7-d358218e7aa7"
+    "Definition:PowerWayOfTheDragonElementalBreathSilver:80903e66-95c2-501c-95c7-d358218e7aa7",
+    "Definition:PowerWayOfTheDragonElementalBreathBlue:ca30d282-4c2d-50cf-8a64-7686eec68a1f",
+    "Definition:PowerWayOfTheDragonElementalBreathGreen:6999a757-eb46-5e29-b9f1-458fdc13c075"
   ],
   "mode": "DeterminedByAncestry",
   "ancestryDamageTypeMap": [
     "DamageAcid",
-    "DamageLightning",
     "DamageFire",
-    "DamagePoison",
-    "DamageCold"
+    "DamageCold",
+    "DamageLightning",
+    "DamagePoison"
   ],
   "ancestryType": 9000,
   "defaultSelection": 0,
@@ -28,8 +28,8 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

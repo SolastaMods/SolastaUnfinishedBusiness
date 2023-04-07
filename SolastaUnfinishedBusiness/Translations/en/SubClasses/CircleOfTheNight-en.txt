@@ -1,3 +1,5 @@
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsDescription=At 14th level, you can expend one use of Wild Shape to transform into a crimson spider or minotaur elite.
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=Monstrous Forms
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=At 10th level, you can expend one use of Wild Shape to transform into an air elemental, an earth elemental or a fire elemental.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Elemental Forms
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to non magical attacks and damage. You can also transform into a beast with a challenge rating as high as your druid level divided by 3, rounded down.
@@ -10,6 +12,8 @@ Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=Your Combat He
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Improved Combat Healing
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription=Your Combat Healing now heals you for 3d8+6 hit points.
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle=Superior Combat Healing
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingDescription=Your Combat Healing now heals you for 4d8+9 hit points.
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingTitle=Masterful Combat Healing
 Monster/&WildShapeDireBearDescription=The omnivorous dire bear usually does not bother creatures that try to avoid it, but will aggressively defend a kill or other source of food. It will not hesitate to rip apart anything that might contain something edible.
 Monster/&WildShapeDireBearTitle=Dire Bear
 Monster/&WildShapeWaterElementalDescription=A Water Elemental is a suffocating torrent of water from the pressure of 3000 swirling gallons of water.

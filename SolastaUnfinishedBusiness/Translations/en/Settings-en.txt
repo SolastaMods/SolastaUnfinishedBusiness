@@ -31,7 +31,8 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds:</color>
+ModUi/&BackgroundsAndDeities=Backgrounds & Deities
+ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
@@ -53,8 +54,9 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: game default, roll any d
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Deities:</color>
+ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
+ModUi/&DisableAutoUpdate=Disable auto update
 ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on class bound feats provided by this mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -91,8 +93,9 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Ma
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
+ModUi/&EnableMonkWeaponSpecialization=Enable <color=#D89555>Monk</color> <b>Weapon Specialization</b> at class levels 2 and 11 <i><color=#F0DAA0>[the selected weapon type becomes a monk weapon to you]</color></i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
+ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party around the selected hero or the leader if none is selected <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
 ModUi/&EnableRespec=Enable the RESPEC after rest action
 ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
@@ -181,6 +184,7 @@ ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</c
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=Rollback to previous version <i><color=#F0DAA0>[close mod UI to confirm]</color></i>
 ModUi/&Rules=Rules
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
 ModUi/&SelectAll=Select All
@@ -226,5 +230,3 @@ ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableAutoUpdate=Disable auto update
-ModUi/&Rollback=Rollback to previous version [close mod UI to confirm]
