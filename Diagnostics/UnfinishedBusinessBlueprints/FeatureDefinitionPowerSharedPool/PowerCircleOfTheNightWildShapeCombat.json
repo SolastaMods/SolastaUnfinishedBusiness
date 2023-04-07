@@ -122,6 +122,11 @@
             {
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 10,
+              "substituteMonster": "Definition:WildShapeTundraTiger:49a8aa6ddedf04349b66e1ad4822504b"
+            },
+            {
+              "$type": "ShapeOptionDescription, Assembly-CSharp",
+              "requiredLevel": 10,
               "substituteMonster": "Definition:WildShapeAirElemental:00d41ce9-d5f6-50d6-ad70-fcc0b0f0e067"
             },
             {
@@ -138,6 +143,16 @@
               "$type": "ShapeOptionDescription, Assembly-CSharp",
               "requiredLevel": 10,
               "substituteMonster": "Definition:WildShapeWaterElemental:de973ed0-1ada-5d04-ad90-19f29f50cc6e"
+            },
+            {
+              "$type": "ShapeOptionDescription, Assembly-CSharp",
+              "requiredLevel": 14,
+              "substituteMonster": "Definition:WildShapeCrimsonSpider:fa684900-8531-5b85-9127-fcd48a111e5e"
+            },
+            {
+              "$type": "ShapeOptionDescription, Assembly-CSharp",
+              "requiredLevel": 14,
+              "substituteMonster": "Definition:WildShapeMinotaurElite:1ae2b0da-c035-5c1d-9e72-728f034dae48"
             }
           ],
           "keepMentalAbilityScores": true,

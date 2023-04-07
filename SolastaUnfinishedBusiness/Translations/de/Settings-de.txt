@@ -4,9 +4,9 @@ ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen S
 ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Umschalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
-ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Läden neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
@@ -31,7 +31,8 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
-ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe:</color>
+ModUi/&BackgroundsAndDeities=Hintergründe & Gottheiten
+ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberplatz gewirkt wird
@@ -53,11 +54,12 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielstandard, wirf alle
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis für die Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel, die das höchstmögliche Ergebnis erzielen, immer wieder neu und füge es dem Gesamtschaden hinzu
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Gottheiten:</color>
+ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
+ModUi/&DisableAutoUpdate=Deaktivieren Sie die automatische Aktualisierung
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -91,8 +93,9 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone de
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
+ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist<i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
+ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=#F0DAA0>[statt einer exklusiven Auswahl]</color></i>
@@ -133,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
-ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -181,6 +184,7 @@ ModUi/&RestockArcaneum=Arkaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i
 ModUi/&RestockCircleOfDanantar=Zirkel von Danantar <i><color=#F0DAA0>[Joriel Fuchsauge]</color></i> auffüllen
 ModUi/&RestockHelp=. Setzen Sie die Standardeinstellungen außer Kraft, um zu erzwingen, dass alle Lagerbestände des Händlers im Laufe der Zeit wieder aufgefüllt werden <i><color=#F0DAA0>[ausgenommen Handbücher und Wälzer]</color></i>\n. Beachten Sie, dass es bei einigen Artikeln bis zu 7 Spieltage dauern kann, bis sie wieder verfügbar sind
 ModUi/&RestockTowerOfKnowledge=Turm des Wissens <i><color=#F0DAA0>[Maddy Greenisle]</color></i> auffüllen
+ModUi/&Rollback=Rollback zur vorherigen Version <i><color=#F0DAA0>[Mod-UI zur Bestätigung schließen]</color></i>
 ModUi/&Rules=Regeln
 ModUi/&ScaleMerchantPricesCorrectly=Händlerpreise richtig / genau skalieren <i><color=#F0DAA0>[keine Rundungsfehler mehr beim Umrechnen von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle
@@ -226,5 +230,3 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableAutoUpdate=Deaktivieren Sie die automatische Aktualisierung
-ModUi/&Rollback=Rollback zur vorherigen Version [Schließen Sie die Mod-Benutzeroberfläche zur Bestätigung]

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Backgrounds;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -10,6 +11,8 @@ internal static class BackgroundsContext
 
     internal static void Load()
     {
+        LoadBackground(BackgroundsBuilders.BuildBackgroundFarmer());
+
         // sorting
         Backgrounds = Backgrounds.OrderBy(x => x.FormatTitle()).ToHashSet();
 

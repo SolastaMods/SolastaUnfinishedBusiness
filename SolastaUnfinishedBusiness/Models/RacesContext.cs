@@ -18,8 +18,21 @@ internal static class RacesContext
         Morphotypes.Load();
 
         // BACKWARD COMPATIBILITY
-        _ = GnomeRaceBuilder.RaceGnome;
-        _ = TieflingRaceBuilder.RaceTiefling;
+        var raceGnome = GnomeRaceBuilder.RaceGnome;
+
+        raceGnome.GuiPresentation.hidden = true;
+        Main.Settings.RaceEnabled.Remove(raceGnome.Name);
+
+        var raceTiefling = TieflingRaceBuilder.RaceTiefling;
+
+        raceTiefling.GuiPresentation.hidden = true;
+        Main.Settings.RaceEnabled.Remove(raceTiefling.Name);
+        raceTiefling.SubRaces.ForEach(x =>
+        {
+            x.GuiPresentation.hidden = true;
+            Main.Settings.RaceEnabled.Remove(x.Name);
+        });
+        // END BACKWARD COMPATIBILITY
 
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);

@@ -19,7 +19,27 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 02
+    internal static SpellDefinition BuildColorBurst()
+    {
+        const string NAME = "ColorBurst";
+
+        var spell = SpellDefinitionBuilder
+            .Create(ColorSpray, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ColorBurst, 128))
+            .SetSpellLevel(2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ColorSpray)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
+                        TargetFilteringTag.No, 8, DieType.D10)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #region Mirror Image
 
     [NotNull]
     internal static SpellDefinition BuildMirrorImage()
@@ -59,6 +79,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Petal Storm
 
     [NotNull]
     internal static SpellDefinition BuildPetalStorm()
@@ -115,6 +139,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Protect Threshold
+
     [NotNull]
     internal static SpellDefinition BuildProtectThreshold()
     {
@@ -163,6 +191,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Shadowblade
 
     [NotNull]
     internal static SpellDefinition BuildShadowBlade()

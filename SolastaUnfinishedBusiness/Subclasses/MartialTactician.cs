@@ -37,7 +37,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("FeatureSefTacticianStrategicPlan")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddFeatureSetNoSort(
+            .AddFeatureSet(
                 BuildTacticalSurge(),
                 BuildAdaptiveStrategy(),
                 BuildOvercomingStrategy()

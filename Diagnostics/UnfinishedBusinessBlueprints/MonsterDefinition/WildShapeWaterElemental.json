@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "Monster",
+  "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Elemental",
   "creatureTags": [
@@ -116,7 +116,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Air_Elemental_Slam:9e93fa40693744144b60814f81cdba27"
+      "monsterAttackDefinition": "Definition:Attack_Ice_Elemental_Slam:a3c125ff494ee734bb1167e9c2a6e356"
     }
   ],
   "sneakStance": "Stealth",
@@ -132,7 +132,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

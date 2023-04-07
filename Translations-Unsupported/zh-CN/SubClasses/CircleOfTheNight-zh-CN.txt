@@ -1,3 +1,5 @@
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsDescription=在第 14 级，你可以花费 1 次 Wild Shape 的使用次数来变身为猩红蜘蛛或牛头怪精英。
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=怪异的形式
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=在第 10 级时，你可以花费 1 次 Wild Shape 的使用次数来转变为风元素、土元素或火元素。
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=元素形态
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=从第 6 级开始，为了克服对非魔法攻击和伤害的抵抗力和免疫力，你在野兽形态下的攻击算作魔法攻击。你也可以变身为野兽，挑战等级等于你的德鲁伊等级除以 3，向下取整。
@@ -10,6 +12,8 @@ Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=你的战斗�
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=改善战斗治疗
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription=你的战斗治疗现在可以治疗你 3d8+6 点生命值。
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle=卓越的战斗治疗
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingDescription=你的战斗治疗现在可以治疗你 4d8+9 点生命值。
+Feature/&PowerCircleOfTheNightWildShapeMasterfulHealingTitle=精湛的战斗治疗
 Monster/&WildShapeDireBearDescription=杂食性恐熊通常不会打扰试图避开它的生物，但会积极防御猎物或其他食物来源。它会毫不犹豫地撕开任何可能含有可食用的东西。
 Monster/&WildShapeDireBearTitle=巨熊
 Monster/&WildShapeWaterElementalDescription=水元素是一种令人窒息的水流，来自 3000 加仑旋转水的压力。

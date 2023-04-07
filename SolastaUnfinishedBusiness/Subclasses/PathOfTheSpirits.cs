@@ -36,10 +36,9 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
-                "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
+            .Create("FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
             .SetGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
                 // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
                 PowerPathOfTheSpiritsBearResistance(),
@@ -59,10 +58,9 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
-                "FeatureSetPathOfTheSpiritsAnimalAspectChoices")
+            .Create("FeatureSetPathOfTheSpiritsAnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
                 //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
                 BuildAnimalAspectChoice("Bear",

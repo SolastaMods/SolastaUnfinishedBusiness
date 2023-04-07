@@ -2,9 +2,7 @@
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -84,7 +82,7 @@ internal static class GnomeRaceBuilder
 
         var raceGnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceGnome")
-            .SetGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, CharacterRaceDefinitions.Human)
             .SetRacePresentation(gnomeRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetMinimalAge(40)

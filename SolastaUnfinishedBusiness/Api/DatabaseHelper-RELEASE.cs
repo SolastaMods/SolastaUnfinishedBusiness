@@ -479,11 +479,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
         internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
-        internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
         internal static FeatureDefinitionFeatureSet FeatureSetKindredSpiritChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritChoice");
-        
         internal static FeatureDefinitionFeatureSet FeatureSetMonkDiamondSoul { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDiamondSoul");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkFlurryOfBlows { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkFlurryOfBlows");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkStepOfTheWind { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStepOfTheWind");
@@ -801,6 +799,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ChainShirt { get; } = GetDefinition<ItemDefinition>("ChainShirt");
         internal static ItemDefinition CloakOfElvenkind { get; } = GetDefinition<ItemDefinition>("CloakOfElvenkind");
         internal static ItemDefinition CloakOfProtection { get; } = GetDefinition<ItemDefinition>("CloakOfProtection");
+        internal static ItemDefinition ClothesCommon { get; } = GetDefinition<ItemDefinition>("ClothesCommon");
         internal static ItemDefinition ClothesCommon_Tattoo { get; } = GetDefinition<ItemDefinition>("ClothesCommon_Tattoo");
         internal static ItemDefinition ClothesNoble_Valley { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley");
         internal static ItemDefinition ClothesNoble_Valley_Cherry { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley_Cherry");
@@ -993,6 +992,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition SplintArmor { get; } = GetDefinition<ItemDefinition>("SplintArmor");
         internal static ItemDefinition StaffOfHealing { get; } = GetDefinition<ItemDefinition>("StaffOfHealing");
         internal static ItemDefinition StuddedLeather { get; } = GetDefinition<ItemDefinition>("StuddedLeather");
+        internal static ItemDefinition Torch { get; } = GetDefinition<ItemDefinition>("Torch");
         internal static ItemDefinition UnarmedStrikeBase { get; } = GetDefinition<ItemDefinition>("UnarmedStrikeBase");
         internal static ItemDefinition WandMagicMissile { get; } = GetDefinition<ItemDefinition>("WandMagicMissile");
         internal static ItemDefinition WandOfIdentify { get; } = GetDefinition<ItemDefinition>("WandOfIdentify");
@@ -1048,6 +1048,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition ConjuredFourBeast_BadlandsSpider { get; } = GetDefinition<MonsterDefinition>("ConjuredFourBeast_BadlandsSpider");
         internal static MonsterDefinition ConjuredOneBeastTiger_Drake { get; } = GetDefinition<MonsterDefinition>("ConjuredOneBeastTiger_Drake");
         internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } = GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
+        internal static MonsterDefinition CrimsonSpider { get; } = GetDefinition<MonsterDefinition>("CrimsonSpider");
         internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
         internal static MonsterDefinition Earth_Elemental { get; } = GetDefinition<MonsterDefinition>("Earth_Elemental");
         internal static MonsterDefinition Emperor_Laethar { get; } = GetDefinition<MonsterDefinition>("Emperor_Laethar");
@@ -1065,11 +1066,13 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Green_Hag { get; } = GetDefinition<MonsterDefinition>("Green_Hag");
         internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } = GetDefinition<MonsterDefinition>("GreenDragon_MasterOfConjuration");
         internal static MonsterDefinition Hezrou_MonsterDefinition { get; } = GetDefinition<MonsterDefinition>("Hezrou_MonsterDefinition");
+        internal static MonsterDefinition Ice_Elemental { get; } = GetDefinition<MonsterDefinition>("Ice_Elemental");
         internal static MonsterDefinition InvisibleStalker { get; } = GetDefinition<MonsterDefinition>("InvisibleStalker");
         internal static MonsterDefinition KindredSpiritBear { get; } = GetDefinition<MonsterDefinition>("KindredSpiritBear");
         internal static MonsterDefinition KindredSpiritEagle { get; } = GetDefinition<MonsterDefinition>("KindredSpiritEagle");
         internal static MonsterDefinition KindredSpiritWolf { get; } = GetDefinition<MonsterDefinition>("KindredSpiritWolf");
         internal static MonsterDefinition Marilith_MonsterDefinition { get; } = GetDefinition<MonsterDefinition>("Marilith_MonsterDefinition");
+        internal static MonsterDefinition MinotaurElite { get; } = GetDefinition<MonsterDefinition>("MinotaurElite");
         internal static MonsterDefinition Remorhaz { get; } = GetDefinition<MonsterDefinition>("Remorhaz");
         internal static MonsterDefinition SkarnGhoul { get; } = GetDefinition<MonsterDefinition>("SkarnGhoul");
         internal static MonsterDefinition Skeleton { get; } = GetDefinition<MonsterDefinition>("Skeleton");
@@ -1091,6 +1094,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition WildshapeDirewolf { get; } = GetDefinition<MonsterDefinition>("WildshapeDirewolf");
         internal static MonsterDefinition WildShapeGiant_Eagle { get; } = GetDefinition<MonsterDefinition>("WildShapeGiant_Eagle");
         internal static MonsterDefinition WildshapeTiger_Drake { get; } = GetDefinition<MonsterDefinition>("WildshapeTiger_Drake");
+        internal static MonsterDefinition WildShapeTundraTiger { get; } = GetDefinition<MonsterDefinition>("WildShapeTundraTiger");
         internal static MonsterDefinition WindSnake { get; } = GetDefinition<MonsterDefinition>("WindSnake");
         internal static MonsterDefinition Wolf { get; } = GetDefinition<MonsterDefinition>("Wolf");
         internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } = GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
@@ -1227,6 +1231,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition ChainLightning { get; } = GetDefinition<SpellDefinition>("ChainLightning");
         internal static SpellDefinition ChillTouch { get; } = GetDefinition<SpellDefinition>("ChillTouch");
         internal static SpellDefinition CloudKill { get; } = GetDefinition<SpellDefinition>("CloudKill");
+        internal static SpellDefinition ColorSpray { get; } = GetDefinition<SpellDefinition>("ColorSpray");
         internal static SpellDefinition Command { get; } = GetDefinition<SpellDefinition>("Command");
         internal static SpellDefinition ConeOfCold { get; } = GetDefinition<SpellDefinition>("ConeOfCold");
         internal static SpellDefinition Confusion { get; } = GetDefinition<SpellDefinition>("Confusion");
@@ -1425,6 +1430,7 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition LongbowType { get; } = GetDefinition<WeaponTypeDefinition>("LongbowType");
         internal static WeaponTypeDefinition LongswordType { get; } = GetDefinition<WeaponTypeDefinition>("LongswordType");
         internal static WeaponTypeDefinition MaulType { get; } = GetDefinition<WeaponTypeDefinition>("MaulType");
+        internal static WeaponTypeDefinition MorningstarType { get; } = GetDefinition<WeaponTypeDefinition>("MorningstarType");
         internal static WeaponTypeDefinition QuarterstaffType { get; } = GetDefinition<WeaponTypeDefinition>("QuarterstaffType");
         internal static WeaponTypeDefinition RapierType { get; } = GetDefinition<WeaponTypeDefinition>("RapierType");
         internal static WeaponTypeDefinition ScimitarType { get; } = GetDefinition<WeaponTypeDefinition>("ScimitarType");

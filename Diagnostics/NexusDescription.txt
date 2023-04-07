@@ -82,7 +82,6 @@ All settings start disabled by default.
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
-[*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
@@ -262,6 +261,12 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Iridescent Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Longsword Finesse[/b]: You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
 • While you are holding a longsword, you gain a +1 bonus to armor class.
@@ -467,6 +472,7 @@ At the start of each of its turns the target must make a successful Constitution
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 [*][b]Thunderous Smite[/b]: On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
 [*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
+[*][b]Color Burst[/b]: Burst a luminous cube that briefly blinds anyone within 10 ft. 8d10 is how many hit points of creatures this spell can affect.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -561,15 +567,16 @@ A powerful wight, trained to withstand the light of day.
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Bladedancer, Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
-[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Elementalist, Moonlit, Riftwalker, Soulblade, Tactician, Way of Distant Hand, Inventor, Multiclass
+[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Soulblade, Tactician, Way of Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
 [*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
-[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [subclasses]
-[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, powers and weapons icons, favored terrain and preferred enemy icons
-[*][b]HiddenHax[/b]: homebrew content design [subclasses]
+[*][b]DubhHerder[/b]: quality of life, spells, Elementalist, Moonlit, Riftwalker
+[*][b]HiddenHax[/b]: homebrew content design [Path of the Elemental Fury, Forceblade, Weapon Master, Oath of Dread, Path of the Reaver, Arcane Scoundrel, Duelist, Slayer, Way of the Discordance, Way of the Dragon]
+[*][b]Taco[/b]: homebrew content design [Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
+[*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [*][b]tivie[/b]: Circle of the Night, Path of the Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist
 [*][b]RedOrca[/b]: Path of the Light
@@ -578,7 +585,5 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Pikachar2[/b]: spells
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
-[*][b]Balmz[/b]: powers and spells icons
-[*][b]Stuffies12[/b]: Ranger homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [/list]
 

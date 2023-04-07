@@ -72,9 +72,8 @@ internal static class GrayDwarfSubraceBuilder
         }
 
         var featureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .Create("FeatureSetGrayDwarfAncestry")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 conditionAffinityGrayDwarfCharm,
                 conditionAffinityGrayDwarfCharmedByHypnoticPattern,

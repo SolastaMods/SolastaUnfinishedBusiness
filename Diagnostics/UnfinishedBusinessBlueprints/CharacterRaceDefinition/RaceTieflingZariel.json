@@ -222,9 +222,9 @@
     "description": "Race/&RaceTieflingZarielDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "38b252c7-61f1-5d56-b869-25905a60d95b",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "8f1b44be9da2c1946a7d26baa71cf663",
+      "m_SubObjectName": "Human",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

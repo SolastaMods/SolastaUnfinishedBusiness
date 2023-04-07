@@ -119,6 +119,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BackgroundFarmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Backgrounds/BackgroundFarmer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ColorBurst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ColorBurst.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Web.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
