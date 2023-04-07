@@ -4,6 +4,7 @@
 
 - added Character > General > Progression > Monk weapon specialization setting
 - added Circle of the Night level 14 monstrous forms and superior healing
+- added Roguish Arcane Scoundrel level 17 scoundrel's gambit
 - improved rejoin party setting for parties of six in official campaigns
 - removed Gnome and Tiefling from mod UI offering in anticipation to the DLC
 
