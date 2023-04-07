@@ -252,7 +252,7 @@
     "description": "Race/&RaceTieflingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "38b252c7-61f1-5d56-b869-25905a60d95b",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

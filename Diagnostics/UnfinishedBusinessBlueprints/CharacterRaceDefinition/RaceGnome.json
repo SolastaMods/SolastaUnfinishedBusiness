@@ -264,7 +264,7 @@
     "description": "Race/&RaceGnomeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e7e3229e-8053-586a-b305-1c307493582a",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

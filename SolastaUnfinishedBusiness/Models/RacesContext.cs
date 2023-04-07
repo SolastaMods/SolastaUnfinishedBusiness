@@ -18,8 +18,14 @@ internal static class RacesContext
         Morphotypes.Load();
 
         // BACKWARD COMPATIBILITY
-        _ = GnomeRaceBuilder.RaceGnome;
-        _ = TieflingRaceBuilder.RaceTiefling;
+        var raceGnome = GnomeRaceBuilder.RaceGnome;
+
+        raceGnome.GuiPresentation.hidden = true;
+
+        var raceTiefling = TieflingRaceBuilder.RaceTiefling;
+
+        raceTiefling.GuiPresentation.hidden = true;
+        raceTiefling.SubRaces.ForEach(x => x.GuiPresentation.hidden = true);
 
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
