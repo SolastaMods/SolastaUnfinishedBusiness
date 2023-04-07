@@ -30,7 +30,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
                         TargetFilteringTag.No, 8, DieType.D10)
                     .Build())
