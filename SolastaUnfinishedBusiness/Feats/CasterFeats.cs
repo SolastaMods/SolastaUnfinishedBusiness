@@ -315,7 +315,7 @@ internal static class CasterFeats
     }
 
     [NotNull]
-    internal static FeatureDefinition[] MakeSpellFeatureAndInvocations(
+    private static FeatureDefinition[] MakeSpellFeatureAndInvocations(
         FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
         string name,
         string castingAttribute, bool longRest = true)

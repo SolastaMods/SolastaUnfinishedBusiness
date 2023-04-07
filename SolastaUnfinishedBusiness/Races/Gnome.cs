@@ -82,7 +82,7 @@ internal static class GnomeRaceBuilder
 
         var raceGnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceGnome")
-            .SetGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, CharacterRaceDefinitions.Human)
             .SetRacePresentation(gnomeRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetMinimalAge(40)

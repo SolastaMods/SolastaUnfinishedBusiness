@@ -70,13 +70,12 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceTieflingAsmodeus")
-            .SetRacePresentation(tieflingRacePresentation)
+            .SetGuiPresentation(Category.Race, Human)
             .SetGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingAsmodeus)
             .AddToDB();
-
 
         var attributeModifierTieflingDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingDexterityAbilityScoreIncrease")
@@ -108,7 +107,7 @@ internal static class TieflingRaceBuilder
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceTieflingMephistopheles")
             .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Human)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingDexterityAbilityScoreIncrease,
                 castSpellTieflingMephistopheles)
@@ -144,7 +143,7 @@ internal static class TieflingRaceBuilder
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceTieflingZariel")
             .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Human)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingStrengthAbilityScoreIncrease,
                 castSpellTieflingZariel)
@@ -182,7 +181,7 @@ internal static class TieflingRaceBuilder
 
         var raceTiefling = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceTiefling")
-            .SetGuiPresentation(Category.Race)
+            .SetGuiPresentation(Category.Race, Human)
             .SetRacePresentation(tieflingRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetMinimalAge(20)
