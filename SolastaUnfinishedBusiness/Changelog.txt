@@ -2,6 +2,7 @@
 - added Circle of the Night level 14 monstrous forms and superior healing
 - added Color Burst level 2 spell affecting 8d10 creatures hit points within 10 ft
 - added Farmer background with +1 to hit on clubs, and hand axes
+- added Iridescent feats with color spray, faerie fire and color burst spells
 - added Roguish Arcane Scoundrel level 17 scoundrel's gambit
 - improved rejoin party setting for parties of six in official campaigns
 - removed Gnome and Tiefling from mod UI offering in anticipation to the DLC

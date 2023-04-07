@@ -261,6 +261,12 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Iridescent Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Longsword Finesse[/b]: You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
 • While you are holding a longsword, you gain a +1 bonus to armor class.

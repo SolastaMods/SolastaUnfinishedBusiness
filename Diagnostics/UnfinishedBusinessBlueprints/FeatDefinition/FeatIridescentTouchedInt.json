@@ -9,14 +9,19 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "VerdantTouched",
+  "familyTag": "IridescentTouched",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeatIridescentTouched:c1e44749-8d68-53db-b512-5eb26df5936b",
+    "Definition:CastSpellIridescentTouchedIntelligence:e2ce0739-1952-56e1-a358-12c3fe1e2e38",
+    "Definition:GrantInvocationsIridescentTouchedIntelligence:bbaf3fed-10c2-54c4-8ccc-b139fca11b5d"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupVerdantTouchedTitle",
-    "description": "Increase one of your mental attributes by 1, to a maximum of 20.\nYou gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.",
+    "title": "Feat/&FeatIridescentTouchedIntTitle",
+    "description": "Feat/&FeatIridescentTouchedIntDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "38d2b36a-fe3e-5d3e-92cf-464b98133432",
+  "guid": "08aa1e5d-1ca1-5c19-aec5-85da07a3930b",
   "contentPack": 9999,
-  "name": "FeatGroupVerdantTouched"
+  "name": "FeatIridescentTouchedInt"
 }
