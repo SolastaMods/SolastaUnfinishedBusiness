@@ -162,6 +162,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFighterArmamentAdroitness();
         }
 
+        toggle = Main.Settings.EnableMonkWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkWeaponSpecialization = toggle;
+            CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
         toggle = Main.Settings.EnableLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
         {

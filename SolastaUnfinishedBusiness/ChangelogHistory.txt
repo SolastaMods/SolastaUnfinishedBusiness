@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.70:
+
+- added Character > General > Progression > Monk weapon specialization setting
+- improved rejoin party feature to rejoin around the selected hero instead
+- removed Gnome and Tiefling from mod UI offering in anticipation to the DLC
+
 1.4.33.69:
 
 - RESPEC required for Circle of the Night druid older than v52

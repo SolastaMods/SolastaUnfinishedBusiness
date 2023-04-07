@@ -199,6 +199,9 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
             Register("MartialWeaponMaster", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
+            Register("MonkWeaponSpecialization", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic",
                 hidden: true,

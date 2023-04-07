@@ -1425,6 +1425,7 @@ internal static partial class DatabaseHelper
         internal static WeaponTypeDefinition LongbowType { get; } = GetDefinition<WeaponTypeDefinition>("LongbowType");
         internal static WeaponTypeDefinition LongswordType { get; } = GetDefinition<WeaponTypeDefinition>("LongswordType");
         internal static WeaponTypeDefinition MaulType { get; } = GetDefinition<WeaponTypeDefinition>("MaulType");
+        internal static WeaponTypeDefinition MorningstarType { get; } = GetDefinition<WeaponTypeDefinition>("MorningstarType");
         internal static WeaponTypeDefinition QuarterstaffType { get; } = GetDefinition<WeaponTypeDefinition>("QuarterstaffType");
         internal static WeaponTypeDefinition RapierType { get; } = GetDefinition<WeaponTypeDefinition>("RapierType");
         internal static WeaponTypeDefinition ScimitarType { get; } = GetDefinition<WeaponTypeDefinition>("ScimitarType");

@@ -1,12 +1,12 @@
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Grande</color> et <color=#D89555>Petite restauration</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux éléments officiels du jeu <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></i>
+ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></i
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage ou aux monstres contrôlés de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</couleur></i>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
-ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
@@ -55,6 +55,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités :</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
+ModUi/&DisableAutoUpdate=Désactiver la mise à jour automatique
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits liés à la classe fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -91,15 +92,16 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du m
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
+ModUi/&EnableMonkWeaponSpecialization=Activez <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color>
 ModUi/&EnableMulticlass=Activer multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné<i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
+ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes</i>
 ModUi/&EnableRespec=Activer l'action RESPEC après repos
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=#F0DAA0>[au lieu d'un choix exclusif]</color></i>
 ModUi/&EnableSaveByLocation=Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
-ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pourriez interrompre des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pourriez interrompre des quêtes si vous vous téléportez vers un lieu inconnu]</color></i
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
 ModUi/&EnableUpcastConjureElementalAndFey=Activer l'upcast de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Définir un pourcentage de chances de rencontres aléatoires</color>
@@ -133,10 +135,10 @@ ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % 
 ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
-ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
@@ -181,6 +183,7 @@ ModUi/&RestockArcaneum=Réapprovisionner Arcaneum <i><color=#F0DAA0>[Heddlon Sur
 ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Remplacez les valeurs par défaut pour forcer le stock de tous les marchands à se réapprovisionner au fil du temps <i><color=#F0DAA0>[à l'exception des manuels et des tomes]</color></i>\n. Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour se réapprovisionner
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la tour du savoir <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=Retour à la version précédente <i><color=#F0DAA0>[fermer l'interface utilisateur du mod pour confirmer]</color></i>
 ModUi/&Rules=Règles
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs des pièces]</color></i>
 ModUi/&SelectAll=Tout sélectionner
@@ -226,5 +229,3 @@ ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&DisableAutoUpdate=Désactiver la mise à jour automatique
-ModUi/&Rollback=Retour à la version précédente [fermer l'interface utilisateur du mod pour confirmer]

@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
@@ -34,6 +35,13 @@ internal static class CharacterContext
 
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolMonkWeaponSpecialization")
+            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+            .AddToDB();
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathClawDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
@@ -123,6 +131,8 @@ internal static class CharacterContext
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
         SwitchFighterArmamentAdroitness();
+        BuildMonkWeaponSpecialization();
+        SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
@@ -139,6 +149,73 @@ internal static class CharacterContext
             "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
             WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
             InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
+    }
+
+    private static void BuildMonkWeaponSpecialization()
+    {
+        var weaponTypeDefinitions = new List<WeaponTypeDefinition>
+        {
+            WeaponTypeDefinitions.BattleaxeType,
+            WeaponTypeDefinitions.LightCrossbowType,
+            WeaponTypeDefinitions.LongbowType,
+            WeaponTypeDefinitions.LongswordType,
+            WeaponTypeDefinitions.MorningstarType,
+            WeaponTypeDefinitions.RapierType,
+            WeaponTypeDefinitions.ScimitarType,
+            WeaponTypeDefinitions.ShortbowType,
+            WeaponTypeDefinitions.WarhammerType
+        };
+
+        foreach (var weaponTypeDefinition in weaponTypeDefinitions)
+        {
+            var weaponTypeName = weaponTypeDefinition.Name;
+
+            var featureMonkWeaponSpecialization = FeatureDefinitionBuilder
+                .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new ModifyAttackModeForMonkWeaponSpecialization(weaponTypeDefinition))
+                .AddToDB();
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationMonkWeaponSpecialization{weaponTypeName}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    weaponTypeDefinition.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+                .SetGrantedFeature(featureMonkWeaponSpecialization)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+    }
+
+    internal static void SwitchMonkWeaponSpecialization()
+    {
+        var levels = new[] { 2, 11 };
+
+        if (Main.Settings.EnableMonkWeaponSpecialization)
+        {
+            foreach (var level in levels)
+            {
+                Monk.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(InvocationPoolMonkWeaponSpecialization, level));
+            }
+        }
+        else
+        {
+            foreach (var level in levels)
+            {
+                Monk.FeatureUnlocks
+                    .RemoveAll(x => x.level == level &&
+                                    x.FeatureDefinition == InvocationPoolMonkWeaponSpecialization);
+            }
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
     }
 
     private static void LoadHelpPower()
@@ -969,6 +1046,24 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    private sealed class ModifyAttackModeForMonkWeaponSpecialization : IModifyAttackModeForWeapon
+    {
+        private readonly WeaponTypeDefinition _weaponTypeDefinition;
+
+        public ModifyAttackModeForMonkWeaponSpecialization(WeaponTypeDefinition weaponTypeDefinition)
+        {
+            _weaponTypeDefinition = weaponTypeDefinition;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            if (ValidatorsWeapon.IsWeaponType(attackMode?.SourceDefinition as ItemDefinition, _weaponTypeDefinition))
+            {
+                attackMode?.AttackTags.TryAdd(TagsDefinitions.UnarmedOrMonkWeapon);
+            }
         }
     }
 }

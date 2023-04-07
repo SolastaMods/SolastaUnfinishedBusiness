@@ -95,6 +95,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
     public bool EnableFighterArmamentAdroitness { get; set; }
+    public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableLevel20 { get; set; }
 
     public bool EnableMulticlass { get; set; }

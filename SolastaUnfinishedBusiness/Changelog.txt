@@ -1,7 +1,3 @@
-- RESPEC required for Circle of the Night druid older than v52
-- RESPEC required for fighter with Weapon Specialization older than v61
-- added Gameplay > Rules > House setting to allow clubs to be thrown
-- added Tactician Adept feat and Web spell
-- improved Archery support for darts and lightning launcher
-- improved Path of the Elements' elemental burst SFX
-- improved Resonating Strike to allow crit on first target
+- added Character > General > Progression > Monk weapon specialization setting
+- improved rejoin party feature to rejoin around the selected hero instead
+- removed Gnome and Tiefling from mod UI offering in anticipation to the DLC
