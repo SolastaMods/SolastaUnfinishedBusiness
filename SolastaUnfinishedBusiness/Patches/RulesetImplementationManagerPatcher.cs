@@ -17,6 +17,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
+    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
     [HarmonyPatch(typeof(RulesetImplementationManager),
         nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -604,7 +614,7 @@ public static class RulesetImplementationManagerPatcher
                 rangedAttack, attackMode, rulesetEffect);
         }
     }
-    
+
     //PATCH: allow ISavingThrowAffinityProvider to be validated with IsCharacterValidHandler
     [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TryRollSavingThrow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -625,15 +635,5 @@ public static class RulesetImplementationManagerPatcher
                 -1, "RulesetImplementationManager.TryRollSavingThrow",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
-    }
-    
-    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
-        RulesetCharacter __instance,
-        List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
-    {
-        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
-        featuresToBrowse.RemoveAll(x =>
-            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 }

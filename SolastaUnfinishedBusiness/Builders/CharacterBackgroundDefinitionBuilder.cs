@@ -45,7 +45,7 @@ internal class CharacterBackgroundDefinitionBuilder
 
         return this;
     }
-    
+
     internal CharacterBackgroundDefinitionBuilder AddDefaultOptionalPersonality(string personalityFlag)
     {
         Definition.defaultOptionalPersonalityFlags.Add(personalityFlag);

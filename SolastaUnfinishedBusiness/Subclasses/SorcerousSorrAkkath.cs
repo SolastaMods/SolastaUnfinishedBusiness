@@ -108,7 +108,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     saveOccurence = TurnOccurenceType.EndOfTurn,
                     saveAffinity = EffectSavingThrowType.Negates,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionBloodOfSorrAkkath,
+                    conditionDefinition = conditionBloodOfSorrAkkath
                 })
             .SetCustomSubFeatures(new FeatureDefinitionCustomCodeBloodOfSorrAkkath(additionalDamageSpellSneakAttack))
             .AddToDB();

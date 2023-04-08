@@ -509,7 +509,7 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
         }
     }
-    
+
     //PATCH: allow ISavingThrowAffinityProvider to be validated with IsCharacterValidHandler
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ComputeSavingThrowModifier))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -531,7 +531,7 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
-    
+
     private static void EnumerateFeatureDefinitionSavingThrowAffinity(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
