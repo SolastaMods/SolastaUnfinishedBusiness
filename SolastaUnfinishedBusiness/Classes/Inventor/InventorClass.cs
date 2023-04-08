@@ -27,16 +27,13 @@ internal static class InventorClass
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
-    private static readonly AssetReferenceSprite Sprite =
-        Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
-
     internal static readonly AssetReferenceSprite Pictogram =
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
     public static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
 
-    private static FeatureDefinitionCustomInvocationPool _unlearn;
+    private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
 
     private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = new();
@@ -51,26 +48,10 @@ internal static class InventorClass
 
     internal static CharacterClassDefinition Class { get; private set; }
 
-    public static FeatureDefinitionPower InfusionPool { get; private set; }
+    public static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     private static FeatureDefinitionCastSpell SpellCasting { get; set; }
-
-    internal static FeatureDefinitionCustomInvocationPool Learn2Invocation { get; } =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolInfusionLearn2")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 2)
-            .AddToDB();
-
-    private static FeatureDefinitionCustomInvocationPool Learn4Invocation { get; } =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolInfusionLearn4")
-            .SetGuiPresentation(Category.Feature)
-            //adding base pool here instead of the pool power to make it properly work on pre-existing characters and not interfere with new feat
-            .SetCustomSubFeatures(InitialPool.Instance)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 4)
-            .AddToDB();
 
     public static CharacterClassDefinition Build()
     {
@@ -79,8 +60,10 @@ internal static class InventorClass
             throw new ArgumentException("Trying to build Inventor class additional time.");
         }
 
-        InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
+
+        _learn2 = BuildLearn(2);
+        _learn4 = BuildLearn(4);
         _unlearn = BuildUnlearn();
 
         Infusions.Build();
@@ -90,7 +73,7 @@ internal static class InventorClass
 
             #region Presentation
 
-            .SetGuiPresentation(Category.Class, Sprite)
+            .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Pictogram);
 
@@ -307,7 +290,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, Learn2Invocation, BuildInfusionPoolIncrease(), BuildToolExpertise())
+            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
             #endregion
 
@@ -331,7 +314,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, Learn2Invocation, BuildMagicAdept(),
+            .AddFeaturesAtLevel(10, _learn2, BuildMagicAdept(),
                 BuildInfusionPoolIncrease())
 
             #endregion
@@ -357,7 +340,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, Learn2Invocation, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
+            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
             #endregion
 
@@ -379,7 +362,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, Learn2Invocation, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(18, _learn2, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -455,6 +438,15 @@ internal static class InventorClass
             .AddToDB();
     }
 
+    private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
+    {
+        return CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolInfusionLearn" + points)
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.Infusion, points)
+            .AddToDB();
+    }
+
     private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
@@ -469,7 +461,7 @@ internal static class InventorClass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, Learn4Invocation)
+            .AddFeatureSet(InfusionPool, _learn4)
             .AddToDB();
     }
 
@@ -480,15 +472,6 @@ internal static class InventorClass
             .Create($"PowerUseModifierInventorInfusionPool{_infusionPoolIncreases++:D2}")
             .SetGuiPresentation("PowerUseModifierInventorInfusionPool", Category.Feature)
             .SetFixedValue(InfusionPool, 1)
-            .AddToDB();
-    }
-
-    internal static FeatureDefinition BuildInfusionPoolIncrease(int number, string name)
-    {
-        return FeatureDefinitionPowerUseModifierBuilder
-            .Create($"PowerUseModifierInventorInfusionPool{name}")
-            .SetGuiPresentation("PowerUseModifierTacticianGambitPool", Category.Feature)
-            .SetFixedValue(InfusionPool, number)
             .AddToDB();
     }
 
@@ -869,21 +852,6 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
-    }
-
-    private class InitialPool : IPowerUseModifier
-    {
-        private InitialPool()
-        {
-        }
-
-        public static IPowerUseModifier Instance { get; } = new InitialPool();
-        public FeatureDefinitionPower PowerPool => InfusionPool;
-
-        public int PoolChangeAmount(RulesetCharacter character)
-        {
-            return 4;
-        }
     }
 
     private class HasActiveInfusions : IPowerUseValidity

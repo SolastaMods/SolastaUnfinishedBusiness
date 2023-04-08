@@ -12,9 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
-    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
-    "Definition:PowerUseModifierInventorInfusionPoolFeatInfusionsAdept:f787a371-70f5-54fb-8b46-64025f88c474"
+    "Definition:FeatureSetInventorInfusions:db349abb-6477-5f34-b660-1755ee05f51f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
