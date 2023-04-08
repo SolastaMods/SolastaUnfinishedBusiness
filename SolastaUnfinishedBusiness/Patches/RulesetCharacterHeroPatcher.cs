@@ -896,7 +896,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
+    //PATCH: allow FeatureDefinitionSavingThrowAffinity to be validated with IsCharacterValidHandler
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsProficientWithSavingThrow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -918,7 +918,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
+    //PATCH: allow FeatureDefinitionSavingThrowAffinity to be validated with IsCharacterValidHandler
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseSavingThrowBonus))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
