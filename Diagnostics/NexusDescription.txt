@@ -258,6 +258,7 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
+[*][b]Infusion Adept[/b]: You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Iridescent Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.

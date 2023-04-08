@@ -15,6 +15,9 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel2 =
+        ValidateIsClass(string.Empty, 2);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel4 =
         ValidateIsClass(string.Empty, 4);
 

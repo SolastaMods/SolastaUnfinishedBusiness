@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -33,8 +34,9 @@ internal static class OtherFeats
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
+        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
-        var featMetamagic = BuildMetamagic();
+        var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
@@ -53,8 +55,9 @@ internal static class OtherFeats
             featAstralArms,
             featEldritchAdept,
             featHealer,
+            featInfusionAdept,
             featInspiringLeader,
-            featMetamagic,
+            featMetamagicAdept,
             featMobile,
             featMonkInitiate,
             featPickPocket,
@@ -80,6 +83,12 @@ internal static class OtherFeats
             elementalMasterGroup,
             featWarCaster,
             spellSniperGroup);
+
+        GroupFeats.FeatGroupGeneralAdept.AddFeats(
+            featEldritchAdept,
+            featInfusionAdept,
+            featMetamagicAdept,
+            featTacticianAdept);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -128,6 +137,23 @@ internal static class OtherFeats
                 MartialTactician.Learn2Gambit,
                 MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Infusions Adept
+
+    private static FeatDefinition BuildInfusionsAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatInfusionsAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                InventorClass.InfusionPool,
+                InventorClass.Learn2Invocation,
+                InventorClass.BuildInfusionPoolIncrease(2, "FeatInfusionsAdept"))
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 
@@ -403,11 +429,11 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Metamagic
+    #region Metamagic Adept
 
-    private static FeatDefinition BuildMetamagic()
+    private static FeatDefinition BuildMetamagicAdept()
     {
-        return FeatDefinitionBuilder
+        return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -426,6 +452,7 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 

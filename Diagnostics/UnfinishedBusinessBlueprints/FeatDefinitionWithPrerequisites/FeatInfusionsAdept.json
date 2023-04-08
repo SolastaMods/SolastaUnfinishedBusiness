@@ -1,7 +1,7 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
@@ -12,15 +12,15 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:PointPoolFeatMetamagicAdept:82f8bd37-2595-53f9-b70b-80a427ea1e22"
+    "Definition:InvocationPoolInfusionLearn2:bc593623-fe8b-5076-aaa3-e28dc2588e66",
+    "Definition:PowerInfusionPool:1c6f875b-98be-502c-91bc-cee37d423e7f",
+    "Definition:PowerUseModifierInventorInfusionPoolFeatInfusionsAdept:f787a371-70f5-54fb-8b46-64025f88c474"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMetamagicAdeptTitle",
-    "description": "Feat/&FeatMetamagicAdeptDescription",
+    "title": "Feat/&FeatInfusionsAdeptTitle",
+    "description": "Feat/&FeatInfusionsAdeptDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f81cb57-a32f-515e-8a8d-a75c96ef957d",
+  "guid": "c646c53d-8367-50b1-ae53-ab81766bc311",
   "contentPack": 9999,
-  "name": "FeatMetamagicAdept"
+  "name": "FeatInfusionsAdept"
 }
