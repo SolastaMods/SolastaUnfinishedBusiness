@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathDeceptiveHeritage:18a1678e-0ddf-5f83-b90c-11897aaf8f58",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsSorcerousSorrAkkath:69e68551-b66c-58c9-b55f-1901861ebc0d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageSorcerousSorrAkkathSpellSneakAttack:119433d7-d2fd-5f8f-a842-fdf14bb65ab7",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathBloodOfSorrAkkath:600793cb-1c50-5cce-a81a-42eb2364b8d6",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathDarknessAffinity:8f143830-2514-5371-beac-d6d68aa1e22d",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathTouchOfDarkness:afb11ef8-1f57-5999-9aba-07bfa7d847b2",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&SorcerousSorrAkkathTitle",
+    "description": "Subclass/&SorcerousSorrAkkathDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b684e069-deda-534b-839d-8eb0608b54c6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c8b69c20-c61f-5735-90ea-887f2dde70ce",
+  "contentPack": 9999,
+  "name": "SorcerousSorrAkkath"
+}

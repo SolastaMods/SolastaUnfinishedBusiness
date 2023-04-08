@@ -75,6 +75,7 @@ internal static class SubclassesContext
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new SorcerousFieldManipulator());
+        LoadSubclass(new SorcerousSorrAkkath());
         LoadSubclass(new SorcerousSpellBlade());
 
         // Monk

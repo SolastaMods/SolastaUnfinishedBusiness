@@ -1,0 +1,14 @@
+﻿Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que acertar com um ataque mágico se tiver vantagem na jogada de ataque. Você não precisa de vantagem na jogada de ataque se outro inimigo do alvo estiver a 1,5 metro dele, esse inimigo não estiver incapacitado e você não tiver desvantagem na jogada de ataque. O dano aumenta para 2d6 no 5º nível, 3d6 no 11º nível e 4d6 no 17º nível.
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=Feitiço Ataque Furtivo
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=Você se torna proficiente em habilidades Stealth e Deception, aprende o truque Venomous Spike e ganha 60 pés de visão no escuro.
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle=Herança enganosa
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=A partir do 6º nível, você se torna resistente a dano de veneno e ganha imunidade à condição de envenenado. Além disso, atingir uma criatura com o recurso Spell Sneak Attack impõe um teste de resistência de Constituição naquela criatura. Se a criatura falhar, ela ficará envenenada até o final do seu próximo turno.
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=Sangue de Sorr-Akkath
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=A partir do 14º nível, enquanto estiver na penumbra ou escuridão, você ganha o seguinte:\n• +2 na CA.\n• +2 nas jogadas de ataque.\n• +2 nos testes de resistência.{99 }• Regeneração de +2 pontos de vida no final do seu turno.
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=Afinidade Escuridão
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=A partir do 18º nível, você ganha a habilidade de corromper criaturas ao toque e sugar sua saúde. Usando sua ação como um ataque de feitiço com alcance de toque, cause 6d8 de dano necrótico a uma criatura ao acertar e cure metade do dano total causado. Você pode usar esse recurso três vezes por descanso longo e, em vez disso, pode pagar 4 Pontos de Feitiçaria se estiver sem uso.
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle=Toque da Escuridão
+Feedback/&AdditionalDamageSpellSneakAttackFormat=Feitiço Ataque Furtivo!
+Feedback/&AdditionalDamageSpellSneakAttackLine={0} executa um ataque furtivo de feitiço em {1} (+{2})
+Subclass/&SorcerousSorrAkkathDescription=Sua habilidade inata de conjuração vem da magia Sorr-Akkath que foi misturada com seu sangue, ou de seus ancestrais. Como possíveis origens desses feiticeiros, talvez você tenha passado por um experimento que envolveu o uso de sangue de um Sorak, um ancestral fez uma barganha com um Sorak ou você é simplesmente filho de um pai Sorak.
+Subclass/&SorcerousSorrAkkathTitle=Sorr-Akkath

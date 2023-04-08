@@ -163,7 +163,8 @@ internal static class CharacterContext
             WeaponTypeDefinitions.RapierType,
             WeaponTypeDefinitions.ScimitarType,
             WeaponTypeDefinitions.ShortbowType,
-            WeaponTypeDefinitions.WarhammerType
+            WeaponTypeDefinitions.WarhammerType,
+            CustomWeaponsContext.HandXbowWeaponType
         };
 
         foreach (var weaponTypeDefinition in weaponTypeDefinitions)
