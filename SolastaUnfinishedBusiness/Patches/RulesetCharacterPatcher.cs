@@ -22,11 +22,10 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class RulesetCharacterPatcher
 {
     // helper to get infusions modifiers from items
-    private static void EnumerateSpellCastingAffinityProviderFromItems(
+    private static void EnumerateISpellCastingAffinityProvider(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition,
-            RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
 
@@ -54,6 +53,20 @@ public static class RulesetCharacterPatcher
                 RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
                 null, definition.ParseSpecialFeatureTags()));
         }
+
+        // remove anything that is tagged as invalid
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
+    private static void EnumerateFeatureDefinitionRegeneration(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
@@ -800,7 +813,7 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
@@ -1332,7 +1345,7 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
@@ -1354,10 +1367,32 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
+                -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: allow modifiers from items to be considered on concentration checks
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindBestRegenerationFeature))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FindBestRegenerationFeature_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionRegeneration).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionRegeneration",
                 -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
