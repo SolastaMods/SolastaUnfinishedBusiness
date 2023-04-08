@@ -442,9 +442,8 @@ internal static class OtherFeats
                     .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.SorceryPoints,
-                        2)
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus,
+                        AttributeDefinitions.SorceryPoints)
                     .AddToDB(),
                 FeatureDefinitionPointPoolBuilder
                     .Create("PointPoolFeatMetamagicAdept")
