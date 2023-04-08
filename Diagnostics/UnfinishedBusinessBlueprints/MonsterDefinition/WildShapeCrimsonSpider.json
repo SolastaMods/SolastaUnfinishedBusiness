@@ -4,7 +4,8 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Monstrosity",
   "creatureTags": [
-    "WildShape"
+    "WildShape",
+    "CircleOfTheNight"
   ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,

@@ -54,26 +54,16 @@
   "staticPersonalityFlags": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 5,
-      "personalityFlag": "Normal"
+      "weight": 30,
+      "personalityFlag": "Slang"
     },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "Slang"
+      "weight": 5,
+      "personalityFlag": "Normal"
     }
   ],
   "optionalPersonalityFlags": [
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 8,
-      "personalityFlag": "Friendliness"
-    },
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 8,
-      "personalityFlag": "Helpfulness"
-    },
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
@@ -83,9 +73,22 @@
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
       "weight": 8,
       "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
     }
   ],
-  "defaultOptionalPersonalityFlags": [],
+  "defaultOptionalPersonalityFlags": [
+    "Pragmatism",
+    "Selfishness"
+  ],
   "forbiddenAlignments": [],
   "hasBackgroundQuest": false,
   "guiPresentation": {
