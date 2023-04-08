@@ -31,9 +31,6 @@ internal class CharacterBackgroundDefinitionBuilder
                 weight = weight, personalityFlag = personalityFlag
             });
 
-        Definition.staticPersonalityFlags.Sort((x, y) =>
-            String.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
-
         return this;
     }
 
@@ -46,8 +43,12 @@ internal class CharacterBackgroundDefinitionBuilder
                 weight = weight, personalityFlag = personalityFlag
             });
 
-        Definition.optionalPersonalityFlags.Sort((x, y) =>
-            String.Compare(x.PersonalityFlag, y.PersonalityFlag, StringComparison.CurrentCultureIgnoreCase));
+        return this;
+    }
+    
+    internal CharacterBackgroundDefinitionBuilder AddDefaultOptionalPersonality(string personalityFlag)
+    {
+        Definition.defaultOptionalPersonalityFlags.Add(personalityFlag);
 
         return this;
     }
