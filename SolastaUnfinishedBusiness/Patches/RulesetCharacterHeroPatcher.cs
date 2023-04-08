@@ -20,6 +20,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetCharacterHeroPatcher
 {
+    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshArmorClass))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -883,6 +893,50 @@ public static class RulesetCharacterHeroPatcher
             {
                 __result = string.Empty;
             }
+        }
+    }
+
+    //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsProficientWithSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsProficientWithSavingThrow_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
+                -1, "RulesetCharacterHero.FindBestRegenerationFeature",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseSavingThrowBonus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeBaseSavingThrowBonus_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
+                -1, "RulesetCharacterHero.ComputeBaseSavingThrowBonus",
+                new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
 }

@@ -54,7 +54,7 @@ public static class RulesetCharacterPatcher
                 null, definition.ParseSpecialFeatureTags()));
         }
 
-        // remove anything that is tagged as invalid
+        //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
         featuresToBrowse.RemoveAll(x =>
             !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
@@ -1376,7 +1376,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: allow modifiers from items to be considered on concentration checks
+    //PATCH: allow FeatureDefinitionRegeneration to be validated with IsCharacterValidHandler
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindBestRegenerationFeature))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1393,7 +1393,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionRegeneration",
-                -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
+                -1, "RulesetCharacter.FindBestRegenerationFeature",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
