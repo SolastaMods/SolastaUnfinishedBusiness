@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
@@ -72,6 +73,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
             .AddToDB();
 
         // another odd dice damage progression
@@ -84,23 +86,38 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         // Blood of Sorr-Akkath
 
+        var conditionBloodOfSorrAkkath = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionPoisoned, $"Condition{Name}{BloodOfSorrAkkath}")
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .AddToDB();
+
         var additionalDamageBloodOfSorrAkkath = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{BloodOfSorrAkkath}")
-            .SetGuiPresentationNoContent(true)
-            .SetDamageDice(DieType.D1, 0)
+            .SetGuiPresentation($"AdditionalDamage{Name}{SpellSneakAttack}", Category.Feature)
+            .SetNotificationTag(SpellSneakAttack)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 6, 5)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetSavingThrowData()
+            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
                     hasSavingThrow = true,
                     saveOccurence = TurnOccurenceType.EndOfTurn,
+                    saveAffinity = EffectSavingThrowType.Negates,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitions.ConditionPoisoned
+                    conditionDefinition = conditionBloodOfSorrAkkath,
                 })
+            .SetCustomSubFeatures(new FeatureDefinitionCustomCodeBloodOfSorrAkkath(additionalDamageSpellSneakAttack))
             .AddToDB();
+
+        // another odd dice damage progression
+        for (var i = 0; i < 4; i++)
+        {
+            additionalDamageBloodOfSorrAkkath.DiceByRankTable[i].diceNumber = 1;
+        }
 
         var featureSetBloodOfSorrAkkath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}{BloodOfSorrAkkath}")
@@ -139,7 +156,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddToDB();
 
         var regenerationDarknessAffinity = FeatureDefinitionRegenerationBuilder
-            .Create($"Regeneration{Name}{DarknessAffinity}")
+            .Create(FeatureDefinitionRegenerations.RegenerationRing, $"Regeneration{Name}{DarknessAffinity}")
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
             .SetDuration(DurationType.Round, 1)
             .SetRegenerationDice(DieType.D1, 0, 2)
@@ -149,7 +166,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var savingThrowAffinityDarknessAffinity = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}{DarknessAffinity}")
             .SetGuiPresentation(DARKNESS_AFFINITY_NAME, Category.Feature)
-            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D1, 2, false,
+            .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, DieType.D1, 2, false,
                 Charisma, Constitution, Dexterity, Intelligence, Strength, Wisdom)
             .SetCustomSubFeatures(ValidatorsCharacter.IsNotInBrightLight)
             .AddToDB();
@@ -174,6 +191,11 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet()
             .AddToDB();
+
+        // BUGFIX
+
+        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
         // MAIN
 
@@ -200,4 +222,24 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class FeatureDefinitionCustomCodeBloodOfSorrAkkath : IFeatureDefinitionCustomCode
+    {
+        private readonly FeatureDefinitionAdditionalDamage _featureDefinitionAdditionalDamage;
+
+        public FeatureDefinitionCustomCodeBloodOfSorrAkkath(
+            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
+        {
+            _featureDefinitionAdditionalDamage = featureDefinitionAdditionalDamage;
+        }
+
+        // remove original sneak attack as we've added a conditional one otherwise ours will never trigger
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == _featureDefinitionAdditionalDamage);
+            }
+        }
+    }
 }

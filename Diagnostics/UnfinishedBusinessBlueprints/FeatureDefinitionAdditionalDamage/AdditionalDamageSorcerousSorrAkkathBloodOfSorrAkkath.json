@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
+  "notificationTag": "SpellSneakAttack",
   "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -17,13 +17,114 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D1",
-  "damageDiceNumber": 0,
+  "damageDieType": "D6",
+  "damageDiceNumber": 1,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": "None",
-  "diceByRankTable": [],
+  "damageAdvancement": "ClassLevel",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 7,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 8,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 9,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 17,
+      "diceNumber": 4
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 18,
+      "diceNumber": 4
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 19,
+      "diceNumber": 4
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
+      "diceNumber": 4
+    }
+  ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
@@ -32,15 +133,15 @@
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",
-  "damageSaveAffinity": "Negates",
+  "damageSaveAffinity": "None",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
-      "saveAffinity": "None",
+      "conditionDefinition": "Definition:ConditionSorcerousSorrAkkathBloodOfSorrAkkath:dc2b991d-480d-56a3-8811-9dddcf7d32e5",
+      "saveAffinity": "Negates",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
     }
@@ -58,9 +159,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle",
+    "description": "Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
