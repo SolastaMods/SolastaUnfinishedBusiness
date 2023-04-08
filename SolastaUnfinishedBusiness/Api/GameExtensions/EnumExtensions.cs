@@ -20,7 +20,8 @@ internal enum ExtraSituationalContext
     SummonerIsNextToBeast = 1005,
     HasSpecializedWeaponInHands = 1006,
     HasLongswordInHands = 1007,
-    HasGreatswordInHands = 1008
+    HasGreatswordInHands = 1008,
+    IsNotInBrightLight = 1009
 }
 
 #if false
