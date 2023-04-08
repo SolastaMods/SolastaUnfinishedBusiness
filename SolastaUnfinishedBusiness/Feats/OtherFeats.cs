@@ -33,8 +33,9 @@ internal static class OtherFeats
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
+        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
-        var featMetamagic = BuildMetamagic();
+        var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
@@ -53,8 +54,9 @@ internal static class OtherFeats
             featAstralArms,
             featEldritchAdept,
             featHealer,
+            featInfusionAdept,
             featInspiringLeader,
-            featMetamagic,
+            featMetamagicAdept,
             featMobile,
             featMonkInitiate,
             featPickPocket,
@@ -80,6 +82,12 @@ internal static class OtherFeats
             elementalMasterGroup,
             featWarCaster,
             spellSniperGroup);
+
+        GroupFeats.FeatGroupGeneralAdept.AddFeats(
+            featEldritchAdept,
+            featInfusionAdept,
+            featMetamagicAdept,
+            featTacticianAdept);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -128,6 +136,20 @@ internal static class OtherFeats
                 MartialTactician.Learn2Gambit,
                 MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Infusions Adept
+
+    private static FeatDefinition BuildInfusionsAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatInfusionsAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInventorInfusions"))
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 
@@ -403,11 +425,11 @@ internal static class OtherFeats
 
     #endregion
 
-    #region Metamagic
+    #region Metamagic Adept
 
-    private static FeatDefinition BuildMetamagic()
+    private static FeatDefinition BuildMetamagicAdept()
     {
-        return FeatDefinitionBuilder
+        return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -416,9 +438,8 @@ internal static class OtherFeats
                     .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.SorceryPoints,
-                        2)
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus,
+                        AttributeDefinitions.SorceryPoints)
                     .AddToDB(),
                 FeatureDefinitionPointPoolBuilder
                     .Create("PointPoolFeatMetamagicAdept")
@@ -426,6 +447,7 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 

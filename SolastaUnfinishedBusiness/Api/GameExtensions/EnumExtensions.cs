@@ -16,11 +16,12 @@ internal enum ExtraSituationalContext
     MainWeaponIsMeleeOrUnarmed = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
-    TargetIsNotEffectSource = 1004,
-    SummonerIsNextToBeast = 1005,
-    HasSpecializedWeaponInHands = 1006,
-    HasLongswordInHands = 1007,
-    HasGreatswordInHands = 1008
+    TargetIsNotEffectSource = 1003,
+    SummonerIsNextToBeast = 1004,
+    HasSpecializedWeaponInHands = 1005,
+    HasLongswordInHands = 1006,
+    HasGreatswordInHands = 1007,
+    IsNotInBrightLight = 1008
 }
 
 #if false

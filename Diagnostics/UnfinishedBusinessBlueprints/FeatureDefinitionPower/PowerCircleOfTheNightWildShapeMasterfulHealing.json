@@ -80,7 +80,7 @@
           "healingComputation": "Dice",
           "diceNumber": 4,
           "dieType": "D8",
-          "bonusHealing": 9,
+          "bonusHealing": 0,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
         },
@@ -319,7 +319,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerCircleOfTheNightWildShapeImprovedHealing:6ba5156a-7b15-53e3-b0c7-44ffd76d0af5",
+  "overriddenPower": "Definition:PowerCircleOfTheNightWildShapeSuperiorHealing:f51d8ec5-e1da-567b-9a04-aab5af3ed007",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

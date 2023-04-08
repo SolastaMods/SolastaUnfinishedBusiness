@@ -16,24 +16,24 @@ internal static class CreditsDisplay
     {
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
-            "Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, College of Life, " +
-            "Circle of the Ancient Forest, Bladedancer, Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, " +
-            "Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, " +
-            "Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass"),
+            "Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, " +
+            "Circle of the Ancient Forest, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, " +
+            "Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, " +
+            "Way of the Discordance, Way of the Silhouette, Martial Royal Knight, Martial Weapon Master, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
-            "quality of life, Soulblade, Tactician, Way of Distant Hand, Inventor"),
+            "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
-            "builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield"),
-        ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon"),
-        ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
+            "builders, gameplay, rules, quality of life, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
+        ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
+        ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
-        ("DubhHerder", "quality of life, spells, Elementalist, Moonlit, Riftwalker"),
         ("HiddenHax",
             "homebrew content design [Path of the Elemental Fury, Forceblade, Weapon Master, Oath of Dread, Path of the Reaver, Arcane Scoundrel, Duelist, Slayer, Way of the Discordance, Way of the Dragon]"),
         ("Taco",
             "homebrew content design [Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons"),
+        ("DubhHerder", "quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]"),
         ("Stuffies12", "homebrew content design [Ranger Hellwalker, Ranger Lightbearer]"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),

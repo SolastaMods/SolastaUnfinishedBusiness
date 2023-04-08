@@ -162,7 +162,9 @@
   </ClassEnabled>
   <SubclassSliderPosition>4</SubclassSliderPosition>
   <SubclassEnabled>
+    <string>PathOfTheElements</string>
     <string>PathOfTheLight</string>
+    <string>PathOfTheReaver</string>
     <string>PathOfTheSpirits</string>
     <string>CollegeOfGuts</string>
     <string>CollegeOfHarlequin</string>
@@ -177,12 +179,16 @@
     <string>MartialRoyalKnight</string>
     <string>MartialSpellShield</string>
     <string>MartialTactician</string>
+    <string>MartialWeaponMaster</string>
     <string>OathOfAltruism</string>
     <string>OathOfAncients</string>
     <string>OathOfDread</string>
     <string>OathOfHatred</string>
     <string>RangerArcanist</string>
+    <string>RangerLightBearer</string>
+    <string>RangerHellWalker</string>
     <string>RangerWildMaster</string>
+    <string>RoguishAcrobat</string>
     <string>RoguishArcaneScoundrel</string>
     <string>RoguishDuelist</string>
     <string>RoguishOpportunist</string>
@@ -190,6 +196,8 @@
     <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
     <string>FieldManipulator</string>
+    <string>SorcerousSorrAkkath</string>
+    <string>SorcerousSpellBlade</string>
     <string>WayOfTheDiscordance</string>
     <string>WayOfTheDistantHand</string>
     <string>WayOfTheDragon</string>
@@ -202,13 +210,6 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
-    <string>RoguishAcrobat</string>
-    <string>PathOfTheReaver</string>
-    <string>MartialWeaponMaster</string>
-    <string>RangerLightBearer</string>
-    <string>RangerHellWalker</string>
-    <string>SorcerousSpellBlade</string>
-    <string>PathOfTheElements</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -236,6 +237,7 @@
     <string>FeatCelestialTouchedWis</string>
     <string>FeatCharismaticDefense</string>
     <string>FeatCharismaticPrecision</string>
+    <string>FeatCleavingAttack</string>
     <string>FeatCrippling</string>
     <string>FeatCrusherCon</string>
     <string>FeatCrusherStr</string>
@@ -253,11 +255,17 @@
     <string>FeatElementalAdeptDamageFire</string>
     <string>FeatElementalAdeptDamageLightning</string>
     <string>FeatElementalAdeptDamageThunder</string>
+    <string>FeatElementalMasterDamageAcid</string>
+    <string>FeatElementalMasterDamageCold</string>
+    <string>FeatElementalMasterDamageFire</string>
+    <string>FeatElementalMasterDamageLightning</string>
+    <string>FeatElementalMasterDamageThunder</string>
     <string>FeatElvenAccuracyCharisma</string>
     <string>FeatElvenAccuracyDexterity</string>
     <string>FeatElvenAccuracyIntelligence</string>
     <string>FeatElvenAccuracyWisdom</string>
     <string>FeatExecutioner</string>
+    <string>FeatExpandTheHunt</string>
     <string>FeatFadeAwayDex</string>
     <string>FeatFadeAwayInt</string>
     <string>FeatFellHanded</string>
@@ -269,10 +277,16 @@
     <string>FeatFlameTouchedWis</string>
     <string>FeatGreatWeapon</string>
     <string>FeatHandAndAHalf</string>
+    <string>FeatHardyCon</string>
+    <string>FeatHardyStr</string>
     <string>FeatHealer</string>
     <string>FeatHeavyArmorMaster</string>
     <string>FeatImprovedCritical</string>
     <string>FeatInspiringLeader</string>
+    <string>FeatIridescentTouchedCha</string>
+    <string>FeatIridescentTouchedInt</string>
+    <string>FeatIridescentTouchedWis</string>
+    <string>FeatLongswordFinesse</string>
     <string>FeatMagicInitiateBard</string>
     <string>FeatMagicInitiateCleric</string>
     <string>FeatMagicInitiateDruid</string>
@@ -289,6 +303,7 @@
     <string>FeatPickPocket</string>
     <string>FeatPiercerDex</string>
     <string>FeatPiercerStr</string>
+    <string>FeatPoisoner</string>
     <string>FeatPoisonousSkin</string>
     <string>FeatPolearmExpert</string>
     <string>FeatPotentSpellcasterBard</string>
@@ -298,6 +313,8 @@
     <string>FeatPotentSpellcasterSorcerer</string>
     <string>FeatPotentSpellcasterWizard</string>
     <string>FeatPowerAttack</string>
+    <string>FeatPrimalRageCon</string>
+    <string>FeatPrimalRageStr</string>
     <string>FeatProtection</string>
     <string>FeatPugilist</string>
     <string>FeatRangedExpert</string>
@@ -313,6 +330,7 @@
     <string>FeatShieldExpert</string>
     <string>FeatSlasherDex</string>
     <string>FeatSlasherStr</string>
+    <string>FeatSlayTheEnemies</string>
     <string>FeatSpearMastery</string>
     <string>FeatSpellSniperDruid</string>
     <string>FeatSpellSniperSorcerer</string>
@@ -322,6 +340,7 @@
     <string>FeatSquatNimblenessDex</string>
     <string>FeatSquatNimblenessStr</string>
     <string>FeatSuperiorCritical</string>
+    <string>FeatTacticianAdept</string>
     <string>FeatTelekineticCha</string>
     <string>FeatTelekineticInt</string>
     <string>FeatTelekineticWis</string>
@@ -331,30 +350,13 @@
     <string>FeatToxicologistInt</string>
     <string>FeatToxicologistWis</string>
     <string>FeatTwoWeapon</string>
-    <string>FeatWarCaster</string>
-    <string>FeatWiseDefense</string>
-    <string>FeatWisePrecision</string>
-    <string>FeatPrimalRageCon</string>
-    <string>FeatPrimalRageStr</string>
-    <string>FeatCleavingAttack</string>
-    <string>FeatElementalMasterDamageAcid</string>
-    <string>FeatElementalMasterDamageCold</string>
-    <string>FeatElementalMasterDamageFire</string>
-    <string>FeatElementalMasterDamageLightning</string>
-    <string>FeatElementalMasterDamageThunder</string>
-    <string>FeatHardyCon</string>
-    <string>FeatHardyStr</string>
-    <string>FeatExpandTheHunt</string>
-    <string>FeatLongswordFinesse</string>
-    <string>FeatPoisoner</string>
-    <string>FeatSlayTheEnemies</string>
     <string>FeatVerdantTouchedCha</string>
     <string>FeatVerdantTouchedInt</string>
     <string>FeatVerdantTouchedWis</string>
-    <string>FeatTacticianAdept</string>
-    <string>FeatIridescentTouchedCha</string>
-    <string>FeatIridescentTouchedInt</string>
-    <string>FeatIridescentTouchedWis</string>
+    <string>FeatWarCaster</string>
+    <string>FeatWiseDefense</string>
+    <string>FeatWisePrecision</string>
+    <string>FeatInfusionsAdept</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -379,6 +381,7 @@
     <string>FeatGroupCriticalVirtuoso</string>
     <string>FeatGroupCrusher</string>
     <string>FeatGroupElementalAdept</string>
+    <string>FeatGroupElementalMaster</string>
     <string>FeatGroupElementalTouch</string>
     <string>FeatGroupElvenAccuracy</string>
     <string>FeatGroupEnchanter</string>
@@ -386,12 +389,15 @@
     <string>FeatGroupTeleportation</string>
     <string>FeatGroupFightingStyle</string>
     <string>FeatGroupFlameTouched</string>
+    <string>FeatGroupHardy</string>
+    <string>FeatGroupIridescentTouched</string>
     <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupMediumArmor</string>
     <string>FeatGroupPiercer</string>
     <string>FeatGroupPlaneTouchedMagic</string>
     <string>FeatGroupPotentSpellcaster</string>
     <string>FeatGroupPrecisionFocused</string>
+    <string>FeatGroupPrimalRage</string>
     <string>FeatGroupRaceBound</string>
     <string>FeatGroupRevenantGreatSword</string>
     <string>FeatGroupShadowTouched</string>
@@ -403,11 +409,8 @@
     <string>FeatGroupTools</string>
     <string>FeatGroupToxicologist</string>
     <string>FeatGroupDefenseExpert</string>
-    <string>FeatGroupPrimalRage</string>
-    <string>FeatGroupElementalMaster</string>
-    <string>FeatGroupHardy</string>
     <string>FeatGroupVerdantTouched</string>
-    <string>FeatGroupIridescentTouched</string>
+    <string>FeatGroupGeneralAdept</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -1140,4 +1143,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

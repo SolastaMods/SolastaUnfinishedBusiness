@@ -27,9 +27,6 @@ internal static class InventorClass
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
-    private static readonly AssetReferenceSprite Sprite =
-        Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
-
     internal static readonly AssetReferenceSprite Pictogram =
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
@@ -51,7 +48,7 @@ internal static class InventorClass
 
     internal static CharacterClassDefinition Class { get; private set; }
 
-    public static FeatureDefinitionPower InfusionPool { get; private set; }
+    public static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
     public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     private static FeatureDefinitionCastSpell SpellCasting { get; set; }
@@ -63,7 +60,6 @@ internal static class InventorClass
             throw new ArgumentException("Trying to build Inventor class additional time.");
         }
 
-        InfusionPool = BuildInfusionPool();
         SpellCasting = BuildSpellCasting();
 
         _learn2 = BuildLearn(2);
@@ -77,7 +73,7 @@ internal static class InventorClass
 
             #region Presentation
 
-            .SetGuiPresentation(Category.Class, Sprite)
+            .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
             .SetPictogram(Pictogram);
 
