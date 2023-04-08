@@ -1,0 +1,2 @@
+WildShapeWaterElemental	Title='Monster/&IceElemental_Title'.
+WildShapeWaterElemental	Description='Monster/&IceElemental_Description'.

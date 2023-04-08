@@ -88,9 +88,6 @@ All settings start disabled by default.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Dark Kobold[/b]: Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [*][b]Draconic Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
-[*][b]Asmodeus[/b]: The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
-[*][b]Mephistopheles[/b]: Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
-[*][b]Zariel[/b]: Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 [/list]
 
 [size=3][b]Classes[/b][/size]
@@ -142,6 +139,7 @@ All settings start disabled by default.
 [*][b]Slayer[/b]: Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+[*][b]Sorr-Akkath[/b]: Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 [*][b]Forceblade[/b]: Forceblades combine martial prowess with inborn magical talents to outmatch their enemies.
 [*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 [*][b]Way of Distant Hand[/b]: Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
@@ -260,6 +258,7 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
+[*][b]Infusion Adept[/b]: You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 [*][b]Iridescent Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
@@ -282,7 +281,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain 2 sorcery points to spend on it.
+[*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain half your proficiency bonus rounded up in sorcery points to spend on it.
 [*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 ft and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 [*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 [*][b]Natural Fluidity[/b]: You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
@@ -484,7 +483,7 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
-[*][b]Web[/b]: You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that starts its turn in the webs or that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its actions to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.
+[*][b]Web[/b]: You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its actions to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.
 [*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
 A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 [*][b]Crusader's Mantle[/b]: Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
@@ -566,16 +565,16 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Acrobat, Arcane Scoundrel, Duelist, Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Bladedancer, Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Oath of Dread, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
-[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Soulblade, Tactician, Way of Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Way of the Discordance, Way of the Silhouette, Martial Royal Knight, Martial Weapon Master, Multiclass
+[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
-[*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon
-[*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
+[*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield
+[*][b]Haxermn[/b]: spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon
+[*][b]Nd[/b]: College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
-[*][b]DubhHerder[/b]: quality of life, spells, Elementalist, Moonlit, Riftwalker
 [*][b]HiddenHax[/b]: homebrew content design [Path of the Elemental Fury, Forceblade, Weapon Master, Oath of Dread, Path of the Reaver, Arcane Scoundrel, Duelist, Slayer, Way of the Discordance, Way of the Dragon]
 [*][b]Taco[/b]: homebrew content design [Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
+[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
 [*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [*][b]tivie[/b]: Circle of the Night, Path of the Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist

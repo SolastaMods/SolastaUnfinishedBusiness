@@ -44,10 +44,12 @@ internal static class BackgroundsBuilders
                         SkillDefinitions.Nature,
                         SkillDefinitions.Perception)
                     .AddToDB())
-            .AddOptionalPersonality("Selfishness", 8)
+            .AddDefaultOptionalPersonality("Pragmatism")
+            .AddDefaultOptionalPersonality("Selfishness")
             .AddOptionalPersonality("Pragmatism", 8)
+            .AddOptionalPersonality("Selfishness", 8)
+            .AddOptionalPersonality("Self-Preservation", 8)
             .AddOptionalPersonality("Friendliness", 8)
-            .AddOptionalPersonality("Helpfulness", 8)
             .AddStaticPersonality("Slang", 30)
             .AddStaticPersonality("Normal", 5)
             .AddEquipmentRow(new List<CharacterClassDefinition.HeroEquipmentOption>

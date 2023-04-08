@@ -531,10 +531,12 @@ internal static class SrdAndHouseRulesContext
             if (Main.Settings.AllowClubsToBeThrown)
             {
                 itemDefinition.WeaponDescription.WeaponTags.Add(TagsDefinitions.WeaponTagThrown);
+                itemDefinition.WeaponDescription.maxRange = 10;
             }
             else
             {
                 itemDefinition.WeaponDescription.WeaponTags.Remove(TagsDefinitions.WeaponTagThrown);
+                itemDefinition.WeaponDescription.maxRange = 5;
             }
         }
     }

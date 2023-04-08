@@ -4,25 +4,26 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Elemental",
   "creatureTags": [
-    "WildShape"
+    "WildShape",
+    "CircleOfTheNight"
   ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "Neutral",
-  "armorClass": 14,
+  "armorClass": 17,
   "armor": "",
   "hitDice": 12,
   "hitDiceType": "D10",
-  "hitPointsBonus": 48,
-  "standardHitPoints": 114,
+  "hitPointsBonus": 44,
+  "standardHitPoints": 104,
   "abilityScores": [
+    16,
     18,
-    14,
-    18,
-    5,
+    16,
+    6,
     10,
-    8
+    6
   ],
   "savingThrowScores": [],
   "skillScores": [],
@@ -93,6 +94,11 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
     "Definition:ConditionAffinityGrappledImmunity:c71d4f4faab7c754fbe9d52fa8ca428b",
     "Definition:ConditionAffinityParalyzedmmunity:fb168e0f7aeed9c479746505d1df5da7",
@@ -101,16 +107,12 @@
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:ConditionAffinityRestrainedmmunity:76af0d7e11d8bf6488233fd523d0616b",
     "Definition:ConditionAffinityUnconsciousImmunity:006c19a6f1d0e4044a7b435026bc426c",
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
-    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
-    "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
-    "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
+    "Definition:DamageAffinityFireVulnerability:3f6fefd9cd5a7e442b3173bafed47822",
+    "Definition:PowerIceElementalBlizzard:7415e71a3e5e7ab45b5aaf24aa74f108"
   ],
   "attackIterations": [
     {
@@ -247,12 +249,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&WildShapeWaterElementalTitle",
-    "description": "Monster/&WildShapeWaterElementalDescription",
+    "title": "Monster/&IceElemental_Title",
+    "description": "Monster/&IceElemental_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "050ecb18a08943846979502198fcc919",
-      "m_SubObjectName": "CustomPortrait_Air_Elemental",
+      "m_AssetGUID": "eeaee0bf39d0c5546a94f6ae51f86f29",
+      "m_SubObjectName": "CustomPortrait_IceElemental",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

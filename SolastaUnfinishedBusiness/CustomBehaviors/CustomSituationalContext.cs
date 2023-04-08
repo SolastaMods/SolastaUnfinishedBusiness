@@ -30,6 +30,8 @@ internal static class CustomSituationalContext
 
         return (ExtraSituationalContext)context switch
         {
+            ExtraSituationalContext.IsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
+
             ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
 
             ExtraSituationalContext.HasLongswordInHands =>

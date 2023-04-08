@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
@@ -16,6 +17,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
+    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
     [HarmonyPatch(typeof(RulesetImplementationManager),
         nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -601,6 +612,28 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: support for `IRestrictedContextValidator` feature
             __result = RestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
                 rangedAttack, attackMode, rulesetEffect);
+        }
+    }
+
+    //PATCH: allow ISavingThrowAffinityProvider to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TryRollSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TryRollSavingThrow_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
+                -1, "RulesetImplementationManager.TryRollSavingThrow",
+                new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
 }

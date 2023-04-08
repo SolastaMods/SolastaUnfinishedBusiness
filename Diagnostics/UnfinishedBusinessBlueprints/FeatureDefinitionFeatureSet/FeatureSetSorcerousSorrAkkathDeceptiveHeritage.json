@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:SenseDarkvision12:b7ab84f45ce51764ca9c430f745a6b4e",
+    "Definition:ProficiencySorcerousSorrAkkathDeceptiveHeritage:3fa28dd7-2af9-5867-b2ac-3191bf071bca",
+    "Definition:BonusCantripsSorcerousSorrAkkathDeceptiveHeritage:697865d6-ddc5-515d-8561-d8518d4454e0"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle",
+    "description": "Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "18a1678e-0ddf-5f83-b90c-11897aaf8f58",
+  "contentPack": 9999,
+  "name": "FeatureSetSorcerousSorrAkkathDeceptiveHeritage"
+}

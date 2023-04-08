@@ -1,7 +1,7 @@
 {
   "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
@@ -11,16 +11,12 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:PointPoolFeatMetamagicAdept:82f8bd37-2595-53f9-b70b-80a427ea1e22"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMetamagicAdeptTitle",
-    "description": "Feat/&FeatMetamagicAdeptDescription",
+    "title": "Feat/&FeatGroupGeneralAdeptTitle",
+    "description": "Eldritch Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f81cb57-a32f-515e-8a8d-a75c96ef957d",
+  "guid": "9677216f-edab-5910-a6bb-0296ce05203b",
   "contentPack": 9999,
-  "name": "FeatMetamagicAdept"
+  "name": "FeatGroupGeneralAdept"
 }

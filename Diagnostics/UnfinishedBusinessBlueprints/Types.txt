@@ -33,6 +33,7 @@ FeatureDefinitionPerceptionAffinity
 FeatureDefinitionPointPool
 FeatureDefinitionPower
 FeatureDefinitionProficiency
+FeatureDefinitionRegeneration
 FeatureDefinitionSavingThrowAffinity
 FeatureDefinitionSense
 FeatureDefinitionSubclassChoice

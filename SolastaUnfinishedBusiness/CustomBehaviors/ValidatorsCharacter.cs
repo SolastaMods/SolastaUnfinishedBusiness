@@ -54,6 +54,12 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
         ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
 
+    internal static readonly IsCharacterValidHandler IsNotInBrightLight = character =>
+        HasAnyOfLightingStates(
+            LocationDefinitions.LightingState.Darkness,
+            LocationDefinitions.LightingState.Unlit,
+            LocationDefinitions.LightingState.Dim)(character);
+
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
         return character => conditions.Any(character.HasConditionOfType);
@@ -62,6 +68,17 @@ internal static class ValidatorsCharacter
     internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
     {
         return character => !conditions.Any(character.HasConditionOfType);
+    }
+
+    private static IsCharacterValidHandler HasAnyOfLightingStates(
+        params LocationDefinitions.LightingState[] lightingStates)
+    {
+        return character =>
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null && lightingStates.Contains(gameLocationCharacter.LightingState);
+        };
     }
 
     internal static IsCharacterValidHandler HasMainHandWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)

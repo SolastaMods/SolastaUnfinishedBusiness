@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttackModifierSorcerousSorrAkkathDarknessAffinity:c26d9050-2092-586d-9b50-05083d9b590c",
+    "Definition:AttributeModifierSorcerousSorrAkkathDarknessAffinity:e7705f1d-4447-5473-ab90-afc44a172f5d",
+    "Definition:MagicAffinitySorcerousSorrAkkathDarknessAffinity:33563ac8-6f69-52ba-bd14-2c28e3f792fd",
+    "Definition:RegenerationSorcerousSorrAkkathDarknessAffinity:47388b81-48f0-5f5d-8f48-4f1683d25b8a",
+    "Definition:SavingThrowAffinitySorcerousSorrAkkathDarknessAffinity:01d34613-f72b-596c-872f-ec312d19f26b"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle",
+    "description": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8f143830-2514-5371-beac-d6d68aa1e22d",
+  "contentPack": 9999,
+  "name": "FeatureSetSorcerousSorrAkkathDarknessAffinity"
+}
