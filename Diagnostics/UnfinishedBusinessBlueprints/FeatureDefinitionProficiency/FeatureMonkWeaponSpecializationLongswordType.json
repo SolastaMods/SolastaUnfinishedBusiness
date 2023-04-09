@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "LongswordType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2d4d980b-0923-525e-8c01-b3577c11c31b",
+  "guid": "3b6eb99f-1c5e-5fd0-854b-20495ea771de",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationWarhammerType"
+  "name": "FeatureMonkWeaponSpecializationLongswordType"
 }

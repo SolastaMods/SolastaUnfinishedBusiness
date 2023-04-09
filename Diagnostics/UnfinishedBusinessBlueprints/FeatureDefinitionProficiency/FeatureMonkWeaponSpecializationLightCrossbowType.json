@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "LightCrossbowType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c7ade28-509a-5a84-a7e7-23228de83eb0",
+  "guid": "746c6f30-53ea-504a-b980-fbe59659b940",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationMorningstarType"
+  "name": "FeatureMonkWeaponSpecializationLightCrossbowType"
 }

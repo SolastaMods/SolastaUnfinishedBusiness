@@ -508,25 +508,29 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    //PATCH: allow Monk Specialized Weapon feature to work correctly
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsWieldingMonkWeapon_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
-            //PATCH: consider bow monk weapon for Way of the Distant Hand
-
-            if (__result)
-            {
-                return;
-            }
-
             var main = __instance.GetMainWeapon();
             var off = __instance.GetOffhandWeapon();
-            __result = WayOfTheDistantHand.IsMonkWeapon(__instance, main)
-                       || WayOfTheDistantHand.IsMonkWeapon(__instance, off);
+
+            var isMainMonkWeapon = main == null || !main.ItemDefinition.IsWeapon ||
+                        main.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                        __instance.IsMonkWeapon(main.ItemDefinition);
+
+            var isOffMonkWeapon = off == null || !off.ItemDefinition.IsWeapon ||
+                        off.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                        __instance.IsMonkWeapon(off.ItemDefinition);
+
+            __result = isMainMonkWeapon && isOffMonkWeapon;
+
+            return false;
         }
     }
 

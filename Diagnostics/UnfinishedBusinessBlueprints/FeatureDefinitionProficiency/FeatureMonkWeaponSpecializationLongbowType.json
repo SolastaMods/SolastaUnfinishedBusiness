@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "LongbowType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "746c6f30-53ea-504a-b980-fbe59659b940",
+  "guid": "400a98a9-be89-5696-9391-33fb65fe8f88",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationLightCrossbowType"
+  "name": "FeatureMonkWeaponSpecializationLongbowType"
 }

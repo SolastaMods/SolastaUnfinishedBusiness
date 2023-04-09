@@ -2,6 +2,7 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -129,6 +130,20 @@ internal static class ValidatorsCharacter
     //
     // BOOL VALIDATORS
     //
+
+    internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
+    {
+        var monkWeaponSpecializations = character.GetSubFeaturesByType<CharacterContext.MonkWeaponSpecialization>();
+
+        return weaponDescription == null || weaponDescription.IsMonkWeaponOrUnarmed() ||
+               monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
+    }
+
+    internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
+    {
+        return itemDefinition != null && itemDefinition.IsWeapon &&
+               character.IsMonkWeapon(itemDefinition.WeaponDescription);
+    }
 
     internal static bool IsFreeOffhandVanilla(RulesetCharacter character)
     {
