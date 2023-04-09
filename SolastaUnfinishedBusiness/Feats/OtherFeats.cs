@@ -149,7 +149,7 @@ internal static class OtherFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(InventorClass.InfusionPool, InventorClass.Learn2Infusion)
+            .SetFeatures(InventorClass.InfusionPool, InventorClass.BuildLearn(2, "FeatInfusionsAdept"))
             .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }

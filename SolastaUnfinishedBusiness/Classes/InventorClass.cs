@@ -23,12 +23,15 @@ namespace SolastaUnfinishedBusiness.Classes;
 
 internal static class InventorClass
 {
-    public const string ClassName = "Inventor";
+    internal const string ClassName = "Inventor";
+
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
     internal static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
+
     private static SpellListDefinition _spellList;
+    private static FeatureDefinitionCastSpell _spellCasting;
     private static int _infusionPoolIncreases;
     private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = new();
 
@@ -40,21 +43,20 @@ internal static class InventorClass
             RechargeRate.LongRest)
         .AddToDB();
 
-    internal static FeatureDefinitionCustomInvocationPool Learn2Infusion { get; private set; }
-    private static FeatureDefinitionCustomInvocationPool Learn4Infusion { get; set; }
+    private static FeatureDefinitionCastSpell SpellCasting => _spellCasting ??= BuildSpellCasting();
 
     internal static CharacterClassDefinition Class { get; private set; }
-
-    public static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
-    public static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
-
-    private static FeatureDefinitionCastSpell SpellCasting { get; set; }
+    internal static FeatureDefinitionPower InfusionPool { get; } = BuildInfusionPool();
+    internal static SpellListDefinition SpellList => _spellList ??= BuildSpellList();
 
     public static CharacterClassDefinition Build()
     {
-        SpellCasting = BuildSpellCasting();
-        Learn2Infusion = BuildLearn(2);
-        Learn4Infusion = BuildLearn(4);
+        var learn2Infusion = BuildLearn(2);
+        var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInventorInfusions")
+            .SetGuiPresentation(InfusionsName, Category.Feature)
+            .AddFeatureSet(InfusionPool, BuildLearn(4))
+            .AddToDB();
 
         var unlearn = BuildUnlearn();
 
@@ -258,7 +260,7 @@ internal static class InventorClass
 
             #region Level 02
 
-            .AddFeaturesAtLevel(2, BuildInfuseFeatureSet())
+            .AddFeaturesAtLevel(2, featureSetInventorInfusions)
 
             #endregion
 
@@ -282,7 +284,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, Learn2Infusion, BuildInfusionPoolIncrease(), BuildToolExpertise())
+            .AddFeaturesAtLevel(6, learn2Infusion, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
             #endregion
 
@@ -306,7 +308,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, Learn2Infusion, BuildMagicAdept(),
+            .AddFeaturesAtLevel(10, learn2Infusion, BuildMagicAdept(),
                 BuildInfusionPoolIncrease())
 
             #endregion
@@ -332,7 +334,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, Learn2Infusion, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
+            .AddFeaturesAtLevel(14, learn2Infusion, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
             #endregion
 
@@ -354,7 +356,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, Learn2Infusion, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(18, learn2Infusion, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -430,10 +432,12 @@ internal static class InventorClass
             .AddToDB();
     }
 
-    private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
+    internal static FeatureDefinitionCustomInvocationPool BuildLearn(int points, string label = null)
     {
+        label ??= points.ToString();
+
         return CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolInfusionLearn" + points)
+            .Create($"InvocationPoolInfusionLearn{label}")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Infusion, points)
             .AddToDB();
@@ -445,15 +449,6 @@ internal static class InventorClass
             .Create("InvocationPoolInventorUnlearnInfusion")
             .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.Infusion, 1, true)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildInfuseFeatureSet()
-    {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetInventorInfusions")
-            .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, Learn4Infusion)
             .AddToDB();
     }
 
@@ -594,8 +589,7 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            //.SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetCustomSubFeatures(IsPowerPool.Marker, HasModifiedUses.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }
