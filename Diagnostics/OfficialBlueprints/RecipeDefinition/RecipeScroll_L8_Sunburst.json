@@ -1,0 +1,64 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollSunburst:e680b64332272644aaac117531a2739f",
+  "stackCount": 1,
+  "craftingHours": 6,
+  "craftingDC": 25,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 4,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 4,
+      "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_LilyOfTheBadlands:57fcf1816b97be04dbcc72ff373e067e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
+    }
+  ],
+  "spellDefinition": "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollSunburstTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c6409d68212bcaa48bbbbb0f476efbb9",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L8_Sunburst"
+}

@@ -1,0 +1,37 @@
+{
+  "$type": "CampaignNodeTypeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "graphicsCampaignNodeReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "464764b0b1b1ec94eb5d4c2a6f62beb7",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c135fd9c48ed93743b14bc9d89864c77",
+  "contentPack": "BaseGame",
+  "name": "DLC3_GallivanBorder"
+}

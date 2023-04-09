@@ -9,6 +9,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -263,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerBerserkerFrenzyTitle",
+    "description": "Feature/&ExtraBonusAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",

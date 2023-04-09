@@ -1,0 +1,234 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "9f0f1af9760e090409c2cb1e79cea09e",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_Northern_LakeIsland",
+      "id": 994809933,
+      "guid": "99A84F93-51BA-40A3-886C-67A9A752D5C8",
+      "name": "99A84F93-51BA-40A3-886C-67A9A752D5C8"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.345098048,
+      "g": 0.41568628,
+      "b": 0.4627451,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 1.0,
+      "useScattering": true,
+      "scattering": 0.0,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 0.5
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_Encounter_LakeIsland_WhiteCityQuestVariation_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.815686345,
+        "g": 0.878431439,
+        "b": 0.8862746,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5764706,
+        "g": 0.48627454,
+        "b": 0.4156863,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.792156935,
+        "g": 0.545098066,
+        "b": 0.368627459,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.4,
+      "sunDirection": 202.89,
+      "sunTilt": 44.84,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.313056231,
+        "g": 0.478387,
+        "b": 0.6320754,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 1.0,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 0.2,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 1.22,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.2830189,
+        "g": 0.316037744,
+        "b": 0.3773585,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.3032663,
+        "g": 0.397535473,
+        "b": 0.4433962,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.232289046,
+        "g": 0.289241582,
+        "b": 0.339622617,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.109069072,
+        "g": 0.145682752,
+        "b": 0.1792453,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 2.2,
+      "nightAtmosphereThickness": 1.08,
+      "name": "DLC3_Encounter_LakeIsland_WhiteCityQuestVariation_Weather_DayCycleProfile"
+    },
+    "name": "DLC3_Encounter_LakeIsland_WhiteCityQuestVariation_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Presentation_Uncharted_DLC3_Lake_Title",
+    "unchartedDescription": "Map/&Location_Presentation_Uncharted_DLC3_Lake_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_Lake_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Lake_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Lake_Quest_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Lake_Quest_Description"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": true,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_Lake_Title",
+    "description": "Map/&Location_Presentation_DLC3_Lake_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2ed6191eb8730504b849d9c20757b7d5",
+      "m_SubObjectName": "DLC3_Encounter_LakeIsland_WhiteCityQuestVariation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "071e53e25996fd64f8b8bc8909c79d6f",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Encounter_LakeIsland_WhiteCityQuestVariation_LocationDB"
+}

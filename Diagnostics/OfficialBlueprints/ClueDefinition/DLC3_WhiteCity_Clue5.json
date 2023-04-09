@@ -1,0 +1,30 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ItemFlag_Clue",
+    "description": "Equipment/&DLC3_Investigation_WhiteCity_Clue05_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "aa3aa63f67302f34dab12cb587072548",
+      "m_SubObjectName": "DLC3_WhiteCity_Clue5",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "db8b2a79ab4e3cf46b2349f6654d065c",
+  "contentPack": "BaseGame",
+  "name": "DLC3_WhiteCity_Clue5"
+}

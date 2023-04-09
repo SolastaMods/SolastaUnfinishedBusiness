@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDryad_Water:21702657382a3e34fb5b02bc0de58930",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 7,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,

@@ -73,6 +73,16 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "aca483ca6afb3464d943c7c305649f66",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
     }
   ],
   "guiPresentation": {

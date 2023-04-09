@@ -1,6 +1,6 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
   "conditionType": "Detrimental",
   "features": [
@@ -10,6 +10,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Minute",

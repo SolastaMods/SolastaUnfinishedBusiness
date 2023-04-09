@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -72,19 +73,9 @@ internal static class SrdAndHouseRulesContext
 
     internal static void Load()
     {
-        //BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
         //BUGFIX: fix Race Repertoires
         CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-
-        //BUGFIX: add a sprite reference to Resurrection
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
-
+        
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;

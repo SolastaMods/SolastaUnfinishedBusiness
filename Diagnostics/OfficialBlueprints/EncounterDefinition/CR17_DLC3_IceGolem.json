@@ -1,0 +1,59 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 17,
+  "locationOverride": null,
+  "locationBlacklist": [],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Golem_Ice:49a674c721b42d842867c38c49a3af28",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Ice_Elemental:88e033bdd991d4d448f05fa220e683be",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR17_IceGolem_Title",
+    "description": "Encounter/&DLC3_CR17_IceGolem_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cbf265ffd2f1fc7439f7e79e14e4487c",
+  "contentPack": "PalaceOfIce",
+  "name": "CR17_DLC3_IceGolem"
+}

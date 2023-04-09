@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    500,
+    200,
     0,
     0,
     0
@@ -187,6 +187,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -197,8 +198,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -224,6 +224,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "c6b12f54a9190a249ae7ea49c18fbc5a",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "PrimedScepter"
 }

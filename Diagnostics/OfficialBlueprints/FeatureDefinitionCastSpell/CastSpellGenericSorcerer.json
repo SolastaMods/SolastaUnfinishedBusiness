@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListGenericSorcerer:c9cd921295f4e854198ecf254202b341",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 9,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

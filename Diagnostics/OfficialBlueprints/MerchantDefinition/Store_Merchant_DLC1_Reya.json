@@ -508,9 +508,9 @@
       "initialAmount": 1,
       "minAmount": 0,
       "maxAmount": 1,
-      "reassortAmount": 0,
+      "reassortAmount": 1,
       "reassortRateType": "Day",
-      "reassortRateValue": 1,
+      "reassortRateValue": 5,
       "requiredFaction": "DLC1_Faction_ThePeople",
       "factionStatus": "Indifference"
     },

@@ -23,6 +23,16 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "4a5f3b6191ef47a489fe9475a87f19ef",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
     }
   ],
   "guiPresentation": {

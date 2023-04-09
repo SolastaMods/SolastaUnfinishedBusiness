@@ -63,6 +63,16 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "a777fea087099904887639b2f86fd3b6",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
     }
   ],
   "guiPresentation": {

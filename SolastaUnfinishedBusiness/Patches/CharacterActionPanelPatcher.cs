@@ -146,6 +146,7 @@ public static class CharacterActionPanelPatcher
                 ActionDefinitions.Id,
                 bool,
                 bool,
+                ActionDefinitions.ReadyActionType,
                 GuiCharacterAction,
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromGuiAction).Method;

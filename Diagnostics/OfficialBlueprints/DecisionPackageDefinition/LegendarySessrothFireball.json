@@ -1,0 +1,43 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:CastMagic_DPS_AoE_Legendary_Fireball:60b33dc14993f8340a6a89a647fb9145",
+        "weight": 5.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b861ae7f1a2df8148bd7ebc0905d272b",
+  "contentPack": "BaseGame",
+  "name": "LegendarySessrothFireball"
+}

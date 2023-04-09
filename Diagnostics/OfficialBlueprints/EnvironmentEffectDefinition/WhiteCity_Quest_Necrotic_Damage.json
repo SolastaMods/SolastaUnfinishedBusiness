@@ -80,10 +80,10 @@
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
           "diceNumber": 1,
-          "dieType": "D6",
+          "dieType": "D4",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
-          "bonusDamage": 23,
+          "bonusDamage": 1,
           "damageType": "DamageNecrotic",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
@@ -314,7 +314,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Environment Effect/&BoulderFallTitle",
     "description": "Feature/&Emptystring",
     "spriteReference": {

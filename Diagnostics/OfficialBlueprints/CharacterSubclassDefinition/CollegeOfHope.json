@@ -20,6 +20,26 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBardHopeWordsOfHope9:21f711e70cd96d54b8f184ac895ee674",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardHopeWordsOfHope13:d01a9a0ddc7d47943881e9f92ec5985b",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardHopeStartSongOfHope:1e35d98e45134204482e958829946e0e",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardHopeSingSongOfHope:1c6f69d8990b8874b98db3a7e4f2e277",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardHopeWordsOfHope17:7cbe2e993147f1440b0058da53ede327",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

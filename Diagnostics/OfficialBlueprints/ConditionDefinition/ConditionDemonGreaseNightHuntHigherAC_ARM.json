@@ -9,6 +9,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -263,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Higher AC",
-    "description": "Your AC is increased by the Demon Grease",
+    "title": "Feature/&ACIncreasedTitle",
+    "description": "Feature/&ACIncreasedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",

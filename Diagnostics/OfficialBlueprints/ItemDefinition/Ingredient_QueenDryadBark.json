@@ -16,7 +16,7 @@
   "defaultStackCount": 1,
   "costs": [
     0,
-    200,
+    2000,
     0,
     0,
     0
@@ -175,6 +175,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -185,8 +186,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -212,6 +212,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "8609f35110dabd14d8bfe49f26b2d3e0",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Ingredient_QueenDryadBark"
 }

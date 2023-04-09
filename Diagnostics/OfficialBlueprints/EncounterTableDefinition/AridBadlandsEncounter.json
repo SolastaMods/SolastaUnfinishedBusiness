@@ -1,5 +1,6 @@
 {
   "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "encounterOccurences": [
     {
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
@@ -355,7 +356,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
+    "title": "Arid Test",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

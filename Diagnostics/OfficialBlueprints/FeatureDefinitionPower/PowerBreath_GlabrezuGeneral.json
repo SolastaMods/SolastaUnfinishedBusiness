@@ -149,7 +149,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f04bb791bd984074a96e2fffdb8b8ceb",
+        "m_AssetGUID": "dfcf07f7c6a042245ade6bf870c4f762",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -185,7 +185,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "f34c293a5c6bad24186ae6ae391f98fb",
+        "m_AssetGUID": "b87b60d97bd327c44a3e9b45f0302714",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -197,7 +197,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a3a03a7b24d73c44d861fe7850b26e25",
+        "m_AssetGUID": "042d53a2f2119c94592bfd95846feb97",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

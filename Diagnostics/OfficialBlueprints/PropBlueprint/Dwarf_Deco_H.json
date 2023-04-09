@@ -1,0 +1,55 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": false,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": true,
+  "openingPlacement": true,
+  "openingLowPlacement": true,
+  "openingHighPlacement": true,
+  "propPlacement": true,
+  "lightSources": [],
+  "category": "Ornaments",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "5f2acbccce9e4c54d8a04fce60afe3e0",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&DwarfWallDeco",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
+      "m_SubObjectName": "FireBasin",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4088315ad76a58d4ca85e0011c909cba",
+  "contentPack": "BaseGame",
+  "name": "Dwarf_Deco_H"
+}

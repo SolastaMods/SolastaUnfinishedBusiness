@@ -1,0 +1,63 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Greataxe+1:8e3a563008ed3dc47af4aec9b79c6aff",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Greatsword+1:625562662a9dfed498a5409a3be8f149",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Maul+1:f23ce5573eb58154d846365ca68df002",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Spear+1:bbf2a17886b21cb49b66ec825f32834b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "dffd901605f7bc94f945291cf747a90a",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Class_Random_Paladin_TwoHandWeapons_Table"
+}

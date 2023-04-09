@@ -1,0 +1,30 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ItemFlag_Clue",
+    "description": "Equipment/&DLC3_Clue_Undermountain_06_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f634cf126622bdc48a0b4ec7049bb3ee",
+      "m_SubObjectName": "DLC1_Document_Report",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "83dd307ac98242b4ab6adcc41c2ef24b",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Clue6"
+}

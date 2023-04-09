@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Celestial",
   "creatureTags": [],
@@ -104,7 +104,6 @@
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
     "Definition:ConditionAffinityExhaustionImmunity:9e9405220f0bbc24ca6cafa5fb2d6858",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
-    "Definition:PowerMelekTeleport:447c8c72797d1fc47bffeca66656e4ea",
     "Definition:PowerMelekTeleport:447c8c72797d1fc47bffeca66656e4ea"
   ],
   "attackIterations": [
@@ -132,7 +131,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -271,6 +270,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "2e9052b87f7d03740a72be94de7030fa",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Melek_MonsterDefinition"
 }

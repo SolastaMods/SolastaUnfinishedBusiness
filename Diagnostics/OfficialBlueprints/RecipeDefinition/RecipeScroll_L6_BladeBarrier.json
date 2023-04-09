@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollBladeBarrier:de0e4af73c6034f46a19c52a3aaf3c5b",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 22,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:500_GP_Ruby:6edbb4ac30b262d4baba7949d0595158"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
+    }
+  ],
+  "spellDefinition": "Definition:BladeBarrier:829110987c5e6614a9e59acfdaa3ceba",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollBladeBarrierTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6f0075d3e385ad243a8f0e857d93b44c",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L6_BladeBarrier"
+}

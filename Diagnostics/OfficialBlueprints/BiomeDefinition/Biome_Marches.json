@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Swamp",
   "encounterTable": "Definition:AridBadlandsEncounter:f8549634a71a0bf4899d0bd5f1787f20",
   "narrativeEventBasicLines": [
@@ -13,11 +14,12 @@
     "Definition:EncounterCrossroads_LocationDB:a1b9f35b7028fe24184b3a5b92265a74",
     "Definition:EncounterWaterfall_LocationDB:d8798cdee1aaf304d93e9cfc4bb0d6b9"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Marches:aed5f631f1690094d9e01c00526ba266",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_MarchesBadlands_Title",
+    "description": "Biome/&Biome_MarchesBadlands_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +34,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 2,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

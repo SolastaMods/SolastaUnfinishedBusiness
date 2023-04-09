@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollFeeblemind:e701c5e8664de5b49af6aa71f8797477",
+  "stackCount": 1,
+  "craftingHours": 6,
+  "craftingDC": 25,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 5,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Skarn:e97f0c5417a96c3439e8aaf66a58d342"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376"
+    }
+  ],
+  "spellDefinition": "Definition:Feeblemind:d116a54565935514a9437c1a79397182",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollFeeblemindTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b45e4749d99add445bc0f1a9d6a020d6",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L8_Feeblemind"
+}

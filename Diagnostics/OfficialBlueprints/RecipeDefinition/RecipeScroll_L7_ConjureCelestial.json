@@ -1,0 +1,59 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollConjureCelestial:7b7b73cd5a0190a4fbd7c605dee8dc4d",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 24,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:500_GP_Ruby:6edbb4ac30b262d4baba7949d0595158"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_Dragonrose:e6aefc7519b006e489091c77fbca530c"
+    }
+  ],
+  "spellDefinition": "Definition:ConjureCelestial:2e51ca6269386154a8d8ed0db63f866b",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollConjureCelestialTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8f2cb98381c8e9844b24954378f62aa5",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L7_ConjureCelestial"
+}

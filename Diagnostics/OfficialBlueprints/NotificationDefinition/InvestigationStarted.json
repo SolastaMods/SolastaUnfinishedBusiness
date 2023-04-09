@@ -1,0 +1,36 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "StatusPending",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 78.0,
+    "y": 78.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&InvestigationStartedTitle",
+    "description": "Notification/&InvestigationStartedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1d2ea2aafa8141b4281277102696ac4c",
+      "m_SubObjectName": "QuestMain",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9607844,
+      "g": 0.7058824,
+      "b": 0.5254902,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b51d960945b04e549b1cfaf35ca19441",
+  "contentPack": "BaseGame",
+  "name": "InvestigationStarted"
+}

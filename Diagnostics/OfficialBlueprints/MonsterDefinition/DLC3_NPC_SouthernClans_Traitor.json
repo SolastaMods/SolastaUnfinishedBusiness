@@ -1,0 +1,276 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "DLC3_Faction_SouthernClan",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "LawfulGood",
+  "armorClass": 20,
+  "armor": "HalfPlate",
+  "hitDice": 8,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 24,
+  "standardHitPoints": 68,
+  "abilityScores": [
+    16,
+    12,
+    16,
+    10,
+    10,
+    12
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 5
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Athletics",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 2
+    }
+  ],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:FighterCombatDecisions:669e8d4b54874fc438c5ef24631bb22e",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeHurtDamageDealers"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Dwarvish"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 2.0,
+  "challengeRating": 3.0,
+  "noExperienceGain": true,
+  "droppedLootDefinition": null,
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SavingThrowAffinityDwarvenPlate:92fa98ccbf88dc5489188b4cb692cb36",
+    "Definition:AbilityCheckAffinityDwarfSnowCamouflage:4155a5a3ace202b4da7c4e71b71c0857",
+    "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
+    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
+    "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_SouthernClanSoldierBattleAxe:f41b5394ca78da64f81bb8a0a9416317"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_SouthernClanSoldierCrossbow:c263e6678d0243143900b96752bbb053"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 6,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "883ffc063ff92484e91ded48936d7347",
+    "m_SubObjectName": "DLC1_Complex_NPC_Guard_Captain",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834",
+      "Definition:NPC_Presentation_Generic_Citizen_Human_Commoner_man01:405263572cf379b4e9fa1156b278bac9",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:c7ccddfb41cd53e4cb943c11192cf913",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:6de08600e7a64fc4daabefe8d3323c0d",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman01:31623838bdb785a499717a27b96ba77e",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman02:86721dfef65adfb42af204aa7bd3c7ca",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman01:464f9b60327a41444aeddfe76ea5ffb6",
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman02:cb0630e5726d4644ca273dd6a2b303bc",
+      "Definition:NPC_Presentation_Generic_Citizen_Elf_Commoner_man01:6570c4fcd73d1b24d9c3f4e4de81fb79",
+      "Definition:NPC_Presentation_Generic_Citizen_Elf_Commoner_woman01:e8726693c48020e40834ed42758570c0",
+      "Definition:NPC_Presentation_Generic_Citizen_Halfling_Commoner_man02:a92e5e6b77ff70b4b87d55a3da966904",
+      "Definition:NPC_Presentation_Generic_Citizen_Halfling_Noblewoman01:055ff960966caa749acc22b1aa23ff03"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.74,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.66,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_SouthernClans_Guard_City_Title",
+    "description": "NPC/&DLC3_NPC_SouthernClans_Guard_City_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "bf97b45245cdd7c43beac1c8c0344402",
+      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Guard",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "20c0ac0fdfbb0424d813469b2168ccf6",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_NPC_SouthernClans_Traitor"
+}

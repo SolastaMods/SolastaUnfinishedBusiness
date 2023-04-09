@@ -1,0 +1,96 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_WhiteCity_ItemClue5:9fb80154cf57ca2499902ad83b4e5cc5",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:PoisonersKit:baf065854a7ae414fbb415d7b3d88fec",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:HerbalismKit:074f1654b516bab49b8cf7bd96ecfe9e",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_GiantBeetleElytron:8a0bfadddf8efa34bbc4cc89008ac922",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "ec89faefb22305649a2631c7d2bac2a6",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_WhiteCity_LootPackClue5"
+}

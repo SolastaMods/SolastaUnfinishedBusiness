@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1500,
+    5000,
     0,
     0,
     0
@@ -33,7 +33,7 @@
   "requiresAttunement": true,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -186,10 +186,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -205,8 +208,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

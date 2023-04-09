@@ -1,6 +1,7 @@
 {
   "$type": "SmartAttributeDefinition, Assembly-CSharp",
   "modifiedAttributes": [],
+  "autoRefresh": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

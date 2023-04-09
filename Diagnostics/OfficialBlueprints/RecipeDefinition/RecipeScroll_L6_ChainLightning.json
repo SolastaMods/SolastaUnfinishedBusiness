@@ -1,0 +1,59 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollChainLightning:3dee2a43c01021146ae40da8fe01d5a2",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 22,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Moonflower:11b9d6eabd26bbd46a5c027c009fa2fa"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Serpentinite:6704bce3d2425b24ebe65ce9c668748a"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
+    }
+  ],
+  "spellDefinition": "Definition:ChainLightning:1f64e610644230f4fa5054960f9eda8c",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollChainLightningTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e4a95dd8fa9f7cb4e956fd8ba7ca4707",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L6_ChainLightning"
+}

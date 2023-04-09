@@ -1,5 +1,6 @@
 {
   "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",

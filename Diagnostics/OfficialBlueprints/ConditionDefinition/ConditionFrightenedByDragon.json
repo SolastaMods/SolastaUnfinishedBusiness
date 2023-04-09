@@ -7,6 +7,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Round",
@@ -262,7 +263,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&ConditionFrightenedFearTitle",
-    "description": "Rules/&ConditionFrightenedFearDescription",
+    "description": "Rules/&ConditionFrightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",

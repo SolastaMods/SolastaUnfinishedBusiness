@@ -1,0 +1,65 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Furniture",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "fe402cf5e48580d4287981371039d7ef",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "9f5b3c8053cb62f4d8dd9702f5a78dda",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&MilitaryStuffBallistaDestroyTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
+      "m_SubObjectName": "FireBasin",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5ff000a51f44ce94f8c3fe6c8054ef1d",
+  "contentPack": "BaseGame",
+  "name": "Military_Stuff_Ballista_Destroy_A"
+}

@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    800,
+    1545,
     0,
     0,
     0
@@ -43,7 +43,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+1:1befa75fb0cf6d644bfefb3b9e489e96",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": true,
@@ -196,6 +196,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "LeatherStudded_Black",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -209,14 +210,28 @@
       "Armor",
       "Shape",
       "Armor",
+      "Shape",
+      "Shape",
       "Shape"
     ],
-    "femaleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape"
+    ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -224,8 +239,8 @@
     "description": "Equipment/&StuddedLeatherPlusOneDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df184baca0ffa054785046693c04fa8a",
-      "m_SubObjectName": "StandardStuddedLeather",
+      "m_AssetGUID": "0a06a45d66c35ff49a1ce452de147610",
+      "m_SubObjectName": "DLC1_StuddedArmor+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -80,7 +80,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AdditionalDamageDemonGrease_CONSpellTaint:89d2ce0414ea59740823c2b837b9a49b",
+              "featureDefinition": "Definition:AdditionalDamageDemonGrease_DMGSpellTaint:4e7b802107e9a4c46ac47990b78f3cc7",
               "level": 0
             }
           ],
@@ -110,7 +110,7 @@
           "featureBySlotLevel": [
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AdditionalDamageDemonGrease_DMGSpellTaint:4e7b802107e9a4c46ac47990b78f3cc7",
+              "featureDefinition": "Definition:AdditionalDamageDemonGrease_CONSpellTaint:89d2ce0414ea59740823c2b837b9a49b",
               "level": 0
             }
           ],

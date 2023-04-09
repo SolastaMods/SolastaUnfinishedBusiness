@@ -30,9 +30,9 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
-  "savingThrowDC": 14,
+  "savingThrowDC": 15,
   "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "Negates",
+  "damageSaveAffinity": "HalfDamage",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
@@ -42,7 +42,7 @@
       "conditionDefinition": "Definition:ConditionParalyzed_GhoulsCaress:feb0f3f4b605db4478d2f446f527d4f6",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
-      "saveOccurence": "StartOfTurn"
+      "saveOccurence": "EndOfTurn"
     }
   ],
   "addLightSource": false,
