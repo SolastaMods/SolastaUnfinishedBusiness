@@ -28,7 +28,7 @@ internal sealed class OathOfHatred : AbstractSubclass
             .SetGuiPresentation("Subclass/&OathOfHatredTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Bane, HuntersMark),
+                BuildSpellGroup(2, Bane, HuntersMark),
                 BuildSpellGroup(5, HoldPerson, MistyStep),
                 BuildSpellGroup(9, Haste, ProtectionFromEnergy),
                 BuildSpellGroup(13, Banishment, DreadfulOmen))

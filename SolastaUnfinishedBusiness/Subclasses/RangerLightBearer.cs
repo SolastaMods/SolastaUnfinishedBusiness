@@ -35,7 +35,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Bless),
+                BuildSpellGroup(2, Bless),
                 BuildSpellGroup(5, BrandingSmite),
                 BuildSpellGroup(9, SpellsContext.BlindingSmite),
                 BuildSpellGroup(13, GuardianOfFaith),

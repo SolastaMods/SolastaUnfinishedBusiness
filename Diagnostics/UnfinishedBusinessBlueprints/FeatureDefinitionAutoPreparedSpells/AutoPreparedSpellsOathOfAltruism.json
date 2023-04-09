@@ -4,7 +4,7 @@
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 2,
       "spellsList": [
         "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
         "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309"

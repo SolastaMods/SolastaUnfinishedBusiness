@@ -4,7 +4,7 @@
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 2,
       "spellsList": [
         "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
         "Definition:HuntersMark:a4976a0eae64c43478a3711dc064fb8b"
