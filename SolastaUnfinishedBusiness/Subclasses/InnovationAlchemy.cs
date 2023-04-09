@@ -36,7 +36,7 @@ public static class InnovationAlchemy
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
             .AddFeaturesAtLevel(9, AdvancedBombs)
-            .AddFeaturesAtLevel(11, BuildExtraOverchargeFeature())
+            .AddFeaturesAtLevel(15, BuildExtraOverchargeFeature())
             .AddToDB();
     }
 
