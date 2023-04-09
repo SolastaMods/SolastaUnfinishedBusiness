@@ -27,15 +27,11 @@ internal static class InventorClass
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
-    internal static readonly AssetReferenceSprite Pictogram =
-        Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
-
+    internal static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
+    internal static FeatureDefinitionCustomInvocationPool Learn2Infusion { get; private set; }
+    private static FeatureDefinitionCustomInvocationPool Learn4Infusion { get; set; }
     private static SpellListDefinition _spellList;
-    public static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
-
-    private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
-
     private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = new();
 
     private static readonly FeatureDefinitionPower PowerInventorSpellStoringItem = FeatureDefinitionPowerBuilder
@@ -55,16 +51,11 @@ internal static class InventorClass
 
     public static CharacterClassDefinition Build()
     {
-        if (Class != null)
-        {
-            throw new ArgumentException("Trying to build Inventor class additional time.");
-        }
-
         SpellCasting = BuildSpellCasting();
+        Learn2Infusion = BuildLearn(2);
+        Learn4Infusion = BuildLearn(4);
 
-        _learn2 = BuildLearn(2);
-        _learn4 = BuildLearn(4);
-        _unlearn = BuildUnlearn();
+        var unlearn = BuildUnlearn();
 
         Infusions.Build();
 
@@ -75,7 +66,7 @@ internal static class InventorClass
 
             .SetGuiPresentation(Category.Class, Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576))
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
-            .SetPictogram(Pictogram);
+            .SetPictogram(Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128));
 
         Wizard.personalityFlagOccurences
             .ForEach(fo => builder.AddPersonality(fo.personalityFlag, fo.weight));
@@ -290,7 +281,7 @@ internal static class InventorClass
 
             #region Level 06
 
-            .AddFeaturesAtLevel(6, _learn2, BuildInfusionPoolIncrease(), BuildToolExpertise())
+            .AddFeaturesAtLevel(6, Learn2Infusion, BuildInfusionPoolIncrease(), BuildToolExpertise())
 
             #endregion
 
@@ -314,7 +305,7 @@ internal static class InventorClass
 
             #region Level 10
 
-            .AddFeaturesAtLevel(10, _learn2, BuildMagicAdept(),
+            .AddFeaturesAtLevel(10, Learn2Infusion, BuildMagicAdept(),
                 BuildInfusionPoolIncrease())
 
             #endregion
@@ -340,7 +331,7 @@ internal static class InventorClass
 
             #region Level 14
 
-            .AddFeaturesAtLevel(14, _learn2, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
+            .AddFeaturesAtLevel(14, Learn2Infusion, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
 
             #endregion
 
@@ -362,7 +353,7 @@ internal static class InventorClass
 
             #region Level 18
 
-            .AddFeaturesAtLevel(18, _learn2, BuildInfusionPoolIncrease())
+            .AddFeaturesAtLevel(18, Learn2Infusion, BuildInfusionPoolIncrease())
 
             #endregion
 
@@ -380,7 +371,7 @@ internal static class InventorClass
 
         for (var i = 3; i <= 20; i++)
         {
-            builder.AddFeaturesAtLevel(i, _unlearn);
+            builder.AddFeaturesAtLevel(i, unlearn);
         }
 
         Class = builder.AddToDB();
@@ -461,7 +452,7 @@ internal static class InventorClass
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .AddFeatureSet(InfusionPool, _learn4)
+            .AddFeatureSet(InfusionPool, Learn4Infusion)
             .AddToDB();
     }
 
@@ -602,7 +593,8 @@ internal static class InventorClass
         return FeatureDefinitionPowerBuilder
             .Create("PowerInfusionPool")
             .SetGuiPresentation(InfusionsName, Category.Feature)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            //.SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(IsPowerPool.Marker, HasModifiedUses.Marker)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }

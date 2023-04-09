@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -148,7 +149,7 @@ internal static class OtherFeats
         return FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatInfusionsAdept")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInventorInfusions"))
+            .SetFeatures(InventorClass.InfusionPool, InventorClass.Learn2Infusion)
             .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
