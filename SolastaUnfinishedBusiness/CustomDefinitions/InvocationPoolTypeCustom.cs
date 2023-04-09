@@ -186,25 +186,23 @@ internal class InvocationPoolTypeCustom
             Register("RangerPreferredEnemy", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Infusion =
-            Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
+            Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
 
         internal static readonly InvocationPoolTypeCustom Gambit =
-            //TODO: add proper sprite
-            Register("Gambit", InventorClass.Pictogram, MartialTactician.Name,
+            Register("Gambit", requireClassLevel: MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
-        internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
             Register("MartialWeaponMaster", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
             Register("MonkWeaponSpecialization", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
-            Register("PlaneMagic",
-                hidden: true,
+            Register("PlaneMagic", hidden: true,
                 main: (Id)ExtraActionId.CastPlaneMagicMain,
                 bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
 
