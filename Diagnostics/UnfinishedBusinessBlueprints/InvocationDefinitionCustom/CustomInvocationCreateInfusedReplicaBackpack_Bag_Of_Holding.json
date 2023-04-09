@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": "Definition:PowerCreateInfusedReplicaBackpack_Bag_Of_Holding:41031a48-4461-5e48-8a60-f7da9a7bd597",
   "grantedSpell": null,
