@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=学习并始终做好准备：\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=炮兵法术
+Screen/&InventorArtilleristSpellDescription=此 Artillerist 法术始终被视为已准备好。\n它不计入您的法术准备限制。
+Screen/&InventorArtilleristSpellTitle=掷弹兵
+Subclass/&InnovationArtilleristDescription=炮兵擅长使用魔法在战场上投掷能量、射弹和爆炸。这种破坏力在许多不同世界的战争中受到军队的重视。
+Subclass/&InnovationArtilleristTitle=炮兵

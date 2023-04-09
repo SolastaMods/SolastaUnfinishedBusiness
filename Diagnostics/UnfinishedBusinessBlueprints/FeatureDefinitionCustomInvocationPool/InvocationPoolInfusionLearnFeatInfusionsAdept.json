@@ -1,10 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&InvocationPoolInfusionLearn2Title",
+    "description": "Feature/&InvocationPoolInfusionLearn2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5c7ade28-509a-5a84-a7e7-23228de83eb0",
+  "guid": "8b26617b-1e24-55fa-aa1f-421572b7c12f",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationMorningstarType"
+  "name": "InvocationPoolInfusionLearnFeatInfusionsAdept"
 }

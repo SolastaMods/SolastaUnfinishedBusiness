@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "CEHandXbowType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "400a98a9-be89-5696-9391-33fb65fe8f88",
+  "guid": "e927fb11-6c4b-5a68-bc0d-1a24052282fd",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationLongbowType"
+  "name": "FeatureMonkWeaponSpecializationCEHandXbowType"
 }

@@ -1,18 +1,15 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "InnovationAlchemy",
-    "InnovationArmor",
-    "InnovationArtillerist",
-    "InnovationWeapon"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "ShortbowType"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "InventorInnovation",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Subclass/&InventorInnovationTitle",
-    "description": "Subclass/&InventorInnovationDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "00e82007-cb39-5d19-a903-551a8fa5e13e",
+  "guid": "0b67a1cb-41b2-54db-a7be-2f18abc68efb",
   "contentPack": 9999,
-  "name": "SubclassChoiceInventor"
+  "name": "FeatureMonkWeaponSpecializationShortbowType"
 }

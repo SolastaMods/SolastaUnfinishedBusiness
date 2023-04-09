@@ -10,7 +10,7 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 #if DEBUG

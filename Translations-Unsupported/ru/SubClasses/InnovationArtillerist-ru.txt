@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Учитесь и всегда будьте готовы:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Заклинания артиллериста
+Screen/&InventorArtilleristSpellDescription=Это заклинание артиллериста всегда считается подготовленным.\nОно не учитывается при подсчете лимита подготовки заклинаний.
+Screen/&InventorArtilleristSpellTitle=Гренадер
+Subclass/&InnovationArtilleristDescription=Артиллерист специализируется на использовании магии для метания энергии, снарядов и взрывов на поле боя. Эта разрушительная сила ценится армиями в войнах на разных мирах.
+Subclass/&InnovationArtilleristTitle=Artillerist

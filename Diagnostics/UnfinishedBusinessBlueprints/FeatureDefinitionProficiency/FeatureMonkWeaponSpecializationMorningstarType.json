@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "MorningstarType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b67a1cb-41b2-54db-a7be-2f18abc68efb",
+  "guid": "5c7ade28-509a-5a84-a7e7-23228de83eb0",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationShortbowType"
+  "name": "FeatureMonkWeaponSpecializationMorningstarType"
 }

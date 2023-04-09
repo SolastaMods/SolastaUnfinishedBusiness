@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -171,12 +172,16 @@ internal static class CharacterContext
         {
             var weaponTypeName = weaponTypeDefinition.Name;
 
-            var featureMonkWeaponSpecialization = FeatureDefinitionBuilder
+            var featureMonkWeaponSpecialization = FeatureDefinitionProficiencyBuilder
                 .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    new ModifyAttackModeForMonkWeaponSpecialization(weaponTypeDefinition))
+                .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
+                .SetCustomSubFeatures(new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
+
+            // ensure we get dice upgrade on these
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.SetCustomSubFeatures(
+                new MonkWeaponSpecializationDiceUpgrade(weaponTypeDefinition));
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocationMonkWeaponSpecialization{weaponTypeName}")
@@ -539,7 +544,6 @@ internal static class CharacterContext
             AdditionalDamageRangerFavoredEnemyChoice.featureSet.Remove(CommonBuilders
                 .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
-
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
@@ -1050,21 +1054,32 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class ModifyAttackModeForMonkWeaponSpecialization : IModifyAttackModeForWeapon
+    internal sealed class MonkWeaponSpecialization
+    {
+        internal WeaponTypeDefinition WeaponType { get; set; }
+    }
+
+    private sealed class MonkWeaponSpecializationDiceUpgrade : IRestrictedContextValidator
     {
         private readonly WeaponTypeDefinition _weaponTypeDefinition;
 
-        public ModifyAttackModeForMonkWeaponSpecialization(WeaponTypeDefinition weaponTypeDefinition)
+        internal MonkWeaponSpecializationDiceUpgrade(WeaponTypeDefinition weaponTypeDefinition)
         {
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        public (OperationType, bool) ValidateContext(
+            BaseDefinition definition,
+            IRestrictedContextProvider provider,
+            RulesetCharacter character,
+            ItemDefinition itemDefinition,
+            bool rangedAttack, RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
-            if (ValidatorsWeapon.IsWeaponType(attackMode?.SourceDefinition as ItemDefinition, _weaponTypeDefinition))
-            {
-                attackMode?.AttackTags.TryAdd(TagsDefinitions.UnarmedOrMonkWeapon);
-            }
+            return (OperationType.Or,
+                character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(x =>
+                    x._weaponTypeDefinition ==
+                    (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition));
         }
     }
 }

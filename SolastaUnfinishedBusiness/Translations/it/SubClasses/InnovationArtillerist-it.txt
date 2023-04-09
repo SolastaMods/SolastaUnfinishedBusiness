@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Impara e preparati sempre:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Incantesimi Artiglieri
+Screen/&InventorArtilleristSpellDescription=Questo incantesimo Artigliere è sempre considerato preparato.\nNon conta per il limite di preparazione degli incantesimi.
+Screen/&InventorArtilleristSpellTitle=Granatiere
+Subclass/&InnovationArtilleristDescription=Un artigliere è specializzato nell'uso della magia per scagliare energia, proiettili ed esplosioni sul campo di battaglia. Questo potere distruttivo è apprezzato dagli eserciti nelle guerre su molti mondi diversi.
+Subclass/&InnovationArtilleristTitle=Artigliere

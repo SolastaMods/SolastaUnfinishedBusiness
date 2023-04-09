@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -7,6 +7,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -109,7 +111,6 @@ internal static class SrdAndHouseRulesContext
         SwitchMakeLargeWildshapeFormsMedium();
         SwitchAllowClubsToBeThrown();
         FixMartialArtsProgression();
-        DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
         FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
@@ -546,13 +547,6 @@ internal static class SrdAndHouseRulesContext
         {
             feature.AddCustomSubFeatures(provider);
         }
-    }
-
-    private static void DistantHandMartialArtsDie()
-    {
-        //Makes Martial Dice progression work on bows for Way of the Distant Hand
-        FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
-            .AddCustomSubFeatures(WayOfTheDistantHand.ZenArcherDiceUpgrade.Marker);
     }
 
     private static void FixTwinnedMetamagic()

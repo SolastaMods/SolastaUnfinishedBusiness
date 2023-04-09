@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "ScimitarType"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "836d8882-9011-54b9-8804-ae9d4042e5e5",
+  "guid": "4433de5d-5d57-5b42-ab36-39353fd8ed3d",
   "contentPack": 9999,
-  "name": "FeatureMonkWeaponSpecializationBattleaxeType"
+  "name": "FeatureMonkWeaponSpecializationScimitarType"
 }

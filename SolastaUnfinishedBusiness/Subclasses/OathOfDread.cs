@@ -34,7 +34,7 @@ internal sealed class OathOfDread : AbstractSubclass
             .SetGuiPresentation("Subclass/&OathOfDreadTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Bane, ShieldOfFaith),
+                BuildSpellGroup(2, Bane, ShieldOfFaith),
                 BuildSpellGroup(5, HoldPerson, SeeInvisibility),
                 BuildSpellGroup(9, Fear, Haste),
                 BuildSpellGroup(13, GuardianOfFaith, PhantasmalKiller),

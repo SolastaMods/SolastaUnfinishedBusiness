@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
 
 namespace SolastaUnfinishedBusiness.Models;
 

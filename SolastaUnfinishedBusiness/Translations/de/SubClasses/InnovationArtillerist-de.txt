@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Lernen und immer vorbereitet sein:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Zauber des Artilleristen
+Screen/&InventorArtilleristSpellDescription=Dieser Artillerist-Zauber gilt immer als vorbereitet.\nEr zählt nicht zu deinem Zaubervorbereitungslimit.
+Screen/&InventorArtilleristSpellTitle=Grenadier
+Subclass/&InnovationArtilleristDescription=Ein Artillerist ist darauf spezialisiert, mit Magie Energie, Projektile und Explosionen auf ein Schlachtfeld zu schleudern. Diese zerstörerische Kraft wird von Armeen in den Kriegen auf vielen verschiedenen Welten geschätzt.
+Subclass/&InnovationArtilleristTitle=Artillerist

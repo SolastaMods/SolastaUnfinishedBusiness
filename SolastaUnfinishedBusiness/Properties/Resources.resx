@@ -818,14 +818,17 @@
   <data name="DomainDefiler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\DomainDefiler.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="InventorAlchemist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\InventorAlchemist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InventorArmor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorArmor.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="InventorArtillerist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\InventorArtillerist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="InventorWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\InventorWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="InventorAlchemist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\InventorAlchemist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MartialMarshal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialMarshal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

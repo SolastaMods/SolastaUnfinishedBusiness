@@ -29,7 +29,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetGuiPresentation("Subclass/&OathOfAncientsTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, EnsnaringStrike, AnimalFriendship),
+                BuildSpellGroup(2, EnsnaringStrike, AnimalFriendship),
                 BuildSpellGroup(5, MoonBeam, MistyStep),
                 BuildSpellGroup(9, ProtectionFromEnergy, SpiritGuardians),
                 BuildSpellGroup(13, IceStorm, Stoneskin))

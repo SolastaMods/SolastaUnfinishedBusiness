@@ -4,20 +4,20 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Classes.Inventor;
+namespace SolastaUnfinishedBusiness.Classes;
 
-internal static class Infusions
+internal static class InventorInfusions
 {
     private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
@@ -29,7 +29,7 @@ internal static class Infusions
 
         var name = "InfusionEnhanceArcaneFocus";
         var sprite = Sprites.GetSprite("EnhanceFocus", Resources.EnhanceFocus, 128);
-        var power = BuildInfuseItemPowerInvocation(2, name, sprite, IsFocusOrStaff,
+        var power = BuildInfuseItemPowerInvocation(1, name, sprite, IsFocusOrStaff,
             FeatureDefinitionMagicAffinityBuilder
                 //TODO: RAW needs to require attunement
                 .Create($"MagicAffinity{name}")
@@ -50,7 +50,7 @@ internal static class Infusions
 
         name = "InfusionEnhanceDefense";
         sprite = Sprites.GetSprite("EnhanceArmor", Resources.EnhanceArmor, 128);
-        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsArmor,
+        power = BuildInfuseItemPowerInvocation(1, name, sprite, IsArmor,
             FeatureDefinitionAttributeModifierBuilder.Create($"AttributeModifier{name}")
                 .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
@@ -68,7 +68,7 @@ internal static class Infusions
 
         name = "InfusionEnhanceWeapon";
         sprite = Sprites.GetSprite("EnhanceWeapon", Resources.EnhanceWeapon, 128);
-        power = BuildInfuseItemPowerInvocation(2, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
+        power = BuildInfuseItemPowerInvocation(1, name, sprite, IsWeapon, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
             .SetAttackRollModifier(1)
@@ -90,7 +90,7 @@ internal static class Infusions
 
         name = "InfusionMindSharpener";
         sprite = Sprites.GetSprite("MindSharpener", Resources.MindSharpener, 128);
-        BuildInfuseItemPowerInvocation(2, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
+        BuildInfuseItemPowerInvocation(1, name, sprite, IsBodyArmor, FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionCalmedByCalmEmotionsAlly)
             //RAW it adds reaction to not break concentration
@@ -103,7 +103,7 @@ internal static class Infusions
 
         sprite = Sprites.GetSprite("ReturningWeapon", Resources.ReturningWeapon, 128);
         name = "InfusionReturningWeapon";
-        BuildInfuseItemPowerInvocation(2, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
+        BuildInfuseItemPowerInvocation(1, name, sprite, IsThrownWeapon, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
             .SetCustomSubFeatures(ReturningWeapon.Instance)
@@ -118,7 +118,7 @@ internal static class Infusions
 
         sprite = Sprites.GetSprite("RepeatingShot", Resources.RepeatingShot, 128);
         name = "InfusionRepeatingShot";
-        BuildInfuseItemPowerInvocation(2, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
+        BuildInfuseItemPowerInvocation(1, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionJump)
             .SetCustomSubFeatures(RepeatingShot.Instance)
@@ -176,7 +176,7 @@ internal static class Infusions
 
         #region Level 02
 
-        var level = 2;
+        var level = 1;
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding, level);
         //RAW this should be spectacles that don't require attunement
         BuildCreateItemPowerInvocation(ItemDefinitions.RingDarkvision, level);

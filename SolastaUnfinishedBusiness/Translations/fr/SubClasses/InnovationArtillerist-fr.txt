@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Apprenez et préparez-vous toujours :\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Sorts d'artilleur
+Screen/&InventorArtilleristSpellDescription=Ce sort d'Artilleur est toujours considéré comme préparé.\nIl ne compte pas dans votre limite de préparation de sorts.
+Screen/&InventorArtilleristSpellTitle=Grenadier
+Subclass/&InnovationArtilleristDescription=Un artilleur se spécialise dans l'utilisation de la magie pour lancer de l'énergie, des projectiles et des explosions sur un champ de bataille. Ce pouvoir destructeur est apprécié par les armées dans les guerres sur de nombreux mondes différents.
+Subclass/&InnovationArtilleristTitle=Artilleur

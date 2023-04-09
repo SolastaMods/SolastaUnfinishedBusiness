@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -15,7 +16,7 @@ using static RuleDefinitions.EffectIncrementMethod;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
+namespace SolastaUnfinishedBusiness.Subclasses;
 
 public static class InnovationAlchemy
 {
@@ -35,7 +36,7 @@ public static class InnovationAlchemy
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
             .AddFeaturesAtLevel(9, AdvancedBombs)
-            .AddFeaturesAtLevel(11, BuildExtraOverchargeFeature())
+            .AddFeaturesAtLevel(15, BuildExtraOverchargeFeature())
             .AddToDB();
     }
 
