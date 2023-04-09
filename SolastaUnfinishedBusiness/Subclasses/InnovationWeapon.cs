@@ -14,7 +14,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
+namespace SolastaUnfinishedBusiness.Classes.Subclasses;
 
 public static class InnovationWeapon
 {

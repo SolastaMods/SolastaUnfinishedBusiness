@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
+using SolastaUnfinishedBusiness.Classes.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -14,12 +14,12 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using UnityEngine.AddressableAssets;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaUnfinishedBusiness.Classes.Inventor;
+namespace SolastaUnfinishedBusiness.Classes;
 
 internal static class InventorClass
 {
@@ -28,8 +28,6 @@ internal static class InventorClass
     private const string LimiterName = "Infusion";
 
     internal static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
-    internal static FeatureDefinitionCustomInvocationPool Learn2Infusion { get; private set; }
-    private static FeatureDefinitionCustomInvocationPool Learn4Infusion { get; set; }
     private static SpellListDefinition _spellList;
     private static int _infusionPoolIncreases;
     private static readonly List<FeatureDefinitionPowerSharedPool> SpellStoringItemPowers = new();
@@ -41,6 +39,9 @@ internal static class InventorClass
             ActivationTime.Action,
             RechargeRate.LongRest)
         .AddToDB();
+
+    internal static FeatureDefinitionCustomInvocationPool Learn2Infusion { get; private set; }
+    private static FeatureDefinitionCustomInvocationPool Learn4Infusion { get; set; }
 
     internal static CharacterClassDefinition Class { get; private set; }
 
@@ -57,7 +58,7 @@ internal static class InventorClass
 
         var unlearn = BuildUnlearn();
 
-        Infusions.Build();
+        InventorInfusions.Build();
 
         var builder = CharacterClassDefinitionBuilder
             .Create(ClassName)
