@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Learn and have always prepared:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Artillerist Spells
+Screen/&InventorArtilleristSpellDescription=This Artillerist spell is always considered prepared.\nIt does not count towards your spell preparation limit.
+Screen/&InventorArtilleristSpellTitle=Grenadier
+Subclass/&InnovationArtilleristDescription=An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
+Subclass/&InnovationArtilleristTitle=Artillerist

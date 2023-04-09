@@ -97,6 +97,7 @@ All settings start disabled by default.
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
+[*][b]Artillerist[/b]: An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 [/list]

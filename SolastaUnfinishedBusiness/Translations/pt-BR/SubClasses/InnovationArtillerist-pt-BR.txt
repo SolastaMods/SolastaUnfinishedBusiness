@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Aprenda e esteja sempre preparado:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Feitiços de Artilheiro
+Screen/&InventorArtilleristSpellDescription=Este feitiço de Artilheiro é sempre considerado preparado.\nNão conta para o seu limite de preparação de feitiços.
+Screen/&InventorArtilleristSpellTitle=Granadeiro
+Subclass/&InnovationArtilleristDescription=Um artilheiro é especialista em usar magia para lançar energia, projéteis e explosões em um campo de batalha. Este poder destrutivo é valorizado pelos exércitos nas guerras em muitos mundos diferentes.
+Subclass/&InnovationArtilleristTitle=Artilheiro

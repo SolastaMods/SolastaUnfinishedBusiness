@@ -1,0 +1,6 @@
+﻿Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Aprende y ten siempre preparado:\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Hechizos de artillero
+Screen/&InventorArtilleristSpellDescription=Este hechizo de artillero siempre se considera preparado.\nNo cuenta para el límite de preparación de hechizos.
+Screen/&InventorArtilleristSpellTitle=Granadero
+Subclass/&InnovationArtilleristDescription=Un artillero se especializa en usar magia para lanzar energía, proyectiles y explosiones en un campo de batalla. Este poder destructivo es valorado por los ejércitos en las guerras de muchos mundos diferentes.
+Subclass/&InnovationArtilleristTitle=artillero

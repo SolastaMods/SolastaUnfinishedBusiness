@@ -3,6 +3,7 @@
   "subclasses": [
     "InnovationAlchemy",
     "InnovationArmor",
+    "InnovationArtillerist",
     "InnovationWeapon"
   ],
   "filterByDeity": false,

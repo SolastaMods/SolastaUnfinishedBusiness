@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Subclasses;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -388,6 +387,7 @@ internal static class InventorClass
             .SetFilterByDeity(false)
             .SetSubclasses(
                 InnovationArmor.Build(),
+                InnovationArtillerist.Build(),
                 InnovationAlchemy.Build(),
                 InnovationWeapon.Build()
             )
@@ -438,7 +438,7 @@ internal static class InventorClass
 
         return CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPoolInfusionLearn{label}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation($"InvocationPoolInfusionLearn{points}", Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Infusion, points)
             .AddToDB();
     }
