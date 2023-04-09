@@ -39,7 +39,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureInnovationAlchemyExtraOverchargeBombs:0ebedc10-3e37-53de-ad5b-c2977253a4b8",
-      "level": 11
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],
