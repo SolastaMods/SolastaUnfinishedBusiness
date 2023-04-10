@@ -18,11 +18,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInnovationArtilleristEldritchDetonation:fe968c39-d8f8-5db7-bfc5-5d4e844aa61f",
-      "level": 5
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInnovationArtilleristExplosiveCannon:53531956-269d-5b3d-9f72-56cb19b56b7a",
       "level": 9
     },

@@ -354,7 +354,7 @@ public static class InnovationWeapon
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
             .SetHeight(6)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetCharacterFamily(CharacterFamilyDefinitions.Construct)
+            .SetCharacterFamily(CharacterFamilyDefinitions.Construct.Name)
             .SetAlignment(MonsterDefinitionBuilder.NeutralAlignment)
             // .SetLegendaryCreature(false)
             .NoExperienceGain()

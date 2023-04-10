@@ -133,8 +133,7 @@ public static class InnovationArtillerist
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetTempHpForm(0, DieType.D8, 2)
-                        .SetDiceAdvancement(LevelSourceType.CharacterLevel, 2, 1, 6, 3)
+                        .SetTempHpForm(5, DieType.D8, 1)
                         .Build())
                 .Build())
         .AddToDB();
@@ -197,6 +196,28 @@ public static class InnovationArtillerist
                     .AddToDB())
             .AddToDB();
 
+        // Dismiss Cannon
+        
+        var powerEldritchCannonDismiss = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{EldritchCannon}Dismiss")
+            .SetGuiPresentation(Category.Feature, PowerPatronHiveMagicCounter)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetRestrictedCreatureFamilies(FamilyEldritchCannon)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ShowWhenHasCannon())
+            .AddToDB();
+        
         // Eldritch Cannon
 
         var powerEldritchCannonPool = FeatureDefinitionPowerBuilder
@@ -234,61 +255,6 @@ public static class InnovationArtillerist
 
         // LEVEL 05
 
-        // Eldritch Detonation
-
-        const string ELDRITCH_DETONATION = $"FeatureSet{Name}{EldritchDetonation}";
-
-        var powerDetonateLeap = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{EldritchDetonation}Leap")
-            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetRestrictedCreatureFamilies(FamilyEldritchCannon)
-                    .SetParticleEffectParameters(Fireball)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeForce, 3, DieType.D8)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        var powerDetonate = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{EldritchDetonation}")
-            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature,
-                Sprites.GetSprite("PowerEldritchDetonation", Resources.PowerEldritchDetonation, 256, 128))
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
-                            .Build())
-                    .Build())
-            .SetCustomSubFeatures(new ChainMagicEffectEldritchDetonation(powerDetonateLeap))
-            .AddToDB();
-
-        var featureSetEldritchDetonation = FeatureDefinitionFeatureSetBuilder
-            .Create(ELDRITCH_DETONATION)
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                powerDetonate,
-                powerDetonateLeap)
-            .AddToDB();
-
         // Arcane Firearm
 
         const string ARCANE_FIREARM = $"FeatureSet{Name}{ArcaneFirearm}";
@@ -317,6 +283,54 @@ public static class InnovationArtillerist
 
         #region LEVEL 09
 
+        // Eldritch Detonation
+
+        const string ELDRITCH_DETONATION = $"Power{Name}{EldritchDetonation}";
+
+        var powerDetonateLeap = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{EldritchDetonation}Leap")
+            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
+                    .SetParticleEffectParameters(Fireball)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Wisdom, 15)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeForce, 3, DieType.D8)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDetonate = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{EldritchDetonation}")
+            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature,
+                Sprites.GetSprite("PowerEldritchDetonation", Resources.PowerEldritchDetonation, 256, 128))
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetRestrictedCreatureFamilies(FamilyEldritchCannon)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetCounterForm(CounterForm.CounterType.DismissCreature, 0, 0, false, false)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ShowWhenHasCannon(),
+                new ChainMagicEffectEldritchDetonation(powerDetonateLeap))
+            .AddToDB();
+        
         // Explosive Cannon
 
         var powerExplosiveCannonPool = FeatureDefinitionPowerBuilder
@@ -333,6 +347,7 @@ public static class InnovationArtillerist
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerExplosiveCannonPool,
+                powerDetonate,
                 powerFlamethrower09,
                 powerForceBallista09,
                 powerProtector09)
@@ -421,7 +436,7 @@ public static class InnovationArtillerist
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.InventorArtillerist, 256))
             .AddFeaturesAtLevel(3, autoPreparedSpells, featureSetEldritchCannon)
-            .AddFeaturesAtLevel(5, featureSetArcaneFirearm, featureSetEldritchDetonation)
+            .AddFeaturesAtLevel(5, featureSetArcaneFirearm)
             .AddFeaturesAtLevel(9, featureSetExplosiveCannon)
             .AddFeaturesAtLevel(15, featureSetFortifiedPosition)
             .AddToDB();
@@ -448,7 +463,7 @@ public static class InnovationArtillerist
             .SetHitDice(DieType.D1, 1)
             .SetAbilityScores(10, 10, 10, 10, 10, 10)
             .SetDefaultFaction(DatabaseHelper.FactionDefinitions.Party)
-            .SetCharacterFamily(DatabaseHelper.CharacterFamilyDefinitions.Construct)
+            .SetCharacterFamily(FamilyEldritchCannon)
             .SetCreatureTags(CreatureTag)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .SetFullyControlledWhenAllied(true)
@@ -671,18 +686,39 @@ public static class InnovationArtillerist
     // Command Cannon
     //
 
+    internal static bool HasCannon(RulesetActor character)
+    {
+        var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+
+        return gameLocationCharacterService != null &&
+               gameLocationCharacterService.AllValidEntities
+                   .Where(x => x.Side == character.Side)
+                   .SelectMany(x => x.RulesetCharacter.AllConditions
+                       .Where(x => x.ConditionDefinition ==
+                                   DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature))
+                   .Any(x => x.sourceGuid == character.guid);
+    }
+
     private class ShowInCombatWhenHasCannon : IPowerUseValidity
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(PowerSummonEldritchCannon));
+                   HasCannon(character);
         }
     }
 
     //
     // Eldritch Detonation
     //
+
+    private class ShowWhenHasCannon : IPowerUseValidity
+    {
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            return HasCannon(character);
+        }
+    }
 
     private sealed class ChainMagicEffectEldritchDetonation : IChainMagicEffect
     {
@@ -706,8 +742,9 @@ public static class InnovationArtillerist
 
             var actionParams = baseEffect.ActionParams;
             var caster = actionParams.ActingCharacter;
+            var cannon = actionParams.TargetCharacters.Count > 0 ? actionParams.TargetCharacters[0] : null;
 
-            if (caster == null)
+            if (caster == null || cannon == null)
             {
                 return null;
             }
@@ -726,7 +763,7 @@ public static class InnovationArtillerist
             var targets = new List<GameLocationCharacter>();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
-                caster, effectPower.EffectDescription, targets, new List<ActionModifier>());
+                cannon, effectPower.EffectDescription, targets, new List<ActionModifier>());
 
             foreach (var target in targets)
             {

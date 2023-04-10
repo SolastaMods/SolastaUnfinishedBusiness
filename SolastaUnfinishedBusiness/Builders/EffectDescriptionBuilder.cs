@@ -249,13 +249,13 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     internal EffectDescriptionBuilder AddRestrictedCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
         effect.RestrictedCreatureFamilies.AddRange(families.Select(f => f.Name));
         return this;
     }
 
-#if false
     internal EffectDescriptionBuilder InviteOptionalAlly(bool value = true)
     {
         effect.inviteOptionalAlly = value;

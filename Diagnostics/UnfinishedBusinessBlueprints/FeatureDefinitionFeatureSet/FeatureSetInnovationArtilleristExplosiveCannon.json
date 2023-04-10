@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:PowerInnovationArtilleristExplosiveCannon:db5f6a67-4ae9-5936-9ecf-328a9a131a05",
+    "Definition:PowerInnovationArtilleristEldritchDetonation:954cda03-1c30-5463-854e-0dd2974952ba",
     "Definition:PowerInnovationArtilleristSummonEldritchCannonFlamethrower9:e22ead8c-4973-53ad-b62e-fc66077bf389",
     "Definition:PowerInnovationArtilleristSummonEldritchCannonForceBallista9:b122d66b-b46a-51fe-9005-6bb3f2d8a70b",
     "Definition:PowerInnovationArtilleristSummonEldritchCannonProtector9:94283d60-de32-5aad-b396-a7cf6b33143b"
