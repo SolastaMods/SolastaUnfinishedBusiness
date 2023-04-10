@@ -3,17 +3,22 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetInnovationArtilleristEldritchCannon:52f66c83-0871-5319-9249-aff4a2c5aed4",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsInnovationArtillerist:c2fa6129-df57-5671-bfc7-6bd457f3763f",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInnovationArtilleristEldritchCannon:52f66c83-0871-5319-9249-aff4a2c5aed4",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetInnovationArtilleristArcaneFirearm:251e21f3-d5f0-5b84-bb55-b3fe54f03f60",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInnovationArtilleristEldritchDetonation:fe968c39-d8f8-5db7-bfc5-5d4e844aa61f",
       "level": 5
     },
     {

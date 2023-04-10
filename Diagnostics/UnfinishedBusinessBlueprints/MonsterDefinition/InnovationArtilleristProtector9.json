@@ -12,10 +12,10 @@
   "alignment": "Neutral",
   "armorClass": 18,
   "armor": "",
-  "hitDice": 9,
-  "hitDiceType": "D6",
+  "hitDice": 1,
+  "hitDiceType": "D1",
   "hitPointsBonus": 5,
-  "standardHitPoints": 1,
+  "standardHitPoints": 25,
   "abilityScores": [
     10,
     10,
@@ -101,7 +101,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
+  "bestiaryEntry": "None",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:CombatAffinityInnovationArtilleristFortifiedPosition:2c20ac34-a660-560f-b0fa-6505783a5a25"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -26,7 +28,7 @@
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "ProficiencyBonus",
+  "additionalDamageType": "",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
   "additionalDamageDieNumber": 1,
@@ -85,7 +87,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": 9005,
+  "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -125,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionInnovationArtilleristFortifiedPositionTitle",
+    "description": "Condition/&ConditionInnovationArtilleristFortifiedPositionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -147,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6c7b1dc5-5fc0-5d4d-b33c-01a9ea081974",
+  "guid": "a5a2c37c-092b-5e23-8e9a-24a67b8b4899",
   "contentPack": 9999,
-  "name": "ConditionInnovationArtilleristEldritchCannonCopyProficiencyBonus"
+  "name": "ConditionInnovationArtilleristFortifiedPosition"
 }

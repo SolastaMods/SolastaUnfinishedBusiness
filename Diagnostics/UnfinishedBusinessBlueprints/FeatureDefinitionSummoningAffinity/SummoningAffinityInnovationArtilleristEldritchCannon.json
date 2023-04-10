@@ -3,7 +3,6 @@
   "requiredMonsterTag": "EldritchCannon",
   "addedConditions": [
     "Definition:ConditionInnovationArtilleristEldritchCannonCopyCharacterLevel:24c32a1b-1e5f-5199-b608-259087ed14a4",
-    "Definition:ConditionInnovationArtilleristEldritchCannonCopyProficiencyBonus:6c7b1dc5-5fc0-5d4d-b33c-01a9ea081974",
     "Definition:ConditionInnovationArtilleristEldritchCannonHitPoints:b53c3a25-3a46-528c-97be-841de2bb067f"
   ],
   "effectOnConjuredDeath": false,

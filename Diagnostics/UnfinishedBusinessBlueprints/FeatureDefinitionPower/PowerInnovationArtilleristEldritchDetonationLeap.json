@@ -1,14 +1,14 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Position",
+    "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 4,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -17,7 +17,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -25,16 +25,16 @@
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
-    "poolFilterDiceNumber": 5,
-    "poolFilterDieType": "D8",
+    "poolFilterDiceNumber": 0,
+    "poolFilterDieType": "D1",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Hour",
-    "durationParameter": 1,
+    "targetSide": "All",
+    "durationType": "Instantaneous",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
@@ -44,7 +44,7 @@
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -52,7 +52,9 @@
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [],
+    "restrictedCreatureFamilies": [
+      "FamilyEldritchCannon"
+    ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
@@ -62,7 +64,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -70,22 +72,27 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "Creature",
-          "itemDefinition": null,
-          "trackItem": false,
-          "monsterDefinitionName": "InnovationArtilleristProtector9",
-          "number": 1,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": false,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": null
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 3,
+          "dieType": "D8",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamageForce",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -117,7 +124,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "747a5940881b4a5488e02a0f377fbda2",
+        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -135,13 +142,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "763a4e34178a3224d9af53048f4a3e60",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "070e9243691997b4183a2025e63764b3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -153,7 +160,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "d264457be672895478d6d499e8a57e0d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -165,7 +172,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2ed767daca3c7374badf6c78a308ce9e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -262,7 +269,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b729ddfa4d5961b42ba786a18ec440ff",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -307,7 +314,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -319,16 +326,16 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&PowerInnovationArtilleristSummonEldritchCannonProtectorTitle",
-    "description": "Feature/&PowerInnovationArtilleristEldritchCannonDescription",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationArtilleristEldritchDetonationTitle",
+    "description": "Feature/&FeatureSetInnovationArtilleristEldritchDetonationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -348,7 +355,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "94283d60-de32-5aad-b396-a7cf6b33143b",
+  "guid": "29a3946f-4518-5477-988c-4048ac993a36",
   "contentPack": 9999,
-  "name": "PowerInnovationArtilleristSummonEldritchCannonProtector9"
+  "name": "PowerInnovationArtilleristEldritchDetonationLeap"
 }

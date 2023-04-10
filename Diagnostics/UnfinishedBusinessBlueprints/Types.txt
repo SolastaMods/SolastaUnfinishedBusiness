@@ -1,6 +1,7 @@
 ActionDefinition
 CharacterBackgroundDefinition
 CharacterClassDefinition
+CharacterFamilyDefinition
 CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
