@@ -193,7 +193,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 1))
             .SetArmorClass(16)
             .SetAlignment(MonsterDefinitionBuilder.NeutralAlignment)
-            .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
+            .SetCharacterFamily(CharacterFamilyDefinitions.Undead.Name)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)
             .SetFullyControlledWhenAllied(true)

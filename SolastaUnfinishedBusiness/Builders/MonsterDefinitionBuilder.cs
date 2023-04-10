@@ -44,9 +44,9 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetCharacterFamily(CharacterFamilyDefinition family)
+    internal MonsterDefinitionBuilder SetCharacterFamily(string family)
     {
-        Definition.characterFamily = family.name;
+        Definition.characterFamily = family;
         return this;
     }
 
