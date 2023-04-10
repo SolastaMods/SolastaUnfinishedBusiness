@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInnovationArtilleristFortifiedPosition:b06937ff-f1fa-518c-a345-6d9525eb452b",
+    "Definition:PowerInnovationArtilleristSummonEldritchCannonFlamethrower15:b06f7d9c-b130-5dbe-accc-5cb341d302a7",
+    "Definition:PowerInnovationArtilleristSummonEldritchCannonForceBallista15:82ac1ec0-c9ca-580f-ad66-523978a3efe3",
+    "Definition:PowerInnovationArtilleristSummonEldritchCannonProtector15:c37ac623-29ad-5123-ab21-38cebdf90228"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationArtilleristFortifiedPositionTitle",
+    "description": "Feature/&FeatureSetInnovationArtilleristFortifiedPositionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "845a6e15-8919-5c56-b845-ae4ff3d76c91",
+  "contentPack": 9999,
+  "name": "FeatureSetInnovationArtilleristFortifiedPosition"
+}

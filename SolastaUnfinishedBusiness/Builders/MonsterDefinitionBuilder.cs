@@ -172,13 +172,11 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
-#if false
     internal MonsterDefinitionBuilder ClearAttackIterations()
     {
         Definition.AttackIterations.Clear();
         return this;
     }
-#endif
 
     internal MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
     {

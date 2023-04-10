@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "EldritchCannon",
+  "addedConditions": [
+    "Definition:ConditionInnovationArtilleristEldritchCannonCopyCharacterLevel:24c32a1b-1e5f-5199-b608-259087ed14a4",
+    "Definition:ConditionInnovationArtilleristEldritchCannonCopyProficiencyBonus:6c7b1dc5-5fc0-5d4d-b33c-01a9ea081974",
+    "Definition:ConditionInnovationArtilleristEldritchCannonHitPoints:b53c3a25-3a46-528c-97be-841de2bb067f"
+  ],
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "27227e5a-7af9-51a4-81fa-96c2e67cbeab",
+  "contentPack": 9999,
+  "name": "SummoningAffinityInnovationArtilleristEldritchCannon"
+}

@@ -29,6 +29,7 @@ FeatureDefinitionFeatureSet
 FeatureDefinitionLightAffinity
 FeatureDefinitionMagicAffinity
 FeatureDefinitionMovementAffinity
+FeatureDefinitionMoveMode
 FeatureDefinitionPerceptionAffinity
 FeatureDefinitionPointPool
 FeatureDefinitionPower

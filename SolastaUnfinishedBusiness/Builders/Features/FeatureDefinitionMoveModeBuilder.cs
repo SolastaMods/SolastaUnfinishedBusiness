@@ -16,4 +16,11 @@ internal class FeatureDefinitionMoveModeBuilder : FeatureDefinitionBuilder<Featu
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
+
+    internal FeatureDefinitionMoveModeBuilder SetMode(RuleDefinitions.MoveMode moveMode, int speed)
+    {
+        Definition.moveMode = moveMode;
+        Definition.speed = speed;
+        return this;
+    }
 }

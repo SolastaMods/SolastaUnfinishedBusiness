@@ -71,7 +71,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
         var alterationForm = new AlterationForm { alterationType = alterationType };
@@ -81,6 +80,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetAlterationAbilityScore(string abilityScore, int valueIncrease, int maximumIncrease)
     {
         var alterationForm = new AlterationForm
