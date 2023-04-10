@@ -115,6 +115,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                         DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                             .Where(x => x != CharacterFamilyDefinitions.Construct &&
                                         x != CharacterFamilyDefinitions.Undead)
+                            .Select(x => x.Name)
                             .ToArray())
                     .SetEffectForms(
                         EffectFormBuilder

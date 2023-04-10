@@ -62,9 +62,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params CharacterFamilyDefinition[] values)
+    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params string[] values)
     {
-        effect.RestrictedCreatureFamilies.SetRange(values.Select(x => x.Name));
+        effect.RestrictedCreatureFamilies.SetRange(values);
         return this;
     }
 
@@ -246,6 +246,12 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder AddImmuneCreatureFamilies(params CharacterFamilyDefinition[] families)
     {
         effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));
+        return this;
+    }
+
+    internal EffectDescriptionBuilder AddRestrictedCreatureFamilies(params CharacterFamilyDefinition[] families)
+    {
+        effect.RestrictedCreatureFamilies.AddRange(families.Select(f => f.Name));
         return this;
     }
 
