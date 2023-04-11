@@ -18,6 +18,9 @@ public static class CharacterStageBackgroundSelectionPanelPatcher
         public static void Prefix([NotNull] CharacterStageBackgroundSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling backgrounds on the Mod UI panel
+            __instance.compatibleBackgrounds.Clear();
+            __instance.selectedBackgroundPersonalityFlagsMap.Clear();
+
             foreach (var key in
                      DatabaseRepository.GetDatabase<CharacterBackgroundDefinition>())
             {
