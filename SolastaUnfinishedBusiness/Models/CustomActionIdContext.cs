@@ -110,11 +110,6 @@ public static class CustomActionIdContext
 
     private static void BuildFarStepAction()
     {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("ActionSurge", out var baseAction))
-        {
-            return;
-        }
-
         const string NAME = "FarStep";
 
         FarStep = FeatureDefinitionPowerBuilder
@@ -134,7 +129,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, $"Action{NAME}")
+            .Create($"Action{NAME}")
             .SetGuiPresentation(NAME, Category.Action, Sprites.FarStep, 71)
             .SetActionId(ExtraActionId.FarStep)
             .OverrideClassName("UsePower")
