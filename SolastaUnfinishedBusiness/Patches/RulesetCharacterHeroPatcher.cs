@@ -521,12 +521,12 @@ public static class RulesetCharacterHeroPatcher
             var off = __instance.GetOffhandWeapon();
 
             var isMainMonkWeapon = main == null || !main.ItemDefinition.IsWeapon ||
-                        main.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
-                        __instance.IsMonkWeapon(main.ItemDefinition);
+                                   main.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                                   __instance.IsMonkWeapon(main.ItemDefinition);
 
             var isOffMonkWeapon = off == null || !off.ItemDefinition.IsWeapon ||
-                        off.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
-                        __instance.IsMonkWeapon(off.ItemDefinition);
+                                  off.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                                  __instance.IsMonkWeapon(off.ItemDefinition);
 
             __result = isMainMonkWeapon && isOffMonkWeapon;
 

@@ -10,10 +10,8 @@ using SolastaUnfinishedBusiness.Patches;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.GadgetBlueprints;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
-using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
