@@ -471,7 +471,8 @@ public static class InnovationArtillerist
         var powerFortifiedPositionPool = FeatureDefinitionPowerBuilder
             .Create(powerEldritchCannonPool, $"Power{Name}{FortifiedPosition}Activate")
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
-            .SetOverriddenPower(powerEldritchCannonPool)
+            .SetOverriddenPower(powerExplosiveCannonPool)
+            .SetCustomSubFeatures(new ChangeGlobalUniqueEffectsLimit())
             .AddToDB();
 
         var powerFlamethrower15 = BuildFlamethrowerPower(powerFortifiedPositionPool, 15, powerFortifiedPosition);
@@ -591,6 +592,16 @@ public static class InnovationArtillerist
 
             return hasUsedPowerActivate && hasSpellSlotsAvailable;
         }
+    }
+
+    #endregion
+
+    #region GLOBAL EFFECTS CHANGER
+
+    private sealed class ChangeGlobalUniqueEffectsLimit : IChangeGlobalUniqueEffectsLimit
+    {
+        public GlobalUniqueEffects.Group GroupKey { get; set; } = GlobalUniqueEffects.Group.ArtilleristCannon;
+        public int Limit { get; set; } = 1;
     }
 
     #endregion

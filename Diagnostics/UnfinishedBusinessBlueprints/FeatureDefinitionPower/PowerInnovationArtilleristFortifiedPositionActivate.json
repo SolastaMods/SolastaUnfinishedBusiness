@@ -291,7 +291,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerInnovationArtilleristEldritchCannonActivate:e2a1dce8-0b42-535d-91d9-f044b883fd00",
+  "overriddenPower": "Definition:PowerInnovationArtilleristExplosiveCannonActivate:a7c821db-b27d-5a54-bd9c-de36cde98c96",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

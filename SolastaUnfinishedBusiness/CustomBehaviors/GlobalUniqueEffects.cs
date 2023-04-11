@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -7,8 +8,10 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal static class GlobalUniqueEffects
+public static class GlobalUniqueEffects
 {
+    public enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
+
     private static readonly Dictionary<Group, HashSet<BaseDefinition>> Groups = new();
 
     private static HashSet<BaseDefinition> GetGroup(Group group)
@@ -25,19 +28,18 @@ internal static class GlobalUniqueEffects
     }
 
     /**Returns copies*/
-    private static HashSet<BaseDefinition> GetSameGroupItems(BaseDefinition definition)
+    private static (Group, HashSet<BaseDefinition>) GetSameGroupItems(BaseDefinition definition)
     {
         var result = new HashSet<BaseDefinition>();
 
-        foreach (var group in Groups.Where(e => e.Value.Contains(definition)))
+        var group = Groups.FirstOrDefault(e => e.Value.Contains(definition));
+
+        foreach (var item in group.Value)
         {
-            foreach (var p in group.Value)
-            {
-                result.Add(p);
-            }
+            result.Add(item);
         }
 
-        return result;
+        return (group.Key, result);
     }
 
     internal static void AddToGroup(Group group, [NotNull] params BaseDefinition[] definitions)
@@ -98,7 +100,7 @@ internal static class GlobalUniqueEffects
      */
     internal static void TerminateMatchingUniqueEffect(RulesetCharacter character, RulesetEffect uniqueEffect)
     {
-        var group = GetSameGroupItems(uniqueEffect.SourceDefinition);
+        var (groupKey, group) = GetSameGroupItems(uniqueEffect.SourceDefinition);
 
         if (uniqueEffect is RulesetEffectPower { PowerDefinition.UniqueInstance: true }
             or RulesetEffectSpell { SpellDefinition.UniqueInstance: true })
@@ -148,12 +150,19 @@ internal static class GlobalUniqueEffects
             }
         }
 
-        foreach (var effect in EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
-                     .Where(e => e != uniqueEffect && allSubDefinitions.Contains(e.SourceDefinition)))
+        var limit = character.GetSubFeaturesByType<IChangeGlobalUniqueEffectsLimit>()
+            .Where(x => x.GroupKey == groupKey)
+            .Select(x => x.Limit)
+            .AddItem(0)
+            .Max();
+
+        var effects = EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
+            .Where(e => e != uniqueEffect && allSubDefinitions.Contains(e.SourceDefinition))
+            .ToList();
+
+        for (var i = 0; i < effects.Count - limit; i++)
         {
-            effect.DoTerminate(character);
+            effects[i].DoTerminate(character);
         }
     }
-
-    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
 }
