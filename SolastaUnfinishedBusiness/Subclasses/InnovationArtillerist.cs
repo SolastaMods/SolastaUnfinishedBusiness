@@ -54,38 +54,108 @@ public static class InnovationArtillerist
             .IsExtraPlanar()
             .AddToDB();
 
+        // Cannon Powers
+
+        var powerFlamethrower = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{Flamethrower}")
+            .SetGuiPresentation(Category.Feature, FlameStrike)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FlameStrike)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
+                    .SetParticleEffectParameters(FlameStrike)
+                    .SetSavingThrowData(
+                        false, AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Intelligence, 15)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeFire, 2, DieType.D8)
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 6, 3)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetAlterationForm(AlterationForm.Type.LightUp)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerForceBallista = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{ForceBallista}")
+            .SetGuiPresentation(Category.Feature, EldritchBlast)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(EldritchBlast)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(EldritchBlast)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 6, 3)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerProtector = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{Protector}")
+            .SetGuiPresentation(Category.Feature, MassCureWounds)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(MassCureWounds)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetParticleEffectParameters(MassCureWounds)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(5, DieType.D8, 1)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
         // Actions
 
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}{Flamethrower}")
-            .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature, PowerFlamethrower)
+            .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature, powerFlamethrower)
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonFlamethrower)
             .SetActionType(ActionType.Bonus)
-            .SetActivatedPower(PowerFlamethrower)
+            .SetActivatedPower(powerFlamethrower)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
 
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}{ForceBallista}")
-            .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature, PowerForceBallista)
+            .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature, powerForceBallista)
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonForceBallista)
             .SetActionType(ActionType.Bonus)
-            .SetActivatedPower(PowerForceBallista)
+            .SetActivatedPower(powerForceBallista)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
 
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}{Protector}")
-            .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature, PowerProtector)
+            .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature, powerProtector)
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonProtector)
             .SetActionType(ActionType.Bonus)
-            .SetActivatedPower(PowerProtector)
+            .SetActivatedPower(powerProtector)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
 
@@ -172,7 +242,7 @@ public static class InnovationArtillerist
 
         var powerEldritchCannonDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{EldritchCannon}Dismiss")
-            .SetGuiPresentation(Category.Feature, PowerPatronHiveMagicCounter)
+            .SetGuiPresentation(Category.Feature, PowerSorcererManaPainterTap)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -190,6 +260,22 @@ public static class InnovationArtillerist
                     .Build())
             .SetCustomSubFeatures(new ShowWhenHasCannon())
             .AddToDB();
+
+        // Refund Cannon
+
+        var powerEldritchCannonRefund = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{EldritchCannon}Refund")
+            .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        powerEldritchCannonRefund.SetCustomSubFeatures(new CustomBehaviorRefundCannon(powerEldritchCannonRefund));
 
         // Eldritch Cannon
 
@@ -209,7 +295,6 @@ public static class InnovationArtillerist
         var powerFlamethrower03 = BuildFlamethrowerPower(powerEldritchCannonPool, 3);
         var powerForceBallista03 = BuildForceBallistaPower(powerEldritchCannonPool, 3);
         var powerProtector03 = BuildProtectorPower(powerEldritchCannonPool, 3);
-
         var powerTinyFlamethrower03 = BuildTinyFlamethrowerPower(powerEldritchCannonPool, 3);
         var powerTinyForceBallista03 = BuildTinyForceBallistaPower(powerEldritchCannonPool, 3);
         var powerTinyProtector03 = BuildTinyProtectorPower(powerEldritchCannonPool, 3);
@@ -221,6 +306,7 @@ public static class InnovationArtillerist
                 summoningAffinityEldritchCannon,
                 powerEldritchCannonCommand,
                 powerEldritchCannonDismiss,
+                powerEldritchCannonRefund,
                 powerEldritchCannonPool,
                 powerFlamethrower03,
                 powerForceBallista03,
@@ -270,11 +356,11 @@ public static class InnovationArtillerist
 
         var powerDetonateSelf = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{EldritchCannon}DetonateSelf")
-            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature, hidden: true)
+            .SetGuiPresentation(ELDRITCH_DETONATION, Category.Feature, Fireball)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(Fireball)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 4)
                     .SetParticleEffectParameters(Fireball)
@@ -288,7 +374,8 @@ public static class InnovationArtillerist
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new ShowWhenHasTinyCannon())
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                    ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
             .AddToDB();
 
         var powerDetonate = FeatureDefinitionPowerBuilder
@@ -318,14 +405,13 @@ public static class InnovationArtillerist
         // Explosive Cannon
 
         var powerExplosiveCannonPool = FeatureDefinitionPowerBuilder
-            .Create(powerEldritchCannonPool, $"Power{Name}{ExplosiveCannon}")
+            .Create(powerEldritchCannonPool, $"Power{Name}{ExplosiveCannon}Activate")
             .SetOverriddenPower(powerEldritchCannonPool)
             .AddToDB();
 
         var powerFlamethrower09 = BuildFlamethrowerPower(powerExplosiveCannonPool, 9);
         var powerForceBallista09 = BuildForceBallistaPower(powerExplosiveCannonPool, 9);
         var powerProtector09 = BuildProtectorPower(powerExplosiveCannonPool, 9);
-
         var powerTinyFlamethrower09 = BuildTinyFlamethrowerPower(powerExplosiveCannonPool, 9);
         var powerTinyForceBallista09 = BuildTinyForceBallistaPower(powerExplosiveCannonPool, 9);
         var powerTinyProtector09 = BuildTinyProtectorPower(powerExplosiveCannonPool, 9);
@@ -336,6 +422,7 @@ public static class InnovationArtillerist
             .AddFeatureSet(
                 powerExplosiveCannonPool,
                 powerDetonate,
+                powerDetonateSelf,
                 powerFlamethrower09,
                 powerForceBallista09,
                 powerProtector09)
@@ -371,17 +458,25 @@ public static class InnovationArtillerist
             .SetConditionForm(conditionFortifiedPosition, ConditionForm.ConditionOperation.Add)
             .Build();
 
+        var powerFortifiedPositionTiny = FeatureDefinitionPowerBuilder
+            .Create(powerFortifiedPosition, $"Power{Name}{FortifiedPosition}AuraTiny")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(
+                    ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name)))
+            .AddToDB();
+
         // Fortified Position
 
         var powerFortifiedPositionPool = FeatureDefinitionPowerBuilder
-            .Create(powerEldritchCannonPool, $"Power{Name}{FortifiedPosition}")
+            .Create(powerEldritchCannonPool, $"Power{Name}{FortifiedPosition}Activate")
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .SetOverriddenPower(powerEldritchCannonPool)
             .AddToDB();
 
         var powerFlamethrower15 = BuildFlamethrowerPower(powerFortifiedPositionPool, 15, powerFortifiedPosition);
         var powerForceBallista15 = BuildForceBallistaPower(powerFortifiedPositionPool, 15, powerFortifiedPosition);
         var powerProtector15 = BuildProtectorPower(powerFortifiedPositionPool, 15, powerFortifiedPosition);
-
         var powerTinyFlamethrower15 = BuildTinyFlamethrowerPower(powerFortifiedPositionPool, 15);
         var powerTinyForceBallista15 = BuildTinyForceBallistaPower(powerFortifiedPositionPool, 15);
         var powerTinyProtector15 = BuildTinyProtectorPower(powerFortifiedPositionPool, 15);
@@ -391,6 +486,7 @@ public static class InnovationArtillerist
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 powerFortifiedPositionPool,
+                powerFortifiedPositionTiny,
                 powerFlamethrower15,
                 powerForceBallista15,
                 powerProtector15)
@@ -436,6 +532,69 @@ public static class InnovationArtillerist
         #endregion
     }
 
+    #region REFUND CANNON
+
+    private class CustomBehaviorRefundCannon : IPowerUseValidity, IOnAfterActionFeature
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public CustomBehaviorRefundCannon(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                return;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var rulesetPower in rulesetCharacter.UsablePowers
+                         .Where(x =>
+                             x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
+                             x.PowerDefinition.Name.EndsWith("Activate")))
+            {
+                rulesetCharacter.RepayPowerUse(rulesetPower);
+            }
+
+            var spellRepertoire = rulesetCharacter.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return;
+            }
+
+            var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
+
+            spellRepertoire.SpendSpellSlot(slotLevel);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var spellRepertoire = character.GetClassSpellRepertoire(InventorClass.Class);
+
+            if (spellRepertoire == null)
+            {
+                return false;
+            }
+
+            var hasUsedPowerActivate = character.UsablePowers
+                .Any(x => x.RemainingUses == 0 &&
+                          x.PowerDefinition.Name.StartsWith($"Power{Name}") &&
+                          x.PowerDefinition.Name.EndsWith("Activate"));
+
+            var hasSpellSlotsAvailable = spellRepertoire.GetLowestAvailableSlotLevel() > 0;
+
+            return hasUsedPowerActivate && hasSpellSlotsAvailable;
+        }
+    }
+
+    #endregion
+
     #region COMMON BLUEPRINTS
 
     private static readonly FeatureDefinitionActionAffinity ActionAffinityEldritchCannon =
@@ -464,111 +623,49 @@ public static class InnovationArtillerist
             .SetMode(MoveMode.Walk, 3)
             .AddToDB();
 
-    private static readonly FeatureDefinitionPower PowerFlamethrower = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}{Flamethrower}")
-        .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
-        .SetUsesFixed(ActivationTime.Action)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create(BurningHands)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-                .SetParticleEffectParameters(BurningHands)
-                .SetSavingThrowData(
-                    false, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Intelligence, 15)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeFire, 2, DieType.D8)
-                        .SetDiceAdvancement(LevelSourceType.CharacterLevel, 2, 1, 6, 3)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetAlterationForm(AlterationForm.Type.LightUp)
-                        .Build())
-                .Build())
-        .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerForceBallista = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}{ForceBallista}")
-        .SetGuiPresentation(Category.Feature, PowerMarksmanRecycler)
-        .SetUsesFixed(ActivationTime.Action)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create(EldritchBlast)
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                .SetParticleEffectParameters(EldritchBlast)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeForce, 2, DieType.D8)
-                        .SetDiceAdvancement(LevelSourceType.CharacterLevel, 2, 1, 6, 3)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                        .Build())
-                .Build())
-        .AddToDB();
-
-    private static readonly FeatureDefinitionPower PowerProtector = FeatureDefinitionPowerBuilder
-        .Create($"Power{Name}{Protector}")
-        .SetGuiPresentation(Category.Feature, PowerTraditionCourtMageSpellShield)
-        .SetUsesFixed(ActivationTime.Action)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create(EldritchBlast)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetParticleEffectParameters(FalseLife)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(5, DieType.D8, 1)
-                        .Build())
-                .Build())
-        .AddToDB();
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityFlamethrower =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{Flamethrower}")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonFlamethrower)
+            .AddToDB();
 
     private static readonly ConditionDefinition ConditionFlamethrower = ConditionDefinitionBuilder
         .Create($"Condition{Name}{Flamethrower}")
         .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
         .SetPossessive()
         .SetSpecialDuration(DurationType.Hour, 1)
-        .SetFeatures(
-            FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}{Flamethrower}")
-                .SetGuiPresentationNoContent(true)
-                .SetAuthorizedActions((Id)ExtraActionId.CannonFlamethrower)
-                .AddToDB())
+        .SetFeatures(ActionAffinityFlamethrower)
         .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityForceBallista =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{ForceBallista}")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonForceBallista)
+            .AddToDB();
 
     private static readonly ConditionDefinition ConditionForceBallista = ConditionDefinitionBuilder
         .Create($"Condition{Name}{ForceBallista}")
         .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
         .SetPossessive()
         .SetSpecialDuration(DurationType.Hour, 1)
-        .SetFeatures(
-            FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}{ForceBallista}")
-                .SetGuiPresentationNoContent(true)
-                .SetAuthorizedActions((Id)ExtraActionId.CannonForceBallista)
-                .AddToDB())
+        .SetFeatures(ActionAffinityForceBallista)
         .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityProtector =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{Protector}")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonProtector)
+            .AddToDB();
 
     private static readonly ConditionDefinition ConditionProtector = ConditionDefinitionBuilder
         .Create($"Condition{Name}{Protector}")
         .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
         .SetPossessive()
         .SetSpecialDuration(DurationType.Hour, 1)
-        .SetFeatures(
-            FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{Name}{Protector}")
-                .SetGuiPresentationNoContent(true)
-                .SetAuthorizedActions((Id)ExtraActionId.CannonProtector)
-                .AddToDB())
+        .SetFeatures(ActionAffinityProtector)
         .AddToDB();
 
     #endregion
@@ -580,7 +677,7 @@ public static class InnovationArtillerist
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
 
-        additionalFeatures.Add(PowerFlamethrower);
+        additionalFeatures.Add(ActionAffinityFlamethrower);
 
         return BuildEldritchCannonPower(Flamethrower, sharedPoolPower, Fire_Spider, level, additionalFeatures);
     }
@@ -590,7 +687,7 @@ public static class InnovationArtillerist
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
 
-        additionalFeatures.Add(PowerForceBallista);
+        additionalFeatures.Add(ActionAffinityForceBallista);
 
         return BuildEldritchCannonPower(ForceBallista, sharedPoolPower, PhaseSpider, level, additionalFeatures);
     }
@@ -600,7 +697,7 @@ public static class InnovationArtillerist
     {
         var additionalFeatures = monsterAdditionalFeatures.ToList();
 
-        additionalFeatures.Add(PowerProtector);
+        additionalFeatures.Add(ActionAffinityProtector);
 
         return BuildEldritchCannonPower(Protector, sharedPoolPower, SpectralSpider, level, additionalFeatures);
     }
@@ -832,26 +929,13 @@ public static class InnovationArtillerist
 
     #endregion
 
-    #region DETONATE / DISMISS CANNON
-
-    //
-    // Detonate and Dismiss Cannon
-    //
+    #region DISMISS / DETONATE CANNON
 
     private class ShowWhenHasCannon : IPowerUseValidity
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             return HasCannon(character);
-        }
-    }
-
-    private class ShowWhenHasTinyCannon : IPowerUseValidity
-    {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
-        {
-            return character.HasAnyConditionOfType(
-                ConditionFlamethrower.Name, ConditionForceBallista.Name, ConditionProtector.Name);
         }
     }
 

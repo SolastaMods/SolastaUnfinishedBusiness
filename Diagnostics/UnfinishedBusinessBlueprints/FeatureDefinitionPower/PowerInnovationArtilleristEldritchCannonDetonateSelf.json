@@ -13,7 +13,7 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -41,7 +41,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 17,
@@ -99,11 +99,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -113,10 +113,10 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
-    "offsetImpactTimeBasedOnDistance": false,
-    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+    "speedType": "CellsPerSeconds",
+    "speedParameter": 11.0,
+    "offsetImpactTimeBasedOnDistance": true,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.05,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
@@ -286,10 +286,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
+      "cooldownForCaster": 1,
+      "cooldownForBattle": 1,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": false
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
@@ -331,14 +331,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&PowerInnovationArtilleristEldritchCannonDetonateTitle",
     "description": "Feature/&PowerInnovationArtilleristEldritchCannonDetonateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c462c6ae1b665c74f995647ad5adaf79",
+      "m_SubObjectName": "Fireball",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

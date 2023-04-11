@@ -573,6 +573,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
         internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
         internal static FeatureDefinitionPower PowerDomainElementalIceLance { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalIceLance");
+        internal static FeatureDefinitionPower PowerDomainInsightForeknowledge { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainInsightForeknowledge");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");
@@ -595,8 +596,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFunctionGoodberryHealingOther { get; } = GetDefinition<FeatureDefinitionPower>("PowerFunctionGoodberryHealingOther");
         internal static FeatureDefinitionPower PowerFunctionPotionOfInvisibility { get; } = GetDefinition<FeatureDefinitionPower>("PowerFunctionPotionOfInvisibility");
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } = GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
-        
-        internal static FeatureDefinitionPower PowerMarksmanRecycler { get; } = GetDefinition<FeatureDefinitionPower>("PowerMarksmanRecycler");
+        internal static FeatureDefinitionPower PowerSorcererManaPainterTap { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterTap");
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
         internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
@@ -610,7 +610,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch");
         internal static FeatureDefinitionPower PowerPaladinCureDisease { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinCureDisease");
         internal static FeatureDefinitionPower PowerPaladinLayOnHands { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinLayOnHands");
-        internal static FeatureDefinitionPower PowerPatronHiveMagicCounter { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronHiveMagicCounter");
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");

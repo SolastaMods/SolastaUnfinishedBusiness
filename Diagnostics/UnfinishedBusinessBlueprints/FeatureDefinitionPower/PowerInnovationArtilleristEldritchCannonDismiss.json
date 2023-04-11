@@ -331,8 +331,8 @@
     "description": "Feature/&PowerInnovationArtilleristEldritchCannonDismissDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "418bfe6c554004e4a87b1bb4e96efc49",
-      "m_SubObjectName": "MagicCounter",
+      "m_AssetGUID": "e2c44d1e3feaef940bd21546d73e51fb",
+      "m_SubObjectName": "ManaTap",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

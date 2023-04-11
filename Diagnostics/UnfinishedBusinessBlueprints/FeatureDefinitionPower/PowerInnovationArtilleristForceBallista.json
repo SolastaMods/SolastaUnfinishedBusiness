@@ -81,92 +81,92 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 3,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 4,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 5,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 6,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 7,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 8,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 9,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 10,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 11,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 12,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 13,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 14,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 15,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 16,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 17,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 18,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 19,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 20,
-            "diceNumber": 4
+            "diceNumber": 2
           }
         ],
         "createdByCharacter": false,
@@ -462,8 +462,8 @@
     "description": "Feature/&PowerInnovationArtilleristForceBallistaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1eecd66460594c34cb615a23a639926a",
-      "m_SubObjectName": "Recycler",
+      "m_AssetGUID": "487b2c11d5b1dec41b18377720260d99",
+      "m_SubObjectName": "EldritchBlast",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -81,92 +81,92 @@
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 3,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 4,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 5,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 6,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 7,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 8,
-            "diceNumber": 2
+            "diceNumber": 0
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 9,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 10,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 11,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 12,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 13,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 14,
-            "diceNumber": 3
+            "diceNumber": 1
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 15,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 16,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 17,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 18,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 19,
-            "diceNumber": 4
+            "diceNumber": 2
           },
           {
             "$type": "DiceByRank, Assembly-CSharp",
             "rank": 20,
-            "diceNumber": 4
+            "diceNumber": 2
           }
         ],
         "createdByCharacter": false,
@@ -241,8 +241,8 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 1.0,
-    "offsetImpactTimeBasedOnDistance": false,
+    "speedParameter": 10.0,
+    "offsetImpactTimeBasedOnDistance": true,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
@@ -285,7 +285,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "0440791bf296e02439607481abe77f86",
+        "m_AssetGUID": "05e551b43b5f8e647b911ec8055dfc9a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -297,7 +297,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8ec6fce55ab85a5449a811ba713366ce",
+        "m_AssetGUID": "bab890ae6335ba542b58ab8e5d2c5c5d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -412,9 +412,9 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 0,
-      "cooldownForBattle": 2,
+      "aoeScoreMultiplier": 1.5,
+      "cooldownForCaster": 2,
+      "cooldownForBattle": 1,
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": true
     },
@@ -463,8 +463,8 @@
     "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
-      "m_SubObjectName": "FireBurst",
+      "m_AssetGUID": "759910daf80fe924d8f9bd66f8d2dd3c",
+      "m_SubObjectName": "FlameStrike",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

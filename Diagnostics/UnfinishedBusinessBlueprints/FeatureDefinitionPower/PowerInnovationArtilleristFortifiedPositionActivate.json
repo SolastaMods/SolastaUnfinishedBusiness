@@ -282,7 +282,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 2,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -317,7 +317,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b06937ff-f1fa-518c-a345-6d9525eb452b",
+  "guid": "11600c2f-8c49-594f-a053-51d8f9625a62",
   "contentPack": 9999,
-  "name": "PowerInnovationArtilleristFortifiedPosition"
+  "name": "PowerInnovationArtilleristFortifiedPositionActivate"
 }

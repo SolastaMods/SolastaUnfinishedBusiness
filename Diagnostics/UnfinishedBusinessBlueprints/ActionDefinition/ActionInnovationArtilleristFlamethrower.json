@@ -38,8 +38,8 @@
     "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
-      "m_SubObjectName": "FireBurst",
+      "m_AssetGUID": "759910daf80fe924d8f9bd66f8d2dd3c",
+      "m_SubObjectName": "FlameStrike",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

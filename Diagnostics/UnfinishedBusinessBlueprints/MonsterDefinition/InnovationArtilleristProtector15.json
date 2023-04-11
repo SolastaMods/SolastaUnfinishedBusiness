@@ -77,6 +77,7 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:ActionAffinityInnovationArtilleristEldritchCannon:0c0d255e-d8b5-53dd-b973-542996b87318",
+    "Definition:ActionAffinityInnovationArtilleristProtector:4bbfc8d3-5f77-5526-82cc-343a0b7a581f",
     "Definition:ConditionAffinityInnovationArtilleristEldritchCannon:c25c753f-90c7-5754-8ddd-5b55210ff54e",
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
@@ -85,7 +86,6 @@
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
     "Definition:MoveModeInnovationArtilleristEldritchCannon:da3e8563-da2d-5bd6-a6e2-460730de5eb0",
     "Definition:PowerInnovationArtilleristFortifiedPositionAura:cfd35921-9636-5fe0-ab25-e22c887d6f1d",
-    "Definition:PowerInnovationArtilleristProtector:9612e15b-7358-5f6f-9593-491445548138",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [],

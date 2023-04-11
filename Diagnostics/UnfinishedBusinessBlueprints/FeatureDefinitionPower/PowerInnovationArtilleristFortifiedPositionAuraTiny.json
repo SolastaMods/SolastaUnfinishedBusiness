@@ -6,14 +6,14 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
-    "itemSelectionType": "None",
-    "targetParameter": 2,
+    "targetType": "Cube",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 5,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
-    "requiresTargetProximity": true,
-    "targetProximityDistance": 6,
+    "requiresTargetProximity": false,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -31,7 +31,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Minute",
+    "durationType": "Permanent",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "TemporaryHitPoints",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,12 +75,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "temporaryHitPointsForm": {
-          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 1,
-          "dieType": "D8",
-          "bonusHitPoints": 5,
-          "applyToSelf": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionInnovationArtilleristFortifiedPosition",
+          "conditionDefinition": "Definition:ConditionInnovationArtilleristFortifiedPosition:a5a2c37c-092b-5e23-8e9a-24a67b8b4899",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -89,11 +91,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -112,13 +114,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ffbd91a19da42df498cb2d6792ed88a7",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "34f0dc03c444b7d4b9cda7f2fedb34e6",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -136,7 +138,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ed804b962d30d5d4594418ac573ccc5e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -287,7 +289,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "PermanentUnlessIncapacitated",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -308,27 +310,27 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "fixedUsesPerRecharge": -1,
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerInnovationArtilleristProtectorTitle",
-    "description": "Feature/&PowerInnovationArtilleristProtectorDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "755d02ce23b40d344be8934b4e27c8a0",
-      "m_SubObjectName": "MassCureWounds",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -343,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9612e15b-7358-5f6f-9593-491445548138",
+  "guid": "c865879f-e8e7-59e3-a612-6fa319fe7fb1",
   "contentPack": 9999,
-  "name": "PowerInnovationArtilleristProtector"
+  "name": "PowerInnovationArtilleristFortifiedPositionAuraTiny"
 }

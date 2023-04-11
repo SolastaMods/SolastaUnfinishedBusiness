@@ -3,8 +3,9 @@
   "featureSet": [
     "Definition:PowerInnovationArtilleristSummonFlamethrower15:8f83c5d9-eb73-5dd3-855d-fde34569b352",
     "Definition:PowerInnovationArtilleristSummonForceBallista15:ffddd1a1-8c7a-57c3-ab32-c95811238981",
+    "Definition:PowerInnovationArtilleristFortifiedPositionAuraTiny:c865879f-e8e7-59e3-a612-6fa319fe7fb1",
     "Definition:PowerInnovationArtilleristSummonProtector15:f98ee146-db14-5636-9d29-19351aeba1d3",
-    "Definition:PowerInnovationArtilleristFortifiedPosition:b06937ff-f1fa-518c-a345-6d9525eb452b"
+    "Definition:PowerInnovationArtilleristFortifiedPositionActivate:11600c2f-8c49-594f-a053-51d8f9625a62"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

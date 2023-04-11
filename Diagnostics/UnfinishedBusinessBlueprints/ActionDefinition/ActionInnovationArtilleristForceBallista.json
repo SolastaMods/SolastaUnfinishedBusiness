@@ -38,8 +38,8 @@
     "description": "Feature/&PowerInnovationArtilleristForceBallistaDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1eecd66460594c34cb615a23a639926a",
-      "m_SubObjectName": "Recycler",
+      "m_AssetGUID": "487b2c11d5b1dec41b18377720260d99",
+      "m_SubObjectName": "EldritchBlast",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

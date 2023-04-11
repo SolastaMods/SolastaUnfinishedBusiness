@@ -38,8 +38,8 @@
     "description": "Feature/&PowerInnovationArtilleristProtectorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6c14bf8bd38332e40a72e9ff6efc12e2",
-      "m_SubObjectName": "SpellShield",
+      "m_AssetGUID": "755d02ce23b40d344be8934b4e27c8a0",
+      "m_SubObjectName": "MassCureWounds",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
