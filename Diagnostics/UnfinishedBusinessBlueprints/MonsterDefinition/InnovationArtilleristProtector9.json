@@ -94,7 +94,7 @@
   "dualSex": true,
   "minimalAge": 20,
   "maximalAge": 100,
-  "height": 3,
+  "height": 2,
   "weight": 140,
   "isHusk": false,
   "isPet": false,
@@ -119,9 +119,9 @@
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
-    "humanoidMonsterPresentationDefinitions": [],
+    "humanoidMonsterPresentationDefinitions": null,
     "useCustomMaterials": false,
-    "customMaterials": [],
+    "customMaterials": null,
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "0b440f74c09421f48b31b5f0aa6b3853",
@@ -165,21 +165,21 @@
       "m_SubObjectType": ""
     },
     "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "monsterPresentationDefinitions": null,
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "40b5fe532a9a0814097acdb16c74e967",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.2,
+    "maleModelScale": 0.1,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "40b5fe532a9a0814097acdb16c74e967",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.2,
+    "femaleModelScale": 0.1,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -191,14 +191,14 @@
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
-      "z": -10.0
+      "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
-      "y": 0.55
+      "y": 0.4
     },
-    "portraitCameraFOV": 30.0,
+    "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,

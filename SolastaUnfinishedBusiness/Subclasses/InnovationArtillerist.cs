@@ -91,7 +91,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -745,6 +745,15 @@ public static class InnovationArtillerist
             .Create(monsterDefinition, monsterName)
             .SetOrUpdateGuiPresentation(presentationName, Category.Feature)
             .SetSizeDefinition(DatabaseHelper.CharacterSizeDefinitions.Small)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(monsterDefinition.MonsterPresentation)
+                    .SetPhantom()
+                    .SetModelScale(0.1f)
+                    .SetHasMonsterPortraitBackground(true)
+                    .SetCanGeneratePortrait(true)
+                    .Build())
+            .SetHeight(2)
             .NoExperienceGain()
             .SetArmorClass(18)
             .SetChallengeRating(0)
