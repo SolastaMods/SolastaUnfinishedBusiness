@@ -67,10 +67,12 @@ public static class ShapeSelectionPanelPatcher
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.shapeOptionTable);
 
-            __instance.RectTransform.sizeDelta = new Vector2(__instance.shapeOptionTable.sizeDelta.x + 40f,
+            var x = __instance.shapeOptionTable.sizeDelta.x;
+
+            __instance.RectTransform.sizeDelta = new Vector2(x + 40f,
                 __instance.RectTransform.sizeDelta.y);
             __instance.modifierSize.StartSize = 0.0f;
-            __instance.modifierSize.EndSize = __instance.shapeOptionTable.sizeDelta.x;
+            __instance.modifierSize.EndSize = x + 40;
             __instance.modifierSize.ResetModifier(true);
             __instance.modifierSize.Duration = 0.3f;
             __instance.gameObject.SetActive(false);

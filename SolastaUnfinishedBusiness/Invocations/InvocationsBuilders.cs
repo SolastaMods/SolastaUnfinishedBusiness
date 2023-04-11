@@ -1,5 +1,4 @@
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -225,7 +224,7 @@ internal static class InvocationsBuilders
             .AddToDB();
 
         _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.OneWithShadowsTurnInvisible, $"ActionDefinition{NAME}")
+            .Create($"ActionDefinition{NAME}")
             .SetGuiPresentation(NAME, Category.Invocation, Sprites.Teleport, 71)
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
             .RequiresAuthorization(false)

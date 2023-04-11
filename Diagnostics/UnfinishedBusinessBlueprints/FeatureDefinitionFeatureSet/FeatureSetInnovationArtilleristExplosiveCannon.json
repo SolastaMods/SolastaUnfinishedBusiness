@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInnovationArtilleristEldritchCannonDetonate:c22389c4-5ce2-5a79-906b-1476da1c94b3",
+    "Definition:PowerInnovationArtilleristEldritchCannonDetonateSelf:fb5f5542-40b6-5ed1-b5a1-e0b17c7a7594",
+    "Definition:PowerInnovationArtilleristSummonFlamethrower9:91d8cb3e-fc5b-569d-a0d7-4b3e947950f2",
+    "Definition:PowerInnovationArtilleristSummonForceBallista9:30085fe2-fd52-5b35-b3f7-17fa886427be",
+    "Definition:PowerInnovationArtilleristSummonProtector9:ee4f8953-4041-5dad-ae9b-431fcbe09424",
+    "Definition:PowerInnovationArtilleristExplosiveCannonActivate:a7c821db-b27d-5a54-bd9c-de36cde98c96"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationArtilleristExplosiveCannonTitle",
+    "description": "Feature/&FeatureSetInnovationArtilleristExplosiveCannonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "53531956-269d-5b3d-9f72-56cb19b56b7a",
+  "contentPack": 9999,
+  "name": "FeatureSetInnovationArtilleristExplosiveCannon"
+}

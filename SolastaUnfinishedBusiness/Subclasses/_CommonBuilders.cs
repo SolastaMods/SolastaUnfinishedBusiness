@@ -106,7 +106,7 @@ internal static class CommonBuilders
             EffectDescriptionBuilder
                 .Create(DominateBeast.EffectDescription)
                 .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetRestrictedCreatureFamilies(Undead)
+                .SetRestrictedCreatureFamilies(Undead.Name)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Charisma,

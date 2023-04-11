@@ -120,8 +120,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .AddFeaturesAtLevel(14,
                 PowerCasterCommandUndead)
             .AddToDB();
-
-        EnableCommandAllUndead();
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -131,22 +129,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    private static void EnableCommandAllUndead()
-    {
-        if (!Main.Settings.EnableCommandAllUndead)
-        {
-            return;
-        }
-
-        var monsterDefinitions = DatabaseRepository.GetDatabase<MonsterDefinition>();
-
-        foreach (var monsterDefinition in monsterDefinitions
-                     .Where(x => x.CharacterFamily == Undead.Name))
-        {
-            monsterDefinition.fullyControlledWhenAllied = true;
-        }
-    }
 
     [NotNull]
     private static FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] GetDeadSpellAutoPreparedGroups()

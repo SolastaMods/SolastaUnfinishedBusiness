@@ -40,8 +40,8 @@ internal static class CreditsDisplay
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
         ("RedOrca", "Path of the Light"),
         ("DreadMaker", "Circle of the Forest Guardian"),
-        ("Holic75", "spells, Bolgrif, Gnome"),
         ("Bazou", "fighting styles, rules, spells"),
+        ("Holic75", "spells, Bolgrif"),
         ("Pikachar2", "spells"),
         ("Narria", "modKit, UI Improvements, Party Editor")
     };

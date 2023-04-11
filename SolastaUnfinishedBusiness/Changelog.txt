@@ -1,6 +1,5 @@
-- missing sprites or terms on Tundra Tiger and Water Elemental to be fixed after DLC
-- added Sorcerous Sorr-Akkath subclass [level 18 isn't implemented yet]
-- fixed Farmer background missing personalities
-- fixed wildshape monstrous forms offering
-- changed Circle of the Night combat healing
-- changed Circle of the Night wildshape points requirements
+- added Infusions Adept feat
+- added Innovation Artillerist subclass
+- added support for xbox controllers on spells and powers action panels
+- fixed Elemental Adept and Elemental Master feats
+- fixed invincible Path of the Light subclass

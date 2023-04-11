@@ -58,6 +58,23 @@ internal class MonsterPresentationBuilder
         return this;
     }
 
+    internal MonsterPresentationBuilder SetAllPrefab(MonsterPresentation monsterPresentation)
+    {
+        presentation.attachedParticlesReference = monsterPresentation.attachedParticlesReference;
+        presentation.customShaderReference = monsterPresentation.customShaderReference;
+        presentation.bestiaryAttachedParticlesReference = monsterPresentation.bestiaryAttachedParticlesReference;
+        presentation.femalePrefabReference = monsterPresentation.femalePrefabReference;
+        presentation.malePrefabReference = monsterPresentation.malePrefabReference;
+        return this;
+    }
+
+    internal MonsterPresentationBuilder SetPhantom(bool distortion = true, bool fadingFeet = true)
+    {
+        presentation.hasPhantomDistortion = distortion;
+        presentation.hasPhantomFadingFeet = fadingFeet;
+        return this;
+    }
+
     internal MonsterPresentationBuilder SetPrefab(AssetReference prefab)
     {
         presentation.femalePrefabReference = prefab;

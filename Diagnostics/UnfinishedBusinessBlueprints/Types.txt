@@ -1,6 +1,7 @@
 ActionDefinition
 CharacterBackgroundDefinition
 CharacterClassDefinition
+CharacterFamilyDefinition
 CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
@@ -29,6 +30,7 @@ FeatureDefinitionFeatureSet
 FeatureDefinitionLightAffinity
 FeatureDefinitionMagicAffinity
 FeatureDefinitionMovementAffinity
+FeatureDefinitionMoveMode
 FeatureDefinitionPerceptionAffinity
 FeatureDefinitionPointPool
 FeatureDefinitionPower

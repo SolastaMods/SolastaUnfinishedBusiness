@@ -50,6 +50,12 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetPermanentCover(RuleDefinitions.CoverType permanentCover)
+    {
+        Definition.permanentCover = permanentCover;
+        return this;
+    }
+
 #if false
     internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(RuleDefinitions.AdvantageType affinity)
     {
