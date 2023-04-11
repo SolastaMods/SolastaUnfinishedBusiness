@@ -56,8 +56,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCommandAllUndead { get; set; } = true;
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
-    public bool EnableMultiLinePowerPanel { get; set; } = true;
-    public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
