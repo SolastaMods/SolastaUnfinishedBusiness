@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "Wisdom",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 21,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Equipment/&DLC3_DwarvenWeapon_Quarterstaff+3_Ability",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9da39eebec6f3864380d3c22fb39420f",
+  "contentPack": "BaseGame",
+  "name": "AttributeModifierDLC3_Dwarven_Weapon_Quarterstaff+3"
+}

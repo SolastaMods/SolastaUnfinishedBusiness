@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
   "stackCount": 1,
-  "craftingHours": 16,
-  "craftingDC": 13,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

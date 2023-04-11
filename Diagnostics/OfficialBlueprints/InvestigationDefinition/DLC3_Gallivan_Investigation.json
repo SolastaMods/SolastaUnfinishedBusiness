@@ -1,0 +1,68 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Gallivan_Suspect01:8138d6c6ce01bb140b1f3e8d9869df57",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Gallivan_Suspect02:ba920464b18a2d34b9e0a0ecd642077f",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Gallivan_Suspect03:40b48bcb87bcd5a4c9379f336734e1d5",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Gallivan_Suspect04:7c57b4efc79596f469bbe1dae9562ad4",
+      "traitor": true,
+      "reputationLevel": "High",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Gallivan_Suspect05:ea04aee311f2b774a81651e10018dbaa",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    }
+  ],
+  "quest": "Definition:DLC3_Quest_HumanClans_Investigation_Quest:b290c857fa97ab3499f9cdb9fd5a52c3",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Investigation/&DLC3_Gallivan_Title",
+    "description": "Investigation/&DLC3_Gallivan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3c33d3f65b789c04993a7052f096b624",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Gallivan_Investigation"
+}

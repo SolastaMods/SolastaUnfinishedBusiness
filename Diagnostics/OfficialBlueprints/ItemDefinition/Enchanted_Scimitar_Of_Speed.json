@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Weapon",
   "weight": 3.0,
   "slotTypes": [
@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3500,
+    4025,
     0,
     0,
     0
@@ -494,6 +494,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -502,17 +503,16 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Enchanted_Scimitar_Of_Speed_Title",
+    "title": "Equipment/&ScimitarOfSharpness_Title",
     "description": "Equipment/&Enchanted_ScimitarOfSpeed_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ddfcde9ec2dbd0d44a04b9922148d6b9",
-      "m_SubObjectName": "DLC1_ScimitarOfAcuteness",
+      "m_AssetGUID": "553dafd919750a04aa8d89068f79d850",
+      "m_SubObjectName": "DLC2.5_ScimitarOfSpeed",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -529,6 +529,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "997c6afa1884c164f9e0e0c30279ccb5",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "Enchanted_Scimitar_Of_Speed"
 }

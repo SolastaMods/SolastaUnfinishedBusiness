@@ -1,0 +1,33 @@
+{
+  "$type": "ReactionDefinition, Assembly-CSharp",
+  "reactTitle": "Reaction/&HellishRebukeReactTitle",
+  "reactDescription": "Reaction/&HellishRebukeReactDescription",
+  "validationDismissesSimilarReactions": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&HellishRebukeTitle",
+    "description": "Spell/&HellishRebukeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "066b1cfc0ab936f4d9ee8a1d4294abae",
+  "contentPack": "BaseGame",
+  "name": "CounterAttackWithSpellHellishRebukeTiefling"
+}

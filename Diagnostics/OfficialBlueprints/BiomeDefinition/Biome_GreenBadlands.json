@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Forest",
   "encounterTable": "Definition:AridBadlandsEncounter:f8549634a71a0bf4899d0bd5f1787f20",
   "narrativeEventBasicLines": [
@@ -15,11 +16,12 @@
     "Definition:Encounter_Cemetery_LocationDB:05ccd4e38ea7c3f4c9f7e6290bba0223",
     "Definition:Encounter_Swamp_LocationDB:7a0d849855a960f488e3fb95f20e4461"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Green:0ca6c650cd299314a80f59fb1cf81d50",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_GreenBadlands_Title",
+    "description": "Biome/&Biome_GreenBadlands_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +36,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 1,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

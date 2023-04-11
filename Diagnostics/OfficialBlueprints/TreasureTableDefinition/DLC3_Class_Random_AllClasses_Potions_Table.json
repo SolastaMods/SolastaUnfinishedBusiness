@@ -1,0 +1,69 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfSpeed:d835c99336e337b49b4f9ea802553012",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfHeroism:607d6eb133deaf842b3addf6c289340c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfFlying:326edcb0b7d62c945a6b019a51e74b42",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfInvisibility:9f3974b2b1468d242af51b8bd8a28420",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfClimbing:8c1d285b1b0cb7a49bd41fe193d54620",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PotionOfSuperiorHealing:0b66baca2c0c01441a65465be8179ee2",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "329f8ed15f9e8c9478daf906f80ba032",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Class_Random_AllClasses_Potions_Table"
+}

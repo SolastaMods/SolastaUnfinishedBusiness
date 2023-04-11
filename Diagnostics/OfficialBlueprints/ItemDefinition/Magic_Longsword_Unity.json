@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4500,
+    10000,
     0,
     0,
     0
@@ -44,7 +44,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Unity:d998acd1f3cd0b14890bafc9be1dfcb6",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -52,7 +52,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Unity2:d666fc3057f02c242ae5f66e69e523e7",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -509,6 +509,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -517,8 +518,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -544,6 +544,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "d83c603b968835c40a3fd354cad7ee2c",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Magic_Longsword_Unity"
 }

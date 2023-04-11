@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Halfling:d6a9a559998c0974abd8077d7012ef84",
+  "subRaceDefinition": "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+  "sex": "Female",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinObsidian",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_D",
+  "hairShapeMorphotype": "HairShape_V",
+  "hairColorMorphotype": "HairColor_34",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_015",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_10",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_11",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ClothesCommon_POI",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.7169812,
+    "g": 0.7169812,
+    "b": 0.6121395,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.410377324,
+    "g": 0.4806195,
+    "b": 0.5471698,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.745283,
+    "g": 0.7317484,
+    "b": 0.720674634,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_SouthernClans_Merchant_Clan_Title",
+    "description": "NPC/&DLC3_NPC_SouthernClans_Merchant_Clan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9ed3cef765fbf234ea727e7426b69074",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Merchant_ClanHouse",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "bb1f010a253120c4ebf74a79e5f38eab",
+  "contentPack": "LostValley",
+  "name": "NPC_Presentation_DLC3_SouthernClans_Merchant_ClanHouse"
+}

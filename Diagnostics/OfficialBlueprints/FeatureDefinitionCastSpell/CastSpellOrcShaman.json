@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListOrcShaman:ee67d5b818e394c4c8f25f89a37ec9ec",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

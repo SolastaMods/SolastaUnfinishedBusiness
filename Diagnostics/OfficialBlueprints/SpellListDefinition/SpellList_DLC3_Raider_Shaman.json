@@ -1,0 +1,88 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+        "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+        "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+        "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf",
+        "Definition:MassCureWounds:31c98fc81cea919499357f8b2cc26bee",
+        "Definition:Contagion:13567fa6f3f984347b5b6c4347fac6e8"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "19b6ca5345330d54393a480fafd96947",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC3_Raider_Shaman"
+}

@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfHeroism:607d6eb133deaf842b3addf6c289340c",
   "stackCount": 1,
-  "craftingHours": 16,
-  "craftingDC": 15,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

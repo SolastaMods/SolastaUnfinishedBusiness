@@ -1,6 +1,5 @@
 {
   "$type": "ClueDefinition, Assembly-CSharp",
-  "suspicionModifier": 0.5,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -8,8 +7,8 @@
     "description": "Screen/&InvestigationClueNondetectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2c51732659edc6e4e8ec0f6b92db4b1a",
-      "m_SubObjectName": "Hide",
+      "m_AssetGUID": "5fd9a3a99ee653348a4620c9af40e8b8",
+      "m_SubObjectName": "ClueNonDetection",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

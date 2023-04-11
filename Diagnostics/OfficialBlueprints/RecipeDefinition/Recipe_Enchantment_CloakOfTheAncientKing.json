@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CloakOfTheAncientKing:5633d1280d098b14c93e2c14e2c0b64f",
   "stackCount": 1,
-  "craftingHours": 18,
-  "craftingDC": 15,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -19,7 +20,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
-      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+      "itemDefinition": "Definition:1000_GP_Diamond:b6dcb2b305ede8440bf70c35e774e736"
     }
   ],
   "spellDefinition": null,

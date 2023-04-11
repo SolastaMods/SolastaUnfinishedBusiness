@@ -1,0 +1,251 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "merchantCategory": "Armor",
+  "weight": 6.0,
+  "slotTypes": [
+    "OffHandSlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "OffHandSlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    32000,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Metal"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": true,
+  "requiresIdentification": true,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Legendary",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttributeModifierJakarBuckler:ca0c15e94f0c23846bfc38d92f0d5766",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:ActionAffinityGlovesMissileSnaring:88a99f06b4a44924aa9a38f2e2a52221",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    }
+  ],
+  "isArmor": true,
+  "armorDefinition": {
+    "$type": "ArmorDescription, Assembly-CSharp",
+    "armorType": "ShieldType",
+    "armorClassValue": 2,
+    "isBaseArmorClass": false,
+    "maxDexterityBonus": -1,
+    "requiresMinimalStrength": false,
+    "minimalStrength": 13
+  },
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&Shield_plus_1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Shield_plus_1_Unidentified_Description",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "ed21ba3497d1e3146a843679fcde8bc0",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": false,
+    "isArmorAddressableNameGenderSpecific": false,
+    "armorAddressableName": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": false,
+    "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "clueSuspectPairs": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&DLC3_Jakarbuckler_Title",
+    "description": "Equipment/&DLC3_Jakarbuckler_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "051f92a2043585d4ab3691fabd3b3c9c",
+      "m_SubObjectName": "DLC3_Jakarbuckler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "962ff27fe7dc5664bba1d7e5b64b13d4",
+  "contentPack": "PalaceOfIce",
+  "name": "JakarBuckler"
+}

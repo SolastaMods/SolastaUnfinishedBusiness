@@ -1,0 +1,63 @@
+{
+  "$type": "MorphotypeElementDefinition, Assembly-CSharp",
+  "playerSelectable": false,
+  "category": "FaceShape",
+  "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "replaceEyeColorMask": false,
+  "bodyDecorationType": "Tattoo",
+  "bodyDecorationBlendFactor": 1.0,
+  "minMaxValue": {
+    "$type": "TA.RangedFloat, Assembly-CSharp",
+    "minValue": 0.0,
+    "maxValue": 100.0
+  },
+  "originAllowed": [],
+  "subClassFilterMask": "All",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Ron",
+    "description": "Ron",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "78fa5d3f2a8189143ac42a6a1c7e47fb",
+  "contentPack": "BaseGame",
+  "name": "FaceShape_NPC_Grimhild"
+}

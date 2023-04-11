@@ -10,6 +10,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Hour",

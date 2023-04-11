@@ -86,7 +86,10 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Priest_Of_Einar:69c289066ede39a4ba1d4718f3e9da02"
+      "Definition:NPC_Presentation_Priest_Of_Einar:69c289066ede39a4ba1d4718f3e9da02",
+      "Definition:NPC_Presentation_Priest_Of_Einar_B:b0132f46633600c4caf03cb83884d7f4",
+      "Definition:NPC_Presentation_Priest_Of_Einar_C:be14cd0d77ec59b409a2f05d8f9d8a1e",
+      "Definition:NPC_Presentation_Priest_Of_Einar_D:72c4110b4d2063b4b9a08ea5739bf4b7"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

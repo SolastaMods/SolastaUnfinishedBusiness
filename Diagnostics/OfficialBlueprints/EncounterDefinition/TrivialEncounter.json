@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "type": "Battle",
   "challengeRating": 1,
   "locationOverride": "Definition:Encounter_Forest_LocationDB:e9890128da1ec5245a25c869d2b4e94a",

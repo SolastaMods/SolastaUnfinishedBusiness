@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Poison_SpiderQueensBlood:b8a4aee64e8f6a246967334eda6bfbac",
   "stackCount": 1,
-  "craftingHours": 72,
-  "craftingDC": 17,
+  "craftingHours": 6,
+  "craftingDC": 25,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

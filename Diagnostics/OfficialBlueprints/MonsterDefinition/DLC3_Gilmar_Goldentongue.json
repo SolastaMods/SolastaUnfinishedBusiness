@@ -1,0 +1,307 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "NPC",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "DLC3_Faction_UndermountainClan",
+  "fullyControlledWhenAllied": true,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 16,
+  "armor": "Leather",
+  "hitDice": 10,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 40,
+  "standardHitPoints": 80,
+  "abilityScores": [
+    10,
+    18,
+    18,
+    15,
+    12,
+    16
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 7
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Acrobatics",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Athletics",
+      "bonus": 4
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "SleightOfHand",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 5
+    }
+  ],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:DefaultSupportCasterWithBackupAttacksDecisions:f99448e8f4c2d9d478837c543e3e205f",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeHurtMeatyDamageDealers"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Elvish",
+    "Language_Dwarvish"
+  ],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_M_Gilmar",
+        "id": 2445710369,
+        "guid": "048DA372-1FDB-473D-A0BA-6F200619F869",
+        "name": "048DA372-1FDB-473D-A0BA-6F200619F869"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 3.0,
+  "challengeRating": 0.5,
+  "noExperienceGain": true,
+  "droppedLootDefinition": null,
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:CastSpellGalar:effba9dffd56a5c4e871d2de56e92a42",
+    "Definition:AdditionalDamage_DLC3_SneakAttack_Misouk:9d66a04ad3bfb7440bde745dd3c55e89",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Misouk_Shortsword:ca78f4c598933b047bc069aebdab59ae"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Misouk_Dagger:3c4006507d9cfde40be1041cec4134ff"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Misouk_Crossbow:1e68ecf9c51640345a83086b058ac0c1"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": true,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Gilmar_Goldentongue:5814d4dccde60314d97480d3de29298f"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.6553079,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.6553079,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": true,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": true,
+  "uniqueNameId": "Gilmar",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_DLC3_Gilmar_Title",
+    "description": "NPC/&NPC_DLC3_Gilmar_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f9bb5263c30efd84cae691717bf3d3f0",
+      "m_SubObjectName": "NPC_Presentation_Gilmar_Goldentongue",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "a1b5777c12ee4eb429071f32e596aa2c",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Gilmar_Goldentongue"
+}

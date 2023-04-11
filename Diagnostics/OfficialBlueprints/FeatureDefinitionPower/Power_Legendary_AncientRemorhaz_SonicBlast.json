@@ -44,7 +44,7 @@
     "createdByCharacter": true,
     "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 19,
+    "fixedSavingThrowDifficultyClass": 17,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -78,7 +78,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 8,
+          "diceNumber": 6,
           "dieType": "D12",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D10",
@@ -318,7 +318,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -339,7 +339,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "D6_6",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

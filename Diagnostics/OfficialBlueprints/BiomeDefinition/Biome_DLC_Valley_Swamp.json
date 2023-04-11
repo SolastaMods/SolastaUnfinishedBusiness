@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "terrainType": "Swamp",
   "encounterTable": "Definition:DLC1_EncounterTableFull:7f0d2ac20b75e4143829ba379f6be73e",
   "narrativeEventBasicLines": [
@@ -36,10 +37,11 @@
     "Definition:Encounter_Cemetery_LocationDB:05ccd4e38ea7c3f4c9f7e6290bba0223",
     "Definition:Encounter_Swamp_LocationDB:7a0d849855a960f488e3fb95f20e4461"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Volcanic:848ccefcd1a53a14b97fe42b43dde6c6",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
+    "title": "Biome/&DLC1_Valley_MarchesTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -61,6 +63,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "bde88b39d19018546b37af66b599516d",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "Biome_DLC_Valley_Swamp"
 }

@@ -18,7 +18,7 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D8",
-  "damageDiceNumber": 2,
+  "damageDiceNumber": 1,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageNecrotic",
   "ancestryTypeForDamageType": "Sorcerer",

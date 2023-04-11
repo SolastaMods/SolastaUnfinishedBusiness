@@ -30,7 +30,7 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
-  "savingThrowDC": 11,
+  "savingThrowDC": 13,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "HalfDamage",
   "conditionOperations": [],

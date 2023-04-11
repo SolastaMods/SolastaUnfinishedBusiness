@@ -332,13 +332,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerSorcererChildRiftRiftwalkTitle",
+    "description": "Feature/&PowerSorcererChildRiftRiftwalkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

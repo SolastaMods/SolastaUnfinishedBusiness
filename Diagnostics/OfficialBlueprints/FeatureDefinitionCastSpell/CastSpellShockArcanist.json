@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListShockArcanist:7ad858d9446f8d946bcfa01886cf8f68",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 9,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

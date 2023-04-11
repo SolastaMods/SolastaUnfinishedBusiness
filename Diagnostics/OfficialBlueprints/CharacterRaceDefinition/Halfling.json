@@ -64,7 +64,10 @@
     "bodyAssetPrefix": "Halfling",
     "armorAssetPrefix": "Halfling",
     "helmetAssetPrefix": "Halfling",
-    "morphotypeAssetPrefix": "Halfling",
+    "faceShapeAssetPrefix": "Halfling",
+    "hairShapeAssetPrefix": "Halfling",
+    "beardShapeAssetPrefix": "Halfling",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [
       "Race/&HalflingMaleName1Title",
       "Race/&HalflingMaleName2Title",
@@ -123,7 +126,10 @@
       "FaceShape_NPC_Wilf_Warmhearth",
       "FaceShape_NPC_Renno_Highwater",
       "FaceShape_NPC_Hanno_Mudstrider",
-      "FaceShape_NPC_Krim_Sunsail"
+      "FaceShape_NPC_Krim_Sunsail",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_D",
@@ -135,7 +141,11 @@
       "FaceShape_NPC_Annie_Bagmordah",
       "FaceShape_NPC_Mildred_Warmhearth",
       "FaceShape_NPC_Maddy_Greenisle",
-      "FaceShape_NPC_Rose_Fairwind"
+      "FaceShape_NPC_Rose_Fairwind",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_A"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -239,7 +249,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 0.7
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.7,
+    "raceAnimationTag": "Halfling"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

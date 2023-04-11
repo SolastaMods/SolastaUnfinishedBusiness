@@ -1,0 +1,106 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Bolt_Alchemy_Flaming:9f92f7d9a5880bc41922322e498f96fd",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+      "treasureTableDefinition": "Definition:RandomTreasureTableI2_PoisonedProjectiles:3e0b4ec21fd5d874da7c579d7650a8b2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+      "treasureTableDefinition": "Definition:RandomTreasureTableJ_Scrolls:f32c8bd80e21a834d84a9b08ced9f9cd",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "f80c5eca4256bd342889b73ce623ad52",
+  "contentPack": "LostValley",
+  "name": "DLC3_Cultist_Marksman_Loot_Drop"
+}

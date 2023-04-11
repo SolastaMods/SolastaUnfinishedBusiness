@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [],
@@ -64,7 +64,7 @@
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 75.0,
   "challengeRating": 3.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Vrock_loot_drop:755f5f2c3a5b7674981eaf3d3d2c4c33",
@@ -84,7 +84,8 @@
     "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
-    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544"
+    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
@@ -111,7 +112,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -178,23 +179,23 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.9,
+    "maleModelScale": 0.35,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.9,
+    "femaleModelScale": 0.35,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": false,
+    "canGeneratePortrait": true,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {

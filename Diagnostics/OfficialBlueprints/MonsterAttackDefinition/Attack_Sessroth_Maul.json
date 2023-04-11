@@ -3,12 +3,12 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 16,
+  "toHitBonus": 15,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": -1,
   "proximity": "Melee",
-  "reachRange": 1,
+  "reachRange": 2,
   "closeRange": 10,
   "maxRange": 20,
   "magical": true,
@@ -125,7 +125,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 4,
+          "diceNumber": 2,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -169,7 +169,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a4dc889d0db444e4a8054fcd539d3688",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -217,7 +217,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "88cda4ec89c101246a3839412ce6f301",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -343,11 +343,13 @@
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
-  "itemDefinitionMainHand": "Definition:Maul:0b6e83a1958b06e46a5c5159a82aea9a",
+  "itemDefinitionMainHand": "Definition:Maul_DLC3_Sessroth:76d10312ef1b5854fbf18844972268c1",
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

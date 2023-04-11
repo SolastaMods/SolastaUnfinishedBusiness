@@ -33,7 +33,7 @@
   "requiresAttunement": false,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "Uncommon",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -449,6 +449,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -457,8 +458,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -466,8 +466,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "512e6a1f4e275f444b2b96c36d6c9e33",
-      "m_SubObjectName": "Arrow_plus_one",
+      "m_AssetGUID": "961ab7553d67e974288bb3ad1295ed02",
+      "m_SubObjectName": "Arrow_plus_two",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
