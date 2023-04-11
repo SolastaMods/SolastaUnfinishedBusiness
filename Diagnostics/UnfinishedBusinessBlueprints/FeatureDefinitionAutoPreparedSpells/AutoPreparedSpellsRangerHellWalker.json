@@ -4,7 +4,7 @@
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 2,
       "spellsList": [
         "Definition:HellishRebuke:ce1fe7c80c29bfc438c6f8150658083b"
       ]

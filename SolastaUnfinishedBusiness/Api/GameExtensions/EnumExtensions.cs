@@ -189,7 +189,10 @@ internal enum ExtraActionId
     PaladinSmiteToggle = 9014,
     MonsterSwapAttackToggle = 9015,
     CombatWildShape = 9016,
-    FeatCrusherToggle = 9017
+    FeatCrusherToggle = 9017,
+    CannonFlamethrower = 9018,
+    CannonForceBallista = 9019,
+    CannonProtector = 9020
 }
 
 #if false

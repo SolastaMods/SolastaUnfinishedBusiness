@@ -29,21 +29,8 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "soundEvent": {
-    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": null,
-    "idInternal": 0,
-    "valueGuidInternal": {
-      "$type": "System.Byte[], mscorlib",
-      "$value": ""
-    }
-  },
+  "particlePrefab": null,
+  "soundEvent": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

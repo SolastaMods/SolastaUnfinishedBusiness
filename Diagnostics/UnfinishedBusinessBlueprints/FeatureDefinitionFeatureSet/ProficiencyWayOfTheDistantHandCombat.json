@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FeatureMonkWeaponSpecializationShortbowType:0b67a1cb-41b2-54db-a7be-2f18abc68efb",
+    "Definition:FeatureMonkWeaponSpecializationLongbowType:400a98a9-be89-5696-9391-33fb65fe8f88",
+    "Definition:FeatureMonkWeaponSpecializationCEHandXbowType:e927fb11-6c4b-5a68-bc0d-1a24052282fd"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ProficiencyWayOfTheDistantHandCombatTitle",
+    "description": "Feature/&ProficiencyWayOfTheDistantHandCombatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9ae5c18b-4f4a-5234-90a6-f3d147af88b1",
+  "contentPack": 9999,
+  "name": "ProficiencyWayOfTheDistantHandCombat"
+}

@@ -4,7 +4,7 @@
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 2,
       "spellsList": [
         "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8"
       ]

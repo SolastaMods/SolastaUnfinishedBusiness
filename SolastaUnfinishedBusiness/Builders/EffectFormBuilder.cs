@@ -71,7 +71,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetAlterationForm(AlterationForm.Type alterationType)
     {
         var alterationForm = new AlterationForm { alterationType = alterationType };
@@ -81,6 +80,7 @@ internal class EffectFormBuilder
         return this;
     }
 
+#if false
     internal EffectFormBuilder SetAlterationAbilityScore(string abilityScore, int valueIncrease, int maximumIncrease)
     {
         var alterationForm = new AlterationForm
@@ -135,7 +135,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-#if false
     internal EffectFormBuilder SetCounterForm(
         CounterForm.CounterType type,
         int automaticSpellLevel,
@@ -155,7 +154,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Counter;
         return this;
     }
-#endif
+
     internal static EffectForm DamageForm(string damageType = DamageTypeBludgeoning,
         int diceNumber = 0,
         DieType dieType = DieType.D1,

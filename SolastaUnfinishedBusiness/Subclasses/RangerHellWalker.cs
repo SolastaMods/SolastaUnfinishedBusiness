@@ -31,7 +31,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, HellishRebuke),
+                BuildSpellGroup(2, HellishRebuke),
                 BuildSpellGroup(5, Invisibility),
                 BuildSpellGroup(9, BestowCurse),
                 BuildSpellGroup(13, WallOfFire),
@@ -303,11 +303,12 @@ internal sealed class RangerHellWalker : AbstractSubclass
         }
 
         public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+            IDamageAffinityProvider provider, RulesetActor rulesetActor)
         {
             if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
             {
-                return provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire;
+                return provider.DamageAffinityType == DamageAffinityType.Resistance &&
+                       provider.DamageType == DamageTypeFire;
             }
 
             return false;

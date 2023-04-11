@@ -4,7 +4,7 @@
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
+  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
@@ -153,7 +153,9 @@
     <string>RaceKobold</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
-  <BackgroundEnabled />
+  <BackgroundEnabled>
+    <string>BackgroundFarmer</string>
+  </BackgroundEnabled>
   <DeitySliderPosition>4</DeitySliderPosition>
   <DeityEnabled />
   <ClassSliderPosition>4</ClassSliderPosition>
@@ -912,7 +914,8 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes />
+  <DefaultPartyHeroes>
+  </DefaultPartyHeroes>
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -1143,7 +1146,4 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

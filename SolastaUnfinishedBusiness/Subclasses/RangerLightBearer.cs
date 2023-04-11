@@ -35,7 +35,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Bless),
+                BuildSpellGroup(2, Bless),
                 BuildSpellGroup(5, BrandingSmite),
                 BuildSpellGroup(9, SpellsContext.BlindingSmite),
                 BuildSpellGroup(13, GuardianOfFaith),
@@ -115,6 +115,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                         DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                             .Where(x => x != CharacterFamilyDefinitions.Construct &&
                                         x != CharacterFamilyDefinitions.Undead)
+                            .Select(x => x.Name)
                             .ToArray())
                     .SetEffectForms(
                         EffectFormBuilder

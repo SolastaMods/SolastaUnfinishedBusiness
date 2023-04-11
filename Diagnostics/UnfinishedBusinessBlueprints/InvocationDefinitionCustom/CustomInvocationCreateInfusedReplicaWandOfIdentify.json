@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": "Definition:PowerCreateInfusedReplicaWandOfIdentify:129e4a79-7791-5336-b169-eb31550331ea",
   "grantedSpell": null,

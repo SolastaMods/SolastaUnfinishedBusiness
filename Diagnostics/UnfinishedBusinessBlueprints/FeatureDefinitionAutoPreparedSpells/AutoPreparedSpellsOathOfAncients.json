@@ -4,7 +4,7 @@
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
+      "classLevel": 2,
       "spellsList": [
         "Definition:EnsnaringStrike:3793748b-7d90-5c0e-bb05-4fedc284e7f1",
         "Definition:AnimalFriendship:5f03823791376fd48b1868183b041cb3"

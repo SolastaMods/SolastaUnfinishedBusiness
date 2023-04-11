@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 2,
+  "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": "Definition:PowerInfusionEnhanceWeapon:c4c32237-1e03-5c6d-b39a-fdfd9efd3991",
   "grantedSpell": null,

@@ -94,6 +94,7 @@ RestActivity/&RestActivityPowerAfterRestIdentify=Identify
 RestActivity/&RestActivityPowerAfterRestIdentifyDescription=Identify magic items
 RestActivity/&RestActivityRespecDescription=Respec this Hero.
 RestActivity/&RestActivityRespecTitle=Respec
+Rules/&CounterFormDismissCreatureFormat=Dismisses a target conjured creature
 Rules/&SituationalContext1000Format=Main weapon is melee:
 Rules/&SituationalContext1001Format=Wearing no armor or light armor without shield:
 Rules/&SituationalContext1002Format=Wearing no armor or light armor with two-handed quarterstaff:

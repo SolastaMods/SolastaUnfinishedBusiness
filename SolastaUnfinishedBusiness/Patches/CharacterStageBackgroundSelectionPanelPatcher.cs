@@ -1,8 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -19,11 +18,25 @@ public static class CharacterStageBackgroundSelectionPanelPatcher
         public static void Prefix([NotNull] CharacterStageBackgroundSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling backgrounds on the Mod UI panel
-            var compatibleBackgrounds = DatabaseRepository.GetDatabase<CharacterBackgroundDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(x => x.FormatTitle());
+            __instance.compatibleBackgrounds.Clear();
+            __instance.selectedBackgroundPersonalityFlagsMap.Clear();
 
-            __instance.compatibleBackgrounds.SetRange(compatibleBackgrounds);
+            foreach (var key in
+                     DatabaseRepository.GetDatabase<CharacterBackgroundDefinition>())
+            {
+                if (key.GuiPresentation.Hidden)
+                {
+                    continue;
+                }
+
+                __instance.compatibleBackgrounds.Add(key);
+                __instance.selectedBackgroundPersonalityFlagsMap.Add(key,
+                    key.OptionalPersonalityFlags.Count == 2
+                        ? new List<string>(key.DefaultOptionalPersonalityFlags)
+                        : new List<string>());
+            }
+
+            __instance.compatibleBackgrounds.Sort(__instance);
         }
     }
 }

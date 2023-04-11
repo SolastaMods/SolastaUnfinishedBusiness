@@ -203,67 +203,43 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var modulateSustainedDamage = typeof(IRulesetImplementationService).GetMethod("ModulateSustainedDamage");
-            var myModulateSustainedDamage =
-                typeof(ModulateSustainedDamage_Patch).GetMethod("MayModulateSustainedDamage");
             var myEnumerate = new Action<
                 RulesetActor,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>,
+                ulong
             >(MyEnumerate).Method;
 
             return instructions
-                //PATCH: supports IIgnoreDamageAffinity    
-                .ReplaceCall(modulateSustainedDamage,
-                    2, "RulesetActor.ModulateSustainedDamage.1",
-                    new CodeInstruction(OpCodes.Ldarg, 4), // source guid
-                    new CodeInstruction(OpCodes.Call, myModulateSustainedDamage))
-                //PATCH: add `IDamageAffinityProvider` from dynamic item properties
-                //fixes game not applying damage reductions from dynamic item properties
-                //used for Inventor's Resistant Armor infusions
                 .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
-                    -1, "RulesetActor.ModulateSustainedDamage.2",
+                    -1, "RulesetActor.ModulateSustainedDamage",
+                    new CodeInstruction(OpCodes.Ldarg, 4), // source guid
                     new CodeInstruction(OpCodes.Call, myEnumerate));
-        }
-
-        [UsedImplicitly]
-        public static float MayModulateSustainedDamage(
-            IRulesetImplementationService service,
-            IDamageAffinityProvider provider,
-            RulesetActor actor,
-            string damageType,
-            float multiplier,
-            List<string> sourceTags,
-            bool wasFirstDamage,
-            out int damageReduction,
-            out string ancestryDamageType,
-            ulong sourceGuid)
-        {
-            ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(sourceGuid, out var rulesetEntity);
-
-            var caster = rulesetEntity as RulesetCharacter;
-            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
-
-            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, actor, damageType)))
-            {
-                return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
-                    wasFirstDamage,
-                    out damageReduction, out ancestryDamageType);
-            }
-
-            damageReduction = 0;
-            ancestryDamageType = string.Empty;
-
-            return multiplier;
         }
 
         private static void MyEnumerate(
             RulesetActor actor,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
+            ulong guid)
         {
-            actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(actor.featuresToBrowse, featuresOrigin);
+            //PATCH: supports IIgnoreDamageAffinity   
+            actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(featuresToBrowse, featuresOrigin);
 
+            ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(guid, out var rulesetEntity);
+
+            var caster = rulesetEntity as RulesetCharacter;
+            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+
+            foreach (var feature in features.ToList())
+            {
+                featuresToBrowse.RemoveAll(x =>
+                    x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+            }
+
+            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
+            //fixes game not applying damage reductions from dynamic item properties
+            //used for Inventor's Resistant Armor infusions
             if (actor is not RulesetCharacterHero hero)
             {
                 return;

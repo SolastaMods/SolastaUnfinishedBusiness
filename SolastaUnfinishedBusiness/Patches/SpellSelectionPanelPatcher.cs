@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -36,24 +35,6 @@ public static class SpellSelectionPanelPatcher
             }
         }
 
-        [UsedImplicitly]
-        public static void Postfix(
-            SpellSelectionPanel __instance,
-            GuiCharacter caster,
-            SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged,
-            ActionDefinitions.ActionType actionType,
-            bool cantripOnly)
-        {
-            //PATCH: shows spell selection on multiple rows
-            if (!Main.Settings.EnableMultiLineSpellPanel)
-            {
-                return;
-            }
-
-            GameUiContext.SpellSelectionPanelMultilineBind(
-                __instance, caster, spellCastEngaged, actionType, cantripOnly);
-        }
-
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -71,24 +52,6 @@ public static class SpellSelectionPanelPatcher
             return character.SpellRepertoires
                 .Where(r => !r.SpellCastingFeature.GuiPresentation.Hidden)
                 .ToList();
-        }
-    }
-
-    [HarmonyPatch(typeof(SpellSelectionPanel), nameof(SpellSelectionPanel.Unbind))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class Unbind_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix()
-        {
-            //PATCH: shows spell selection on multiple rows
-            if (!Main.Settings.EnableMultiLineSpellPanel)
-            {
-                return;
-            }
-
-            GameUiContext.SpellSelectionPanelMultilineUnbind();
         }
     }
 }
