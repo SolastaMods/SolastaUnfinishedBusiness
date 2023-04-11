@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInnovationArtilleristCommandEldritchCannon",
-          "conditionDefinition": "Definition:ConditionInnovationArtilleristCommandEldritchCannon:40218bf8-1449-577c-8536-942085b7b5a3",
+          "conditionDefinitionName": "ConditionInnovationArtilleristCommand",
+          "conditionDefinition": "Definition:ConditionInnovationArtilleristCommand:d3e2283f-374c-54c8-94bc-aaf257c7212d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

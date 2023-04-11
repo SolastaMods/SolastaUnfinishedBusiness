@@ -13,7 +13,7 @@
   "armorClass": 18,
   "armor": "",
   "hitDice": 1,
-  "hitDiceType": "D1",
+  "hitDiceType": "D8",
   "hitPointsBonus": 5,
   "standardHitPoints": 32,
   "abilityScores": [
@@ -212,7 +212,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationArtilleristSummonEldritchCannonForceBallistaTitle",
+    "title": "Feature/&PowerInnovationArtilleristForceBallistaTitle",
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

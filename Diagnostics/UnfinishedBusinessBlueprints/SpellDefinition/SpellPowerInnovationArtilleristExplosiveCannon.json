@@ -2,9 +2,12 @@
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
   "subspellsList": [
-    "Definition:SpellPowerInnovationArtilleristSummonEldritchCannonFlamethrower9:7aba70e3-05fa-5871-aa7e-8003a3b496e4",
-    "Definition:SpellPowerInnovationArtilleristSummonEldritchCannonForceBallista9:ad7eeeab-58dc-5045-be57-229dc0a9b0dc",
-    "Definition:SpellPowerInnovationArtilleristSummonEldritchCannonProtector9:99f2c7a1-e768-5df9-9770-3b12f19f2d34"
+    "Definition:SpellPowerInnovationArtilleristSummonFlamethrower9:0f458514-f989-56f1-a1b5-e67673b40bda",
+    "Definition:SpellPowerInnovationArtilleristSummonForceBallista9:ccce2f34-612f-5251-b1c2-3a4201d16032",
+    "Definition:SpellPowerInnovationArtilleristSummonProtector9:9f9a719e-2327-5cb0-9b8e-f239b70f681b",
+    "Definition:SpellPowerInnovationArtilleristSummonFlamethrowerTiny9:b44b6788-fb72-5660-a789-355c3ecacd3a",
+    "Definition:SpellPowerInnovationArtilleristSummonForceBallistaTiny9:4402dc46-d155-5b88-93f8-4975fc7cdc6a",
+    "Definition:SpellPowerInnovationArtilleristSummonProtectorTiny9:b14d437e-99e3-5e3d-a4a7-0cc6c876d80f"
   ],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
@@ -166,8 +169,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationArtilleristEldritchCannonTitle",
-    "description": "Feature/&PowerInnovationArtilleristEldritchCannonDescription",
+    "title": "Feature/&PowerInnovationArtilleristEldritchCannonActivateTitle",
+    "description": "Feature/&PowerInnovationArtilleristEldritchCannonActivateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "23fe7c74-fd5f-5a67-858a-e2232f50911d",

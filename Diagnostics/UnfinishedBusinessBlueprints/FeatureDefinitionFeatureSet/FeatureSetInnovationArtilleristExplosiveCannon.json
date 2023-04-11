@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerInnovationArtilleristExplosiveCannon:db5f6a67-4ae9-5936-9ecf-328a9a131a05",
-    "Definition:PowerInnovationArtilleristEldritchDetonation:954cda03-1c30-5463-854e-0dd2974952ba",
-    "Definition:PowerInnovationArtilleristSummonEldritchCannonFlamethrower9:e22ead8c-4973-53ad-b62e-fc66077bf389",
-    "Definition:PowerInnovationArtilleristSummonEldritchCannonForceBallista9:b122d66b-b46a-51fe-9005-6bb3f2d8a70b",
-    "Definition:PowerInnovationArtilleristSummonEldritchCannonProtector9:94283d60-de32-5aad-b396-a7cf6b33143b"
+    "Definition:PowerInnovationArtilleristEldritchCannonDetonate:c22389c4-5ce2-5a79-906b-1476da1c94b3",
+    "Definition:PowerInnovationArtilleristSummonFlamethrower9:91d8cb3e-fc5b-569d-a0d7-4b3e947950f2",
+    "Definition:PowerInnovationArtilleristSummonForceBallista9:30085fe2-fd52-5b35-b3f7-17fa886427be",
+    "Definition:PowerInnovationArtilleristSummonProtector9:ee4f8953-4041-5dad-ae9b-431fcbe09424",
+    "Definition:PowerInnovationArtilleristExplosiveCannon:db5f6a67-4ae9-5936-9ecf-328a9a131a05"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
