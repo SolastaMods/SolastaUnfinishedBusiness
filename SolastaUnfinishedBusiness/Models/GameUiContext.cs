@@ -88,7 +88,6 @@ internal static class GameUiContext
     private const InputCommands.Id CtrlShift4 = (InputCommands.Id)44440013;
     private const InputCommands.Id CtrlShift5 = (InputCommands.Id)44440014;
 
-    private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
 
     // Converts continuous ratio into series of stepped values

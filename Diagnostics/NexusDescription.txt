@@ -581,8 +581,8 @@ A powerful wight, trained to withstand the light of day.
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist
 [*][b]RedOrca[/b]: Path of the Light
 [*][b]DreadMaker[/b]: Circle of the Forest Guardian
-[*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Pikachar2[/b]: spells
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
 [/list]
