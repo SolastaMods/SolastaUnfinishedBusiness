@@ -303,11 +303,12 @@ internal sealed class RangerHellWalker : AbstractSubclass
         }
 
         public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+            IDamageAffinityProvider provider, RulesetActor rulesetActor)
         {
             if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
             {
-                return provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire;
+                return provider.DamageAffinityType == DamageAffinityType.Resistance &&
+                       provider.DamageType == DamageTypeFire;
             }
 
             return false;

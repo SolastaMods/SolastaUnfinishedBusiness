@@ -562,9 +562,10 @@ internal static class OtherFeats
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor, string damageType)
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
+            return provider.DamageAffinityType == DamageAffinityType.Resistance &&
+                   _damageTypes.Contains(provider.DamageType);
         }
     }
 
@@ -633,9 +634,10 @@ internal static class OtherFeats
         }
 
         public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+            IDamageAffinityProvider provider, RulesetActor rulesetActor)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Immunity && _damageTypes.Contains(damageType);
+            return provider.DamageAffinityType == DamageAffinityType.Immunity &&
+                   _damageTypes.Contains(provider.DamageType);
         }
     }
 
