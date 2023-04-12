@@ -56,8 +56,7 @@ public static class InnovationWeapon
             .AddPreparedSpellGroup(5, BrandingSmite, SpiritualWeapon)
             .AddPreparedSpellGroup(9, RemoveCurse, BeaconOfHope)
             .AddPreparedSpellGroup(13, FireShield, DeathWard)
-            //TODO: find (or make) replacement for Cloud Kill - supposed to be Wall of Force
-            .AddPreparedSpellGroup(17, MassCureWounds, CloudKill)
+            .AddPreparedSpellGroup(17, MassCureWounds, WallOfForce)
             .AddToDB();
     }
 
@@ -366,9 +365,6 @@ public static class InnovationWeapon
                 .SetModelScale(0.5f)
                 .SetHasMonsterPortraitBackground(true)
                 .SetCanGeneratePortrait(true)
-                //portrait properties don't seem to work
-                // .SetPortraitFOV(20)
-                // .SetPortraitCameraFollowOffset(y: -0.75f)
                 .Build())
             .AddToDB();
 
@@ -386,7 +382,7 @@ public static class InnovationWeapon
 
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerInventorWeaponSteelDefenderCommand")
-            .SetGuiPresentation(Category.Feature, Command) //TODO: make proper icon
+            .SetGuiPresentation(Category.Feature, Command)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
