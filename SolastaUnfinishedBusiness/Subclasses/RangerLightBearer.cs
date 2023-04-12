@@ -428,7 +428,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
         }
     }
 
