@@ -1,4 +1,7 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Collections;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -186,10 +189,46 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         // Touch of Darkness
 
-        var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}{TouchOfDarkness}")
+        const string TOUCH_OF_DARKNESS_NAME = $"FeatureSet{Name}{TouchOfDarkness}";
+
+        var powerTouchOfDarkness = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}")
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.LongRest, 1, 3)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(VampiricTouch)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Full)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerTouchOfDarkness.SetCustomSubFeatures(new CustomMagicEffectActionTouchOfDarkness(powerTouchOfDarkness));
+
+        var powerTouchOfDarknessRefund = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}Refund")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet()
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .Build())
+            .AddToDB();
+
+        powerTouchOfDarknessRefund.SetCustomSubFeatures(
+            new CustomBehaviorRefundTouchOfDarkness(powerTouchOfDarkness, powerTouchOfDarknessRefund));
+
+        var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
+            .Create(TOUCH_OF_DARKNESS_NAME)
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerTouchOfDarkness, powerTouchOfDarknessRefund)
             .AddToDB();
 
         // BUGFIX
@@ -223,6 +262,10 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Blood of Sorr-Akkath
+    //
+
     private sealed class FeatureDefinitionCustomCodeBloodOfSorrAkkath : IFeatureDefinitionCustomCode
     {
         private readonly FeatureDefinitionAdditionalDamage _featureDefinitionAdditionalDamage;
@@ -240,6 +283,119 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             {
                 featureDefinitions.RemoveAll(x => x == _featureDefinitionAdditionalDamage);
             }
+        }
+    }
+
+    //
+    // Touch of Darkness
+    //
+
+    private class CustomMagicEffectActionTouchOfDarkness : ICustomMagicEffectAction
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public CustomMagicEffectActionTouchOfDarkness(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        {
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            {
+                yield break;
+            }
+
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+
+            if (gameLocationActionService == null ||
+                gameLocationBattleService == null ||
+                rulesetImplementationService == null)
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionTouchOfDarknessDescription"
+                };
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("TouchOfDarkness", reactionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(
+                attacker, gameLocationActionService, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+
+            var usablePower =
+                rulesetAttacker.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower);
+            var effectPower = rulesetImplementationService.InstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var defender = action.actionParams.TargetCharacters[0];
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+        }
+    }
+
+    //
+    // Refund Touch of Darkness
+    //
+
+    private class CustomBehaviorRefundTouchOfDarkness : IPowerUseValidity, IOnAfterActionFeature
+    {
+        private readonly FeatureDefinitionPower _powerTouch;
+        private readonly FeatureDefinitionPower _powerTouchRefund;
+
+        public CustomBehaviorRefundTouchOfDarkness(
+            FeatureDefinitionPower powerTouch,
+            FeatureDefinitionPower powerTouchRefund)
+        {
+            _powerTouch = powerTouch;
+            _powerTouchRefund = powerTouchRefund;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _powerTouchRefund)
+            {
+                return;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetPower = rulesetCharacter.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _powerTouch);
+
+            if (rulesetPower == null)
+            {
+                return;
+            }
+
+            rulesetCharacter.SpendSorceryPoints(4);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var hasSorceryPointsAvailable = character.RemainingSorceryPoints >= 4;
+            var hasUsedPowerActivate = character.UsablePowers
+                .Any(x => x.RemainingUses == 0 && x.PowerDefinition == _powerTouch);
+
+            return hasUsedPowerActivate && hasSorceryPointsAvailable;
         }
     }
 }
