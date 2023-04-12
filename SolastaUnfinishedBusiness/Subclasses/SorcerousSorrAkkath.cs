@@ -1,4 +1,7 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -190,17 +193,20 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         var powerTouchOfDarknessFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Fixed")
-            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(VampiricTouch)
+                    .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Full)
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Half)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB();
@@ -216,7 +222,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(VampiricTouch)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -247,7 +253,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 autoPreparedSpells,
                 featureSetDeceptiveHeritage,
-                additionalDamageSpellSneakAttack, featureSetTouchOfDarkness)
+                additionalDamageSpellSneakAttack)
             .AddFeaturesAtLevel(6,
                 featureSetBloodOfSorrAkkath)
             .AddFeaturesAtLevel(14,
@@ -288,7 +294,6 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             }
         }
     }
-
 
     //
     // Touch of Darkness Fixed
