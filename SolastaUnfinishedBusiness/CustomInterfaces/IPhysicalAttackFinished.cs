@@ -3,14 +3,14 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IAttackInitiated
+public interface IPhysicalAttackFinished
 {
     [UsedImplicitly]
-    IEnumerator OnAttackInitiated(
-        GameLocationBattleManager __instance,
+    IEnumerator OnAttackFinished(GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier attackModifier,
-        RulesetAttackMode attackerAttackMode);
+        RulesetAttackMode attackerAttackMode,
+        RuleDefinitions.RollOutcome attackRollOutcome,
+        int damageAmount);
 }

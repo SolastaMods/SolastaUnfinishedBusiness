@@ -720,7 +720,7 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(new AttackFinishedCrusher(
+        .SetCustomSubFeatures(new PhysicalAttackFinishedCrusher(
             ConditionDefinitionBuilder
                 .Create("ConditionFeatCrusherCriticalHit")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
@@ -763,13 +763,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class AttackFinishedCrusher : IAttackFinished
+    private sealed class PhysicalAttackFinishedCrusher : IPhysicalAttackFinished
     {
         private const string SpecialFeatureName = "FeatureCrusher";
 
         private readonly ConditionDefinition _criticalConditionDefinition;
 
-        public AttackFinishedCrusher(ConditionDefinition conditionDefinition)
+        public PhysicalAttackFinishedCrusher(ConditionDefinition conditionDefinition)
         {
             _criticalConditionDefinition = conditionDefinition;
         }
