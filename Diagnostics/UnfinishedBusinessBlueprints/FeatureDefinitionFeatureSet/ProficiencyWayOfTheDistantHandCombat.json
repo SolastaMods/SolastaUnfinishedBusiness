@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:FeatureWayOfTheDistantHandCombat:e5d6e488-9bba-5766-b298-4f26d4723f09",
     "Definition:FeatureMonkWeaponSpecializationShortbowType:0b67a1cb-41b2-54db-a7be-2f18abc68efb",
     "Definition:FeatureMonkWeaponSpecializationLongbowType:400a98a9-be89-5696-9391-33fb65fe8f88",
     "Definition:FeatureMonkWeaponSpecializationCEHandXbowType:e927fb11-6c4b-5a68-bc0d-1a24052282fd"

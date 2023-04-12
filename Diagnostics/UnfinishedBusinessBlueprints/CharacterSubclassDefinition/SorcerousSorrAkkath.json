@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathTouchOfDarkness:afb11ef8-1f57-5999-9aba-07bfa7d847b2",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetSorcerousSorrAkkathBloodOfSorrAkkath:600793cb-1c50-5cce-a81a-42eb2364b8d6",
       "level": 6
     },

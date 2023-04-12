@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessRefund:821a3df5-1b9e-58d4-bc03-28c84fc8ebee",
-    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessDamage:78d8dfde-27ee-5e87-9330-b6d26e10c455"
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessFixed:347f99ae-b67c-5bb3-be35-18f95f9c96fd",
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessPoints:ec1c310d-2e7e-5918-bc22-53cd9a49d836"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

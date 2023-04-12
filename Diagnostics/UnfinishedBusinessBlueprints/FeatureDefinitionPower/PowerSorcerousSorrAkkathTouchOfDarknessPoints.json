@@ -312,13 +312,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
-  "costPerUse": 1,
+  "rechargeRate": "SorceryPoints",
+  "costPerUse": 4,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 3,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -331,7 +331,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle",
     "description": "Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription",
     "spriteReference": {
@@ -353,7 +353,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78d8dfde-27ee-5e87-9330-b6d26e10c455",
+  "guid": "ec1c310d-2e7e-5918-bc22-53cd9a49d836",
   "contentPack": 9999,
-  "name": "PowerSorcerousSorrAkkathTouchOfDarknessDamage"
+  "name": "PowerSorcerousSorrAkkathTouchOfDarknessPoints"
 }
