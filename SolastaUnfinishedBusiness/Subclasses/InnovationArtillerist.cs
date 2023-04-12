@@ -380,8 +380,7 @@ public static class InnovationArtillerist
 
         var powerDetonate = FeatureDefinitionPowerBuilder
             .Create(ELDRITCH_DETONATION)
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerEldritchDetonation", Resources.PowerEldritchDetonation, 256, 128))
+            .SetGuiPresentation(Category.Feature, Fireball)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
