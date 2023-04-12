@@ -297,7 +297,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Permanent",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -353,7 +353,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "67e30503-9659-56b0-aeb4-3fb5e9ab83d8",
+  "guid": "78d8dfde-27ee-5e87-9330-b6d26e10c455",
   "contentPack": 9999,
-  "name": "PowerSorcerousSorrAkkathTouchOfDarkness"
+  "name": "PowerSorcerousSorrAkkathTouchOfDarknessDamage"
 }

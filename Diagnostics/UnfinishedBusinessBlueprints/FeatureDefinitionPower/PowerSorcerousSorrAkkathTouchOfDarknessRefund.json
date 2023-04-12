@@ -276,8 +276,8 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "rechargeRate": "SorceryPoints",
+  "costPerUse": 4,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -300,9 +300,9 @@
     "description": "Feature/&PowerSorcerousSorrAkkathTouchOfDarknessRefundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "2243d06e69e758d4c9191ef1c49c3ebf",
+      "m_SubObjectName": "Foreknowledge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -194,7 +195,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var powerTouchOfDarknessDamage = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Damage")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(VampiricTouch)
@@ -208,20 +209,13 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var powerTouchOfDarkness = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{TouchOfDarkness}")
-            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ExtraReactionContext.Custom)
-            .AddToDB();
-
-        powerTouchOfDarkness.SetCustomSubFeatures(
-            new CustomMagicEffectActionTouchOfDarkness(powerTouchOfDarkness, powerTouchOfDarknessDamage));
+        powerTouchOfDarknessDamage.SetCustomSubFeatures(
+            new CustomMagicEffectActionTouchOfDarkness(powerTouchOfDarknessDamage));
 
         var powerTouchOfDarknessRefund = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Refund")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -231,12 +225,12 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddToDB();
 
         powerTouchOfDarknessRefund.SetCustomSubFeatures(
-            new CustomBehaviorRefundTouchOfDarkness(powerTouchOfDarkness, powerTouchOfDarknessRefund));
+            new CustomBehaviorRefundTouchOfDarkness(powerTouchOfDarknessDamage, powerTouchOfDarknessRefund));
 
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
             .Create(TOUCH_OF_DARKNESS_NAME)
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerTouchOfDarkness, powerTouchOfDarknessRefund)
+            .AddFeatureSet(powerTouchOfDarknessDamage, powerTouchOfDarknessRefund)
             .AddToDB();
 
         // BUGFIX
@@ -298,24 +292,33 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
     // Touch of Darkness
     //
 
-    private class CustomMagicEffectActionTouchOfDarkness : ICustomMagicEffectAction
+    private class CustomMagicEffectActionTouchOfDarkness : IMagicalAttackFinished
     {
-        private readonly FeatureDefinitionPower _powerTouchOfDarkness;
         private readonly FeatureDefinitionPower _powerTouchOfDarknessDamage;
 
-        public CustomMagicEffectActionTouchOfDarkness(
-            FeatureDefinitionPower powerTouchOfDarkness, FeatureDefinitionPower powerTouchOfDarknessDamage)
+        public CustomMagicEffectActionTouchOfDarkness(FeatureDefinitionPower powerTouchOfDarknessDamage)
         {
-            _powerTouchOfDarkness = powerTouchOfDarkness;
             _powerTouchOfDarknessDamage = powerTouchOfDarknessDamage;
         }
 
-        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        public IEnumerator OnMagicalAttackFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(_powerTouchOfDarkness) <= 0)
+            if (rulesetEffect.SourceDefinition is not SpellDefinition spell ||
+                spell.EffectDescription.RangeType != RangeType.Touch)
+            {
+                yield break;
+            }
+
+            if (rulesetAttacker.GetRemainingPowerCharges(_powerTouchOfDarknessDamage) <= 0)
             {
                 yield break;
             }
@@ -350,11 +353,10 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
             var usablePower = UsablePowersProvider.Get(_powerTouchOfDarknessDamage, rulesetAttacker);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
-            var defender = action.actionParams.TargetCharacters[0];
 
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerTouchOfDarknessDamage);
             effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-            rulesetAttacker.UpdateUsageForPower(_powerTouchOfDarkness, _powerTouchOfDarkness.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerTouchOfDarkness);
+            rulesetAttacker.UpdateUsageForPower(_powerTouchOfDarknessDamage, _powerTouchOfDarknessDamage.CostPerUse);
         }
     }
 
@@ -387,16 +389,13 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             var rulesetPower = UsablePowersProvider.Get(_powerTouch, rulesetCharacter);
 
             rulesetPower.RepayUse();
-            rulesetCharacter.SpendSorceryPoints(4);
         }
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            var hasSorceryPointsAvailable = character.RemainingSorceryPoints >= 4;
-            var hasUsedPowerActivate = character.UsablePowers
-                .Any(x => x.RemainingUses == 0 && x.PowerDefinition == _powerTouch);
+            var usablePower = UsablePowersProvider.Get(_powerTouch, character);
 
-            return hasUsedPowerActivate && hasSorceryPointsAvailable;
+            return usablePower.RemainingUses == 0;
         }
     }
 }
