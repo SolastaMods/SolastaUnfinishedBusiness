@@ -16,6 +16,19 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string ZenArrowTag = "ZenArrow";
 
+    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.Add(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationShortbowType"));
+            hero.TrainedInvocations.Add(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationLongbowType"));
+            hero.TrainedInvocations.Add(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationCEHandXbowType"));
+        }
+    }
+
     internal WayOfTheDistantHand()
     {
         var zenArrow = Sprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
@@ -23,6 +36,22 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         //
         // LEVEL 03
         //
+
+        var proficiencyWayOfTheDistantHandCombat =
+            FeatureDefinitionFeatureSetBuilder
+                .Create("FeatureSetWayOfTheDistantHandCombat")
+                .SetGuiPresentation(Category.Feature)
+                .AddFeatureSet(FeatureDefinitionBuilder
+                    .Create("FeatureWayOfTheDistantHandCombat")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new CustomCodeWayOfTheDistantHandCombat(),
+                        new RangedAttackInMeleeDisadvantageRemover(
+                            (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                            ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                        new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                    .AddToDB())
+                .AddToDB();
 
         // ZEN ARROW
 
@@ -306,7 +335,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var attackModifierWayOfTheDistantHandUnseenEyes = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierWayOfTheDistantHandUnseenEyes")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Wisdom)
+            .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
             .SetCustomSubFeatures(
                 new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
                     (OperationType.Set, IsZenArrowAttack(mode, null, character))),
@@ -322,7 +351,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
-                ProficiencyWayOfTheDistantHandCombat,
+                proficiencyWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
             .AddFeaturesAtLevel(6,
                 wayOfDistantHandsKiPoweredArrows,
@@ -335,22 +364,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
     }
 
-    // had to keep this name for compatibility reasons
-    private static FeatureDefinitionFeatureSet ProficiencyWayOfTheDistantHandCombat { get; } =
-        FeatureDefinitionFeatureSetBuilder
-            .Create("ProficiencyWayOfTheDistantHandCombat")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(FeatureDefinitionBuilder
-                .Create("FeatureWayOfTheDistantHandCombat")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    new RangedAttackInMeleeDisadvantageRemover(
-                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
-                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
-                .AddToDB())
-            .AddToDB();
-
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -358,16 +371,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    internal static void LateLoad()
-    {
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationShortbowType"));
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationLongbowType"));
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationCEHandXbowType"));
-    }
 
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
