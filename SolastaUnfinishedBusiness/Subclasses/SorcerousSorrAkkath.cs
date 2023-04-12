@@ -201,12 +201,10 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetParticleEffectParameters(VampiricTouch)
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetSavingThrowData(false, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Half)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB();
