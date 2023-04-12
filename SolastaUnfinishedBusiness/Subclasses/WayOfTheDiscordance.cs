@@ -249,7 +249,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     .ForEach(x => rulesetDefender.RemoveCondition(x));
 
                 // setup explosion power and increase damage dice based on Monk progression
-                var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null);
+                var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
                 var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
                 var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
                 var monkLevel = GetMonkLevel(rulesetAttacker);

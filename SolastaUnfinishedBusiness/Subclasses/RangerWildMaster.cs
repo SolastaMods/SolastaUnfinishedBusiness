@@ -675,8 +675,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 locationCharacter.Guid,
                 character.CurrentFaction.Name);
 
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
             GameConsoleHelper.LogCharacterUsedPower(character, power);
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
         }
     }
 

@@ -62,8 +62,7 @@ public static class InnovationArmor
             .AddPreparedSpellGroup(5, MirrorImage, Shatter)
             .AddPreparedSpellGroup(9, HypnoticPattern, LightningBolt)
             .AddPreparedSpellGroup(13, FireShield, GreaterInvisibility)
-            //TODO: find (or make) replacement for Cloud Kill - supposed to be Wall of Force
-            .AddPreparedSpellGroup(17, SpellsContext.FarStep, CloudKill)
+            .AddPreparedSpellGroup(17, SpellsContext.FarStep, WallOfForce)
             .AddToDB();
     }
 

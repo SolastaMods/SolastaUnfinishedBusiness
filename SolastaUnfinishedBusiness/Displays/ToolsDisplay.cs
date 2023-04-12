@@ -101,21 +101,25 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
-        var rollback = false;
-        if (UI.Button(Gui.Localize("ModUi/&Rollback"), ref rollback))
+        using (UI.HorizontalScope())
         {
-            BootContext.RollbackMod();
+            UI.ActionButton("Update".Bold().Khaki(), () => BootContext.UpdateMod(), UI.Width((float)200));
+            UI.ActionButton("Rollback".Bold().Khaki(), BootContext.DisplayRollbackMessage, UI.Width((float)200));
+            UI.ActionButton("History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width((float)200));
         }
 
         UI.Label();
 
-        var toggle = Main.Settings.DisableAutoUpdate;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoUpdate"), ref toggle, UI.AutoWidth()))
+        using (UI.HorizontalScope())
         {
-            Main.Settings.DisableAutoUpdate = toggle;
+            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), BootContext.OpenDonateGithub, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width((float)200));
         }
 
-        toggle = Main.Settings.EnableBetaContent;
+        UI.Label();
+
+        var toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;

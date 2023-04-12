@@ -10,7 +10,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public static class GlobalUniqueEffects
 {
-    public enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
+    public enum Group
+    {
+        None, Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon
+    }
 
     private static readonly Dictionary<Group, HashSet<BaseDefinition>> Groups = new();
 
@@ -33,6 +36,11 @@ public static class GlobalUniqueEffects
         var result = new HashSet<BaseDefinition>();
 
         var group = Groups.FirstOrDefault(e => e.Value.Contains(definition));
+
+        if (group.Value == null)
+        {
+            return (Group.None, result);
+        }
 
         foreach (var item in group.Value)
         {

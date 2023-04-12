@@ -116,7 +116,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionBuilder
                     .Create("FeatureConditionWarDanceCustom")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttack(),
+                    .SetCustomSubFeatures(new WarDanceFlurryPhysicalAttack(),
                         new ExtendedWarDanceDurationOnKill())
                     .AddToDB(),
                 FeatureDefinitionBuilder
@@ -127,7 +127,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierWarDance")
                     .SetGuiPresentation(Category.Feature)
-                    .AddAbilityScoreBonus(AttributeDefinitions.Charisma)
+                    .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -189,7 +189,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         if (character is RulesetCharacterHero hero && !ValidatorsWeapon.IsMelee(hero.GetMainWeapon()))
         {
-            WarDanceFlurryAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
+            WarDanceFlurryPhysicalAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
         }
     }
 
@@ -210,7 +210,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
     }
 
-    private sealed class WarDanceFlurryAttack : IAttackFinished
+    private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinished
     {
         private const string Format = "Reaction/&CustomReactionDanceOfWarOnMissDescription";
 

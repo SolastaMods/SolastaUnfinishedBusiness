@@ -331,9 +331,9 @@
     "description": "Feature/&PowerInnovationArtilleristEldritchCannonDetonateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a484215d-8aae-5452-83f9-3e282f5bce8e",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c462c6ae1b665c74f995647ad5adaf79",
+      "m_SubObjectName": "Fireball",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

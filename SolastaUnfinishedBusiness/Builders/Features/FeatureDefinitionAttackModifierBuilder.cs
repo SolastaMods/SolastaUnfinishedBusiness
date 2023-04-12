@@ -18,26 +18,23 @@ internal class FeatureDefinitionAttackModifierBuilder
 
     internal FeatureDefinitionAttackModifierBuilder SetAttackRollModifier(
         int value = 0,
-        AttackModifierMethod method = AttackModifierMethod.FlatValue)
+        AttackModifierMethod method = AttackModifierMethod.FlatValue,
+        string ability = "")
     {
         Definition.attackRollModifierMethod = method;
         Definition.attackRollModifier = value;
-        return this;
-    }
-
-    internal FeatureDefinitionAttackModifierBuilder AddAbilityScoreBonus(string ability)
-    {
-        Definition.attackRollModifierMethod = AttackModifierMethod.AddAbilityScoreBonus;
         Definition.attackRollAbilityScore = ability;
         return this;
     }
 
     internal FeatureDefinitionAttackModifierBuilder SetDamageRollModifier(
         int value = 0,
-        AttackModifierMethod method = AttackModifierMethod.FlatValue)
+        AttackModifierMethod method = AttackModifierMethod.FlatValue,
+        string ability = "")
     {
         Definition.damageRollModifierMethod = method;
         Definition.damageRollModifier = value;
+        Definition.damageRollAbilityScore = ability;
         return this;
     }
 

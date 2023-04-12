@@ -4,6 +4,6 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IChangeGlobalUniqueEffectsLimit
 {
-    public GlobalUniqueEffects.Group GroupKey { get; set; }
-    public int Limit { get; set; }
+    public GlobalUniqueEffects.Group GroupKey { get; }
+    public int Limit { get; }
 }

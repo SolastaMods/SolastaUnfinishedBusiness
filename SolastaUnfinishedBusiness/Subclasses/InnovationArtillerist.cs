@@ -266,7 +266,7 @@ public static class InnovationArtillerist
         var powerEldritchCannonRefund = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{EldritchCannon}Refund")
             .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -380,8 +380,7 @@ public static class InnovationArtillerist
 
         var powerDetonate = FeatureDefinitionPowerBuilder
             .Create(ELDRITCH_DETONATION)
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerEldritchDetonation", Resources.PowerEldritchDetonation, 256, 128))
+            .SetGuiPresentation(Category.Feature, Fireball)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -600,8 +599,8 @@ public static class InnovationArtillerist
 
     private sealed class ChangeGlobalUniqueEffectsLimit : IChangeGlobalUniqueEffectsLimit
     {
-        public GlobalUniqueEffects.Group GroupKey { get; set; } = GlobalUniqueEffects.Group.ArtilleristCannon;
-        public int Limit { get; set; } = 1;
+        public GlobalUniqueEffects.Group GroupKey => GlobalUniqueEffects.Group.ArtilleristCannon;
+        public int Limit => 1;
     }
 
     #endregion
@@ -991,14 +990,14 @@ public static class InnovationArtillerist
             var rulesetCaster = caster.RulesetCharacter;
             var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
             var gameLocationTargetingService = ServiceRepository.GetService<IGameLocationTargetingService>();
-            var usablePower = rulesetCaster.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _power);
+            var usablePower = UsablePowersProvider.Get(_power, rulesetCaster);
 
-            if (rulesetImplementationService == null || gameLocationTargetingService == null || usablePower == null)
+            if (rulesetImplementationService == null || gameLocationTargetingService == null)
             {
                 return null;
             }
 
-            var effectPower = rulesetImplementationService.InstantiateEffectPower(rulesetCaster, usablePower, false);
+            var effectPower = new RulesetEffectPower(rulesetCaster, usablePower);
             var targets = new List<GameLocationCharacter>();
 
             gameLocationTargetingService.CollectTargetsInLineOfSightWithinDistance(
