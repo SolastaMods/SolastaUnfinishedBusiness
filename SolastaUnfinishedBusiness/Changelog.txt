@@ -1,5 +1,6 @@
-- added Infusions Adept feat
-- added Innovation Artillerist subclass
-- added support for xbox controllers on spells and powers action panels
-- fixed Elemental Adept and Elemental Master feats
-- fixed invincible Path of the Light subclass
+- added Bloody, Major Elemental, and Minor Elemental infusions
+- added Roguish Opportunist's expose weakness at level 17
+- added Sorcerous Sorr-Akkath's touch of darkness at level 18
+- added Way of Distant Hand's unseen eyes at level 17
+- changed Innovation Armor to have Wall of Force prepared at level 17
+- changed Innovation Weapon to have Wall of Force prepared at level 17
