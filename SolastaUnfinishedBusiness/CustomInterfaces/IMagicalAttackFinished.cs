@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnMagicalAttackDamageEffect
+public interface IMagicalAttackFinished
 {
 #if false
-    public void BeforeOnMagicalAttackDamage(
+    [UsedImplicitly]
+    IEnumerator BeforeOnMagicalAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier magicModifier,
@@ -17,7 +19,7 @@ public interface IOnMagicalAttackDamageEffect
 #endif
 
     [UsedImplicitly]
-    public void AfterOnMagicalAttackDamage(
+    IEnumerator OnMagicalAttackFinished(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier magicModifier,
