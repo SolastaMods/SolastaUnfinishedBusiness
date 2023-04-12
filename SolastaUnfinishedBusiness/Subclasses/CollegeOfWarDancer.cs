@@ -127,7 +127,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierWarDance")
                     .SetGuiPresentation(Category.Feature)
-                    .AddAbilityScoreBonus(AttributeDefinitions.Charisma)
+                    .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
