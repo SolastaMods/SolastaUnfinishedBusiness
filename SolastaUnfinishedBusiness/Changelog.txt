@@ -6,4 +6,5 @@
 - added Way of Distant Hand's unseen eyes at level 17
 - changed Innovation Armor to have Wall of Force prepared at level 17
 - changed Innovation Weapon to have Wall of Force prepared at level 17
+- fixed the spell casting action panel broken with xbox controller support
 - fixed Way of Distant Hand integration with Monk weapon specialization
