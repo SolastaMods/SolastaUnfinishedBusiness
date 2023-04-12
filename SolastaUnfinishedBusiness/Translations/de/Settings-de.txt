@@ -56,7 +56,6 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfe
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
-ModUi/&DisableAutoUpdate=Deaktivieren Sie die automatische Aktualisierung
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -184,7 +183,6 @@ ModUi/&RestockArcaneum=Arkaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i
 ModUi/&RestockCircleOfDanantar=Zirkel von Danantar <i><color=#F0DAA0>[Joriel Fuchsauge]</color></i> auffüllen
 ModUi/&RestockHelp=. Setzen Sie die Standardeinstellungen außer Kraft, um zu erzwingen, dass alle Lagerbestände des Händlers im Laufe der Zeit wieder aufgefüllt werden <i><color=#F0DAA0>[ausgenommen Handbücher und Wälzer]</color></i>\n. Beachten Sie, dass es bei einigen Artikeln bis zu 7 Spieltage dauern kann, bis sie wieder verfügbar sind
 ModUi/&RestockTowerOfKnowledge=Turm des Wissens <i><color=#F0DAA0>[Maddy Greenisle]</color></i> auffüllen
-ModUi/&Rollback=Rollback zur vorherigen Version <i><color=#F0DAA0>[Mod-UI zur Bestätigung schließen]</color></i>
 ModUi/&Rules=Regeln
 ModUi/&ScaleMerchantPricesCorrectly=Händlerpreise richtig / genau skalieren <i><color=#F0DAA0>[keine Rundungsfehler mehr beim Umrechnen von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle

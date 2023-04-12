@@ -56,7 +56,6 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il t
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
-ModUi/&DisableAutoUpdate=Disabilita l'aggiornamento automatico
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -184,7 +183,6 @@ ModUi/&RestockArcaneum=Rifornisci Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]
 ModUi/&RestockCircleOfDanantar=Rifornisci il Circolo di Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Ignora le impostazioni predefinite per forzare il rifornimento di tutte le scorte del commerciante nel tempo <i><color=#F0DAA0>[esclusi manuali e tomi]</color></i>\n. Nota che alcuni oggetti possono richiedere fino a 7 giorni di gioco per essere riforniti
 ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
-ModUi/&Rollback=Rollback alla versione precedente <i><color=#F0DAA0>[chiudi mod UI per confermare]</color></i>
 ModUi/&Rules=Regole
 ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
