@@ -145,7 +145,8 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
-                        Gui.Format($"Feature/&AdditionalDamage{name}Description", Gui.Localize($"Rules/&{element}Title")),
+                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
+                            Gui.Localize($"Rules/&{element}Title")),
                         ConditionDefinitions.ConditionProtectedFromEnergyLightning)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
@@ -246,7 +247,8 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
-                        Gui.Format($"Feature/&AdditionalDamage{name}Description", Gui.Localize($"Rules/&{element}Title")),
+                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
+                            Gui.Localize($"Rules/&{element}Title")),
                         ConditionDefinitions.ConditionProtectedFromEnergyLightning)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)

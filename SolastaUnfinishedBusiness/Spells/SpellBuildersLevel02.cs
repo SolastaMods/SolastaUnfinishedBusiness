@@ -31,8 +31,7 @@ internal static partial class SpellBuilders
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
-                    .SetTargetFiltering(TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
-                        TargetFilteringTag.No, 8, DieType.D10)
+                    .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
