@@ -235,7 +235,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
-    public bool DisableAutoUpdate { get; set; }
     public bool EnableBetaContent { get; set; }
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }

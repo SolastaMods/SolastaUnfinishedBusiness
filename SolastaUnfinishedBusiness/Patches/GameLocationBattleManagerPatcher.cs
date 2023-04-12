@@ -795,13 +795,13 @@ public static class GameLocationBattleManagerPatcher
             Global.CriticalHit = criticalHit;
 
             //PATCH: support for `IOnMagicalAttackDamageEffect`
-            var features = attacker.RulesetActor.GetSubFeaturesByType<IOnMagicalAttackDamageEffect>();
+            var features = attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>();
 
             //call all before handlers
 #if false
             foreach (var feature in features)
             {
-                feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                yield return feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
 #endif
@@ -814,7 +814,7 @@ public static class GameLocationBattleManagerPatcher
             //call all after handlers
             foreach (var feature in features)
             {
-                feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
 
@@ -996,7 +996,7 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: allow custom behavior when physical attack initiates
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
-                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>()))
+                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiated>()))
             {
                 yield return attackInitiated.OnAttackInitiated(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
@@ -1027,7 +1027,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: allow custom behavior when physical attack finished
-            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackFinished>())
+            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
             {
                 yield return feature.OnAttackFinished(
                     __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,

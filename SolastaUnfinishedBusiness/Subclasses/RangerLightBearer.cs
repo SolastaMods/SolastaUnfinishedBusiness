@@ -266,7 +266,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         var featureWardingLight = FeatureDefinitionBuilder
             .Create($"Feature{Name}WardingLight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AttackInitiatedWardingLight())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedWardingLight())
             .AddToDB();
 
         // MAIN
@@ -417,9 +417,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
 
-            var usablePower =
-                rulesetAttacker.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower);
-
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
@@ -430,7 +428,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
         }
     }
 
@@ -467,7 +464,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Warding Light
     //
 
-    private sealed class AttackInitiatedWardingLight : IAttackInitiated
+    private sealed class PhysicalAttackInitiatedWardingLight : IPhysicalAttackInitiated
     {
         public IEnumerator OnAttackInitiated(
             GameLocationBattleManager __instance,

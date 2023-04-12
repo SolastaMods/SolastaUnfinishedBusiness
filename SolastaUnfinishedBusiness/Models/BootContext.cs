@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
-using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
+using UnityModManagerNet;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif
@@ -22,6 +22,10 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class BootContext
 {
     private const string BaseURL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases/latest/download";
+
+    private static string InstalledVersion { get; } = GetInstalledVersion();
+    private static string LatestVersion { get; set; }
+    private static string PreviousVersion { get; } = GetPreviousVersion();
 
     internal static void Startup()
     {
@@ -249,9 +253,11 @@ internal static class BootContext
 
     private static void Load()
     {
-        if (!Main.Settings.DisableAutoUpdate && ShouldUpdate(out var version, out var changeLog))
+        LatestVersion = GetLatestVersion(out var shouldUpdate);
+
+        if (shouldUpdate)
         {
-            DisplayUpdateMessage(version, changeLog, "Would you like to update?");
+            DisplayUpdateMessage();
         }
         else if (!Main.Settings.HideWelcomeMessage)
         {
@@ -272,11 +278,7 @@ internal static class BootContext
 
     private static string GetPreviousVersion()
     {
-        var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
-        var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
-        // ReSharper disable once AssignNullToNotNullAttribute
-        var installedVersion = infoJson["Version"].Value<string>();
-        var a1 = installedVersion.Split('.');
+        var a1 = InstalledVersion.Split('.');
         var minor = Int32.Parse(a1[3]);
 
         a1[3] = (--minor).ToString();
@@ -285,17 +287,11 @@ internal static class BootContext
         return string.Join(".", a1);
     }
 
-    internal static void RollbackMod()
+    private static string GetLatestVersion(out bool shouldUpdate)
     {
-        DisplayUpdateMessage(GetPreviousVersion(), string.Empty, "Would you like to rollback?");
-    }
+        var version = "";
 
-    private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
-    {
-        var hasUpdate = false;
-
-        version = "";
-        changeLog = "";
+        shouldUpdate = false;
 
         using var wc = new WebClient();
 
@@ -303,31 +299,32 @@ internal static class BootContext
 
         try
         {
-            var installedVersion = GetInstalledVersion();
             var infoPayload = wc.DownloadString($"{BaseURL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
             // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
 
-            var a1 = installedVersion.Split('.');
+            var a1 = InstalledVersion.Split('.');
             var a2 = version.Split('.');
             var v1 = a1[0] + a1[1] + a1[2] + Int32.Parse(a1[3]).ToString("D3");
             var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
 
-            hasUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
-            changeLog = wc.DownloadString($"{BaseURL}/Changelog.txt");
+            shouldUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
         }
         catch
         {
             Main.Error("cannot fetch update data.");
         }
 
-        return hasUpdate;
+        return version;
     }
 
-    private static void UpdateMod(string version)
+    internal static void UpdateMod(bool toLatest = true)
     {
+        UnityModManager.UI.Instance.ToggleWindow(false);
+
+        var version = toLatest ? LatestVersion : PreviousVersion;
         var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
@@ -365,7 +362,7 @@ internal static class BootContext
 
             Directory.Delete(fullZipFolder, true);
 
-            message = "Update successful. Please restart.";
+            message = "Mod version change successful. Please restart.";
         }
         catch
         {
@@ -379,19 +376,31 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonatePayPal,
-            () => { }); // keep like this - don't use null here
+            () => { });
     }
 
-    private static void DisplayUpdateMessage(string version, string changeLog, string question)
+    internal static void DisplayRollbackMessage()
     {
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {version} is now available.\n\n{changeLog}\n\n{question}",
+            $"Would you like to rollback to {PreviousVersion}?",
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
-            () => UpdateMod(version),
-            () => { }); // keep like this - don't use null here
+            () => UpdateMod(false),
+            () => { });
+    }
+
+    private static void DisplayUpdateMessage()
+    {
+        Gui.GuiService.ShowMessage(
+            MessageModal.Severity.Attention2,
+            "Message/&MessageModWelcomeTitle",
+            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.",
+            "Changelog",
+            "Message/&MessageOkTitle",
+            OpenChangeLog,
+            () => { });
     }
 
     private static void DisplayWelcomeMessage()
@@ -403,15 +412,10 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonatePayPal,
-            () => { }); // keep like this - don't use null here
+            () => { });
     }
 
-    internal static void OpenWiki()
-    {
-        OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
-    }
-
-    internal static void OpenDonateGithubSponsors()
+    internal static void OpenDonateGithub()
     {
         OpenUrl("https://github.com/sponsors/ThyWoof");
     }
@@ -424,11 +428,6 @@ internal static class BootContext
     internal static void OpenDonatePayPal()
     {
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
-    }
-
-    internal static void OpenDiscord()
-    {
-        OpenUrl("https://discord.com/invite/uu8utaF");
     }
 
     internal static void OpenChangeLog()

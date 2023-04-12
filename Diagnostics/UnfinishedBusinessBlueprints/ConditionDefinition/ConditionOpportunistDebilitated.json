@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityConditionOpportunistDebilitated:53334528-6e15-5fe4-b6d7-50f42dde44e9"
+    "Definition:SavingThrowAffinityOpportunistDebilitatingStrike:a3b7eb92-3f35-53ae-b25c-ce4f7ecbfabe"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",

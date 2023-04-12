@@ -1,5 +1,18 @@
 ﻿CHANGES:
 
+1.4.33.73:
+
+RESPEC REQUIRED FOR ANY WAY OF DISTANT HAND
+
+- added Bloody, Major Elemental, and Minor Elemental infusions
+- added Roguish Opportunist's expose weakness at level 17
+- added Sorcerous Sorr-Akkath's touch of darkness at level 18
+- added Way of Distant Hand's unseen eyes at level 17
+- changed Innovation Armor to have Wall of Force prepared at level 17
+- changed Innovation Weapon to have Wall of Force prepared at level 17
+- fixed the spell casting action panel broken with xbox controller support
+- fixed Way of Distant Hand integration with Monk weapon specialization
+
 1.4.33.72:
 
 - added Infusions Adept feat

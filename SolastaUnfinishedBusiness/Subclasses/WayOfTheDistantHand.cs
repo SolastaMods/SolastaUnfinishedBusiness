@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -22,6 +23,18 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         //
         // LEVEL 03
         //
+
+        var featureWayOfTheDistantHandCombat =
+            FeatureDefinitionBuilder
+                .Create("FeatureWayOfTheDistantHandCombat")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new CustomCodeWayOfTheDistantHandCombat(),
+                    new RangedAttackInMeleeDisadvantageRemover(
+                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                .AddToDB();
 
         // ZEN ARROW
 
@@ -299,6 +312,20 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             powerWayOfTheDistantHandUpgradedDistract);
 
         //
+        // LEVEL 17
+        //
+
+        var attackModifierWayOfTheDistantHandUnseenEyes = FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierWayOfTheDistantHandUnseenEyes")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                    (OperationType.Set, IsZenArrowAttack(mode, null, character))),
+                new CustomCodeUnseenEyes())
+            .AddToDB();
+
+        //
         // PROGRESSION
         //
 
@@ -307,7 +334,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
-                ProficiencyWayOfTheDistantHandCombat,
+                featureWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
             .AddFeaturesAtLevel(6,
                 wayOfDistantHandsKiPoweredArrows,
@@ -315,19 +342,10 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddFeaturesAtLevel(11,
                 wayOfDistantHandsZenArcherStunningArrows,
                 powerWayOfTheDistantHandZenArrowUpgradedTechnique)
+            .AddFeaturesAtLevel(17,
+                attackModifierWayOfTheDistantHandUnseenEyes)
             .AddToDB();
     }
-
-    private static FeatureDefinitionFeatureSet ProficiencyWayOfTheDistantHandCombat { get; } =
-        FeatureDefinitionFeatureSetBuilder
-            .Create("ProficiencyWayOfTheDistantHandCombat")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(
-                    (mode, _, character) => IsZenArrowAttack(mode, null, character),
-                    ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
-            .AddToDB();
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -337,19 +355,52 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static void LateLoad()
-    {
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationShortbowType"));
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationLongbowType"));
-        ProficiencyWayOfTheDistantHandCombat.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>("FeatureMonkWeaponSpecializationCEHandXbowType"));
-    }
-
+    // ReSharper disable once UnusedParameter.Local
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
         return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
+    }
+
+    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            var alreadyThere = hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationShortbowType"));
+            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationLongbowType"));
+            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationCEHandXbowType"));
+
+            // grant a rapier if by any chance one of above weapons were already specialized in
+            if (alreadyThere)
+            {
+                hero.TrainedInvocations.TryAdd(
+                    GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
+            }
+        }
+    }
+
+    private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 2);
+
+            hero.RefreshAll();
+        }
+
+        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+
+            attribute.BaseValue += amount;
+            attribute.MaxValue += amount;
+            attribute.MaxEditableValue += amount;
+            attribute.Refresh();
+
+            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
+        }
     }
 
     private sealed class UpgradeFlurry : IOnAfterActionFeature

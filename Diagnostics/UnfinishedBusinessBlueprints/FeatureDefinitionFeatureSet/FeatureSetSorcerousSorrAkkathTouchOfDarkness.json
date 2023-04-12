@@ -1,6 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
+  "featureSet": [
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessFixed:347f99ae-b67c-5bb3-be35-18f95f9c96fd",
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessPoints:ec1c310d-2e7e-5918-bc22-53cd9a49d836"
+  ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",

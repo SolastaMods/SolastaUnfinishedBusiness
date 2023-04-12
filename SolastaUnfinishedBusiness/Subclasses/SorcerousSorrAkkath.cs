@@ -94,13 +94,12 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var additionalDamageBloodOfSorrAkkath = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{BloodOfSorrAkkath}")
             .SetGuiPresentation($"AdditionalDamage{Name}{SpellSneakAttack}", Category.Feature)
-            .SetNotificationTag(SpellSneakAttack)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 6, 5)
+            // use flat bonus to allow it to interact correct with spell attack
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
+            .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -110,14 +109,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionBloodOfSorrAkkath
                 })
-            .SetCustomSubFeatures(new FeatureDefinitionCustomCodeBloodOfSorrAkkath(additionalDamageSpellSneakAttack))
             .AddToDB();
-
-        // another odd dice damage progression
-        for (var i = 0; i < 4; i++)
-        {
-            additionalDamageBloodOfSorrAkkath.DiceByRankTable[i].diceNumber = 1;
-        }
 
         var featureSetBloodOfSorrAkkath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}{BloodOfSorrAkkath}")
@@ -186,10 +178,53 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         // Touch of Darkness
 
+        const string TOUCH_OF_DARKNESS_NAME = $"FeatureSet{Name}{TouchOfDarkness}";
+
+        var powerTouchOfDarknessFixed = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}Fixed")
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(VampiricTouch)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Half)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerTouchOfDarknessFixed.SetCustomSubFeatures(
+            new PowerUseValidityTouchOfDarknessFixed(powerTouchOfDarknessFixed));
+
+        var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}Points")
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(VampiricTouch)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Full)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerTouchOfDarknessPoints.SetCustomSubFeatures(
+            new PowerUseValidityTouchOfDarknessPoints(powerTouchOfDarknessFixed));
+
         var featureSetTouchOfDarkness = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}{TouchOfDarkness}")
+            .Create(TOUCH_OF_DARKNESS_NAME)
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet()
+            .AddFeatureSet(powerTouchOfDarknessFixed, powerTouchOfDarknessPoints)
             .AddToDB();
 
         // BUGFIX
@@ -223,23 +258,45 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class FeatureDefinitionCustomCodeBloodOfSorrAkkath : IFeatureDefinitionCustomCode
-    {
-        private readonly FeatureDefinitionAdditionalDamage _featureDefinitionAdditionalDamage;
+    //
+    // Touch of Darkness Fixed
+    //
 
-        public FeatureDefinitionCustomCodeBloodOfSorrAkkath(
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
+    private class PowerUseValidityTouchOfDarknessFixed : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerTouchFixed;
+
+        public PowerUseValidityTouchOfDarknessFixed(FeatureDefinitionPower powerTouchFixed)
         {
-            _featureDefinitionAdditionalDamage = featureDefinitionAdditionalDamage;
+            _powerTouchFixed = powerTouchFixed;
         }
 
-        // remove original sneak attack as we've added a conditional one otherwise ours will never trigger
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == _featureDefinitionAdditionalDamage);
-            }
+            var usablePower = UsablePowersProvider.Get(_powerTouchFixed, character);
+
+            return usablePower.RemainingUses > 0;
+        }
+    }
+
+    //
+    // Touch of Darkness Points
+    //
+
+    private class PowerUseValidityTouchOfDarknessPoints : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerTouchFixed;
+
+        public PowerUseValidityTouchOfDarknessPoints(FeatureDefinitionPower powerTouchFixed)
+        {
+            _powerTouchFixed = powerTouchFixed;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerTouchFixed, character);
+
+            return usablePower.RemainingUses == 0;
         }
     }
 }

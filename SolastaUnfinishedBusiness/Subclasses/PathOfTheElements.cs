@@ -240,7 +240,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalLightningBlade),
+                new MagicalAttackFinishedElementalBurst(PowerDomainElementalLightningBlade),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -280,7 +280,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalIceLance),
+                new MagicalAttackFinishedElementalBurst(PowerDomainElementalIceLance),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -325,7 +325,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                             .Build())
                     .Build())
             .SetCustomSubFeatures(
-                new OnMagicalAttackDamageEffectElementalBurst(PowerDomainElementalFireBurst),
+                new MagicalAttackFinishedElementalBurst(PowerDomainElementalFireBurst),
                 new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -537,16 +537,16 @@ internal sealed class PathOfTheElements : AbstractSubclass
     // Elemental Burst
     //
 
-    private sealed class OnMagicalAttackDamageEffectElementalBurst : IOnMagicalAttackDamageEffect
+    private sealed class MagicalAttackFinishedElementalBurst : IMagicalAttackFinished
     {
         private readonly IMagicEffect _magicEffect;
 
-        public OnMagicalAttackDamageEffectElementalBurst(IMagicEffect magicEffect)
+        public MagicalAttackFinishedElementalBurst(IMagicEffect magicEffect)
         {
             _magicEffect = magicEffect;
         }
 
-        public void AfterOnMagicalAttackDamage(
+        public IEnumerator OnMagicalAttackFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -556,6 +556,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             bool criticalHit)
         {
             EffectHelpers.StartVisualEffect(attacker, defender, _magicEffect, EffectHelpers.EffectType.Effect);
+
+            yield break;
         }
     }
 

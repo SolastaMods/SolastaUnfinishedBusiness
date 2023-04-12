@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -15,7 +16,7 @@ using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Classes;
+namespace SolastaUnfinishedBusiness.Infusions;
 
 internal static class InventorInfusions
 {
@@ -129,18 +130,77 @@ internal static class InventorInfusions
 
         #endregion
 
+        #region 02 Minor Elemental
+
+        sprite = SpellDefinitions.Counterspell.GuiPresentation.SpriteReference;
+        name = "InfusionMinorElemental";
+        //TODO: RAW needs to require attunement
+
+        var elements = new[] { DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder };
+        var powers = new List<FeatureDefinitionPower>();
+
+        foreach (var element in elements)
+        {
+            power = BuildInfuseItemPower(name + element, element, sprite, IsWeapon,
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create($"AdditionalDamage{name}{element}")
+                    .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
+                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
+                            Gui.Localize($"Rules/&{element}Title")),
+                        ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetNotificationTag(name)
+                    .SetDamageDice(DieType.D6, 1)
+                    .SetSpecificDamageType(element)
+                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 3)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                    .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                    .AddToDB());
+
+            power.GuiPresentation.Title = $"Rules/&{element}Title";
+            power.GuiPresentation.Description = $"Rules/&{element}Description";
+
+            powers.Add(power);
+        }
+
+        var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .AddToDB());
+
+        PowerBundle.RegisterPowerBundle(masterPower, true, powers);
+
+        #endregion
+
+        #region 06 Bloody
+
+        sprite = SpellDefinitions.CircleOfDeath.GuiPresentation.SpriteReference;
+        name = "InfusionBloody";
+        BuildInfuseItemPowerInvocation(6, name, sprite, IsWeapon, FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{name}")
+            .SetGuiPresentation(name, Category.Feature)
+            .SetNotificationTag(name)
+            .SetDamageDice(DieType.D6, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddToDB());
+
+        #endregion
+
         #region 06 Resistant Armor
 
         sprite = Sprites.GetSprite("ResistantArmor", Resources.ResistantArmor, 128);
         name = "InfusionResistantArmor";
         //TODO: RAW needs to require attunement
 
-        var elements = new[]
+        elements = new[]
         {
             DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeForce, DamageTypeLightning,
             DamageTypeNecrotic, DamageTypePoison, DamageTypePsychic, DamageTypeRadiant, DamageTypeThunder
         };
-        var powers = new List<FeatureDefinitionPower>();
+        powers = new List<FeatureDefinitionPower>();
 
         foreach (var element in elements)
         {
@@ -161,7 +221,48 @@ internal static class InventorInfusions
             powers.Add(power);
         }
 
-        var masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+        masterPower = BuildInfuseItemPowerInvocation(6, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .AddToDB());
+
+        PowerBundle.RegisterPowerBundle(masterPower, true, powers);
+
+        #endregion
+
+        #region 10 Major Elemental
+
+        sprite = SpellDefinitions.Counterspell.GuiPresentation.SpriteReference;
+        name = "InfusionMajorElemental";
+        //TODO: RAW needs to require attunement
+
+        elements = new[] { DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder };
+        powers = new List<FeatureDefinitionPower>();
+
+        foreach (var element in elements)
+        {
+            power = BuildInfuseItemPower(name + element, element, sprite, IsWeapon,
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create($"AdditionalDamage{name}{element}")
+                    .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
+                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
+                            Gui.Localize($"Rules/&{element}Title")),
+                        ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetNotificationTag(name)
+                    .SetDamageDice(DieType.D4, 1)
+                    .SetSpecificDamageType(element)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                    .AddToDB());
+
+            power.GuiPresentation.Title = $"Rules/&{element}Title";
+            power.GuiPresentation.Description = $"Rules/&{element}Description";
+
+            powers.Add(power);
+        }
+
+        masterPower = BuildInfuseItemPowerInvocation(10, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)

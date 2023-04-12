@@ -36,7 +36,7 @@
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
-    "poolFilterDiceNumber": 8,
+    "poolFilterDiceNumber": 6,
     "poolFilterDieType": "D10",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
@@ -125,7 +125,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2a5fb39a57ad3754ebaaaccd9e92e9ce",
+        "m_AssetGUID": "419f6d18044b04046b9e31d54de12228",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -149,7 +149,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a9a251561ce06c44db56a6a2d6eb2b49",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -161,7 +161,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "baf30e4ba4c3dd040829a22a73712916",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -173,7 +173,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "5904a471b8d51ab42b739d2cf97369c1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
