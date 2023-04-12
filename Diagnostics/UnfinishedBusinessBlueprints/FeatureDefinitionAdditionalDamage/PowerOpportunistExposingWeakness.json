@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Debilitated",
+  "notificationTag": "Exposed",
   "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -140,7 +140,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionOpportunistDebilitated:82bdfadb-65b4-52e9-867e-bcdcbbb7ee20",
+      "conditionDefinition": "Definition:ConditionOpportunistExposed:62693c5e-594c-55d2-accd-a7985796e32b",
       "saveAffinity": "Negates",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -209,8 +209,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOpportunistDebilitatingStrikeTitle",
-    "description": "Feature/&PowerOpportunistDebilitatingStrikeDescription",
+    "title": "Feature/&PowerOpportunistExposingWeaknessTitle",
+    "description": "Feature/&PowerOpportunistExposingWeaknessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -230,7 +230,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c726a61-63b4-5500-a812-dc188a9b93be",
+  "guid": "b6ba70b5-c3b4-5dfe-879e-41ecc08e7ae9",
   "contentPack": 9999,
-  "name": "PowerOpportunistDebilitatingStrike"
+  "name": "PowerOpportunistExposingWeakness"
 }
