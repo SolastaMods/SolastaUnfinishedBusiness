@@ -191,10 +191,10 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         const string TOUCH_OF_DARKNESS_NAME = $"FeatureSet{Name}{TouchOfDarkness}";
 
-        var powerTouchOfDarkness = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}{TouchOfDarkness}")
+        var powerTouchOfDarknessDamage = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}Damage")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.LongRest, 1, 3)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(VampiricTouch)
@@ -208,7 +208,15 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTouchOfDarkness.SetCustomSubFeatures(new CustomMagicEffectActionTouchOfDarkness(powerTouchOfDarkness));
+        var powerTouchOfDarkness = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}{TouchOfDarkness}")
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerTouchOfDarkness.SetCustomSubFeatures(
+            new CustomMagicEffectActionTouchOfDarkness(powerTouchOfDarkness, powerTouchOfDarknessDamage));
 
         var powerTouchOfDarknessRefund = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Refund")
@@ -292,11 +300,14 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
     private class CustomMagicEffectActionTouchOfDarkness : ICustomMagicEffectAction
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _powerTouchOfDarkness;
+        private readonly FeatureDefinitionPower _powerTouchOfDarknessDamage;
 
-        public CustomMagicEffectActionTouchOfDarkness(FeatureDefinitionPower featureDefinitionPower)
+        public CustomMagicEffectActionTouchOfDarkness(
+            FeatureDefinitionPower powerTouchOfDarkness, FeatureDefinitionPower powerTouchOfDarknessDamage)
         {
-            _featureDefinitionPower = featureDefinitionPower;
+            _powerTouchOfDarkness = powerTouchOfDarkness;
+            _powerTouchOfDarknessDamage = powerTouchOfDarknessDamage;
         }
 
         public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
@@ -304,7 +315,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             var attacker = action.ActingCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            if (rulesetAttacker.GetRemainingPowerCharges(_powerTouchOfDarkness) <= 0)
             {
                 yield break;
             }
@@ -313,11 +324,8 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
 
-            if (gameLocationActionService == null ||
-                gameLocationBattleService == null ||
-                rulesetImplementationService == null)
+            if (gameLocationActionService == null || gameLocationBattleService == null)
             {
                 yield break;
             }
@@ -340,16 +348,13 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
-
-            var usablePower =
-                rulesetAttacker.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower);
-            var effectPower = rulesetImplementationService.InstantiateEffectPower(rulesetAttacker, usablePower, false);
+            var usablePower = UsablePowersProvider.Get(_powerTouchOfDarknessDamage, rulesetAttacker);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
             var defender = action.actionParams.TargetCharacters[0];
 
             effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+            rulesetAttacker.UpdateUsageForPower(_powerTouchOfDarkness, _powerTouchOfDarkness.CostPerUse);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerTouchOfDarkness);
         }
     }
 
@@ -379,13 +384,9 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var rulesetPower = rulesetCharacter.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _powerTouch);
+            var rulesetPower = UsablePowersProvider.Get(_powerTouch, rulesetCharacter);
 
-            if (rulesetPower == null)
-            {
-                return;
-            }
-
+            rulesetPower.RepayUse();
             rulesetCharacter.SpendSorceryPoints(4);
         }
 

@@ -183,7 +183,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, CharacterClassDefinitions.Rogue);
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
