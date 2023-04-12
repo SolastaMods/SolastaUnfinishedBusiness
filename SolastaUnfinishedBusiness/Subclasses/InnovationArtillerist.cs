@@ -266,7 +266,7 @@ public static class InnovationArtillerist
         var powerEldritchCannonRefund = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{EldritchCannon}Refund")
             .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
-            .SetUsesFixed(ActivationTime.Action)
+            .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

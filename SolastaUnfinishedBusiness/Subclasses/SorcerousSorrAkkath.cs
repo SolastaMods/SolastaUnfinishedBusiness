@@ -215,7 +215,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var powerTouchOfDarknessRefund = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Refund")
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainInsightForeknowledge)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.SorceryPoints, 4)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
