@@ -16,19 +16,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string ZenArrowTag = "ZenArrow";
 
-    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.TrainedInvocations.Add(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationShortbowType"));
-            hero.TrainedInvocations.Add(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationLongbowType"));
-            hero.TrainedInvocations.Add(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationCEHandXbowType"));
-        }
-    }
-
     internal WayOfTheDistantHand()
     {
         var zenArrow = Sprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
@@ -37,20 +24,16 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 03
         //
 
-        var proficiencyWayOfTheDistantHandCombat =
-            FeatureDefinitionFeatureSetBuilder
-                .Create("FeatureSetWayOfTheDistantHandCombat")
-                .SetGuiPresentation(Category.Feature)
-                .AddFeatureSet(FeatureDefinitionBuilder
-                    .Create("FeatureWayOfTheDistantHandCombat")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new CustomCodeWayOfTheDistantHandCombat(),
-                        new RangedAttackInMeleeDisadvantageRemover(
-                            (mode, _, character) => IsZenArrowAttack(mode, null, character),
-                            ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                        new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
-                    .AddToDB())
+        var featureWayOfTheDistantHandCombat =
+            FeatureDefinitionBuilder
+                .Create("FeatureWayOfTheDistantHandCombat")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new CustomCodeWayOfTheDistantHandCombat(),
+                    new RangedAttackInMeleeDisadvantageRemover(
+                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
                 .AddToDB();
 
         // ZEN ARROW
@@ -351,7 +334,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
-                proficiencyWayOfTheDistantHandCombat,
+                featureWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
             .AddFeaturesAtLevel(6,
                 wayOfDistantHandsKiPoweredArrows,
@@ -372,9 +355,30 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    // ReSharper disable once UnusedParameter.Local
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
         return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
+    }
+
+    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            var alreadyThere = hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationShortbowType"));
+            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationLongbowType"));
+            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
+                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationCEHandXbowType"));
+
+            // grant a rapier if by any chance one of above weapons were already specialized in
+            if (alreadyThere)
+            {
+                hero.TrainedInvocations.TryAdd(
+                    GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
+            }
+        }
     }
 
     private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode

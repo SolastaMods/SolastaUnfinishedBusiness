@@ -6,7 +6,7 @@
   "attackRollUseCasterBonus": false,
   "attackRollModifier": 0,
   "attackRollAbilityScore": "",
-  "damageRollModifierMethod": "AddAbilityScoreBonus",
+  "damageRollModifierMethod": "AddProficiencyBonus",
   "damageRollUseCasterBonus": false,
   "damageRollModifier": 0,
   "damageRollAbilityScore": "Wisdom",

@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWayOfTheDistantHandCombat:9ae5c18b-4f4a-5234-90a6-f3d147af88b1",
+      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowTechnique:e4bbc39f-f35d-566b-81f5-199e1dd11c8c",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfTheDistantHandZenArrowTechnique:e4bbc39f-f35d-566b-81f5-199e1dd11c8c",
+      "featureDefinition": "Definition:FeatureWayOfTheDistantHandCombat:e5d6e488-9bba-5766-b298-4f26d4723f09",
       "level": 3
     },
     {
