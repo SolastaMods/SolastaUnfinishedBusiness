@@ -335,15 +335,20 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddToDB();
     }
 
+    // had to keep this name for compatibility reasons
     private static FeatureDefinitionFeatureSet ProficiencyWayOfTheDistantHandCombat { get; } =
         FeatureDefinitionFeatureSetBuilder
             .Create("ProficiencyWayOfTheDistantHandCombat")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(
-                    (mode, _, character) => IsZenArrowAttack(mode, null, character),
-                    ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
+            .AddFeatureSet(FeatureDefinitionBuilder
+                .Create("FeatureWayOfTheDistantHandCombat")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new RangedAttackInMeleeDisadvantageRemover(
+                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                .AddToDB())
             .AddToDB();
 
     internal override CharacterSubclassDefinition Subclass { get; }
