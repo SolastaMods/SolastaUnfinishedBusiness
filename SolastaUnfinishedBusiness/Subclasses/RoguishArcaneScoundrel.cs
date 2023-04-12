@@ -80,13 +80,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         var additionalDamageDistractingAmbush = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{DistractingAmbush}")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new FeatureDefinitionCustomCodeDistractingAmbush())
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -204,18 +201,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                     rulesetCharacter.CurrentFaction.Name);
 
                 defenderRulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-            }
-        }
-    }
-
-    private sealed class FeatureDefinitionCustomCodeDistractingAmbush : IFeatureDefinitionCustomCode
-    {
-        // remove original sneak attack as we've added a conditional one otherwise ours will never trigger
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
             }
         }
     }

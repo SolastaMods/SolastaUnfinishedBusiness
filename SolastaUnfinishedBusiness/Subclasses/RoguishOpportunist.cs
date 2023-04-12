@@ -39,8 +39,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack,
                 "PowerOpportunistDebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
+            // use flat bonus to allow it to interact correct with sneak attack
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetNotificationTag("Debilitated")
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
@@ -74,8 +74,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack,
                 "PowerOpportunistExposingWeakness")
             .SetGuiPresentation(Category.Feature)
+            // use flat bonus to allow it to interact correct with sneak attack
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetNotificationTag("Exposed")
             .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Exposed",
+  "notificationTag": "",
   "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",

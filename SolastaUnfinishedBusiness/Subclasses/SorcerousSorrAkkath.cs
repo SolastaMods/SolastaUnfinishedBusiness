@@ -94,13 +94,12 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
         var additionalDamageBloodOfSorrAkkath = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{BloodOfSorrAkkath}")
             .SetGuiPresentation($"AdditionalDamage{Name}{SpellSneakAttack}", Category.Feature)
-            .SetNotificationTag(SpellSneakAttack)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 6, 5)
+            // use flat bonus to allow it to interact correct with spell attack
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
+            .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -110,14 +109,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionBloodOfSorrAkkath
                 })
-            .SetCustomSubFeatures(new FeatureDefinitionCustomCodeBloodOfSorrAkkath(additionalDamageSpellSneakAttack))
             .AddToDB();
-
-        // another odd dice damage progression
-        for (var i = 0; i < 4; i++)
-        {
-            additionalDamageBloodOfSorrAkkath.DiceByRankTable[i].diceNumber = 1;
-        }
 
         var featureSetBloodOfSorrAkkath = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}{BloodOfSorrAkkath}")
@@ -265,30 +257,6 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Blood of Sorr-Akkath
-    //
-
-    private sealed class FeatureDefinitionCustomCodeBloodOfSorrAkkath : IFeatureDefinitionCustomCode
-    {
-        private readonly FeatureDefinitionAdditionalDamage _featureDefinitionAdditionalDamage;
-
-        public FeatureDefinitionCustomCodeBloodOfSorrAkkath(
-            FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage)
-        {
-            _featureDefinitionAdditionalDamage = featureDefinitionAdditionalDamage;
-        }
-
-        // remove original sneak attack as we've added a conditional one otherwise ours will never trigger
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x == _featureDefinitionAdditionalDamage);
-            }
-        }
-    }
 
     //
     // Touch of Darkness Fixed
