@@ -563,6 +563,9 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Chain Mail[/b]: Chain Mail of Sturdiness, Chain Mail of Robustness, Chain Mail of Survival, Chain Mail of Flame Dancing, Chain Mail of Frost Walking, Chain Mail of Deflection
 [*][b]Splint[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
 [*][b]Plate[/b]: Plate of Sturdiness, Plate of Robustness, Plate of Survival, Plate of Flame Dancing, Plate of Frost Walking, Plate of Deflection
+[*][b]Sorcerer outfit[/b]: Sorcerer Armor of Sturdiness, Sorcerer Armor of Robustness, Sorcerer Armor of Survival, Sorcerer Armor of Flame Dancing, Sorcerer Armor of Frost Walking, Sorcerer Armor of Deflection
+[*][b]Barbarian Clothes[/b]: Barbarian Clothes of Sturdiness, Barbarian Clothes of Robustness, Barbarian Clothes of Survival, Barbarian Clothes of Flame Dancing, Barbarian Clothes of Frost Walking, Barbarian Clothes of Deflection
+[*][b]Warlock Armor[/b]: Warlock Armor of Sturdiness, Warlock Armor of Robustness, Warlock Armor of Survival, Warlock Armor of Flame Dancing, Warlock Armor of Frost Walking, Warlock Armor of Deflection
 [/list]
 
 [size=4][b]Credits[/b][/size]

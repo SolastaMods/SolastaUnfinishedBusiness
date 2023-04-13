@@ -3,6 +3,7 @@
 1.4.33.74:
 
 - added Always Ready feat and Rope it Up fighting style
+- added magical clothes and recipes to Barbarian, Sorcerer, and Warlock
 - added Roguish Acrobat's heroic uncanny dodge at level 17
 - added Way of the Discordance's profound turmoil at level 17
 - added Way of the Silhouette's shadowy sanctuary at level 17
