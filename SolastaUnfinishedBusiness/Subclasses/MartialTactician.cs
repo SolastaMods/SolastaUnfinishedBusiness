@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -44,18 +45,15 @@ internal sealed class MartialTactician : AbstractSubclass
             )
             .AddToDB();
 
-        EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3,
-                BuildSharpMind(), GambitPool, Learn4Gambit, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), Learn1Gambit)
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn1Gambit, unlearn, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
-                BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitPool, Learn4Gambit)
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn2Gambit, unlearn, BuildGambitDieSize(DieType.D8))
+            .AddFeaturesAtLevel(10, strategicPlan, BuildSharedVigilance(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn)
+            .AddFeaturesAtLevel(18, strategicPlan, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -76,6 +74,8 @@ internal sealed class MartialTactician : AbstractSubclass
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
 
+    // BACKWARD COMPATIBILITY
+    [UsedImplicitly]
     private static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn1")
@@ -101,7 +101,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
-    private static FeatureDefinition EverVigilant { get; set; }
 
     private static DieType GetGambitDieSize(RulesetCharacter character)
     {
@@ -177,7 +176,7 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
                         .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                             .Create("AttributeModifierTacticianSharedVigilance")
-                            .SetGuiPresentation(EverVigilant.GuiPresentation)
+                            .SetGuiPresentation("AttributeModifierTacticianEverVigilant", Category.Feature)
                             .SetAddConditionAmount(AttributeDefinitions.Initiative)
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -349,7 +348,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Blind
 
         var name = "GambitBlind";
-        //TODO: add proper icon
         var sprite = Sprites.GetSprite(name, Resources.GambitBlind, 128);
 
         ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -401,7 +399,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Knockdown
 
         name = "GambitKnockdown";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -453,7 +450,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Repel
 
         name = "GambitRepel";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -510,7 +506,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Threaten
 
         name = "GambitThreaten";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -563,7 +558,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Debilitate
 
         name = "GambitDebilitate";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitDebilitate, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -621,7 +615,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Goading
 
         name = "GambitGoading";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitProvoke, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -682,7 +675,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Feint
 
         name = "GambitFeint";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitFeint, 128);
 
         power = FeatureDefinitionPowerBuilder
@@ -719,7 +711,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Lunging
 
         name = "GambitLunging";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitReach, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -756,7 +747,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Urgent Orders
 
         name = "GambitUrgent";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitUrgentOrders, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -788,7 +778,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Bait and Switch
 
         name = "GambitSwitch";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitSwitch, 128);
 
         var good = ConditionDefinitionBuilder
@@ -856,7 +845,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Riposte
 
         name = "GambitRiposte";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitCounterAttack, 128);
 
         var feature = FeatureDefinitionBuilder
@@ -872,7 +860,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Return Fire
 
         name = "GambitReturnFire";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitReturnFire, 128);
 
         feature = FeatureDefinitionBuilder
@@ -888,7 +875,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Brace
 
         name = "GambitBrace";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitBrace, 128);
 
         feature = FeatureDefinitionBuilder
@@ -904,7 +890,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Precise
 
         name = "GambitPrecise";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
 
         feature = FeatureDefinitionBuilder
@@ -922,7 +907,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Parry
 
         name = "GambitParry";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitParry, 128);
 
         feature = FeatureDefinitionBuilder
