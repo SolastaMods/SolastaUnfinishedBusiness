@@ -184,6 +184,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create($"Power{Name}{TouchOfDarkness}Fixed")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -193,7 +194,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Half)
+                            .SetDamageForm(DamageTypeNecrotic, 8, DieType.D8, 0, HealFromInflictedDamage.Half)
                             .Build())
                     .Build())
             .AddToDB();
@@ -203,8 +204,9 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Points")
-            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
+            .SetUseSpellAttack()
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(VampiricTouch)
@@ -213,7 +215,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Full)
+                            .SetDamageForm(DamageTypeNecrotic, 8, DieType.D8, 0, HealFromInflictedDamage.Full)
                             .Build())
                     .Build())
             .AddToDB();
