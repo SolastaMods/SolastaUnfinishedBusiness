@@ -464,6 +464,9 @@
   <data name="HandAndAHalf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/HandAndAHalf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Lunger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/FightingStyles/Lunger.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Merciless" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/FightingStyles/Merciless.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
