@@ -1,7 +1,7 @@
-﻿Condition/&ConditionSteadyAimAdvantageDescription=Você tem vantagem em sua próxima jogada de ataque.
-Condition/&ConditionSteadyAimAdvantageTitle=Mira firme
-Condition/&ConditionSteadyAimDescription=Você não pode se mover até o final do seu turno.
-Condition/&ConditionSteadyAimTitleRestrained by Steady Aim
+﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Você tem vantagem em sua próxima jogada de ataque.
+Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira firme
+Condition/&ConditionFeatSteadyAimDescription=Você não pode se mover até o final do seu turno.
+Condition/&ConditionFeatSteadyAimTitleRestrained by Steady Aim
 =VAZIO
 Feat/&FeatBowMasteryDescription=Seu treinamento especializado com arcos concede a você os seguintes benefícios:\n• Você ganha um bônus de +1 nas jogadas de dano feitas com arco curto e arco longo.\n• Ao usar a ação de Ataque com um arco curto em seu turno, você pode fazer um ataque de arma à distância como uma ação bônus, adicionando seu modificador de atributo ao dano.\n• Você pode usar Força em vez de Destreza em jogadas de ataque e dano feitas com arco longo.
 Feat/&FeatBowMasteryTitle=Domínio do arco
