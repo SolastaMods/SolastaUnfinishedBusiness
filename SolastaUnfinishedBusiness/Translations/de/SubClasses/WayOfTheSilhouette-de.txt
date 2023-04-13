@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Ab der Wahl dieser Tradition auf der 3. Stufe können Sie 2 Ki-Punkte ausgeben, um Dunkelheit, Dunkelsicht, Spurlos vorbei oder Schweigen zu wirken, ohne materielle Komponenten bereitzustellen. Zusätzlich erhaltet ihr den leichten Cantrip, falls ihr ihn noch nicht kennt.
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Sie können 2 Ki-Punkte ausgeben, um Dunkelheit, Dunkelsicht, Spurlos vorbei oder Stille zu wirken, ohne materielle Komponenten bereitzustellen. Zusätzlich erhaltet ihr den leichten Cantrip, falls ihr ihn noch nicht kennt.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silhouetten-Kunst
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Umhang der Silhouetten funktioniert jetzt zusätzlich zu natürlicher Dunkelheit auch bei schwachem Licht und magischer Dunkelheit.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Verbesserter Umhang der Silhouetten
@@ -6,6 +6,8 @@ Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Wenn Sie 
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Umhang aus Silhouetten
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Kurzzeitig von der Energie des Ki umgeben, kannst du beim Teleportieren jetzt einen Verbündeten mitnehmen und die Reichweite hat sich erhöht.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Verbesserter Silhouettenschritt
+Feature/&PowerWayOfSilhouetteShadowySanctuaryDescription=Wenn eine Kreatur dich mit einem Angriff treffen will, kannst du 3 Ki bezahlen und deine Reaktion nutzen, um in die Schatten zu treten und zu verschwinden, wodurch jeglicher Schaden oder schädliche Effekt, den du durch diesen Angriff erhalten hättest, negiert wird. Solange Sie sich im Schatten befinden, gelten Sie bis zum Beginn Ihres nächsten Zuges als verbannt.
+Feature/&PowerWayOfSilhouetteShadowySanctuaryTitle=Schattenhaftes Heiligtum
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Als Bonusaktion kannst du dich bis zu 30 Fuß zu einem unbesetzten Feld teleportieren, das du sehen kannst. Du kannst diese Kraft so oft pro langer Pause einsetzen, wie es deinem Kompetenzbonus entspricht.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Silhouettenschritt
 Subclass/&WayOfSilhouetteDescription=Praktizierende des Weges der Silhouette folgen einer Tradition, die Wert auf Heimlichkeit und Ausflüchte legt. Diese Mönche dienen als Spione und Attentäter. Manchmal sind die Mitglieder eines Ninja-Klosters Familienmitglieder, die einen Clan bilden, der zur Geheimhaltung ihrer Künste und Missionen verpflichtet ist. Andere Klöster ähneln eher Diebesgilden, die ihre Dienste an Adlige, reiche Kaufleute oder jeden anderen vermieten, der ihre Gebühren bezahlen kann. Ungeachtet ihrer Methoden erwarten die Leiter dieser Klöster den unbedingten Gehorsam ihrer Schüler.
