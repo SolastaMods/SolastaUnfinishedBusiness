@@ -1004,7 +1004,8 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            if (attackMode == null)
+            // once per turn
+            if (attackMode == null || attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
             {
                 return;
             }
@@ -1022,6 +1023,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }
     }
