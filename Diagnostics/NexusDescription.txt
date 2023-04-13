@@ -587,7 +587,6 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Pikachar2[/b]: spells
-[*][b]DemonicDuck[/b]: homebrew content design
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
 [/list]
 

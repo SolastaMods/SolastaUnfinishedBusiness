@@ -1,4 +1,8 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -128,16 +132,17 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // LEVEL 17
+        // LEVEL 17 - Heroic Uncanny Dodge
 
-        /*
-         
-        Heroic Uncanny Dodge
+        var powerHeroicUncannyDodge = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}HeroicUncannyDodge")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
 
-        if an attack roll would have successfully hit you, you may use your reaction to force the attack to miss instead. 
-        you may use this ability a number of times per long rest equal to your Dexterity modifier.
-
-        */
+        powerHeroicUncannyDodge.SetCustomSubFeatures(
+            new DefenderBeforeAttackHitConfirmedHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -147,13 +152,15 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 proficiencyAcrobatConnoisseur,
                 attributeModifierAcrobatDefender,
-                featureAcrobatWarrior)
+                featureAcrobatWarrior, powerHeroicUncannyDodge)
             .AddFeaturesAtLevel(9,
                 featureSetSwiftWind)
             .AddFeaturesAtLevel(13,
                 combatAffinityFluidMotions,
                 movementAffinityFluidMotions,
                 powerReflexes)
+            .AddFeaturesAtLevel(17,
+                powerHeroicUncannyDodge)
             .AddToDB();
     }
 
@@ -183,6 +190,65 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
             attackMode.reach = true;
             attackMode.reachRange = 2;
+        }
+    }
+
+    private class DefenderBeforeAttackHitConfirmedHeroicUncannyDodge : IDefenderBeforeAttackHitConfirmed
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public DefenderBeforeAttackHitConfirmedHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public IEnumerator DefenderBeforeAttackHitConfirmed(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            if (!me.CanReact())
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "Reaction/&CustomReactionHeroicUncannyDodgeDescription"
+                };
+
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("HeroicUncannyDodge", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            attackModifier.damageRollReduction = Int32.MaxValue;
+
+            GameConsoleHelper.LogCharacterUsedPower(me.RulesetCharacter, _featureDefinitionPower);
         }
     }
 }
