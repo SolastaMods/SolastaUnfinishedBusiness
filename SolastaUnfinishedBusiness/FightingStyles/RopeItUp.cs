@@ -42,7 +42,7 @@ internal class RopeItUp : AbstractFightingStyle
             {
                 return;
             }
-            
+
             attackMode.closeRange += 2;
             attackMode.maxRange += 2;
         }

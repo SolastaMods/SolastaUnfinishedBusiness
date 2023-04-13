@@ -999,7 +999,8 @@ public static class GameLocationBattleManagerPatcher
             }
 
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
-                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>()))
+                         .SelectMany(x =>
+                             x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>()))
             {
                 yield return attackInitiated.OnAttackInitiated(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);

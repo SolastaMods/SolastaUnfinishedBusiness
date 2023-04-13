@@ -123,7 +123,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         const string CONDITION_PROFOUND_TURMOIL = $"Condition{Name}ProfoundTurmoil";
-        
+
         var conditionProfoundTurmoil = ConditionDefinitionBuilder
             .Create(CONDITION_PROFOUND_TURMOIL)
             .SetGuiPresentation(Category.Condition)
@@ -157,7 +157,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(false, AttributeDefinitions.Charisma, false,
+                    .SetSavingThrowData(false, Charisma, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -205,8 +205,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly ConditionDefinition _conditionProfoundTurmoilMark;
-        private readonly FeatureDefinitionPower _powerProfoundTTurmoil;
         private readonly FeatureDefinitionPower _powerDiscordanceDamage;
+        private readonly FeatureDefinitionPower _powerProfoundTTurmoil;
 
         public AfterAttackEffectDiscordance(
             ConditionDefinition conditionDiscordance,
