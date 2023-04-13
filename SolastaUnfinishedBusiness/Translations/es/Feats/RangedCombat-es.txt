@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Tienes ventaja en tu próxima tirada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Buena puntería
-Condition/&ConditionFeatSteadyAimDescription=No puedes moverte hasta el final de tu turno.
-Condition/&ConditionFeatSteadyAimTitleRestrained by Steady Aim
+Condition/&ConditionFeatSteadyAimRestrainedDescription=No puedes moverte hasta el final de tu turno.
+Condition/&ConditionFeatSteadyAimRestrainedTitleRestrained by Steady Aim
 =VACÍO
 Feat/&FeatBowMasteryDescription=Tu entrenamiento experto con arcos te otorga estos beneficios:\n• Obtienes una bonificación de +1 a las tiradas de daño que haces con arco corto y arco largo.\n• Cuando usas la acción Atacar con un arco corto en tu turno, puedes hacer un ataque con arma a distancia como acción adicional, agregando tu modificador de atributo al daño.\n• Puedes usar Fuerza en lugar de Destreza en las tiradas de ataque y daño que hagas con el arco largo.
 Feat/&FeatBowMasteryTitle=Dominio del arco

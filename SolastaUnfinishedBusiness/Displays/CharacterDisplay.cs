@@ -139,6 +139,13 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableBarbarianFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianFightingStyle = toggle;
+            CharacterContext.SwitchBarbarianFightingStyle();
+        }
+
         toggle = Main.Settings.EnableFighterWeaponSpecialization;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {

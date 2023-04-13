@@ -2,6 +2,7 @@
 - added Lunger and Rope it Up fighting styles
 - added magical clothes and recipes to Barbarian, Sorcerer, and Warlock
 - added Roguish Acrobat's heroic uncanny dodge at level 17
+- added setting to allow Barbarians to train a Fighting Style at level 2
 - added Way of the Discordance's profound turmoil at level 17
 - added Way of the Silhouette's shadowy sanctuary at level 17
 - fixed Sorcerous Sorr-Akkath's touch of darkness attack bonus

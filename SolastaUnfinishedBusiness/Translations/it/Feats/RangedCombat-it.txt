@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Hai vantaggio al tuo prossimo tiro per colpire.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira stabile
-Condition/&ConditionFeatSteadyAimDescription=Non puoi muoverti fino alla fine del tuo turno.
-Condition/&ConditionFeatSteadyAimTitleRestrained by Steady Aim
+Condition/&ConditionFeatSteadyAimRestrainedDescription=Non puoi muoverti fino alla fine del tuo turno.
+Condition/&ConditionFeatSteadyAimRestrainedTitleRestrained by Steady Aim
 =VUOTO
 Feat/&FeatBowMasteryDescription=Il tuo addestramento esperto con gli archi ti garantisce questi vantaggi:\n• Ottieni un bonus di +1 ai tiri per i danni che effettui con l'arco corto e l'arco lungo.\n• Quando usi l'azione Attacco con un arco corto durante il tuo turno, puoi effettuare un attacco con un'arma a distanza come azione bonus, aggiungendo il tuo modificatore di attributo al danno.\n• Puoi usare Forza invece di Destrezza sui tiri per colpire e per i danni che effettui con l'arco lungo.
 Feat/&FeatBowMasteryTitle=Padronanza dell'arco

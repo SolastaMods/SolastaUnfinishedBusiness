@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Vous avez l'avantage lors de votre prochain jet d'attaque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Objectif stable
-Condition/&ConditionFeatSteadyAimDescription=Vous ne pouvez pas vous déplacer avant la fin de votre tour.
-Condition/&ConditionFeatSteadyAimTitleRestrained by Steady Aim
+Condition/&ConditionFeatSteadyAimRestrainedDescription=Vous ne pouvez pas vous déplacer avant la fin de votre tour.
+Condition/&ConditionFeatSteadyAimRestrainedTitleRestrained by Steady Aim
 =VIDE
 Feat/&FeatBowMasteryDescription=Votre entraînement d'expert avec les arcs vous confère les avantages suivants :\n• Vous bénéficiez d'un bonus de +1 aux jets de dégâts que vous effectuez avec l'arc court et l'arc long.\n• Lorsque vous utilisez l'action Attaquer avec un arc court à votre tour, vous pouvez faire une attaque à distance avec une arme en tant qu'action bonus, ajoutant votre modificateur d'attribut aux dégâts.\n• Vous pouvez utiliser la Force au lieu de la Dextérité sur les jets d'attaque et de dégâts que vous effectuez avec un arc long.
 Feat/&FeatBowMasteryTitle=Maîtrise de l'arc

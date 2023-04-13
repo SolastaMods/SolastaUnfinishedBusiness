@@ -37,6 +37,22 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
+    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
+        FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleChoiceBarbarian")
+            .SetGuiPresentation("FighterFightingStyle", Category.Feature)
+            .SetFightingStyles(
+                "BlindFighting",
+                "Crippling",
+                "Executioner",
+                "GreatWeapon",
+                "Merciless",
+                "Pugilist",
+                "TwoWeapon",
+                "Sentinel",
+                "RopeItUp")
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolMonkWeaponSpecialization")
@@ -132,6 +148,7 @@ internal static class CharacterContext
         SwitchAsiAndFeat();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
+        SwitchBarbarianFightingStyle();
         SwitchFighterWeaponSpecialization();
         SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
@@ -193,6 +210,28 @@ internal static class CharacterContext
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
                 .SetCustomSubFeatures(Hidden.Marker)
                 .AddToDB();
+        }
+    }
+
+    internal static void SwitchBarbarianFightingStyle()
+    {
+        var levels = new[] { 2, 11 };
+
+        if (Main.Settings.EnableBarbarianFightingStyle)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceBarbarian, 2));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks
+                .RemoveAll(x => x.level == 2 &&
+                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
