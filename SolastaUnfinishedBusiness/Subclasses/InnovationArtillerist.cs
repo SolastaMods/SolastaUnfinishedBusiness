@@ -471,7 +471,6 @@ public static class InnovationArtillerist
             .Create(powerEldritchCannonPool, $"Power{Name}{FortifiedPosition}Activate")
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .SetOverriddenPower(powerExplosiveCannonPool)
-            .SetCustomSubFeatures(new ChangeGlobalUniqueEffectsLimit())
             .AddToDB();
 
         var powerFlamethrower15 = BuildFlamethrowerPower(powerFortifiedPositionPool, 15, powerFortifiedPosition);
@@ -595,16 +594,6 @@ public static class InnovationArtillerist
 
     #endregion
 
-    #region GLOBAL EFFECTS CHANGER
-
-    private sealed class ChangeGlobalUniqueEffectsLimit : IChangeGlobalUniqueEffectsLimit
-    {
-        public GlobalUniqueEffects.Group GroupKey => GlobalUniqueEffects.Group.ArtilleristCannon;
-        public int Limit => 1;
-    }
-
-    #endregion
-
     #region COMMON BLUEPRINTS
 
     private static readonly FeatureDefinitionActionAffinity ActionAffinityEldritchCannon =
@@ -722,7 +711,7 @@ public static class InnovationArtillerist
         var name = PowerSummonCannon + powerName;
         var monster = BuildEldritchCannonMonster(powerName, monsterDefinition, level, monsterAdditionalFeatures);
 
-        return FeatureDefinitionPowerSharedPoolBuilder
+        var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name + level)
             .SetGuiPresentation($"Power{Name}{powerName}", Category.Feature, hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
@@ -740,6 +729,15 @@ public static class InnovationArtillerist
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
+
+        if (level < 15)
+        {
+            return power;
+        }
+        
+        power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
+
+        return power;
     }
 
     private static MonsterDefinition BuildEldritchCannonMonster(
@@ -818,7 +816,7 @@ public static class InnovationArtillerist
     {
         var name = PowerSummonCannon + powerName + "Tiny";
 
-        return FeatureDefinitionPowerSharedPoolBuilder
+        var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(name + level)
             .SetGuiPresentation(name, Category.Feature, GuiPresentationBuilder.EmptyString, hidden: true)
             .SetSharedPool(ActivationTime.Action, sharedPoolPower)
@@ -836,6 +834,15 @@ public static class InnovationArtillerist
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
+
+        if (level < 15)
+        {
+            return power;
+        }
+        
+        power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
+
+        return power;
     }
 
     #endregion
