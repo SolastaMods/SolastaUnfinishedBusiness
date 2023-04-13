@@ -39,8 +39,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
-                BuildTacticalSurge(),
                 BuildAdaptiveStrategy(),
+                BuildImproviseStrategy(),
                 BuildOvercomingStrategy()
             )
             .AddToDB();
@@ -50,12 +50,16 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
             .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitPool, Learn4Gambit)
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn2Gambit, unlearn, BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(10, strategicPlan, BuildSharedVigilance(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn)
-            .AddFeaturesAtLevel(18, strategicPlan, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn, BuildGambitDieSize(DieType.D8))
+            .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, BuildBattleClarity(), Learn2Gambit, unlearn)
+            .AddFeaturesAtLevel(18, BuildTacticalSurge(), BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
+        // BACKWARD COMPATIBILITY
+        BuildGambitPoolIncrease(); // build PowerUseModifierTacticianGambitPool01
+        BuildGambitPoolIncrease(); // build PowerUseModifierTacticianGambitPool02
+        
         BuildGambits();
     }
 
@@ -185,6 +189,17 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildBattleClarity()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianBattleClarity")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri)
+            .AddToDB();
+    }
+    
     private static FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -208,6 +223,19 @@ internal sealed class MartialTactician : AbstractSubclass
         var feature = FeatureDefinitionBuilder
             .Create("FeatureAdaptiveStrategy")
             .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
+
+        return feature;
+    }
+    
+    private static FeatureDefinition BuildImproviseStrategy()
+    {
+        var feature = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureImproviseStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
         feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
@@ -1004,8 +1032,10 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
+            var isMyTurn = Gui.Battle.ActiveContender == attacker;
+
             // once per turn
-            if (attackMode == null || attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
+            if (attackMode == null || (isMyTurn && attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy")))
             {
                 return;
             }
@@ -1050,7 +1080,8 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (attackMode == null)
+            // once per round
+            if (attackMode == null || attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
             {
                 yield break;
             }
@@ -1068,6 +1099,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }
     }
