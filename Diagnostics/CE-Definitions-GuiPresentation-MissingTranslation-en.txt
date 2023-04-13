@@ -1,2 +1,6 @@
+ConditionFeatSteadyAimAdvantage	Title='Condition/&ConditionFeatSteadyAimAdvantageTitle'.
+ConditionFeatSteadyAimAdvantage	Description='Condition/&ConditionFeatSteadyAimAdvantageDescription'.
+ConditionFeatSteadyAimRestrained	Title='Condition/&ConditionFeatSteadyAimRestrainedTitle'.
+ConditionFeatSteadyAimRestrained	Description='Condition/&ConditionFeatSteadyAimRestrainedDescription'.
 WildShapeWaterElemental	Title='Monster/&IceElemental_Title'.
 WildShapeWaterElemental	Description='Monster/&IceElemental_Description'.

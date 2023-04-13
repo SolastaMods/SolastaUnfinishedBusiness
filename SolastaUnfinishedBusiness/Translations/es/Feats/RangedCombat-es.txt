@@ -1,7 +1,14 @@
-﻿Feat/&FeatBowMasteryDescription=Tu entrenamiento experto con arcos te otorga estos beneficios:\n• Obtienes una bonificación de +1 a las tiradas de daño que haces con arco corto y arco largo.\n• Cuando usas la acción Atacar con un arco corto en tu turno, puedes hacer un ataque con arma a distancia como acción adicional, agregando tu modificador de atributo al daño.\n• Puedes usar Fuerza en lugar de Destreza en las tiradas de ataque y daño que hagas con el arco largo.
+﻿Condition/&ConditionSteadyAimAdvantageDescription=Tienes ventaja en tu próxima tirada de ataque.
+Condition/&ConditionSteadyAimAdvantageTitle=Buena puntería
+Condition/&ConditionSteadyAimDescription=No puedes moverte hasta el final de tu turno.
+Condition/&ConditionSteadyAimTitleRestrained by Steady Aim
+=VACÍO
+Feat/&FeatBowMasteryDescription=Tu entrenamiento experto con arcos te otorga estos beneficios:\n• Obtienes una bonificación de +1 a las tiradas de daño que haces con arco corto y arco largo.\n• Cuando usas la acción Atacar con un arco corto en tu turno, puedes hacer un ataque con arma a distancia como acción adicional, agregando tu modificador de atributo al daño.\n• Puedes usar Fuerza en lugar de Destreza en las tiradas de ataque y daño que hagas con el arco largo.
 Feat/&FeatBowMasteryTitle=Dominio del arco
 Feat/&FeatDeadeyeDescription=Has aprendido a cambiar la precisión para conseguir disparos más mortíferos:\n• Cuando atacas con un arma a distancia, puedes optar por recibir una penalización de -5 a tu golpe para hacer un daño adicional de +10.\n• Ataques a el largo alcance no impone desventajas y el ataque con armas a distancia ignora la media cobertura y la cobertura de tres cuartos.
 Feat/&FeatDeadeyeTitle=Vigota
 Feat/&FeatRangedExpertDescription=Tu entrenamiento experto con armas a distancia te otorga estos beneficios:\n• Los ataques a distancia cuerpo a cuerpo no suponen una desventaja.\n• Si realizas la acción de ataque en tu turno, puedes realizar un ataque adicional a distancia con una mano añadiendo tu modificador de atributo al daño.
 Feat/&FeatRangedExpertTitle=Experto a distancia
+Feat/&FeatSteadyAimDescription=Aumenta tu Destreza en 1, hasta un máximo de 20. Como acción adicional, obtienes ventaja en tu próxima tirada de ataque en el turno actual. Puedes usar esta acción adicional solo si no te has movido durante este turno, y después de usar la acción adicional, tu velocidad es 0 hasta el final del turno actual.
+Feat/&FeatSteadyAimTitle=Buena puntería
 Tooltip/&DeadeyeConcentration=Deshabilitar Deadeye.

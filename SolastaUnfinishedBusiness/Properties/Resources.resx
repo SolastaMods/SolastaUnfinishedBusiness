@@ -515,6 +515,9 @@
   <data name="PowerGuardianMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerGuardianMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PowerSteadyAim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerSteadyAim.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PowerInfiltratorMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerInfiltratorMode.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

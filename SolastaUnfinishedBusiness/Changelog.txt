@@ -1,4 +1,4 @@
-- added Always Ready feat
+- added Always Ready and Steady Aim feats
 - added Lunger and Rope it Up fighting styles
 - added magical clothes and recipes to Barbarian, Sorcerer, and Warlock
 - added Roguish Acrobat's heroic uncanny dodge at level 17
