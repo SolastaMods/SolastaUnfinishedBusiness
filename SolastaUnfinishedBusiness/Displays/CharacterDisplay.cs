@@ -139,11 +139,11 @@ internal static class CharacterDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.EnableFighterArmamentAdroitness;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterArmamentAdroitness"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFighterWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFighterArmamentAdroitness = toggle;
-            CharacterContext.SwitchFighterArmamentAdroitness();
+            Main.Settings.EnableFighterWeaponSpecialization = toggle;
+            CharacterContext.SwitchFighterWeaponSpecialization();
         }
 
         toggle = Main.Settings.EnableMonkWeaponSpecialization;

@@ -119,11 +119,12 @@ internal static class CharacterContext
         LoadVision();
         LoadEpicArray();
         LoadVisuals();
+        LoadAdditionalNames();
     }
 
     internal static void LateLoad()
     {
-        LoadAdditionalNames();
+        BuildMonkWeaponSpecialization();
         SwitchHelpPower();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
@@ -131,8 +132,7 @@ internal static class CharacterContext
         SwitchAsiAndFeat();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
-        SwitchFighterArmamentAdroitness();
-        BuildMonkWeaponSpecialization();
+        SwitchFighterWeaponSpecialization();
         SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
@@ -1026,11 +1026,11 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    internal static void SwitchFighterArmamentAdroitness()
+    internal static void SwitchFighterWeaponSpecialization()
     {
         var levels = new[] { 8, 16 };
 
-        if (Main.Settings.EnableFighterArmamentAdroitness)
+        if (Main.Settings.EnableFighterWeaponSpecialization)
         {
             foreach (var level in levels)
             {

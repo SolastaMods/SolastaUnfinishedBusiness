@@ -80,7 +80,7 @@ ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0D
 ModUi/&EnableEpicPointsAndArray=Abilita un epico sistema di acquisto e array da 35 punti <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Abilita la selezione dei talenti ai livelli di classe 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Abilita la selezione dei talenti ai livelli di classe 6 e 14
-ModUi/&EnableFighterArmamentAdroitness=Abilita <color=#D89555>Guerriero</color> <b>Specializzazione arma</b> ai livelli di classe 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Abilita <color=#D89555>Guerriero</color> <b>Specializzazione arma</b> ai livelli di classe 8 e 16 <i><color=#F0DAA0>[ottieni +1 per colpire e per danneggiare ma svantaggio con qualsiasi altro tipo di arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Abilita sfondi flessibili <i><color=#F0DAA0>[seleziona abilità e competenze sugli strumenti dagli sfondi]</color></i>
 ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna punti punteggio abilità invece delle impostazioni razziali predefinite]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
