@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupDefenseCombatTitle",
-    "description": "Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade , Unarmored Expert",
+    "title": "Feat/&FeatAlwaysReadyTitle",
+    "description": "Feat/&FeatAlwaysReadyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "41b14fa2-53a6-57cd-9655-ae19d9ffe57a",
+  "guid": "15c11d2a-5817-54a7-8c8c-bcc602ab486b",
   "contentPack": 9999,
-  "name": "FeatGroupDefenseCombat"
+  "name": "FeatAlwaysReady"
 }

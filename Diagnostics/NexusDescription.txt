@@ -160,6 +160,7 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Always Ready[/b]: You automatically ready a melee or unarmed attack at the end of your turn if you took the attack action and missed any melee or unarmed attack hit.
 [*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -320,6 +321,7 @@ You gain proficiency with medium armor and shields.
 • Increase your Strength score by 1, to a maximum of 20.
 • While you are holding a great sword, you gain a +1 bonus to armor class.
 •Great sword has the finesse property when you wield it.
+[*][b]Rope it Up[/b]: Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
@@ -395,6 +397,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+[*][b]Rope it Up[/b]: Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
@@ -584,6 +587,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Pikachar2[/b]: spells
+[*][b]DemonicDuck[/b]: homebrew content design
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
 [/list]
 

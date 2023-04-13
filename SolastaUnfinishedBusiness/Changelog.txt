@@ -1,10 +1,5 @@
-- RESPEC REQUIRED FOR ANY WAY OF DISTANT HAND
-
-- added Bloody, Major Elemental, and Minor Elemental infusions
-- added Roguish Opportunist's expose weakness at level 17
-- added Sorcerous Sorr-Akkath's touch of darkness at level 18
-- added Way of Distant Hand's unseen eyes at level 17
-- changed Innovation Armor to have Wall of Force prepared at level 17
-- changed Innovation Weapon to have Wall of Force prepared at level 17
-- fixed the spell casting action panel broken with xbox controller support
-- fixed Way of Distant Hand integration with Monk weapon specialization
+- added Always Ready feat and Rope it Up fighting style
+- added Way of the Discordance's profound turmoil at level 17
+- added Way of the Silhouette's shadowy sanctuary at level 17
+- changed Martial Tactician with some features now at level 18
+- fixed Sorcerous Sorr-Akkath's touch of darkness attack bonus

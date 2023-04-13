@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfSilhouetteImprovedSilhouetteStep:a7a88fe6-bd6a-51d7-88c7-bd65acdf5dbb",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfSilhouetteShadowySanctuary:22f9fda7-4249-528b-97b3-0c91e2d32931",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],
