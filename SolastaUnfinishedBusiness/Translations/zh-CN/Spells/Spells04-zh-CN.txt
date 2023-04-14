@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
+Feature/&AdditionalDamageStaggeringSmiteTitle=惊震斩
+Feedback/&AdditionalDamageStaggeringSmiteFormat=惊震斩！
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊震斩对 {1} 造成更多伤害 (+{2})
+Spell/&StaggeringSmiteDescription=在此法术的持续时间内，下次你用武器攻击命中一个生物时，你的武器会刺穿身体和心灵，并且攻击会对目标造成额外的 4d6 心灵伤害。目标必须进行一次感知豁免。豁免失败时，它在攻击检定和能力检定上具有劣势，并且不能做出反应，直到它的下一轮结束。
+Spell/&StaggeringSmiteTitle=惊震斩

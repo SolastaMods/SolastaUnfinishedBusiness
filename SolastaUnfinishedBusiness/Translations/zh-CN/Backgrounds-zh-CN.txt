@@ -1,0 +1,6 @@
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=熟练使用棍棒和手斧。同时使用这两种武器时攻击+1加值。
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=农夫武器
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=驯兽、自然和感知
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=农民技能
+Background/&BackgroundFarmerDescription=自出生起，你就在土地上辛苦耕作，以养家糊口。作为一个农民，你在日出之前醒来，在日落之后从田里归来。如今，你抛弃了平凡的生活，开始追求刺激、名利和冒险。
+Background/&BackgroundFarmerTitle=农民
