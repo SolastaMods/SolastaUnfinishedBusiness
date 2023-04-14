@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3000,
+    7000,
     0,
     0,
     0
@@ -213,6 +213,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -221,8 +222,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -248,6 +248,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "91b1b9d828c6904449dc61505d3f9659",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "PendantOfTheHealer"
 }

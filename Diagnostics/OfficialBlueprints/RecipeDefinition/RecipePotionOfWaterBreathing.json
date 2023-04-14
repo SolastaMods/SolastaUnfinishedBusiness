@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "craftedItem": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
   "stackCount": 1,
   "craftingHours": 32,

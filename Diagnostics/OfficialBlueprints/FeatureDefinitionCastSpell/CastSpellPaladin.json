@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListPaladin:1f7cd298d2c69194a9b04259cb39829d",
   "restrictedSchools": [],
   "spellKnowledge": "WholeList",
+  "fixedSpellTag": "",
   "spellReadyness": "Prepared",
   "spellPreparationCount": "AbilityBonusPlusHalfLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     0,
     0,

@@ -30,7 +30,7 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
-  "savingThrowDC": 13,
+  "savingThrowDC": 15,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "Negates",
   "conditionOperations": [
@@ -42,7 +42,7 @@
       "conditionDefinition": "Definition:ConditionRestrainedByTheBurden:f9f22d22a7a6ad84b882698f0c65de1d",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
-      "saveOccurence": "StartOfTurn"
+      "saveOccurence": "EndOfTurn"
     }
   ],
   "addLightSource": false,

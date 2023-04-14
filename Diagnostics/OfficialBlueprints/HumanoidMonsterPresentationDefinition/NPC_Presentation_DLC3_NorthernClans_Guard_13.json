@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:HalfOrc:6f259157cdf267c49994b97231d6feb0",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_HO",
+  "skinMorphotype": "FaceAndSkinPale",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 21.2,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_HO_D",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "BeardShape_J",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorLavender",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_07",
+  "scarsMorphotype": "Scars_02",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Plate",
+  "helmetDefinition": "",
+  "tabardDefinition": "ClothesTabard",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.219607845,
+    "g": 0.596078455,
+    "b": 0.254901975,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.360784322,
+    "g": 0.772549033,
+    "b": 0.380392164,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.435294122,
+    "g": 0.113725491,
+    "b": 0.101960786,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_NorthernClans_Guard_City_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Guard_City_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "308901d161a4e6449b6c3f7d74d0cb45",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NorthernClans_Guard_13",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "13f754c1441bff447af0a0c3c2881cf7",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_NorthernClans_Guard_13"
+}

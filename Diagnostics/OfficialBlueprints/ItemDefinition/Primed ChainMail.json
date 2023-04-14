@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    250,
+    175,
     0,
     0,
     0
@@ -196,6 +196,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -209,6 +210,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -221,6 +224,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "itemFlags": [
@@ -228,13 +233,12 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Ingredient_Primed_Chainmail_Title",
-    "description": "Equipment/&Ingredient_Primed_Chainmail_Description",
+    "description": "Equipment/&Ingredient_Primed_ScaleMail_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "38af4f12f6e63694ab132b7d324a9ecb",

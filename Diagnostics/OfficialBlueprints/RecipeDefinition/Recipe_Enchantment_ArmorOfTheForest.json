@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Enchanted_Druid_Armor_Of_The_Forest:4ce2695b3d17313408462d006c22b7b7",
   "stackCount": 1,
-  "craftingHours": 25,
-  "craftingDC": 15,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -18,8 +19,13 @@
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
+      "amount": 2,
       "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Oil_Of_Acuteness:ad0a6236d6ce53344b534dd9c1cdcc00"
     }
   ],
   "spellDefinition": null,
@@ -27,7 +33,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&DLC1_Item_ArmorForest_Title",
-    "description": "Equipment/&DLC1_Item_ArmorForest_Description",
+    "description": "Equipment/&DLC1_Item_VestmentOak_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -48,6 +54,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "57c8bb6b70c558843a0279e74c736fc3",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Recipe_Enchantment_ArmorOfTheForest"
 }

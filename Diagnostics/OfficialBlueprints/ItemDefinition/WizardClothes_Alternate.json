@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2200,
+    26600,
     0,
     0,
     0
@@ -30,12 +30,8 @@
   "magical": true,
   "requiresAttunement": true,
   "requiresIdentification": true,
-  "requiredAttunementClasses": [
-    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
-    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916"
-  ],
-  "itemRarity": "VeryRare",
+  "requiredAttunementClasses": [],
+  "itemRarity": "Legendary",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -44,7 +40,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:SavingThrowAffinityGarbOfTheLightbringer:9f10a1770d98af3469de86e7de4a5994",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -52,7 +48,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -213,6 +209,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ClothesWizardlvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -247,8 +244,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

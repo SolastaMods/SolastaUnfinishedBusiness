@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSorcererHauntedSoulRechargeVengefulSpirits:b02309ada2e3aea40a03931b3bcccabf",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSorcererHauntedSoulSoulDrain:6b6416560bb66c44a9e33c6782a7e262",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [

@@ -8,7 +8,7 @@
   "preventingDamages": [],
   "particlePrefab": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "015a223c82c795b41b5704704bad873f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },

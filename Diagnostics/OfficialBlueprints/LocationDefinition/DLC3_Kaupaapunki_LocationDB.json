@@ -1,0 +1,234 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4579b708d910f6548af9f76f9f548e32",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_Kaupaapunki",
+      "id": 1577115540,
+      "guid": "6486C41B-D077-4DDC-948B-C3C581852E67",
+      "name": "6486C41B-D077-4DDC-948B-C3C581852E67"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.345098048,
+      "g": 0.41568628,
+      "b": 0.4627451,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.6117647,
+      "g": 0.6117647,
+      "b": 0.6117647,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.01,
+    "excludeSkybox": true,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.2,
+      "useScattering": true,
+      "scattering": 0.0,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 0.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.5,
+        "g": 0.4999995,
+        "b": 0.4999995,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_Kaupaapunki_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.8893443,
+        "b": 0.75,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8867924,
+        "g": 0.451614559,
+        "b": 0.0794766545,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.538496554,
+        "b": 0.1745283,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.53,
+      "sunDirection": 404.6,
+      "sunTilt": 44.84,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.290450335,
+        "g": 0.383630484,
+        "b": 0.5754717,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 1.0,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 0.2,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 1.2,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7028302,
+        "g": 0.807713747,
+        "b": 1.0,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6832948,
+        "g": 0.703927338,
+        "b": 0.7830189,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.485982537,
+        "g": 0.5238584,
+        "b": 0.6320754,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.374466,
+        "g": 0.423340529,
+        "b": 0.5188679,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.88,
+      "nightAtmosphereThickness": 1.08,
+      "name": "DLC3_Kaupaapunki_Weather_DayCycleProfile"
+    },
+    "name": "DLC3_Kaupaapunki_Rendersettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": true,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_Kaupaapunki_Title",
+    "description": "Map/&Location_Presentation_DLC3_Kaupaapunki_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "be615bd88625d384e842486abe654eef",
+      "m_SubObjectName": "DLC3_Kaupaapunki",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "d080d8fe44c3b0245b356fbf15a7bf0c",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Kaupaapunki_LocationDB"
+}

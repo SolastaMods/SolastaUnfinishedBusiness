@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfTirmarAuraTruth:55def8290fdc0f04bb4982538a8d8f9e",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfTirmarSoraksBane:a0e91d35e61c73e4a8b4cbae568b9241",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

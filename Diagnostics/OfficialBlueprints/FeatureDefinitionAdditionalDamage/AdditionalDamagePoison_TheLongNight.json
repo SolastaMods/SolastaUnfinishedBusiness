@@ -32,7 +32,7 @@
   "dcComputation": "FixedValue",
   "savingThrowDC": 15,
   "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "Negates",
+  "damageSaveAffinity": "HalfDamage",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
@@ -42,7 +42,7 @@
       "conditionDefinition": "Definition:ConditionTheLongNight:5466731bf0ae826458518a529f8dea06",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
-      "saveOccurence": "StartOfTurn"
+      "saveOccurence": "EndOfTurn"
     }
   ],
   "addLightSource": false,

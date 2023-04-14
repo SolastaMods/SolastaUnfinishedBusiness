@@ -4,6 +4,7 @@
   "toolCategory": "GamingSetCategory",
   "mainAbilityScore": "Intelligence",
   "requiredProficiencyOptions": [],
+  "hideWhenNoTool": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

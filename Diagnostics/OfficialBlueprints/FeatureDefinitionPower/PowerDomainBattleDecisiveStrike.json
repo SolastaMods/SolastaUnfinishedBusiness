@@ -352,7 +352,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "Feature/&DomainBattleDecisiveStrikeShortTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,

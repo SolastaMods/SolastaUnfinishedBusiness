@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Arrow_Poisoned_ArivadsKiss:5810b76b67f69b341bb6fe3c6187b167",
   "stackCount": 5,
-  "craftingHours": 16,
-  "craftingDC": 13,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {
