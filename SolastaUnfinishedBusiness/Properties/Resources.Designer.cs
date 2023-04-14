@@ -1162,6 +1162,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] GenericResourceIcon {
+            get {
+                object obj = ResourceManager.GetObject("GenericResourceIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GoldDragon {
             get {
                 object obj = ResourceManager.GetObject("GoldDragon", resourceCulture);
@@ -1965,16 +1975,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerSteadyAim {
-            get {
-                object obj = ResourceManager.GetObject("PowerSteadyAim", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] PowerDefensiveField {
             get {
                 object obj = ResourceManager.GetObject("PowerDefensiveField", resourceCulture);
@@ -2278,6 +2278,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerStabilize {
             get {
                 object obj = ResourceManager.GetObject("PowerStabilize", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerSteadyAim {
+            get {
+                object obj = ResourceManager.GetObject("PowerSteadyAim", resourceCulture);
                 return ((byte[])(obj));
             }
         }
