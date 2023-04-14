@@ -50,7 +50,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
             .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitPool, Learn4Gambit)
-            .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn, BuildGambitDieSize(DieType.D8))
+            .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
+                BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
             .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn)
             .AddFeaturesAtLevel(18, BuildTacticalSurge(), BuildGambitDieSize(DieType.D12))
@@ -195,7 +196,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri)
             .AddToDB();
     }
-    
+
     private static FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
@@ -225,7 +226,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         return feature;
     }
-    
+
     private static FeatureDefinition BuildImproviseStrategy()
     {
         var feature = FeatureDefinitionFeatureSetBuilder
@@ -1025,14 +1026,19 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
             {
+                Main.Info("AdaptiveStrategy: not critical. exiting.");
                 return;
             }
 
-            var isMyTurn = Gui.Battle.ActiveContender == attacker;
+            if (attackMode == null)
+            {
+                return;
+            }
 
             // once per turn
-            if (attackMode == null || (isMyTurn && attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy")))
+            if (attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
             {
+                Main.Info("AdaptiveStrategy: once per turn. exiting.");
                 return;
             }
 
@@ -1045,12 +1051,14 @@ internal sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
+                Main.Info("AdaptiveStrategy: nothing to refuel. exiting.");
                 return;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
+            Main.Info("AdaptiveStrategy: refueled.");
         }
     }
 
@@ -1073,12 +1081,19 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             if (downedCreature.RulesetCharacter.HasConditionOfType(MarkCondition))
             {
+                Main.Info("OvercomingStrategy: enemy is marked. exiting.");
+                yield break;
+            }
+
+            if (attackMode == null)
+            {
                 yield break;
             }
 
             // once per round
-            if (attackMode == null || attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            if (attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
             {
+                Main.Info("OvercomingStrategy: once per round. exiting.");
                 yield break;
             }
 
@@ -1091,12 +1106,14 @@ internal sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
+                Main.Info("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
+            Main.Info("OvercomingStrategy: refueled.");
         }
     }
 
