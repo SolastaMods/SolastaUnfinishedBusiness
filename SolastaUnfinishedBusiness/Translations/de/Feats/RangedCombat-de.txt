@@ -1,8 +1,7 @@
 ﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Du hast einen Vorteil bei deinem nächsten Angriffswurf.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Zielsicher
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Du kannst dich bis zum Ende deines Zuges nicht bewegen.
-Condition/&ConditionFeatSteadyAimRestrainedTitleRestrained by Steady Aim
-=LEER
+Condition/&ConditionFeatSteadyAimRestrainedTitle=Zurückgehalten durch Steady Aim
 Feat/&FeatBowMasteryDescription=Ihr Expertentraining mit Bögen gewährt Ihnen folgende Vorteile:\n• Sie erhalten einen Bonus von +1 auf Schadenswürfe, die Sie mit Kurzbogen und Langbogen machen.\n• Wenn Sie in Ihrem Zug die Angriffsaktion mit einem Kurzbogen verwenden, können Sie treffen ein Fernwaffenangriff als Bonusaktion, der deinen Attributmodifikator zum Schaden hinzufügt.\n• Du kannst Stärke anstelle von Geschicklichkeit bei Angriffs- und Schadenswürfen verwenden, die du mit dem Langbogen machst.
 Feat/&FeatBowMasteryTitle=Bogenbeherrschung
 Feat/&FeatDeadeyeDescription=Du hast gelernt, Genauigkeit einzutauschen, um tödlichere Schüsse zu landen:\n• Wenn du mit einer Fernkampfwaffe angreifst, kannst du einen Malus von -5 auf deinen Treffer hinnehmen, um zusätzlichen Schaden von +10 zu verursachen.\n• Angriffe auf große Reichweite bringt keinen Nachteil mit sich und Fernwaffenangriffe ignorieren halbe und dreiviertel Deckung.

@@ -18,11 +18,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishAcrobatHeroicUncannyDodge:9a1e39a5-ebb0-5ff9-87c2-80dd11027f0f",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRoguishAcrobatSwiftWind:b77c6cf4-3fdc-503a-a542-22ab6eb64033",
       "level": 9
     },

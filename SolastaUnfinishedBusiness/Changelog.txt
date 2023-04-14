@@ -5,4 +5,5 @@
 - added setting to allow Barbarians to train a Fighting Style at level 2
 - added Way of the Discordance's profound turmoil at level 17
 - added Way of the Silhouette's shadowy sanctuary at level 17
+- added Martial Tactician's battle clarity and battle impromptu at levels 15 and 18
 - fixed Sorcerous Sorr-Akkath's touch of darkness attack bonus
