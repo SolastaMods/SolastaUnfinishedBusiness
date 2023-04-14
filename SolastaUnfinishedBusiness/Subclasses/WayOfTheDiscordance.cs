@@ -361,7 +361,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             return rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
         }
 
-        private void ApplyProfoundTurmoil(GameLocationCharacter attacker, GameLocationCharacter defender)
+        private void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
 
@@ -372,6 +372,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetPower = UsablePowersProvider.Get(_powerProfoundTTurmoil, rulesetAttacker);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 }
