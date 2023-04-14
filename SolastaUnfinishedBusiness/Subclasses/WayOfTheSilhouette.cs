@@ -1,5 +1,11 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -94,9 +100,18 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, "PowerWayOfSilhouetteShadowySanctuary")
+            .Create("PowerWayOfSilhouetteShadowySanctuary")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints, 3)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
+                    .Build())
             .AddToDB();
+
+        powerWayOfSilhouetteShadowySanctuary.SetCustomSubFeatures(
+            new DefenderBeforeAttackHitConfirmedShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
@@ -123,4 +138,73 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private class DefenderBeforeAttackHitConfirmedShadowySanctuary : IDefenderBeforeAttackHitConfirmed
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public DefenderBeforeAttackHitConfirmedShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public IEnumerator DefenderBeforeAttackHitConfirmed(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var rulesetMe = me.RulesetCharacter;
+
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            {
+                yield break;
+            }
+
+            if (!me.CanReact())
+            {
+                yield break;
+            }
+
+
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
+            var reactionParams =
+                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "ShadowySanctuary", UsablePower = usablePower
+                };
+
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var effect = new RulesetEffectPower(rulesetMe, usablePower);
+
+            effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
+            attackModifier.damageRollReduction = Int32.MaxValue;
+        }
+    }
 }
