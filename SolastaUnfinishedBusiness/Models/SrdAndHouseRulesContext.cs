@@ -80,6 +80,7 @@ internal static class SrdAndHouseRulesContext
 
         //BUGFIX: fix Race Repertoires
         CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
+        CastSpellTraditionLight.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
 
         //BUGFIX: add a sprite reference to Resurrection
         Resurrection.GuiPresentation.spriteReference =
