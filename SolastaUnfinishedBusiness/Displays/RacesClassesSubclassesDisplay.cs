@@ -53,10 +53,10 @@ internal static class RacesClassesSubclassesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Subclasses Progression".Bold().Khaki(),
-                BootContext.OpenUnfinishedBusinessSubclassesDocs, UI.Width((float)200));
+                () => BootContext.OpenDocumentation("UnfinishedBusinessSubclasses.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Solasta Subclasses Progression".Bold().Khaki(),
-                BootContext.OpenSolastaSubclassesDocs, UI.Width((float)200));
+                () => BootContext.OpenDocumentation("SolastaSubclasses.md"), UI.Width((float)200));
         }
 
         UI.Label();
