@@ -266,7 +266,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         var featureWardingLight = FeatureDefinitionBuilder
             .Create($"Feature{Name}WardingLight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PhysicalAttackInitiatedWardingLight())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeOrAllyWardingLight())
             .AddToDB();
 
         // MAIN
@@ -464,7 +464,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Warding Light
     //
 
-    private sealed class PhysicalAttackInitiatedWardingLight : IPhysicalAttackInitiated
+    private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
         public IEnumerator OnAttackInitiated(
             GameLocationBattleManager __instance,

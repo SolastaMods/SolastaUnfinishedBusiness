@@ -1,7 +1,13 @@
-﻿Feat/&FeatBowMasteryDescription=你的弓箭专业训练会给你带来这些好处：\n• 你在使用短弓和长弓进行的伤害检定上获得 +1 奖励。\n• 当你在你的回合使用短弓使用攻击动作时，你可以使作为附赠动作进行一次远程武器攻击，将你的属性修正值加到伤害上。\n• 你可以在使用长弓进行的攻击和伤害掷骰中使用力量而不是敏捷。
+﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=你在下一次攻击检​​定上有优势。
+Condition/&ConditionFeatSteadyAimAdvantageTitle=稳定目标
+Condition/&ConditionFeatSteadyAimRestrainedDescription=在你的回合结束之前你不能移动。
+Condition/&ConditionFeatSteadyAimRestrainedTitle=受 Steady Aim 限制
+Feat/&FeatBowMasteryDescription=你的弓箭专业训练会给你带来这些好处：\n• 你在使用短弓和长弓进行的伤害检定上获得 +1 奖励。\n• 当你在你的回合使用短弓使用攻击动作时，你可以使作为附赠动作进行一次远程武器攻击，将你的属性修正值加到伤害上。\n• 你可以在使用长弓进行的攻击和伤害掷骰中使用力量而不是敏捷。
 Feat/&FeatBowMasteryTitle=弓精通
 Feat/&FeatDeadeyeDescription=您已经学会了用准确性换取更致命的射击：\n• 当使用远程武器攻击时，您可以选择对你的命中率进行 -5 惩罚以造成额外的 +10 伤害。\n• 攻击在远距离不会造成劣势，远程武器攻击会忽略半掩护和四分之三掩护。
 Feat/&FeatDeadeyeTitle=神枪手
 Feat/&FeatRangedExpertDescription=您对远程武器的专业训练为您带来以下好处：\n• 近战范围内的攻击不会带来劣势。\n• 如果您在轮到您时采取攻击行动，您可以进行一次单手远程攻击加成你的属性修正伤害。
 Feat/&FeatRangedExpertTitle=远程专家
+Feat/&FeatSteadyAimDescription=将你的敏捷提高 1，最多为 20。作为附赠动作，你在当前回合的下一次攻击检​​定中获得优势。只有当你在本回合中没有移动时你才能使用这个附赠动作，并且在你使用这个附赠动作后，你的速度在本回合结束前为 0。
+Feat/&FeatSteadyAimTitle=稳定目标
 Tooltip/&DeadeyeConcentration=禁用死眼。

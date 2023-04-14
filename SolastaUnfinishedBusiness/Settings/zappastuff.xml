@@ -124,7 +124,7 @@
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
-  <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>

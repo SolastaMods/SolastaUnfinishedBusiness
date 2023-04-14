@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -24,8 +25,9 @@ internal static class RangedCombatFeats
         var featBowMastery = BuildBowMastery();
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
+        var featSteadyAim = BuildSteadyAim();
 
-        feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
+        feats.AddRange(featDeadEye, featRangedExpert, featBowMastery, featSteadyAim);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             GroupFeats.FeatGroupPiercer,
@@ -34,7 +36,8 @@ internal static class RangedCombatFeats
             UncannyAccuracy,
             featBowMastery,
             featDeadEye,
-            featRangedExpert);
+            featRangedExpert,
+            featSteadyAim);
     }
 
     private static FeatDefinition BuildBowMastery()
@@ -179,6 +182,68 @@ internal static class RangedCombatFeats
                             ActionDefinitions.ActionType.Bonus,
                             ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                             ValidatorsCharacter.HasAttacked))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSteadyAim()
+    {
+        const string NAME = "FeatSteadyAim";
+
+        var combatAffinity = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var conditionAdvantage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Advantage")
+            .SetGuiPresentation(Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddFeatures(combatAffinity)
+            .AddToDB();
+
+        var conditionRestrained = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Restrained")
+            .SetGuiPresentation(Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddFeatures(combatAffinity, MovementAffinityConditionRestrained)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                FeatureDefinitionPowerBuilder
+                    .Create($"Power{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat,
+                        Sprites.GetSprite("PowerSteadyAim", Resources.PowerSteadyAim, 256, 128))
+                    .SetUsesFixed(ActivationTime.BonusAction)
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(conditionAdvantage, ConditionForm.ConditionOperation.Add)
+                                    .Build(),
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(conditionRestrained, ConditionForm.ConditionOperation.Add)
+                                    .Build())
+                            .Build())
+                    .SetCustomSubFeatures(
+                        new ValidatorsPowerUse(character =>
+                        {
+                            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+                            return gameLocationCharacter == null || gameLocationCharacter.UsedTacticalMoves == 0;
+                        }))
                     .AddToDB())
             .AddToDB();
     }

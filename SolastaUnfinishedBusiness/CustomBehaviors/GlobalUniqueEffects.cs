@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -8,13 +7,8 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-public static class GlobalUniqueEffects
+internal static class GlobalUniqueEffects
 {
-    public enum Group
-    {
-        None, Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon
-    }
-
     private static readonly Dictionary<Group, HashSet<BaseDefinition>> Groups = new();
 
     private static HashSet<BaseDefinition> GetGroup(Group group)
@@ -31,23 +25,19 @@ public static class GlobalUniqueEffects
     }
 
     /**Returns copies*/
-    private static (Group, HashSet<BaseDefinition>) GetSameGroupItems(BaseDefinition definition)
+    private static HashSet<BaseDefinition> GetSameGroupItems(BaseDefinition definition)
     {
         var result = new HashSet<BaseDefinition>();
 
-        var group = Groups.FirstOrDefault(e => e.Value.Contains(definition));
-
-        if (group.Value == null)
+        foreach (var group in Groups.Where(e => e.Value.Contains(definition)))
         {
-            return (Group.None, result);
+            foreach (var p in group.Value)
+            {
+                result.Add(p);
+            }
         }
 
-        foreach (var item in group.Value)
-        {
-            result.Add(item);
-        }
-
-        return (group.Key, result);
+        return result;
     }
 
     internal static void AddToGroup(Group group, [NotNull] params BaseDefinition[] definitions)
@@ -108,7 +98,7 @@ public static class GlobalUniqueEffects
      */
     internal static void TerminateMatchingUniqueEffect(RulesetCharacter character, RulesetEffect uniqueEffect)
     {
-        var (groupKey, group) = GetSameGroupItems(uniqueEffect.SourceDefinition);
+        var group = GetSameGroupItems(uniqueEffect.SourceDefinition);
 
         if (uniqueEffect is RulesetEffectPower { PowerDefinition.UniqueInstance: true }
             or RulesetEffectSpell { SpellDefinition.UniqueInstance: true })
@@ -158,19 +148,12 @@ public static class GlobalUniqueEffects
             }
         }
 
-        var limit = character.GetSubFeaturesByType<IChangeGlobalUniqueEffectsLimit>()
-            .Where(x => x.GroupKey == groupKey)
-            .Select(x => x.Limit)
-            .AddItem(0)
-            .Max();
-
-        var effects = EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
-            .Where(e => e != uniqueEffect && allSubDefinitions.Contains(e.SourceDefinition))
-            .ToList();
-
-        for (var i = 0; i < effects.Count - limit; i++)
+        foreach (var effect in EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
+                     .Where(e => e != uniqueEffect && allSubDefinitions.Contains(e.SourceDefinition)))
         {
-            effects[i].DoTerminate(character);
+            effect.DoTerminate(character);
         }
     }
+
+    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
 }

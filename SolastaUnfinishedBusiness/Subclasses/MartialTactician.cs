@@ -38,24 +38,30 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
-                BuildTacticalSurge(),
                 BuildAdaptiveStrategy(),
+                BuildImproviseStrategy(),
                 BuildOvercomingStrategy()
             )
             .AddToDB();
 
-        EverVigilant = BuildEverVigilant();
+        // BACKWARD COMPATIBILITY
+        _ =
+            CustomInvocationPoolDefinitionBuilder
+                .Create("InvocationPoolGambitLearn1")
+                .SetGuiPresentation(Category.Feature)
+                .Setup(InvocationPoolTypeCustom.Pools.Gambit)
+                .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite(Name, Resources.MartialTactician, 256))
-            .AddFeaturesAtLevel(3,
-                BuildSharpMind(), GambitPool, Learn4Gambit, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), Learn1Gambit)
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), Learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitPool, Learn4Gambit)
+            .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
+                BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), Learn2Gambit, unlearn,
-                BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn)
+            .AddFeaturesAtLevel(18, BuildTacticalSurge(), BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -76,13 +82,6 @@ internal sealed class MartialTactician : AbstractSubclass
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
 
-    private static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolGambitLearn1")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
-            .AddToDB();
-
     internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn2")
@@ -101,7 +100,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
-    private static FeatureDefinition EverVigilant { get; set; }
 
     private static DieType GetGambitDieSize(RulesetCharacter character)
     {
@@ -177,12 +175,23 @@ internal sealed class MartialTactician : AbstractSubclass
                         .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
                         .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                             .Create("AttributeModifierTacticianSharedVigilance")
-                            .SetGuiPresentation(EverVigilant.GuiPresentation)
+                            .SetGuiPresentation("AttributeModifierTacticianEverVigilant", Category.Feature)
                             .SetAddConditionAmount(AttributeDefinitions.Initiative)
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildBattleClarity()
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianBattleClarity")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfMaraike,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfPakri)
             .AddToDB();
     }
 
@@ -209,6 +218,19 @@ internal sealed class MartialTactician : AbstractSubclass
         var feature = FeatureDefinitionBuilder
             .Create("FeatureAdaptiveStrategy")
             .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
+
+        return feature;
+    }
+
+    private static FeatureDefinition BuildImproviseStrategy()
+    {
+        var feature = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureImproviseStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
         feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitPool, feature));
@@ -349,7 +371,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Blind
 
         var name = "GambitBlind";
-        //TODO: add proper icon
         var sprite = Sprites.GetSprite(name, Resources.GambitBlind, 128);
 
         ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -401,7 +422,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Knockdown
 
         name = "GambitKnockdown";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitKnockdown, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -453,7 +473,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Repel
 
         name = "GambitRepel";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitRepel, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -510,7 +529,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Threaten
 
         name = "GambitThreaten";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitThreaten, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -563,7 +581,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Debilitate
 
         name = "GambitDebilitate";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitDebilitate, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -621,7 +638,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Goading
 
         name = "GambitGoading";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitProvoke, 128);
 
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
@@ -682,7 +698,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Feint
 
         name = "GambitFeint";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitFeint, 128);
 
         power = FeatureDefinitionPowerBuilder
@@ -719,7 +734,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Lunging
 
         name = "GambitLunging";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitReach, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -756,7 +770,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Urgent Orders
 
         name = "GambitUrgent";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitUrgentOrders, 128);
 
         power = FeatureDefinitionPowerSharedPoolBuilder
@@ -788,7 +801,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Bait and Switch
 
         name = "GambitSwitch";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitSwitch, 128);
 
         var good = ConditionDefinitionBuilder
@@ -856,7 +868,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Riposte
 
         name = "GambitRiposte";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitCounterAttack, 128);
 
         var feature = FeatureDefinitionBuilder
@@ -872,7 +883,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Return Fire
 
         name = "GambitReturnFire";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitReturnFire, 128);
 
         feature = FeatureDefinitionBuilder
@@ -888,7 +898,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Brace
 
         name = "GambitBrace";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitBrace, 128);
 
         feature = FeatureDefinitionBuilder
@@ -904,7 +913,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Precise
 
         name = "GambitPrecise";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitPrecision, 128);
 
         feature = FeatureDefinitionBuilder
@@ -922,7 +930,6 @@ internal sealed class MartialTactician : AbstractSubclass
         #region Parry
 
         name = "GambitParry";
-        //TODO: add proper icon
         sprite = Sprites.GetSprite(name, Resources.GambitParry, 128);
 
         feature = FeatureDefinitionBuilder
@@ -1017,11 +1024,19 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
             {
+                Main.Info("AdaptiveStrategy: not critical. exiting.");
                 return;
             }
 
             if (attackMode == null)
             {
+                return;
+            }
+
+            // once per turn
+            if (attacker.UsedSpecialFeatures.ContainsKey("AdaptiveStrategy"))
+            {
+                Main.Info("AdaptiveStrategy: once per turn. exiting.");
                 return;
             }
 
@@ -1034,11 +1049,14 @@ internal sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
+                Main.Info("AdaptiveStrategy: nothing to refuel. exiting.");
                 return;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
+            Main.Info("AdaptiveStrategy: refueled.");
         }
     }
 
@@ -1061,11 +1079,19 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             if (downedCreature.RulesetCharacter.HasConditionOfType(MarkCondition))
             {
+                Main.Info("OvercomingStrategy: enemy is marked. exiting.");
                 yield break;
             }
 
             if (attackMode == null)
             {
+                yield break;
+            }
+
+            // once per round
+            if (attacker.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            {
+                Main.Info("OvercomingStrategy: once per round. exiting.");
                 yield break;
             }
 
@@ -1078,11 +1104,14 @@ internal sealed class MartialTactician : AbstractSubclass
 
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
+                Main.Info("OvercomingStrategy: nothing to refuel. exiting.");
                 yield break;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
+            Main.Info("OvercomingStrategy: refueled.");
         }
     }
 

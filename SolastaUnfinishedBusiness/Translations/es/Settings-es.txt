@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
-ModUi/&BackgroundsAndDeities=Trasfondos y Deidades
+ModUi/&BackgroundsAndDeities=Trasfondos y deidades
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
@@ -71,16 +71,17 @@ ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedent
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Habilita la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2 <i><color=#F0DAA0>[Lucha a ciegas, Incapacitante, Verdugo, Gran arma, Despiadado, Pugilista, Dos Lucha con armas, Centinela, Cuelga]</color></i>
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
 ModUi/&EnableCharacterChecker=Habilite el botón Verificador de caracteres en la pantalla principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
-ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya salas planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sin lujos que mezclen recursos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
-ModUi/&EnableFighterArmamentAdroitness=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
@@ -92,7 +93,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Oculta la <color=#D89555>Corona del Mag
 ModUi/&EnableLevel20=Habilite el nivel 20 <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la consola de juegos durante las secuencias narrativas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de las puntuaciones de habilidad</i>
-ModUi/&EnableMonkWeaponSpecialization=Activa <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles de clase 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</i>
+ModUi/&EnableMonkWeaponSpecialization=Activa <color=#D89555>Monje</color> <b>Especialización en armas</b> en los niveles de clase 2 y 11 <i><color=#F0DAA0>[el tipo de arma seleccionado se convierte en un arma de monje para ti]</color></i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo en torno al héroe seleccionado o al líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
@@ -135,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/5
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para identificar objetos mágicos durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar ballestas de mano
-ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</i>
+ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -158,7 +159,7 @@ ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizos blancos y otros gastan verdes de pacto]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes

@@ -93,6 +93,11 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, "PowerWayOfSilhouetteShadowySanctuary")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
             .SetGuiPresentation(Category.Subclass,
@@ -106,6 +111,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 powerWayOfSilhouetteSilhouetteStep)
             .AddFeaturesAtLevel(11,
                 powerWayOfSilhouetteImprovedSilhouetteStep)
+            .AddFeaturesAtLevel(17,
+                powerWayOfSilhouetteShadowySanctuary)
             .AddToDB();
     }
 

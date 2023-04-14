@@ -204,7 +204,7 @@
   <EnablesAsiAndFeat>true</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
-  <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>

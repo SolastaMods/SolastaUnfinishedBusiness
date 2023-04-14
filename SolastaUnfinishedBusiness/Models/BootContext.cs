@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -146,8 +147,27 @@ internal static class BootContext
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
 
+            // dump descriptions to mod folder
+            if (!Directory.Exists($"{Main.ModFolder}/Documentation"))
+            {
+                Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
+            }
+
+            DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<FeatDefinition>("UnfinishedBusinessFeats",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<FeatDefinition>("SolastaFeats", x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<FightingStyleDefinition>("UnfinishedBusinessFightingStyles",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<FightingStyleDefinition>("SolastaFightingStyles",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<InvocationDefinition>("UnfinishedBusinessInvocations",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<InvocationDefinition>("SolastaInvocations",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+
             // really don't have a better place for these fixes here ;-)
-            DumpSubclasses();
             ExpandColorTables();
             AddExtraTooltipDefinitions();
 
@@ -160,39 +180,77 @@ internal static class BootContext
         };
     }
 
-    private static void DumpSubclasses()
+    private static string LazyManStripXml(string input)
+    {
+        return input
+            .Replace("<color=#add8e6ff>", string.Empty)
+            .Replace("<#57BCF4>", "\t\t\t\n")
+            .Replace("</color>", string.Empty)
+            .Replace("<b>", string.Empty)
+            .Replace("<i>", string.Empty)
+            .Replace("</b>", string.Empty)
+            .Replace("</i>", string.Empty);
+    }
+
+    private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
-        var db = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>();
+
+        foreach (var subclassChoices in db
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            foreach (var subclass in subclassChoices.Subclasses
+                         .Select(DatabaseHelper.GetDefinition<CharacterSubclassDefinition>)
+                         .Where(x => filter(x))
+                         .OrderBy(x => x.FormatTitle()))
+            {
+                outString.Append($"# {subclass.FormatTitle()}\n\n");
+                outString.Append(subclass.FormatDescription());
+                outString.Append("\n\n");
+
+                var level = 0;
+
+                foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
+                             .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                             .OrderBy(x => x.level))
+                {
+                    if (level != featureUnlockByLevel.level)
+                    {
+                        outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                        level = featureUnlockByLevel.level;
+                    }
+
+                    var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                    var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+                    outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
+                    outString.Append($"\t\t{description}\n\n");
+                }
+
+                outString.Append("\n\n\n");
+            }
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Subclasses.md");
+        sw.WriteLine(outString.ToString());
+    }
+
+    private static void DumpOthers<T>(string groupName, Func<BaseDefinition, bool> filter) where T : BaseDefinition
+    {
+        var outString = new StringBuilder();
+        var db = DatabaseRepository.GetDatabase<T>();
 
         foreach (var subclass in db
-                     /*.Where(x => x.ContentPack == CeContentPackContext.CeContentPack*/
+                     .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
             outString.Append($"# {subclass.FormatTitle()}\n\n");
             outString.Append(subclass.FormatDescription());
             outString.Append("\n\n");
-
-            var level = 0;
-
-            foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
-                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
-                         .OrderBy(x => x.level))
-            {
-                if (level != featureUnlockByLevel.level)
-                {
-                    outString.Append($"* Level {featureUnlockByLevel.level}\n\n");
-                    level = featureUnlockByLevel.level;
-                }
-
-                outString.Append($"\t\t* {featureUnlockByLevel.FeatureDefinition.FormatTitle()}\n\n");
-                outString.Append($"\t\t{featureUnlockByLevel.FeatureDefinition.FormatDescription()}\n\n");
-            }
-
-            outString.Append("\n\n");
         }
 
-        using var sw = new StreamWriter($"{Main.ModFolder}/Subclasses.md");
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 
@@ -434,6 +492,11 @@ internal static class BootContext
     {
         OpenUrl(
             "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness/ChangelogHistory.txt");
+    }
+
+    internal static void OpenDocumentation(string filename)
+    {
+        OpenUrl($"file://{Main.ModFolder}/Documentation/{filename}");
     }
 
     private static void OpenUrl(string url)

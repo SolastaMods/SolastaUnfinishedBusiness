@@ -24,12 +24,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD8:2e930de2-ade4-5563-b5cb-f65b3d4ba395",
-      "level": 5
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
-      "level": 5
+      "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -38,7 +33,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
+      "featureDefinition": "Definition:InvocationPoolGambitLearn2:81610ec8-6ee4-5218-a274-46987457db6c",
       "level": 7
     },
     {
@@ -63,11 +58,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
-      "level": 15
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierTacticianGambitPool01:72c23326-29d2-5224-a708-c494fd573533",
       "level": 15
     },
@@ -78,13 +68,23 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetTacticianBattleClarity:f473d7da-4fae-5487-8385-08c181825099",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
       "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSefTacticianStrategicPlan:adb9d7d1-a30b-5c04-9663-771cc4ac75ea",
-      "level": 15
+      "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureTacticianTacticalSurge:bdb7d959-c315-5760-9f1b-ba503a3c8f7c",
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],

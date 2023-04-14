@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -15,7 +16,8 @@ internal static class ProficienciesDisplay
             FeatsContext.Feats,
             Main.Settings.FeatEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: FeatsHeader);
         Main.Settings.DisplayFeatsToggle = displayToggle;
         Main.Settings.FeatSliderPosition = sliderPos;
 
@@ -44,7 +46,8 @@ internal static class ProficienciesDisplay
             FightingStyleContext.FightingStyles,
             Main.Settings.FightingStyleEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: FightingStylesHeader);
         Main.Settings.DisplayFightingStylesToggle = displayToggle;
         Main.Settings.FightingStyleSliderPosition = sliderPos;
 
@@ -56,7 +59,8 @@ internal static class ProficienciesDisplay
             InvocationsContext.Invocations,
             Main.Settings.InvocationEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: InvocationsHeader);
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
@@ -71,6 +75,48 @@ internal static class ProficienciesDisplay
             ref sliderPos);
         Main.Settings.DisplayMetamagicToggle = displayToggle;
         Main.Settings.MetamagicSliderPosition = sliderPos;
+
+        UI.Label();
+    }
+
+    private static void FeatsHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Feats docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessFeats.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Feats docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaFeats.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+    }
+
+    private static void FightingStylesHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Fighting Styles docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessFightingStyles.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Fighting Styles docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaFightingStyles.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+    }
+
+    private static void InvocationsHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Invocations docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessInvocations.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Invocations docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
+        }
 
         UI.Label();
     }

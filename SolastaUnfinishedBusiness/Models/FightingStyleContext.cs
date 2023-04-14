@@ -19,9 +19,11 @@ internal static class FightingStyleContext
         LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
+        LoadStyle(new Lunger());
         LoadStyle(new Merciless());
         LoadStyle(new PolearmExpert());
         LoadStyle(new Pugilist());
+        LoadStyle(new RopeItUp());
         LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());

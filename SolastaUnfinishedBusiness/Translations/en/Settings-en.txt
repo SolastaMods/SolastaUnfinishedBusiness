@@ -71,6 +71,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on b
 ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Enable <color=#D89555>Barbarian</color> <b>Fighting Style</b> choice at level 2 <i><color=#F0DAA0>[Blind Fighting, Crippling, Executioner, Great Weapon, Merciless, Pugilist, Two Weapon Fighting, Sentinel, Rope it up]</color></i>
 ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen > Characters
@@ -80,7 +81,7 @@ ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DA
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 and 14
-ModUi/&EnableFighterArmamentAdroitness=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
