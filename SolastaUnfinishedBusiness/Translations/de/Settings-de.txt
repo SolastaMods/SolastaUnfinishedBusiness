@@ -1,12 +1,12 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Umschalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
-ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Läden neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
@@ -71,18 +71,19 @@ ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige 
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Füge neue Gegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2 <i><color=#F0DAA0>[Blinder Kampf, Verkrüppelung, Henker, Zweikampfwaffe, Gnadenlos, Faustkämpfer, Zwei Waffenkampf, Wächter, Anseilen]</color></i>
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Zeichenprüfung“ auf dem Hauptbildschirm > Zeichen
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
-ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkelloses Mischen von Assets aus allen Umgebungen]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
-ModUi/&EnableFighterArmamentAdroitness=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber benachteilige mit allen anderen Waffentyp]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber benachteilige mit allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
@@ -92,7 +93,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone de
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
-ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</i>
+ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufe 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
@@ -135,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
-ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</i>
+ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

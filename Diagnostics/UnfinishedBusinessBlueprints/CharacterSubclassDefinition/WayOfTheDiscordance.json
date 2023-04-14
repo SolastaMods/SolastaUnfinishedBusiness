@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony:e2b2e61a-7617-5285-a7f6-0467d9bb83cd",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDiscordanceProfoundTurmoil:3cab4daa-e55c-5a7e-939a-9a09cc713898",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

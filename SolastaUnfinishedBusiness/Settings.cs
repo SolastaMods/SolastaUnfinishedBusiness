@@ -91,7 +91,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEveryFourLevels { get; set; }
     public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
-    public bool EnableFighterArmamentAdroitness { get; set; }
+    public bool EnableBarbarianFightingStyle { get; set; }
+    public bool EnableFighterWeaponSpecialization { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableLevel20 { get; set; }
 

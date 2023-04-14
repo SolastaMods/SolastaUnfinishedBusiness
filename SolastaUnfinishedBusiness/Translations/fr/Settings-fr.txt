@@ -71,16 +71,17 @@ ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'arrière-plan s
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments à Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Activer le choix <color=#D89555>Barbare</color> <b>Style de combat</b> au niveau 2 <i><color=#F0DAA0>[Combat aveugle, Paralysant, Bourreau, Grande arme, Impitoyable, Pugiliste, Deux Combat d'armes, Sentinelle, Corde-le]</color></i>
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
 ModUi/&EnableCheatMenu=Activer le menu de triche
-ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les éléments de tous les environnements]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des exploits aux niveaux de classe 6 et 14
-ModUi/&EnableFighterArmamentAdroitness=Activez <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et endommager mais désavantagez avec n'importe quel autre type d'arme]</color></i>
+ModUi/&EnableFighterWeaponSpecialization=Activez <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et endommager mais désavantagez avec n'importe quel autre type d'arme]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage
@@ -92,7 +93,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du m
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
-ModUi/&EnableMonkWeaponSpecialization=Activez <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</i>
+ModUi/&EnableMonkWeaponSpecialization=Activez <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe autour du héros sélectionné ou du chef si aucun n'est sélectionné <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes</i>
@@ -135,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % 
 ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
-ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</i>
+ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -158,7 +159,7 @@ ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants :</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres :</color>
-ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement par défaut du répertoire consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
+ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement de répertoire par défaut consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Aucune expérience n'est requise pour monter de niveau
 ModUi/&OfferAdditionalLoreFriendlyNames=Offrir des noms conviviaux supplémentaires lors de la création de personnage

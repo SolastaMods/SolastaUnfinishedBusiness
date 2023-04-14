@@ -1,0 +1,34 @@
+{
+  "$type": "FightingStyleDefinition, Assembly-CSharp",
+  "features": [
+    "Definition:FeatureLunger:73ae516c-da77-567e-910d-3fc6fd8a5713"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&LungerTitle",
+    "description": "FightingStyle/&LungerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3df4b130-622c-5e6c-8573-b929ef303757",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b20cff60-4c4a-5c64-818f-c6102e5bfdb5",
+  "contentPack": 9999,
+  "name": "Lunger"
+}

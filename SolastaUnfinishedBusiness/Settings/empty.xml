@@ -119,7 +119,7 @@
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
-  <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
+  <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
   <EnableLevel20>false</EnableLevel20>
   <EnableMulticlass>false</EnableMulticlass>
   <MaxAllowedClasses>0</MaxAllowedClasses>

@@ -180,22 +180,24 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         const string TOUCH_OF_DARKNESS_NAME = $"FeatureSet{Name}{TouchOfDarkness}";
 
+        var effectTouchOfDarkness = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetParticleEffectParameters(VampiricTouch)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeNecrotic, 8, DieType.D8, 0, HealFromInflictedDamage.Half)
+                    .Build())
+            .Build();
+
         var powerTouchOfDarknessFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Fixed")
             .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(VampiricTouch)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Half)
-                            .Build())
-                    .Build())
+            .SetUseSpellAttack()
+            .SetEffectDescription(effectTouchOfDarkness)
             .AddToDB();
 
         powerTouchOfDarknessFixed.SetCustomSubFeatures(
@@ -203,19 +205,10 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
 
         var powerTouchOfDarknessPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{TouchOfDarkness}Points")
-            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature)
+            .SetGuiPresentation(TOUCH_OF_DARKNESS_NAME, Category.Feature, VampiricTouch)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4, 0)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(VampiricTouch)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeNecrotic, 6, DieType.D8, 0, HealFromInflictedDamage.Full)
-                            .Build())
-                    .Build())
+            .SetUseSpellAttack()
+            .SetEffectDescription(effectTouchOfDarkness)
             .AddToDB();
 
         powerTouchOfDarknessPoints.SetCustomSubFeatures(

@@ -78,7 +78,7 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 6,
+          "diceNumber": 8,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
@@ -320,7 +320,7 @@
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 3,
   "abilityScore": "Intelligence",
-  "attackHitComputation": "AbilityScore",
+  "attackHitComputation": 9000,
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,

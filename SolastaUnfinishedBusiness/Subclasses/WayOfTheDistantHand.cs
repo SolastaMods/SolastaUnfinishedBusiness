@@ -365,12 +365,16 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
-            var alreadyThere = hero.TrainedInvocations.TryAdd(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationShortbowType"));
-            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationLongbowType"));
-            alreadyThere = alreadyThere || hero.TrainedInvocations.TryAdd(
-                GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationCEHandXbowType"));
+            var alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                "CustomInvocationMonkWeaponSpecializationShortbowType"));
+
+            // don't invert the order because of short circuit evaluation
+            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                               "CustomInvocationMonkWeaponSpecializationLongbowType"))
+                           || alreadyThere;
+            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                               "CustomInvocationMonkWeaponSpecializationCEHandXbowType"))
+                           || alreadyThere;
 
             // grant a rapier if by any chance one of above weapons were already specialized in
             if (alreadyThere)

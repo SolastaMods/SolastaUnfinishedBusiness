@@ -30,7 +30,10 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.ItemDefinitions.Ringmail,
                     DatabaseHelper.ItemDefinitions.ChainMail,
                     DatabaseHelper.ItemDefinitions.SplintArmor,
-                    DatabaseHelper.ItemDefinitions.Plate
+                    DatabaseHelper.ItemDefinitions.Plate,
+                    DatabaseHelper.ItemDefinitions.SorcererArmor,
+                    DatabaseHelper.ItemDefinitions.BarbarianClothes,
+                    DatabaseHelper.ItemDefinitions.Warlock_Armor
                 },
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
@@ -38,7 +41,9 @@ internal static class ArmorAndShieldData
                 DatabaseHelper.ItemDefinitions.Primed_Leather_Armor,
                 DatabaseHelper.ItemDefinitions.Primed_LeatherDruid,
                 DatabaseHelper.ItemDefinitions.Primed_ScaleMail,
-                DatabaseHelper.ItemDefinitions.Primed_Breastplate
+                DatabaseHelper.ItemDefinitions.Primed_Breastplate,
+                DatabaseHelper.ItemDefinitions.Primed_ChainMail,
+                DatabaseHelper.ItemDefinitions.Primed_ChainShirt
             },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

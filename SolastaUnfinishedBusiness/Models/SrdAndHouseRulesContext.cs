@@ -72,17 +72,20 @@ internal static class SrdAndHouseRulesContext
     {
         //BUGFIX: fix Race Repertoires
         CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-        
+        CastSpellTraditionLight.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
+
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
 
+        //SETTING: modify normal vision range
+        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
+
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
-        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
         LoadAfterRestIdentify();
     }
 
@@ -93,6 +96,7 @@ internal static class SrdAndHouseRulesContext
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
+        FixStunningStrikeForAnyMonkWeapon();
         SpellsMinorFixes();
         AddBleedingToRestoration();
         SwitchFilterOnHideousLaughter();
@@ -230,6 +234,15 @@ internal static class SrdAndHouseRulesContext
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
             .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
+    }
+
+    /**
+     * Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
+     * Required for it to work with monk weapon specialization and/or way of distant hand.
+     */
+    private static void FixStunningStrikeForAnyMonkWeapon()
+    {
+        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -526,7 +539,6 @@ internal static class SrdAndHouseRulesContext
             }
         }
     }
-
 
     private static void FixMartialArtsProgression()
     {

@@ -25,6 +25,7 @@ internal static class MeleeCombatFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
         var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
@@ -42,6 +43,7 @@ internal static class MeleeCombatFeats
         var featSpearMastery = BuildSpearMastery();
 
         feats.AddRange(
+            featAlwaysReady,
             featBladeMastery,
             featCleavingAttack,
             featCrusherStr,
@@ -67,6 +69,7 @@ internal static class MeleeCombatFeats
             featSlasherStr);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featAlwaysReady,
             featDefensiveDuelist);
 
         GroupFeats.FeatGroupPiercer.AddFeats(
@@ -82,6 +85,7 @@ internal static class MeleeCombatFeats
             FeatDefinitions.DauntingPush,
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
+            featAlwaysReady,
             featBladeMastery,
             featCleavingAttack,
             featDefensiveDuelist,
@@ -392,6 +396,85 @@ internal static class MeleeCombatFeats
 
             attackMode.ToHitBonus += 1;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
+        }
+    }
+
+    #endregion
+
+    #region Always Ready
+
+    private static FeatDefinition BuildAlwaysReady()
+    {
+        var conditionAlwaysReady = ConditionDefinitionBuilder
+            .Create("ConditionAlwaysReady")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Permanent)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatAlwaysReady")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady))
+            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorAlwaysReady : IAfterAttackEffect, ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
+                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.Guid,
+                _conditionDefinition,
+                _conditionDefinition.durationType,
+                _conditionDefinition.durationParameter,
+                _conditionDefinition.turnOccurence,
+                attacker.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
+
+            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.Ready)
+            {
+                readyActionType = ActionDefinitions.ReadyActionType.Melee
+            };
+
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 

@@ -37,6 +37,22 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
+    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
+        FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleChoiceBarbarian")
+            .SetGuiPresentation("FighterFightingStyle", Category.Feature)
+            .SetFightingStyles(
+                "BlindFighting",
+                "Crippling",
+                "Executioner",
+                "GreatWeapon",
+                "Merciless",
+                "Pugilist",
+                "TwoWeapon",
+                "Sentinel",
+                "RopeItUp")
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolMonkWeaponSpecialization")
@@ -119,11 +135,12 @@ internal static class CharacterContext
         LoadVision();
         LoadEpicArray();
         LoadVisuals();
+        LoadAdditionalNames();
     }
 
     internal static void LateLoad()
     {
-        LoadAdditionalNames();
+        BuildMonkWeaponSpecialization();
         SwitchHelpPower();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
@@ -131,8 +148,8 @@ internal static class CharacterContext
         SwitchAsiAndFeat();
         SwitchEveryFourLevelsFeats();
         SwitchEveryFourLevelsFeats(true);
-        SwitchFighterArmamentAdroitness();
-        BuildMonkWeaponSpecialization();
+        SwitchBarbarianFightingStyle();
+        SwitchFighterWeaponSpecialization();
         SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
@@ -193,6 +210,26 @@ internal static class CharacterContext
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
                 .SetCustomSubFeatures(Hidden.Marker)
                 .AddToDB();
+        }
+    }
+
+    internal static void SwitchBarbarianFightingStyle()
+    {
+        if (Main.Settings.EnableBarbarianFightingStyle)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceBarbarian, 2));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks
+                .RemoveAll(x => x.level == 2 &&
+                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
@@ -1026,11 +1063,11 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    internal static void SwitchFighterArmamentAdroitness()
+    internal static void SwitchFighterWeaponSpecialization()
     {
         var levels = new[] { 8, 16 };
 
-        if (Main.Settings.EnableFighterArmamentAdroitness)
+        if (Main.Settings.EnableFighterWeaponSpecialization)
         {
             foreach (var level in levels)
             {

@@ -35,6 +35,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:CombatAffinityRoguishAcrobatFluidMotions:a18c050f-93b7-5cd7-bbc5-a2da036a6671",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishAcrobatHeroicUncannyDodge:9a1e39a5-ebb0-5ff9-87c2-80dd11027f0f",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

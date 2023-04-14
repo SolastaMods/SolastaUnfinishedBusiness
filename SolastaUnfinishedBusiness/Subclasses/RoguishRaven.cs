@@ -62,7 +62,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .AddToDB();
 
         // deadly aim
-        var powerDeadlyAim = FeatureDefinitionPowerBuilder
+        var powerSteadyAim = FeatureDefinitionPowerBuilder
             .Create("PowerRavenDeadlyAim")
             .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
@@ -71,13 +71,13 @@ internal sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create("FeatureRavenDeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AlterAttackOutcomeDeadlyAim(powerDeadlyAim))
+            .SetCustomSubFeatures(new AlterAttackOutcomeDeadlyAim(powerSteadyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetRavenDeadlyAim")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(featureRavenDeadlyAim, powerDeadlyAim)
+            .AddFeatureSet(featureRavenDeadlyAim, powerSteadyAim)
             .AddToDB();
 
         // Perfect Shot
