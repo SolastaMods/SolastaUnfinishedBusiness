@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -39,9 +40,24 @@ internal static class RacesClassesSubclassesDisplay
             SubclassesContext.Subclasses,
             Main.Settings.SubclassEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: SubclassesHeader);
         Main.Settings.DisplaySubclassesToggle = displayToggle;
         Main.Settings.SubclassSliderPosition = sliderPos;
+
+        UI.Label();
+    }
+
+    private static void SubclassesHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Subclasses Progression".Bold().Khaki(),
+                BootContext.OpenUnfinishedBusinessSubclassesDocs, UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Subclasses Progression".Bold().Khaki(),
+                BootContext.OpenSolastaSubclassesDocs, UI.Width((float)200));
+        }
 
         UI.Label();
     }

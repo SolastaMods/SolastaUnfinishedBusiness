@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Builders;
@@ -146,8 +147,11 @@ internal static class BootContext
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
 
+            // dump subclasses progression to mod folder
+            DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
+
             // really don't have a better place for these fixes here ;-)
-            DumpSubclasses();
             ExpandColorTables();
             AddExtraTooltipDefinitions();
 
@@ -160,13 +164,13 @@ internal static class BootContext
         };
     }
 
-    private static void DumpSubclasses()
+    private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
         var db = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
 
         foreach (var subclass in db
-                     /*.Where(x => x.ContentPack == CeContentPackContext.CeContentPack*/
+                     .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
             outString.Append($"# {subclass.FormatTitle()}\n\n");
@@ -181,18 +185,29 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"* Level {featureUnlockByLevel.level}\n\n");
+                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
                     level = featureUnlockByLevel.level;
                 }
 
-                outString.Append($"\t\t* {featureUnlockByLevel.FeatureDefinition.FormatTitle()}\n\n");
-                outString.Append($"\t\t{featureUnlockByLevel.FeatureDefinition.FormatDescription()}\n\n");
+                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                var description = featureDefinition.FormatDescription()
+                    .Replace("<#57BCF4>", "\t\t\t\n")
+                    .Replace("</color>", string.Empty)
+                    // .Replace("\n", "\t\t\n")
+                    // .Replace("\n.", "\n ")
+                    .Replace("<b>", string.Empty)
+                    .Replace("<i>", string.Empty)
+                    .Replace("</b>", string.Empty)
+                    .Replace("</i>", string.Empty);
+
+                outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"\t\t{description}\n\n");
             }
 
-            outString.Append("\n\n");
+            outString.Append("\n\n\n");
         }
 
-        using var sw = new StreamWriter($"{Main.ModFolder}/Subclasses.md");
+        using var sw = new StreamWriter($"{Main.ModFolder}/Subclasses{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 
@@ -434,6 +449,16 @@ internal static class BootContext
     {
         OpenUrl(
             "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness/ChangelogHistory.txt");
+    }
+
+    internal static void OpenUnfinishedBusinessSubclassesDocs()
+    {
+        OpenUrl($"file://{Main.ModFolder}/SubclassesUnfinishedBusiness.md");
+    }
+
+    internal static void OpenSolastaSubclassesDocs()
+    {
+        OpenUrl($"file://{Main.ModFolder}/SubclassesSolasta.md");
     }
 
     private static void OpenUrl(string url)
