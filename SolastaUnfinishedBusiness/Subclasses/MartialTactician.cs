@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -45,6 +44,14 @@ internal sealed class MartialTactician : AbstractSubclass
             )
             .AddToDB();
 
+        // BACKWARD COMPATIBILITY
+        _ =
+            CustomInvocationPoolDefinitionBuilder
+                .Create("InvocationPoolGambitLearn1")
+                .SetGuiPresentation(Category.Feature)
+                .Setup(InvocationPoolTypeCustom.Pools.Gambit)
+                .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass,
@@ -74,15 +81,6 @@ internal sealed class MartialTactician : AbstractSubclass
         // force to zero here and add 4 on same level for better integration with tactician adept feat
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 0)
         .AddToDB();
-
-    // BACKWARD COMPATIBILITY
-    [UsedImplicitly]
-    private static FeatureDefinitionCustomInvocationPool Learn1Gambit { get; } =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolGambitLearn1")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
-            .AddToDB();
 
     internal static FeatureDefinitionCustomInvocationPool Learn2Gambit { get; } =
         CustomInvocationPoolDefinitionBuilder

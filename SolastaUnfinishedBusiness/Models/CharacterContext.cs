@@ -215,8 +215,6 @@ internal static class CharacterContext
 
     internal static void SwitchBarbarianFightingStyle()
     {
-        var levels = new[] { 2, 11 };
-
         if (Main.Settings.EnableBarbarianFightingStyle)
         {
             Barbarian.FeatureUnlocks.TryAdd(
