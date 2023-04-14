@@ -162,7 +162,7 @@ internal static class InventorInfusions
             powers.Add(power);
         }
 
-        var masterPower = BuildInfuseItemPowerInvocation(2, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
+        var masterPower = BuildInfuseItemPowerInvocation(1, name, sprite, FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)

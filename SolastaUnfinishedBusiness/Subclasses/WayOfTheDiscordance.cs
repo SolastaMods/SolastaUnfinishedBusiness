@@ -40,7 +40,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypePsychic, 1, DieType.D4)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
                             .Build())
                     .Build())
             .AddToDB();
@@ -88,7 +88,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                             EffectFormBuilder
                                 .Create()
                                 .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                                .SetDamageForm(DamageTypePsychic, 2 + i, DieType.D6)
+                                .SetDamageForm(DamageTypeNecrotic, 2 + i, DieType.D6)
                                 .Build(),
                             EffectFormBuilder
                                 .Create()

@@ -52,14 +52,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitPool, Learn4Gambit)
             .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn, BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildBattleClarity(), Learn2Gambit, unlearn)
+            .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(), Learn2Gambit, unlearn)
             .AddFeaturesAtLevel(18, BuildTacticalSurge(), BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        BuildGambitPoolIncrease(); // build PowerUseModifierTacticianGambitPool01
-        BuildGambitPoolIncrease(); // build PowerUseModifierTacticianGambitPool02
-        
         BuildGambits();
     }
 

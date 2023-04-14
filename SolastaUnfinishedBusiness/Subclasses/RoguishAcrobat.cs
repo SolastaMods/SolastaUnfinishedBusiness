@@ -152,7 +152,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 proficiencyAcrobatConnoisseur,
                 attributeModifierAcrobatDefender,
-                featureAcrobatWarrior, powerHeroicUncannyDodge)
+                featureAcrobatWarrior)
             .AddFeaturesAtLevel(9,
                 featureSetSwiftWind)
             .AddFeaturesAtLevel(13,
@@ -223,6 +223,13 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
+            var rulesetMe = me.RulesetCharacter;
+
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            {
+                yield break;
+            }
+
             if (!me.CanReact())
             {
                 yield break;
@@ -248,7 +255,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
             attackModifier.damageRollReduction = Int32.MaxValue;
 
-            GameConsoleHelper.LogCharacterUsedPower(me.RulesetCharacter, _featureDefinitionPower);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
         }
     }
 }
