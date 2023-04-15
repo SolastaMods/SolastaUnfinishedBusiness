@@ -60,22 +60,34 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
+        var additionalActionInspiringSurge = FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{Name}InspiringSurge")
+            .SetGuiPresentationNoContent(true)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .AddToDB();
+
+        var conditionInspiringSurge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}InspiringSurge")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalActionInspiringSurge)
+            .AddToDB();
+
         var powerInspiringSurge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}InspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDomainLifePreserveLife.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
-                .SetTargetFiltering(
-                    TargetFilteringMethod.CharacterOnly,
-                    TargetFilteringTag.No,
-                    5,
-                    DieType.D8)
-                .SetDurationData(DurationType.Round, 1)
-                .SetRequiresVisibilityForPosition()
-                .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionInspiringSurge, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var conditionProtection = ConditionDefinitionBuilder
@@ -112,18 +124,72 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetCustomSubFeatures(new CharacterTurnStartListenerProtection())
             .AddToDB();
 
+        var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}SpiritedSurge")
+            .SetGuiPresentationNoContent(true)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}SpiritedSurge")
+            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
+            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionSpiritedSurge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}SpiritedSurge")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                abilityCheckAffinitySpiritedSurge,
+                additionalActionInspiringSurge,
+                combatAffinitySpiritedSurge,
+                savingThrowAffinitySpiritedSurge)
+            .AddToDB();
+
+        var powerSpiritedSurge = FeatureDefinitionPowerBuilder
+            .Create(powerInspiringSurge, $"Power{Name}SpiritedSurge")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionSpiritedSurge, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(powerInspiringSurge)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Martial{Name}")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("MartialRoyalKnight", Resources.MartialRoyalKnight, 256))
-            .AddFeaturesAtLevel(3,
-                powerRallyingCry)
-            .AddFeaturesAtLevel(7,
-                featureSetRoyalEnvoy)
-            .AddFeaturesAtLevel(10,
-                powerInspiringSurge)
-            .AddFeaturesAtLevel(15,
-                powerProtection)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialRoyalKnight, 256))
+            .AddFeaturesAtLevel(3, powerRallyingCry)
+            .AddFeaturesAtLevel(7, featureSetRoyalEnvoy)
+            .AddFeaturesAtLevel(10, powerInspiringSurge)
+            .AddFeaturesAtLevel(15, powerProtection)
+            .AddFeaturesAtLevel(18, powerSpiritedSurge)
             .AddToDB();
     }
 
@@ -155,10 +221,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 {
                     rulesetCharacter.ReceiveTemporaryHitPoints(healingAmount, DurationType.Minute, 1,
                         TurnOccurenceType.EndOfTurn, locationCharacter.Guid);
-                }
-
-                if (rulesetCharacter.MissingHitPoints > rulesetCharacter.CurrentHitPoints)
-                {
                 }
             }
         }

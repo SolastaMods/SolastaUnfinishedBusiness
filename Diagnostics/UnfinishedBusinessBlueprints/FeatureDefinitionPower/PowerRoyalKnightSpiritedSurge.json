@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 2,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionRoyalKnightInspiringSurge",
-          "conditionDefinition": "Definition:ConditionRoyalKnightInspiringSurge:e0818ee3-da96-5a08-b09f-529811855d17",
+          "conditionDefinitionName": "ConditionRoyalKnightSpiritedSurge",
+          "conditionDefinition": "Definition:ConditionRoyalKnightSpiritedSurge:1385a45e-ff65-5ede-819f-4f212183fee5",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -319,13 +319,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerRoyalKnightInspiringSurge:b64d023d-ddbb-56d5-b0aa-c38525a2e6c4",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoyalKnightInspiringSurgeTitle",
-    "description": "Feature/&PowerRoyalKnightInspiringSurgeDescription",
+    "title": "Feature/&PowerRoyalKnightSpiritedSurgeTitle",
+    "description": "Feature/&PowerRoyalKnightSpiritedSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1c85316337127ff4c95a2d43f18d557e",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b64d023d-ddbb-56d5-b0aa-c38525a2e6c4",
+  "guid": "43b86a3c-a419-527b-a99c-ad6bcea2cbc1",
   "contentPack": 9999,
-  "name": "PowerRoyalKnightInspiringSurge"
+  "name": "PowerRoyalKnightSpiritedSurge"
 }
