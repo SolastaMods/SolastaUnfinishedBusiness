@@ -13,9 +13,6 @@ internal static class ValidatorsCharacter
 {
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
-    internal static readonly IsCharacterValidHandler HasLessThan25PercentHealth = character =>
-        (float)character.CurrentHitPoints / (character.CurrentHitPoints + character.MissingHitPoints) <= 0.25f;
-
     internal static readonly IsCharacterValidHandler HasNoArmor = character => !character.IsWearingArmor();
 
     internal static readonly IsCharacterValidHandler HasNoShield = character => !character.IsWearingShield();

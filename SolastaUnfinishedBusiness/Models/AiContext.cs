@@ -12,7 +12,7 @@ internal static class AiContext
         BuildDecisionBreakFreeSpellWeb();
     }
 
-    internal static void BuildDecisionBreakFreeSpellWeb()
+    private static void BuildDecisionBreakFreeSpellWeb()
     {
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
         var decisionBreakFree = DecisionDefinitionBuilder

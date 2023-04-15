@@ -257,12 +257,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             ApplyCondition(attacker, defender, _conditionDiscordance);
-
-            // Profound Turmoil
-            if (GetMonkLevel(attacker.RulesetCharacter) <= 16)
-            {
-                return;
-            }
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -343,7 +337,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
-                
+
                 ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
         }

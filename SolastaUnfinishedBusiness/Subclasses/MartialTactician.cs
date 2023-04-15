@@ -257,7 +257,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildTacticalSurge()
+    private static void BuildTacticalSurge()
     {
         const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
 
@@ -281,8 +281,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         feature.SetCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
-
-        return feature;
     }
 
     private class RefundPowerUseAfterCrit : IAfterAttackEffect

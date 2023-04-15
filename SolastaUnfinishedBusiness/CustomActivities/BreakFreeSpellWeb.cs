@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
 // ReSharper disable once CheckNamespace
 namespace TA.AI.Activities;
 
+[UsedImplicitly]
 public class BreakFreeSpellWeb : ActivityBase
 {
+    [UsedImplicitly]
     public static ContextType GetContextType(DecisionDefinition _)
     {
         return ContextType.Self;
     }
 
+    [UsedImplicitly]
     public static void GetActionId(
         out ActionDefinitions.Id mainId,
         out ActionDefinitions.Id bonusId)
@@ -66,7 +70,7 @@ public class BreakFreeSpellWeb : ActivityBase
 
             gameLocationCharacter.RollAbilityCheck(
                 AttributeDefinitions.Strength, string.Empty, checkDC, RuleDefinitions.AdvantageType.None, actionMod,
-                false, -1, out var outcome, out var _, true);
+                false, -1, out var outcome, out _, true);
 
             var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
 

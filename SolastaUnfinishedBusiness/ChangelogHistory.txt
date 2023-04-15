@@ -2,12 +2,13 @@
 
 1.4.33.75:
 
-- RESPEC required for Royal Knight on or above level 15
-- added Fairy race
+- added Fairy race with flight power
 - added Martial Royal Knight's inspiring protection at level 15
 - added Martial Royal Knight's spirited surge at level 18
 - added Martial Tactician's battle awareness at level 18
+- added new Break Free activity and decision to monsters' AI packages [Web spell]
 - fixed many soft lock scenarios in interactions between effects and gadgets
+- tweaked Circle of the Night's shape forms at level 14
 
 1.4.33.74:
 
