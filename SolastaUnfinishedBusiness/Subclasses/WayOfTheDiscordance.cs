@@ -23,7 +23,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
     private static readonly ConditionDefinition ConditionProfoundTurmoil = ConditionDefinitionBuilder
         .Create(ConditionProfoundTurmoilName)
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetSpecialDuration(DurationType.Minute, 1)

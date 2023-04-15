@@ -108,6 +108,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
+                    .SetParticleEffectParameters(Banishment)
                     .Build())
             .AddToDB();
 
@@ -211,3 +212,4 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
         }
     }
 }
+
