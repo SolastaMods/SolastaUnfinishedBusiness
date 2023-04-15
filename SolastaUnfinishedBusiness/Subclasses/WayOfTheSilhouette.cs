@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -172,8 +171,9 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             }
 
             var rulesetMe = me.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
-            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (usablePower.RemainingUses < 3)
             {
                 yield break;
             }
@@ -183,8 +183,6 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
-
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -206,10 +204,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             var effect = new RulesetEffectPower(rulesetMe, usablePower);
 
             rulesetMe.UsePower(usablePower);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
             effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
             attackModifier.damageRollReduction = Int32.MaxValue;
         }
     }
 }
-

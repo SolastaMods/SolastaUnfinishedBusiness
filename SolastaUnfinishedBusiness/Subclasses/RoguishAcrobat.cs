@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -255,7 +254,6 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             }
 
             rulesetMe.UsePower(usablePower);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
             attackModifier.damageRollReduction = Int32.MaxValue;
         }
     }
