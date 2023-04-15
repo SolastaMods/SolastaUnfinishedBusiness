@@ -1,11 +1,9 @@
-﻿using System.Linq;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -18,23 +16,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
     {
         const string Name = "RoyalKnight";
 
-        var abilityCheckAffinityRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}RoyalEnvoy")
-            .SetGuiPresentationNoContent()
-            .BuildAndSetAffinityGroups(
-                CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
-                DieType.D1,
-                0,
-                (AttributeDefinitions.Charisma, null))
-            .AddToDB();
-
-        var featureSetRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}RoyalEnvoy")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                abilityCheckAffinityRoyalEnvoy,
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
-            .AddToDB();
+        // LEVEL 03
 
         var powerRallyingCry = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}RallyingCry")
@@ -59,6 +41,28 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 .Build())
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
+
+        // LEVEL 07
+
+        var abilityCheckAffinityRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}RoyalEnvoy")
+            .SetGuiPresentationNoContent()
+            .BuildAndSetAffinityGroups(
+                CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
+                DieType.D1,
+                0,
+                (AttributeDefinitions.Charisma, null))
+            .AddToDB();
+
+        var featureSetRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}RoyalEnvoy")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                abilityCheckAffinityRoyalEnvoy,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
+            .AddToDB();
+
+        // LEVEL 10
 
         var additionalActionInspiringSurge = FeatureDefinitionAdditionalActionBuilder
             .Create($"AdditionalAction{Name}InspiringSurge")
@@ -90,39 +94,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var conditionProtection = ConditionDefinitionBuilder
-            .Create($"Condition{Name}Protection")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create($"AttributeModifier{Name}Protection")
-                    .SetGuiPresentation($"Power{Name}Protection", Category.Feature,
-                        GuiPresentationBuilder.NoContentTitle)
-                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                    .SetCustomSubFeatures(ValidatorsCharacter.HasLessThan25PercentHealth)
-                    .AddToDB())
-            .AddToDB();
-
-        var powerProtection = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Protection")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Bless)
-            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionProtection, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
-            .SetShowCasting(false)
-            .SetCustomSubFeatures(new CharacterTurnStartListenerProtection())
-            .AddToDB();
+        // LEVEL 18
 
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
@@ -182,13 +154,56 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetOverriddenPower(powerInspiringSurge)
             .AddToDB();
 
+        // LEVEL 18
+
+        const string TEXT = "PowerRoyalKnightInspiringProtection";
+
+        var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
+            .Create("PowerRoyalKnightInspiringProtection")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
+            .SetReactionContext(ReactionTriggerContext.None)
+            .AddToDB();
+
+        var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
+            .Create("PowerRoyalKnightInspiringProtectionAura")
+            .SetGuiPresentation(TEXT, Category.Feature)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 12)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionRoyalKnightInspiringProtectionAura")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetCustomSubFeatures(
+                            new InspiringProtection(powerRoyalKnightInspiringProtection, "InventorFlashOfGenius"))
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetRoyalKnightInspiringProtection")
+            .SetGuiPresentation(TEXT, Category.Feature)
+            .AddFeatureSet(powerRoyalKnightInspiringProtectionAura, powerRoyalKnightInspiringProtection)
+            .AddToDB();
+
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create($"Martial{Name}")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialRoyalKnight, 256))
             .AddFeaturesAtLevel(3, powerRallyingCry)
             .AddFeaturesAtLevel(7, featureSetRoyalEnvoy)
             .AddFeaturesAtLevel(10, powerInspiringSurge)
-            .AddFeaturesAtLevel(15, powerProtection)
+            .AddFeaturesAtLevel(15, featureSetRoyalKnightInspiringProtection)
             .AddFeaturesAtLevel(18, powerSpiritedSurge)
             .AddToDB();
     }
@@ -201,28 +216,75 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CharacterTurnStartListenerProtection : ICharacterTurnStartListener
+    private class InspiringProtection : ConditionSourceCanUsePowerToImproveFailedSaveRoll
     {
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        internal InspiringProtection(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
         {
-            var battle = Gui.Battle;
+        }
 
-            if (battle == null)
+        internal override bool ShouldTrigger(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck,
+            RollOutcome saveOutcome,
+            int saveOutcomeDelta)
+        {
+            if (helper.IsOppositeSide(defender.Side))
             {
-                return;
+                return false;
             }
 
-            var healingAmount =
-                2 * locationCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            return helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                ActionDefinitions.ActionStatus.Available && action.RolledSaveThrow;
+        }
 
-            foreach (var rulesetCharacter in battle.PlayerContenders.Select(x => x.RulesetCharacter))
-            {
-                if (rulesetCharacter.TemporaryHitPoints <= healingAmount)
-                {
-                    rulesetCharacter.ReceiveTemporaryHitPoints(healingAmount, DurationType.Minute, 1,
-                        TurnOccurenceType.EndOfTurn, locationCharacter.Guid);
-                }
-            }
+        internal override bool TryModifyRoll(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            CharacterActionParams reactionParams,
+            bool hasHitVisual,
+            bool hasBorrowedLuck,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            // ReSharper disable once MergeConditionalExpression
+            action.RolledSaveThrow = action.ActionParams.RulesetEffect == null
+                ? action.ActionParams.AttackMode.TryRollSavingThrow(attacker.RulesetCharacter, defender.RulesetActor,
+                    saveModifier, action.ActionParams.AttackMode.EffectDescription.EffectForms, out saveOutcome,
+                    out saveOutcomeDelta)
+                : action.ActionParams.RulesetEffect.TryRollSavingThrow(attacker.RulesetCharacter, attacker.Side,
+                    defender.RulesetActor, saveModifier, reactionParams.RulesetEffect.EffectDescription.EffectForms,
+                    hasHitVisual, out saveOutcome, out saveOutcomeDelta);
+
+            action.SaveOutcome = saveOutcome;
+            action.SaveOutcomeDelta = saveOutcomeDelta;
+
+            return true;
+        }
+
+        internal override string FormatReactionDescription(
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationCharacter helper,
+            ActionModifier saveModifier,
+            bool hasHitVisual,
+            bool hasBorrowedLuck,
+            RollOutcome saveOutcome,
+            int saveOutcomeDelta)
+        {
+            var text = defender == helper
+                ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
+                : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+
+            return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
         }
     }
 }

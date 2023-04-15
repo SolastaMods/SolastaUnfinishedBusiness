@@ -6,9 +6,9 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 13,
+    "targetParameter": 12,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart",
+    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionRoyalKnightProtection",
-          "conditionDefinition": "Definition:ConditionRoyalKnightProtection:934ff18e-2973-5e88-a069-58eb3c23ad13",
+          "conditionDefinitionName": "ConditionRoyalKnightInspiringProtectionAura",
+          "conditionDefinition": "Definition:ConditionRoyalKnightInspiringProtectionAura:9b801b3a-c55d-5063-8327-1c6aba40aa39",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -317,20 +317,20 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoyalKnightProtectionTitle",
-    "description": "Feature/&PowerRoyalKnightProtectionDescription",
+    "title": "Feature/&PowerRoyalKnightInspiringProtectionTitle",
+    "description": "Feature/&PowerRoyalKnightInspiringProtectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a09b3bfa05921d743a1bbe2126c87a68",
-      "m_SubObjectName": "Bless",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "01c1d769-c23c-5d21-a78d-84929bebd928",
+  "guid": "28eb87d3-13f5-5ee2-9d4d-d383f8558907",
   "contentPack": 9999,
-  "name": "PowerRoyalKnightProtection"
+  "name": "PowerRoyalKnightInspiringProtectionAura"
 }
