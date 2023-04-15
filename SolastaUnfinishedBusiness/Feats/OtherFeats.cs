@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Gambits;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -133,8 +134,8 @@ internal static class OtherFeats
             .Create("FeatTacticianAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                MartialTactician.GambitPool,
-                MartialTactician.Learn2Gambit,
+                GambitsBuilders.GambitPool,
+                GambitsBuilders.Learn2Gambit,
                 MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();

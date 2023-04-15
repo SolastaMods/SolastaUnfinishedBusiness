@@ -4,7 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Subclasses;
+using SolastaUnfinishedBusiness.Gambits;
 using static ActionDefinitions;
 using static RuleDefinitions;
 
@@ -70,7 +70,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitMain")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -79,7 +79,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitBonus")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -88,7 +88,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitNoCost")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
@@ -278,9 +278,9 @@ public static class CustomActionIdContext
         RulesetCharacter character, bool canCastSpells, bool canOnlyUseCantrips)
     {
         if (IsGambitActionId(actionId)
-            && character.HasPower(MartialTactician.GambitPool)
+            && character.HasPower(GambitsBuilders.GambitPool)
             && character.KnowsAnyInvocationOfActionId(actionId, scope)
-            && character.GetRemainingPowerCharges(MartialTactician.GambitPool) <= 0)
+            && character.GetRemainingPowerCharges(GambitsBuilders.GambitPool) <= 0)
         {
             return ActionStatus.OutOfUses;
         }
