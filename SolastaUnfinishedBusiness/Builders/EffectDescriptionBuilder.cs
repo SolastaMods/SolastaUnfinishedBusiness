@@ -15,7 +15,9 @@ internal class EffectDescriptionBuilder
         effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
-            effectParticleParameters = new EffectParticleParameters()
+            effectParticleParameters = new EffectParticleParameters(),
+            // there are many places in code where we use GLC.RSC and is null when aiming gadgets
+            targetFilteringMethod = TargetFilteringMethod.CharacterOnly
         };
         effect.effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
     }
