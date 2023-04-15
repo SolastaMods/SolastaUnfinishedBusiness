@@ -53,7 +53,7 @@ internal sealed class Executioner : AbstractFightingStyle
                 return false;
             }
 
-            return defender.RulesetCharacter.HasAnyConditionOfType(
+            return defender?.RulesetCharacter.HasAnyConditionOfType(
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,
@@ -61,7 +61,7 @@ internal sealed class Executioner : AbstractFightingStyle
                 ConditionParalyzed,
                 ConditionProne,
                 ConditionStunned
-            );
+            ) == true;
         }
     }
 }

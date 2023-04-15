@@ -170,6 +170,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var damageForm = new DamageForm

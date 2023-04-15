@@ -644,7 +644,7 @@ public static class GameLocationBattleManagerPatcher
             var attacker = attackParams.attacker.RulesetCharacter;
             var defender = attackParams.defender.RulesetCharacter;
 
-            if (attacker == null)
+            if (attacker == null || defender == null)
             {
                 return;
             }

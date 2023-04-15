@@ -833,9 +833,16 @@ internal static class OtherFeats
                 return;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                return;
+            }
+
             var effectPower = GetUsablePower(attacker);
 
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
         }
     }
 

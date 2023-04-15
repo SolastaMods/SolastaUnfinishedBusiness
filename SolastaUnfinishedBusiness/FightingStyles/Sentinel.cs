@@ -67,7 +67,7 @@ internal sealed class Sentinel : AbstractFightingStyle
 
             var character = defender.RulesetCharacter;
 
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+            character?.AddConditionOfCategory(AttributeDefinitions.TagCombat,
                 RulesetCondition.CreateActiveCondition(character.Guid,
                     _conditionSentinelStopMovement,
                     DurationType.Round,

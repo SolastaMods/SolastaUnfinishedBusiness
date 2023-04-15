@@ -327,7 +327,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (rulesetDefender == null || !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }
