@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public static class ElvenPrecisionLogic
 {

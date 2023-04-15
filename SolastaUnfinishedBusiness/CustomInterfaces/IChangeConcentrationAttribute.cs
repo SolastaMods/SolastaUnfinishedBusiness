@@ -1,8 +1,10 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IChangeConcentrationAttribute
 {
     public bool IsValid(RulesetActor rulesetActor);
 
-    public string ConcentrationAttribute(RulesetActor rulesetActor);
+    public string ConcentrationAttribute([UsedImplicitly] RulesetActor rulesetActor);
 }

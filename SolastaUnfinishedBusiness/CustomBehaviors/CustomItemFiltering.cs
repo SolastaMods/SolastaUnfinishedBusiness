@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal interface ICustomItemFilter
 {

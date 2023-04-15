@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal static class BlockAttacks
 {

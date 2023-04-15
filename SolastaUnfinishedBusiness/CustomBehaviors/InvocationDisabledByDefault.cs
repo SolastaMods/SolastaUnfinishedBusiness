@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 [UsedImplicitly]
 internal class InvocationDisabledByDefault

@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static ActionDefinitions;
 

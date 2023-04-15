@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 /**
  * Adds all powers from condition definition's feature list to character's usable powers when condition is applied

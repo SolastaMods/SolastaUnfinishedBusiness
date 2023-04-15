@@ -9,7 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using TA;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal static class AttacksOfOpportunity
 {

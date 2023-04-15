@@ -10,7 +10,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static ConsoleStyleDuplet;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public class MirrorImageLogic
 {

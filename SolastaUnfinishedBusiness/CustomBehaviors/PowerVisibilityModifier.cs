@@ -2,7 +2,7 @@
 using static ActionDefinitions;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate bool IsPowerVisibleHandler(
     RulesetCharacter character,

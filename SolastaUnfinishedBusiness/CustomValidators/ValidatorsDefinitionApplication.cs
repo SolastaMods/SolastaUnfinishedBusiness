@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate bool IsDefinitionValidHandler(BaseDefinition definition, RulesetCharacter character);
 

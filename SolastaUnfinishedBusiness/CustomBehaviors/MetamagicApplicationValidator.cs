@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate void MetamagicApplicationValidator(
     RulesetCharacter caster,

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public class RepeatingShot
 {

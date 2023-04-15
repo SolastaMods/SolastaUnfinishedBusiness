@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using TA;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 /**allows marking spells/powers to make push.drag effects from them work relative to target point, not caster position*/
 internal sealed class PushesFromEffectPoint

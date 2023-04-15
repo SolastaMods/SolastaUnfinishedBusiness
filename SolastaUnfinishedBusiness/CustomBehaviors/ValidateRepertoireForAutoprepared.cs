@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public delegate bool
     RepertoireValidForAutoPreparedFeature(RulesetSpellRepertoire repertoire, RulesetCharacter character);

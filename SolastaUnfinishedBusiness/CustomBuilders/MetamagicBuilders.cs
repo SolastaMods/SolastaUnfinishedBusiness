@@ -1,5 +1,5 @@
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 

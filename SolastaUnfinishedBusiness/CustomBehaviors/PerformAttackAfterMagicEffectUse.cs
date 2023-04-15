@@ -4,7 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
 {

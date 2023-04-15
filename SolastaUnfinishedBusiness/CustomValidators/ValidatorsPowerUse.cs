@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal delegate bool IsPowerUseValidHandler(RulesetCharacter character, FeatureDefinitionPower power);
 

@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal static class SkipEffectRemovalOnLocationChange
 {

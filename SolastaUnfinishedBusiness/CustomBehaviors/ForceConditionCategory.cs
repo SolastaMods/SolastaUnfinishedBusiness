@@ -1,6 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 public class ForceConditionCategory : IForceConditionCategory
 {

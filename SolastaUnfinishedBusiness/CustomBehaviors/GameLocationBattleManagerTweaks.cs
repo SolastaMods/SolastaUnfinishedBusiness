@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 internal static class GameLocationBattleManagerTweaks
 {

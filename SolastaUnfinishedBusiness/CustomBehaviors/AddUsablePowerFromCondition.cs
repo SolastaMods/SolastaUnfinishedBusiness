@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 /**Adds power to character's usable powers when condition is applied and removes it when condition is removed*/
 public class AddUsablePowerFromCondition : ICustomConditionFeature

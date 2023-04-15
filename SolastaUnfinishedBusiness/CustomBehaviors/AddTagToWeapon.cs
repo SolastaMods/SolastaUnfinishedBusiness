@@ -2,7 +2,7 @@
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
+namespace SolastaUnfinishedBusiness.CustomValidators;
 
 /**
  * Adds tag to the weapon to be processed by IsValidContextForRestrictedContextProvider and RefreshAttackMode 
