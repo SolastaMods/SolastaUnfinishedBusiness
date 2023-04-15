@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFairyFlightTitle",
-    "description": "Feature/&PowerFairyFlightDescription",
+    "title": "Feature/&PowerFairyFlightSproutTitle",
+    "description": "Feature/&PowerFairyFlightSproutDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
