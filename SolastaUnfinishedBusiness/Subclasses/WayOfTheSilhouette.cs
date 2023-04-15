@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -203,6 +204,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
             var effect = new RulesetEffectPower(rulesetMe, usablePower);
 
+            rulesetMe.UsePower(usablePower);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
             effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
             attackModifier.damageRollReduction = Int32.MaxValue;
         }
