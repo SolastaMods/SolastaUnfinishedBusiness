@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.75:
+
+- RESPEC required for Royal Knight on or above level 15
+- added Fairy race
+- added Martial Royal Knight's inspiring protection at level 15
+- added Martial Royal Knight's spirited surge at level 18
+- added Martial Tactician's battle awareness at level 18
+- fixed many soft lock scenarios in interactions between effects and gadgets
+
 1.4.33.74:
 
 - added Always Ready and Steady Aim feats
