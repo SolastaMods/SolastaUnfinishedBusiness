@@ -16,7 +16,7 @@ using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Gambits;
+namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class GambitsBuilders
 {

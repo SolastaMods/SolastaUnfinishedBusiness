@@ -10,7 +10,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
-namespace SolastaUnfinishedBusiness.Invocations;
+namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class InvocationsBuilders
 {

@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Metamagic;
+namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class MetamagicBuilders
 {

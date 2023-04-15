@@ -4,7 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
-using static SolastaUnfinishedBusiness.Invocations.InvocationsBuilders;
+using static SolastaUnfinishedBusiness.CustomBuilders.InvocationsBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 

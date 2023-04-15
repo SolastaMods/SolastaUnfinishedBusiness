@@ -16,7 +16,7 @@ using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.Infusions;
+namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class InventorInfusions
 {

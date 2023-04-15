@@ -20,7 +20,7 @@ public class BreakFreeSpellWeb : ActivityBase
         out ActionDefinitions.Id mainId,
         out ActionDefinitions.Id bonusId)
     {
-        bonusId = ActionDefinitions.Id.AlwaysAvailable;
+        bonusId = ActionDefinitions.Id.NoAction;
         mainId = ActionDefinitions.Id.AlwaysAvailable;
     }
 

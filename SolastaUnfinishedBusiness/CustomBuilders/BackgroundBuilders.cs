@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
-namespace SolastaUnfinishedBusiness.Backgrounds;
+namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class BackgroundsBuilders
 {

@@ -1347,10 +1347,69 @@ public static class RulesetCharacterPatcher
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(EnumerateISpellCastingAffinityProvider).Method;
 
+            var myComputeBaseSavingThrowBonus =
+                new Func<RulesetActor, string, List<RuleDefinitions.TrendInfo>, int>(ComputeBaseSavingThrowBonus)
+                    .Method;
+
+            var myComputeSavingThrowModifier =
+                new Action<RulesetActor, string, EffectForm.EffectFormType, string, string, string, string, string,
+                        ActionModifier, List<ISavingThrowAffinityProvider>, int>(ComputeSavingThrowModifier)
+                    .Method;
+
+            var myGetSavingThrowModifier =
+                new Func<ActionModifier, string, bool, int>(GetSavingThrowModifier).Method;
+
+            var computeBaseSavingThrowBonus = typeof(RulesetActor).GetMethod("ComputeBaseSavingThrowBonus");
+            var computeSavingThrowModifier = typeof(RulesetActor).GetMethod("ComputeSavingThrowModifier");
+            var getSavingThrowModifier = typeof(ActionModifier).GetMethod("GetSavingThrowModifier");
+
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
-                -1, "RulesetCharacter.RollConcentrationCheck",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions
+                .ReplaceCalls(computeBaseSavingThrowBonus,
+                    "RulesetCharacter.ComputeBaseSavingThrowBonus",
+                    new CodeInstruction(OpCodes.Call, myComputeBaseSavingThrowBonus))
+                .ReplaceCalls(computeSavingThrowModifier,
+                    "RulesetCharacter.ComputeSavingThrowModifier",
+                    new CodeInstruction(OpCodes.Call, myComputeSavingThrowModifier))
+                .ReplaceCalls(getSavingThrowModifier,
+                    "RulesetCharacter.GetSavingThrowModifier",
+                    new CodeInstruction(OpCodes.Call, myGetSavingThrowModifier))
+                .ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
+                    -1, "RulesetCharacter.RollConcentrationCheck",
+                    new CodeInstruction(OpCodes.Call, enumerate));
+        }
+
+        private static int ComputeBaseSavingThrowBonus(
+            RulesetActor __instance,
+            string abilityScoreName,
+            List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+        {
+            return __instance.ComputeBaseSavingThrowBonus(abilityScoreName, savingThrowModifierTrends);
+        }
+
+        private static void ComputeSavingThrowModifier(
+            RulesetActor __instance,
+            string abilityType,
+            EffectForm.EffectFormType formType,
+            string sourceName,
+            string schoolOfMagic,
+            string damageType,
+            string conditionType,
+            string sourceFamily,
+            ActionModifier effectModifier,
+            List<ISavingThrowAffinityProvider> accountedProviders,
+            int savingThrowContextField = 0)
+        {
+            __instance.ComputeSavingThrowModifier(abilityType, formType, sourceName, schoolOfMagic, damageType,
+                conditionType, sourceFamily, effectModifier, accountedProviders, savingThrowContextField);
+        }
+
+        private static int GetSavingThrowModifier(
+            ActionModifier __instance,
+            string abilityType,
+            bool ignoreCover = false)
+        {
+            return __instance.GetSavingThrowModifier(abilityType, ignoreCover);
         }
     }
 
