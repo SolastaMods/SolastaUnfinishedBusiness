@@ -102,7 +102,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Spider_Crimson_Bite:a8054036c6548254ca892f72261cdd44"
+      "monsterAttackDefinition": "Definition:Attack_Spiderling_WildShape_Crimson_Bite:ce4f02c6-668e-5572-9d25-3931d60ef03a"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",

@@ -273,19 +273,55 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static MonsterDefinition HbWildShapeCrimsonSpider()
     {
+        var attackCrimsonBite = MonsterAttackDefinitionBuilder
+            .Create(Attack_Spiderling_Crimson_Bite, "Attack_Spiderling_WildShape_Crimson_Bite")
+            .AddToDB();
+
+        attackCrimsonBite.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.Negates;
+
         var shape = MonsterDefinitionBuilder
             .Create(CrimsonSpider, "WildShapeCrimsonSpider")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .AddToDB();
+
+        shape.AttackIterations[1].monsterAttackDefinition = attackCrimsonBite;
 
         return shape;
     }
 
     private static MonsterDefinition HbWildShapeMinotaurElite()
     {
+        var attackGreataxe = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Greataxe, "Attack_Minotaur_Wildshape_Elite_Greataxe")
+            .SetToHitBonus(9)
+            .AddToDB();
+
+        var attackChargedGore = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Charged_Gore, "Attack_Minotaur_Wildshape_Elite_Charged_Gore")
+            .SetToHitBonus(9)
+            .AddToDB();
+
+        attackChargedGore.EffectDescription.fixedSavingThrowDifficultyClass = 16;
+
+        var attackGore = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Gore, "Attack_Minotaur__Wildshape_Elite_Gore")
+            .SetToHitBonus(9)
+            .AddToDB();
+
         var shape = MonsterDefinitionBuilder
             .Create(MinotaurElite, "WildShapeMinotaurElite")
+            .SetOrUpdateGuiPresentation(Category.Monster)
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetArmorClass(16)
+            .SetStandardHitPoints(126)
+            .SetAbilityScores(20, 11, 20, 6, 16, 9)
+            .SetSavingThrowScores((AttributeDefinitions.Strength, 9), (AttributeDefinitions.Constitution, 9))
+            .SetSkillScores((SkillDefinitions.Perception, 6), (SkillDefinitions.Athletics, 9))
+            .SetAttackIterations((2, attackGreataxe), (1, attackChargedGore), (1, attackGore))
+            .AddFeatures(
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
             .AddToDB();
 
         return shape;
