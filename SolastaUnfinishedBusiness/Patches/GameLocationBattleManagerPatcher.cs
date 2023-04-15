@@ -921,7 +921,7 @@ public static class GameLocationBattleManagerPatcher
                     rulesetDefender.UsePower(usablePower);
 
                     action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, locHelper, saveModifier,
-                        hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
+                        reactionParams, hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
                     action.SaveOutcome = saveOutcome;
                 }
 

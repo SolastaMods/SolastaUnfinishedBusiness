@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -906,6 +905,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         ActionModifier saveModifier,
+        CharacterActionParams reactionParams,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         ref RollOutcome saveOutcome,
