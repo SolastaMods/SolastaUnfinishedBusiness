@@ -41,7 +41,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Arcana")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Arcana.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
 
         var conditionDistractingAmbush = ConditionDefinitionBuilder

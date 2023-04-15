@@ -88,13 +88,13 @@ internal static class InventorClass
                 AttributeDefinitions.Charisma
             )
             .AddSkillPreferences(
-                DatabaseHelper.SkillDefinitions.Athletics,
-                DatabaseHelper.SkillDefinitions.History,
-                DatabaseHelper.SkillDefinitions.Insight,
-                DatabaseHelper.SkillDefinitions.Stealth,
-                DatabaseHelper.SkillDefinitions.Religion,
-                DatabaseHelper.SkillDefinitions.Perception,
-                DatabaseHelper.SkillDefinitions.Survival
+                SkillDefinitions.Athletics,
+                SkillDefinitions.History,
+                SkillDefinitions.Insight,
+                SkillDefinitions.Stealth,
+                SkillDefinitions.Religion,
+                SkillDefinitions.Perception,
+                SkillDefinitions.Survival
             )
             .AddToolPreferences(
                 ToolTypeDefinitions.EnchantingToolType,

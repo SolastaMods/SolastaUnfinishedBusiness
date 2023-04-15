@@ -116,7 +116,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetCustomSubFeatures(new OnAfterActionFeatureBurstOfDisharmony())
             .AddToDB();
 
         var powerBurstOfDisharmonyList = new List<FeatureDefinitionPower>();
@@ -158,7 +157,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                                 .Build())
                         .Build())
                 .SetCustomSubFeatures(
-                    new OnAfterActionFeatureBurstOfDisharmony(),
                     new ValidatorsPowerUse(
                         c => c.RemainingKiPoints >= a &&
                              c.TryGetAttributeValue(ProficiencyBonus) >= a))
@@ -223,23 +221,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
     }
 
-    private sealed class OnAfterActionFeatureBurstOfDisharmony : IOnAfterActionFeature
-    {
-        public void OnAfterAction(CharacterAction action)
-        {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                !characterActionUsePower.activePower.PowerDefinition.Name.Contains("BurstOfDisharmony"))
-            {
-                return;
-            }
-
-            foreach (var defender in action.actionParams.TargetCharacters)
-            {
-                ApplyProfoundTurmoil(action.ActingCharacter, defender);
-            }
-        }
-    }
-
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
     private sealed class AfterAttackEffectDiscordance : IOnAfterActionFeature, IAfterAttackEffect
     {
@@ -275,7 +256,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 return;
             }
 
-            // 
             ApplyCondition(attacker, defender, _conditionDiscordance);
 
             // Profound Turmoil
@@ -283,8 +263,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 return;
             }
-
-            ApplyProfoundTurmoil(attacker, defender);
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -365,6 +343,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
+                
+                ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
         }
 
