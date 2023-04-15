@@ -25,6 +25,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .Create(ConditionProfoundTurmoilName)
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
         .SetPossessive()
+        .SetConditionType(ConditionType.Detrimental)
         .SetSpecialDuration(DurationType.Minute, 1)
         .AddFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder

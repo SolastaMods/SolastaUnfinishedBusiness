@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:AttackModifierWayOfTheDiscordanceProfoundTurmoil:c5e37b15-a37c-5a00-a649-be02f3384793",
     "Definition:SavingThrowAffinityWayOfTheDiscordanceProfoundTurmoil:e4780e27-15f3-5810-9f9c-9e23ac16ebb7"
@@ -87,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -133,9 +133,9 @@
     "description": "Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
