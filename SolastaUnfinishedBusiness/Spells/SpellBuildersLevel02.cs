@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -270,16 +266,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildWeb()
     {
-        var featureOnRoundStartWeb = FeatureDefinitionBuilder
-            .Create("FeatureOnRoundStartWeb")
-            .AddToDB();
-
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrained, "ConditionRestrainedBySpellWeb")
-            .AddFeatures(featureOnRoundStartWeb)
+            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
-
-        featureOnRoundStartWeb.SetCustomSubFeatures(new CharacterTurnStartListenerWeb(conditionRestrainedBySpellWeb));
 
         var spell = SpellDefinitionBuilder
             .Create("SpellWeb")
@@ -292,7 +282,7 @@ internal static partial class SpellBuilders
                 .Create(Grease)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                 .SetDurationData(DurationType.Hour, 1)
-                .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter)
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,
@@ -319,54 +309,6 @@ internal static partial class SpellBuilders
             Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return spell;
-    }
-
-    private sealed class CharacterTurnStartListenerWeb : ICharacterTurnStartListener
-    {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public CharacterTurnStartListenerWeb(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var rulesetCondition = rulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-            var actionTypeStatus = locationCharacter
-                .GetActionTypeStatus(ActionDefinitions.ActionType.Main, ActionDefinitions.ActionScope.Battle, true);
-
-            if (rulesetCondition == null || actionTypeStatus != ActionDefinitions.ActionStatus.Available)
-            {
-                return;
-            }
-
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
-                .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
-            var checkDC = locationCharacterAttacker == null
-                ? 0
-                : locationCharacterAttacker.RulesetCharacter.SpellRepertoires
-                    .Select(x => x.SaveDC)
-                    .Max();
-
-            locationCharacter.RollAbilityCheck(
-                AttributeDefinitions.Strength, string.Empty, checkDC, AdvantageType.None,
-                new ActionModifier(), false, -1, out var outcome, out _, true);
-
-            // consume a main action after the check
-            locationCharacter.currentActionRankByType.TryAdd(ActionDefinitions.ActionType.Main, 1);
-            locationCharacter.ActionsRefreshed?.Invoke(locationCharacter);
-
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            locationCharacter.RulesetCharacter.RemoveCondition(rulesetCondition);
-        }
     }
 
     #endregion

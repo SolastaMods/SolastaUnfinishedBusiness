@@ -1,26 +1,28 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionGrappled:b9e3fa435129c33459a4847c9c551265",
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
-    "Definition:CombatAffinityRestrained:dc755d1ea6b1ff0429ff9650d4a2d318",
-    "Definition:FeatureOnRoundStartWeb:60876f1a-5eec-5061-9a10-ca6fd2e52e9c",
     "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
-    "Definition:SavingThrowAffinityConditionRestrained:fbdda0611e9c1254aa76ad4e303c668d"
+    "Definition:CombatAffinityRestrained:dc755d1ea6b1ff0429ff9650d4a2d318",
+    "Definition:SavingThrowAffinityConditionRestrained:fbdda0611e9c1254aa76ad4e303c668d",
+    "Definition:ActionAffinityConditionRestrained:0a11d859909c2624086506f327824de8",
+    "Definition:ActionAffinityGrappled:1c2c02a0e9f823c489b3d62d03534617"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameterDie": "D1",
+  "durationParameter": 2,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Moved"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -29,7 +31,9 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionSwallowedRemorhaz:1bf833241755e684fbef755a54de3fd6"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -43,19 +47,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "d8e73c164ff3dad4197a0e0830c6573e",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "b8867e443cbc9024db3ffd55201414b1",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "637c9a990c79eb249beaf07c80aae51a",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -267,8 +271,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionRestrainedTitle",
-    "description": "Rules/&ConditionRestrainedDescription",
+    "title": "Condition/&ConditionGrappledRestrainedSpellWebTitle",
+    "description": "Condition/&ConditionGrappledRestrainedSpellWebDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
@@ -288,7 +292,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b63d586a-2923-53d5-b88c-861970521ba5",
+  "guid": "7593e0f9-a1ff-539c-bf19-9ba1c7abfd60",
   "contentPack": 9999,
-  "name": "ConditionRestrainedBySpellWeb"
+  "name": "ConditionGrappledRestrainedSpellWeb"
 }
