@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(NAME, Category.Spell)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder

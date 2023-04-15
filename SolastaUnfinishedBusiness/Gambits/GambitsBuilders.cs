@@ -401,7 +401,7 @@ internal static class GambitsBuilders
                         .SetConditionType(ConditionType.Detrimental)
                         .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                             .Create($"CombatAffinity{name}")
-                            .SetGuiPresentationNoContent()
+                            .SetGuiPresentation(name, Category.Feature)
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
@@ -462,11 +462,14 @@ internal static class GambitsBuilders
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage, featureSpendDieOnAttack, FeatureDefinitionCombatAffinityBuilder
-                            .Create($"CombatAffinity{name}")
-                            .SetGuiPresentation(name, Category.Feature)
-                            .SetMyAttackAdvantage(AdvantageType.Advantage)
-                            .AddToDB())
+                        .SetFeatures(
+                            GambitDieDamage,
+                            featureSpendDieOnAttack,
+                            FeatureDefinitionCombatAffinityBuilder
+                                .Create($"CombatAffinity{name}")
+                                .SetGuiPresentation(name, Category.Feature)
+                                .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

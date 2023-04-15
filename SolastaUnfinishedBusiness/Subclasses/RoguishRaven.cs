@@ -33,7 +33,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityRavenRangeAttack")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("FeatureSetRavenSharpShooter", Category.Feature)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())

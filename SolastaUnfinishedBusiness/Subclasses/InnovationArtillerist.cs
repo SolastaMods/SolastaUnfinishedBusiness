@@ -435,7 +435,7 @@ public static class InnovationArtillerist
 
         var combatAffinityFortifiedPosition = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{FortifiedPosition}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature)
             .SetPermanentCover(CoverType.Half)
             .AddToDB();
 

@@ -192,7 +192,7 @@ internal static class RangedCombatFeats
 
         var combatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
