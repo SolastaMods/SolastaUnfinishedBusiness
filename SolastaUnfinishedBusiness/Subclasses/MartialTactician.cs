@@ -25,14 +25,17 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
-        var unlearn = BuildUnlearn();
-
         // BACKWARD COMPATIBILITY
+        BuildTacticalSurge();
+
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn1")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit)
             .AddToDB();
+        // END BACKWARD
+
+        var unlearn = BuildUnlearn();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -42,10 +45,12 @@ internal sealed class MartialTactician : AbstractSubclass
                 GambitsBuilders.Learn4Gambit)
             .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8),
                 GambitsBuilders.Learn2Gambit, unlearn)
-            .AddFeaturesAtLevel(10, BuildStrategicPlan(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(10, BuildStrategicPlan(), BuildGambitDieSize(DieType.D10),
+                unlearn)
             .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
                 GambitsBuilders.Learn2Gambit, unlearn)
-            .AddFeaturesAtLevel(18, BuildTacticalSurge(), BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(18, BuildTacticalAwareness(), BuildGambitDieSize(DieType.D12),
+                unlearn)
             .AddToDB();
 
         GambitsBuilders.BuildGambits();
@@ -226,6 +231,31 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildTacticalAwareness()
+    {
+        var additionalDamageTacticalAwareness = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageTacticianTacticalAwareness")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("TacticalAwareness")
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .AddToDB();
+
+        var combatAffinityTacticalAwareness = FeatureDefinitionCombatAffinityBuilder
+            .Create("CombatAffinityTacticianTacticalAwareness")
+            .SetGuiPresentation("FeatureSetTacticianTacticalAwareness", Category.Feature)
+            .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
+            .AddToDB();
+
+        combatAffinityTacticalAwareness.SetCustomSubFeatures(
+            new PhysicalAttackInitiatedTacticalAwareness(combatAffinityTacticalAwareness));
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTacticianTacticalAwareness")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(additionalDamageTacticalAwareness, combatAffinityTacticalAwareness)
+            .AddToDB();
+    }
 
     private static FeatureDefinition BuildTacticalSurge()
     {
@@ -469,6 +499,33 @@ internal sealed class MartialTactician : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             character.UpdateUsageForPower(power, charges);
+        }
+    }
+
+    private sealed class PhysicalAttackInitiatedTacticalAwareness : IPhysicalAttackInitiated
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public PhysicalAttackInitiatedTacticalAwareness(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            if (attackerAttackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            {
+                yield break;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
         }
     }
 }
