@@ -1030,7 +1030,7 @@ internal static class ClassFeats
             {
                 yield break;
             }
-            
+
             if (ValidatorsCharacter.HasNoneOfConditions(
                     "ConditionFeatSlayTheEnemies1",
                     "ConditionFeatSlayTheEnemies2",

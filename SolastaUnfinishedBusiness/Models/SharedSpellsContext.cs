@@ -365,6 +365,7 @@ internal static class SharedSpellsContext
         new() { Slots = new List<int> { 1, 1 }, Level = 20 }
     };
 
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Global
     internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } = new()
     {
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 01 },

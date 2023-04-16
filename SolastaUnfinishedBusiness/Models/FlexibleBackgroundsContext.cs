@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterBackgroundDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -210,7 +209,7 @@ internal static class FlexibleBackgroundsContext
         RemovedFeatures.Add(backgroundFarmer,
             new List<FeatureDefinition>
             {
-                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>($"ProficiencyBackgroundFarmerSkills")
+                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyBackgroundFarmerSkills")
             });
     }
 

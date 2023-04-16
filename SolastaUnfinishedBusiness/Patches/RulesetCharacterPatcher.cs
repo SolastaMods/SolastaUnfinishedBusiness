@@ -1389,7 +1389,8 @@ public static class RulesetCharacterPatcher
                          .Where(x => x.IsValid(rulesetActor))
                          .Select(x => x.ConcentrationAttribute(rulesetActor)))
             {
-                if (rulesetActor.TryGetAttributeValue(attribute) > rulesetActor.TryGetAttributeValue(attributeScore))
+                // get the last one instead unless we start using this with other subs and then need to decide which one is better
+                // if (rulesetActor.TryGetAttributeValue(attribute) > rulesetActor.TryGetAttributeValue(attributeScore))
                 {
                     attributeScore = attribute;
                 }
