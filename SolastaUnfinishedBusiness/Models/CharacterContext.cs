@@ -142,6 +142,7 @@ internal static class CharacterContext
         LoadAdditionalNames();
         BuildMonkWeaponSpecialization();
         SwitchHelpPower();
+        FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
