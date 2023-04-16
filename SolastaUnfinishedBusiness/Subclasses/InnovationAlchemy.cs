@@ -4,9 +4,10 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Spells;
@@ -35,8 +36,8 @@ public static class InnovationAlchemy
                 Sprites.GetSprite("InventorAlchemist", Resources.InventorAlchemist, 256))
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
-            .AddFeaturesAtLevel(9, AdvancedBombs)
-            .AddFeaturesAtLevel(15, BuildExtraOverchargeFeature())
+            .AddFeaturesAtLevel(9, AdvancedBombs, BuildExtraOverchargeFeature())
+            .AddFeaturesAtLevel(15, BuildMasterOverchargeFeature())
             .AddToDB();
     }
 
@@ -715,11 +716,19 @@ public static class InnovationAlchemy
             .AddToDB();
     }
 
-
     private static FeatureDefinition BuildExtraOverchargeFeature()
     {
         return FeatureDefinitionBuilder
             .Create("FeatureInnovationAlchemyExtraOverchargeBombs")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(OverchargeFeature.Marker)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildMasterOverchargeFeature()
+    {
+        return FeatureDefinitionBuilder
+            .Create("FeatureInnovationAlchemyMasterOverchargeBombs")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(OverchargeFeature.Marker)
             .AddToDB();
@@ -749,17 +758,18 @@ public static class InnovationAlchemy
         private static readonly (int, int)[] None = Array.Empty<(int, int)>();
         private static readonly (int, int)[] Once = { (1, 1) };
         private static readonly (int, int)[] Twice = { (1, 1), (2, 2) };
+        private static readonly (int, int)[] Trice = { (1, 1), (2, 2), (3, 3) };
 
         public (int, int)[] OverchargeSteps(RulesetCharacter character)
         {
             var overcharges = character.GetSubFeaturesByType<OverchargeFeature>().Count;
 
-            if (overcharges >= 2)
+            return overcharges switch
             {
-                return Twice;
-            }
-
-            return overcharges >= 1 ? Once : None;
+                >= 3 => Trice,
+                >= 2 => Twice,
+                _ => overcharges >= 1 ? Once : None
+            };
         }
     }
 }
