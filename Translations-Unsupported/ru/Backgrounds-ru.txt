@@ -1,6 +1,0 @@
-Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Владение дубинами и ручными топорами. +1, чтобы поразить их.
-Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Фермерское оружие
-Feature/&ProficiencyBackgroundFarmerSkillsDescription=Обращение с животными, природа и восприятие
-Feature/&ProficiencyBackgroundFarmerSkillsTitle=Навыки фермера
-Background/&BackgroundFarmerDescription=Вы работали на земле и разводили домашний скот с самого рождения, чтобы накормить многих. Как фермер, вы просыпаетесь до восхода солнца и возвращаетесь с работы после его захода. Вы оставили мирскую жизнь в поисках приключений ради острых ощущений, славы или богатства.
-Background/&BackgroundFarmerTitle=Фермер
