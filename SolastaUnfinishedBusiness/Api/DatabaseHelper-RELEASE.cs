@@ -937,6 +937,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Mace { get; } = GetDefinition<ItemDefinition>("Mace");
         internal static ItemDefinition MacePlus2 { get; } = GetDefinition<ItemDefinition>("Mace+2");
         internal static ItemDefinition Maul { get; } = GetDefinition<ItemDefinition>("Maul");
+        internal static ItemDefinition MonkArmor { get; } = GetDefinition<ItemDefinition>("MonkArmor");
         internal static ItemDefinition Morningstar { get; } = GetDefinition<ItemDefinition>("Morningstar");
         internal static ItemDefinition MorningstarPlus2 { get; } = GetDefinition<ItemDefinition>("Morningstar+2");
         internal static ItemDefinition PaddedLeather { get; } = GetDefinition<ItemDefinition>("PaddedLeather");

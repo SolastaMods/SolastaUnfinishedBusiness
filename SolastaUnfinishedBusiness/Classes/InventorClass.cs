@@ -23,7 +23,7 @@ namespace SolastaUnfinishedBusiness.Classes;
 internal static class InventorClass
 {
     internal const string ClassName = "Inventor";
-
+    internal const string InventorConstructFamily = "InventorConstruct";
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
@@ -50,6 +50,14 @@ internal static class InventorClass
 
     public static CharacterClassDefinition Build()
     {
+        // Inventor Constructor Family
+
+        _ = CharacterFamilyDefinitionBuilder
+            .Create(InventorConstructFamily)
+            .SetGuiPresentation(Category.MonsterFamily)
+            .IsExtraPlanar()
+            .AddToDB();
+
         var learn2Infusion = BuildLearn(2);
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
