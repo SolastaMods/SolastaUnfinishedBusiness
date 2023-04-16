@@ -10,7 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class GuardianAuraHpSwap
 {

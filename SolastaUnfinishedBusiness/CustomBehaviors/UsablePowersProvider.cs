@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class UsablePowersProvider
 {

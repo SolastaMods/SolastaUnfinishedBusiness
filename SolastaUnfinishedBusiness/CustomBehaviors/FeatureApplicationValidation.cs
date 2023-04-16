@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class FeatureApplicationValidation
 {

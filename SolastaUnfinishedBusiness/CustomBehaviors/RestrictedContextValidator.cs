@@ -1,8 +1,9 @@
 ﻿using System;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal delegate (OperationType, bool) IsContextValidHandler(
     BaseDefinition definition,

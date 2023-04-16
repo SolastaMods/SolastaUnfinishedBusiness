@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 //Old Attack of Opportunity before it became too narrow to use
 internal static class DefensiveStrikeAttack

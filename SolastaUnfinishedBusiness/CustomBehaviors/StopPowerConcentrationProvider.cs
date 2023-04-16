@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine.AddressableAssets;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal sealed class StopPowerConcentrationProvider : ICustomConcentrationProvider
 {

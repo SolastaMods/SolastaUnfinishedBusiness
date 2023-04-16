@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal interface ICustomOverchargeProvider
 {

@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class DoNotTerminateWhileUnconscious : IShouldTerminateEffect
 {

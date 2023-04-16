@@ -3,9 +3,10 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -127,7 +128,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                        .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract", Category.Feature)
+                                        .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
+                                            Category.Feature)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .AddToDB())
                                     .AddToDB(),

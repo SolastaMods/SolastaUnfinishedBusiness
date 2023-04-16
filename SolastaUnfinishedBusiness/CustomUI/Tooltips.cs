@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 

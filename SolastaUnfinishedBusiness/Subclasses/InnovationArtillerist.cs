@@ -7,9 +7,10 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -734,7 +735,7 @@ public static class InnovationArtillerist
         {
             return power;
         }
-        
+
         power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;
@@ -839,7 +840,7 @@ public static class InnovationArtillerist
         {
             return power;
         }
-        
+
         power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;

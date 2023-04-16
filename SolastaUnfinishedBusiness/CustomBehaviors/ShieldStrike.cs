@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class ShieldStrike
 {

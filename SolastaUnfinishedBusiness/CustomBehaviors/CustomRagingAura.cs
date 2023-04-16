@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.CustomValidators;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 // this custom behavior allows an aura type power to start on rage and get terminated on rage stop
 // it also enforce the condition to any other aura participant as soon as the barb enters rage

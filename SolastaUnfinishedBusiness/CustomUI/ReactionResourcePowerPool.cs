@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.CustomValidators;
+﻿using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine.AddressableAssets;
 

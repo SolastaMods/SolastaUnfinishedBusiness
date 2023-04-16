@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.CustomValidators;
+﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class PowerFromInvocation : PowerVisibilityModifier
 {
