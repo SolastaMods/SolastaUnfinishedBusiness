@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=你的敌人正在退缩！
+Condition/&ConditionDualFlurryGrantDescription=你的敌人正在退缩！
 Condition/&ConditionDualFlurryGrantTitle=双重乱舞
 Feat/&FeatDualFlurryDescription=你是使用成对武器战斗的高手。当你在一回合内双持武器且命中两次时，你可以在用你的附赠动作进行一次额外的副手攻击。
 Feat/&FeatDualFlurryTitle=双重乱舞

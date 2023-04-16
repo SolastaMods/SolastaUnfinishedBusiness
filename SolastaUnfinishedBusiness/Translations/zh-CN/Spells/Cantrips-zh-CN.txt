@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=装甲等级降低1。
+Condition/&ConditionAcidClawsDescription=护甲等级(AC)降低1。
 Condition/&ConditionAcidClawsTitle=酸灼之爪
 Condition/&ConditionMindSpikeDescription=从下一次豁免中减去 1d4。
 Condition/&ConditionMindSpikeTitle=心灵尖峰
@@ -32,7 +32,7 @@ Spell/&MinorLifestealDescription=你从射程内一个你能看见的敌对生�
 Spell/&MinorLifestealTitle=初级吸血
 Spell/&ResonatingStrikeDescription=选择一个在你近战范围内的生物和一个你可以在主要目标 5 尺范围内看到的不同生物。你用当前武器对第一个生物进行近战攻击。击中目标时，目标会受到武器攻击的正常效果，共鸣声会跳向第二个目标，造成等同于你的施法能力调整值的雷电伤害。\n在 5 级时，近战攻击会对目标造成额外的 1d8 雷电伤害一击，第二个生物的雷电伤害增加到 1d8 + 你的施法能力调整值。在 11 级和 17 级时，两次伤害检定均增加 1d8。
 Spell/&ResonatingStrikeTitle=回响打击
-Spell/&SunlightBladeDescription=使用武器进行近战攻击。一旦命中，目标将受到攻击的正常效果，并被炽热的辐射能量所包围，在本回合中散发出昏暗的光芒。当此生物被突出显示时，下一次对该生物的攻击具有优势。\n在 5 级时，近战攻击会对目标造成额外的 1d8 光耀伤害。伤害在 11 级和 17 级时再增加 1d8。
+Spell/&SunlightBladeDescription=使用武器进行近战攻击。一旦命中，目标将受到攻击的正常效果，并被炽热的光耀能量所包围，在本回合中散发出昏暗的光芒。当此生物被突出显示时，下一次对该生物的攻击具有优势。\n在 5 级时，近战攻击会对目标造成额外的 1d8 光耀伤害。伤害在 11 级和 17 级时再增加 1d8。
 Spell/&SunlightBladeTitle=阳光之刃
 Spell/&SwordStormDescription=你创造了一个瞬间环绕着你的光谱刀片圆圈。距离你 5 尺以内的所有其他生物都必须成功通过一次敏捷豁免，否则将受到 1d6 力场伤害。
 Spell/&SwordStormTitle=剑风暴

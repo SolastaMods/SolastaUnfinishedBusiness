@@ -1,0 +1,14 @@
+Feature/&CastSpellFairyDescription=You know the <b>Burst of Radiance</b> cantrip. At 3rd level you learn <b>Faerie Fire</b> and at 5th level, <b>Color Burst</b>. Both can be used once per long rest.
+Feature/&CastSpellFairyTitle=Fairy Magic
+Feature/&FeatureSetFairyAbilityScoreDescription=Dexterity +2, Intelligence, Wisdom or Charisma +1
+Feature/&FeatureSetFairyAbilityScoreTitle=Ability Scores
+Feature/&FeatureSetFairyFlightDescription=Because of your wings, you have a flying speed equal to your walking speed. You can't use this flying speed if you're wearing medium or heavy armor.
+Feature/&FeatureSetFairyFlightTitle=Flight
+Feature/&FeatureSetFairyLanguagesDescription=Common, any other language
+Feature/&FeatureSetFairyLanguagesTitle=Languages
+Feature/&PowerFairyFlightDismissDescription=Dismiss your flight.
+Feature/&PowerFairyFlightDismissTitle=Dismiss Flight
+Feature/&PowerFairyFlightSproutDescription=As an action, you can give yourself a flying speed equal to your walking speed. You can't use this if you're wearing medium or heavy armor.
+Feature/&PowerFairyFlightSproutTitle=Flight
+Race/&RaceFairyDescription=The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
+Race/&RaceFairyTitle=Fairy

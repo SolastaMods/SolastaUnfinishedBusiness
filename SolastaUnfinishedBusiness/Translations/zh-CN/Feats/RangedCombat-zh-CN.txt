@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=你在下一次攻击检定上有优势。
+Condition/&ConditionFeatSteadyAimAdvantageDescription=你在下一次攻击检定上有优势。
 Condition/&ConditionFeatSteadyAimAdvantageTitle=稳步瞄准
 Condition/&ConditionFeatSteadyAimRestrainedDescription=在你的回合结束之前你不能移动。
 Condition/&ConditionFeatSteadyAimRestrainedTitle=受 稳步瞄准 限制

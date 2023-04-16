@@ -5,4 +5,4 @@ Feature/&PowerFieldManipulatorDominatePersonTitle=支配人类
 Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=熟练掌握智力和感知的豁免检定。
 Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=心理抵抗
 Subclass/&FieldManipulatorDescription=战场操纵者擅长控制战场并防止敌人攻击他们。
-Subclass/&FieldManipulatorTitle=现场操纵者
+Subclass/&FieldManipulatorTitle=战场操纵者

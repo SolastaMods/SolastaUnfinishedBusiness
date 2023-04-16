@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
+Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
 Feature/&AdditionalDamageStaggeringSmiteTitle=惊震斩
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊震斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊震斩对 {1} 造成更多伤害 (+{2})

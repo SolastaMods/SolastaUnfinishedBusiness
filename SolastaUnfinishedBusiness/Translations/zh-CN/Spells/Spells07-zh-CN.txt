@@ -1,4 +1,4 @@
-﻿Condition/&ConditionReverseGravityDescription=被重力反转捕获。
+Condition/&ConditionReverseGravityDescription=被重力反转捕获。
 Condition/&ConditionReverseGravityTitle=重力反转
 Spell/&ReverseGravityDescription=该法术以范围内的一点为中心，在半径 50 尺、高 100 尺的圆柱体中反转重力。
 Spell/&ReverseGravityTitle=重力反转

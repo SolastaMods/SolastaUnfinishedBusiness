@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=在轮到你第一次杀死敌人时，你可以进行一次额外攻击。此外，每次杀死敌人时，你的偷袭都可以在同一回合重复使用。
+Feature/&AdditionalActionRavenKillingSpreeDescription=在轮到你第一次杀死敌人时，你可以进行一次额外攻击。此外，每次杀死敌人时，你的偷袭都可以在同一回合重复使用。
 Feature/&AdditionalActionRavenKillingSpreeTitle=杀人狂魔
 Feature/&AttackModifierRavenHeartSeekingShotDescription=你的攻击受到 -4 命中惩罚。
 Feature/&AttackModifierRavenHeartSeekingShotTitle=寻心针

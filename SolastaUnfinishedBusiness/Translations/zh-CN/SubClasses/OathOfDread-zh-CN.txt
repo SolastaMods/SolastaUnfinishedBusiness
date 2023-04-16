@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=如果你感到害怕或恐惧，你的速度会降低到 0，并且你会受到等同于发射者圣武士等级一半的心灵伤害。
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=如果你感到害怕或恐惧，你的速度会降低到 0，并且你会受到等同于发射者圣武士等级一半的心灵伤害。
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=征服灵光
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=标记在针对你的攻击检定上具有优势。
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=惩戒印记

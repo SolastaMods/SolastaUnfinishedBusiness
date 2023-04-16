@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=你的重力被否定了。
+Condition/&ConditionMoonlitMoonTouchedDescription=你的重力被否定了。
 Condition/&ConditionMoonlitMoonTouchedTitle=潮汐引力
 Feature/&BonusCantripsMoonlitDescription=你对月光的控制已经提高到一个新的水平。你可以随意施放法术<b>Moonbeam</b> 和<b>Faerie Fire</b>。
 Feature/&BonusCantripsMoonlitTitle=月光控制

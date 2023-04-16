@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=你不能被约束。
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=你不能被约束。
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=裂谷自由
 Feature/&BonusCantripRiftWalkWardingBondDescription=你对裂隙门户的控制已经增加到你现在可以将裂隙的保护授予他人的程度。你可以随意施放守卫羁绊（不分摊伤害）。
 Feature/&BonusCantripRiftWalkWardingBondTitle=裂隙披风

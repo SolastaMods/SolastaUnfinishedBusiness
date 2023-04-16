@@ -1,7 +1,7 @@
 Condition/&ConditionOpportunistDebilitatedDescription=一轮中你所有的豁免检定都会减少 1D6。
 Condition/&ConditionOpportunistDebilitatedTitle=身体虚弱
 Condition/&ConditionOpportunistExposedDescription=敌人在攻击你时有优势。
-Condition/&ConditionOpportunistExposedTitle=裸露
+Condition/&ConditionOpportunistExposedTitle=暴露
 Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=从第 13 级开始，当一个敌人在一次豁免检定中失败并且还没有轮到你时，你可以使用你的反应对其进行攻击。这里可以触发偷袭。
 Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=趁机
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=从第 3 级开始，你在攻击先攻比你低的敌人时具有优势。此外，你在进行借机攻击时也有优势。

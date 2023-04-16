@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDistantHandDistractDescription=下次攻击有劣势。
+Condition/&ConditionWayOfTheDistantHandDistractDescription=下次攻击有劣势。
 Condition/&ConditionWayOfTheDistantHandDistractTitle=分心
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractDescription=对所有攻击都有劣势。
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractTitle=分心

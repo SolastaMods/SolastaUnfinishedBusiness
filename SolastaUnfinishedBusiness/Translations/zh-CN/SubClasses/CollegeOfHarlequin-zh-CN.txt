@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=你的战斗力大大增强。
+Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=你的战斗力大大增强。
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=启发
 Condition/&ConditionTerrifiedByHarlequinPerformanceDescription=目睹盟友被残忍杀害后感到恐惧。
 Condition/&ConditionTerrifiedByHarlequinPerformanceTitle=恐惧
@@ -15,7 +15,7 @@ Feature/&PowerCollegeOfHarlequinTerrificPerformanceImprovedDescription=你以一
 Feature/&PowerCollegeOfHarlequinTerrificPerformanceImprovedTitle=改进的出色性能
 Feature/&PowerCollegeOfHarlequinTerrificPerformanceTitle=出色的表现
 Feature/&ProficiencyCollegeOfHarlequinFightingStyleDescription=当你进行双武器战斗时，你可以将你的能力修正值添加到第二次攻击的伤害中。
-Feature/&ProficiencyCollegeOfHarlequinFightingStyleTitle=双兵器格斗术训练
+Feature/&ProficiencyCollegeOfHarlequinFightingStyleTitle=双武器格斗训练
 Feature/&ProficiencyCollegeOfHarlequinMartialWeaponDescription=精通所有简单和武术武器。
 Feature/&ProficiencyCollegeOfHarlequinMartialWeaponTitle=武术训练
 Feedback/&BardicInspirationUsedToBoostCombatAbility={0} 花费 {2} 个吟游诗人灵感骰子来将攻击加值和移动速度提高 {3}

@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=你对元素能量的控制已经增加到你现在对较弱元素的支配程度。你可以随意施展召唤次要元素。
+Feature/&BonusCantripElementalistMinorElementalDescription=你对元素能量的控制已经增加到你现在对较弱元素的支配程度。你可以随意施展召唤次要元素。
 Feature/&BonusCantripElementalistMinorElementalTitle=元素仆从
 Feature/&ElementalPatronAirPlane=气位面
 Feature/&ElementalPatronEarthPlane=土位面

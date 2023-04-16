@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=被灵魂诅咒诅咒。
+Condition/&ConditionSoulBladeHexDefenderDescription=被灵魂诅咒诅咒。
 Condition/&ConditionSoulBladeHexDefenderTitle=灵魂魔咒
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=算作魔法并使用魅力修正值进行攻击和伤害检定。
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=灵魂赋能

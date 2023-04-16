@@ -1,11 +1,11 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=当你用攻击命中或用法术造成伤害时，将你的魅力调整值作为奖励力场伤害添加到该攻击或法术的一次伤害检定中。
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=战争法师
-Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=你获得轻甲、中甲和军用武器的熟练项。
-Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=武术训练
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=你的护甲等级(AC)提高 2，并且你在敏捷豁免检定中获得熟练。
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=战斗反应
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=你可以使用附赠动作获得等于你的术士等级 + 魅力调整值的临时生命值，持续一分钟，每次长休的次数等于你的熟练加值。如果你用完了，你可以花费两个魔法点来代替。
-Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=法力盾
+Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=法力护盾
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=你获得轻甲、中甲和军用武器的熟练项。
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=武术训练
 Feedback/&AdditionalDamageWarSorcererFormat=战争法师
 Feedback/&AdditionalDamageWarSorcererLine={0} 对 {1} (+{2}) 造成战争术士伤害
 Subclass/&SorcerousSpellBladeDescription=力刃 将武术实力与天生的魔法天赋相结合，以战胜敌人。
