@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static RuleDefinitions;
@@ -17,6 +18,62 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class WayOfTheDiscordance : AbstractSubclass
 {
     private const string Name = "WayOfTheDiscordance";
+
+
+    private const string ConditionProfoundTurmoilName = $"Condition{Name}ProfoundTurmoil";
+
+    private static readonly ConditionDefinition ConditionProfoundTurmoil = ConditionDefinitionBuilder
+        .Create(ConditionProfoundTurmoilName)
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
+        .SetPossessive()
+        .SetConditionType(ConditionType.Detrimental)
+        .SetSpecialDuration(DurationType.Minute, 1)
+        .AddFeatures(
+            FeatureDefinitionSavingThrowAffinityBuilder
+                .Create($"SavingThrowAffinity{Name}ProfoundTurmoil")
+                .SetGuiPresentation(ConditionProfoundTurmoilName, Category.Condition)
+                .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
+                    Charisma, Constitution, Dexterity, Intelligence, Strength, Wisdom)
+                .AddToDB(),
+            FeatureDefinitionAttackModifierBuilder
+                .Create($"AttackModifier{Name}ProfoundTurmoil")
+                .SetGuiPresentation(ConditionProfoundTurmoilName, Category.Condition)
+                .SetAttackRollModifier(-2)
+                .AddToDB())
+        .AddToDB();
+
+    private static readonly ConditionDefinition ConditionProfoundTurmoilMark = ConditionDefinitionBuilder
+        .Create($"Condition{Name}ProfoundTurmoilMark")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration(DurationType.Permanent)
+        .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionPower PowerProfoundTurmoil = FeatureDefinitionPowerBuilder
+        .Create($"Power{Name}ProfoundTurmoil")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesFixed(ActivationTime.NoCost)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetSavingThrowData(false, Charisma, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.None)
+                        .SetConditionForm(ConditionProfoundTurmoilMark, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                        .SetConditionForm(ConditionProfoundTurmoil, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+        .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+        .AddToDB();
 
     internal WayOfTheDiscordance()
     {
@@ -51,6 +108,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetReactionContext((ReactionTriggerContext)ExtraReactionContext.Custom)
             .AddToDB();
+
+        powerDiscordance.SetCustomSubFeatures(
+            new AfterAttackEffectDiscordance(conditionDiscordance, powerDiscordanceDamage));
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
@@ -122,60 +182,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        const string CONDITION_PROFOUND_TURMOIL = $"Condition{Name}ProfoundTurmoil";
-
-        var conditionProfoundTurmoil = ConditionDefinitionBuilder
-            .Create(CONDITION_PROFOUND_TURMOIL)
-            .SetGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .AddFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinity{Name}ProfoundTurmoil")
-                    .SetGuiPresentation(CONDITION_PROFOUND_TURMOIL, Category.Condition)
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
-                        Charisma, Constitution, Dexterity, Intelligence, Strength, Wisdom)
-                    .AddToDB(),
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"AttackModifier{Name}ProfoundTurmoil")
-                    .SetGuiPresentation(CONDITION_PROFOUND_TURMOIL, Category.Condition)
-                    .SetAttackRollModifier(-2)
-                    .AddToDB())
-            .AddToDB();
-
-        var conditionProfoundTurmoilMark = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ProfoundTurmoilMark")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
-            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
-            .AddToDB();
-
-        var powerProfoundTurmoil = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ProfoundTurmoil")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(false, Charisma, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, Wisdom, 8)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.None)
-                            .SetConditionForm(conditionProfoundTurmoilMark, ConditionForm.ConditionOperation.Add)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
-                            .SetConditionForm(conditionProfoundTurmoil, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
-        powerDiscordance.SetCustomSubFeatures(
-            new AfterAttackEffectDiscordance(
-                conditionDiscordance, powerDiscordanceDamage, conditionProfoundTurmoilMark, powerProfoundTurmoil));
 
         //
         // MAIN
@@ -187,7 +193,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .AddFeaturesAtLevel(3, featureSetDiscordance)
             .AddFeaturesAtLevel(6, featureSetSchism)
             .AddFeaturesAtLevel(11, powerBurstOfDisharmonyPool)
-            .AddFeaturesAtLevel(17, powerProfoundTurmoil)
+            .AddFeaturesAtLevel(17, PowerProfoundTurmoil)
             .AddToDB();
     }
 
@@ -199,25 +205,36 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+
+    private static void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
+    {
+        var rulesetDefender = defender?.RulesetCharacter;
+
+        if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name))
+        {
+            return;
+        }
+
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var rulesetPower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
+        var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
+
+        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+    }
+
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
     private sealed class AfterAttackEffectDiscordance : IOnAfterActionFeature, IAfterAttackEffect
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
-        private readonly ConditionDefinition _conditionProfoundTurmoilMark;
         private readonly FeatureDefinitionPower _powerDiscordanceDamage;
-        private readonly FeatureDefinitionPower _powerProfoundTTurmoil;
 
         public AfterAttackEffectDiscordance(
             ConditionDefinition conditionDiscordance,
-            FeatureDefinitionPower powerDiscordanceDamage,
-            ConditionDefinition conditionProfoundTurmoilMark,
-            FeatureDefinitionPower powerProfoundTTurmoil)
+            FeatureDefinitionPower powerDiscordanceDamage)
         {
             _conditionDiscordance = conditionDiscordance;
             _powerDiscordanceDamage = powerDiscordanceDamage;
-            _conditionProfoundTurmoilMark = conditionProfoundTurmoilMark;
-            _powerProfoundTTurmoil = powerProfoundTTurmoil;
         }
 
         // only add condition if monk weapon or unarmed
@@ -240,16 +257,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 return;
             }
 
-            // 
             ApplyCondition(attacker, defender, _conditionDiscordance);
-
-            // Profound Turmoil
-            if (GetMonkLevel(attacker.RulesetCharacter) <= 16)
-            {
-                return;
-            }
-
-            ApplyProfoundTurmoil(attacker, defender);
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -274,7 +282,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             if (GetMonkLevel(rulesetAttacker) >= 6)
             {
                 foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                             .Where(t => !t.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             .Where(t => t.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                                          t.RulesetCharacter.AllConditions
                                              .Any(x => x.ConditionDefinition ==
                                                        ConditionDefinitions.ConditionStunned_MonkStunningStrike &&
@@ -287,6 +295,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
             // although it should be one target only, we better keep it compatible for any future feature
             foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
+                         .Where(x => x.RulesetCharacter != null)
                          .Select(gameLocationCharacter => new
                          {
                              gameLocationCharacter,
@@ -300,12 +309,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                          .Select(t => t.gameLocationCharacter)
                          .ToList()) // avoid changing enumerator
             {
-                var rulesetDefender = gameLocationDefender?.RulesetCharacter;
-
-                if (rulesetDefender == null)
-                {
-                    continue;
-                }
+                var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
                 // remove conditions up to the limit to also support Schism scenario
                 rulesetDefender.AllConditions
@@ -326,8 +330,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     continue;
                 }
 
-                damageForm.BonusDamage =
-                    rulesetAttacker.TryGetAttributeValue(ProficiencyBonus) / 2;
+                damageForm.BonusDamage = rulesetAttacker.TryGetAttributeValue(ProficiencyBonus) / 2;
                 damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                     .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 
@@ -335,6 +338,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
+
+                ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
         }
 
@@ -359,22 +364,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         private static int GetMonkLevel(RulesetCharacter rulesetCharacter)
         {
             return rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
-        }
-
-        private void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender.HasAnyConditionOfType(_conditionProfoundTurmoilMark.Name))
-            {
-                return;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetPower = UsablePowersProvider.Get(_powerProfoundTTurmoil, rulesetAttacker);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
-
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 }

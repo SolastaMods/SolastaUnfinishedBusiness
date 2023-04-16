@@ -1,0 +1,257 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 120,
+  "maximalAge": 750,
+  "baseHeight": 1,
+  "baseWeight": 35,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetFairyAbilityScore:077d5868-a04a-5516-a251-74532dda5691",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetFairyFlight:4188c373-9edd-5b39-ba6f-2aedd3d40ac1",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetFairyLanguages:b52c757c-db73-5fd9-ac00-cadfec4e8150",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellFairy:039073a8-0a8d-5cc1-bf62-8a7c816bafda",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ElfFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Orc",
+    "Language_Goblin",
+    "Language_Goblin"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 3.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "armorAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Elf",
+    "morphotypeAssetPrefix": "Elf",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars",
+      "Musculature"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Daliat_Sunbird",
+      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
+      "FaceShape_NPC_Iolair_Faisech",
+      "FaceShape_NPC_Llygath_Steelmind",
+      "FaceShape_NPC_Mardracht",
+      "FaceShape_NPC_Medwal_Strongfire",
+      "FaceShape_NPC_Nobleman",
+      "FaceShape_NPC_Orenetis",
+      "FaceShape_NPC_Serafiel_Anfarel",
+      "FaceShape_NPC_Lysantir",
+      "FaceShape_NPC_Esfalad_Graymas",
+      "FaceShape_NPC_Telerien_Purevoice"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Ceiwad_Silverflower",
+      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
+      "FaceShape_NPC_Idriel_Fair_Brow",
+      "FaceShape_NPC_Joriel_Fox_Eye",
+      "FaceShape_NPC_Kiaradth_BrightSpark",
+      "FaceShape_NPC_Kythaela_Wildspring",
+      "FaceShape_NPC_Lizzaria_of_Grimhold",
+      "FaceShape_NPC_Ellaria_Anfarel",
+      "FaceShape_NPC_Finaliel_SharpMind",
+      "FaceShape_NPC_Malariel_Brogarad",
+      "FaceShape_NPC_Samko_Flint"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    },
+    "musicalInstrumentScale": 1.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceFairyTitle",
+    "description": "Race/&RaceFairyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2f8b66cf-7780-59c0-82d4-1d9a9c1fbc0e",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "74354fd1-0766-5588-aad0-70e0a2dc120d",
+  "contentPack": 9999,
+  "name": "RaceFairy"
+}

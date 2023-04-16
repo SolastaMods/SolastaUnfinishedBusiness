@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -192,7 +193,7 @@ internal static class RangedCombatFeats
 
         var combatAffinity = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 

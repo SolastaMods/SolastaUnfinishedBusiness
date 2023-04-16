@@ -2,7 +2,7 @@
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
-  "characterFamily": "FamilyEldritchCannon",
+  "characterFamily": "InventorConstruct",
   "creatureTags": [
     "EldritchCannon"
   ],

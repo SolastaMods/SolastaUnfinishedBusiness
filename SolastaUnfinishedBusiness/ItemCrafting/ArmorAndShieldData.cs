@@ -33,7 +33,9 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.ItemDefinitions.Plate,
                     DatabaseHelper.ItemDefinitions.SorcererArmor,
                     DatabaseHelper.ItemDefinitions.BarbarianClothes,
-                    DatabaseHelper.ItemDefinitions.Warlock_Armor
+                    DatabaseHelper.ItemDefinitions.Warlock_Armor,
+                    DatabaseHelper.ItemDefinitions.MonkArmor,
+                    DatabaseHelper.ItemDefinitions.ClothesWizard
                 },
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
@@ -51,7 +53,7 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_HalfplateOfSturdiness),
                 new("Robustness", DatabaseHelper.ItemDefinitions.Enchanted_HalfPlateOfRobustness,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_HalfplateOfRobustness),
-                new(SkillDefinitions.Survival, DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfSurvival,
+                new("Survival", DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfSurvival,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LeatherArmorOfSurvival),
                 new("FlameDancing", DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfFlameDancing,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LeatherArmorOfFlameDancing),

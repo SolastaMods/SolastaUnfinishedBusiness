@@ -53,7 +53,7 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [
-      "FamilyEldritchCannon"
+      "InventorConstruct"
     ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],

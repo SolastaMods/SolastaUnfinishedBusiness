@@ -1,4 +1,6 @@
-﻿Condition/&ConditionMirrorImageDescription=Les ennemis peuvent accidentellement cibler ce doublon à votre place. Si le doublon est atteint, il disparaît.
+﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=Vous devez effectuer un test de Force pour sortir de cette condition.
+Condition/&ConditionGrappledRestrainedSpellWebTitle=Retenu par le Web
+Condition/&ConditionMirrorImageDescription=Les ennemis peuvent accidentellement cibler ce doublon à votre place. Si le doublon est atteint, il disparaît.
 Condition/&ConditionMirrorImageTitle=Dupliquer en miroir
 Feedback/&MirrorImageAttackerHasSense={0} a {1} et ignore {2}
 Feedback/&MirrorImageAttackerIsBlind={0} est {1} et ignore {2}

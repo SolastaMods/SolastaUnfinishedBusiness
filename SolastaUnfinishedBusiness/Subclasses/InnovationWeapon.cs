@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
@@ -22,15 +23,19 @@ public static class InnovationWeapon
     private const string SteelDefenderTag = "SteelDefender";
     private const string CommandSteelDefenderCondition = "ConditionInventorWeaponSteelDefenerCommand";
     private const string SummonSteelDefenderPower = "PowerInnovationWeaponSummonSteelDefender";
+    private const string SummonAdvancedSteelDefenderPower = "PowerInnovationWeaponSummonAdvancedSteelDefender";
 
     public static CharacterSubclassDefinition Build()
     {
+        var steelDefenderFeatureSet = BuildSteelDefenderFeatureSet(out var steelDefenderPower);
+
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationWeapon")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorWeapon", Resources.InventorWeapon, 256))
-            .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), BuildSteelDefenderFeatureSet())
+            .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), steelDefenderFeatureSet)
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddFeaturesAtLevel(9, BuildArcaneJolt())
+            .AddFeaturesAtLevel(15, BuildImprovedDefenderFeatureSet(steelDefenderPower))
             .AddToDB();
     }
 
@@ -69,14 +74,16 @@ public static class InnovationWeapon
             .AddToDB();
     }
 
-    private static FeatureDefinition BuildSteelDefenderFeatureSet()
+    private static FeatureDefinition BuildSteelDefenderFeatureSet(out FeatureDefinitionPower steelDefenderPower)
     {
+        steelDefenderPower = BuildSteelDefenderPower();
+
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 //TODO: add short-rest camping activity to Inventor that would heal Blade by 1d8, Inventor level times per long rest, similar to Hit Die rolling by heroes 
-                BuildSteelDefenderPower(),
+                steelDefenderPower,
                 BuildCommandSteelDefender(),
                 BuildSteelDefenderShortRestRecovery(),
                 BuildSteelDefenderAffinity()
@@ -128,7 +135,8 @@ public static class InnovationWeapon
 
     private static RulesetCharacter GetBladeDefender(RulesetCharacter character)
     {
-        var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+        var bladeEffect = character.powersUsedByMe.Find(p =>
+            p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
 
         return summons.Empty() ? null : summons[0];
@@ -155,7 +163,7 @@ public static class InnovationWeapon
             blade.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
-    private static FeatureDefinition BuildSteelDefenderPower()
+    private static FeatureDefinitionPower BuildSteelDefenderPower()
     {
         var defender = BuildSteelDefenderMonster();
 
@@ -175,6 +183,34 @@ public static class InnovationWeapon
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
+            .SetCustomSubFeatures(
+                DoNotTerminateWhileUnconscious.Marker,
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildAdvancedSteelDefenderPower(FeatureDefinitionPower overridenPower)
+    {
+        var defender = BuildAdvancedSteelDefenderMonster();
+
+        return FeatureDefinitionPowerBuilder
+            .Create(SummonAdvancedSteelDefenderPower)
+            .SetGuiPresentation(SummonSteelDefenderPower, Category.Feature,
+                Sprites.GetSprite("SteelDefenderPower", Resources.SteelDefenderPower, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Permanent)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetSummonCreatureForm(1, defender.Name)
+                    .Build())
+                .SetParticleEffectParameters(ConjureElementalAir)
+                .Build())
+            .SetUniqueInstance()
+            .SetOverriddenPower(overridenPower)
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
@@ -205,8 +241,10 @@ public static class InnovationWeapon
         var savingThrows = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityInnovationWeaponSummonSteelDefender")
             .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(new AddPBToSummonCheck(1, AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution))
+            .SetCustomSubFeatures(
+                new AddPBToSummonCheck(1,
+                    AttributeDefinitions.Dexterity,
+                    AttributeDefinitions.Constitution))
             .AddToDB();
 
         var skills = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -269,7 +307,7 @@ public static class InnovationWeapon
 
     private static MonsterDefinition BuildSteelDefenderMonster()
     {
-        var rend = MonsterAttackDefinitionBuilder
+        var monsterAttackSteelDefender = MonsterAttackDefinitionBuilder
             .Create("MonsterAttackSteelDefender")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetToHitBonus(0)
@@ -301,8 +339,7 @@ public static class InnovationWeapon
             .SetHitPointsBonus(2) //doesn't seem to be used anywhere
             .SetHitDice(DieType.D8, 1) //TODO: setup to 1 die per inventor level
             .SetArmorClass(15, EquipmentDefinitions.EmptyMonsterArmor) //natural armor
-            .SetAttackIterations((1, rend))
-            //.SetGroupAttacks(true)
+            .SetAttackIterations((1, monsterAttackSteelDefender))
             .SetFeatures(
                 FeatureDefinitionMoveModes.MoveModeMove8,
                 FeatureDefinitionSenses.SenseDarkvision12,
@@ -353,9 +390,8 @@ public static class InnovationWeapon
             .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
             .SetHeight(6)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
-            .SetCharacterFamily(CharacterFamilyDefinitions.Construct.Name)
+            .SetCharacterFamily(InventorClass.InventorConstructFamily)
             .SetAlignment(MonsterDefinitionBuilder.NeutralAlignment)
-            // .SetLegendaryCreature(false)
             .NoExperienceGain()
             .SetChallengeRating(0)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
@@ -366,6 +402,16 @@ public static class InnovationWeapon
                 .SetHasMonsterPortraitBackground(true)
                 .SetCanGeneratePortrait(true)
                 .Build())
+            .AddToDB();
+
+        return monster;
+    }
+
+    private static MonsterDefinition BuildAdvancedSteelDefenderMonster()
+    {
+        var monster = MonsterDefinitionBuilder
+            .Create("InnovationWeaponAdvancedSteelDefender")
+            .SetArmorClass(17, EquipmentDefinitions.EmptyMonsterArmor) //natural armor
             .AddToDB();
 
         return monster;
@@ -413,6 +459,7 @@ public static class InnovationWeapon
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeForce, 2, DieType.D6)
+                    .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 2, 6, 9)
                     .Build())
                 .Build())
             .SetCustomSubFeatures(
@@ -420,6 +467,15 @@ public static class InnovationWeapon
                 ValidatorsPowerUse.UsedLessTimesThan(1),
                 PowerVisibilityModifier.Default)
             .SetShowCasting(false)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildImprovedDefenderFeatureSet(FeatureDefinitionPower steelDefenderPower)
+    {
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInnovationWeaponImprovedDefender")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(BuildAdvancedSteelDefenderPower(steelDefenderPower))
             .AddToDB();
     }
 
@@ -506,7 +562,8 @@ public static class InnovationWeapon
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
-                   character.powersUsedByMe.Any(p => p.sourceDefinition.Name == SummonSteelDefenderPower);
+                   character.powersUsedByMe.Any(p =>
+                       p.sourceDefinition.Name is SummonSteelDefenderPower or SummonAdvancedSteelDefenderPower);
         }
     }
 

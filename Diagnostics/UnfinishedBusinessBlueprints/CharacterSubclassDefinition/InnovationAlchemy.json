@@ -39,6 +39,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureInnovationAlchemyExtraOverchargeBombs:0ebedc10-3e37-53de-ad5b-c2977253a4b8",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureInnovationAlchemyMasterOverchargeBombs:a6b8d962-ff0c-5fab-9c2f-89f53b5c99e0",
       "level": 15
     }
   ],

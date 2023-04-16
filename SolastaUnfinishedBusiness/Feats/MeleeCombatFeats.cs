@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -1028,6 +1029,12 @@ internal static class MeleeCombatFeats
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
 
             switch (attackModifier.AttackAdvantageTrend)
@@ -1451,15 +1458,15 @@ internal static class MeleeCombatFeats
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    attacker.RulesetCharacter.Guid,
+                    attacker.Guid,
                     _conditionDefinition,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    attacker.RulesetCharacter.Guid,
+                    attacker.Guid,
                     attacker.RulesetCharacter.CurrentFaction.Name);
 
-                defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)
@@ -1468,15 +1475,15 @@ internal static class MeleeCombatFeats
             }
 
             rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
+                defender.Guid,
                 _criticalConditionDefinition,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
+                attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

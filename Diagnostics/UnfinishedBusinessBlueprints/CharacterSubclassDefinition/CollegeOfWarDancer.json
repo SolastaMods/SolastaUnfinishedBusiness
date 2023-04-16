@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureCollegeOfWarDancerImprovedWarDance:b7a18fd2-deb5-5ad6-9abe-71dfa1902c66",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureCollegeOfWarDancerFocusedWarDance:8511f8ff-5ea0-579e-a597-408185c840c7",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

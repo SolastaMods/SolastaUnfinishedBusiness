@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -170,6 +171,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var damageForm = new DamageForm

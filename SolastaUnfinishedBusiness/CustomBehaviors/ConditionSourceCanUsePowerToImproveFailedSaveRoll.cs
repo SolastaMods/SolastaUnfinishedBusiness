@@ -35,6 +35,7 @@ internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         ActionModifier saveModifier,
+        CharacterActionParams reactionParams,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         ref RuleDefinitions.RollOutcome saveOutcome,

@@ -82,6 +82,7 @@ All settings start disabled by default.
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+[*][b]Fairy[/b]: The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
@@ -569,6 +570,8 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Sorcerer outfit[/b]: Sorcerer Armor of Sturdiness, Sorcerer Armor of Robustness, Sorcerer Armor of Survival, Sorcerer Armor of Flame Dancing, Sorcerer Armor of Frost Walking, Sorcerer Armor of Deflection
 [*][b]Barbarian Clothes[/b]: Barbarian Clothes of Sturdiness, Barbarian Clothes of Robustness, Barbarian Clothes of Survival, Barbarian Clothes of Flame Dancing, Barbarian Clothes of Frost Walking, Barbarian Clothes of Deflection
 [*][b]Warlock Armor[/b]: Warlock Armor of Sturdiness, Warlock Armor of Robustness, Warlock Armor of Survival, Warlock Armor of Flame Dancing, Warlock Armor of Frost Walking, Warlock Armor of Deflection
+[*][b]Monk Outfit[/b]: Monk Clothes of Sturdiness, Monk Clothes of Robustness, Monk Clothes of Survival, Monk Clothes of Flame Dancing, Monk Clothes of Frost Walking, Monk Clothes of Deflection
+[*][b]Armor_Adventuring_Wizard_OutfitTitle[/b]: Wizard Clothes of Sturdiness, Wizard Clothes of Robustness, Wizard Clothes of Survival, Wizard Clothes of Flame Dancing, Wizard Clothes of Frost Walking, Wizard Clothes of Deflection
 [/list]
 
 [size=4][b]Credits[/b][/size]

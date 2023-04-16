@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 
@@ -644,7 +645,7 @@ public static class GameLocationBattleManagerPatcher
             var attacker = attackParams.attacker.RulesetCharacter;
             var defender = attackParams.defender.RulesetCharacter;
 
-            if (attacker == null)
+            if (attacker == null || defender == null)
             {
                 return;
             }
@@ -921,7 +922,7 @@ public static class GameLocationBattleManagerPatcher
                     rulesetDefender.UsePower(usablePower);
 
                     action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, locHelper, saveModifier,
-                        hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
+                        reactionParams, hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
                     action.SaveOutcome = saveOutcome;
                 }
 
