@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -99,6 +100,19 @@ internal static class Global
         foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
         {
             feature.OnAfterAction(action);
+        }
+
+        //PATCH: allows characters with condition surged to be able to cast spells on each of them
+        if (action.ActionType == ActionDefinitions.ActionType.Main)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter != null && rulesetCharacter.HasAnyConditionOfType(RuleDefinitions.ConditionSurged))
+            {
+                // required for Martial Royal Knight surge powers so targets can double cast main spell too
+                action.ActingCharacter.UsedMainSpell = false;
+                action.ActingCharacter.UsedMainCantrip = false;
+            }
         }
 
         CurrentAction = null;

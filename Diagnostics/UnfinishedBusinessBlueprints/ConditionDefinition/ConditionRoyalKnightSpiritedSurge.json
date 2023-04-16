@@ -5,13 +5,13 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AbilityCheckAffinityRoyalKnightSpiritedSurge:9ea3e9f5-b9c3-582b-a259-14941c002fe6",
-    "Definition:AdditionalActionRoyalKnightInspiringSurge:f27db7b9-c2fd-5352-ac27-061995d63b02",
+    "Definition:AdditionalActionSurgedMain:13b583b9acea2c74ebf7f540c8f5d43d",
     "Definition:CombatAffinityRoyalKnightSpiritedSurge:d42e798e-d827-549d-a6dc-d07844fec664",
     "Definition:SavingThrowAffinityRoyalKnightSpiritedSurge:a88e2078-1c9a-57ea-8789-506e26ac6489"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

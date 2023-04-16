@@ -12,10 +12,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialRoyalKnight : AbstractSubclass
 {
+    private const string Name = "RoyalKnight";
+
     internal MartialRoyalKnight()
     {
-        const string Name = "RoyalKnight";
-
         // LEVEL 03
 
         var powerRallyingCry = FeatureDefinitionPowerBuilder
@@ -65,17 +65,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         // LEVEL 10
 
-        var additionalActionInspiringSurge = FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{Name}InspiringSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .AddToDB();
-
         var conditionInspiringSurge = ConditionDefinitionBuilder
             .Create($"Condition{Name}InspiringSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalActionInspiringSurge)
+            .SetGuiPresentation($"Power{Name}InspiringSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
+            .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain)
             .AddToDB();
 
         var powerInspiringSurge = FeatureDefinitionPowerBuilder
@@ -88,12 +81,58 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionInspiringSurge, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        powerInspiringSurge.EffectDescription.effectParticleParameters.targetParticleReference =
+            SpellDefinitions.Heroism.EffectDescription.effectParticleParameters.conditionStartParticleReference;
+
+        // LEVEL 15
+
+        const string TEXT = "PowerRoyalKnightInspiringProtection";
+
+        var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
+            .Create("PowerRoyalKnightInspiringProtection")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
+            .SetReactionContext(ReactionTriggerContext.None)
+            .AddToDB();
+
+        var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
+            .Create("PowerRoyalKnightInspiringProtectionAura")
+            .SetGuiPresentation(TEXT, Category.Feature)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 12)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionRoyalKnightInspiringProtectionAura")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetCustomSubFeatures(
+                            new InspiringProtection(powerRoyalKnightInspiringProtection,
+                                "RoyalKnightInspiringProtection"))
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetRoyalKnightInspiringProtection")
+            .SetGuiPresentation(TEXT, Category.Feature)
+            .AddFeatureSet(powerRoyalKnightInspiringProtectionAura, powerRoyalKnightInspiringProtection)
             .AddToDB();
 
         // LEVEL 18
@@ -131,10 +170,9 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var conditionSpiritedSurge = ConditionDefinitionBuilder
             .Create($"Condition{Name}SpiritedSurge")
             .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
+                FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain,
                 abilityCheckAffinitySpiritedSurge,
-                additionalActionInspiringSurge,
                 combatAffinitySpiritedSurge,
                 savingThrowAffinitySpiritedSurge)
             .AddToDB();
@@ -148,6 +186,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -157,46 +196,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetOverriddenPower(powerInspiringSurge)
             .AddToDB();
 
-        // LEVEL 18
-
-        const string TEXT = "PowerRoyalKnightInspiringProtection";
-
-        var powerRoyalKnightInspiringProtection = FeatureDefinitionPowerBuilder
-            .Create("PowerRoyalKnightInspiringProtection")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.LongRest, 1, 3)
-            .SetReactionContext(ReactionTriggerContext.None)
-            .AddToDB();
-
-        var powerRoyalKnightInspiringProtectionAura = FeatureDefinitionPowerBuilder
-            .Create("PowerRoyalKnightInspiringProtectionAura")
-            .SetGuiPresentation(TEXT, Category.Feature)
-            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 12)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionRoyalKnightInspiringProtectionAura")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(
-                            new InspiringProtection(powerRoyalKnightInspiringProtection, "RoyalKnightInspiringProtection"))
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        var featureSetRoyalKnightInspiringProtection = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetRoyalKnightInspiringProtection")
-            .SetGuiPresentation(TEXT, Category.Feature)
-            .AddFeatureSet(powerRoyalKnightInspiringProtectionAura, powerRoyalKnightInspiringProtection)
-            .AddToDB();
+        powerSpiritedSurge.EffectDescription.effectParticleParameters.targetParticleReference =
+            SpellDefinitions.Heroism.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
         // MAIN
 
