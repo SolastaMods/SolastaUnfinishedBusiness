@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -33,7 +34,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityRavenRangeAttack")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("FeatureSetRavenSharpShooter", Category.Feature)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())

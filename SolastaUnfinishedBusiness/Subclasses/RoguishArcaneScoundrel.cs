@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -41,7 +40,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Arcana")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Arcana.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
 
         var conditionDistractingAmbush = ConditionDefinitionBuilder

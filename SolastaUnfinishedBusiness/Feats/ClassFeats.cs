@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -1005,7 +1006,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class OnComputeAttackModifierSlayTheEnemies : IOnComputeAttackModifier
+    private sealed class OnComputeAttackModifierSlayTheEnemies : IPhysicalAttackInitiated
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -1014,58 +1015,66 @@ internal static class ClassFeats
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetCharacter == null || rulesetDefender == null)
+            {
+                yield break;
+            }
+            
             if (ValidatorsCharacter.HasNoneOfConditions(
                     "ConditionFeatSlayTheEnemies1",
                     "ConditionFeatSlayTheEnemies2",
-                    "ConditionFeatSlayTheEnemies3")(myself))
+                    "ConditionFeatSlayTheEnemies3")(rulesetCharacter))
             {
-                return;
+                yield break;
             }
 
-            if (attackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
+            if (attackerAttackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
             {
-                return;
+                yield break;
             }
 
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackerAttackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
-                return;
+                yield break;
             }
 
             var spellLevel = 0;
 
-            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
+            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(rulesetCharacter))
             {
                 spellLevel = 1;
             }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(rulesetCharacter))
             {
                 spellLevel = 2;
             }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(rulesetCharacter))
             {
                 spellLevel = 3;
             }
 
-
-            if (IsFavoriteEnemy(myself, defender))
+            if (IsFavoriteEnemy(rulesetCharacter, rulesetDefender))
             {
                 attackModifier.attackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
             }
             else
             {
-                attackMode.ToHitBonus += spellLevel;
-                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                attackerAttackMode.ToHitBonus += spellLevel;
+                attackerAttackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
                     _featureDefinition.Name, _featureDefinition));
             }
 

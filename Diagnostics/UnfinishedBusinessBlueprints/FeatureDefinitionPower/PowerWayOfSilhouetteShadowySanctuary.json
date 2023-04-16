@@ -114,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "c026523a36850c64db1eaffac31c3875",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -138,7 +138,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2b8ac836f0283824081f142409998738",
+        "m_AssetGUID": "aeab2c9b72fb5a449973fac61efe50b3",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -259,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "48edd1a0c6c9ff144a089991c4d76591",
+        "m_AssetGUID": "38120d2f5dc9ce34ca01fc3a6b422130",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -295,7 +295,7 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "DamagedByAnySource",
+  "reactionContext": 9000,
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -304,8 +304,8 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
-  "costPerUse": 1,
+  "rechargeRate": "KiPoints",
+  "costPerUse": 3,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -317,7 +317,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,

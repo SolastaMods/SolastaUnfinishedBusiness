@@ -23,9 +23,6 @@ public static class Sprites
     internal static AssetReferenceSprite GambitResourceIcon =>
         GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
 
-    internal static AssetReferenceSprite GenericResourceIcon =>
-        GetSprite("GenericResourceIcon", Resources.GenericResourceIcon, 64);
-
     internal static AssetReferenceSprite ChannelDivinityResourceIcon =>
         GetSprite("ChannelDivinityResourceIcon", Resources.ChannelDivinityResourceIcon, 64);
 

@@ -1,4 +1,0 @@
-﻿Condition/&ConditionReverseGravityDescription=Пойманный обратной гравитацией.
-Condition/&ConditionReverseGravityTitle=Обратная гравитация
-Spell/&ReverseGravityDescription=Это заклинание изменяет гравитацию в цилиндре радиусом 50 футов и высотой 100 футов с центром в точке в пределах досягаемости.
-Spell/&ReverseGravityTitle=Обратная гравитация

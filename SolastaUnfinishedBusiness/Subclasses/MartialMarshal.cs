@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -35,15 +36,15 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private const string EternalComradeName = "MarshalEternalComrade";
 
-    private static readonly ConditionDefinition ConditionEncourage = BuildEncourageCondition();
-
-    private static readonly FeatureDefinitionPower PowerMarshalEncouragement = BuildEncourage();
-
-    private static readonly FeatureDefinitionPower PowerMarshalImproveEncouragement = BuildImprovedEncourage();
+    private const string ConditionMarshalKnowledgeableDefenseACName = "ConditionMarshalKnowledgeableDefenseAC";
 
     internal MartialMarshal()
     {
         BuildEternalComradeMonster();
+
+        var conditionEncourage = BuildEncourageCondition();
+        var powerMarshalEncourage = BuildEncourage(conditionEncourage);
+        var powerMarshalImprovedEncourage = BuildImprovedEncourage(conditionEncourage, powerMarshalEncourage);
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
@@ -57,9 +58,11 @@ internal sealed class MartialMarshal : AbstractSubclass
                 BuildFeatureSetMarshalEternalComrade())
             .AddFeaturesAtLevel(10,
                 BuildFeatureSetMarshalFearlessCommander(),
-                PowerMarshalEncouragement)
+                powerMarshalEncourage)
             .AddFeaturesAtLevel(15,
-                PowerMarshalImproveEncouragement)
+                powerMarshalImprovedEncourage)
+            .AddFeaturesAtLevel(18,
+                BuildKnowledgeableDefense())
             .AddToDB();
     }
 
@@ -204,18 +207,16 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
-        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade", Resources.PowerMarshalSummonEternalComrade,
-            256, 128);
+        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade",
+            Resources.PowerMarshalSummonEternalComrade, 256, 128);
 
-        //TODO: make this use concentration and reduce the duration to may be 3 rounds
-        //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
             .SetGuiPresentation(Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(ConjureAnimalsOneBeast.EffectDescription)
-                .SetDurationData(DurationType.Round, 10)
+                .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -304,7 +305,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildEncourage()
+    private static FeatureDefinitionPower BuildEncourage(ConditionDefinition conditionEncourage)
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
@@ -319,18 +320,18 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetShowCasting(false)
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildImprovedEncourage()
+    private static FeatureDefinitionPower BuildImprovedEncourage(
+        ConditionDefinition conditionEncourage, FeatureDefinitionPower overridenPower)
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalImprovedEncouragement")
-            .SetOverriddenPower(PowerMarshalEncouragement)
             .SetGuiPresentation(Category.Feature, Bless)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -342,11 +343,43 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionEncourage, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
+            .SetOverriddenPower(overridenPower)
             .SetShowCasting(false)
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildKnowledgeableDefense()
+    {
+        for (var i = 1; i <= 3; i++)
+        {
+            _ = ConditionDefinitionBuilder
+                .Create($"ConditionMarshalKnowledgeableDefenseAC{i}")
+                .SetGuiPresentationNoContent(true)
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .AddFeatures(
+                    FeatureDefinitionAttributeModifierBuilder
+                        .Create($"AttributeModifierKnowledgeableDefenseAC{i}")
+                        .SetGuiPresentation(GuiPresentationBuilder.EmptyString,
+                            $"Feature/&AttributeModifierACPlus{i}Description")
+                        .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                            AttributeDefinitions.ArmorClass, i)
+                        .AddToDB())
+                .AddToDB();
+        }
+
+        var featureMarshalKnowledgeableDefense = FeatureDefinitionBuilder
+            .Create("FeatureMarshalKnowledgeableDefense")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureMarshalKnowledgeableDefense.SetCustomSubFeatures(
+            new DefenderBeforeAttackHitConfirmedKnowledgeableDefense(featureMarshalKnowledgeableDefense));
+
+        return featureMarshalKnowledgeableDefense;
     }
 
     private sealed class ReactToAttackFinishedMarshalCoordinatedAttack : IReactToMyAttackFinished
@@ -495,7 +528,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     {
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var manager = ServiceRepository.GetService<IGameLoreService>();
+            var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
 
             if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
@@ -510,14 +543,15 @@ internal sealed class MartialMarshal : AbstractSubclass
                 return;
             }
 
-            if (!manager.Bestiary.TryGetBestiaryEntry(creature, out var entry)
+            if (!gameLoreService.Bestiary.TryGetBestiaryEntry(creature, out var entry)
                 && (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full
                     || (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Reference &&
                         creature.MonsterDefinition.BestiaryReference.BestiaryEntry ==
                         BestiaryDefinitions.BestiaryEntry.Full)))
             {
-                entry = manager.Bestiary.AddNewMonsterEntry(creature.MonsterDefinition);
-                manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);
+                entry = gameLoreService.Bestiary.AddNewMonsterEntry(creature.MonsterDefinition);
+                gameLoreService.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition,
+                    entry.KnowledgeLevelDefinition);
             }
 
             if (entry == null)
@@ -551,8 +585,8 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 newLevel = Mathf.Min(entry.KnowledgeLevelDefinition.Level + learned, 4);
 
-                manager.LearnMonsterKnowledge(entry.MonsterDefinition,
-                    manager.Bestiary.SortedKnowledgeLevels[newLevel]);
+                gameLoreService.LearnMonsterKnowledge(entry.MonsterDefinition,
+                    gameLoreService.Bestiary.SortedKnowledgeLevels[newLevel]);
             }
 
             gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
@@ -561,6 +595,66 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
+        }
+    }
+
+    private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IDefenderBeforeAttackHitConfirmed
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public DefenderBeforeAttackHitConfirmedKnowledgeableDefense(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public IEnumerator DefenderBeforeAttackHitConfirmed(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+
+            if (gameLoreService == null)
+            {
+                yield break;
+            }
+
+            var rulesetMe = me.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetMe == null || rulesetAttacker == null)
+            {
+                yield break;
+            }
+
+            if (!gameLoreService.Bestiary.TryGetBestiaryEntry(rulesetAttacker, out var gameBestiaryEntry) ||
+                gameBestiaryEntry.KnowledgeLevelDefinition == null)
+            {
+                yield break;
+            }
+
+            var level = Math.Min(gameBestiaryEntry.KnowledgeLevelDefinition.Level, 3);
+            var condition = GetDefinition<ConditionDefinition>($"{ConditionMarshalKnowledgeableDefenseACName}{level}");
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                rulesetMe.Guid,
+                condition,
+                condition.DurationType,
+                condition.DurationParameter,
+                condition.TurnOccurence,
+                rulesetMe.Guid,
+                rulesetMe.CurrentFaction.Name);
+
+            rulesetMe.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetMe, _featureDefinition);
         }
     }
 }

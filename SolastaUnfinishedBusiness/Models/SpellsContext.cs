@@ -29,6 +29,7 @@ internal static class SpellsContext
 
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
+    internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
@@ -195,7 +196,7 @@ internal static class SpellsContext
         RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
             SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
+        RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
         RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);

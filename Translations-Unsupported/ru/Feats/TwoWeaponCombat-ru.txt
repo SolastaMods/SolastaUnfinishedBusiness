@@ -1,6 +1,0 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=Твои враги шатаются!
-Condition/&ConditionDualFlurryGrantTitle=Двойной шквал
-Feat/&FeatDualFlurryDescription=Вы мастер боя спаренным оружием. В любой ход, когда вы дважды наносите удары рукопашными атаками, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой рукой при атаке бонусным действием.
-Feat/&FeatDualFlurryTitle=Двойной шквал
-Feat/&FeatDualWeaponDefenseDescription=Вы получаете бонус +1 к классу брони, пока держите в каждой руке отдельное оружие ближнего боя.
-Feat/&FeatDualWeaponDefenseTitle=Двойная защита от оружия

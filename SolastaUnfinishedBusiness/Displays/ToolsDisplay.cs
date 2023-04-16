@@ -146,6 +146,12 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
+        {
+            Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
+        }
+
         toggle = Main.Settings.EnableCharacterChecker;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
         {
@@ -173,14 +179,6 @@ internal static class ToolsDisplay
         if (!DisplayAdventureToggle)
         {
             return;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
-        {
-            Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
         }
 
         UI.Label();

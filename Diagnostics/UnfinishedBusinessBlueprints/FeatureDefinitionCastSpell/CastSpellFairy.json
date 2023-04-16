@@ -1,0 +1,274 @@
+{
+  "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
+  "spellCastingOrigin": "Race",
+  "spellcastingAbility": "Charisma",
+  "spellcastingParametersComputation": "Dynamic",
+  "staticDCValue": 10,
+  "staticToHitValue": 4,
+  "spellListDefinition": "Definition:SpellListFairy:cf952870-98d1-5ea2-a47c-d5506931a061",
+  "restrictedSchools": [],
+  "spellKnowledge": "FixedList",
+  "spellReadyness": "AllKnown",
+  "spellPreparationCount": "AbilityBonusPlusLevel",
+  "slotsRecharge": "LongRest",
+  "uniqueLevelSlots": false,
+  "spellCastingLevel": -1,
+  "knownCantrips": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "knownSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "scribedSpells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "replacedSpells": [],
+  "slotsPerLevels": [
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "slots": [
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "slots": [
+        0,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "slots": [
+        1,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "slots": [
+        1,
+        0
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 10,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 11,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 12,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 13,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 14,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 15,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 16,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 17,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 18,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 19,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 20,
+      "slots": [
+        1,
+        1
+      ]
+    }
+  ],
+  "focusType": "Arcane",
+  "hasAccessToInvocations": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&CastSpellFairyTitle",
+    "description": "Feature/&CastSpellFairyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "039073a8-0a8d-5cc1-bf62-8a7c816bafda",
+  "contentPack": 9999,
+  "name": "CastSpellFairy"
+}

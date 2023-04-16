@@ -66,4 +66,5 @@ SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReplaceAttackWithCa
 SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom
 SpellDefinition
 SpellListDefinition
+TA.AI.DecisionDefinition
 WeaponTypeDefinition

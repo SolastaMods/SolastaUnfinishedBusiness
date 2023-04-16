@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(NAME, Category.Spell)
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder

@@ -35,6 +35,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMarshalImprovedEncouragement:3dcf5e16-d605-52c0-b157-b7d51dd55399",
       "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMarshalKnowledgeableDefense:85f4bb74-91f8-51e5-b5aa-eea2d36da859",
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],

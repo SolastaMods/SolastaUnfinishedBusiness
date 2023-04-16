@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -435,7 +436,7 @@ public static class InnovationArtillerist
 
         var combatAffinityFortifiedPosition = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}{FortifiedPosition}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(powerEldritchCannonPool.Name, Category.Feature)
             .SetPermanentCover(CoverType.Half)
             .AddToDB();
 
@@ -734,7 +735,7 @@ public static class InnovationArtillerist
         {
             return power;
         }
-        
+
         power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;
@@ -839,7 +840,7 @@ public static class InnovationArtillerist
         {
             return power;
         }
-        
+
         power.SetCustomSubFeatures(new LimitEffectInstances(CreatureTag, _ => 2));
 
         return power;

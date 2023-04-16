@@ -135,11 +135,11 @@ internal static class CharacterContext
         LoadVision();
         LoadEpicArray();
         LoadVisuals();
-        LoadAdditionalNames();
     }
 
     internal static void LateLoad()
     {
+        LoadAdditionalNames();
         BuildMonkWeaponSpecialization();
         SwitchHelpPower();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
