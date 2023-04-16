@@ -4,6 +4,7 @@
 
 - added Fairy race with flight power
 - added College of War Dancer's focused war dance at level 14
+- added magical clothes and recipes to Monk and Wizard
 - added Martial Marshal's knowledgeable defense at level 18
 - added Martial Royal Knight's inspiring protection at level 15
 - added Martial Royal Knight's spirited surge at level 18

@@ -570,6 +570,8 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Sorcerer outfit[/b]: Sorcerer Armor of Sturdiness, Sorcerer Armor of Robustness, Sorcerer Armor of Survival, Sorcerer Armor of Flame Dancing, Sorcerer Armor of Frost Walking, Sorcerer Armor of Deflection
 [*][b]Barbarian Clothes[/b]: Barbarian Clothes of Sturdiness, Barbarian Clothes of Robustness, Barbarian Clothes of Survival, Barbarian Clothes of Flame Dancing, Barbarian Clothes of Frost Walking, Barbarian Clothes of Deflection
 [*][b]Warlock Armor[/b]: Warlock Armor of Sturdiness, Warlock Armor of Robustness, Warlock Armor of Survival, Warlock Armor of Flame Dancing, Warlock Armor of Frost Walking, Warlock Armor of Deflection
+[*][b]Monk Outfit[/b]: Monk Clothes of Sturdiness, Monk Clothes of Robustness, Monk Clothes of Survival, Monk Clothes of Flame Dancing, Monk Clothes of Frost Walking, Monk Clothes of Deflection
+[*][b]Wizard Outfit[/b]: Wizard Clothes of Sturdiness, Wizard Clothes of Robustness, Wizard Clothes of Survival, Wizard Clothes of Flame Dancing, Wizard Clothes of Frost Walking, Wizard Clothes of Deflection
 [/list]
 
 [size=4][b]Credits[/b][/size]
