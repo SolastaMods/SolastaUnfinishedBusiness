@@ -278,7 +278,21 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(Attack_Spiderling_Crimson_Bite, "Attack_Spiderling_WildShape_Crimson_Bite")
             .AddToDB();
 
-        attackCrimsonBite.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.Negates;
+        attackCrimsonBite.toHitBonus = 8;
+        attackCrimsonBite.EffectDescription.fixedSavingThrowDifficultyClass = 16;
+        attackCrimsonBite.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+        attackCrimsonBite.EffectDescription.EffectForms[0].damageForm.dieType = DieType.D6;
+        attackCrimsonBite.EffectDescription.EffectForms[0].damageForm.diceNumber = 3;
+        attackCrimsonBite.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.None;
+        attackCrimsonBite.EffectDescription.EffectForms[1].damageForm.dieType = DieType.D6;
+        attackCrimsonBite.EffectDescription.EffectForms[1].damageForm.diceNumber = 3;
+        attackCrimsonBite.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                .SetConditionForm(ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
+                    ConditionForm.ConditionOperation.Add)
+                .Build());
 
         var shape = MonsterDefinitionBuilder
             .Create(CrimsonSpider, "WildShapeCrimsonSpider")
@@ -355,6 +369,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetDurationData(DurationType.Instantaneous)
             .SetEffectForms(healingForm)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetParticleEffectParameters(SpellDefinitions.Heal)
             .Build();
 
         return effectDescription;

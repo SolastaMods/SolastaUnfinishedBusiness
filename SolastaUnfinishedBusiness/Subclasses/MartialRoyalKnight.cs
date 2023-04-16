@@ -98,8 +98,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
+            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
                 AttributeDefinitions.Constitution,
@@ -128,7 +128,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var conditionSpiritedSurge = ConditionDefinitionBuilder
             .Create($"Condition{Name}SpiritedSurge")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 abilityCheckAffinitySpiritedSurge,
@@ -145,6 +145,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

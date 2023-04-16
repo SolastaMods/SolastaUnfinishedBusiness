@@ -357,13 +357,14 @@ internal sealed class MartialMarshal : AbstractSubclass
         {
             _ = ConditionDefinitionBuilder
                 .Create($"ConditionMarshalKnowledgeableDefenseAC{i}")
-                .SetGuiPresentationNoContent(true)
+                .SetGuiPresentation("FeatureMarshalKnowledgeableDefense", Category.Feature)
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .AddFeatures(
                     FeatureDefinitionAttributeModifierBuilder
                         .Create($"AttributeModifierKnowledgeableDefenseAC{i}")
-                        .SetGuiPresentation(GuiPresentationBuilder.EmptyString,
+                        .SetGuiPresentation("Feature/&FeatureMarshalKnowledgeableDefenseTitle",
                             $"Feature/&AttributeModifierACPlus{i}Description")
                         .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                             AttributeDefinitions.ArmorClass, i)
