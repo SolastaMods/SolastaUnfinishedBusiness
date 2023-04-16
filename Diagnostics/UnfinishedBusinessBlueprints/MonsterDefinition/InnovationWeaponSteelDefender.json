@@ -106,7 +106,12 @@
     "z": -35.0
   },
   "alwaysHideStats": false,
-  "bestiarySpriteReference": null,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": null,
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
+  },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
