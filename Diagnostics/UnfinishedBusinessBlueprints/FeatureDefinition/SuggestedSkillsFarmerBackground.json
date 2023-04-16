@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureMarshalKnowledgeableDefenseTitle",
-    "description": "Feature/&AttributeModifierACPlus2Description",
+    "title": "Background/&SuggestedSkillsFarmerBackgroundTitle",
+    "description": "Background/&SuggestedSkillsFarmerBackgroundDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c16025a0-0f0b-5c40-81b8-672bab48b566",
+  "guid": "25a44084-2020-53e5-a079-5ccb99b11fdf",
   "contentPack": 9999,
-  "name": "AttributeModifierKnowledgeableDefenseAC2"
+  "name": "SuggestedSkillsFarmerBackground"
 }

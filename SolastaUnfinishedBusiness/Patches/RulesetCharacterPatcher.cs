@@ -1374,6 +1374,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, myComputeSavingThrowModifier))
                 .ReplaceCalls(getSavingThrowModifier,
                     "RulesetCharacter.GetSavingThrowModifier",
+                    new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, myGetSavingThrowModifier))
                 //PATCH: allow modifiers from items to be considered on concentration checks
                 .ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",

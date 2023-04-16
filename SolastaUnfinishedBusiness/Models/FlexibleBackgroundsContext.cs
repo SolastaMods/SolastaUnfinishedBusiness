@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterBackgroundDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -190,6 +192,27 @@ internal static class FlexibleBackgroundsContext
                 new List<FeatureDefinition> { ProficiencyOccultistSkills, ProficiencyOccultistToolsSkills }
             }
         };
+
+    internal static void Load()
+    {
+        var backgroundFarmer = DatabaseHelper.GetDefinition<CharacterBackgroundDefinition>("BackgroundFarmer");
+
+        AddedFeatures.Add(backgroundFarmer,
+            new List<FeatureDefinition>
+            {
+                SkillThree,
+                FeatureDefinitionBuilder
+                    .Create("SuggestedSkillsFarmerBackground")
+                    .SetGuiPresentation(Category.Background)
+                    .AddToDB()
+            });
+
+        RemovedFeatures.Add(backgroundFarmer,
+            new List<FeatureDefinition>
+            {
+                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>($"ProficiencyBackgroundFarmerSkills")
+            });
+    }
 
     internal static void SwitchFlexibleBackgrounds()
     {

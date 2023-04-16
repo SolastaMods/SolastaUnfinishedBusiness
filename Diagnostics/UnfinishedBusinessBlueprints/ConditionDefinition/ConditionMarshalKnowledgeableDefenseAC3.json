@@ -7,8 +7,8 @@
     "Definition:AttributeModifierKnowledgeableDefenseAC3:d897e615-1251-5931-ae07-10d25fffb16a"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
@@ -129,9 +129,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureMarshalKnowledgeableDefenseTitle",
+    "description": "Feature/&FeatureMarshalKnowledgeableDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
