@@ -25,6 +25,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(PowerDomainLifePreserveLife.EffectDescription)
+                .ExcludeCaster()
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -86,6 +87,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -184,7 +186,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetCustomSubFeatures(
-                            new InspiringProtection(powerRoyalKnightInspiringProtection, "InventorFlashOfGenius"))
+                            new InspiringProtection(powerRoyalKnightInspiringProtection, "RoyalKnightInspiringProtection"))
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -282,8 +284,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             int saveOutcomeDelta)
         {
             var text = defender == helper
-                ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
-                : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescriptionSelfFormat"
+                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionReactAllyDescriptionAllyFormat";
 
             return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
         }
