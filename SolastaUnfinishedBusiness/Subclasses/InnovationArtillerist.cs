@@ -30,7 +30,6 @@ public static class InnovationArtillerist
 {
     private const string Name = "InnovationArtillerist";
     private const string CreatureTag = "EldritchCannon";
-    private const string FamilyEldritchCannon = $"Family{CreatureTag}";
     private const string ConditionCommandCannon = $"Condition{Name}Command";
     private const string PowerSummonCannon = $"Power{Name}Summon";
     private const string EldritchCannon = "EldritchCannon";
@@ -47,13 +46,6 @@ public static class InnovationArtillerist
 
         var eldritchCannonSprite = Sprites.GetSprite(EldritchCannon, Resources.PowerEldritchCannon, 256, 128);
 
-        // Family
-
-        _ = CharacterFamilyDefinitionBuilder
-            .Create(FamilyEldritchCannon)
-            .SetGuiPresentation(Category.MonsterFamily)
-            .IsExtraPlanar()
-            .AddToDB();
 
         // Cannon Powers
 
@@ -74,7 +66,7 @@ public static class InnovationArtillerist
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeFire, 2, DieType.D8)
-                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 6, 3)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 1, 6, 3)
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .Build(),
                         EffectFormBuilder
@@ -98,7 +90,7 @@ public static class InnovationArtillerist
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypeForce, 2, DieType.D8)
-                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 0, 1, 6, 3)
+                            .SetDiceAdvancement(LevelSourceType.ClassLevel, 0, 1, 6, 3)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -251,7 +243,7 @@ public static class InnovationArtillerist
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetRestrictedCreatureFamilies(FamilyEldritchCannon)
+                    .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -389,7 +381,7 @@ public static class InnovationArtillerist
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetRestrictedCreatureFamilies(FamilyEldritchCannon)
+                    .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -769,7 +761,7 @@ public static class InnovationArtillerist
             .SetHitDice(DieType.D8, 1)
             .SetAbilityScores(10, 10, 10, 10, 10, 10)
             .SetDefaultFaction(DatabaseHelper.FactionDefinitions.Party)
-            .SetCharacterFamily(FamilyEldritchCannon)
+            .SetCharacterFamily(InventorClass.InventorConstructFamily)
             .SetCreatureTags(CreatureTag)
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .SetFullyControlledWhenAllied(true)

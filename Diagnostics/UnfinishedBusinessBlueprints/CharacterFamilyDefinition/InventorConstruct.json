@@ -5,8 +5,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "MonsterFamily/&FamilyEldritchCannonTitle",
-    "description": "MonsterFamily/&FamilyEldritchCannonDescription",
+    "title": "MonsterFamily/&InventorConstructTitle",
+    "description": "MonsterFamily/&InventorConstructDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -26,7 +26,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d3412d22-63d1-5e2a-831c-41b8ee2af425",
+  "guid": "c1835974-5cc5-56eb-852a-3d21b1224952",
   "contentPack": 9999,
-  "name": "FamilyEldritchCannon"
+  "name": "InventorConstruct"
 }

@@ -65,7 +65,7 @@
         "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "DiceNumberByLevelTable",
-        "levelType": "CharacterLevel",
+        "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [
           {
