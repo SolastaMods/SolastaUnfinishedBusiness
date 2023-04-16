@@ -20,6 +20,7 @@ internal sealed class MartialTactician : AbstractSubclass
 {
     internal const string Name = "MartialTactician";
     internal const string MarkDamagedByGambit = "ConditionTacticianDamagedByGambit";
+    internal const string TacticalAwareness = "TacticalAwareness";
 
     private static int _gambitPoolIncreases;
 
@@ -517,7 +518,8 @@ internal sealed class MartialTactician : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            if (attackerAttackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            if (attackerAttackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+                !attackerAttackMode.attackTags.Contains(TacticalAwareness))
             {
                 yield break;
             }
