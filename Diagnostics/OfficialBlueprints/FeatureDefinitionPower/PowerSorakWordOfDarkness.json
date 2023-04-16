@@ -160,8 +160,8 @@
     },
     "speedType": "Instant",
     "speedParameter": 10.0,
-    "offsetImpactTimeBasedOnDistance": false,
-    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+    "offsetImpactTimeBasedOnDistance": true,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.05,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
@@ -203,7 +203,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "9dc8344afc842f640a761436411f793c",
+        "m_AssetGUID": "3925307539b303749bf993526e0e7df0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

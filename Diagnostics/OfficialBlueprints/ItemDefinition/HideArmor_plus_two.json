@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2500,
+    6010,
     0,
     0,
     0
@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+2:dfb22c8a0143afd40b0bdb6b78abae1a",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": true,
@@ -195,6 +195,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -208,14 +209,15 @@
       "Both",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -223,8 +225,8 @@
     "description": "Equipment/&HidePlusTwoDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3cb578eef14455d4cb1db7842a460774",
-      "m_SubObjectName": "StandardHideArmor",
+      "m_AssetGUID": "9d86579625176784eb291dd364e45729",
+      "m_SubObjectName": "DLC1_HideArmorOftheVagrant",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

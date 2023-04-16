@@ -1,20 +1,36 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CloakOfTheDandy:3fd19abbd4f2d1d42a0090219d3ab22d",
   "stackCount": 1,
-  "craftingHours": 16,
-  "craftingDC": 14,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
+      "amount": 2,
       "itemDefinition": "Definition:Ingredient_BadlandsBear_Pelt:df0116b530a7fbe4e8e3decb5217e2bf"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_Enchant_RiverEmerald:7858849b8df8d5d438f06743ab205622"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:1000_GP_Diamond:b6dcb2b305ede8440bf70c35e774e736"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:500_GP_Ruby:6edbb4ac30b262d4baba7949d0595158"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

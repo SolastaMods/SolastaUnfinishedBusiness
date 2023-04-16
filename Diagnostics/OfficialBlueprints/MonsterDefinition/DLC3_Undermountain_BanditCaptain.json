@@ -1,0 +1,262 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "NPC",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "NeutralEvil",
+  "armorClass": 15,
+  "armor": "StuddedLeather",
+  "hitDice": 10,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 20,
+  "standardHitPoints": 65,
+  "abilityScores": [
+    15,
+    16,
+    14,
+    14,
+    11,
+    14
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 4
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 5
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 2
+    }
+  ],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:BanditCombatDecisions:894c064ab6957fe4183b35dc2e6bddc7",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.0
+    },
+    "name": "PrioritizeDamageDealers_Melee"
+  },
+  "languages": [
+    "Language_Common"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 4.0,
+  "challengeRating": 2.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:DLC3_Undermountain_Quarry_BrigandsChief_Lootpack:072396cfe92dff54b814a3b640c4653c",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Scimitar:ff7c34c7c6da7964786849aca3dce98a"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Dagger:aeadb51b8cb69ff46833a030333b0fcc"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 6,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "dc274178d855b99438bb4adce25e936c",
+    "m_SubObjectName": "SRD_BanditCaptain",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Generic_Guard_Dwarf_Female:dc17375f8d0bb6f4b85b4a96109e8aae",
+      "Definition:NPC_Presentation_Generic_Guard_Dwarf_Male:f059270f9d462d94ba70f018c728ff0b",
+      "Definition:NPC_Presentation_Generic_Guard_Elf_Female:3a44b0a2bcef0e441afb39a2dd42e54a",
+      "Definition:NPC_Presentation_Generic_Guard_Elf_Male:1786ad34bf6b3254a947903626dd70d5",
+      "Definition:NPC_Presentation_Generic_Guard_HalfElf_Female:f0b81f8f4e26fe9448fad468f4a69a0e",
+      "Definition:NPC_Presentation_Generic_Guard_HalfElf_Male:ee305ab21053847478dadc7f119087e2",
+      "Definition:NPC_Presentation_Generic_Guard_Halfling_Female:67689eeafc6cff84791acfe40349866b",
+      "Definition:NPC_Presentation_Generic_Guard_Halfling_Male:16b21e1073604dd4f8a9e107c431b40a",
+      "Definition:NPC_Presentation_Generic_Guard_Human_Female:e76be6f500e535245a838787ae64829e",
+      "Definition:NPC_Presentation_Generic_Guard_Human_Male:350bfd3e18b5ddf4fa1495f985985a64"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.74,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.66,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&BanditCaptain_Title",
+    "description": "Monster/&BanditCaptain_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "da6835daa086e4f43af479d5d2d59dae",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_BanditCaptain"
+}

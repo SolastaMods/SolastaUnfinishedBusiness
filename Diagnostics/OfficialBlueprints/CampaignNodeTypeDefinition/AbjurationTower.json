@@ -1,5 +1,6 @@
 {
   "$type": "CampaignNodeTypeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "graphicsCampaignNodeReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "a647cc38586b5c747a168ac91c574370",
@@ -9,7 +10,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "",
+    "title": "Map/&Location_AbjurationRuinedKeep_UnvisitedTitle",
     "description": "",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

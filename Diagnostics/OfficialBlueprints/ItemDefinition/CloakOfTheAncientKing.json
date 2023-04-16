@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    700,
+    5200,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
@@ -200,6 +200,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -208,8 +209,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -235,6 +235,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "5633d1280d098b14c93e2c14e2c0b64f",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "CloakOfTheAncientKing"
 }

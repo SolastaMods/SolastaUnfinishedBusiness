@@ -1,0 +1,45 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 50,
+  "attackingPenalty": 75,
+  "killingPenalty": 75,
+  "prominentMembers": [],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "f2c537603a150d14e8c28a2f7efc778c",
+    "m_SubObjectName": "DLC1_Faction_Flag_Forge_Small",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3290f0ad3a23f4a44803d72a7d329ddd",
+      "m_SubObjectName": "DLC1_Faction_Flag_Forge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "865c724fa84b6fe4ea7760e8d998c2b9",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_ElvenClan_Impostors"
+}

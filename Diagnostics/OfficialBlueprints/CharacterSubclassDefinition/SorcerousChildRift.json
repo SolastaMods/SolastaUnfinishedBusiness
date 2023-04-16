@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSorcererChildRiftOffering:cc162f4b81f3c69439b514bc87c621a1",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcererChildRiftRiftwalk:b2b4c6d6f29f65b47b7d3c9bd4d2f217",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

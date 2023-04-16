@@ -348,6 +348,8 @@
   "useAnimationTag": true,
   "animationTag": "Javelin",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -385,10 +387,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Environment_Heavy",
-        "id": 1484600784,
-        "guid": "F2E04AD3-7E82-4DA4-8D2F-0331FD6A56A1",
-        "name": "F2E04AD3-7E82-4DA4-8D2F-0331FD6A56A1"
+        "objectName": "Environment",
+        "id": 1229948536,
+        "guid": "EE1EBBBC-15D2-4E3B-98F7-95C03E5FCB7B",
+        "name": "EE1EBBBC-15D2-4E3B-98F7-95C03E5FCB7B"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

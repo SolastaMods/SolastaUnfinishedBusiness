@@ -1,0 +1,55 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Structure",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "d3f7606c6c9e3e945abeb835ced0266f",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&MilitaryStructureAssaultTowerTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
+      "m_SubObjectName": "FireBasin",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cd1a9862356bd5e4689bb1ac13a61c80",
+  "contentPack": "BaseGame",
+  "name": "Military_Structure_Assaulttower_A"
+}

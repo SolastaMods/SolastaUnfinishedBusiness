@@ -1,0 +1,59 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollFingerOfDeath:66b07a9780cf85f42848daeee78cac33",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 24,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:1000_GP_Diamond:b6dcb2b305ede8440bf70c35e774e736"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+    }
+  ],
+  "spellDefinition": "Definition:FingerOfDeath:facc856c4a4e5d54090b481bef1441a4",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollFingerOfDeathTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2ad285063ef45e14fb6fcf1c5b0e6d3e",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L7_FingerOfDeath"
+}

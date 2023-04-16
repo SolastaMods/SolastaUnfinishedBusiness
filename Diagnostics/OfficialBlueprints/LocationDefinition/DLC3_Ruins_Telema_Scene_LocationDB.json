@@ -1,0 +1,234 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": false,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "da23c85550e11c447882804b314fb80a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_RuinsTelema",
+      "id": 1163093437,
+      "guid": "0B989F12-2679-4E04-BCE0-1C96F08E9B5B",
+      "name": "0B989F12-2679-4E04-BCE0-1C96F08E9B5B"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": true,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "fog": true,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5294118,
+      "g": 0.68235296,
+      "b": 0.7490196,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": true,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.002,
+      "useScattering": false,
+      "scattering": 0.0,
+      "useAmbientLighting": false,
+      "ambientLightingStrength": 1.0,
+      "useColor": false,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 5.066395E-07,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": true,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.938618243,
+        "g": 0.953963459,
+        "b": 0.999999,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "DLC3_Ruins_Telema_Scene_AuraBaseParameters_Outdoors"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8196079,
+        "g": 0.721568644,
+        "b": 0.6,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8980393,
+        "g": 0.698039234,
+        "b": 0.4784314,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.482352972,
+        "b": 0.10980393,
+        "a": 1.0
+      },
+      "globalSunIntensity": 0.9,
+      "sunDirection": -380.45,
+      "sunTilt": 4.9,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.306247741,
+        "g": 0.48334083,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 0.8,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.752941251,
+        "g": 0.776470661,
+        "b": 0.8000001,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.6084906,
+        "g": 0.720771551,
+        "b": 0.8113208,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.464177638,
+        "g": 0.517399549,
+        "b": 0.5754717,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.266666681,
+        "g": 0.419607878,
+        "b": 0.623529434,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.26,
+      "nightAtmosphereThickness": 0.5,
+      "name": "DLC3_Telema_Outdoor_DayCycleProfile"
+    },
+    "name": "DLC3_Ruins_Telema_Scene_RenderSettings_Outdoors"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
+    "unchartedDescription": "Map/&Location_Presentation_DLC3_Telema_Description",
+    "knownTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
+    "knownDescription": "Map/&Location_Presentation_DLC3_Telema_Description",
+    "exploredTitle": "Map/&Location_Presentation_DLC3_Telema_Title",
+    "exploredDescription": "Map/&Location_Presentation_DLC3_Telema_Description"
+  },
+  "challengeRating": 12,
+  "focusWhenRevealed": true,
+  "startsWithScavengerCamp": true,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": false,
+  "disablePlayerLightCastShadows": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_Telema_Title",
+    "description": "Map/&Location_Presentation_DLC3_Telema_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "7e5800f130a9e314c83bb310523f67f9",
+      "m_SubObjectName": "DLC3_Ruins_Of_Telema",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3482f2cb2136cd54fab41f02ac4d64c1",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Ruins_Telema_Scene_LocationDB"
+}

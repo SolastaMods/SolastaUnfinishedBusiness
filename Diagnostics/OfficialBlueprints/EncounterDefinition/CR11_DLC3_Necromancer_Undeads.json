@@ -1,0 +1,81 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 11,
+  "locationOverride": null,
+  "locationBlacklist": [],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Generic_Necromancer:7fc6baaf0d2d9d04fbce094f6f15e40c",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:SpectralSpider:8780bac525247fb49aec9324d0f49da4",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Ghast:bf42ed6dd01a7634285cbc7301c0548c",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Skeleton_Marksman:eddfdac9cc090c44fbb0922ac5285bd7",
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR11_Necromancer_Undeads_Title",
+    "description": "Encounter/&CR16_Wraith_Hunters_x3x2_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8e4d55447c1ed27468b6986f576992d3",
+  "contentPack": "PalaceOfIce",
+  "name": "CR11_DLC3_Necromancer_Undeads"
+}

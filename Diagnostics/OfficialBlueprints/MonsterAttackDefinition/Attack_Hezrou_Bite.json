@@ -134,7 +134,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b1f5d987633070342835bec3eb67bc40",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -182,7 +182,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "483954b672766974b994d40d183c07f0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -313,6 +313,8 @@
   "useAnimationTag": true,
   "animationTag": "Dagger",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

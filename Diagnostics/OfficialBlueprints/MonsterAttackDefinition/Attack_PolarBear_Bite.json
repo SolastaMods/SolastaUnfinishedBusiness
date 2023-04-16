@@ -338,6 +338,8 @@
   "useAnimationTag": true,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

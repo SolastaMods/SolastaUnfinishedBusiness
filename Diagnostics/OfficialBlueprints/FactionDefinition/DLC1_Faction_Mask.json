@@ -4,8 +4,8 @@
   "minRelationCap": -100,
   "maxRelationCap": 100,
   "stealingPenalty": 10,
-  "attackingPenalty": 5,
-  "killingPenalty": 25,
+  "attackingPenalty": 20,
+  "killingPenalty": 50,
   "prominentMembers": [],
   "smallSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

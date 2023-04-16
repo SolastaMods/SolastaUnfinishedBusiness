@@ -23,7 +23,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1250,
+    1000,
     0,
     0,
     0
@@ -35,18 +35,9 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
-  "requiresIdentification": true,
-  "requiredAttunementClasses": [
-    "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb",
-    "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
-    "Definition:Druid:df2da915a153d7a48a896041cf318953",
-    "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
-    "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
-    "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
-    "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
-  ],
-  "itemRarity": "Rare",
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -212,6 +203,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -220,8 +212,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

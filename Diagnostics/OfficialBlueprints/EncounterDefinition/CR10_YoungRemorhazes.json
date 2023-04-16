@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "type": "Battle",
   "challengeRating": 10,
   "locationOverride": null,
@@ -8,18 +9,7 @@
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
       "monsterDefinition": "Definition:Young_Remorhaz:86368b4999f34f349b477aecd56db5a1",
-      "number": 1,
-      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
-      "creatureSex": "Male",
-      "presentationDefinitionIndex": 0,
-      "randomHumanoidPresentation": true,
-      "overrideFaction": false,
-      "factionName": ""
-    },
-    {
-      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Remorhaz:b1d9f09845585014f96d66348b24144c",
-      "number": 2,
+      "number": 3,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Male",
       "presentationDefinitionIndex": 0,

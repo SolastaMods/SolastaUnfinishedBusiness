@@ -1,0 +1,46 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D2",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa",
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "73d0e1eb0aea65c48a312b2d19dacf74",
+  "contentPack": "LostValley",
+  "name": "DLC3_Feral_Dragon_loot_drop"
+}

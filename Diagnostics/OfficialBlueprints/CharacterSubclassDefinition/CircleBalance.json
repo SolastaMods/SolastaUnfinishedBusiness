@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageCircleBalanceColdEmbrace:e55c1454db825ba4fa3970e4ee2d268e",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDruidCircleBalanceBalanceOfPower:61fb75d6698e1794d8a50580488fdf00",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [

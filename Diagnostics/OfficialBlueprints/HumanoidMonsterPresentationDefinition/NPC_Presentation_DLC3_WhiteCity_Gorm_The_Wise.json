@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_04",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 37.3,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_NPC_GormTheWise",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_B",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ClothesSage",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.9245283,
+    "g": 0.713168561,
+    "b": 0.178800225,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8207547,
+    "g": 0.6612714,
+    "b": 0.174216777,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.273584843,
+    "g": 0.223255575,
+    "b": 0.223255575,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.320754677,
+    "g": 0.2829298,
+    "b": 0.2829298,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_WhiteCity_Gorn_Title",
+    "description": "NPC/&DLC3_NPC_WhiteCity_Gorn_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "20a9bed1fc1e964419ff71e9ce28a4c6",
+      "m_SubObjectName": "NPC_Presentation_DLC3_WhiteCity_Gorm_The_Wise",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "5dd20ba47d3867a43941f15dd480664e",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_WhiteCity_Gorm_The_Wise"
+}

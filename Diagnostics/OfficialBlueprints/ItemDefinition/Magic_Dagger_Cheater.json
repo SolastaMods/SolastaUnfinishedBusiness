@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4500,
+    10000,
     0,
     0,
     0
@@ -35,12 +35,7 @@
   "magical": true,
   "requiresAttunement": true,
   "requiresIdentification": true,
-  "requiredAttunementClasses": [
-    "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
-    "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
-    "Definition:Barbarian:54d4d7f98cbd6e54e8bbe0f698180064",
-    "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40"
-  ],
+  "requiredAttunementClasses": [],
   "itemRarity": "Legendary",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
@@ -50,7 +45,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Cheater:075612cf6a10c7744a424bdcf3c9040e",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -58,7 +53,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Cheater2:8e7cf024f0eef334d998e9bf6916c1eb",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -588,6 +583,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -596,8 +592,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -623,6 +618,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "925f42dccf84c5f4f8b69de65a657445",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Magic_Dagger_Cheater"
 }

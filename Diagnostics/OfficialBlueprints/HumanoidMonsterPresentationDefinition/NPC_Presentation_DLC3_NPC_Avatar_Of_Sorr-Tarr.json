@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_AF",
+  "skinMorphotype": "FaceAndSkin_40",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.2,
+  "faceShapeMorphotype": "FaceShape_AF_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorInfiltrator",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Enchanted_PlateOfRobustness",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5022249,
+    "g": 0.622641444,
+    "b": 0.622641444,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5943396,
+    "g": 0.409088,
+    "b": 0.333615124,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5960784,
+    "g": 0.407843143,
+    "b": 0.3333333,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&DLC3_Sorr-Tarr_Avatar_Title",
+    "description": "Monster/&DLC3_Sorr-Tarr_Avatar_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6f8048418449c474497c916418fbb5f1",
+      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Merchant_General",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "a8ce4211e557a3249beb7f7bca149ac5",
+  "contentPack": "LostValley",
+  "name": "NPC_Presentation_DLC3_NPC_Avatar_Of_Sorr-Tarr"
+}

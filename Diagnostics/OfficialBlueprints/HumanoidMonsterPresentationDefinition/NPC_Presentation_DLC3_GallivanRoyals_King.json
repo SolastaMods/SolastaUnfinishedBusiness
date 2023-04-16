@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 45.78105,
+  "ageMorphotypeValue": 67.17648,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_NPC_Talbut_the_Grey",
+  "hairShapeMorphotype": "HairShape_J",
+  "hairColorMorphotype": "HairColor_22",
+  "beardShapeMorphotype": "BeardShape_O",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_001",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ClothesCommon",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.7176471,
+    "g": 0.7176471,
+    "b": 0.6117647,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.980392158,
+    "g": 0.7960785,
+    "b": 0.6784314,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.913725555,
+    "b": 0.8431373,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_GallivanRoyals_King_Title",
+    "description": "NPC/&DLC3_NPC_GallivanRoyals_King_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "48fdcc7ed8de7704b81e7a84aad42088",
+      "m_SubObjectName": "NPC_Presentation_DLC3_GallivanRoyals_King",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "c14b806aa19d9934393a189345a7595f",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_GallivanRoyals_King"
+}

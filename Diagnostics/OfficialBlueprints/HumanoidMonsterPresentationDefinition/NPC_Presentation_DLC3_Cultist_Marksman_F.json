@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkin_30",
+  "musculatureMorphotypeValue": 48.77083,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 0.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_Y",
+  "hairColorMorphotype": "HairColor_19",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "scarsMorphotype": "Scars_17",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ScaleMail",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.311320722,
+    "g": 0.06901918,
+    "b": 0.275411725,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6960016,
+    "g": 0.1631363,
+    "b": 0.8867924,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.3717434,
+    "g": 0.0,
+    "b": 0.735849,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5310364,
+    "g": 0.0323068723,
+    "b": 0.622641444,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_DLC3_CultistMarsman_Title_F",
+    "description": "NPC/&NPC_DLC3_CultistMarsman_Description_F",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "520bb6d3ac1572845bb2e8b0e54ad7df",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Cultist_Marksman_F",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "0d68dcec7899e654cae8b5ca90511891",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_Cultist_Marksman_F"
+}
