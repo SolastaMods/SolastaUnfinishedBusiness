@@ -55,7 +55,7 @@ internal static class CraftingContext
         { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },
         { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") },
-        { "ClothesWizard", Gui.Localize("Equipment/&Wizard_OutfitTitle") },
+        { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
         { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") }
     };
 
