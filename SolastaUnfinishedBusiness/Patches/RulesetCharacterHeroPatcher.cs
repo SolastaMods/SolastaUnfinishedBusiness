@@ -12,7 +12,9 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -870,6 +872,7 @@ public static class RulesetCharacterHeroPatcher
             //TODO: convert this to an interface
             WizardBladeDancer.OnItemEquipped(__instance);
             CollegeOfWarDancer.OnItemEquipped(__instance);
+            FairyRaceBuilder.OnItemEquipped(__instance);
         }
     }
 

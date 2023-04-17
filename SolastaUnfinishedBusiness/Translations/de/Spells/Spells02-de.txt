@@ -1,4 +1,6 @@
-﻿Condition/&ConditionMirrorImageDescription=Feinde können versehentlich dieses Duplikat anstelle von Ihnen anvisieren. Wenn Duplikat getroffen wird, verschwindet es.
+﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=Du musst einen Stärke-Fähigkeitswurf machen, um diesen Zustand zu beseitigen.
+Condition/&ConditionGrappledRestrainedSpellWebTitle=Zurückgehalten durch Web
+Condition/&ConditionMirrorImageDescription=Feinde können versehentlich dieses Duplikat anstelle von Ihnen anvisieren. Wenn Duplikat getroffen wird, verschwindet es.
 Condition/&ConditionMirrorImageTitle=Spiegel duplizieren
 Feedback/&MirrorImageAttackerHasSense={0} hat {1} und ignoriert {2}
 Feedback/&MirrorImageAttackerIsBlind={0} ist {1} und ignoriert {2}

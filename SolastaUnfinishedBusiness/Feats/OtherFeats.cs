@@ -6,8 +6,10 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -133,8 +135,8 @@ internal static class OtherFeats
             .Create("FeatTacticianAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                MartialTactician.GambitPool,
-                MartialTactician.Learn2Gambit,
+                GambitsBuilders.GambitPool,
+                GambitsBuilders.Learn2Gambit,
                 MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
             .SetValidators(ValidatorsFeat.IsLevel4)
             .AddToDB();
@@ -832,9 +834,16 @@ internal static class OtherFeats
                 return;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                return;
+            }
+
             var effectPower = GetUsablePower(attacker);
 
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
         }
     }
 

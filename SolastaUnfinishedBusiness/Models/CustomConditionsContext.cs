@@ -91,7 +91,6 @@ internal static class CustomConditionsContext
 
         var combatAffinityDarkelfLightSensitivity = FeatureDefinitionCombatAffinityBuilder
             .Create(CombatAffinitySensitiveToLight, "CombatAffinityLightSensitivity")
-            .SetGuiPresentationNoContent(true)
             .SetMyAttackAdvantage(AdvantageType.None)
             .SetMyAttackModifierSign(AttackModifierSign.Substract)
             .SetMyAttackModifierDieType(DieType.D4)

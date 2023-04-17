@@ -206,7 +206,8 @@ internal static class PowerBundle
 
         if (power.RechargeRate == RuleDefinitions.RechargeRate.KiPoints)
         {
-            return character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints;
+            return (character.TryGetAttributeValue(AttributeDefinitions.KiPoints) - character.UsedKiPoints) /
+                   power.CostPerUse;
         }
 
         if (power is IPowerSharedPool poolPower)

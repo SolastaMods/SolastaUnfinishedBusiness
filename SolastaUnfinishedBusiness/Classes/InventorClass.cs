@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
-using SolastaUnfinishedBusiness.Infusions;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -24,7 +23,7 @@ namespace SolastaUnfinishedBusiness.Classes;
 internal static class InventorClass
 {
     internal const string ClassName = "Inventor";
-
+    internal const string InventorConstructFamily = "InventorConstruct";
     private const string InfusionsName = "FeatureInventorInfusionPool";
     private const string LimiterName = "Infusion";
 
@@ -51,6 +50,14 @@ internal static class InventorClass
 
     public static CharacterClassDefinition Build()
     {
+        // Inventor Constructor Family
+
+        _ = CharacterFamilyDefinitionBuilder
+            .Create(InventorConstructFamily)
+            .SetGuiPresentation(Category.MonsterFamily)
+            .IsExtraPlanar()
+            .AddToDB();
+
         var learn2Infusion = BuildLearn(2);
         var featureSetInventorInfusions = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorInfusions")
@@ -88,13 +95,13 @@ internal static class InventorClass
                 AttributeDefinitions.Charisma
             )
             .AddSkillPreferences(
-                DatabaseHelper.SkillDefinitions.Athletics,
-                DatabaseHelper.SkillDefinitions.History,
-                DatabaseHelper.SkillDefinitions.Insight,
-                DatabaseHelper.SkillDefinitions.Stealth,
-                DatabaseHelper.SkillDefinitions.Religion,
-                DatabaseHelper.SkillDefinitions.Perception,
-                DatabaseHelper.SkillDefinitions.Survival
+                SkillDefinitions.Athletics,
+                SkillDefinitions.History,
+                SkillDefinitions.Insight,
+                SkillDefinitions.Stealth,
+                SkillDefinitions.Religion,
+                SkillDefinitions.Perception,
+                SkillDefinitions.Survival
             )
             .AddToolPreferences(
                 ToolTypeDefinitions.EnchantingToolType,
@@ -906,6 +913,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         GameLocationCharacter defender,
         GameLocationCharacter helper,
         ActionModifier saveModifier,
+        CharacterActionParams reactionParams,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         ref RollOutcome saveOutcome,

@@ -135,13 +135,14 @@ internal static class CharacterContext
         LoadVision();
         LoadEpicArray();
         LoadVisuals();
-        LoadAdditionalNames();
     }
 
     internal static void LateLoad()
     {
+        LoadAdditionalNames();
         BuildMonkWeaponSpecialization();
         SwitchHelpPower();
+        FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
@@ -840,6 +841,9 @@ internal static class CharacterContext
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
         var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
+        var enable = isMiddle
+            ? Main.Settings.EnableFeatsAtEveryFourLevelsMiddle
+            : Main.Settings.EnableFeatsAtEveryFourLevels;
 
         foreach (var characterClassDefinition in dbCharacterClassDefinition)
         {
@@ -854,7 +858,7 @@ internal static class CharacterContext
                            (characterClassDefinition == Fighter && level is 6 or 14);
                 }
 
-                if (Main.Settings.EnableFeatsAtEveryFourLevels)
+                if (enable)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
                         ? featureUnlockPointPool2

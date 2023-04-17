@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -127,7 +128,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                        .SetGuiPresentationNoContent(true)
+                                        .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
+                                            Category.Feature)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .AddToDB())
                                     .AddToDB(),
@@ -296,7 +298,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                 .SetSpecialDuration(DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                                     .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract", Category.Feature)
                                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                     .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -383,6 +385,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
             }
         }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
     }
 
     private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode
@@ -392,6 +399,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 2);
 
             hero.RefreshAll();
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -2);
         }
 
         private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)

@@ -66,7 +66,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         var combatAffinityOpportunistExposingWeakness = FeatureDefinitionCombatAffinityBuilder
             .Create("CombatAffinityOpportunistExposingWeakness")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation("PowerOpportunistExposingWeakness", Category.Feature)
             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
             .AddToDB();
 

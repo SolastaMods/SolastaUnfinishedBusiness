@@ -195,9 +195,9 @@ namespace SolastaUnfinishedBusiness.Displays
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Name,
+                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
-                new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
-                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools));
+                new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting));
         }
     }
 

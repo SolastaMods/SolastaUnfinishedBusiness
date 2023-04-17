@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
@@ -327,7 +328,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (rulesetDefender == null || !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }

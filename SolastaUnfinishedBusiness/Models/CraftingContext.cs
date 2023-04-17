@@ -54,7 +54,9 @@ internal static class CraftingContext
         { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") },
         { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },
-        { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") }
+        { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") },
+        { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
+        { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") }
     };
 
     private static readonly List<string> ItemCategories = new()

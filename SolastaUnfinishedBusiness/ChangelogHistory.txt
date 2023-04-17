@@ -1,5 +1,25 @@
 ﻿CHANGES:
 
+1.4.33.75:
+
+Special thanks to [HiddenHax] for all support on this release
+
+- added Chinese translations reviewed by [MagicSkySword]
+- added College of War Dancer's focused war dance at level 14 designed by [Taco]
+- added Fairy race suggested by [Arcane Jack]
+- added Farmer background to flexible backgrounds feature
+- added Innovation Weapon's improved defender at level 15
+- added magical clothes and recipes to Monk and Wizard
+- added Martial Marshal's knowledgeable defense at level 18 designed by [Taco]
+- added Martial Royal Knight's inspiring protection at level 15 designed by [HiddenHax]
+- added Martial Royal Knight's spirited surge at level 18 designed by [HiddenHax]
+- added Martial Tactician's battle awareness at level 18 designed by [HiddenHax]
+- added new Break Free decision to AI packages to better support Web on enemies
+- fixed many soft lock scenarios in interactions between effects and gadgets
+- fixed Party Editor not correctly applying feat behaviors
+- fixed Slay the Enemy feat triggering hundreds of damage
+- improved Circle of the Night's shape forms at level 14
+
 1.4.33.74:
 
 - added Always Ready and Steady Aim feats

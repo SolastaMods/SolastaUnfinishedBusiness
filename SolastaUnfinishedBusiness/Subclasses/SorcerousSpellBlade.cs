@@ -201,7 +201,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     private sealed class PowerVisibilityModifierManaShield : PowerVisibilityModifier
     {
         public PowerVisibilityModifierManaShield() : base((character, power, _) =>
-            UsablePowersProvider.Get(power, character).RemainingUses > 0 || character.RemainingSorceryPoints < 2)
+            character.CanUsePower(power) || character.RemainingSorceryPoints < 2)
         {
         }
     }
@@ -210,8 +210,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     {
         public PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield) :
             base((character, _, _) =>
-                UsablePowersProvider.Get(powerManaShield, character).RemainingUses == 0 &&
-                character.RemainingSorceryPoints >= 2)
+                character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
         {
         }
     }

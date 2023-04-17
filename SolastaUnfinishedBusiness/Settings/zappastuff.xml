@@ -4,7 +4,7 @@
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
@@ -97,11 +97,8 @@
       </value>
     </item>
   </DisplaySpellListsToggle>
-  <EnableCommandAllUndead>true</EnableCommandAllUndead>
   <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
   <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
-  <EnableMultiLinePowerPanel>true</EnableMultiLinePowerPanel>
-  <EnableMultiLineSpellPanel>true</EnableMultiLineSpellPanel>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
   <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
   <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
@@ -124,6 +121,7 @@
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
@@ -151,6 +149,7 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceFairy</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -359,6 +358,10 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatInfusionsAdept</string>
+    <string>FeatAlwaysReady</string>
+    <string>FeatLunger</string>
+    <string>FeatRopeItUp</string>
+    <string>FeatSteadyAim</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -426,6 +429,8 @@
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
+    <string>Lunger</string>
+    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -901,7 +906,6 @@
   <RestockArcaneum>true</RestockArcaneum>
   <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
-  <DisableAutoUpdate>false</DisableAutoUpdate>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
@@ -914,8 +918,7 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes>
-  </DefaultPartyHeroes>
+  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -1136,7 +1139,7 @@
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCharacterChecker>true</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>

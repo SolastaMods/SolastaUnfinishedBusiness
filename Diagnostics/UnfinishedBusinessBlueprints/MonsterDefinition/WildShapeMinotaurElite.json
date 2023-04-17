@@ -11,16 +11,16 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "ChaoticEvil",
-  "armorClass": 14,
+  "armorClass": 16,
   "armor": "",
   "hitDice": 13,
   "hitDiceType": "D10",
   "hitPointsBonus": 39,
-  "standardHitPoints": 110,
+  "standardHitPoints": 126,
   "abilityScores": [
     20,
     11,
-    16,
+    20,
     6,
     16,
     9
@@ -29,24 +29,24 @@
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Strength",
-      "bonus": 7
+      "bonus": 9
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Constitution",
-      "bonus": 6
+      "bonus": 9
     }
   ],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Perception",
-      "bonus": 6
+      "skillName": "Athletics",
+      "bonus": 9
     },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Athletics",
-      "bonus": 7
+      "skillName": "Perception",
+      "bonus": 6
     }
   ],
   "legendaryCreature": false,
@@ -90,28 +90,31 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
-    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
-    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394"
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
+    "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
+    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Greataxe:8203d1698b401b14d8a5f639b01e7354"
+      "monsterAttackDefinition": "Definition:Attack_Minotaur_Wildshape_Elite_Greataxe:f5c806ea-4870-5e67-adc6-3e260fd56155"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Charged_Gore:d102834a687662c49984b6cd11889185"
+      "monsterAttackDefinition": "Definition:Attack_Minotaur_Wildshape_Elite_Charged_Gore:dd1e6d9b-a53f-5ea9-9bde-7dc78c5a9c84"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Minotaur_Elite_Gore:7aa03bb5ae32ca84ea683c04120f9305"
+      "monsterAttackDefinition": "Definition:Attack_Minotaur__Wildshape_Elite_Gore:69c46261-1149-59f2-829c-54acdd3fc6ca"
     }
   ],
   "sneakStance": "Stealth",
@@ -244,8 +247,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&MinotaurElite_Title",
-    "description": "Monster/&MinotaurElite_Description",
+    "title": "Monster/&WildShapeMinotaurEliteTitle",
+    "description": "Monster/&WildShapeMinotaurEliteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b325e8497ba1c6d48919ae5108204deb",

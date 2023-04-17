@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -17,25 +16,25 @@ internal static class CraftyFeats
         var proficiencyCraftyArcana = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyArcana")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Arcana.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
 
         var proficiencyCraftyAnimalHandling = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyAnimalHandling")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.AnimalHandling.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.AnimalHandling)
             .AddToDB();
 
         var proficiencyCraftyMedicine = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyMedicine")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Medecine.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Medecine)
             .AddToDB();
 
         var proficiencyCraftyNature = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCraftyNature")
             .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Nature.Name)
+            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Nature)
             .AddToDB();
 
         var proficiencyCraftyHerbalismKit = FeatureDefinitionProficiencyBuilder

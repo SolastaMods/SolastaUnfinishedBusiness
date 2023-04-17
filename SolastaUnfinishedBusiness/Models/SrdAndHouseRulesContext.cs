@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -78,9 +79,8 @@ internal static class SrdAndHouseRulesContext
             spells.RemoveAll(x => x == null);
         }
 
-        //BUGFIX: fix Race Repertoires
-        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-        CastSpellTraditionLight.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
+        //BUGFIX: fix tradition light race repertoire
+        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
 
         //BUGFIX: add a sprite reference to Resurrection
         Resurrection.GuiPresentation.spriteReference =

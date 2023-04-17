@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -235,17 +235,15 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
             var reactionParams =
                 new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
-                    StringParameter = "Reaction/&CustomReactionHeroicUncannyDodgeDescription"
+                    StringParameter = "HeroicUncannyDodge", UsablePower = usablePower
                 };
 
             var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("HeroicUncannyDodge", reactionParams)
-            {
-                Resource = new ReactionResourcePowerPool(_featureDefinitionPower, Sprites.GenericResourceIcon)
-            };
+            var reactionRequest = new ReactionRequestSpendPower(reactionParams);
 
             gameLocationActionManager.AddInterruptRequest(reactionRequest);
 
@@ -256,9 +254,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
+            rulesetMe.UsePower(usablePower);
             attackModifier.damageRollReduction = Int32.MaxValue;
-            rulesetMe.UsePower(UsablePowersProvider.Get(_featureDefinitionPower));
-            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
         }
     }
 }
