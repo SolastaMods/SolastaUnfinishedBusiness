@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -635,6 +636,41 @@ public static class RulesetImplementationManagerPatcher
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
                 -1, "RulesetImplementationManager.TryRollSavingThrow",
                 new CodeInstruction(OpCodes.Call, enumerate));
+        }
+
+        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
+        {
+            var savingThrowBonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+
+            var attr = attributeScore;
+
+            foreach (var attribute in rulesetActor
+                         .GetSubFeaturesByType<IChangeSavingThrowAttribute>()
+                         .Where(x => x.IsValid(rulesetActor, attr))
+                         .Select(x => x.SavingThrowAttribute(rulesetActor)))
+            {
+                var newSavingThrowBonus =
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+
+                // get the last one instead unless we start using this with other subs and then need to decide which one is better
+                if (newSavingThrowBonus <= savingThrowBonus)
+                {
+                    continue;
+                }
+
+                attributeScore = attribute;
+                savingThrowBonus = newSavingThrowBonus;
+            }
+        }
+
+        //PATCH: supports IChangeSavingThrowAttribute interface
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor target, ref string savingThrowAbility)
+        {
+            GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
     }
 }
