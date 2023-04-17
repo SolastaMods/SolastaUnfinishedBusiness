@@ -465,8 +465,7 @@ public static class RulesetCharacterPatcher
             }
 
             // raging
-            if (__instance.AllConditions
-                .Any(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionRaging))
+            if (__instance.HasAnyConditionOfType(RuleDefinitions.ConditionRaging))
             {
                 __result = false;
             }
@@ -1382,18 +1381,29 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, enumerate));
         }
 
-        private static void GetHighestAttributeScore(RulesetActor rulesetActor, ref string attributeScore)
+        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
         {
+            var savingThrowBonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+
             foreach (var attribute in rulesetActor
                          .GetSubFeaturesByType<IChangeConcentrationAttribute>()
                          .Where(x => x.IsValid(rulesetActor))
                          .Select(x => x.ConcentrationAttribute(rulesetActor)))
             {
+                var newSavingThrowBonus =
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
-                // if (rulesetActor.TryGetAttributeValue(attribute) > rulesetActor.TryGetAttributeValue(attributeScore))
+                if (newSavingThrowBonus <= savingThrowBonus)
                 {
-                    attributeScore = attribute;
+                    continue;
                 }
+
+                attributeScore = attribute;
+                savingThrowBonus = newSavingThrowBonus;
             }
         }
 
@@ -1402,7 +1412,7 @@ public static class RulesetCharacterPatcher
             string abilityScoreName,
             List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
         {
-            GetHighestAttributeScore(__instance, ref abilityScoreName);
+            GetBestSavingThrowAbilityScore(__instance, ref abilityScoreName);
 
             return __instance.ComputeBaseSavingThrowBonus(abilityScoreName, savingThrowModifierTrends);
         }
@@ -1420,7 +1430,7 @@ public static class RulesetCharacterPatcher
             List<ISavingThrowAffinityProvider> accountedProviders,
             int savingThrowContextField = 0)
         {
-            GetHighestAttributeScore(__instance, ref abilityType);
+            GetBestSavingThrowAbilityScore(__instance, ref abilityType);
 
             __instance.ComputeSavingThrowModifier(abilityType, formType, sourceName, schoolOfMagic, damageType,
                 conditionType, sourceFamily, effectModifier, accountedProviders, savingThrowContextField);
@@ -1432,7 +1442,7 @@ public static class RulesetCharacterPatcher
             bool ignoreCover,
             RulesetActor rulesetActor)
         {
-            GetHighestAttributeScore(rulesetActor, ref abilityType);
+            GetBestSavingThrowAbilityScore(rulesetActor, ref abilityType);
 
             return __instance.GetSavingThrowModifier(abilityType, ignoreCover);
         }
