@@ -187,7 +187,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 1)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()
