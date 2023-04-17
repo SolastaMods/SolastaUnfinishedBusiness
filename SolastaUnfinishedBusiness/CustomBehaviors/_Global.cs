@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -101,14 +102,13 @@ internal static class Global
             feature.OnAfterAction(action);
         }
 
-        //PATCH: allows characters with condition surged to be able to cast spells on each of them
+        //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
         if (action.ActionType == ActionDefinitions.ActionType.Main)
         {
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter != null && rulesetCharacter.HasAnyConditionOfType(RuleDefinitions.ConditionSurged))
+            if (rulesetCharacter?.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge) == true)
             {
-                // required for Martial Royal Knight surge powers so targets can double cast main spell too
                 action.ActingCharacter.UsedMainSpell = false;
                 action.ActingCharacter.UsedMainCantrip = false;
             }

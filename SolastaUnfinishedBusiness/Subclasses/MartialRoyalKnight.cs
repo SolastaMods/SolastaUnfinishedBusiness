@@ -13,6 +13,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class MartialRoyalKnight : AbstractSubclass
 {
     private const string Name = "RoyalKnight";
+    internal const string ConditionInspiringSurge = $"Condition{Name}InspiringSurge";
+    internal const string ConditionSpiritedSurge = $"Condition{Name}SpiritedSurge";
 
     internal MartialRoyalKnight()
     {
@@ -66,7 +68,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         // LEVEL 10
 
         var conditionInspiringSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}InspiringSurge")
+            .Create(ConditionInspiringSurge)
             .SetGuiPresentation($"Power{Name}InspiringSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
             .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain)
             .AddToDB();
@@ -74,7 +76,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         var powerInspiringSurge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}InspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -137,9 +139,11 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         // LEVEL 18
 
+        const string POWER_SPIRITED_SURGE = $"Power{Name}SpiritedSurge";
+        
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
             .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -151,13 +155,13 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
         var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -168,8 +172,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var conditionSpiritedSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
+            .Create(ConditionSpiritedSurge)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, ConditionDefinitions.ConditionSunbeam)
             .SetFeatures(
                 FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain,
                 abilityCheckAffinitySpiritedSurge,
@@ -178,7 +182,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerSpiritedSurge = FeatureDefinitionPowerBuilder
-            .Create(powerInspiringSurge, $"Power{Name}SpiritedSurge")
+            .Create(powerInspiringSurge, POWER_SPIRITED_SURGE)
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetEffectDescription(
                 EffectDescriptionBuilder
