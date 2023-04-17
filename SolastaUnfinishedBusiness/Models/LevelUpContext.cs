@@ -673,7 +673,7 @@ internal static class LevelUpContext
         }
     }
 
-    private static void RecursiveGrantCustomFeatures(
+    internal static void RecursiveGrantCustomFeatures(
         RulesetCharacterHero hero,
         string tag,
         [NotNull] List<FeatureDefinition> features)
@@ -702,6 +702,40 @@ internal static class LevelUpContext
                         .ForEach(prof =>
                             hero.TrainedFightingStyles
                                 .Add(DatabaseHelper.GetDefinition<FightingStyleDefinition>(prof)));
+                    break;
+            }
+        }
+    }
+
+    internal static void RecursiveRemoveCustomFeatures(
+        RulesetCharacterHero hero,
+        string tag,
+        [NotNull] List<FeatureDefinition> features)
+    {
+        foreach (var grantedFeature in features)
+        {
+            foreach (var customCode in grantedFeature.GetAllSubFeaturesOfType<IFeatureDefinitionCustomCode>())
+            {
+                customCode.RemoveFeature(hero, tag);
+            }
+
+            switch (grantedFeature)
+            {
+                case FeatureDefinitionFeatureSet
+                {
+                    Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union
+                } featureDefinitionFeatureSet:
+                    RecursiveGrantCustomFeatures(hero, tag, featureDefinitionFeatureSet.FeatureSet);
+                    break;
+
+                case FeatureDefinitionProficiency
+                {
+                    ProficiencyType: RuleDefinitions.ProficiencyType.FightingStyle
+                } featureDefinitionProficiency:
+                    featureDefinitionProficiency.Proficiencies
+                        .ForEach(prof =>
+                            hero.TrainedFightingStyles
+                                .Remove(DatabaseHelper.GetDefinition<FightingStyleDefinition>(prof)));
                     break;
             }
         }

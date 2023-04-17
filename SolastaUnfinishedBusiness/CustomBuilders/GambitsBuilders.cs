@@ -709,10 +709,8 @@ internal static class GambitsBuilders
             .AddToDB();
     }
 
-    private static DieType GetGambitDieSize(RulesetCharacter character)
+    private static int GetTacticianLevel(RulesetCharacter character)
     {
-        var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
-
         var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
 
         // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
@@ -720,8 +718,15 @@ internal static class GambitsBuilders
             hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
                 out var characterSubclassDefinition) && characterSubclassDefinition.Name != MartialTactician.Name)
         {
-            level = 1;
+            return 1;
         }
+
+        return character.GetClassLevel(CharacterClassDefinitions.Fighter);
+    }
+
+    private static DieType GetGambitDieSize(RulesetCharacter character)
+    {
+        var level = GetTacticianLevel(character);
 
         return level switch
         {
@@ -842,6 +847,7 @@ internal static class GambitsBuilders
             }
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+            retaliationMode.AddAttackTagAsNeeded(MartialTactician.TacticalAwareness);
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 

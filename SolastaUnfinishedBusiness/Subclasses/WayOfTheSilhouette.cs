@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -100,7 +99,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         var powerWayOfSilhouetteShadowySanctuary = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfSilhouetteShadowySanctuary")
+            .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift, "PowerWayOfSilhouetteShadowySanctuary")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints, 3)
             .SetReactionContext(ExtraReactionContext.Custom)
@@ -109,6 +108,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                     .Create(FeatureDefinitionPowers.PowerPatronTimekeeperTimeShift)
                     .SetParticleEffectParameters(Banishment)
                     .Build())
+            .SetShowCasting(true)
             .AddToDB();
 
         powerWayOfSilhouetteShadowySanctuary.SetCustomSubFeatures(
@@ -173,7 +173,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             var rulesetMe = me.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
-            if (usablePower.RemainingUses < 3)
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }
@@ -205,7 +205,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
             rulesetMe.UsePower(usablePower);
             effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
-            attackModifier.damageRollReduction = Int32.MaxValue;
+            actualEffectForms.Clear();
+            attackMode.EffectDescription.EffectForms.Clear();
         }
     }
 }

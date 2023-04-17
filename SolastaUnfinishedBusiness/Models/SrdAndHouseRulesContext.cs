@@ -73,9 +73,8 @@ internal static class SrdAndHouseRulesContext
 
     internal static void Load()
     {
-        //BUGFIX: fix Race Repertoires
-        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-        CastSpellTraditionLight.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
+        //BUGFIX: fix tradition light race repertoire
+        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
 
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;

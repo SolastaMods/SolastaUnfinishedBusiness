@@ -385,6 +385,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
             }
         }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
     }
 
     private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode
@@ -394,6 +399,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 2);
 
             hero.RefreshAll();
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -2);
         }
 
         private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)

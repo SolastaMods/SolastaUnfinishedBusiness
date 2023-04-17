@@ -6,6 +6,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.DataViewer;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
 
@@ -289,10 +290,22 @@ public static class PartyEditor
                                 null,
                                 null,
                                 (chr, feat) => !chr.TrainedFeats.Contains(feat)
-                                    ? () => chr.TrainFeats(new List<FeatDefinition> { feat })
+                                    ? () =>
+                                    {
+                                        chr.TrainFeats(new List<FeatDefinition> { feat });
+
+                                        LevelUpContext.RecursiveGrantCustomFeatures(
+                                            chr, AttributeDefinitions.TagFeat, feat.Features);
+                                    }
                                     : null,
                                 (chr, feat) => chr.TrainedFeats.Contains(feat)
-                                    ? () => chr.TrainedFeats.Remove(feat)
+                                    ? () =>
+                                    {
+                                        chr.TrainedFeats.Remove(feat);
+
+                                        LevelUpContext.RecursiveRemoveCustomFeatures(
+                                            chr, AttributeDefinitions.TagFeat, feat.Features);
+                                    }
                                     : null
                             );
                         }

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
-namespace SolastaUnfinishedBusiness.Models;
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class Global
 {
@@ -99,6 +100,18 @@ internal static class Global
         foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
         {
             feature.OnAfterAction(action);
+        }
+
+        //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
+        if (action.ActionType == ActionDefinitions.ActionType.Main)
+        {
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter?.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge) == true)
+            {
+                action.ActingCharacter.UsedMainSpell = false;
+                action.ActingCharacter.UsedMainCantrip = false;
+            }
         }
 
         CurrentAction = null;

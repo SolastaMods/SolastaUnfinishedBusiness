@@ -408,6 +408,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
             }
         }
 
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
             // Empty

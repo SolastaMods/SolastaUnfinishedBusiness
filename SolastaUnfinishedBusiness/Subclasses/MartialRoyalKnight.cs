@@ -12,10 +12,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialRoyalKnight : AbstractSubclass
 {
+    private const string Name = "RoyalKnight";
+    internal const string ConditionInspiringSurge = $"Condition{Name}InspiringSurge";
+    internal const string ConditionSpiritedSurge = $"Condition{Name}SpiritedSurge";
+
     internal MartialRoyalKnight()
     {
-        const string Name = "RoyalKnight";
-
         // LEVEL 03
 
         var powerRallyingCry = FeatureDefinitionPowerBuilder
@@ -25,6 +27,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(PowerDomainLifePreserveLife.EffectDescription)
+                .ExcludeCaster()
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -64,28 +67,23 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         // LEVEL 10
 
-        var additionalActionInspiringSurge = FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{Name}InspiringSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .AddToDB();
-
         var conditionInspiringSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}InspiringSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalActionInspiringSurge)
+            .Create(ConditionInspiringSurge)
+            .SetGuiPresentation($"Power{Name}InspiringSurge", Category.Feature, ConditionDefinitions.ConditionSunbeam)
+            .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain)
             .AddToDB();
 
         var powerInspiringSurge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}InspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
+                    .ExcludeCaster()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -94,67 +92,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // LEVEL 18
+        powerInspiringSurge.EffectDescription.effectParticleParameters.targetParticleReference =
+            SpellDefinitions.Heroism.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
-        var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}SpiritedSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
-            .SetMyAttackAdvantage(AdvantageType.Advantage)
-            .AddToDB();
-
-        var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
-            .SetGuiPresentation($"Power{Name}SpiritedSurge", Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var conditionSpiritedSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}SpiritedSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                abilityCheckAffinitySpiritedSurge,
-                additionalActionInspiringSurge,
-                combatAffinitySpiritedSurge,
-                savingThrowAffinitySpiritedSurge)
-            .AddToDB();
-
-        var powerSpiritedSurge = FeatureDefinitionPowerBuilder
-            .Create(powerInspiringSurge, $"Power{Name}SpiritedSurge")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 2)
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionSpiritedSurge, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .SetOverriddenPower(powerInspiringSurge)
-            .AddToDB();
-
-        // LEVEL 18
+        // LEVEL 15
 
         const string TEXT = "PowerRoyalKnightInspiringProtection";
 
@@ -183,7 +124,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetCustomSubFeatures(
-                            new InspiringProtection(powerRoyalKnightInspiringProtection, "InventorFlashOfGenius"))
+                            new InspiringProtection(powerRoyalKnightInspiringProtection,
+                                "RoyalKnightInspiringProtection"))
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -194,6 +136,72 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation(TEXT, Category.Feature)
             .AddFeatureSet(powerRoyalKnightInspiringProtectionAura, powerRoyalKnightInspiringProtection)
             .AddToDB();
+
+        // LEVEL 18
+
+        const string POWER_SPIRITED_SURGE = $"Power{Name}SpiritedSurge";
+        
+        var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}SpiritedSurge")
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var combatAffinitySpiritedSurge = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}SpiritedSurge")
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var abilityCheckAffinitySpiritedSurge = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}SpiritedSurge")
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionSpiritedSurge = ConditionDefinitionBuilder
+            .Create(ConditionSpiritedSurge)
+            .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature, ConditionDefinitions.ConditionSunbeam)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActions.AdditionalActionSurgedMain,
+                abilityCheckAffinitySpiritedSurge,
+                combatAffinitySpiritedSurge,
+                savingThrowAffinitySpiritedSurge)
+            .AddToDB();
+
+        var powerSpiritedSurge = FeatureDefinitionPowerBuilder
+            .Create(powerInspiringSurge, POWER_SPIRITED_SURGE)
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 1)
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
+                    .ExcludeCaster()
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionSpiritedSurge, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(powerInspiringSurge)
+            .AddToDB();
+
+        powerSpiritedSurge.EffectDescription.effectParticleParameters.targetParticleReference =
+            SpellDefinitions.Heroism.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
         // MAIN
 
@@ -281,8 +289,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             int saveOutcomeDelta)
         {
             var text = defender == helper
-                ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
-                : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
+                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf"
+                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly";
 
             return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
         }

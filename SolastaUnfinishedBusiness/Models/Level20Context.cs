@@ -699,15 +699,13 @@ internal static class Level20Context
             hero.RefreshAll();
         }
 
-#if false
         public void RemoveFeature([NotNull] RulesetCharacterHero hero, string tag)
         {
             ModifyAttributeAndMax(hero, AttributeDefinitions.Strength, -4);
             ModifyAttributeAndMax(hero, AttributeDefinitions.Constitution, -4);
-        
+
             hero.RefreshAll();
         }
-#endif
 
         private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
         {

@@ -1,0 +1,8 @@
+Condition/&AfterRestIdentifyDescription=鉴定魔法物品
+Condition/&AfterRestIdentifyTitle=鉴定
+Condition/&ConditionDistractedByAllyDescription=这个生物已经困惑了。
+Condition/&ConditionDistractedByAllyTitle=困惑
+Condition/&ConditionLightSensitivityDescription=你在强光下的感知（感知）检定处于劣势，并且在攻击检定上受到 -1d4 惩罚。
+Condition/&ConditionLightSensitivityTitle=感光度
+Condition/&ConditionStopMovementDescription=无法移动。速度设置为 0。
+Condition/&ConditionStopMovementTitle=无法移动

@@ -356,14 +356,15 @@ internal sealed class MartialMarshal : AbstractSubclass
         for (var i = 1; i <= 3; i++)
         {
             _ = ConditionDefinitionBuilder
-                .Create($"ConditionMarshalKnowledgeableDefenseAC{i}")
-                .SetGuiPresentationNoContent(true)
+                .Create($"{ConditionMarshalKnowledgeableDefenseACName}{i}")
+                .SetGuiPresentation("FeatureMarshalKnowledgeableDefense", Category.Feature)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .SetPossessive()
                 .AddFeatures(
                     FeatureDefinitionAttributeModifierBuilder
                         .Create($"AttributeModifierKnowledgeableDefenseAC{i}")
-                        .SetGuiPresentation(GuiPresentationBuilder.EmptyString,
+                        .SetGuiPresentation("Feature/&FeatureMarshalKnowledgeableDefenseTitle",
                             $"Feature/&AttributeModifierACPlus{i}Description")
                         .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                             AttributeDefinitions.ArmorClass, i)
@@ -374,10 +375,8 @@ internal sealed class MartialMarshal : AbstractSubclass
         var featureMarshalKnowledgeableDefense = FeatureDefinitionBuilder
             .Create("FeatureMarshalKnowledgeableDefense")
             .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new DefenderBeforeAttackHitConfirmedKnowledgeableDefense())
             .AddToDB();
-
-        featureMarshalKnowledgeableDefense.SetCustomSubFeatures(
-            new DefenderBeforeAttackHitConfirmedKnowledgeableDefense(featureMarshalKnowledgeableDefense));
 
         return featureMarshalKnowledgeableDefense;
     }
@@ -598,27 +597,15 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IDefenderBeforeAttackHitConfirmed
+    private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
     {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public DefenderBeforeAttackHitConfirmedKnowledgeableDefense(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
-            GameLocationBattleManager battle,
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
-            GameLocationCharacter me,
+            GameLocationCharacter defender,
             ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            RulesetAttackMode attackerAttackMode)
         {
             var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
 
@@ -627,7 +614,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 yield break;
             }
 
-            var rulesetMe = me.RulesetCharacter;
+            var rulesetMe = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetMe == null || rulesetAttacker == null)
@@ -654,7 +641,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 rulesetMe.CurrentFaction.Name);
 
             rulesetMe.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetMe, _featureDefinition);
         }
     }
 }
