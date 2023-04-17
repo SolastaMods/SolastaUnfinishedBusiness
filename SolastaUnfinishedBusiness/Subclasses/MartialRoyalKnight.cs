@@ -289,8 +289,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             int saveOutcomeDelta)
         {
             var text = defender == helper
-                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescriptionSelfFormat"
-                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionReactAllyDescriptionAllyFormat";
+                ? "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf"
+                : "Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionAlly";
 
             return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
         }
