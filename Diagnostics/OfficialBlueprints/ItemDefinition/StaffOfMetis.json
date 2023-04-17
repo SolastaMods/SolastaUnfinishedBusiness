@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3000,
+    4000,
     0,
     0,
     0
@@ -33,16 +33,16 @@
   "requiresAttunement": true,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "VeryRare",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": false,
       "type": "Feature",
-      "featureDefinition": "Definition:AbilityCheckAffinityStaffOfMetisIntelligence:fbaa36c8db3613f4cad8c280ae8e1843",
+      "featureDefinition": "Definition:AttributeModifierStaffOfMetis:195a121a80cc3aa45b74b30155926d83",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -532,6 +532,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -540,8 +541,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

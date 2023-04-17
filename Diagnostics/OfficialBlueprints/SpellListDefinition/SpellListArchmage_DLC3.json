@@ -1,0 +1,111 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 8,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:Identify:e398d34493329f147bae4902122057c2",
+        "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:MirrorImage:5c2d6ee9e5e53e742974baf0e543224c",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:WallOfForce:6caa05c5d18ae2e46bdee90964638865"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:GravitySlam:265ad14a4c626d840bb1fb3be0ec4706"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:PowerWordStun:6c2a33f146b955a4a8f16ecf21d1f73f"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "927a8d1f17e502f42933051ee40be811",
+  "contentPack": "BaseGame",
+  "name": "SpellListArchmage_DLC3"
+}

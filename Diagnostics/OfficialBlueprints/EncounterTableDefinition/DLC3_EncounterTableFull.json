@@ -1,0 +1,203 @@
+{
+  "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "encounterOccurences": [
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR9_DLC3_TigerDrakes_Wolves:e1439ed0ddb77974d8b81eb5b33c2d27"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR9_DLC3_TundraTigers:69e65507da57a0e4aaed1933b37de748"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC3_Sekeletons:0fd55e6a9f945214aab60d66dffb3c35"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC3_SnowBulettes_GiantEagles:64e0a83f3af802449862e1955d0598ac"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR10_DLC3_Undeads:098949ef6beb5394fbe8729b7c6681ed"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_Bandits_Archmages:970a4348f9bc3934f8470fcda4f89d48"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_FeralDragons:b5e01adc99087194db43c187857902f5"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_Goblins_Beasts:21ad4166c0ee44844bfc5e330e88aea2"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_Goblins_Minotaurs:43468b6754a6ced46b0d1fbbc0052567"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_Necromancer_Undeads:8e4d55447c1ed27468b6986f576992d3"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_PolarBears:f8c0bce220d4fd646bbe715be29ba888"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR11_DLC3_Priests_Undeads:f984f1592910cbe47a4434b32cd07200"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Druids_Beasts:12db262d6c59ff64c9cdd12b751dc04d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Goblins_Minotaurs:2824985beffc6cf4e8375b571e3b2ff8"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Mages_Elementals:a065430c000baba4fb347e007be08297"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Orcs_Beasts:131de245a0b112e4495ffa4cda09386c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_SnowBulettes:3abac2b8aba011c48bdc461e4fb5f85c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Spiders:4d34b415c070a9c40bbd77ab2f927088"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_TundraTigers_Peaks:f33955aaa694c6f4386ddd10f387599e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR12_DLC3_Wolves:06c69f8d2e4c2b84d866b95d3c24253c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC3_Orcs_Beasts:7ed0ee5b7c8ac844fb8a89529e0f3c22"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC3_Remorhaz:c999ba704cfe4504bb2b33b6d84f5af4"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR13_DLC3_Remorhaz_Elementals_GiantEagles:7324436ca350bb54f99f5b52a0243cda"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR14_DLC3_YoungDragons:1e2b38ed5e73f804f908138d86a315eb"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_Dragons_Elementals:6b861bbe48f582b44835004fd058e40e"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_Dragons_Mage:3a6cb8b12cef51744b9a5f5cb688b52f"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_Druids_Beasts:5ef6bbc170adb6542ae81de9e16342f6"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_FeralDragons:4758b2e99a9a6f84a938f31191697109"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_Necromancer_Undeads:76f4eecffaaa6e546a154c0cc1243389"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR15_DLC3_Remorhaz:027cc7408acbea241b0ceba8bd8b603d"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR16_DLC3_Dragons_Knights:aab5d2f871d600e40a10d6e650edeb15"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR16_DLC3_Peaks:0ea6380968f979340af557a2c59dd6f5"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR17_DLC3_IceGolem:cbf265ffd2f1fc7439f7e79e14e4487c"
+    },
+    {
+      "$type": "EncounterOccurenceDescription, Assembly-CSharp",
+      "weight": 1,
+      "encounterDefinition": "Definition:CR17_DLC3_Remorhaz_TigerDrakes:50cb51a6cf15f30459f6e531683cf9c8"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a05dbb81fa70ded4fb047f9126e3bd62",
+  "contentPack": "BaseGame",
+  "name": "DLC3_EncounterTableFull"
+}

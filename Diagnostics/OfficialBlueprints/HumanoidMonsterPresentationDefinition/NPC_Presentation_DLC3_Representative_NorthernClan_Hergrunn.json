@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinObsidian",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 38.761692,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_NPC_Hergrunn",
+  "hairShapeMorphotype": "HairShape_P",
+  "hairColorMorphotype": "HairColor_34",
+  "beardShapeMorphotype": "BeardShape_B",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_010",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_05",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ClothesNoble_POI",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6886792,
+    "g": 0.408762872,
+    "b": 0.204654664,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5377358,
+    "g": 0.5377358,
+    "b": 0.5377358,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5377358,
+    "g": 0.1748405,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_NorthernClans_Representative_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Representative_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "431242d557d26044da2c9c21ac334aad",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Representative_NorthernClan_Hergrunn",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "d0be3af61b0cceb45a3193288564a332",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_Representative_NorthernClan_Hergrunn"
+}

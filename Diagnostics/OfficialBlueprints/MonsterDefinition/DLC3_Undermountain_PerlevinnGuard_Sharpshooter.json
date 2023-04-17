@@ -1,0 +1,260 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 15,
+  "armor": "StuddedLeather",
+  "hitDice": 8,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 12,
+  "standardHitPoints": 56,
+  "abilityScores": [
+    12,
+    18,
+    14,
+    10,
+    10,
+    12
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 6
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 4
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 2
+    }
+  ],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:RangedWithSelfHealCombatDecisions:1c48a55f5afa782449b7693b329f3481",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.0
+    },
+    "name": "PrioritizeDamageDealers_Ranged"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 3.0,
+  "challengeRating": 3.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Loot_Drop:4b21be95acc36954eac2197b5787d1ce",
+  "stealableLootDefinition": "Definition:DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Stealable_Loot:e140c6032840a354aacb9d43a2e7953a",
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
+    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
+    "Definition:PowerFighterSecondWind_Dominion_Soldier:c3dde3d8e12201c4bb90f5da1ef7cadd"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortbow:1e04a9e59b9b2324793e7c15792144c6"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortsword:18c0cdf85e8feee49a88c048285b7a60"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": "Definition:DLC3_Undermountain_PerlevinnGuard_Sharpshooter:8b87c4f913845d74f80fb085f85853a2",
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Male:1b84d9fb2540a344fbd6a2e99d0a5ef9",
+      "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Female:47828f46bb6950e4a98b20cd5c651baa"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.6553079,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.6553079,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Title",
+    "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9d8508fc5d27bce47a138ec0fd1c4e76",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Archer_1",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "8b87c4f913845d74f80fb085f85853a2",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Undermountain_PerlevinnGuard_Sharpshooter"
+}

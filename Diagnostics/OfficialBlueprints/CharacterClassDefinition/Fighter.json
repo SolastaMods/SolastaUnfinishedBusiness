@@ -247,6 +247,21 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierFighterIndomitableAdd1:532478a247702d545a8f6c21018bfd38",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
     }
   ],
   "personalityFlagOccurences": [

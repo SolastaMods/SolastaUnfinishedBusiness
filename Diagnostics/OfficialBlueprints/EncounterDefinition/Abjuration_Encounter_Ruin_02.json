@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "type": "Event",
   "challengeRating": 2,
   "locationOverride": "Definition:Encounter_Ruin_LocationDB:ca604025ce05341418bad84e91e4fde3",

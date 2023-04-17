@@ -82,7 +82,9 @@
     "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
     "Definition:PowerWinterWolfBreath:9759b82db47c72849bda8cd6c764ff95",
     "Definition:MovementAffinityNoVault:0b6455d36a68ae84f864f99a3b2c3a34",
-    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544"
+    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
   ],
   "attackIterations": [
     {

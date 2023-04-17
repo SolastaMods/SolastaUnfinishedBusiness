@@ -1,0 +1,48 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 10,
+  "attackingPenalty": 0,
+  "killingPenalty": 5,
+  "prominentMembers": [
+    "Definition:DLC3_NPC_HumanClansLeader:0b8484860c4039547b94662eba407d43",
+    "Definition:DLC3_NPC_HumanClansCaporal:05b651eefa5ee18488df58446da44fd7"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "6c59e510b7373a4468b7486b3a4574e8",
+    "m_SubObjectName": "DLC3_Faction_Flag_HumanClansSmall",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&DLC3_HumanClan_Title",
+    "description": "Faction/&DLC3_HumanClan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cae5732f8b0b40b47b2fc36d7ea3afaa",
+      "m_SubObjectName": "DLC3_Faction_Flag_HumanClans",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "df1a95b99cc08d341aad8c1d0358b9f0",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_HumanClan"
+}

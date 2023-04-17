@@ -16,7 +16,7 @@
   "defaultStackCount": 1,
   "costs": [
     0,
-    380,
+    900,
     0,
     0,
     0
@@ -30,7 +30,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -174,6 +174,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -184,8 +185,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -193,8 +193,8 @@
     "description": "Equipment/&Ingredient_ShardOfIce_Title_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ff92d53b398361444a1444a970ddd8e0",
-      "m_SubObjectName": "ShardOfIce",
+      "m_AssetGUID": "2e92f85b590cbd84d806969e434123a9",
+      "m_SubObjectName": "ShardOfIce_Minor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

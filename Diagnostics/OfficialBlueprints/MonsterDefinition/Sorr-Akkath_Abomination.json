@@ -2,7 +2,7 @@
   "$type": "MonsterDefinition, Assembly-CSharp",
   "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
-  "characterFamily": "Humanoid",
+  "characterFamily": "Monstrosity",
   "creatureTags": [
     "Shapechanger"
   ],

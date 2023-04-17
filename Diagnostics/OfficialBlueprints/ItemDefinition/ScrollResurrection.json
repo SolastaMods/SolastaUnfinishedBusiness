@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "MagicDevice",
   "weight": 0.1,
   "slotTypes": [
@@ -215,6 +215,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -223,8 +224,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -232,8 +232,8 @@
     "description": "Equipment/&ScrollResurrectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "830e7c6eefcd87b44aac3c5a34fb8ced",
-      "m_SubObjectName": "Scroll_RaiseDead",
+      "m_AssetGUID": "8ad5fe3c9f53bf646b77c22d8f5b99c7",
+      "m_SubObjectName": "Scroll_PLACEHOLDER",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

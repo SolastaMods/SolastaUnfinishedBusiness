@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_Dragonborn",
+  "skinMorphotype": "FaceAndSkin_Dragonborn_02",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Dragonborn",
+  "eyeColorMorphotype": "EyeColor_017",
+  "bodyDecorationMorphotype": "BodyDecoration_Dragonborn_SorcererChildOfTheRift",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_A",
+  "tailMorphotype": "Tail_A",
+  "armorDefinition": "Enchanted_PlateOfSturdiness",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Kallista_Title",
+    "description": "NPC/&DLC3_NPC_Kallista_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "662119a1c10f4c6458615e2dc84a5b60",
+      "m_SubObjectName": "NPC_Presentation_DLC3_DragonbornIntermediate",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "4d38684e099c8de46a9d04cfa574ccc8",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_DragonbornIntermediate"
+}

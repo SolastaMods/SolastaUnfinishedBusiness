@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Potion_Antitoxin:dec4d1e55662531448c0ce56861e0fa3",
   "stackCount": 1,
-  "craftingHours": 12,
-  "craftingDC": 8,
+  "craftingHours": 2,
+  "craftingDC": 10,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

@@ -44,7 +44,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:MagicAffinityChitinousBoonAdditionalSpellSlot:173a617f7bacda346abcec147f1a5a60",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -193,6 +193,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -201,8 +202,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -228,6 +228,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "b18880011cfb58e41b2b175f30ee3d2f",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "ChitinousBoon"
 }

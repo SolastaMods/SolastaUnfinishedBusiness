@@ -104,7 +104,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "computeDescription": false,
+  "computeDescription": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

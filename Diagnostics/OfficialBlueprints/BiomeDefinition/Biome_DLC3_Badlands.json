@@ -1,0 +1,67 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "terrainType": "Desert",
+  "encounterTable": "Definition:DLC3_EncounterTableFull_NoGallivan_NoSnow:3bbebecb258c8ef43b6f4daba9bd5a7e",
+  "narrativeEventBasicLines": [
+    "Travel/&DLC1_StandardRandomEvents1",
+    "Travel/&DLC1_StandardRandomEvents2",
+    "Travel/&DLC1_StandardRandomEvents3",
+    "Travel/&DLC1_StandardRandomEvents4",
+    "Travel/&DLC1_StandardRandomEvents5",
+    "Travel/&DLC1_StandardRandomEvents6",
+    "Travel/&DLC1_StandardRandomEvents7",
+    "Travel/&DLC1_StandardRandomEvents8",
+    "Travel/&DLC1_StandardRandomEvents9",
+    "Travel/&DLC1_StandardRandomEvents10",
+    "Travel/&DLC1_StandardRandomEvents11",
+    "Travel/&DLC1_StandardRandomEvents12",
+    "Travel/&DLC1_StandardRandomEvents13",
+    "Travel/&DLC1_StandardRandomEvents14",
+    "Travel/&DLC1_StandardRandomEvents15",
+    "Travel/&DLC1_StandardRandomEvents21",
+    "Travel/&DLC1_StandardRandomEvents22",
+    "Travel/&DLC1_StandardRandomEvents23",
+    "Travel/&DLC1_StandardRandomEvents24",
+    "Travel/&DLC1_StandardRandomEvents25",
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&StandardRandomEvents7Title",
+    "Travel/&StandardRandomEvents8Title",
+    "Travel/&StandardRandomEvents9Title"
+  ],
+  "encounterLocations": [
+    "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
+    "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c",
+    "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
+    "Definition:DLC3_Encounter_Canyon_LocationDB:56f8620f7dfe96b46aeb0b307a0eb2a5"
+  ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Arid:6eddf3e63a9ee4d428fb00d69c257edc",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Biome/&Biome_DLC3_Badlands_Title",
+    "description": "Biome/&Biome_DLC3_Badlands_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 20,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "3f4a56d5e90f2dd4c92260d5dfb12d3c",
+  "contentPack": "PalaceOfIce",
+  "name": "Biome_DLC3_Badlands"
+}

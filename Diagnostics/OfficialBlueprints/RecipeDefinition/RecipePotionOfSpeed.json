@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfSpeed:d835c99336e337b49b4f9ea802553012",
   "stackCount": 1,
-  "craftingHours": 32,
-  "craftingDC": 16,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

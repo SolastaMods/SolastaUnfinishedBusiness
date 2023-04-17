@@ -8,6 +8,7 @@
     "Medecine",
     "Arcana"
   ],
+  "hideWhenNoTool": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

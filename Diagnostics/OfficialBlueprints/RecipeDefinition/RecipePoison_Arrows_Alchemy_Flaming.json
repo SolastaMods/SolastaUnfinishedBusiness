@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Arrow_Alchemy_Flaming:9e6e74a5615a0ee4c87faba61e8002dd",
   "stackCount": 5,
-  "craftingHours": 8,
-  "craftingDC": 12,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:ArtisanToolSmithToolsType:b28d62b91f1361f4f8b0d45fc28dbd14",
   "ingredients": [
     {

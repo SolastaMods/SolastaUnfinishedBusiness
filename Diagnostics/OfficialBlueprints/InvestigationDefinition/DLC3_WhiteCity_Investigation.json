@@ -1,0 +1,68 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_WhiteCity_Suspect_02:13796bb0673cc714c8bc574da3a2b8b9",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_WhiteCity_Suspect_04:426d89cd1f43c5c40ba361aa43b2133c",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_WhiteCity_Suspect_05:545d666c5f36e38449a0190679ee2df9",
+      "traitor": true,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_WhiteCity_Suspect_06:7d8f45b61975ecc4f99844f20ecd30fa",
+      "traitor": false,
+      "reputationLevel": "Low",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_WhiteCity_Suspect_08:b8993a5c758af004093d49dc823e24fe",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Low"
+    }
+  ],
+  "quest": "Definition:DLC3_Quest_WhiteCity_01_Quest:d48649aba6b344e4086e1c9d75379646",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Investigation/&DLC3_WhiteCity_Title",
+    "description": "Investigation/&DLC3_WhiteCity_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f9bd073c33888a840a1e521ae7a6c980",
+  "contentPack": "BaseGame",
+  "name": "DLC3_WhiteCity_Investigation"
+}
