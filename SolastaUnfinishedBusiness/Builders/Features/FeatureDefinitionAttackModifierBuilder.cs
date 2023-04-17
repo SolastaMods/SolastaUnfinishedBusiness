@@ -44,6 +44,14 @@ internal class FeatureDefinitionAttackModifierBuilder
         return this;
     }
 
+    internal FeatureDefinitionAttackModifierBuilder SetDualWield(bool canDualWieldNonLight = true,
+        bool canAddAbilityBonusToSecondary = false)
+    {
+        Definition.canDualWieldNonLight = canDualWieldNonLight;
+        Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
+        return this;
+    }
+
     internal FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
         Definition.additionalBonusUnarmedStrikeAttacksTag = tag;
