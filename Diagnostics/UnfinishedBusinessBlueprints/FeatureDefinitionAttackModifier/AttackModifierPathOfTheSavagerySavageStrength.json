@@ -12,7 +12,7 @@
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": true,
-  "canAddAbilityBonusToSecondary": false,
+  "canAddAbilityBonusToSecondary": true,
   "magicalWeapon": false,
   "followUpStrike": false,
   "followUpDamageDie": "D4",
