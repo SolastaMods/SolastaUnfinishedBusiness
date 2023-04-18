@@ -569,6 +569,7 @@ internal static partial class DatabaseHelper
     internal static class FeatureDefinitionPowers
     {
         internal static FeatureDefinitionPower PowerBarbarianPersistentRageStart { get; } = GetDefinition<FeatureDefinitionPower>("PowerBarbarianPersistentRageStart");
+        internal static FeatureDefinitionPower PowerBarbarianRageStart { get; } = GetDefinition<FeatureDefinitionPower>("PowerBarbarianRageStart");
         internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } = GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");
         internal static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric");

@@ -28,6 +28,7 @@ internal static class SubclassesContext
         LoadSubclass(new PathOfTheElements());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheReaver());
+        LoadSubclass(new PathOfTheSavagery());
         LoadSubclass(new PathOfTheSpirits());
 
         // Bard
