@@ -158,7 +158,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
             .SetEffectDescription(EffectDescriptionBuilder
-                .Create(GuardianOfFaith.EffectDescription)
+                .Create(SpikeGrowth.EffectDescription)
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Minute, 10)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
