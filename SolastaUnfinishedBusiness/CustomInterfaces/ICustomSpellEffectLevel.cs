@@ -2,5 +2,5 @@
 
 public interface ICustomSpellEffectLevel
 {
-    public int GetEffectLevel(RulesetActor caster);
+    public int GetEffectLevel(RulesetActor rulesetActor, RulesetEffectSpell rulesetEffectSpell);
 }
