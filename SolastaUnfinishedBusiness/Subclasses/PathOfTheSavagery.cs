@@ -43,7 +43,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         var attackModifierSavageStrength = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}SavageStrength")
             .SetGuiPresentation(Category.Feature)
-            .SetDualWield()
+            .SetDualWield(true, true)
             .AddToDB();
 
         // Primal Instinct
