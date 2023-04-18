@@ -30,7 +30,7 @@ public class CharacterActionCombatRageStart : CharacterAction
 
         var actionDefinition = PathOfTheSavagery.CombatRageStart;
         var powerDefinition = actionDefinition.ActivatedPower;
-        
+
         characterActionRageStart.ActionParams.ActionDefinition = actionDefinition;
 
         var rulesetCharacter = actingCharacter.RulesetCharacter;

@@ -167,7 +167,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     private static (int number, DieType dieType, DieType versatileDieType) GeUpgradedDice(
-            RulesetCharacter rulesetCharacter, DamageForm damageForm)
+        RulesetCharacter rulesetCharacter, DamageForm damageForm)
     {
         var upgradeDiceMap = new Dictionary<DieType, DieType>
         {
