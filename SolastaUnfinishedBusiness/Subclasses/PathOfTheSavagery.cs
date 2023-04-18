@@ -19,7 +19,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 {
     private const string Name = "PathOfTheSavagery";
 
-    internal static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
+    private static readonly FeatureDefinitionPower PowerPrimalInstinct = FeatureDefinitionPowerBuilder
         .Create(PowerBarbarianRageStart, $"Power{Name}PrimalInstinct")
         .SetUsesFixed(ActivationTime.NoCost, RechargeRate.RagePoints)
         .SetOverriddenPower(PowerBarbarianRageStart)
