@@ -180,6 +180,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionShielded { get; } = GetDefinition<ConditionDefinition>("ConditionShielded");
         internal static ConditionDefinition ConditionShine { get; } = GetDefinition<ConditionDefinition>("ConditionShine");
         internal static ConditionDefinition ConditionShocked { get; } = GetDefinition<ConditionDefinition>("ConditionShocked");
+        internal static ConditionDefinition ConditionSlowed { get; } = GetDefinition<ConditionDefinition>("ConditionSlowed");
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } = GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
         internal static ConditionDefinition ConditionSpiritGuardians { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
         internal static ConditionDefinition ConditionSpiritGuardiansSelf { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardiansSelf");

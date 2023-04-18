@@ -1369,7 +1369,7 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
-                    .SetGuiPresentation(Category.Condition)
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                     .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
