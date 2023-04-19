@@ -358,6 +358,100 @@ internal static class CasterFeats
 
         #endregion
 
+        #region Aegis Touched
+
+        const string AEGIS = "AegisTouched";
+
+        spells = BuildSpellGroup(0, ShieldOfFaith, ProtectionFromEvilGood, ProtectionFromPoison);
+
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatAegisTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(AEGIS)
+            .AddToDB();
+
+        groupFeats.SetRange(
+            // aegis touched int
+            FeatDefinitionBuilder
+                .Create("FeatAegisTouchedInt")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, AEGIS, AttributeDefinitions.Intelligence))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(AEGIS)
+                .AddToDB(),
+            // aegis touched wis
+            FeatDefinitionBuilder
+                .Create("FeatAegisTouchedWis")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, AEGIS, AttributeDefinitions.Wisdom))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(AEGIS)
+                .AddToDB(),
+            // aegis touched cha
+            FeatDefinitionBuilder
+                .Create("FeatAegisTouchedCha")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, AEGIS, AttributeDefinitions.Charisma))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(AEGIS)
+                .AddToDB()
+        );
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupAegisTouched", AEGIS, groupFeats));
+        feats.AddRange(groupFeats);
+
+        #endregion
+
+        #region Peregrination Touched
+
+        const string PEREGRINATION = "PeregrinationTouched";
+
+        spells = BuildSpellGroup(0, Longstrider, ExpeditiousRetreat, SpiderClimb);
+
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatPeregrinationTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(PEREGRINATION)
+            .AddToDB();
+
+        groupFeats.SetRange(
+            // peregrination touched int
+            FeatDefinitionBuilder
+                .Create("FeatPeregrinationTouchedInt")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, PEREGRINATION, AttributeDefinitions.Intelligence))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(PEREGRINATION)
+                .AddToDB(),
+            // peregrination touched wis
+            FeatDefinitionBuilder
+                .Create("FeatPeregrinationTouchedWis")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, PEREGRINATION, AttributeDefinitions.Wisdom))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(PEREGRINATION)
+                .AddToDB(),
+            // peregrination touched cha
+            FeatDefinitionBuilder
+                .Create("FeatPeregrinationTouchedCha")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, PEREGRINATION, AttributeDefinitions.Charisma))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(PEREGRINATION)
+                .AddToDB()
+        );
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupPeregrinationTouched", PEREGRINATION, groupFeats));
+        feats.AddRange(groupFeats);
+
+        #endregion
+
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 

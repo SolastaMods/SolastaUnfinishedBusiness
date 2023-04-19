@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>4</SelectedTab>
+  <SelectedTab>1</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -116,13 +116,13 @@
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
-  <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
+  <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
-  <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
-  <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
-  <EnableFighterWeaponSpecialization>false</EnableFighterWeaponSpecialization>
+  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -151,7 +151,9 @@
     <string>RaceKobold</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
-  <BackgroundEnabled />
+  <BackgroundEnabled>
+    <string>BackgroundFarmer</string>
+  </BackgroundEnabled>
   <DeitySliderPosition>4</DeitySliderPosition>
   <DeityEnabled />
   <ClassSliderPosition>4</ClassSliderPosition>
@@ -208,6 +210,8 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
+    <string>PathOfTheSavagery</string>
+    <string>CircleOfTheLife</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -355,6 +359,16 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatInfusionsAdept</string>
+    <string>FeatAegisTouchedCha</string>
+    <string>FeatAegisTouchedInt</string>
+    <string>FeatAegisTouchedWis</string>
+    <string>FeatAlwaysReady</string>
+    <string>FeatLunger</string>
+    <string>FeatPeregrinationTouchedCha</string>
+    <string>FeatPeregrinationTouchedInt</string>
+    <string>FeatPeregrinationTouchedWis</string>
+    <string>FeatRopeItUp</string>
+    <string>FeatSteadyAim</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -409,6 +423,8 @@
     <string>FeatGroupDefenseExpert</string>
     <string>FeatGroupVerdantTouched</string>
     <string>FeatGroupGeneralAdept</string>
+    <string>FeatGroupAegisTouched</string>
+    <string>FeatGroupPeregrinationTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
