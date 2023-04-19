@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.77:
+
+- fixed Web spell wrong DC calculation
+- fixed Infusions Adept interaction with Inventor
+- improved Chinese translations
+- improved proficiencies UI display
+
 1.4.33.76:
 
 - added Aegis Touched feats
