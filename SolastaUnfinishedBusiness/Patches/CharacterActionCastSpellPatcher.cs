@@ -59,7 +59,7 @@ public static class CharacterActionCastSpellPatcher
             }
 
             var actingCharacter = __instance.ActingCharacter;
-            var effectLevel = effectLevelProvider.GetEffectLevel(actingCharacter.RulesetActor);
+            var effectLevel = effectLevelProvider.GetEffectLevel(actingCharacter.RulesetActor, activeSpell);
 
             //Re-implementing CharacterActionMagicEffect.ApplyForms
             var formsParams = new RulesetImplementationDefinitions.ApplyFormsParams();

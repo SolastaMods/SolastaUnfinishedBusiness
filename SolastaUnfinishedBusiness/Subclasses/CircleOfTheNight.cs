@@ -58,7 +58,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetCustomSubFeatures(
                 new RestrictedContextValidator((_, _, character, _, _, _, _) =>
                     (OperationType.Set,
-                        ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionRaging.Name)(character))))
+                        ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
             .AddToDB();
 
         // Improved Combat Healing

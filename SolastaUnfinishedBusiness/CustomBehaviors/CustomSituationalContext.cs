@@ -31,6 +31,10 @@ internal static class CustomSituationalContext
 
         return (ExtraSituationalContext)context switch
         {
+            ExtraSituationalContext.IsRagingAndDualWielding =>
+                contextParams.source.HasAnyConditionOfType(ConditionRaging) &&
+                ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(contextParams.source),
+
             ExtraSituationalContext.IsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
 
             ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),

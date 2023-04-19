@@ -1,0 +1,16 @@
+﻿Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Você tem desvantagem em todos os ataques.
+Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Ferimento Grave
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Seu alcance de ameaça crítica é aumentado em 1.
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Ferocidade desenfreada
+Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=A partir do 14º nível, enquanto estiver em fúria, sempre que fizer um teste de resistência de Destreza, você pode usar seu teste de resistência de Força. Você ganha +2 CA enquanto estiver em fúria e empunhando duas armas corpo a corpo.
+Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=Defesa Furiosa
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=Começando no 10º nível, enquanto você está em fúria, sempre que acertar uma criatura com um ataque de arma corpo a corpo e não causar um acerto crítico, você aumenta seu alcance de ameaça crítica em 1. Esse efeito se acumula. Depois de desferir um golpe crítico, o bônus é redefinido para 0.
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=Ferocidade desenfreada
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Começando no 6º nível, enquanto você estiver empunhando armas brancas duplas, aumente a categoria de dano de cada arma equipada em 1 (d4 se transforma em d6, d6 se transforma em d8, etc). Além disso, causar um acerto crítico com um ataque de arma corpo a corpo impõe um teste de resistência de Constituição naquela criatura, com CD sendo 8 + proficiência + seu modificador de Força. Se a criatura falhar, ela terá desvantagem em todos os ataques até o final de seu próximo turno.
+Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=Ira e Fúria
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=A partir do 3º nível, você pode empunhar armas corpo a corpo não leves, bem como adicionar seu bônus de habilidade ao ataque secundário.
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthTitle=Força Selvagem
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Você pode usar Fúria como ação livre ao invés de uma ação bônus.
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Instinto primitivo
+Subclass/&PathOfTheSavageryDescription=Bárbaros que trilham o Caminho do Selvagem são forças da natureza, lutando menos como homens e mais como feras selvagens. Eles atacam com velocidade e poder explosivos, alavancando lâminas gêmeas semelhantes a um animal selvagem lutando com garras e presas.
+Subclass/&PathOfTheSavageryTitle=Caminho da Selvageria

@@ -159,7 +159,7 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
             return;
         }
 
-        var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
+        var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, damage);
 
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
@@ -182,7 +182,7 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
     internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType)
         GetWeaponDiceHandler(
             RulesetCharacter character,
-            RulesetItem weapon);
+            DamageForm damageForm);
 }
 
 internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase

@@ -178,17 +178,30 @@ public static class CustomActionIdContext
         var actionType = action.actionType;
         var character = locationCharacter.RulesetCharacter;
 
-        if (actionId == (Id)ExtraActionId.CombatWildShape)
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (actionId)
         {
-            var power = character.GetPowerFromDefinition(action.ActivatedPower);
-            if (power is not { RemainingUses: > 0 } ||
-                (character is RulesetCharacterMonster monster &&
-                 monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
+            case (Id)ExtraActionId.CombatWildShape:
             {
-                result = ActionStatus.Unavailable;
-            }
+                var power = character.GetPowerFromDefinition(action.ActivatedPower);
+                if (power is not { RemainingUses: > 0 } ||
+                    (character is RulesetCharacterMonster monster &&
+                     monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
+                {
+                    result = ActionStatus.Unavailable;
+                }
 
-            return;
+                return;
+            }
+            case (Id)ExtraActionId.CombatRageStart:
+            {
+                if (character.HasAnyConditionOfType(ConditionRaging))
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);

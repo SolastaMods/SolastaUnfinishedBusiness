@@ -14,20 +14,20 @@
   "constrainedToSpellArea": false,
   "damageDie": "D8",
   "damageDieNum": 1,
-  "damageType": "DamageRadiant",
+  "damageType": "DamageForce",
   "addAbilityToDamage": false,
   "attackPower": null,
-  "impactsPlacement": false,
+  "impactsPlacement": true,
   "additionalFeatures": [],
   "attackParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "0c377c592e1ca2e4d90de06ee11f1fdd",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "attackImpactParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "f400cc400bdb9ce4b939e7522bbf619f",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -63,29 +63,23 @@
   "hasPresentation": true,
   "prefabReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "58aff54afb62c3a43be06958596b2bf2",
+    "m_AssetGUID": "6be835cb9befdf343a6c49344af09e62",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "isEmptyPresentation": true,
+  "isEmptyPresentation": false,
   "modelScale": 1.0,
-  "showWorldLocationFeedbacks": false,
+  "showWorldLocationFeedbacks": true,
   "hasPortrait": false,
   "portraitSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
+    "m_AssetGUID": "f4e17315dd7a28b488efbdcc3dbbb032",
+    "m_SubObjectName": "ProxySpiritualWeapon",
     "m_SubObjectType": ""
   },
   "startEvent": {
     "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
-    "WwiseObjectReference": {
-      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
-      "objectName": "Play_Vfx_TRA_SpikeGrowth_Surface_Start",
-      "id": 2682581383,
-      "guid": "6D068E4C-4894-41A8-8A23-3E3B600D946E",
-      "name": "6D068E4C-4894-41A8-8A23-3E3B600D946E"
-    },
+    "WwiseObjectReference": null,
     "idInternal": 0,
     "valueGuidInternal": {
       "$type": "System.Byte[], mscorlib",
@@ -125,8 +119,8 @@
     "description": "Spell/&ProtectThresholdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "208062c7f85b58542808ed3ba0d821dc",
-      "m_SubObjectName": "SpikeGrowth",
+      "m_AssetGUID": "23bb29fe1f3b236489c43b5c34375679",
+      "m_SubObjectName": "GuardianOfFaith",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
