@@ -49,7 +49,7 @@ public static class InvocationSubPanelPatcher
 
             var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
             var customInvocationsProficiencies =
-                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
+                new Func<RulesetCharacterHero, InvocationSubPanel, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
                     .Method;
 
             return instructions
@@ -61,6 +61,7 @@ public static class InvocationSubPanelPatcher
                 //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
                 .ReplaceCalls(getInvocationProficiencies,
                     "InvocationSubPanel.SetState.2",
+                    new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, customInvocationsProficiencies));
         }
     }
