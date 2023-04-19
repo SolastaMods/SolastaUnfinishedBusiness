@@ -2,6 +2,7 @@
 
 1.4.33.77:
 
+- added Path of the Spirit's level 14 feature
 - fixed Web spell wrong DC calculation
 - fixed Infusions Adept interaction with Inventor
 - improved Chinese translations
