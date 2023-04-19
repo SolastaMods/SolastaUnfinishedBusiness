@@ -13,4 +13,4 @@ Reaction/&CustomReactionBloodbathReactDescription=剔除此生物的内脏。
 Reaction/&CustomReactionBloodbathReactTitle=剔骨
 Reaction/&CustomReactionBloodbathTitle=大屠杀
 Subclass/&PathOfTheReaverDescription=所有的掠夺者都经历了一个仪式，该仪式涉及饮用被污染的龙血，以逐渐增加腐败为代价，将一小部分龙的力量和贪婪永久地注入他们的身体。这些可怕的战士陶醉于死亡，从敌人的痛苦中恢复能量。
-Subclass/&PathOfTheReaverTitle=掠夺者之路
+Subclass/&PathOfTheReaverTitle=掠夺者道途

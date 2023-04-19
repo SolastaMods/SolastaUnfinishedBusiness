@@ -21,4 +21,4 @@ Feature/&PowerPathOfTheSpiritsBearResistanceTitle=熊耐力
 Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=狼的精神使你成为猎人的领袖。狂暴时，你和 15 尺内的任何盟友在近战攻击检定上具有优势。
 Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=狼灵
 Subclass/&PathOfTheSpiritsDescription=追随灵魂之路的野蛮人接受精神动物作为向导、保护者和灵感，这使他们充满了超自然的力量，为野蛮人的愤怒增添了魔法燃料。
-Subclass/&PathOfTheSpiritsTitle=精灵之路
+Subclass/&PathOfTheSpiritsTitle=灵魂道途
