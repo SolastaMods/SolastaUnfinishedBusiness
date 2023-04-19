@@ -1,6 +1,1 @@
-- added custom Ancestries level up selection
-- added custom Kindred Spirits level up selection
-- added Ranger Hell Walker subclass
-- added Ranger Light Bearer subclass
-- fixed Grenadier not able to use items as a bonus action
-- fixed interaction between Spear Mastery and Polearm Expert
+Open Mod UI > Tools and click History for details.

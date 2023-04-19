@@ -1,8 +1,0 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 2.
-Feature/&MagicAffinityFieldManipulatorDCTitle=Тайная сила
-Feature/&PowerFieldManipulatorDominatePersonDescription=Вы можете использовать Доминирование над личностью количество раз за продолжительный отдых, равное вашему модификатору Харизмы.
-Feature/&PowerFieldManipulatorDominatePersonTitle=Доминировать над человеком
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Получите мастерство в спасбросках Интеллекта и Мудрости.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Психическое сопротивление
-Subclass/&FieldManipulatorDescription=Полевые манипуляторы отлично контролируют поле боя и не позволяют врагам атаковать их.
-Subclass/&FieldManipulatorTitle=Полевой манипулятор

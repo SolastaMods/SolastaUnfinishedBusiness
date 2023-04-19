@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -78,15 +79,37 @@ public static class CharacterActionAttackPatcher
 
             var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
-            if (defenderFeatures == null)
+            if (defenderFeatures != null)
+            {
+                foreach (var feature in defenderFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnMeFinished(
+                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                }
+            }
+
+            // this happens on battle end
+            if (Gui.Battle == null)
             {
                 yield break;
             }
 
-            foreach (var feature in defenderFeatures)
+            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side)
+                         .Where(x => x != defender))
             {
-                yield return feature.HandleReactToAttackOnMeFinished(
-                    actingCharacter, defender, outcome, actionParams, mode, modifier);
+                var allyFeatures =
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
+
+                if (allyFeatures == null)
+                {
+                    yield break;
+                }
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnAllyFinished(
+                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
+                }
             }
         }
     }

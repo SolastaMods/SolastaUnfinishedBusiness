@@ -2,9 +2,7 @@
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -20,7 +18,7 @@ internal static class GnomeRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildGnome()
     {
-        var gnomeSpriteReference = Sprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
+        // var gnomeSpriteReference = Sprites.GetSprite("Gnome", Resources.Gnome, 1024, 512);
 
         var attributeModifierGnomeAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierGnomeAbilityScoreIncrease")
@@ -84,7 +82,7 @@ internal static class GnomeRaceBuilder
 
         var raceGnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceGnome")
-            .SetGuiPresentation(Category.Race, gnomeSpriteReference)
+            .SetGuiPresentation(Category.Race, CharacterRaceDefinitions.Human)
             .SetRacePresentation(gnomeRacePresentation)
             .SetSizeDefinition(CharacterSizeDefinitions.Small)
             .SetMinimalAge(40)

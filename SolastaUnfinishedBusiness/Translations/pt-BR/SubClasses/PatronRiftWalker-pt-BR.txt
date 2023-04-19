@@ -17,4 +17,4 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Use a reação par
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Rift Strike
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Rift Strike
 Subclass/&PatronRiftWalkerDescription=Seu patrono é um dos raros seres que chama o vazio entre os mundos de lar. Eles deslizam entre os planos com facilidade e o conhecimento que você adquiriu ao interagir com eles permite que você aproveite as energias de fenda persistentes em seu benefício dentro da solasta. Às vezes, você pode sentir saudade do reino distante de seu patrono, um desejo de vagar entre as dimensões pelo resto de seus dias ou observar sinais de outro evento de Rift, seja para prevenir ou encorajar.
-Subclass/&PatronRiftWalkerTitle=O Caminhante do Rift
+Subclass/&PatronRiftWalkerTitle=O Riftwalker

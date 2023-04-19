@@ -8,7 +8,7 @@
   "triggerCondition": "TargetHasCondition",
   "requiredProperty": "MeleeWeapon",
   "attackModeOnly": true,
-  "attackOnly": true,
+  "attackOnly": false,
   "requiredTargetCondition": "Definition:ConditionSunlightBladeMarked:7f19eac4-e539-5805-ae41-40dcda6d3b23",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",

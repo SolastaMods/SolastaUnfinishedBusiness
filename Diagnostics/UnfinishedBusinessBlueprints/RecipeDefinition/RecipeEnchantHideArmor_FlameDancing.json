@@ -9,7 +9,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:HideArmor:616ebbff412a0374bbacfd9bf7f87317"
+      "itemDefinition": "Definition:Primed_HideArmor:26f096e4569de0043a8981dc55b816cb"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

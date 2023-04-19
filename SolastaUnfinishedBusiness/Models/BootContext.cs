@@ -2,15 +2,18 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
-using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
+using UnityModManagerNet;
 #if DEBUG
 using SolastaUnfinishedBusiness.DataMiner;
 #endif
@@ -20,6 +23,10 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class BootContext
 {
     private const string BaseURL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases/latest/download";
+
+    private static string InstalledVersion { get; } = GetInstalledVersion();
+    private static string LatestVersion { get; set; }
+    private static string PreviousVersion { get; } = GetPreviousVersion();
 
     internal static void Startup()
     {
@@ -44,6 +51,9 @@ internal static class BootContext
 
         // Custom Conditions must load as early as possible
         CustomConditionsContext.Load();
+
+        // AI Context
+        AiContext.Load();
 
         //
         // custom stuff that can be loaded in any order
@@ -79,7 +89,7 @@ internal static class BootContext
         SubclassesContext.Load();
 
         // Deities may rely on spells and powers being in the DB before they can properly load.
-        DeitiesContext.Load();
+        // DeitiesContext.Load();
 
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();
@@ -129,6 +139,7 @@ internal static class BootContext
 
             // Set anything on subs that depends on spells and others
             SubclassesContext.LateLoad();
+            InventorClass.LateLoadSpellStoringItem();
 
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
@@ -139,14 +150,111 @@ internal static class BootContext
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
 
+            // dump descriptions to mod folder
+            if (!Directory.Exists($"{Main.ModFolder}/Documentation"))
+            {
+                Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
+            }
+
+            DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<FeatDefinition>("UnfinishedBusinessFeats",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<FeatDefinition>("SolastaFeats", x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<FightingStyleDefinition>("UnfinishedBusinessFightingStyles",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<FightingStyleDefinition>("SolastaFightingStyles",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<InvocationDefinition>("UnfinishedBusinessInvocations",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<InvocationDefinition>("SolastaInvocations",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+
             // really don't have a better place for these fixes here ;-)
             ExpandColorTables();
             AddExtraTooltipDefinitions();
+
+            // avoid folks tweaking max party size directly on settings as we don't need to stress cloud servers
+            Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
 
             // Manages update or welcome messages
             Load();
             Main.Enable();
         };
+    }
+
+    private static string LazyManStripXml(string input)
+    {
+        return input
+            .Replace("<color=#add8e6ff>", string.Empty)
+            .Replace("<#57BCF4>", "\t\t\t\n")
+            .Replace("</color>", string.Empty)
+            .Replace("<b>", string.Empty)
+            .Replace("<i>", string.Empty)
+            .Replace("</b>", string.Empty)
+            .Replace("</i>", string.Empty);
+    }
+
+    private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
+    {
+        var outString = new StringBuilder();
+        var db = DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>();
+
+        foreach (var subclassChoices in db
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            foreach (var subclass in subclassChoices.Subclasses
+                         .Select(DatabaseHelper.GetDefinition<CharacterSubclassDefinition>)
+                         .Where(x => filter(x))
+                         .OrderBy(x => x.FormatTitle()))
+            {
+                outString.Append($"# {subclass.FormatTitle()}\n\n");
+                outString.Append(subclass.FormatDescription());
+                outString.Append("\n\n");
+
+                var level = 0;
+
+                foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
+                             .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                             .OrderBy(x => x.level))
+                {
+                    if (level != featureUnlockByLevel.level)
+                    {
+                        outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                        level = featureUnlockByLevel.level;
+                    }
+
+                    var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                    var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+                    outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
+                    outString.Append($"\t\t{description}\n\n");
+                }
+
+                outString.Append("\n\n\n");
+            }
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Subclasses.md");
+        sw.WriteLine(outString.ToString());
+    }
+
+    private static void DumpOthers<T>(string groupName, Func<BaseDefinition, bool> filter) where T : BaseDefinition
+    {
+        var outString = new StringBuilder();
+        var db = DatabaseRepository.GetDatabase<T>();
+
+        foreach (var subclass in db
+                     .Where(x => filter(x))
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            outString.Append($"# {subclass.FormatTitle()}\n\n");
+            outString.Append(subclass.FormatDescription());
+            outString.Append("\n\n");
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
+        sw.WriteLine(outString.ToString());
     }
 
     private static void ExpandColorTables()
@@ -206,9 +314,11 @@ internal static class BootContext
 
     private static void Load()
     {
-        if (!Main.Settings.DisableAutoUpdate && ShouldUpdate(out var version, out var changeLog))
+        LatestVersion = GetLatestVersion(out var shouldUpdate);
+
+        if (shouldUpdate)
         {
-            DisplayUpdateMessage(version, changeLog, "Would you like to update?");
+            DisplayUpdateMessage();
         }
         else if (!Main.Settings.HideWelcomeMessage)
         {
@@ -229,11 +339,7 @@ internal static class BootContext
 
     private static string GetPreviousVersion()
     {
-        var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
-        var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
-        // ReSharper disable once AssignNullToNotNullAttribute
-        var installedVersion = infoJson["Version"].Value<string>();
-        var a1 = installedVersion.Split('.');
+        var a1 = InstalledVersion.Split('.');
         var minor = Int32.Parse(a1[3]);
 
         a1[3] = (--minor).ToString();
@@ -242,17 +348,11 @@ internal static class BootContext
         return string.Join(".", a1);
     }
 
-    internal static void RollbackMod()
+    private static string GetLatestVersion(out bool shouldUpdate)
     {
-        DisplayUpdateMessage(GetPreviousVersion(), string.Empty, "Would you like to rollback?");
-    }
+        var version = "";
 
-    private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
-    {
-        var hasUpdate = false;
-
-        version = "";
-        changeLog = "";
+        shouldUpdate = false;
 
         using var wc = new WebClient();
 
@@ -260,31 +360,32 @@ internal static class BootContext
 
         try
         {
-            var installedVersion = GetInstalledVersion();
             var infoPayload = wc.DownloadString($"{BaseURL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
             // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
 
-            var a1 = installedVersion.Split('.');
+            var a1 = InstalledVersion.Split('.');
             var a2 = version.Split('.');
             var v1 = a1[0] + a1[1] + a1[2] + Int32.Parse(a1[3]).ToString("D3");
             var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
 
-            hasUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
-            changeLog = wc.DownloadString($"{BaseURL}/Changelog.txt");
+            shouldUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
         }
         catch
         {
             Main.Error("cannot fetch update data.");
         }
 
-        return hasUpdate;
+        return version;
     }
 
-    private static void UpdateMod(string version)
+    internal static void UpdateMod(bool toLatest = true)
     {
+        UnityModManager.UI.Instance.ToggleWindow(false);
+
+        var version = toLatest ? LatestVersion : PreviousVersion;
         var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
@@ -322,7 +423,7 @@ internal static class BootContext
 
             Directory.Delete(fullZipFolder, true);
 
-            message = "Update successful. Please restart.";
+            message = "Mod version change successful. Please restart.";
         }
         catch
         {
@@ -336,19 +437,31 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonatePayPal,
-            () => { }); // keep like this - don't use null here
+            () => { });
     }
 
-    private static void DisplayUpdateMessage(string version, string changeLog, string question)
+    internal static void DisplayRollbackMessage()
     {
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {version} is now available.\n\n{changeLog}\n\n{question}",
+            $"Would you like to rollback to {PreviousVersion}?",
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
-            () => UpdateMod(version),
-            () => { }); // keep like this - don't use null here
+            () => UpdateMod(false),
+            () => { });
+    }
+
+    private static void DisplayUpdateMessage()
+    {
+        Gui.GuiService.ShowMessage(
+            MessageModal.Severity.Attention2,
+            "Message/&MessageModWelcomeTitle",
+            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.",
+            "Changelog",
+            "Message/&MessageOkTitle",
+            OpenChangeLog,
+            () => { });
     }
 
     private static void DisplayWelcomeMessage()
@@ -360,15 +473,10 @@ internal static class BootContext
             "Donate",
             "Message/&MessageOkTitle",
             OpenDonatePayPal,
-            () => { }); // keep like this - don't use null here
+            () => { });
     }
 
-    internal static void OpenWiki()
-    {
-        OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
-    }
-
-    internal static void OpenDonateGithubSponsors()
+    internal static void OpenDonateGithub()
     {
         OpenUrl("https://github.com/sponsors/ThyWoof");
     }
@@ -383,15 +491,15 @@ internal static class BootContext
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
-    internal static void OpenDiscord()
-    {
-        OpenUrl("https://discord.com/invite/uu8utaF");
-    }
-
     internal static void OpenChangeLog()
     {
         OpenUrl(
             "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness/ChangelogHistory.txt");
+    }
+
+    internal static void OpenDocumentation(string filename)
+    {
+        OpenUrl($"file://{Main.ModFolder}/Documentation/{filename}");
     }
 
     private static void OpenUrl(string url)

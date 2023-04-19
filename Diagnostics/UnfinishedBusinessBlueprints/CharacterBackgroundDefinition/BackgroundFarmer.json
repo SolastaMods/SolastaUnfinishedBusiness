@@ -1,0 +1,121 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Serious",
+  "subTypeName": "Specialty",
+  "backgroudSubtypes": [],
+  "features": [
+    "Definition:AttackModifierBackgroundFarmer:4ce0476b-1984-5757-88c5-0e99d1d13099",
+    "Definition:ProficiencyBackgroundFarmerWeapons:1d092573-bd98-514d-97f0-360db89e03e7",
+    "Definition:ProficiencyBackgroundFarmerSkills:b9d07d7a-5883-56f8-a14c-c2bf6176190d"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
+              "defaultChoice": "ClothesCommon",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e",
+              "defaultChoice": "Handaxe",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+              "defaultChoice": "Torch",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "GenericItem",
+              "itemReference": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+              "defaultChoice": "Food_Ration",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Slang"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Pragmatism",
+    "Friendliness"
+  ],
+  "forbiddenAlignments": [],
+  "hasBackgroundQuest": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Background/&BackgroundFarmerTitle",
+    "description": "Background/&BackgroundFarmerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8cf696aa-5672-5fac-bf20-70efb697c04b",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "cef51508-0244-503b-bcce-7a99af75eaf9",
+  "contentPack": 9999,
+  "name": "BackgroundFarmer"
+}

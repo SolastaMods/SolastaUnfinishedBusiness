@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -632,7 +633,7 @@ internal static partial class SpellBuilders
 
         var conditionSanctuary = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition, ConditionAuraOfProtection)
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
             .AddSpecialInterruptions(ConditionInterruption.Attacks)
             .SetFeatures(featureSanctuary)
             .AddToDB();
@@ -645,7 +646,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)

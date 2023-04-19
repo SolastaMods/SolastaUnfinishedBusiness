@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>0</SelectedTab>
+  <SelectedTab>1</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -21,7 +21,7 @@
         <string>SpellListBard</string>
       </key>
       <value>
-        <boolean>false</boolean>
+        <boolean>true</boolean>
       </value>
     </item>
     <item>
@@ -97,11 +97,8 @@
       </value>
     </item>
   </DisplaySpellListsToggle>
-  <EnableCommandAllUndead>true</EnableCommandAllUndead>
   <EnableCtrlClickOnlySwapsMainHand>true</EnableCtrlClickOnlySwapsMainHand>
   <EnableDisplaySorceryPointBoxSorcererOnly>true</EnableDisplaySorceryPointBoxSorcererOnly>
-  <EnableMultiLinePowerPanel>true</EnableMultiLinePowerPanel>
-  <EnableMultiLineSpellPanel>true</EnableMultiLineSpellPanel>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
   <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
   <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
@@ -119,11 +116,14 @@
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
-  <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
+  <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
-  <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
+  <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
+  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
+  <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
+  <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -149,11 +149,11 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
-    <string>RaceGnome</string>
-    <string>RaceTiefling</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
-  <BackgroundEnabled />
+  <BackgroundEnabled>
+    <string>BackgroundFarmer</string>
+  </BackgroundEnabled>
   <DeitySliderPosition>4</DeitySliderPosition>
   <DeityEnabled />
   <ClassSliderPosition>4</ClassSliderPosition>
@@ -162,7 +162,9 @@
   </ClassEnabled>
   <SubclassSliderPosition>4</SubclassSliderPosition>
   <SubclassEnabled>
+    <string>PathOfTheElements</string>
     <string>PathOfTheLight</string>
+    <string>PathOfTheReaver</string>
     <string>PathOfTheSpirits</string>
     <string>CollegeOfGuts</string>
     <string>CollegeOfHarlequin</string>
@@ -177,11 +179,16 @@
     <string>MartialRoyalKnight</string>
     <string>MartialSpellShield</string>
     <string>MartialTactician</string>
+    <string>MartialWeaponMaster</string>
     <string>OathOfAltruism</string>
     <string>OathOfAncients</string>
+    <string>OathOfDread</string>
     <string>OathOfHatred</string>
     <string>RangerArcanist</string>
+    <string>RangerLightBearer</string>
+    <string>RangerHellWalker</string>
     <string>RangerWildMaster</string>
+    <string>RoguishAcrobat</string>
     <string>RoguishArcaneScoundrel</string>
     <string>RoguishDuelist</string>
     <string>RoguishOpportunist</string>
@@ -189,6 +196,8 @@
     <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
     <string>FieldManipulator</string>
+    <string>SorcerousSorrAkkath</string>
+    <string>SorcerousSpellBlade</string>
     <string>WayOfTheDiscordance</string>
     <string>WayOfTheDistantHand</string>
     <string>WayOfTheDragon</string>
@@ -201,11 +210,8 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
-    <string>RoguishAcrobat</string>
-    <string>PathOfTheReaver</string>
-    <string>MartialWeaponMaster</string>
-    <string>RangerLightBearer</string>
-    <string>RangerHellWalker</string>
+    <string>PathOfTheSavagery</string>
+    <string>CircleOfTheLife</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -233,6 +239,7 @@
     <string>FeatCelestialTouchedWis</string>
     <string>FeatCharismaticDefense</string>
     <string>FeatCharismaticPrecision</string>
+    <string>FeatCleavingAttack</string>
     <string>FeatCrippling</string>
     <string>FeatCrusherCon</string>
     <string>FeatCrusherStr</string>
@@ -250,11 +257,17 @@
     <string>FeatElementalAdeptDamageFire</string>
     <string>FeatElementalAdeptDamageLightning</string>
     <string>FeatElementalAdeptDamageThunder</string>
+    <string>FeatElementalMasterDamageAcid</string>
+    <string>FeatElementalMasterDamageCold</string>
+    <string>FeatElementalMasterDamageFire</string>
+    <string>FeatElementalMasterDamageLightning</string>
+    <string>FeatElementalMasterDamageThunder</string>
     <string>FeatElvenAccuracyCharisma</string>
     <string>FeatElvenAccuracyDexterity</string>
     <string>FeatElvenAccuracyIntelligence</string>
     <string>FeatElvenAccuracyWisdom</string>
     <string>FeatExecutioner</string>
+    <string>FeatExpandTheHunt</string>
     <string>FeatFadeAwayDex</string>
     <string>FeatFadeAwayInt</string>
     <string>FeatFellHanded</string>
@@ -266,10 +279,16 @@
     <string>FeatFlameTouchedWis</string>
     <string>FeatGreatWeapon</string>
     <string>FeatHandAndAHalf</string>
+    <string>FeatHardyCon</string>
+    <string>FeatHardyStr</string>
     <string>FeatHealer</string>
     <string>FeatHeavyArmorMaster</string>
     <string>FeatImprovedCritical</string>
     <string>FeatInspiringLeader</string>
+    <string>FeatIridescentTouchedCha</string>
+    <string>FeatIridescentTouchedInt</string>
+    <string>FeatIridescentTouchedWis</string>
+    <string>FeatLongswordFinesse</string>
     <string>FeatMagicInitiateBard</string>
     <string>FeatMagicInitiateCleric</string>
     <string>FeatMagicInitiateDruid</string>
@@ -286,6 +305,7 @@
     <string>FeatPickPocket</string>
     <string>FeatPiercerDex</string>
     <string>FeatPiercerStr</string>
+    <string>FeatPoisoner</string>
     <string>FeatPoisonousSkin</string>
     <string>FeatPolearmExpert</string>
     <string>FeatPotentSpellcasterBard</string>
@@ -295,6 +315,8 @@
     <string>FeatPotentSpellcasterSorcerer</string>
     <string>FeatPotentSpellcasterWizard</string>
     <string>FeatPowerAttack</string>
+    <string>FeatPrimalRageCon</string>
+    <string>FeatPrimalRageStr</string>
     <string>FeatProtection</string>
     <string>FeatPugilist</string>
     <string>FeatRangedExpert</string>
@@ -310,6 +332,7 @@
     <string>FeatShieldExpert</string>
     <string>FeatSlasherDex</string>
     <string>FeatSlasherStr</string>
+    <string>FeatSlayTheEnemies</string>
     <string>FeatSpearMastery</string>
     <string>FeatSpellSniperDruid</string>
     <string>FeatSpellSniperSorcerer</string>
@@ -319,6 +342,7 @@
     <string>FeatSquatNimblenessDex</string>
     <string>FeatSquatNimblenessStr</string>
     <string>FeatSuperiorCritical</string>
+    <string>FeatTacticianAdept</string>
     <string>FeatTelekineticCha</string>
     <string>FeatTelekineticInt</string>
     <string>FeatTelekineticWis</string>
@@ -328,23 +352,23 @@
     <string>FeatToxicologistInt</string>
     <string>FeatToxicologistWis</string>
     <string>FeatTwoWeapon</string>
+    <string>FeatVerdantTouchedCha</string>
+    <string>FeatVerdantTouchedInt</string>
+    <string>FeatVerdantTouchedWis</string>
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
-    <string>FeatPrimalRageCon</string>
-    <string>FeatPrimalRageStr</string>
-    <string>FeatCleavingAttack</string>
-    <string>FeatElementalMasterDamageAcid</string>
-    <string>FeatElementalMasterDamageCold</string>
-    <string>FeatElementalMasterDamageFire</string>
-    <string>FeatElementalMasterDamageLightning</string>
-    <string>FeatElementalMasterDamageThunder</string>
-    <string>FeatHardyCon</string>
-    <string>FeatHardyStr</string>
-    <string>FeatExpandTheHunt</string>
-    <string>FeatLongswordFinesse</string>
-    <string>FeatPoisoner</string>
-    <string>FeatSlayTheEnemies</string>
+    <string>FeatInfusionsAdept</string>
+    <string>FeatAegisTouchedCha</string>
+    <string>FeatAegisTouchedInt</string>
+    <string>FeatAegisTouchedWis</string>
+    <string>FeatAlwaysReady</string>
+    <string>FeatLunger</string>
+    <string>FeatPeregrinationTouchedCha</string>
+    <string>FeatPeregrinationTouchedInt</string>
+    <string>FeatPeregrinationTouchedWis</string>
+    <string>FeatRopeItUp</string>
+    <string>FeatSteadyAim</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -369,6 +393,7 @@
     <string>FeatGroupCriticalVirtuoso</string>
     <string>FeatGroupCrusher</string>
     <string>FeatGroupElementalAdept</string>
+    <string>FeatGroupElementalMaster</string>
     <string>FeatGroupElementalTouch</string>
     <string>FeatGroupElvenAccuracy</string>
     <string>FeatGroupEnchanter</string>
@@ -376,12 +401,15 @@
     <string>FeatGroupTeleportation</string>
     <string>FeatGroupFightingStyle</string>
     <string>FeatGroupFlameTouched</string>
+    <string>FeatGroupHardy</string>
+    <string>FeatGroupIridescentTouched</string>
     <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupMediumArmor</string>
     <string>FeatGroupPiercer</string>
     <string>FeatGroupPlaneTouchedMagic</string>
     <string>FeatGroupPotentSpellcaster</string>
     <string>FeatGroupPrecisionFocused</string>
+    <string>FeatGroupPrimalRage</string>
     <string>FeatGroupRaceBound</string>
     <string>FeatGroupRevenantGreatSword</string>
     <string>FeatGroupShadowTouched</string>
@@ -393,9 +421,10 @@
     <string>FeatGroupTools</string>
     <string>FeatGroupToxicologist</string>
     <string>FeatGroupDefenseExpert</string>
-    <string>FeatGroupPrimalRage</string>
-    <string>FeatGroupElementalMaster</string>
-    <string>FeatGroupHardy</string>
+    <string>FeatGroupVerdantTouched</string>
+    <string>FeatGroupGeneralAdept</string>
+    <string>FeatGroupAegisTouched</string>
+    <string>FeatGroupPeregrinationTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -600,6 +629,9 @@
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
           <string>RadiantMotes</string>
+          <string>Sanctuary</string>
+          <string>ColorBurst</string>
+          <string>SpellWeb</string>
         </ArrayOfString>
       </value>
     </item>
@@ -650,8 +682,10 @@
           <string>ThunderStrike</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
+          <string>SpellWeb</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
           <string>ReverseGravity</string>
@@ -711,8 +745,10 @@
           <string>EarthTremor</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
+          <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
+          <string>SpellWeb</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
@@ -743,6 +779,7 @@
   <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>true</FullyControlConjurations>
@@ -876,7 +913,6 @@
   <RestockArcaneum>true</RestockArcaneum>
   <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
-  <DisableAutoUpdate>false</DisableAutoUpdate>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
@@ -885,7 +921,7 @@
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>1</OverridePartySize>
+  <OverridePartySize>2</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>

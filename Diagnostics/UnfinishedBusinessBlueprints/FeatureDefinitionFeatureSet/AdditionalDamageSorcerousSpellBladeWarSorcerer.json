@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AdditionalDamageSorcerousSpellBladeWarSorcererMagic:c68d569f-bca0-5447-b93f-c4bd82f93274",
+    "Definition:AdditionalDamageSorcerousSpellBladeWarSorcererWeapon:39e26633-fbe5-5522-915e-150eabf5ab55"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle",
+    "description": "Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "52bfbcf6-aeb3-515d-9228-3611fa4e9d2a",
+  "contentPack": 9999,
+  "name": "AdditionalDamageSorcerousSpellBladeWarSorcerer"
+}

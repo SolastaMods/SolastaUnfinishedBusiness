@@ -429,7 +429,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     {
         // Determine the last class and level
         CharacterBuildingService.GetLastAssignedClassAndLevel(currentHero, out gainedClass, out gainedClassLevel);
-        gainedCharacterLevel = currentHero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        gainedCharacterLevel = currentHero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
         if (gainedClass == null)
         {
@@ -477,7 +477,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
             else
             {
-                tags[poolId].Max++;
+                tags[poolId].Max += featureSet.Points;
             }
         }
 
@@ -713,6 +713,11 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                                             CharacterStatsPanel.HitPointMaxFlag |
                                             CharacterStatsPanel.HitDiceFlag);
 
+        for (var i = currentLearnStep; i >= 0; i--)
+        {
+            ResetLearnings(i);
+        }
+
         BuildLearnSteps();
         spellsScrollRect.normalizedPosition = Vector2.zero;
         OnPreRefresh();
@@ -858,7 +863,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             var group = child.GetComponent<SpellsByLevelGroup>();
             var featureLevel = allLevels[i];
             var lowLevel = !isUnlearnStep && featureLevel > (featurePool.Type.RequireClassLevels != null
-                ? currentHero.GetClassLevel(featurePool.Type.RequireClassLevels)
+                ? Math.Max(1,
+                    InvocationPoolTypeCustom.GetClassOrSubclassLevel(currentHero, featurePool.Type.RequireClassLevels))
                 : gainedCharacterLevel);
 
             group.Selected = !IsFinalStep && !lowLevel;

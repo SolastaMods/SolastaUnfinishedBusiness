@@ -1,0 +1,16 @@
+Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=你在所有攻击中都处于劣势。
+Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=痛苦创伤
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=你的重击威胁范围增加1点
+Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=肆虐暴行
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=从3级开始，你可以双持非轻型近战武器，并将你的攻击调整值添加到副手攻击中。
+Feature/&AttackModifierPathOfTheSavagerySavageStrengthTitle=野蛮力量
+Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=从14级开始，当你处于狂暴状态时，每当你需要进行敏捷豁免检定时，你可以使用力量豁免检定替代。当你狂暴且双持两件近战武器时，你的护甲等级(AC)+2。
+Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=狂暴之护
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=从10级开始，当你狂暴时，每当你用近战武器攻击时，若没能造成暴击，你的暴击威胁范围增加1，该效果可以叠加。当你暴击时，加成将重置为0。
+Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=肆虐暴行
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=从第6级开始，当你双持近战武器时，使武器的武器骰增大一号 (d4变为d6, d6变为d8，以此类推)。此外，使用近战武器攻击造成暴击时，敌人需要通过体质豁免检定，DC为8 + 熟练度加值 + 你的力量调整值。如果未能通过检定，则该生物在下回合结束前的所有攻击都处于劣势。
+Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=无边盛怒
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=你可以使用自由动作进入狂暴。
+Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=原始本能
+Subclass/&PathOfTheSavageryDescription=践行野性之道的野蛮人专注于自然的力量，他们并非像人一般战斗，反而更似野兽。他们挥舞双刃，以惊人的力量与速度发起攻击，如同野兽使用尖牙与利爪一般。
+Subclass/&PathOfTheSavageryTitle=野性道途

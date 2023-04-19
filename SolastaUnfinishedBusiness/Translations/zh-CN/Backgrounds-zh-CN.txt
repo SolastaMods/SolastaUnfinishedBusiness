@@ -1,0 +1,6 @@
+Background/&BackgroundFarmerDescription=自出生起，你就在土地上辛苦耕作，以养家糊口。作为一个农民，你日出而耕，日落而归。如今，你抛弃了这种平凡的生活，开始追求刺激、名利和冒险。
+Background/&BackgroundFarmerTitle=农民
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=驯兽、自然和感知
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=农民技能
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=获得木棒和手斧的熟练项，使用这两种武器时，你的攻击检定获得+1加值。
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=农民武器

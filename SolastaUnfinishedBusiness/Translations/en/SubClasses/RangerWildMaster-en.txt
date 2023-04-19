@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master Bonus
+﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wildmaster Bonus
 Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It gains your Wisdom modifier to armor class, attack rolls and damage rolls. It also gains 4 HP per character level and can only take the Dodge action on its turn unless you command it to do otherwise.\nBoth Spirit Beast and summoner share the same initiative and you can choose a Bear, an Eagle or a Wolf:\n. The Bear can breath a cone of fire\n. The Eagle a line of electricity\n. The Wolf a cone of cold.
 Feature/&PowerSpiritBeastBreathWeaponBlueTitle=Lightning Weapon
 Feature/&PowerSpiritBeastBreathWeaponGoldTitle=Fire Weapon
@@ -23,5 +23,5 @@ Feature/&PowerWildMasterSummonSpiritBeastDescription=A {0} bonded to a Ranger.
 Feature/&PowerWildMasterSummonSpiritBeastPoolDescription=Summon a Bear, an Eagle or a Wolf.
 Feature/&PowerWildMasterSummonSpiritBeastPoolTitle=Spirit Beast Summoning
 Feature/&PowerWildMasterSummonSpiritBeastTitle=Summon {0}
-Subclass/&RangerWildMasterDescription=The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
-Subclass/&RangerWildMasterTitle=Wild Master
+Subclass/&RangerWildMasterDescription=The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
+Subclass/&RangerWildMasterTitle=Wildmaster

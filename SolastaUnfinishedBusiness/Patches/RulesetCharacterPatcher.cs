@@ -6,12 +6,12 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
@@ -22,11 +22,10 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class RulesetCharacterPatcher
 {
     // helper to get infusions modifiers from items
-    private static void EnumerateSpellCastingAffinityProviderFromItems(
+    private static void EnumerateISpellCastingAffinityProvider(
         RulesetCharacter __instance,
         List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition,
-            RuleDefinitions.FeatureOrigin> featuresOrigin)
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
     {
         __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
 
@@ -54,6 +53,20 @@ public static class RulesetCharacterPatcher
                 RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
                 null, definition.ParseSpecialFeatureTags()));
         }
+
+        //PATCH: allow ISpellCastingAffinityProvider to be validated with IsCharacterValidHandler
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
+    private static void EnumerateFeatureDefinitionRegeneration(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionRegeneration>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
     }
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
@@ -451,8 +464,7 @@ public static class RulesetCharacterPatcher
             }
 
             // raging
-            if (__instance.AllConditions
-                .Any(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionRaging))
+            if (__instance.HasAnyConditionOfType(RuleDefinitions.ConditionRaging))
             {
                 __result = false;
             }
@@ -634,6 +646,8 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollMagicAttack_Patch
     {
+        internal static RulesetEffect CurrentMagicEffect;
+
         [UsedImplicitly]
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
@@ -642,6 +656,8 @@ public static class RulesetCharacterPatcher
             List<RuleDefinitions.TrendInfo> toHitTrends,
             bool testMode)
         {
+            CurrentMagicEffect = activeEffect;
+
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
             MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
 
@@ -662,6 +678,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
             ElvenPrecisionLogic.Active = false;
+            CurrentMagicEffect = null;
         }
     }
 
@@ -795,7 +812,7 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
@@ -1088,6 +1105,34 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshUsablePower))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RefreshUsablePower_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(RulesetCharacter __instance,
+            RulesetUsablePower usablePower,
+            ref RulesetSpellRepertoire classSpellRepertoire)
+        {
+            //PATCH: MC: try getting proper class repertoire for the power
+            var powerOriginClass = usablePower.OriginClass;
+
+            //Only try to get repertoire for powers that have origin class
+            if (powerOriginClass == null)
+            {
+                return;
+            }
+
+            var repertoire = __instance.GetClassSpellRepertoire(powerOriginClass);
+
+            if (repertoire != null)
+            {
+                classSpellRepertoire = repertoire;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RefreshUsableDeviceFunctions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1286,7 +1331,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: allow modifiers from items to be considered on concentration checks
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollConcentrationCheck))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1299,12 +1343,107 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
+
+            var myComputeBaseSavingThrowBonus =
+                new Func<RulesetActor, string, List<RuleDefinitions.TrendInfo>, int>(ComputeBaseSavingThrowBonus)
+                    .Method;
+
+            var myComputeSavingThrowModifier =
+                new Action<RulesetActor, string, EffectForm.EffectFormType, string, string, string, string, string,
+                        ActionModifier, List<ISavingThrowAffinityProvider>, int>(ComputeSavingThrowModifier)
+                    .Method;
+
+            var myGetSavingThrowModifier =
+                new Func<ActionModifier, string, bool, RulesetActor, int>(GetSavingThrowModifier).Method;
+
+            var computeBaseSavingThrowBonus = typeof(RulesetActor).GetMethod("ComputeBaseSavingThrowBonus");
+            var computeSavingThrowModifier = typeof(RulesetActor).GetMethod("ComputeSavingThrowModifier");
+            var getSavingThrowModifier = typeof(ActionModifier).GetMethod("GetSavingThrowModifier");
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
-            return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
-                -1, "RulesetCharacter.RollConcentrationCheck",
-                new CodeInstruction(OpCodes.Call, enumerate));
+            return instructions
+                //PATCH: supports changing the concentration attribute score
+                .ReplaceCalls(computeBaseSavingThrowBonus,
+                    "RulesetCharacter.ComputeBaseSavingThrowBonus",
+                    new CodeInstruction(OpCodes.Call, myComputeBaseSavingThrowBonus))
+                .ReplaceCalls(computeSavingThrowModifier,
+                    "RulesetCharacter.ComputeSavingThrowModifier",
+                    new CodeInstruction(OpCodes.Call, myComputeSavingThrowModifier))
+                .ReplaceCalls(getSavingThrowModifier,
+                    "RulesetCharacter.GetSavingThrowModifier",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, myGetSavingThrowModifier))
+                //PATCH: allow modifiers from items to be considered on concentration checks
+                .ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
+                    -1, "RulesetCharacter.RollConcentrationCheck",
+                    new CodeInstruction(OpCodes.Call, enumerate));
+        }
+
+        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
+        {
+            var savingThrowBonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+
+            foreach (var attribute in rulesetActor
+                         .GetSubFeaturesByType<IChangeConcentrationAttribute>()
+                         .Where(x => x.IsValid(rulesetActor))
+                         .Select(x => x.ConcentrationAttribute(rulesetActor)))
+            {
+                var newSavingThrowBonus =
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+
+                // get the last one instead unless we start using this with other subs and then need to decide which one is better
+                if (newSavingThrowBonus <= savingThrowBonus)
+                {
+                    continue;
+                }
+
+                attributeScore = attribute;
+                savingThrowBonus = newSavingThrowBonus;
+            }
+        }
+
+        private static int ComputeBaseSavingThrowBonus(
+            RulesetActor __instance,
+            string abilityScoreName,
+            List<RuleDefinitions.TrendInfo> savingThrowModifierTrends)
+        {
+            GetBestSavingThrowAbilityScore(__instance, ref abilityScoreName);
+
+            return __instance.ComputeBaseSavingThrowBonus(abilityScoreName, savingThrowModifierTrends);
+        }
+
+        private static void ComputeSavingThrowModifier(
+            RulesetActor __instance,
+            string abilityType,
+            EffectForm.EffectFormType formType,
+            string sourceName,
+            string schoolOfMagic,
+            string damageType,
+            string conditionType,
+            string sourceFamily,
+            ActionModifier effectModifier,
+            List<ISavingThrowAffinityProvider> accountedProviders,
+            int savingThrowContextField = 0)
+        {
+            GetBestSavingThrowAbilityScore(__instance, ref abilityType);
+
+            __instance.ComputeSavingThrowModifier(abilityType, formType, sourceName, schoolOfMagic, damageType,
+                conditionType, sourceFamily, effectModifier, accountedProviders, savingThrowContextField);
+        }
+
+        private static int GetSavingThrowModifier(
+            ActionModifier __instance,
+            string abilityType,
+            bool ignoreCover,
+            RulesetActor rulesetActor)
+        {
+            GetBestSavingThrowAbilityScore(rulesetActor, ref abilityType);
+
+            return __instance.GetSavingThrowModifier(abilityType, ignoreCover);
         }
     }
 
@@ -1321,11 +1460,33 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+            >(EnumerateISpellCastingAffinityProvider).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
                 -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: allow FeatureDefinitionRegeneration to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindBestRegenerationFeature))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FindBestRegenerationFeature_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionRegeneration).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionRegeneration",
+                -1, "RulesetCharacter.FindBestRegenerationFeature",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
     }

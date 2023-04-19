@@ -12,5 +12,5 @@ Feature/&PointPoolSpellMasterBonusCantripsDescription=Gana 2 cantrips adicionale
 Feature/&PointPoolSpellMasterBonusCantripsTitle=Trucos de bonificación
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Tu entrenamiento con la magia te da ventaja en las tiradas de salvación contra hechizos.
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Resistencia a conjuros
-Subclass/&WizardSpellMasterDescription=Los maestros de hechizos se sumergen en la magia y tratan de aprender todos los hechizos que pueden tener en sus manos. Son inigualables en su conocimiento de hechizos.
+Subclass/&WizardSpellMasterDescription=Los maestros de hechizos se sumergen en la magia y tratan de aprender todos los hechizos que tienen a su alcance. Son inigualables en su conocimiento de hechizos.
 Subclass/&WizardSpellMasterTitle=Experto en ortografía

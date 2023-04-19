@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -114,7 +115,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCollegeOfHarlequinFightingStyle")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.FightingStyle, FightingStyleDefinitions.TwoWeapon.Name)
+            .SetProficiencies(ProficiencyType.FightingStyle, "TwoWeapon")
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder

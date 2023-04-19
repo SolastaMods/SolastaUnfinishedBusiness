@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
@@ -675,8 +676,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 locationCharacter.Guid,
                 character.CurrentFaction.Name);
 
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
             GameConsoleHelper.LogCharacterUsedPower(character, power);
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
         }
     }
 

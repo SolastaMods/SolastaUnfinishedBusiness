@@ -7,7 +7,8 @@ internal enum ExtraReactionContext
 
 internal enum ExtraAncestryType
 {
-    WayOfTheDragon = 9000
+    WayOfTheDragon = 9000,
+    PathOfTheElements = 9001
 }
 
 internal enum ExtraSituationalContext
@@ -15,11 +16,13 @@ internal enum ExtraSituationalContext
     MainWeaponIsMeleeOrUnarmed = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
-    TargetIsNotEffectSource = 1004,
-    SummonerIsNextToBeast = 1005,
-    HasSpecializedWeaponInHands = 1006,
-    HasLongswordInHands = 1007,
-    HasGreatswordInHands = 1008
+    TargetIsNotEffectSource = 1003,
+    SummonerIsNextToBeast = 1004,
+    HasSpecializedWeaponInHands = 1005,
+    HasLongswordInHands = 1006,
+    HasGreatswordInHands = 1007,
+    IsNotInBrightLight = 1008,
+    IsRagingAndDualWielding = 1009
 }
 
 #if false
@@ -120,7 +123,6 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
     TargetWithin10Ft = 9000,
-    UsePowerReaction = 9001,
     TargetIsDuelingWithYou = 9002
 }
 
@@ -187,7 +189,12 @@ internal enum ExtraActionId
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
     MonsterSwapAttackToggle = 9015,
-    CombatWildShape = 9016
+    CombatWildShape = 9016,
+    FeatCrusherToggle = 9017,
+    CannonFlamethrower = 9018,
+    CannonForceBallista = 9019,
+    CannonProtector = 9020,
+    CombatRageStart = 9021
 }
 
 #if false

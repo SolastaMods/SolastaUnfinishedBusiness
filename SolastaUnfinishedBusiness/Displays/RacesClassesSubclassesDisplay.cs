@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -18,30 +19,6 @@ internal static class RacesClassesSubclassesDisplay
             ref sliderPos);
         Main.Settings.DisplayRacesToggle = displayToggle;
         Main.Settings.RaceSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplayBackgroundsToggle;
-        sliderPos = Main.Settings.BackgroundSliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Backgrounds"),
-            BackgroundsContext.Switch,
-            BackgroundsContext.Backgrounds,
-            Main.Settings.BackgroundEnabled,
-            ref displayToggle,
-            ref sliderPos);
-        Main.Settings.DisplayBackgroundsToggle = displayToggle;
-        Main.Settings.BackgroundSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplayDeitiesToggle;
-        sliderPos = Main.Settings.DeitySliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Deities"),
-            DeitiesContext.Switch,
-            DeitiesContext.Deities,
-            Main.Settings.DeityEnabled,
-            ref displayToggle,
-            ref sliderPos);
-        Main.Settings.DisplayDeitiesToggle = displayToggle;
-        Main.Settings.DeitySliderPosition = sliderPos;
 
         displayToggle = Main.Settings.DisplayClassesToggle;
         sliderPos = Main.Settings.ClassSliderPosition;
@@ -63,9 +40,24 @@ internal static class RacesClassesSubclassesDisplay
             SubclassesContext.Subclasses,
             Main.Settings.SubclassEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: SubclassesHeader);
         Main.Settings.DisplaySubclassesToggle = displayToggle;
         Main.Settings.SubclassSliderPosition = sliderPos;
+
+        UI.Label();
+    }
+
+    private static void SubclassesHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Subclasses Docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessSubclasses.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Subclasses Docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaSubclasses.md"), UI.Width((float)200));
+        }
 
         UI.Label();
     }

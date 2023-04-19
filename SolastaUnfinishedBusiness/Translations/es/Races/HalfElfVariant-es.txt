@@ -2,5 +2,5 @@ Race/&RaceHalfElfDarkDescription=Los elfos medio oscuros son descendientes de el
 Race/&RaceHalfElfDarkTitle=Elfo semioscuro
 Race/&RaceHalfElfHighDescription=Los elfos medio-altos están entrenados para usar la magia desde muy temprano.
 Race/&RaceHalfElfHighTitle=Elfo medio alto
-Race/&RaceHalfElfSylvanDescription=Los elfos medio silvanos están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
+Race/&RaceHalfElfSylvanDescription=Los elfos medio-sylvan están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
 Race/&RaceHalfElfSylvanTitle=Elfo medio selvático

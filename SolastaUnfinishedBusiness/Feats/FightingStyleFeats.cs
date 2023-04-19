@@ -3,7 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomValidators;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -16,7 +16,7 @@ internal static class FightingStyleFeats
             .Select(BuildFightingStyleFeat)
             .ToArray();
 
-        GroupFeats.MakeGroup("FeatGroupFightingStyle", null, fightingStyles);
+        GroupFeats.FeatGroupFightingStyle.AddFeats(fightingStyles);
         feats.AddRange(fightingStyles);
     }
 

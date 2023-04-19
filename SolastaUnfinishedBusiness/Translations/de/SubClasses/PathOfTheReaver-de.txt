@@ -13,4 +13,4 @@ Reaction/&CustomReactionBloodbathTitle=Blutbad
 Reaction/&CustomReactionBloodbathReactDescription=Eviszere diese Kreatur.
 Reaction/&CustomReactionBloodbathReactTitle=Ausweiden
 Subclass/&PathOfTheReaverDescription=Alle Reavers unterziehen sich einem Ritual, bei dem sie verdorbenes Blut eines Drachen trinken und ihren Körper dauerhaft mit einem Hauch drakonischer Macht und Gier erfüllen, auf Kosten einer allmählich zunehmenden Verderbnis. Diese furchterregenden Krieger schwelgen im Tod und gewinnen Energie aus dem Leiden ihrer Feinde.
-Subclass/&PathOfTheReaverTitle=Pfad des Räubers
+Subclass/&PathOfTheReaverTitle=Pfad des Häschers

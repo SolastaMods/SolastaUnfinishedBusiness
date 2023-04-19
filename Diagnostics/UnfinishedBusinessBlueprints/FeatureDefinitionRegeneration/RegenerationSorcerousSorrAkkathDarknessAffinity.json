@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionRegeneration, Assembly-CSharp",
+  "diceNumber": 0,
+  "dieType": "D1",
+  "bonus": 2,
+  "tickType": "Round",
+  "tickNumber": 1,
+  "preventingDamages": [],
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle",
+    "description": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "47388b81-48f0-5f5d-8f48-4f1683d25b8a",
+  "contentPack": 9999,
+  "name": "RegenerationSorcerousSorrAkkathDarknessAffinity"
+}

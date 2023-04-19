@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -145,7 +146,7 @@ internal static class CharacterExportContext
                     item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
             }
 
-            heroCharacter.currentHitPoints = heroCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue;
+            heroCharacter.currentHitPoints = heroCharacter.TryGetAttributeValue(AttributeDefinitions.HitPoints);
             heroCharacter.Unregister();
             heroCharacter.ResetForOutgame();
 

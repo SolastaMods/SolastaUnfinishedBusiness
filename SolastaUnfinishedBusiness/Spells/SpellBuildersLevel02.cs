@@ -15,7 +15,26 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 02
+    internal static SpellDefinition BuildColorBurst()
+    {
+        const string NAME = "ColorBurst";
+
+        var spell = SpellDefinitionBuilder
+            .Create(ColorSpray, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ColorBurst, 128))
+            .SetSpellLevel(2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(ColorSpray)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetParticleEffectParameters(HypnoticPattern)
+                    .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    #region Mirror Image
 
     [NotNull]
     internal static SpellDefinition BuildMirrorImage()
@@ -55,6 +74,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Petal Storm
 
     [NotNull]
     internal static SpellDefinition BuildPetalStorm()
@@ -111,6 +134,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Protect Threshold
+
     [NotNull]
     internal static SpellDefinition BuildProtectThreshold()
     {
@@ -118,14 +145,14 @@ internal static partial class SpellBuilders
         const string ProxyPetalStormName = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, ProxyPetalStormName)
+            .Create(EffectProxyDefinitions.ProxyGuardianOfFaith, ProxyPetalStormName)
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
         var spriteReference = Sprites.GetSprite(NAME, Resources.ProtectThreshold, 128);
 
         var spell = SpellDefinitionBuilder
-            .Create(SpikeGrowth, "ProtectThreshold")
+            .Create(GuardianOfFaith, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
@@ -159,6 +186,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Shadowblade
 
     [NotNull]
     internal static SpellDefinition BuildShadowBlade()
@@ -225,6 +256,57 @@ internal static partial class SpellBuilders
         itemPropertyForm.FeatureBySlotLevel[1].level = 3;
         itemPropertyForm.FeatureBySlotLevel[2].level = 5;
         itemPropertyForm.FeatureBySlotLevel[3].level = 7;
+
+        return spell;
+    }
+
+    #endregion
+
+    #region Web
+
+    internal static SpellDefinition BuildWeb()
+    {
+        var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
+            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create("SpellWeb")
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
+            .SetSpellLevel(2)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(Grease)
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
+                .SetDurationData(DurationType.Hour, 1)
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Dexterity,
+                    false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    Entangle.EffectDescription.EffectForms[0],
+                    Entangle.EffectDescription.EffectForms[1],
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionRestrainedBySpellWeb, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return spell;
     }

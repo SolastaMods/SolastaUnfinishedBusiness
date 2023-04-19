@@ -2,7 +2,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Intrappolato
 Condition/&ConditionMuleDescription=La tua velocità non è ridotta da ingombri o armature pesanti. Puoi trasportare 20 sterline in più.
 Condition/&ConditionMuleTitle=Mulo
-Condition/&ConditionSanctuaryDescription=Gli attacchi contro di te devono effettuare un tiro salvezza di saggezza. In caso di tiro salvezza fallito, l'attacco fallisce. I colpi critici infliggono la metà.
+Condition/&ConditionSanctuaryDescription=Gli attacchi contro di te devono effettuare un tiro salvezza su Saggezza. In caso di tiro salvezza fallito, l'attacco fallisce. I colpi critici infliggono la metà.
 Condition/&ConditionSanctuaryTitle=Protetto da Santuario
 Condition/&ConditionSkinOfRetributionDescription=Se una creatura ti colpisce con un attacco in mischia mentre hai questi punti ferita temporanei, la creatura prende 5 {0} per livello dell'incantesimo.
 Condition/&ConditionSkinOfRetributionTitle=Pelle di punizione

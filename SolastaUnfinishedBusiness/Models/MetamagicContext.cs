@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using static SolastaUnfinishedBusiness.Metamagic.MetamagicBuilders;
+using static SolastaUnfinishedBusiness.CustomBuilders.MetamagicBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 

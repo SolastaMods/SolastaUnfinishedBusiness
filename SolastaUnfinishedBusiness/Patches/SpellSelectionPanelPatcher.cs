@@ -44,12 +44,6 @@ public static class SpellSelectionPanelPatcher
             ActionDefinitions.ActionType actionType,
             bool cantripOnly)
         {
-            //PATCH: shows spell selection on multiple rows
-            if (!Main.Settings.EnableMultiLineSpellPanel)
-            {
-                return;
-            }
-
             GameUiContext.SpellSelectionPanelMultilineBind(
                 __instance, caster, spellCastEngaged, actionType, cantripOnly);
         }
@@ -82,12 +76,6 @@ public static class SpellSelectionPanelPatcher
         [UsedImplicitly]
         public static void Postfix()
         {
-            //PATCH: shows spell selection on multiple rows
-            if (!Main.Settings.EnableMultiLineSpellPanel)
-            {
-                return;
-            }
-
             GameUiContext.SpellSelectionPanelMultilineUnbind();
         }
     }

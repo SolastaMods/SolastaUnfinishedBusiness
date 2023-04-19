@@ -14,7 +14,7 @@
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
   "myAttackModifierValueDetermination": "None",
-  "myAttackModifierSign": "Substract",
+  "myAttackModifierSign": "Add",
   "myAttackModifierDiceNumber": 1,
   "myAttackModifierDieType": "D4",
   "myAttackDamageMultiplier": 1.0,

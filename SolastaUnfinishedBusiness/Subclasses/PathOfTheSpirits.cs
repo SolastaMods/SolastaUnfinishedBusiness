@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
@@ -9,7 +9,6 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 
@@ -37,10 +36,9 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
-                "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
+            .Create("FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
             .SetGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
                 // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
                 PowerPathOfTheSpiritsBearResistance(),
@@ -60,10 +58,9 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
-                "FeatureSetPathOfTheSpiritsAnimalAspectChoices")
+            .Create("FeatureSetPathOfTheSpiritsAnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSet(
                 //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
                 BuildAnimalAspectChoice("Bear",
@@ -162,6 +159,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance,
                 DamageAffinityPiercingResistance,
@@ -200,36 +198,42 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
+                .Create("CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
                 .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Condition)
+                .SetMyAttackAdvantage(AdvantageType.Advantage)
                 .AddToDB())
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        _ = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Minute, 1)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("OnAfterActionWolfLeadership")
-                .SetGuiPresentationNoContent(true)
-                .AddToDB())
-            .AddToDB();
-
-        return FeatureDefinitionPowerBuilder
+        var powerPathOfTheSpiritsWolfLeadership = FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
                 .Build())
-            .SetCustomSubFeatures(new OnAfterActionWolfLeadership(conditionPathOfTheSpiritsWolfLeadershipPack))
             .AddToDB();
+
+        var customBehaviorWolfLeadership = new CustomRagingAura(
+            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack);
+
+        conditionPathOfTheSpiritsWolfLeadershipPack.SetCustomSubFeatures(customBehaviorWolfLeadership);
+        powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(customBehaviorWolfLeadership);
+
+        return powerPathOfTheSpiritsWolfLeadership;
     }
 
     private static FeatureDefinition AbilityCheckAffinityPathOfTheSpiritsBearMight()
@@ -257,65 +261,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private class OnAfterActionWolfLeadership : IOnAfterActionFeature, ICharacterTurnStartListener
-    {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public OnAfterActionWolfLeadership(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
-        {
-            AddCondition(locationCharacter);
-        }
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            if (action is CharacterActionRageStart)
-            {
-                AddCondition(action.ActingCharacter);
-            }
-        }
-
-        private void AddCondition(GameLocationCharacter sourceLocationCharacter)
-        {
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-            var battle = gameLocationBattleService?.Battle;
-
-            if (battle == null)
-            {
-                return;
-            }
-
-            var sourceRulesetCharacter = sourceLocationCharacter.RulesetCharacter;
-
-            if (!sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    "ConditionRagingNormal") &&
-                !sourceRulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    "ConditionRagingPersistent"))
-            {
-                return;
-            }
-
-            foreach (var targetLocationCharacter in battle.AllContenders
-                         .Where(x =>
-                             x.Side == sourceLocationCharacter.Side &&
-                             gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 3)))
-            {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    targetLocationCharacter.Guid,
-                    _conditionDefinition,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfSourceTurn,
-                    sourceLocationCharacter.Guid,
-                    sourceRulesetCharacter.CurrentFaction.Name);
-
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(
-                    AttributeDefinitions.TagEffect, condition);
-            }
-        }
-    }
+    //
+    // Wolf Leadership
+    //
 }

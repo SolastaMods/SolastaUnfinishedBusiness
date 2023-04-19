@@ -12,5 +12,5 @@ Feature/&PointPoolSpellMasterBonusCantripsDescription=Gain 2 extra cantrips know
 Feature/&PointPoolSpellMasterBonusCantripsTitle=Bonus Cantrips
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Your training with magic gives you advantage on saving throws against spells.
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Spell Resistance
-Subclass/&WizardSpellMasterDescription=Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-Subclass/&WizardSpellMasterTitle=Spell Master
+Subclass/&WizardSpellMasterDescription=Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+Subclass/&WizardSpellMasterTitle=Spellmaster

@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -41,10 +41,10 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
         }
 
         var oldAttribute = attackMode.AbilityScore;
-        var oldValue = character.GetAttribute(oldAttribute).CurrentValue;
+        var oldValue = character.TryGetAttributeValue(oldAttribute);
         oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
 
-        var newValue = character.GetAttribute(attribute).CurrentValue;
+        var newValue = character.TryGetAttributeValue(attribute);
         newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
 
         if (newValue <= oldValue)
@@ -152,14 +152,15 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
-        // if we don't want to upgrade the dice on a bonus attack to avoid cheesing add below to IF
+        // below was interacting in a bad way with TWF and Spear Mastery so added an attack tag to polearm bonus only
         // || attackMode.actionType != ActionDefinitions.ActionType.Main)
-        if (damage == null)
+        if (damage == null || attackMode.AttackTags.Contains("Polearm"))
         {
             return;
         }
 
-        var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
+        var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, damage);
+
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
 
@@ -167,13 +168,6 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         {
             damage.DieType = newDie;
             damage.DiceNumber = newNumber;
-        }
-
-        //TODO: treat this in a better way maybe with a marker to ignore dice upgrades
-        if (character.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == "FeaturePolearm") &&
-            ValidatorsCharacter.IsFreeOffhand(character))
-        {
-            return;
         }
 
         newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;
@@ -188,7 +182,7 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
     internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType)
         GetWeaponDiceHandler(
             RulesetCharacter character,
-            RulesetItem weapon);
+            DamageForm damageForm);
 }
 
 internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase

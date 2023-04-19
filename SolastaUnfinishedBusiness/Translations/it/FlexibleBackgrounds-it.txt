@@ -1,4 +1,4 @@
-Background/&PointPoolBackgroundSkillSelect2Description=Seleziona 2 competenze nelle abilità.
+Background/&PointPoolBackgroundSkillSelect2Description=Seleziona 2 abilità.
 Background/&PointPoolBackgroundSkillSelect2Title=Competenze
 Background/&PointPoolBackgroundSkillSelect3Description=Seleziona 3 abilità.
 Background/&PointPoolBackgroundSkillSelect3Title=Competenze
@@ -16,6 +16,8 @@ Background/&SuggestedSkillsAristocratBackgroundDescription=Storia, persuasione e
 Background/&SuggestedSkillsAristocratBackgroundTitle=Competenze consigliate
 Background/&SuggestedSkillsArtistBackgroundDescription=Inganno, persuasione e performance.
 Background/&SuggestedSkillsArtistBackgroundTitle=Competenze consigliate
+Background/&SuggestedSkillsFarmerBackgroundDescription=Gestione degli animali, natura e percezione.
+Background/&SuggestedSkillsFarmerBackgroundTitle=Competenze consigliate
 Background/&SuggestedSkillsLawkeeperBackgroundDescription=Percezione e intimidazione.
 Background/&SuggestedSkillsLawkeeperBackgroundTitle=Competenze consigliate
 Background/&SuggestedSkillsLowlifeBackgroundDescription=Gioco di prestigio, furtività e inganno.

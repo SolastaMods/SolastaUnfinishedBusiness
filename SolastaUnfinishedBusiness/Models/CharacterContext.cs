@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -36,11 +37,41 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
+    private static readonly FeatureDefinitionFightingStyleChoice FightingStyleChoiceBarbarian =
+        FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleChoiceBarbarian")
+            .SetGuiPresentation("FighterFightingStyle", Category.Feature)
+            .SetFightingStyles(
+                "BlindFighting",
+                "Crippling",
+                "Executioner",
+                "GreatWeapon",
+                "Merciless",
+                "Pugilist",
+                "TwoWeapon",
+                "Sentinel",
+                "RopeItUp")
+            .AddToDB();
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolMonkWeaponSpecialization =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolMonkWeaponSpecialization")
+            .SetGuiPresentation("InvocationPoolMonkWeaponSpecializationLearn", Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+            .AddToDB();
+
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathClawDraconicChoice =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolPathClawDraconicChoice")
             .SetGuiPresentation(FeatureSetPathClawDragonAncestry.GuiPresentation)
             .Setup(InvocationPoolTypeCustom.Pools.PathClawDraconicChoice)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathOfTheElementsElementalFuryChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolPathOfTheElementsElementalFuryChoice")
+            .SetGuiPresentation(PathOfTheElements.FeatureSetElementalFury.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
             .AddToDB();
 
     private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolSorcererDraconicChoice =
@@ -100,7 +131,6 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
-        LoadFighterArmamentAdroitness();
         LoadHelpPower();
         LoadVision();
         LoadEpicArray();
@@ -110,16 +140,22 @@ internal static class CharacterContext
     internal static void LateLoad()
     {
         LoadAdditionalNames();
+        BuildMonkWeaponSpecialization();
         SwitchHelpPower();
+        FlexibleBackgroundsContext.Load();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchAsiAndFeat();
-        SwitchEvenLevelFeats();
-        SwitchFighterArmamentAdroitness();
+        SwitchEveryFourLevelsFeats();
+        SwitchEveryFourLevelsFeats(true);
+        SwitchBarbarianFightingStyle();
+        SwitchFighterWeaponSpecialization();
+        SwitchMonkWeaponSpecialization();
         SwitchRangerHumanoidFavoredEnemy();
         SwitchRangerToUseCustomInvocationPools();
         SwitchDruidKindredBeastToUseCustomInvocationPools();
+        SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools();
         SwitchSubclassAncestriesToUseCustomInvocationPools(
             "PathClaw", PathClaw,
             FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
@@ -132,6 +168,98 @@ internal static class CharacterContext
             "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
             WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
             InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
+    }
+
+    private static void BuildMonkWeaponSpecialization()
+    {
+        var weaponTypeDefinitions = new List<WeaponTypeDefinition>
+        {
+            WeaponTypeDefinitions.BattleaxeType,
+            WeaponTypeDefinitions.LightCrossbowType,
+            WeaponTypeDefinitions.LongbowType,
+            WeaponTypeDefinitions.LongswordType,
+            WeaponTypeDefinitions.MorningstarType,
+            WeaponTypeDefinitions.RapierType,
+            WeaponTypeDefinitions.ScimitarType,
+            WeaponTypeDefinitions.ShortbowType,
+            WeaponTypeDefinitions.WarhammerType,
+            CustomWeaponsContext.HandXbowWeaponType
+        };
+
+        foreach (var weaponTypeDefinition in weaponTypeDefinitions)
+        {
+            var weaponTypeName = weaponTypeDefinition.Name;
+
+            var featureMonkWeaponSpecialization = FeatureDefinitionProficiencyBuilder
+                .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
+                .SetGuiPresentationNoContent(true)
+                .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
+                .SetCustomSubFeatures(new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
+                .AddToDB();
+
+            // ensure we get dice upgrade on these
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.SetCustomSubFeatures(
+                new MonkWeaponSpecializationDiceUpgrade(weaponTypeDefinition));
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationMonkWeaponSpecialization{weaponTypeName}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    weaponTypeDefinition.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
+                .SetGrantedFeature(featureMonkWeaponSpecialization)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+    }
+
+    internal static void SwitchBarbarianFightingStyle()
+    {
+        if (Main.Settings.EnableBarbarianFightingStyle)
+        {
+            Barbarian.FeatureUnlocks.TryAdd(
+                new FeatureUnlockByLevel(FightingStyleChoiceBarbarian, 2));
+        }
+        else
+        {
+            Barbarian.FeatureUnlocks
+                .RemoveAll(x => x.level == 2 &&
+                                x.FeatureDefinition == FightingStyleChoiceBarbarian);
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Barbarian.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    internal static void SwitchMonkWeaponSpecialization()
+    {
+        var levels = new[] { 2, 11 };
+
+        if (Main.Settings.EnableMonkWeaponSpecialization)
+        {
+            foreach (var level in levels)
+            {
+                Monk.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(InvocationPoolMonkWeaponSpecialization, level));
+            }
+        }
+        else
+        {
+            foreach (var level in levels)
+            {
+                Monk.FeatureUnlocks
+                    .RemoveAll(x => x.level == level &&
+                                    x.FeatureDefinition == InvocationPoolMonkWeaponSpecialization);
+            }
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
     }
 
     private static void LoadHelpPower()
@@ -455,7 +583,6 @@ internal static class CharacterContext
                 .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
 
-
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
@@ -579,7 +706,9 @@ internal static class CharacterContext
             var monsterDefinition = GetDefinition<MonsterDefinition>(monsterName);
             var guiPresentation = monsterDefinition.GuiPresentation;
             var powerName = featureDefinitionPower.Name;
-            var sprite = Sprites.GetSprite(powerName, kindredSpiritsSprites[powerName], 128);
+            var sprite = kindredSpiritsSprites.TryGetValue(powerName, out var resource)
+                ? Sprites.GetSprite(powerName, resource, 128)
+                : monsterDefinition.GuiPresentation.SpriteReference;
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{monsterName}")
@@ -604,6 +733,47 @@ internal static class CharacterContext
             .ToList();
 
         CircleKindred.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    private static void SwitchPathOfTheElementsElementalFuryToUseCustomInvocationPools()
+    {
+        var elementalFuries = PathOfTheElements.FeatureSetElementalFury.FeatureSet;
+
+        var elementalFuriesSprites = new Dictionary<string, BaseDefinition>
+        {
+            { "Storm", FeatureDefinitionPowers.PowerDomainElementalLightningBlade },
+            { "Blizzard", FeatureDefinitionPowers.PowerDomainElementalIceLance },
+            { "Wildfire", FeatureDefinitionPowers.PowerDomainElementalFireBurst }
+        };
+
+        foreach (var featureDefinitionAncestry in elementalFuries.OfType<FeatureDefinitionAncestry>())
+        {
+            var name = featureDefinitionAncestry.Name.Replace("AncestryPathOfTheElements", string.Empty);
+            var guiPresentation = featureDefinitionAncestry.guiPresentation;
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationPathOfTheElements{name}")
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, elementalFuriesSprites[name])
+                .SetPoolType(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
+                .SetGrantedFeature(featureDefinitionAncestry)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        // replace the original features with custom invocation pools
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        {
+            return;
+        }
+
+        var subclass = GetDefinition<CharacterSubclassDefinition>(PathOfTheElements.Name);
+        var replacedFeatures = subclass.FeatureUnlocks
+            .Select(x => x.FeatureDefinition == PathOfTheElements.FeatureSetElementalFury
+                ? new FeatureUnlockByLevel(InvocationPoolPathOfTheElementsElementalFuryChoice, x.Level)
+                : x)
+            .ToList();
+
+        subclass.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     private static void SwitchSubclassAncestriesToUseCustomInvocationPools(
@@ -665,12 +835,15 @@ internal static class CharacterContext
             : FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion;
     }
 
-    internal static void SwitchEvenLevelFeats()
+    internal static void SwitchEveryFourLevelsFeats(bool isMiddle = false)
     {
-        var levels = new[] { 4, 10, 16 };
+        var levels = isMiddle ? new[] { 6, 14 } : new[] { 2, 10, 18 };
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
         var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
+        var enable = isMiddle
+            ? Main.Settings.EnableFeatsAtEveryFourLevelsMiddle
+            : Main.Settings.EnableFeatsAtEveryFourLevels;
 
         foreach (var characterClassDefinition in dbCharacterClassDefinition)
         {
@@ -685,7 +858,7 @@ internal static class CharacterContext
                            (characterClassDefinition == Fighter && level is 6 or 14);
                 }
 
-                if (Main.Settings.EnableFeatsAtEvenLevels)
+                if (enable)
                 {
                     characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
                         ? featureUnlockPointPool2
@@ -894,46 +1067,11 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
-    // BACKWARD COMPATIBILITY
-    private static void LoadFighterArmamentAdroitness()
-    {
-        _ = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolFighterArmamentAdroitness")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
-            .AddToDB();
-
-        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
-            .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
-                        x != CustomWeaponsContext.ThunderGauntletType &&
-                        x != CustomWeaponsContext.LightningLauncherType);
-
-        foreach (var weaponTypeDefinition in dbWeaponTypeDefinition)
-        {
-            var modifyAttackModeForWeaponFighterArmamentAdroitness = FeatureDefinitionBuilder
-                .Create($"ModifyAttackModeForWeaponFighterArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation("ModifyAttackModeForWeaponFighterArmamentAdroitness", Category.Feature)
-                .SetCustomSubFeatures(new ModifyAttackModeForWeaponFighterArmamentAdroitness(weaponTypeDefinition))
-                .AddToDB();
-
-            CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation(
-                    weaponTypeDefinition.GuiPresentation.Title,
-                    modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
-                .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
-                .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
-                .SetCustomSubFeatures(Hidden.Marker)
-                .AddToDB();
-        }
-    }
-
-    internal static void SwitchFighterArmamentAdroitness()
+    internal static void SwitchFighterWeaponSpecialization()
     {
         var levels = new[] { 8, 16 };
 
-        if (Main.Settings.EnableFighterArmamentAdroitness)
+        if (Main.Settings.EnableFighterWeaponSpecialization)
         {
             foreach (var level in levels)
             {
@@ -957,38 +1095,32 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponFighterArmamentAdroitness : IModifyAttackModeForWeapon
+    internal sealed class MonkWeaponSpecialization
     {
-        private const string SourceName =
-            "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle";
+        internal WeaponTypeDefinition WeaponType { get; set; }
+    }
 
+    private sealed class MonkWeaponSpecializationDiceUpgrade : IRestrictedContextValidator
+    {
         private readonly WeaponTypeDefinition _weaponTypeDefinition;
 
-        public ModifyAttackModeForWeaponFighterArmamentAdroitness(WeaponTypeDefinition weaponTypeDefinition)
+        internal MonkWeaponSpecializationDiceUpgrade(WeaponTypeDefinition weaponTypeDefinition)
         {
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        public (OperationType, bool) ValidateContext(
+            BaseDefinition definition,
+            IRestrictedContextProvider provider,
+            RulesetCharacter character,
+            ItemDefinition itemDefinition,
+            bool rangedAttack, RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
         {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                sourceDefinition.WeaponDescription.WeaponTypeDefinition != _weaponTypeDefinition)
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
-
-            damage.BonusDamage += 1;
-            damage.DamageBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
+            return (OperationType.Or,
+                character.GetSubFeaturesByType<MonkWeaponSpecializationDiceUpgrade>().Exists(x =>
+                    x._weaponTypeDefinition ==
+                    (attackMode?.SourceDefinition as ItemDefinition)?.WeaponDescription.WeaponTypeDefinition));
         }
     }
 }

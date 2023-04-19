@@ -1,4 +1,4 @@
-Condition/&ConditionCollegeOfLifeConstitutionDescription=Proficiência de salvamento de Constituição temporária concedida pelo poder Transmutar Força.
+Condition/&ConditionCollegeOfLifeConstitutionDescription=Proficiência temporária para salvar a Constituição concedida pelo poder Transmutar Força.
 Condition/&ConditionCollegeOfLifeConstitutionTitle=Constituição salva
 Condition/&ConditionCollegeOfLifeElementalResistanceDescription=Resistência temporária a ácido, frio, fogo, raio, necrótico, veneno e trovão concedida pelo poder Transmutar Força.
 Condition/&ConditionCollegeOfLifeElementalResistanceTitle=Resistência elemental
@@ -18,7 +18,7 @@ Feature/&PowerSharedPoolCollegeOfLifeHealDescription=Use sua Força de Transmuta
 Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription=Você pode decretar sua vontade na realidade com poderes especiais um número de vezes ao dia igual ao seu bônus de proficiência.
 Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle=Força de transmutação
 Feature/&PowerSharedPoolCollegeOfLifeHealTitle=Curar
-Feature/&PowerSharedPoolCollegeOfLifeReviveDescription=Use sua Força de Transmutação para reviver um personagem 1 minuto após a morte.
+Feature/&PowerSharedPoolCollegeOfLifeReviveDescription=Use sua Transmute Force para reviver um personagem dentro de 1 minuto após a morte.
 Feature/&PowerSharedPoolCollegeOfLifeReviveTitle=Reviver
 Subclass/&CollegeOfLifeDescription=Mestres em manipular a matéria e a energia vital.
 Subclass/&CollegeOfLifeTitle=Faculdade da vida

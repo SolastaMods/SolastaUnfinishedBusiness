@@ -7,12 +7,11 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -24,7 +23,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     {
         // LEVEL 03
 
-        // Hell Walker Magic
+        // Hellwalker Magic
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -32,18 +31,19 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, HellishRebuke),
+                BuildSpellGroup(2, HellishRebuke),
                 BuildSpellGroup(5, Invisibility),
                 BuildSpellGroup(9, BestowCurse),
                 BuildSpellGroup(13, WallOfFire),
                 BuildSpellGroup(17, SpellsContext.FarStep))
             .AddToDB();
 
+        // had to keep this name off standard for reasons
         var powerFirebolt = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Firebolt")
-            .SetGuiPresentation(FireBolt.GuiPresentation)
+            .SetGuiPresentation(SpellsContext.EnduringSting.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(FireBolt.EffectDescription)
+            .SetEffectDescription(SpellsContext.EnduringSting.EffectDescription)
             .AddToDB();
 
         var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
@@ -52,7 +52,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .AddFeatureSet(powerFirebolt)
             .AddToDB();
 
-        // Damming Strike
+        // Damning Strike
 
         var conditionDammingStrike = ConditionDefinitionBuilder
             .Create($"Condition{Name}DammingStrike")
@@ -71,11 +71,11 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DammingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetAttackOnly()
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAttackModeOnly()
             .SetSavingThrowData()
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(new ConditionOperationDescription
             {
                 canSaveToCancel = true,
@@ -113,7 +113,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         var conditionMarkOfTheDammed = ConditionDefinitionBuilder
             .Create($"Condition{Name}MarkOfTheDammed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDispellingEvilAndGood)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPoisoned)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
@@ -176,7 +176,9 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .Select(t => new
             {
                 t,
-                newMonsterDefinition = MonsterDefinitionBuilder.Create($"Monster{t.monsterName}")
+                newMonsterDefinition = MonsterDefinitionBuilder
+                    .Create(t.monsterDefinition, $"Monster{t.monsterName}")
+                    .SetOrUpdateGuiPresentation(Category.Monster)
                     .SetDefaultFaction(FactionDefinitions.Party)
                     .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
                     .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
@@ -188,7 +190,8 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 .Create($"Power{Name}FiendishSpawn{t.t.monsterName}")
                 .SetGuiPresentation(t.newMonsterDefinition.GuiPresentation)
                 .SetSharedPool(ActivationTime.Action, powerFiendishSpawnPool)
-                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Position)
                     .SetEffectForms(EffectFormBuilder.Create()
@@ -278,6 +281,17 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+            {
+                return true;
+            }
+
+            if (target.RulesetCharacter == null)
+            {
+                return true;
+            }
+
             var isValid = target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
 
             if (!isValid)
@@ -285,14 +299,19 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveDammingStrikeCondition");
             }
 
-            return target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
+            return isValid;
         }
 
         public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+            IDamageAffinityProvider provider, RulesetActor rulesetActor)
         {
-            return !rulesetActor.HasConditionOfType(_conditionDefinition.Name) ||
-                   (provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire);
+            if (rulesetActor.HasConditionOfType(_conditionDefinition.Name))
+            {
+                return provider.DamageAffinityType == DamageAffinityType.Resistance &&
+                       provider.DamageType == DamageTypeFire;
+            }
+
+            return false;
         }
 
         public void OnAfterAction(CharacterAction action)

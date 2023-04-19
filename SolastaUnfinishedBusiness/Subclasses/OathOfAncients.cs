@@ -26,10 +26,10 @@ internal sealed class OathOfAncients : AbstractSubclass
         //Based on Oath of the Ancients prepared spells though changed Planet Growth to Spirit Guardians.
         var autoPreparedSpellsOathAncients = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetGuiPresentation("Subclass/&OathOfAncientsTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, EnsnaringStrike, AnimalFriendship),
+                BuildSpellGroup(2, EnsnaringStrike, AnimalFriendship),
                 BuildSpellGroup(5, MoonBeam, MistyStep),
                 BuildSpellGroup(9, ProtectionFromEnergy, SpiritGuardians),
                 BuildSpellGroup(13, IceStorm, Stoneskin))
@@ -82,8 +82,10 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetDurationData(DurationType.Round, 5)
-                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Fey, CharacterFamilyDefinitions.Fiend,
-                        CharacterFamilyDefinitions.Elemental)
+                    .SetRestrictedCreatureFamilies(
+                        CharacterFamilyDefinitions.Fey.Name,
+                        CharacterFamilyDefinitions.Fiend.Name,
+                        CharacterFamilyDefinitions.Elemental.Name)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,

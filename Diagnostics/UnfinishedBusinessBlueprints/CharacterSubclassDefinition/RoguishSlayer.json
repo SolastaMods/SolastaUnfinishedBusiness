@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRoguishSlayerCloakOfShadows:d6cf376e-3767-5b29-a15b-21af771767ac",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRoguishSlayerFatalStrike:9c5400eb-53e3-53f5-bb38-0edde8e5d8d6",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

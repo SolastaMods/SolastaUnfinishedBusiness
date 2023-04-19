@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -185,9 +186,9 @@ internal static class RaceFeats
                 AttributeModifierCreed_Of_Misaye,
                 DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyFeatSquatNimblenessAthletics")
+                    .Create("ProficiencyFeatSquatNimblenessAcrobatics")
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Athletics.Name)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)
@@ -200,9 +201,9 @@ internal static class RaceFeats
                 AttributeModifierCreed_Of_Einar,
                 DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
                 FeatureDefinitionProficiencyBuilder
-                    .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+                    .Create("ProficiencyFeatSquatNimblenessAthletics")
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Acrobatics.Name)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Athletics)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsSmallRace)
             .SetFeatFamily(SquatNimbleness)

@@ -9,16 +9,16 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -135,12 +135,6 @@ internal static class ClassFeats
     {
         const string Name = "FeatBlessedSoul";
 
-        // BACKWARD COMPATIBILITY
-        _ = FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var blessedSoulCleric = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Cleric")
             .SetGuiPresentation(Category.Feat)
@@ -193,8 +187,8 @@ internal static class ClassFeats
 
         feats.AddRange(primalRageStr, primalRageCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupPrimalRage", Name, ValidatorsFeat.IsBarbarianLevel4, primalRageStr, primalRageCon);
     }
 
     #endregion
@@ -225,26 +219,6 @@ internal static class ClassFeats
     {
         const string NAME = "FeatAwakenTheBeastWithin";
 
-        var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
-            .AddToDB();
-
-        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create($"SummoningAffinity{NAME}")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
-            .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create($"Condition{NAME}")
-                    .SetGuiPresentationNoContent()
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
-                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
-                    .AddToDB())
-            .AddToDB();
-
         var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
             .Select(abilityScore => new
             {
@@ -261,22 +235,58 @@ internal static class ClassFeats
                             CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
                                 Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
                         Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
-                    .SetFeatures(t.attributeModifier, summoningAffinity)
+                    .SetFeatures(t.attributeModifier)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                    .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
                     .AddToDB())
+            .Cast<FeatDefinition>()
             .ToArray();
 
-        // avoid run-time exception on write operation
-        var temp = new List<FeatDefinition>();
-
-        temp.AddRange(awakenTheBeastWithinFeats);
-
         var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, awakenTheBeastWithinFeats);
 
         feats.AddRange(awakenTheBeastWithinFeats);
 
         return awakenTheBeastWithinGroup;
+    }
+
+    internal sealed class CustomBehaviorFeatAwakenTheBeastWithin : IOnAfterActionFeature
+    {
+        // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
+        private const ulong TemporaryHitPointsGuid = 42424242;
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionRevertShape ||
+                action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+            {
+                return;
+            }
+
+            var rulesetCondition =
+                rulesetCharacterMonster.AllConditions.FirstOrDefault(x => x.SourceGuid == TemporaryHitPointsGuid);
+
+            if (rulesetCondition != null)
+            {
+                rulesetCharacterMonster.RemoveCondition(rulesetCondition);
+            }
+        }
+
+        // ReSharper disable once InconsistentNaming
+        internal static void GrantTempHP(RulesetCharacterMonster __instance)
+        {
+            if (__instance.OriginalFormCharacter is not RulesetCharacterHero rulesetCharacterHero ||
+                !rulesetCharacterHero.TrainedFeats.Exists(x => x.Name.StartsWith("FeatAwakenTheBeastWithin")))
+            {
+                return;
+            }
+
+            var classLevel = rulesetCharacterHero.GetClassLevel(Druid);
+
+            __instance.ReceiveTemporaryHitPoints(2 * classLevel, DurationType.Hour, classLevel / 2,
+                TurnOccurenceType.EndOfTurn,
+                TemporaryHitPointsGuid);
+        }
     }
 
     #endregion
@@ -419,8 +429,8 @@ internal static class ClassFeats
 
         feats.AddRange(hardyStr, hardyCon);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupHardy", Name, hardyStr, hardyCon);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupHardy", Name, ValidatorsFeat.IsFighterLevel4, hardyStr, hardyCon);
     }
 
     private sealed class OnAfterActionHardy : IOnAfterActionFeature
@@ -440,7 +450,7 @@ internal static class ClassFeats
 
             if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
             {
-                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 10,
+                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.UntilLongRest, 0,
                     TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
             }
         }
@@ -619,12 +629,6 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        // BACKWARD COMPATIBILITY
-        _ = FeatDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var spellLists = new List<SpellListDefinition>
         {
             SpellListDefinitions.SpellListBard,
@@ -724,8 +728,7 @@ internal static class ClassFeats
                 return effect;
             }
 
-            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(
-                character.GetAttribute(attribute).CurrentValue);
+            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
@@ -790,9 +793,8 @@ internal static class ClassFeats
                                 .Build())
                         .Build())
                 .SetCustomSubFeatures(
-                    new ValidatorsPowerUse(
-                        c => c.GetAttribute(AttributeDefinitions.ChannelDivinityNumber).CurrentValue >
-                             c.UsedChannelDivinity))
+                    new ValidatorsPowerUse(c =>
+                        c.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > c.UsedChannelDivinity))
                 .AddToDB();
 
             powerGainSlotPoolList.Add(powerGainSlot);
@@ -1004,7 +1006,7 @@ internal static class ClassFeats
             .AddToDB();
     }
 
-    private sealed class OnComputeAttackModifierSlayTheEnemies : IOnComputeAttackModifier
+    private sealed class OnComputeAttackModifierSlayTheEnemies : IPhysicalAttackInitiated
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -1013,58 +1015,66 @@ internal static class ClassFeats
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetCharacter == null || rulesetDefender == null)
+            {
+                yield break;
+            }
+
             if (ValidatorsCharacter.HasNoneOfConditions(
                     "ConditionFeatSlayTheEnemies1",
                     "ConditionFeatSlayTheEnemies2",
-                    "ConditionFeatSlayTheEnemies3")(myself))
+                    "ConditionFeatSlayTheEnemies3")(rulesetCharacter))
             {
-                return;
+                yield break;
             }
 
-            if (attackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
+            if (attackerAttackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
             {
-                return;
+                yield break;
             }
 
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackerAttackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
-                return;
+                yield break;
             }
 
             var spellLevel = 0;
 
-            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
+            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(rulesetCharacter))
             {
                 spellLevel = 1;
             }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(rulesetCharacter))
             {
                 spellLevel = 2;
             }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(rulesetCharacter))
             {
                 spellLevel = 3;
             }
 
-
-            if (IsFavoriteEnemy(myself, defender))
+            if (IsFavoriteEnemy(rulesetCharacter, rulesetDefender))
             {
                 attackModifier.attackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
             }
             else
             {
-                attackMode.ToHitBonus += spellLevel;
-                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                attackerAttackMode.ToHitBonus += spellLevel;
+                attackerAttackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
                     _featureDefinition.Name, _featureDefinition));
             }
 

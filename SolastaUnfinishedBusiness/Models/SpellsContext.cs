@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
@@ -29,12 +29,17 @@ internal static class SpellsContext
 
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
+    internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
+    internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
     internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
+    internal static readonly SpellDefinition EnduringSting = BuildEnduringSting();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition MirrorImage = BuildMirrorImage();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+    internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
@@ -191,8 +196,8 @@ internal static class SpellsContext
         RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
             SpellListWizard);
         RegisterSpell(BuildBladeWard(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
-        RegisterSpell(BuildEnduringSting(), 0, SpellListWizard);
+        RegisterSpell(BurstOfRadiance, 0, SpellListCleric);
+        RegisterSpell(EnduringSting, 0, SpellListWizard);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMindSpike(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
@@ -213,17 +218,19 @@ internal static class SpellsContext
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
-        RegisterSpell(BuildSanctuary(), 0, SpellListCleric);
+        RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
-        RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
+        RegisterSpell(ThunderousSmite, 0, SpellListPaladin);
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
+        RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
-        RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildWeb(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
@@ -415,6 +422,8 @@ internal static class SpellsContext
             {
                 return;
             }
+
+            InventorClass.SwitchSpellStoringItemSubPower(spellDefinition, active);
 
             if (!Main.Settings.AllowAssigningOfficialSpells &&
                 spellDefinition.ContentPack != CeContentPackContext.CeContentPack)

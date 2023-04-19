@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityModManagerNet;
+using static SolastaUnfinishedBusiness.Displays.BackgroundsAndDeitiesDisplay;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
 using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
@@ -41,6 +42,8 @@ namespace SolastaUnfinishedBusiness.Displays
             DisplaySubMenu(ref characterSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
                     DisplayCharacter),
+                new NamedAction(Gui.Localize("ModUi/&BackgroundsAndDeities"),
+                    DisplayBackgroundsAndDeities),
                 new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
                     DisplayClassesAndSubclasses),
                 new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
@@ -192,9 +195,9 @@ namespace SolastaUnfinishedBusiness.Displays
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Name,
+                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
-                new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
-                new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools));
+                new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting));
         }
     }
 

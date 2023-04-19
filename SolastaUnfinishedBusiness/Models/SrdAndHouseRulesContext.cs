@@ -8,8 +8,8 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
-using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -79,8 +79,8 @@ internal static class SrdAndHouseRulesContext
             spells.RemoveAll(x => x == null);
         }
 
-        //BUGFIX: fix Race Repertoires
-        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
+        //BUGFIX: fix tradition light race repertoire
+        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
 
         //BUGFIX: add a sprite reference to Resurrection
         Resurrection.GuiPresentation.spriteReference =
@@ -91,11 +91,13 @@ internal static class SrdAndHouseRulesContext
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
 
+        //SETTING: modify normal vision range
+        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
+
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
-        SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
         LoadAfterRestIdentify();
     }
 
@@ -106,6 +108,7 @@ internal static class SrdAndHouseRulesContext
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
+        FixStunningStrikeForAnyMonkWeapon();
         SpellsMinorFixes();
         AddBleedingToRestoration();
         SwitchFilterOnHideousLaughter();
@@ -119,12 +122,13 @@ internal static class SrdAndHouseRulesContext
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
         SwitchMakeLargeWildshapeFormsMedium();
+        SwitchAllowClubsToBeThrown();
         FixMartialArtsProgression();
-        DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
         FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
         MakeGorillaWildShapeRocksUnlimited();
+        AddCustomWeaponValidatorToFightingStyleArchery();
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
@@ -242,6 +246,15 @@ internal static class SrdAndHouseRulesContext
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
             .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
+    }
+
+    /**
+     * Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
+     * Required for it to work with monk weapon specialization and/or way of distant hand.
+     */
+    private static void FixStunningStrikeForAnyMonkWeapon()
+    {
+        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()
@@ -518,6 +531,27 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void SwitchAllowClubsToBeThrown()
+    {
+        var db = DatabaseRepository.GetDatabase<ItemDefinition>();
+
+        foreach (var itemDefinition in db
+                     .Where(x => x.IsWeapon &&
+                                 x.WeaponDescription.WeaponTypeDefinition == WeaponTypeDefinitions.ClubType))
+        {
+            if (Main.Settings.AllowClubsToBeThrown)
+            {
+                itemDefinition.WeaponDescription.WeaponTags.Add(TagsDefinitions.WeaponTagThrown);
+                itemDefinition.WeaponDescription.maxRange = 10;
+            }
+            else
+            {
+                itemDefinition.WeaponDescription.WeaponTags.Remove(TagsDefinitions.WeaponTagThrown);
+                itemDefinition.WeaponDescription.maxRange = 5;
+            }
+        }
+    }
+
     private static void FixMartialArtsProgression()
     {
         //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
@@ -534,13 +568,6 @@ internal static class SrdAndHouseRulesContext
         {
             feature.AddCustomSubFeatures(provider);
         }
-    }
-
-    private static void DistantHandMartialArtsDie()
-    {
-        //Makes Martial Dice progression work on bows for Way of the Distant Hand
-        FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
-            .AddCustomSubFeatures(WayOfTheDistantHand.ZenArcherDiceUpgrade.Marker);
     }
 
     private static void FixTwinnedMetamagic()
@@ -589,6 +616,21 @@ internal static class SrdAndHouseRulesContext
         //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
+    }
+
+    // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
+    private static void AddCustomWeaponValidatorToFightingStyleArchery()
+    {
+        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
+                ValidatorsWeapon.IsWeaponType(item,
+                    CustomWeaponsContext.HandXbowWeaponType,
+                    CustomWeaponsContext.LightningLauncherType,
+                    WeaponTypeDefinitions.LongbowType,
+                    WeaponTypeDefinitions.ShortbowType,
+                    WeaponTypeDefinitions.HeavyCrossbowType,
+                    WeaponTypeDefinitions.LightCrossbowType,
+                    WeaponTypeDefinitions.DartType))));
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()

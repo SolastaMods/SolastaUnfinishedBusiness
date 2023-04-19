@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Protected by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
+Condition/&ConditionForestGuardianBarkWardDescription=Protected by the spirits of the forest. Gain 4 temporary hit points for each level of Druid, lasting 10 minutes.
 Condition/&ConditionForestGuardianBarkWardTitle=Bark Ward
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=The spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Improved Bark Ward

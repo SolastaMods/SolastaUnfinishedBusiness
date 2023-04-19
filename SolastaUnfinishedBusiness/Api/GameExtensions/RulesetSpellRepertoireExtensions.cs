@@ -1,5 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 

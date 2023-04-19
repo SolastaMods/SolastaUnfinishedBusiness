@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerInnovationArtilleristSummonFlamethrower15:8f83c5d9-eb73-5dd3-855d-fde34569b352",
+    "Definition:PowerInnovationArtilleristSummonForceBallista15:ffddd1a1-8c7a-57c3-ab32-c95811238981",
+    "Definition:PowerInnovationArtilleristFortifiedPositionAuraTiny:c865879f-e8e7-59e3-a612-6fa319fe7fb1",
+    "Definition:PowerInnovationArtilleristSummonProtector15:f98ee146-db14-5636-9d29-19351aeba1d3",
+    "Definition:PowerInnovationArtilleristFortifiedPositionActivate:11600c2f-8c49-594f-a053-51d8f9625a62"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetInnovationArtilleristFortifiedPositionTitle",
+    "description": "Feature/&FeatureSetInnovationArtilleristFortifiedPositionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "845a6e15-8919-5c56-b845-ae4ff3d76c91",
+  "contentPack": 9999,
+  "name": "FeatureSetInnovationArtilleristFortifiedPosition"
+}

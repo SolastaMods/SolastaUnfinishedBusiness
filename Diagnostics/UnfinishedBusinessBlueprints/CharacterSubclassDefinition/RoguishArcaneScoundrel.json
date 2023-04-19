@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsRoguishArcaneScoundrelArcaneBackslash:6d19223d-761e-504f-99c4-1eb9a7d733d4",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishArcaneScoundrelGambit:cbfb9089-77ff-50c1-8428-c4c02c6149ab",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

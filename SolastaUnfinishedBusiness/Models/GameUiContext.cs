@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Patches;
 using TA;
 using UnityEngine;
@@ -726,6 +727,25 @@ internal static class GameUiContext
         }
     }
 
+    internal static FeatureDefinitionActionAffinity ActionAffinityFeatCrusherToggle { get; private set; }
+
+    private static void LoadFeatCrusherToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "FeatCrusherToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.FeatCrusherToggle)
+            .AddToDB();
+
+        ActionAffinityFeatCrusherToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityFeatCrusherToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle)
+            .AddToDB();
+    }
+
     internal static FeatureDefinitionActionAffinity ActionAffinityMonkKiPointsToggle { get; private set; }
 
     private static void LoadMonkKiPointsToggle()
@@ -878,6 +898,7 @@ internal static class GameUiContext
         SwitchCrownOfTheMagister();
         SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
+        LoadFeatCrusherToggle();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
         LoadMonsterSwapAttackToggle();
@@ -1088,10 +1109,21 @@ internal static class GameUiContext
 
         internal static int3 GetLeaderPosition()
         {
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+            var gameLocationCharacterService =
+                ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
 
-            return position;
+            if (gameLocationCharacterService == null)
+            {
+                return int3.invalid;
+            }
+
+            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+            var currentCharacter = Global.CurrentCharacter ??
+                                   gameLocationCharacterService.PartyCharacters[0].RulesetCharacter;
+            var locationCharacter = gameLocationCharacterService.AllValidEntities
+                .FirstOrDefault(x => x.RulesetCharacter == currentCharacter);
+
+            return locationCharacter?.LocationPosition ?? position;
         }
 
         private static void TeleportParty(int3 position)

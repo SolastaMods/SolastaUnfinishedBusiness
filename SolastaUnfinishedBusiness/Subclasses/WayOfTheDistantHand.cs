@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -15,12 +17,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 {
     private const string ZenArrowTag = "ZenArrow";
 
-    // Zen Archer's Monk weapons are bows and darts ranged weapons.
-    private static readonly List<WeaponTypeDefinition> ZenArcherWeapons = new()
-    {
-        WeaponTypeDefinitions.ShortbowType, WeaponTypeDefinitions.LongbowType
-    };
-
     internal WayOfTheDistantHand()
     {
         var zenArrow = Sprites.GetSprite("ZenArrow", Resources.ZenArrow, 128, 64);
@@ -29,20 +25,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 03
         //
 
-        var proficiencyWayOfTheDistantHandCombat = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWayOfTheDistantHandCombat")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Weapon,
-                WeaponTypeDefinitions.LongbowType.Name,
-                WeaponTypeDefinitions.ShortbowType.Name)
-            .SetCustomSubFeatures(
-                new ZenArcherMarker(),
-                new RangedAttackInMeleeDisadvantageRemover(
-                    (attackMode, _, rulesetActor) => IsMonkWeapon(rulesetActor, attackMode),
-                    ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
-            .AddToDB();
+        var featureWayOfTheDistantHandCombat =
+            FeatureDefinitionBuilder
+                .Create("FeatureWayOfTheDistantHandCombat")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new CustomCodeWayOfTheDistantHandCombat(),
+                    new RangedAttackInMeleeDisadvantageRemover(
+                        (mode, _, character) => IsZenArrowAttack(mode, null, character),
+                        ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                .AddToDB();
 
         // ZEN ARROW
 
@@ -135,7 +128,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                     .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                     .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                                         .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                        .SetGuiPresentationNoContent(true)
+                                        .SetGuiPresentation("PowerWayOfTheDistantHandZenArrowDistract",
+                                            Category.Feature)
                                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                         .AddToDB())
                                     .AddToDB(),
@@ -186,17 +180,18 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new AddTagToWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
-                    IsZenArcherWeapon(character, mode.SourceDefinition as ItemDefinition)))
+                    IsZenArrowAttack(mode, null, character)))
             .AddToDB();
 
         //
         // LEVEL 11
         //
 
+        //TODO: this needs to be rewritten
         var wayOfDistantHandsZenArcherStunningArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandZenArcherStunningArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ZenArcherStunningArrows())
+            //.SetCustomSubFeatures(new ZenArcherStunningArrows())
             .AddToDB();
 
         // UPGRADE ZEN ARROW
@@ -303,7 +298,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                                 .SetSpecialDuration(DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                                     .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
-                                    .SetGuiPresentationNoContent(true)
+                                    .SetGuiPresentation("PowerWayOfTheDistantHandUpgradedDistract", Category.Feature)
                                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                                     .AddToDB())
                                 .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -319,6 +314,20 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             powerWayOfTheDistantHandUpgradedDistract);
 
         //
+        // LEVEL 17
+        //
+
+        var attackModifierWayOfTheDistantHandUnseenEyes = FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierWayOfTheDistantHandUnseenEyes")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageRollModifier(0, AttackModifierMethod.AddProficiencyBonus, AttributeDefinitions.Wisdom)
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                    (OperationType.Set, IsZenArrowAttack(mode, null, character))),
+                new CustomCodeUnseenEyes())
+            .AddToDB();
+
+        //
         // PROGRESSION
         //
 
@@ -327,7 +336,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
-                proficiencyWayOfTheDistantHandCombat,
+                featureWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
             .AddFeaturesAtLevel(6,
                 wayOfDistantHandsKiPoweredArrows,
@@ -335,6 +344,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .AddFeaturesAtLevel(11,
                 wayOfDistantHandsZenArcherStunningArrows,
                 powerWayOfTheDistantHandZenArrowUpgradedTechnique)
+            .AddFeaturesAtLevel(17,
+                attackModifierWayOfTheDistantHandUnseenEyes)
             .AddToDB();
     }
 
@@ -346,93 +357,65 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    internal static bool IsMonkWeapon(RulesetActor rulesetActor, WeaponDescription weaponDescription)
-    {
-        return weaponDescription != null &&
-               (weaponDescription.IsMonkWeaponOrUnarmed() ||
-                IsZenArcherWeapon(rulesetActor, weaponDescription));
-    }
-
-    private static bool IsMonkWeapon(
-        RulesetActor rulesetActor,
-        RulesetAttackMode attackMode)
-    {
-        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
-               IsMonkWeapon(rulesetActor, itemDefinition);
-    }
-
-    internal static bool IsMonkWeapon(
-        RulesetActor rulesetActor,
-        RulesetItem rulesetItem)
-    {
-        return rulesetItem == null || IsMonkWeapon(rulesetActor, rulesetItem.ItemDefinition);
-    }
-
-    private static bool IsMonkWeapon(RulesetActor rulesetActor, ItemDefinition itemDefinition)
-    {
-        return itemDefinition != null && IsMonkWeapon(rulesetActor, itemDefinition.WeaponDescription);
-    }
-
-    private static bool IsZenArcherWeapon(RulesetActor rulesetActor, WeaponDescription weaponDescription)
-    {
-        if (rulesetActor == null || weaponDescription == null)
-        {
-            return false;
-        }
-
-        var typeDefinition = weaponDescription.WeaponTypeDefinition;
-
-        if (typeDefinition == null)
-        {
-            return false;
-        }
-
-        return rulesetActor.HasSubFeatureOfType<ZenArcherMarker>() && ZenArcherWeapons.Contains(typeDefinition);
-    }
-
-    private static bool IsZenArcherWeapon(RulesetCharacter rulesetCharacter)
-    {
-        var rulesetItem = rulesetCharacter.GetMainWeapon();
-
-        return IsZenArcherWeapon(rulesetCharacter, rulesetItem?.ItemDefinition);
-    }
-
-    private static bool IsZenArcherWeapon(RulesetActor rulesetActor, ItemDefinition itemDefinition)
-    {
-        return itemDefinition != null && IsZenArcherWeapon(rulesetActor, itemDefinition.WeaponDescription);
-    }
-
+    // ReSharper disable once UnusedParameter.Local
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
-        return mode != null
-               && (mode.Ranged || mode.Thrown)
-               && IsZenArcherWeapon(character, mode.SourceDefinition as ItemDefinition);
+        return mode is { Ranged: true } && character.IsMonkWeapon(mode.SourceDefinition as ItemDefinition);
     }
 
-    private sealed class ZenArcherMarker
+    private sealed class CustomCodeWayOfTheDistantHandCombat : IFeatureDefinitionCustomCode
     {
-        // used for easier detection of Zen Archer characters to extend their Monk weapon list
-    }
-
-    private sealed class ZenArcherStunningArrows
-    {
-        // used for easier detection of Zen Archer characters to allow stunning strike on arrows
-    }
-
-    internal sealed class ZenArcherDiceUpgrade : IRestrictedContextValidator
-    {
-        private ZenArcherDiceUpgrade()
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
+            var alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                "CustomInvocationMonkWeaponSpecializationShortbowType"));
+
+            // don't invert the order because of short circuit evaluation
+            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                               "CustomInvocationMonkWeaponSpecializationLongbowType"))
+                           || alreadyThere;
+            alreadyThere = hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(
+                               "CustomInvocationMonkWeaponSpecializationCEHandXbowType"))
+                           || alreadyThere;
+
+            // grant a rapier if by any chance one of above weapons were already specialized in
+            if (alreadyThere)
+            {
+                hero.TrainedInvocations.TryAdd(
+                    GetDefinition<InvocationDefinition>("CustomInvocationMonkWeaponSpecializationRapierType"));
+            }
         }
 
-        public static IRestrictedContextValidator Marker { get; } = new ZenArcherDiceUpgrade();
-
-
-        public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
-            RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
-            RulesetEffect rulesetEffect)
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
-            return (OperationType.Or, IsZenArcherWeapon(character, attackMode.sourceDefinition as ItemDefinition));
+            // empty
+        }
+    }
+
+    private sealed class CustomCodeUnseenEyes : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, 2);
+
+            hero.RefreshAll();
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            ModifyAttributeAndMax(hero, AttributeDefinitions.Wisdom, -2);
+        }
+
+        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
+        {
+            var attribute = hero.GetAttribute(attributeName);
+
+            attribute.BaseValue += amount;
+            attribute.MaxValue += amount;
+            attribute.MaxEditableValue += amount;
+            attribute.Refresh();
+
+            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 
@@ -453,6 +436,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             }
 
             var character = action.ActingCharacter?.RulesetCharacter;
+
             if (character == null)
             {
                 return;
@@ -473,8 +457,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
     {
-        private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor,
-            ValidatorsCharacter.HasNoShield, IsZenArcherWeapon)
+        private AddFlurryOfArrowsAttacks() :
+            base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield)
         {
         }
 
@@ -500,6 +484,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             if (strikeDefinition == null)
             {
                 strikeDefinition = hero.UnarmedStrikeDefinition;
+            }
+
+            if (!hero.IsMonkWeapon(strikeDefinition))
+            {
+                return null;
             }
 
             var attackModifiers = hero.attackModifiers;

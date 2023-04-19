@@ -17,4 +17,4 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Usa la reacción p
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Golpe de grieta
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Golpe de grieta
 Subclass/&PatronRiftWalkerDescription=Tu patrón es uno de los raros seres que llama hogar al vacío entre los mundos. Se deslizan entre los planos con facilidad y el conocimiento que ha adquirido al interactuar con ellos le permite aprovechar las energías de grietas persistentes para su beneficio dentro de solasta. Es posible que a veces te sientas lleno de añoranza por el reino distante de tu patrón, un deseo de vagar entre dimensiones por el resto de tus días, o estar atento a señales de otro evento de Rift, ya sea para prevenirlo o alentarlo.
-Subclass/&PatronRiftWalkerTitle=El caminante de la grieta
+Subclass/&PatronRiftWalkerTitle=El caminante de grietas

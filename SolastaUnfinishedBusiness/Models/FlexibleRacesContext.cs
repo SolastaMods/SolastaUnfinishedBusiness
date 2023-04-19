@@ -37,7 +37,8 @@ internal static class FlexibleRacesContext
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceKobold", AttributeChoiceThree },
         { "RaceGnome", AttributeChoiceThree },
-        { "RaceTiefling", AttributeChoiceThree }
+        { "RaceTiefling", AttributeChoiceThree },
+        { "RaceFairy", AttributeChoiceThree }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -75,6 +76,7 @@ internal static class FlexibleRacesContext
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
+        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScore" } },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingCharismaAbilityScoreIncrease" } },
         { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
         { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },

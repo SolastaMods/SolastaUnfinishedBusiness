@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -300,7 +301,7 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
     internal AddPolearmFollowUpAttack(WeaponTypeDefinition weaponTypeDefinition) : base(
         ActionDefinitions.ActionType.Bonus,
         ValidatorsCharacter.HasUsedWeaponType(weaponTypeDefinition),
-        ValidatorsCharacter.HasWeaponType(weaponTypeDefinition))
+        ValidatorsCharacter.HasMainHandWeaponType(weaponTypeDefinition))
     {
         _weaponTypeDefinition = weaponTypeDefinition;
     }
@@ -315,7 +316,10 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
-        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        // doesn't make sense to add a bonus attack from an offhand slot that already uses your bonus action
+
+        // AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
 
         return result;
     }
@@ -348,6 +352,9 @@ internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
         attackMode.Reach = true;
         attackMode.Ranged = false;
         attackMode.Thrown = false;
+
+        // this is required to correctly interact with Spear Mastery dice upgrade
+        attackMode.AttackTags.Add("Polearm");
 
         var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
 
@@ -499,8 +506,8 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         attackMode.EffectDescription.Clear();
         attackMode.EffectDescription.Copy(torchPower.EffectDescription);
 
-        var proficiencyBonus = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
+        var proficiencyBonus = hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        var dexterity = hero.TryGetAttributeValue(AttributeDefinitions.Dexterity);
 
         attackMode.EffectDescription.fixedSavingThrowDifficultyClass =
             8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);

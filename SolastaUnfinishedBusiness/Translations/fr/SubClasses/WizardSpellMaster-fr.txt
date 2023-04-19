@@ -12,5 +12,5 @@ Feature/&PointPoolSpellMasterBonusCantripsDescription=Gagnez 2 sorts mineurs sup
 Feature/&PointPoolSpellMasterBonusCantripsTitle=Sorties mineures bonus
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Votre entraînement à la magie vous donne un avantage sur les jets de sauvegarde contre les sorts.
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Résistance aux sorts
-Subclass/&WizardSpellMasterDescription=Les maîtres des sorts s'immergent dans la magie et essaient d'apprendre tous les sorts sur lesquels ils peuvent mettre la main. Ils sont inégalés dans leur connaissance des sorts.
+Subclass/&WizardSpellMasterDescription=Les maîtres de sorts s'immergent dans la magie et essaient d'apprendre tous les sorts sur lesquels ils peuvent mettre la main. Ils sont inégalés dans leur connaissance des sorts.
 Subclass/&WizardSpellMasterTitle=Maître des sorts

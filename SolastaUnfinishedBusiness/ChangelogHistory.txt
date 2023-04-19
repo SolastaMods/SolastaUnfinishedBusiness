@@ -1,13 +1,149 @@
 ﻿CHANGES:
 
+1.4.33.76:
+
+- added Aegis Touched feats
+- added Circle of the Life subclass
+- added Path of the Savagery subclass
+- added Peregrination Touched feats
+- fixed Circle of the Night's primal strike
+- fixed Crippling and Slasher missing icons
+- fixed Fairy's flight
+- fixed Protection Threshold's proxy effect
+
+1.4.33.75:
+
+Special thanks to [HiddenHax] for all support on this release
+
+- added Chinese translations reviewed by [MagicSkySword]
+- added College of War Dancer's focused war dance at level 14 designed by [Taco]
+- added Fairy race suggested by [Arcane Jack]
+- added Farmer background to flexible backgrounds feature
+- added Innovation Weapon's improved defender at level 15
+- added magical clothes and recipes to Monk and Wizard
+- added Martial Marshal's knowledgeable defense at level 18 designed by [Taco]
+- added Martial Royal Knight's inspiring protection at level 15 designed by [HiddenHax]
+- added Martial Royal Knight's spirited surge at level 18 designed by [HiddenHax]
+- added Martial Tactician's battle awareness at level 18 designed by [HiddenHax]
+- added new Break Free decision to AI packages to better support Web on enemies
+- fixed many soft lock scenarios in interactions between effects and gadgets
+- fixed Party Editor not correctly applying feat behaviors
+- fixed Slay the Enemy feat triggering hundreds of damage
+- improved Circle of the Night's shape forms at level 14
+
+1.4.33.74:
+
+- added Always Ready and Steady Aim feats
+- added buttons to display UB and vanilla subclasses, feats, fighting styles, and invocation details
+- added Lunger and Rope it Up fighting styles
+- added magical clothes and recipes to Barbarian, Sorcerer, and Warlock
+- added Roguish Acrobat's heroic uncanny dodge at level 17
+- added setting to allow Barbarians to train a Fighting Style at level 2
+- added Way of Discordance's profound turmoil at level 17
+- added Way of Silhouette's shadowy sanctuary at level 17
+- added Martial Tactician's battle clarity and battle impromptu at levels 15 and 18
+- fixed Sorcerous Sorr-Akkath's touch of darkness attack bonus
+- fixed Way of Distant Hand's Flurry of "Bows" and Stunning Strike
+
+1.4.33.73:
+
+RESPEC REQUIRED FOR ANY WAY OF DISTANT HAND
+
+- added Bloody, Major Elemental, and Minor Elemental infusions
+- added Roguish Opportunist's expose weakness at level 17
+- added Sorcerous Sorr-Akkath's touch of darkness at level 18
+- added Way of Distant Hand's unseen eyes at level 17
+- changed Innovation Armor to have Wall of Force prepared at level 17
+- changed Innovation Weapon to have Wall of Force prepared at level 17
+- fixed the spell casting action panel broken with xbox controller support
+- fixed Way of Distant Hand integration with Monk weapon specialization
+
+1.4.33.72:
+
+- added Infusions Adept feat
+- added Innovation Artillerist subclass
+- added support for xbox controllers on spells and powers action panels
+- fixed Elemental Adept and Elemental Master feats
+- fixed invincible Path of the Light subclass
+
+1.4.33.71:
+
+- missing sprites or terms on Tundra Tiger and Water Elemental to be fixed after DLC
+- added Sorcerous Sorr-Akkath subclass [level 18 isn't implemented yet]
+- fixed Farmer background missing personalities
+- fixed wildshape monstrous forms offering
+- changed Circle of the Night combat healing
+- changed Circle of the Night wildshape points requirements
+
+1.4.33.70:
+
+- added Character > General > Progression > Monk weapon specialization setting
+- added Circle of the Night level 14 monstrous forms and superior healing
+- added Color Burst level 2 spell affecting 8d10 creatures hit points within 10 ft
+- added Farmer background with +1 to hit on clubs, and hand axes
+- added Iridescent feats with color spray, faerie fire and color burst spells
+- added Roguish Arcane Scoundrel level 17 scoundrel's gambit
+- improved rejoin party setting for parties of six in official campaigns
+- removed Gnome and Tiefling from mod UI offering in anticipation to the DLC
+
+1.4.33.69:
+
+- RESPEC required for Circle of the Night druid older than v52
+- RESPEC required for fighter with Weapon Specialization older than v61
+- added Gameplay > Rules > House setting to allow clubs to be thrown
+- added Tactician Adept feat and Web spell
+- improved Archery support for darts and lightning launcher
+- improved Path of the Elements' elemental burst SFX
+- improved Resonating Strike to allow crit on first target
+
+1.4.33.68:
+
+- added Path of the Elements subclass
+- added Verdant Touched feats
+- fixed Grenadier precise bombs attack bonus
+- fixed Sanctuary spell concentration requirement
+- fixed Slayer's fatal strike damage calculation
+- improved Crusher feat gui presentation
+- improved Deadeye to work with launcher and darts
+- improved Path of the Spirits' wolf leadership aura
+- improved recipes to use primed items
+
+1.4.33.67:
+
+- SAME AS BELOW
+
+1.4.33.66:
+
+- changed Slayer's fatal strike to trigger on surprised enemies instead of first round
+- fixed critical calculation option 1 to prevent a null exception under certain scenarios
+- fixed multicaster heroes incorrectly calculating DC on powers' effects
+- fixed Ranged Expert and Lightning Launcher interactions
+- fixed Soulblade's hex incorrectly allowing gadget selections causing a null exception
+- improved Crusher feat to have a toggle for pushes, and also fixed reaction consumption
+- improved Save by Location to have official campaigns in different folders
+
+1.4.33.65:
+
+- added Duelist's master duelist, and Slayer's fatal strike at 17th
+- added Tactician's gambits custom sprites
+- added Raven's deadly aim at 13th, and perfect shot at 17th
+- improved Crusher to be friendly on multiplayer sessions with no more lags
+- improved Inventor spell storing item to be aware of changes from spell selection UI
+- improved Ranged Expert to allow Inventor's lightning launcher as an off hand attack
+- fixed Squat Nimbleness feat with wrong skills assignment on DEX and STR versions
+- fixed some stability issues in the targeting system
+
 1.4.33.64:
 
-- added custom Ancestries level up selection screen
-- added custom Kindred Spirits level up selection screen
-- added Ranger Hell Walker subclass by Stuffies12
-- added Ranger Light Bearer subclass by Stuffies12
-- fixed Grenadier not able to use items as a bonus action
-- fixed interaction between Spear Mastery and Polearm Expert
+- added custom level up screen for Ancestries and Kindred Spirits
+- added Oath of Altruism level 15 and Way of the Dragon level 17 features
+- added Oath of Hatred, Ranger Hellwalker, Ranger Lightbearer and Sorcerous Spellblade subclasses
+- fixed Awaken the Beast Within to grant temp HP instead to beast and remove on shape reversal
+- fixed Circle of the Night missing combat healing bonus on level 6
+- fixed critical logic option 1 still granting double dice damage
+- fixed Grenadier not being able to use items as a bonus action
+- fixed Polearm Expert, Spear Mastery and Two Weapon Fighting die type interaction
+- fixed Sanctuary to not exclude the caster on targeting
 
 1.4.33.63:
 

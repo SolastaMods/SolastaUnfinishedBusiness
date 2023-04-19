@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
 using static FeatureDefinitionCastSpell;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -365,6 +365,7 @@ internal static class SharedSpellsContext
         new() { Slots = new List<int> { 1, 1 }, Level = 20 }
     };
 
+    // ReSharper disable once ReturnTypeCanBeEnumerable.Global
     internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } = new()
     {
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 01 },

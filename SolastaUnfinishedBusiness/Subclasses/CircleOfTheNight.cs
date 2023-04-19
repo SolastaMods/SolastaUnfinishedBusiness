@@ -3,98 +3,85 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CircleOfTheNight : AbstractSubclass
 {
-    private const string CircleOfTheNightName = "CircleOfTheNight";
+    internal const string Name = "CircleOfTheNight";
+
+    private static readonly ValidatorsPowerUse CanUseCombatHealing = new(
+        ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
 
     internal CircleOfTheNight()
     {
         // 2nd level
 
-        #region Unused definitions kept to not break existing characters
-
-        ConditionDefinitionBuilder
-            .Create("ConditionCircleOfTheNightWildshape")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        ConditionDefinitionBuilder
-            .Create("ConditionCircleOfTheNightWildshapeAny")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        #endregion
-
         var combatWildshape = BuildWildShapePower();
 
-        //remove regular WS action
-        var blockRegularWildshape = FeatureDefinitionActionAffinityBuilder
+        // remove regular WS action
+
+        // kept this name for compatibility reasons
+        var actionAffinityWildshape = FeatureDefinitionActionAffinityBuilder
             .Create("OnAfterActionWildShape")
             .SetGuiPresentationNoContent(true)
             .SetForbiddenActions(ActionDefinitions.Id.WildShape)
             .AddToDB();
 
         // Combat Wild Shape Healing
-        // While wild shaped, you can use a bonus action to heal yourself for 1d8 hit points.
-        // You can use this feature a number of times equal to your Proficiency Modifier per form per long rest
+
         var powerCircleOfTheNightWildShapeHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing())
-            .SetCustomSubFeatures(CanUseCombatHealing())
+            .SetCustomSubFeatures(CanUseCombatHealing)
             .AddToDB();
 
         // 6th Level
 
         // Primal Strike
-        // Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance
-        // and immunity to non magical attacks and damage.
-        // NOTE: (BUG)This also affects attacks with regular weapons
+
         var powerCircleOfTheNightPrimalStrike = FeatureDefinitionAttackModifierBuilder
             .Create("PowerCircleOfTheNightPrimalStrike")
             .SetGuiPresentation(Category.Feature)
             .SetMagicalWeapon()
-            //.SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, _, _, _) =>
+                    (OperationType.Set,
+                        ValidatorsCharacter.HasAnyOfConditions(ConditionWildShapeSubstituteForm)(character))))
             .AddToDB();
 
         // Improved Combat Healing
-        // At 6th level, your combat healing improves to 2d8 + 2
+        // At 6th level, your combat healing improves to 2d8
         var powerCircleOfTheNightWildShapeImprovedHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeImprovedHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(2))
-            .SetCustomSubFeatures(CanUseCombatHealing())
+            .SetCustomSubFeatures(CanUseCombatHealing)
             .SetOverriddenPower(powerCircleOfTheNightWildShapeHealing)
             .AddToDB();
 
         // 10th Level
 
         // Superior Combat Healing
-        // At 10th level, your combat healing improves to 3d8 + 6
+        // At 10th level, your combat healing improves to 3d8
         var powerCircleOfTheNightWildShapeSuperiorHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeSuperiorHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(CombatHealing(3, DieType.D8, 6))
-            .SetCustomSubFeatures(CanUseCombatHealing())
+            .SetEffectDescription(CombatHealing(3))
+            .SetCustomSubFeatures(CanUseCombatHealing)
             .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
             .AddToDB();
 
@@ -104,13 +91,32 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // 14th level
+
+        // Superior Combat Healing
+        // At 14th level, your combat healing improves to 4d8
+        var powerCircleOfTheNightWildShapeMasterfulHealing = FeatureDefinitionPowerBuilder
+            .Create("PowerCircleOfTheNightWildShapeMasterfulHealing")
+            .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(CombatHealing(4))
+            .SetCustomSubFeatures(CanUseCombatHealing)
+            .SetOverriddenPower(powerCircleOfTheNightWildShapeSuperiorHealing)
+            .AddToDB();
+
+        // Monstrous Forms
+        var featureSetCircleOfTheNightMonstrousForms = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCircleOfTheNightMonstrousForms")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(CircleOfTheNightName)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("CircleOfTheNight", Resources.CircleOfTheNight, 256))
             .AddFeaturesAtLevel(2,
                 combatWildshape,
-                blockRegularWildshape,
+                actionAffinityWildshape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
                 powerCircleOfTheNightPrimalStrike,
@@ -118,6 +124,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 featureSetCircleOfTheNightElementalForms,
                 powerCircleOfTheNightWildShapeSuperiorHealing)
+            .AddFeaturesAtLevel(14,
+                featureSetCircleOfTheNightMonstrousForms,
+                powerCircleOfTheNightWildShapeMasterfulHealing)
             .AddToDB();
     }
 
@@ -130,13 +139,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static FeatureDefinitionPower BuildWildShapePower()
     {
-        if (!TryGetDefinition<ActionDefinition>("WildShape", out var baseAction))
-        {
-            Main.Error("Couldn't fine WildShape action!");
-            return null;
-        }
+        const string NAME = "PowerCircleOfTheNightWildShapeCombat";
 
-        // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
+        var baseAction = GetDefinition<ActionDefinition>("WildShape");
         var shapeOptions = new List<ShapeOptionDescription>
         {
             ShapeBuilder(2, WildShapeBadlandsSpider),
@@ -145,23 +150,17 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(4, WildshapeDeepSpider),
             ShapeBuilder(4, HbWildShapeDireBear()),
             ShapeBuilder(6, WildShapeApe),
-            // flying
             ShapeBuilder(8, WildshapeTiger_Drake),
             ShapeBuilder(8, WildShapeGiant_Eagle),
-            // don't use future features
-            // ShapeBuilder(10, WildShapeTundraTiger),
-            // elementals
-            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
-            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
-            //TODO: Create a new feature for elemental transformation.
-            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
+            ShapeBuilder(10, WildShapeTundraTiger),
             ShapeBuilder(10, HbWildShapeAirElemental()),
             ShapeBuilder(10, HbWildShapeFireElemental()),
             ShapeBuilder(10, HbWildShapeEarthElemental()),
-            ShapeBuilder(10, HbWildShapeWaterElemental())
+            ShapeBuilder(10, HbWildShapeWaterElemental()),
+            ShapeBuilder(14, HbWildShapeCrimsonSpider()),
+            ShapeBuilder(14, HbWildShapeMinotaurElite())
         };
 
-        const string NAME = "PowerCircleOfTheNightWildShapeCombat";
         var power = FeatureDefinitionPowerSharedPoolBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feature)
@@ -179,6 +178,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        power.SetCustomSubFeatures(new OnAfterActionWildShape(power));
+
         ActionDefinitionBuilder
             .Create(baseAction, "CombatWildShape")
             .SetGuiPresentation(NAME, Category.Feature, baseAction, baseAction.GuiPresentation.SortOrder)
@@ -193,14 +194,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     // custom wild shapes
 
-    /**
-     * based on MM Cave Bear
-     * */
     private static MonsterDefinition HbWildShapeDireBear()
     {
-        // attacks
-        // Bite
-        // TODO Bump damage mod from +4 to +5
         var biteAttack = new MonsterAttackIteration
         {
             monsterAttackDefinition = MonsterAttackDefinitionBuilder
@@ -209,7 +204,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 .AddToDB()
         };
 
-        // Claw
         var clawAttack = new MonsterAttackIteration
         {
             monsterAttackDefinition = MonsterAttackDefinitionBuilder
@@ -218,11 +212,12 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 .AddToDB()
         };
 
-        var shape = MonsterDefinitionBuilder.Create(WildshapeBlackBear, "WildShapeDireBear")
+        var shape = MonsterDefinitionBuilder
+            .Create(WildshapeBlackBear, "WildShapeDireBear")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             // STR, DEX, CON, INT, WIS, CHA
             .SetAbilityScores(20, 10, 16, 2, 13, 7)
             .SetArmorClass(14)
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .SetStandardHitPoints(42)
             .SetHitDice(DieType.D10, 5)
             .SetChallengeRating(2)
@@ -235,11 +230,11 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static MonsterDefinition HbWildShapeAirElemental()
     {
-        var shape = MonsterDefinitionBuilder.Create(Air_Elemental, "WildShapeAirElemental")
-            // STR, DEX, CON, INT, WIS, CHA
-            .SetAbilityScores(14, 20, 14, 6, 10, 6)
+        var shape = MonsterDefinitionBuilder
+            .Create(Air_Elemental, "WildShapeAirElemental")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetAbilityScores(14, 20, 14, 6, 10, 6) // STR, DEX, CON, INT, WIS, CHA
             .SetArmorClass(15)
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .SetStandardHitPoints(90)
             .SetHitDice(DieType.D10, 12)
             .AddToDB();
@@ -251,7 +246,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         var shape = MonsterDefinitionBuilder
             .Create(Fire_Elemental, "WildShapeFireElemental")
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .AddToDB();
 
         return shape;
@@ -261,7 +256,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         var shape = MonsterDefinitionBuilder
             .Create(Earth_Elemental, "WildShapeEarthElemental")
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
             .AddToDB();
 
         return shape;
@@ -269,43 +264,79 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static MonsterDefinition HbWildShapeWaterElemental()
     {
-        // TODO Create Whelm attack (recharge 5/6)
-        // Whelm(Recharge 4–6).Each creature in the elemental space must make a DC 15 Strength saving throw.
-        // On a failure, a target takes 13 (2d8 + 4) bludgeoning damage. If it is Large or smaller,
-        // it is also grappled (escape DC 14). Until this grapple ends, the target is restrained and
-        // unable to breathe unless it can breathe water. If the saving throw is successful, the target
-        // is pushed out of the elemental space.
-
-        // TODO FUTURE: when IceElemental is implemented in Base Game, replace Air_Elemental with Ice_Elemental
         var shape = MonsterDefinitionBuilder
-            .Create(Air_Elemental, "WildShapeWaterElemental")
-            .SetAbilityScores(18, 14, 18, 5, 10, 8)
-            .SetArmorClass(14)
-            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
-            .SetHitDice(DieType.D10, 12)
-            .SetHitPointsBonus(48)
-            .SetStandardHitPoints(114)
-            .SetFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityFireImmunity,
-                DamageAffinityPoisonImmunity,
-                ConditionAffinityExhaustionImmunity,
-                ConditionAffinityGrappledImmunity,
-                ConditionAffinityParalyzedmmunity,
-                ConditionAffinityPetrifiedImmunity,
-                ConditionAffinityPoisonImmunity,
-                ConditionAffinityProneImmunity,
-                ConditionAffinityRestrainedmmunity,
-                ConditionAffinityUnconsciousImmunity,
-                SenseNormalVision,
-                SenseDarkvision,
-                MoveModeMove10,
-                MoveModeFly6
-            )
-            .SetOrUpdateGuiPresentation(Category.Monster, Air_Elemental)
+            .Create(Ice_Elemental, "WildShapeWaterElemental")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .AddToDB();
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeCrimsonSpider()
+    {
+        var attackCrimsonBite = MonsterAttackDefinitionBuilder
+            .Create(Attack_Spiderling_Crimson_Bite, "Attack_Spiderling_WildShape_Crimson_Bite")
+            .AddToDB();
+
+        attackCrimsonBite.toHitBonus = 8;
+        attackCrimsonBite.EffectDescription.fixedSavingThrowDifficultyClass = 16;
+        attackCrimsonBite.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+        attackCrimsonBite.EffectDescription.EffectForms[0].damageForm.dieType = DieType.D6;
+        attackCrimsonBite.EffectDescription.EffectForms[0].damageForm.diceNumber = 3;
+        attackCrimsonBite.EffectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.None;
+        attackCrimsonBite.EffectDescription.EffectForms[1].damageForm.dieType = DieType.D6;
+        attackCrimsonBite.EffectDescription.EffectForms[1].damageForm.diceNumber = 3;
+        attackCrimsonBite.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
+                .SetConditionForm(ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
+                    ConditionForm.ConditionOperation.Add)
+                .Build());
+
+        var shape = MonsterDefinitionBuilder
+            .Create(CrimsonSpider, "WildShapeCrimsonSpider")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .AddToDB();
+
+        shape.AttackIterations[1].monsterAttackDefinition = attackCrimsonBite;
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeMinotaurElite()
+    {
+        var attackGreataxe = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Greataxe, "Attack_Minotaur_Wildshape_Elite_Greataxe")
+            .SetToHitBonus(9)
+            .AddToDB();
+
+        var attackChargedGore = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Charged_Gore, "Attack_Minotaur_Wildshape_Elite_Charged_Gore")
+            .SetToHitBonus(9)
+            .AddToDB();
+
+        attackChargedGore.EffectDescription.fixedSavingThrowDifficultyClass = 16;
+
+        var attackGore = MonsterAttackDefinitionBuilder
+            .Create(Attack_Minotaur_Elite_Gore, "Attack_Minotaur__Wildshape_Elite_Gore")
+            .SetToHitBonus(9)
+            .AddToDB();
+
+        var shape = MonsterDefinitionBuilder
+            .Create(MinotaurElite, "WildShapeMinotaurElite")
+            .SetOrUpdateGuiPresentation(Category.Monster)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape, Name)
+            .SetArmorClass(16)
+            .SetStandardHitPoints(126)
+            .SetAbilityScores(20, 11, 20, 6, 16, 9)
+            .SetSavingThrowScores((AttributeDefinitions.Strength, 9), (AttributeDefinitions.Constitution, 9))
+            .SetSkillScores((SkillDefinitions.Perception, 6), (SkillDefinitions.Athletics, 9))
+            .SetAttackIterations((2, attackGreataxe), (1, attackChargedGore), (1, attackGore))
+            .AddFeatures(
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
             .AddToDB();
 
         return shape;
@@ -313,9 +344,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static ShapeOptionDescription ShapeBuilder(int level, MonsterDefinition monster)
     {
-        var shape = new ShapeOptionDescription { requiredLevel = level, substituteMonster = monster };
-
-        return shape;
+        return new ShapeOptionDescription { requiredLevel = level, substituteMonster = monster };
     }
 
     private static EffectDescription CombatHealing(
@@ -323,7 +352,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         DieType dieType = DieType.D8,
         int bonusHealing = 0)
     {
-        var healingForm = EffectFormBuilder.Create()
+        var healingForm = EffectFormBuilder
+            .Create()
             .SetHealingForm(
                 HealingComputation.Dice,
                 bonusHealing,
@@ -333,19 +363,39 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 HealingCap.MaximumHitPoints)
             .Build();
 
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
             .SetRequiredCondition(ConditionDefinitions.ConditionWildShapeSubstituteForm)
             .SetDurationData(DurationType.Instantaneous)
             .SetEffectForms(healingForm)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetParticleEffectParameters(SpellDefinitions.Heal)
             .Build();
 
         return effectDescription;
     }
 
-    private static ValidatorsPowerUse CanUseCombatHealing()
+    private sealed class OnAfterActionWildShape : IOnAfterActionFeature
     {
-        return new ValidatorsPowerUse(
-            ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public OnAfterActionWildShape(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower ||
+                !action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
+            {
+                return;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            rulesetCharacter.UsePower(UsablePowersProvider.Get(_featureDefinitionPower, rulesetCharacter));
+        }
     }
 }

@@ -3,7 +3,8 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -36,13 +37,54 @@ internal class InvocationPoolTypeCustom
     internal List<int> AllLevels { get; } = new();
     private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
 
-    internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
+    internal string PanelTitle { get; private set; }
+
+    internal static int GetClassOrSubclassLevel(RulesetCharacterHero hero, string classOrSubclassName)
+    {
+        if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
+            classDefinition != null)
+        {
+            return hero.GetClassLevel(classDefinition);
+        }
+
+        if (!TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) ||
+            subclassDefinition == null)
+        {
+            return 0;
+        }
+
+        var classDefinitionFromSubclass = hero.ClassesAndSubclasses
+            .FirstOrDefault(x => x.Value == subclassDefinition);
+
+        return classDefinitionFromSubclass.Key != null
+            // ReSharper disable once TailRecursiveCall
+            ? GetClassOrSubclassLevel(hero, classDefinitionFromSubclass.Key.Name)
+            : 0;
+    }
+
+    internal static string GetClassOrSubclassTitle(string classOrSubclassName)
+    {
+        if (TryGetDefinition<CharacterClassDefinition>(classOrSubclassName, out var classDefinition) &&
+            classDefinition != null)
+        {
+            return classDefinition.FormatTitle();
+        }
+
+        if (TryGetDefinition<CharacterSubclassDefinition>(classOrSubclassName, out var subclassDefinition) &&
+            subclassDefinition != null)
+        {
+            return subclassDefinition.FormatTitle();
+        }
+
+        return string.Empty;
+    }
 
     private static InvocationPoolTypeCustom Register(
         string name,
         AssetReferenceSprite sprite = null,
         string requireClassLevel = null,
         bool hidden = false,
+        string panelTitle = null, 
         Id main = Id.CastInvocation,
         Id bonus = (Id)ExtraActionId.CastInvocationBonus,
         Id noCost = (Id)ExtraActionId.CastInvocationNoCost)
@@ -50,9 +92,10 @@ internal class InvocationPoolTypeCustom
         var pool = new InvocationPoolTypeCustom
         {
             Name = name,
+            PanelTitle = panelTitle ?? $"Screen/&InvocationPool{name}Header",
             Sprite = sprite,
             RequireClassLevels = requireClassLevel,
-            Hidden = hidden,
+            Hidden = hidden && string.IsNullOrEmpty(panelTitle),
             MainActionId = main,
             BonusActionId = bonus,
             NoCostActionId = noCost
@@ -123,14 +166,14 @@ internal class InvocationPoolTypeCustom
 
     internal static class Pools
     {
-        internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
-            Register("ArmamentAdroitness", hidden: true);
-
         internal static readonly InvocationPoolTypeCustom PathClawDraconicChoice =
             Register("PathClawDraconicChoice", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom SorcererDraconicChoice =
             Register("SorcererDraconicChoice", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom PathOfTheElementsElementalFuryChoiceChoice =
+            Register("PathOfTheElementsElementalFuryChoice", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom WayOfTheDragonDraconicChoice =
             Register("WayOfTheDragonDraconicChoice", hidden: true);
@@ -139,28 +182,29 @@ internal class InvocationPoolTypeCustom
             Register("KindredSpiritChoice", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
-            Register("RangerTerrainTypeAffinity", hidden: true);
+            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle");
 
         internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
-            Register("RangerPreferredEnemy", hidden: true);
+            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle");
 
         internal static readonly InvocationPoolTypeCustom Infusion =
-            Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
+            Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
 
         internal static readonly InvocationPoolTypeCustom Gambit =
-            //TODO: add proper sprite
-            Register("Gambit", InventorClass.Pictogram, CharacterClassDefinitions.Fighter.Name,
+            Register("Gambit", requireClassLevel: MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
-        internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
             Register("MartialWeaponMaster", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
+            Register("MonkWeaponSpecialization", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
-            Register("PlaneMagic",
-                hidden: true,
+            Register("PlaneMagic", hidden: true,
                 main: (Id)ExtraActionId.CastPlaneMagicMain,
                 bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
 

@@ -23,5 +23,5 @@ Feature/&PowerWildMasterSummonSpiritBeastDescription=Un {0} lié à un Rôdeur.
 Feature/&PowerWildMasterSummonSpiritBeastPoolDescription=Invoquez un ours, un aigle ou un loup.
 Feature/&PowerWildMasterSummonSpiritBeastPoolTitle=Invocation de bête spirituelle
 Feature/&PowerWildMasterSummonSpiritBeastTitle=Invoquer {0}
-Subclass/&RangerWildMasterDescription=L'archétype Wild Master incarne une amitié entre les races civilisées et les bêtes du monde. Unis dans leur objectif, l'esprit et le rôdeur travaillent ensemble pour combattre les ennemis monstrueux qui menacent à la fois la civilisation et la nature sauvage.
+Subclass/&RangerWildMasterDescription=L'archétype Wildmaster incarne une amitié entre les races civilisées et les bêtes du monde. Unis dans leur objectif, l'esprit et le rôdeur travaillent ensemble pour combattre les ennemis monstrueux qui menacent à la fois la civilisation et la nature sauvage.
 Subclass/&RangerWildMasterTitle=Maître sauvage

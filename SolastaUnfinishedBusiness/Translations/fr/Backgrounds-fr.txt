@@ -1,0 +1,6 @@
+Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Maîtrise des massues et haches à main. +1 pour frapper avec eux.
+Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Armes de fermier
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=Manipulation des animaux, nature et perception
+Feature/&ProficiencyBackgroundFarmerSkillsTitle=Compétences des agriculteurs
+Background/&BackgroundFarmerDescription=Vous avez travaillé la terre et élevé du bétail à la main depuis votre naissance pour nourrir la bouche de beaucoup. En tant qu'agriculteur, vous vous êtes réveillé avant le soleil et êtes revenu des champs après son coucher. Vous avez laissé derrière vous une vie mondaine pour chercher l'aventure pour le frisson ou la gloire ou la fortune.
+Background/&BackgroundFarmerTitle=Agriculteur

@@ -3,7 +3,6 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.FightingStyles;
-using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -20,9 +19,11 @@ internal static class FightingStyleContext
         LoadStyle(new Crippling());
         LoadStyle(new Executioner());
         LoadStyle(new HandAndAHalf());
+        LoadStyle(new Lunger());
         LoadStyle(new Merciless());
         LoadStyle(new PolearmExpert());
         LoadStyle(new Pugilist());
+        LoadStyle(new RopeItUp());
         LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
         LoadStyle(new Torchbearer());
@@ -108,17 +109,11 @@ internal static class FightingStyleContext
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (trainedFightingStyle.Condition)
             {
-                // allow hand crossbows benefit from Archery Fighting Style
+                // handles this in a different place [AddCustomWeaponValidatorToFightingStyleArchery()] so always allow here
                 case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
                 {
-                    static bool HasHandXbowInHands(RulesetItem rulesetItem)
-                    {
-                        return rulesetItem != null && rulesetItem.ItemDefinition.IsWeapon &&
-                               rulesetItem.ItemDefinition.WeaponDescription.WeaponType == CeHandXbowType;
-                    }
+                    isActive = true;
 
-                    isActive = HasHandXbowInHands(hero.GetMainWeapon()) ||
-                               HasHandXbowInHands(hero.GetOffhandWeapon());
                     break;
                 }
 
@@ -137,23 +132,6 @@ internal static class FightingStyleContext
 
                     break;
                 }
-
-#if false
-                    // Make One Handed Crossbow not benefit from Two Weapon Fighting Style
-                    if (mainHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(mainHandSlot.EquipedItem) &&
-                        ValidatorsWeapon.IsOneHanded(mainHandSlot.EquipedItem))
-                    {
-                        isActive = false;
-                    }
-
-                    if (offHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(offHandSlot.EquipedItem) &&
-                        ValidatorsWeapon.IsOneHanded(offHandSlot.EquipedItem))
-                    {
-                        isActive = false;
-                    }
-                
-                    break;
-#endif
             }
 
             if (isActive)

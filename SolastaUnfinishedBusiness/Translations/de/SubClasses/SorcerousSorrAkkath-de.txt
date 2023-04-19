@@ -1,0 +1,14 @@
+﻿Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=Einmal pro Zug kannst du einer Kreatur, die du mit einem Zauberangriff triffst, zusätzlich 1W6 Schaden zufügen, wenn du einen Vorteil beim Angriffswurf hast. Sie brauchen keinen Vorteil beim Angriffswurf, wenn sich ein anderer Feind innerhalb von 5 Fuß des Ziels befindet, dieser Feind nicht kampfunfähig ist und Sie keinen Nachteil beim Angriffswurf haben. Der Schaden steigt auf 2W6 auf der 5. Stufe, 3W6 auf der 11. Stufe und 4W6 auf der 17. Stufe.
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=Sneak-Angriff zaubern
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=Du erlernst Tarn- und Täuschungsfertigkeiten, erlernst Cantrip von Venomous Spike und erlangst 60 Fuß Dunkelsicht.
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle=Trügerisches Erbe
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=Ab der 6. Stufe werden Sie resistent gegen Giftschaden und erhalten Immunität gegen vergiftete Zustände. Darüber hinaus wird dieser Kreatur ein Konstitutionsrettungswurf auferlegt, wenn sie eine Kreatur mit der Fähigkeit „Zauber-Sneak-Attack“ trifft. Wenn die Kreatur es nicht schafft, wird sie bis zum Ende deines nächsten Zuges vergiftet.
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=Blut von Sorr-Akkath
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=Ab der 14. Stufe erhältst du bei Dämmerlicht oder Dunkelheit Folgendes:\n• +2 auf RK.\n• +2 auf Angriffswürfe.\n• +2 auf Rettungswürfe.{99 }• +2 Trefferpunkteregeneration am Ende deines Zuges.
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=Affinität zur Dunkelheit
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=Ab der 18. Stufe erhältst du die Fähigkeit, Kreaturen bei Berührung zu verderben und ihre Gesundheit zu entziehen. Verwende deine Aktion als Zauberangriff mit Berührungsreichweite, füge einer Kreatur bei einem erfolgreichen Treffer 8W8 nekrotischen Schaden zu und heil dich um die Hälfte des verursachten Schadens. Sie können diese Funktion dreimal pro langer Pause verwenden und stattdessen 4 Hexereipunkte bezahlen, wenn Sie keine Verwendung mehr haben.
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle=Berührung der Dunkelheit
+Feedback/&AdditionalDamageSpellSneakAttackFormat=Zauber-Sneak-Angriff!
+Feedback/&AdditionalDamageSpellSneakAttackLine={0} führt einen Zauberschleichangriff auf {1} (+{2}) durch
+Subclass/&SorcerousSorrAkkathDescription=Ihre angeborene Zauberfähigkeit stammt von Sorr-Akkath-Magie, die sich mit Ihrem Blut oder dem Ihrer Vorfahren vermischt hat. Als mögliche Ursprünge dieser Zauberer haben Sie sich vielleicht einem Experiment unterzogen, bei dem das Blut eines Sorak verwendet wurde, ein Vorfahr hat mit einem Sorak einen Handel abgeschlossen, oder Sie sind einfach ein Nachkomme eines Sorak-Elternteils.
+Subclass/&SorcerousSorrAkkathTitle=Sorr-Akkath

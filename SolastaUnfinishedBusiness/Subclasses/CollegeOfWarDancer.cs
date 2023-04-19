@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -84,13 +85,22 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 new WarDanceRefundOneAttackOfMainAction())
             .AddToDB();
 
+        var focusedWarDance = FeatureDefinitionBuilder
+            .Create("FeatureCollegeOfWarDancerFocusedWarDance")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new FocusedWarDance())
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfWarDancer")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("CollegeOfWarDancer", Resources.CollegeOfWarDancer, 256))
-            .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency,
+            .AddFeaturesAtLevel(3,
+                warDance,
+                CommonBuilders.FeatureSetCasterFightingProficiency,
                 CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6, ImproveWarDance)
+            .AddFeaturesAtLevel(14, focusedWarDance)
             .AddToDB();
     }
 
@@ -116,7 +126,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionBuilder
                     .Create("FeatureConditionWarDanceCustom")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttack(),
+                    .SetCustomSubFeatures(new WarDanceFlurryPhysicalAttack(),
                         new ExtendedWarDanceDurationOnKill())
                     .AddToDB(),
                 FeatureDefinitionBuilder
@@ -127,7 +137,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierWarDance")
                     .SetGuiPresentation(Category.Feature)
-                    .AddAbilityScoreBonus(AttributeDefinitions.Charisma)
+                    .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -189,7 +199,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         if (character is RulesetCharacterHero hero && !ValidatorsWeapon.IsMelee(hero.GetMainWeapon()))
         {
-            WarDanceFlurryAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
+            WarDanceFlurryPhysicalAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
         }
     }
 
@@ -210,7 +220,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
     }
 
-    private sealed class WarDanceFlurryAttack : IAttackFinished
+    private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinished
     {
         private const string Format = "Reaction/&CustomReactionDanceOfWarOnMissDescription";
 
@@ -551,5 +561,18 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
     {
+    }
+
+    private sealed class FocusedWarDance : IChangeConcentrationAttribute
+    {
+        public bool IsValid(RulesetActor rulesetActor)
+        {
+            return rulesetActor.HasAnyConditionOfType(ConditionWarDance.Name);
+        }
+
+        public string ConcentrationAttribute(RulesetActor rulesetActor)
+        {
+            return AttributeDefinitions.Charisma;
+        }
     }
 }

@@ -1,5 +1,4 @@
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -15,7 +14,9 @@ internal class EffectDescriptionBuilder
         effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
-            effectParticleParameters = new EffectParticleParameters()
+            effectParticleParameters = new EffectParticleParameters(),
+            // there are many places in code where we use GLC.RSC and is null when aiming gadgets
+            targetFilteringMethod = TargetFilteringMethod.CharacterOnly
         };
         effect.effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
     }
@@ -62,9 +63,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params CharacterFamilyDefinition[] values)
+    internal EffectDescriptionBuilder SetRestrictedCreatureFamilies(params string[] values)
     {
-        effect.RestrictedCreatureFamilies.SetRange(values.Select(x => x.Name));
+        effect.RestrictedCreatureFamilies.SetRange(values);
         return this;
     }
 
@@ -201,7 +202,7 @@ internal class EffectDescriptionBuilder
         TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
         // ReSharper disable once InvocationIsSkipped
-        PreConditions.IsValidDuration(durationType, durationParameter);
+        // PreConditions.IsValidDuration(durationType, durationParameter);
 
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
@@ -212,12 +213,6 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetIgnoreCover()
     {
         effect.ignoreCover = true;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition()
-    {
-        effect.requiresVisibilityForPosition = true;
         return this;
     }
 
@@ -250,6 +245,12 @@ internal class EffectDescriptionBuilder
     }
 
 #if false
+    internal EffectDescriptionBuilder AddRestrictedCreatureFamilies(params CharacterFamilyDefinition[] families)
+    {
+        effect.RestrictedCreatureFamilies.AddRange(families.Select(f => f.Name));
+        return this;
+    }
+
     internal EffectDescriptionBuilder InviteOptionalAlly(bool value = true)
     {
         effect.inviteOptionalAlly = value;

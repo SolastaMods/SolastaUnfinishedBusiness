@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureTacticianTacticalSurge:bdb7d959-c315-5760-9f1b-ba503a3c8f7c",
     "Definition:FeatureAdaptiveStrategy:233c2b1c-b40f-58b9-99dd-7ef75bd1159b",
+    "Definition:FeatureImproviseStrategy:619b0594-2816-595d-a7fc-8656266ac307",
     "Definition:FeatureOvercomingStrategy:acddf05f-e1fa-5a26-8057-62d774eb9328"
   ],
   "mode": "Exclusion",

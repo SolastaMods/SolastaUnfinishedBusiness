@@ -53,11 +53,8 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS HIDDEN ON UI
     //
 
-    public bool EnableCommandAllUndead { get; set; } = true;
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; } = true;
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
-    public bool EnableMultiLinePowerPanel { get; set; } = true;
-    public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
@@ -92,8 +89,11 @@ public class Settings : UnityModManager.ModSettings
 
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
-    public bool EnableFeatsAtEvenLevels { get; set; }
-    public bool EnableFighterArmamentAdroitness { get; set; }
+    public bool EnableFeatsAtEveryFourLevels { get; set; }
+    public bool EnableFeatsAtEveryFourLevelsMiddle { get; set; }
+    public bool EnableBarbarianFightingStyle { get; set; }
+    public bool EnableFighterWeaponSpecialization { get; set; }
+    public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableLevel20 { get; set; }
 
     public bool EnableMulticlass { get; set; }
@@ -183,6 +183,7 @@ public class Settings : UnityModManager.ModSettings
 
     // House
     public bool AllowStackedMaterialComponent { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
 
@@ -235,7 +236,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
-    public bool DisableAutoUpdate { get; set; }
     public bool EnableBetaContent { get; set; }
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }

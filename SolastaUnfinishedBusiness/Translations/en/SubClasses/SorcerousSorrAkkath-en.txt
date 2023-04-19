@@ -1,0 +1,14 @@
+﻿Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackDescription=Once per turn, you can deal an extra 1d6 damage to one creature you hit with a spell attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 5th level, 3d6 at 11th level and 4d6 at 17th level.
+Feature/&AdditionalDamageSorcerousSorrAkkathSpellSneakAttackTitle=Spell Sneak Attack
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageDescription=You become proficient in Stealth and Deception skills, learn Venomous Spike cantrip and gain 60 feet darkvision.
+Feature/&FeatureSetSorcerousSorrAkkathDeceptiveHeritageTitle=Deceptive Heritage
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathDescription=Starting at 6th level, you become resistant to poison damage and gain immunity to poisoned condition. Additionally, hitting a creature with Spell Sneak Attack feature imposes a Constitution saving throw on that creature. If the creature fails it, it becomes poisoned until the end of your next turn.
+Feature/&FeatureSetSorcerousSorrAkkathBloodOfSorrAkkathTitle=Blood of Sorr-Akkath
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription=Starting at 14th level, while you are in dim light or darkness, you gain the following:\n• +2 to AC.\n• +2 to attack rolls.\n• +2 to saving throws.\n• +2 hit points regeneration at the end of your turn.
+Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle=Darkness Affinity
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription=Starting at 18th level, your gain the ability to corrupt creatures on touch and siphon their health. Using your action as a spell attack with touch range, deal 8d8 necrotic damage to a creature on successful hit and heal for the half the damage dealt. You can use this feature three times per long rest, and you can pay 4 Sorcery Points instead if you are out of uses.
+Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle=Touch of Darkness
+Feedback/&AdditionalDamageSpellSneakAttackFormat=Spell Sneak Attack!
+Feedback/&AdditionalDamageSpellSneakAttackLine={0} performs a spell sneak attack on {1} (+{2})
+Subclass/&SorcerousSorrAkkathDescription=Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
+Subclass/&SorcerousSorrAkkathTitle=Sorr-Akkath

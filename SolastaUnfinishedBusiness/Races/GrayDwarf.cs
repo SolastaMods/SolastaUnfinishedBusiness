@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -72,9 +72,8 @@ internal static class GrayDwarfSubraceBuilder
         }
 
         var featureSetGrayDwarfAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry, "FeatureSetGrayDwarfAncestry")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
+            .Create("FeatureSetGrayDwarfAncestry")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 conditionAffinityGrayDwarfCharm,
                 conditionAffinityGrayDwarfCharmedByHypnoticPattern,

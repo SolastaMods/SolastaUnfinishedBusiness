@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=La tua armatura si rafforza fino a diventare adamantina, dimezzando i danni critici.
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=La tua armatura diventa adamantina, dimezzando i danni critici.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Armatura Adamantina
 Feature/&AttributeModifierDomainSmithReinforceArmorDescription=Questa armatura è stata rinforzata fornendo un ulteriore +{0} CA.
 Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Rinforzata
@@ -8,9 +8,9 @@ Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Una volta per turno,
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Colpo Divino
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Usando un'azione, rafforza l'armatura degli alleati in un raggio di 9 metri. La loro armatura ottiene la forza dell'armatura adamantina, ottenendo l'immunità al critico per 1 minuto.
 Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Benediction
-Feature/&PowerDomainSmithReinforceArmorDescription=Uno per riposo lungo, puoi rinforzare un pezzo di armatura o scudo non magico. L'oggetto rinforzato ottiene un ulteriore +{0} CA.
+Feature/&PowerDomainSmithReinforceArmorDescription=Una volta per riposo lungo, puoi rinforzare un pezzo di armatura o scudo non magico. L'oggetto rinforzato ottiene un ulteriore +{0} CA.
 Feature/&PowerDomainSmithReinforceArmorTitle=Rinforza l'armatura
 Feature/&BonusProficiencyDomainSmithDescription=Acquisisci competenza negli strumenti da fabbro e nelle armature pesanti.
 Feature/&BonusProficiencyDomainSmithTitle=Competenze bonus
 Subclass/&DomainSmithTitle=Fabbro
-Subclass/&DomainSmithDescription=Fabbri sacri che incanalano la loro fede attraverso l'acciaio e le fucine. Rafforzare l'armatura degli alleati e armarsi pesantemente.
+Subclass/&DomainSmithDescription=Fabbri sacri che incanalano la loro fede attraverso l'acciaio e le fucine. Rinforzare l'armatura degli alleati e armarsi pesantemente.

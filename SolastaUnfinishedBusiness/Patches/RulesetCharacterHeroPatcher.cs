@@ -12,7 +12,9 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -20,6 +22,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetCharacterHeroPatcher
 {
+    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshArmorClass))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -498,25 +510,29 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    //PATCH: allow Monk Specialized Weapon feature to work correctly
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsWieldingMonkWeapon))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsWieldingMonkWeapon_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
-            //PATCH: consider bow monk weapon for Way of the Distant Hand
-
-            if (__result)
-            {
-                return;
-            }
-
             var main = __instance.GetMainWeapon();
             var off = __instance.GetOffhandWeapon();
-            __result = WayOfTheDistantHand.IsMonkWeapon(__instance, main)
-                       || WayOfTheDistantHand.IsMonkWeapon(__instance, off);
+
+            var isMainMonkWeapon = main == null || !main.ItemDefinition.IsWeapon ||
+                                   main.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                                   __instance.IsMonkWeapon(main.ItemDefinition);
+
+            var isOffMonkWeapon = off == null || !off.ItemDefinition.IsWeapon ||
+                                  off.ItemDefinition.WeaponDescription.IsMonkWeaponOrUnarmed() ||
+                                  __instance.IsMonkWeapon(off.ItemDefinition);
+
+            __result = isMainMonkWeapon && isOffMonkWeapon;
+
+            return false;
         }
     }
 
@@ -709,11 +725,11 @@ public static class RulesetCharacterHeroPatcher
         {
             var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;
-            var level = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var experience = __instance.GetAttribute(AttributeDefinitions.Experience).CurrentValue;
+            var level = __instance.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var experience = __instance.TryGetAttributeValue(AttributeDefinitions.Experience);
             var nextLevelThreshold = RuleDefinitions.ComputeNextLevelThreshold(level + 1);
 
-            __result = (Main.Settings.NoExperienceOnLevelUp ||
+            __result = ((Main.Settings.NoExperienceOnLevelUp && Gui.GameLocation != null) ||
                         (nextLevelThreshold > 0 && experience >= nextLevelThreshold)) &&
                        __instance.ClassesHistory.Count < levelCap;
 
@@ -856,6 +872,7 @@ public static class RulesetCharacterHeroPatcher
             //TODO: convert this to an interface
             WizardBladeDancer.OnItemEquipped(__instance);
             CollegeOfWarDancer.OnItemEquipped(__instance);
+            FairyRaceBuilder.OnItemEquipped(__instance);
         }
     }
 
@@ -883,6 +900,50 @@ public static class RulesetCharacterHeroPatcher
             {
                 __result = string.Empty;
             }
+        }
+    }
+
+    //PATCH: allow FeatureDefinitionSavingThrowAffinity to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsProficientWithSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsProficientWithSavingThrow_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
+                -1, "RulesetCharacterHero.FindBestRegenerationFeature",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: allow FeatureDefinitionSavingThrowAffinity to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeBaseSavingThrowBonus))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ComputeBaseSavingThrowBonus_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionSavingThrowAffinity",
+                -1, "RulesetCharacterHero.ComputeBaseSavingThrowBonus",
+                new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
 }

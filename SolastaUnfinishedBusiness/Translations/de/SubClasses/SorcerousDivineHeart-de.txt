@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=Wenn du in diesem Zug einen Heilzauber wirkst, würfelst du ein Ergebnis von 1 oder 2 neu.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Ermächtigte Heilung
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Trefferpunkt pro Level
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Trefferpunkt pro Level.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Göttliche Stärke
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=Schutz vor Bösem und Gutem ist immer bekannt und vorbereitet.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun: Schutz vor Bösem und Gutem
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane ist immer 
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye: Vier
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless ist immer bekannt und vorbereitet.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri: Segne
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Wähle die göttliche Quelle deiner Magie (und des vorbereiteten Bonuszaubers)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Wähle die Göttliche Quelle deiner Magie.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Wahl der Gottheit
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Deine Verbindung zum Göttlichen ermöglicht es dir, Klerikerzauber als Hexenmeisterzauber zu lernen und zu wirken.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Göttliche Magie

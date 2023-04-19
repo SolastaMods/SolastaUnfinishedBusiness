@@ -13,6 +13,29 @@ internal static class EffectHelpers
     /**DC and magic attack bonus will be calculated based on the stats of character who summoned item, not from device itself*/
     public const int BasedOnItemSummoner = -2;
 
+    // use this to start a custom visual effect during combat
+    internal static void StartVisualEffect(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        IMagicEffect magicEffect,
+        EffectType effectType = EffectType.Impact)
+    {
+        var prefab = effectType switch
+        {
+            EffectType.Caster => magicEffect.EffectDescription.EffectParticleParameters.CasterParticle,
+            EffectType.Effect => magicEffect.EffectDescription.EffectParticleParameters.EffectParticle,
+            EffectType.Impact => magicEffect.EffectDescription.EffectParticleParameters.ImpactParticle,
+            _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
+        };
+
+        var sentParameters = new ParticleSentParameters(attacker, defender, magicEffect.Name);
+
+        WorldLocationPoolManager
+            .GetElement(prefab, true)
+            .GetComponent<ParticleSetup>()
+            .Setup(sentParameters);
+    }
+
     internal static int CalculateSaveDc(RulesetCharacter character, EffectDescription effectDescription,
         string className, int def = 10)
     {
@@ -198,5 +221,12 @@ internal static class EffectHelpers
                 spell.casterId = guid;
                 break;
         }
+    }
+
+    internal enum EffectType
+    {
+        Caster = 0,
+        Effect = 1,
+        Impact = 2
     }
 }

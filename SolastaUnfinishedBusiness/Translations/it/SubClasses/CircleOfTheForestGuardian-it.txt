@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Protetto dagli spiriti della foresta. Ottieni 4 HP temporanei per ogni livello di Druido, della durata di 10 minuti.
+Condition/&ConditionForestGuardianBarkWardDescription=Protetto dagli spiriti della foresta. Ottieni 4 punti ferita temporanei per ogni livello di Druido, della durata di 10 minuti.
 Condition/&ConditionForestGuardianBarkWardTitle=Corteccia
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=Gli spiriti della foresta infliggono 2d8 danni perforanti alle creature che colpiscono con un attacco in mischia.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Bark Ward migliorato

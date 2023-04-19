@@ -19,6 +19,7 @@ public enum Category
     Item,
     Language,
     Monster,
+    MonsterFamily,
     Race,
     Reaction,
     RestActivity,

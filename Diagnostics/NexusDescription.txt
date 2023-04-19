@@ -82,16 +82,13 @@ All settings start disabled by default.
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
-[*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+[*][b]Fairy[/b]: The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 [*][b]Gray Dwarf[/b]: The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 [*][b]Half-High Elf[/b]: Half-High elves are trained to use magic very early.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Dark Kobold[/b]: Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 [*][b]Draconic Kobold[/b]: Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
-[*][b]Asmodeus[/b]: The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
-[*][b]Mephistopheles[/b]: Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
-[*][b]Zariel[/b]: Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 [/list]
 
 [size=3][b]Classes[/b][/size]
@@ -101,6 +98,7 @@ All settings start disabled by default.
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
+[*][b]Artillerist[/b]: An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 [/list]
@@ -109,8 +107,10 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Path of the Elements[/b]: Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Path of the Reaver[/b]: All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
+[*][b]Path of the Savagery[/b]: Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 [*][b]Path Of the Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
@@ -120,6 +120,7 @@ All settings start disabled by default.
 [*][b]Smith[/b]: Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 [*][b]Circle of the Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+[*][b]Circle of the Life[/b]: The Circle of Life strives to protect and preserve as many living beings as it can. These druids understand the significance of every life form in the natural cycle, be it large or small, and that every one of them is worth saving.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
@@ -128,11 +129,12 @@ All settings start disabled by default.
 [*][b]Weapon Master[/b]: Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 [*][b]Oath of Altruism[/b]: Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 [*][b]Oath of Ancients[/b]: An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+[*][b]Oath of Dread[/b]: Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
-[*][b]Light Bearer[/b]: The Light Bearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
-[*][b]Hell Walker[/b]: You are a Hell Walker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
-[*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
+[*][b]Lightbearer[/b]: The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
+[*][b]Hellwalker[/b]: You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
+[*][b]Wildmaster[/b]: The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 [*][b]Acrobat[/b]: The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, the Acrobat sees a means to a very specific end: Performance!
 [*][b]Arcane Scoundrel[/b]: With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 [*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
@@ -141,24 +143,33 @@ All settings start disabled by default.
 [*][b]Slayer[/b]: Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+[*][b]Sorr-Akkath[/b]: Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
+[*][b]Forceblade[/b]: Forceblades combine martial prowess with inborn magical talents to outmatch their enemies.
 [*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 [*][b]Way of Distant Hand[/b]: Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 [*][b]Way of Dragon[/b]: Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 [*][b]Way of Silhouette[/b]: Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 [*][b]The Elementalist[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]The Moonlit[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-[*][b]The Rift Walker[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
-[*][b]The Soul Blade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+[*][b]The Riftwalker[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+[*][b]The Soulblade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Arcane Fighter[/b]: Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
-[*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
-[*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+[*][b]Deadmaster[/b]: Deadmasters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
+[*][b]Spellmaster[/b]: Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [/list]
 
 [size=3][b]Feats[/b][/size]
 
 [list=1]
 
+[*][b]Aegis Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Aegis Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Aegis Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Always Ready[/b]: You automatically ready a melee or unarmed attack at the end of your turn if you took the attack action and missed any melee or unarmed attack hit.
 [*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -168,7 +179,7 @@ You gain proficiency with herbalism kit and Arcana, or expertise if already prof
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: Increase your Intelligence by 1, to a maximum of 20.
-You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
+You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Astral Reach[/b]: Increase your Wisdom by 1, to a maximum of 20.
 When you make an unarmed strike on your turn, your reach for it is 10 ft. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.
@@ -196,11 +207,11 @@ You gain the ability to cast the healing word, cure wounds and lesser restoratio
 [*][b]Charismatic Defense[/b]: Increase your Charisma by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: Increase your Charisma by 1, to a maximum of 20.
-You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
+You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 [*][b]Cleaving Attack[/b]: You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
 • On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
 • Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
 [*][b]Crusher [Con][/b]: You are practiced in the art of crushing your enemies. Increase your Constitution by 1, to a maximum of 20. When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 [*][b]Crusher [Str][/b]: You are practiced in the art of crushing your enemies. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 [*][b]Cunning Escape[/b]: Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
@@ -258,11 +269,19 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
+[*][b]Infusion Adept[/b]: You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Iridescent Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Iridescent Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Longsword Finesse[/b]: You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
-• While you are holding a longsword, you gain a +1 bonus to Armor Class.
+• While you are holding a longsword, you gain a +1 bonus to armor class.
 • Longsword has the finesse property when you wield it.
+[*][b]Lunger[/b]: While wielding only one melee weapon without the heavy tag, that weapon's range increases to 10 ft.
 [*][b]Magic Initiate [Bard][/b]: You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
@@ -274,10 +293,16 @@ You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain 2 sorcery points to spend on it.
+[*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain half your proficiency bonus rounded up in sorcery points to spend on it.
 [*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 ft and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 [*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 [*][b]Natural Fluidity[/b]: You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
+[*][b]Peregrination Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Peregrination Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Peregrination Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 [*][b]Piercer [Str][/b]: You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
@@ -306,12 +331,13 @@ You gain proficiency with medium armor and shields.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Revenant Great Sword [Dex][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
-• While you are holding a great sword, you gain a +1 bonus to Armor Class.
+• While you are holding a great sword, you gain a +1 bonus to armor class.
 •Great sword has the finesse property when you wield it.
 [*][b]Revenant Great Sword [Str][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Strength score by 1, to a maximum of 20.
-• While you are holding a great sword, you gain a +1 bonus to Armor Class.
+• While you are holding a great sword, you gain a +1 bonus to armor class.
 •Great sword has the finesse property when you wield it.
+[*][b]Rope it Up[/b]: Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
@@ -340,7 +366,11 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 [*][b]Spiritual Fluidity[/b]: You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
 [*][b]Squat Nimbleness [Dex][/b]: You are uncommonly nimble for your race. Increase your Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Acrobatics skill.
 [*][b]Squat Nimbleness [Str][/b]: You are uncommonly nimble for your race. Increase your Strength score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics skill.
+[*][b]Steady Aim[/b]: Increase your Dexterity by 1, to a maximum of 20. As a bonus action, you give yourself advantage on your next attack roll on the current turn. You can use this bonus action only if you haven't moved during this turn, and after you use the bonus action, your speed is 0 until the end of the current turn.
 [*][b]Superior Critical[/b]: Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
+[*][b]Tactician Adept[/b]: You have martial training that allows you to perform special combat maneuvers:
+• You learn two maneuvers of your choice from the Tactician subclass. If the maneuver requires a saving throw, the DC is equal to 8 + your proficiency bonus + your Intelligence modifier.
+• You gain 2 superiority die. The type is a d4, and it doesn't increase, if you are not a Tactician. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 [*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 ft in a direction of your choosing.
 [*][b]Telekinetic [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -356,13 +386,19 @@ You gain proficiency with poisoner's kit and Nature, or expertise if already pro
 [*][b]Toxicologist [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 [*][b]Two Weapon Fighting[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+[*][b]Verdant Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Verdant Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Verdant Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Wisdom modifier.
 [*][b]Wise Precision[/b]: Increase your Wisdom by 1, to a maximum of 20.
-You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
+You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 [/list]
 
 [size=3][b]Fighting Styles[/b][/size]
@@ -370,14 +406,16 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
 [*][b]Executioner[/b]: You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Hand-and-a-Half[/b]: You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
+[*][b]Lunger[/b]: While wielding only one melee weapon without the heavy tag, that weapon's range increases to 10 ft.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+[*][b]Rope it Up[/b]: Your thrown strikes get +1 to attack and damage rolls, you increase both it's long and short range by 10 feet and it returns to your hand immediately after it is used to make a thrown attack.
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
@@ -424,7 +462,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 
 [list=1]
 
-[*][b]Acid Claws[/b]: Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has Armor Class lowered by 1 for 1 round (not stacking).
+[*][b]Acid Claws[/b]: Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has armor class lowered by 1 for 1 round (not stacking).
 [*][b]Air Blast[/b]: Fire a blast of focused air at your target.
 [*][b]Blade Ward[/b]: You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you.
@@ -455,6 +493,7 @@ At the start of each of its turns the target must make a successful Constitution
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 [*][b]Thunderous Smite[/b]: On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
 [*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
+[*][b]Color Burst[/b]: Burst a luminous cube that briefly blinds anyone within 10 ft. 8d10 is how many hit points of creatures this spell can affect.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -466,6 +505,7 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
+[*][b]Web[/b]: You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its actions to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.
 [*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
 A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 [*][b]Crusader's Mantle[/b]: Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
@@ -541,31 +581,35 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Chain Mail[/b]: Chain Mail of Sturdiness, Chain Mail of Robustness, Chain Mail of Survival, Chain Mail of Flame Dancing, Chain Mail of Frost Walking, Chain Mail of Deflection
 [*][b]Splint[/b]: Splint Armor of Sturdiness, Splint Armor of Robustness, Splint Armor of Survival, Splint Armor of Flame Dancing, Splint Armor of Frost Walking, Splint Armor of Deflection
 [*][b]Plate[/b]: Plate of Sturdiness, Plate of Robustness, Plate of Survival, Plate of Flame Dancing, Plate of Frost Walking, Plate of Deflection
+[*][b]Sorcerer outfit[/b]: Sorcerer Armor of Sturdiness, Sorcerer Armor of Robustness, Sorcerer Armor of Survival, Sorcerer Armor of Flame Dancing, Sorcerer Armor of Frost Walking, Sorcerer Armor of Deflection
+[*][b]Barbarian Clothes[/b]: Barbarian Clothes of Sturdiness, Barbarian Clothes of Robustness, Barbarian Clothes of Survival, Barbarian Clothes of Flame Dancing, Barbarian Clothes of Frost Walking, Barbarian Clothes of Deflection
+[*][b]Warlock Armor[/b]: Warlock Armor of Sturdiness, Warlock Armor of Robustness, Warlock Armor of Survival, Warlock Armor of Flame Dancing, Warlock Armor of Frost Walking, Warlock Armor of Deflection
+[*][b]Monk Outfit[/b]: Monk Clothes of Sturdiness, Monk Clothes of Robustness, Monk Clothes of Survival, Monk Clothes of Flame Dancing, Monk Clothes of Frost Walking, Monk Clothes of Deflection
+[*][b]Armor_Adventuring_Wizard_OutfitTitle[/b]: Wizard Clothes of Sturdiness, Wizard Clothes of Robustness, Wizard Clothes of Survival, Wizard Clothes of Flame Dancing, Wizard Clothes of Frost Walking, Wizard Clothes of Deflection
 [/list]
 
 [size=4][b]Credits[/b][/size]
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of the Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, Path of the Reaver, Ranger Hell Walker, Ranger Light Bearer, Ranger Wild Master, Slayer, Way of the Discordance, Way of the Silhouette, Weapon Master, Multiclass
-[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Circle of the Life, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Innovation Artillerist, Multiclass
+[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
-[*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon
-[*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
-[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [subclasses]
-[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, powers and weapons icons, favored terrain and preferred enemy icons
-[*][b]HiddenHax[/b]: homebrew content design [subclasses]
+[*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield
+[*][b]Haxermn[/b]: spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon
+[*][b]Nd[/b]: College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven
+[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
+[*][b]HiddenHax[/b]: homebrew content design [Circle of the Life, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon]
+[*][b]Taco[/b]: homebrew content design [Circle of the Life, Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
+[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
+[*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [*][b]tivie[/b]: Circle of the Night, Path of the Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist
 [*][b]RedOrca[/b]: Path of the Light
 [*][b]DreadMaker[/b]: Circle of the Forest Guardian
-[*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Pikachar2[/b]: spells
 [*][b]Narria[/b]: modKit, UI Improvements, Party Editor
-[*][b]Balmz[/b]: powers and spells icons
-[*][b]Stuffies12[/b]: Ranger homebrew content design [Ranger Hell Walker, Ranger Light Bearer]
 [/list]
 

@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -8,23 +7,6 @@ internal static class CharacterDisplay
 {
     internal static void DisplayCharacter()
     {
-        UI.Label();
-
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width((float)200));
-            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width((float)200));
-            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width((float)200));
-        }
-
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("<b>Donate:</b> GitHub Sponsors".Khaki(), BootContext.OpenDonateGithubSponsors,
-                UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width((float)200));
-        }
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
         UI.Label();
@@ -141,19 +123,44 @@ internal static class CharacterDisplay
             CharacterContext.SwitchAsiAndFeat();
         }
 
-        toggle = Main.Settings.EnableFeatsAtEvenLevels;
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevels;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFeatsAtEvenLevels = toggle;
-            CharacterContext.SwitchEvenLevelFeats();
+            Main.Settings.EnableFeatsAtEveryFourLevels = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats();
         }
 
-        toggle = Main.Settings.EnableFighterArmamentAdroitness;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterArmamentAdroitness"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnableFeatsAtEveryFourLevelsMiddle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevelsMiddle"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFighterArmamentAdroitness = toggle;
-            CharacterContext.SwitchFighterArmamentAdroitness();
+            Main.Settings.EnableFeatsAtEveryFourLevelsMiddle = toggle;
+            CharacterContext.SwitchEveryFourLevelsFeats(true);
         }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableBarbarianFightingStyle;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBarbarianFightingStyle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBarbarianFightingStyle = toggle;
+            CharacterContext.SwitchBarbarianFightingStyle();
+        }
+
+        toggle = Main.Settings.EnableFighterWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterWeaponSpecialization = toggle;
+            CharacterContext.SwitchFighterWeaponSpecialization();
+        }
+
+        toggle = Main.Settings.EnableMonkWeaponSpecialization;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableMonkWeaponSpecialization"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableMonkWeaponSpecialization = toggle;
+            CharacterContext.SwitchMonkWeaponSpecialization();
+        }
+
+        UI.Label();
 
         toggle = Main.Settings.EnableLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))

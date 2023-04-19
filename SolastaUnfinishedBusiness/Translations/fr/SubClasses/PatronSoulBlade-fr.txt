@@ -15,4 +15,4 @@ Feature/&PowerSoulBladeSummonPactWeaponTitle=Arme du pacte spirituel
 Feedback/&AdditionalDamageHexFormat=Hex !
 Feedback/&AdditionalDamageHexLine={0} hexagones d'âme {1} (+{2})
 Subclass/&PatronSoulBladeDescription=Vous avez conclu un marché avec une arme sensible que vous nourrissez des âmes en échange de pouvoir.
-Subclass/&PatronSoulBladeTitle=La lame de l'âme
+Subclass/&PatronSoulBladeTitle=L'âmelame

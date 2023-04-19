@@ -1,5 +1,5 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
-Feature/&AutoPreparedSpellsDeadMasterTitle=Zauber des toten Meisters
+Feature/&AutoPreparedSpellsDeadMasterTitle=Deadmaster-Zauber
 Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, brauchen Sie keine Konzentration, um Tote zu erwecken.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Streuen
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Beim Wirken von Nekromantiezaubern erhältst du einen SG-Bonus von +1.
@@ -10,5 +10,5 @@ Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Wenn Sie einmal 
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Starke Ernte
 Spell/&SpellRaiseDeadFormatDescription=Vorladung <b>{0}</b>:\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Erhöhe {0}
-Subclass/&WizardDeadMasterDescription=Tote Meister lernen, die Energie zu manipulieren, die alle Lebewesen belebt. Während Sie Fortschritte machen, lernen Sie, einer Kreatur die Lebenskraft zu entziehen, während Ihre Magie ihren Körper zerstört und diese Lebensenergie in magische Kraft umwandelt, die Sie manipulieren können.
-Subclass/&WizardDeadMasterTitle=Toter Meister
+Subclass/&WizardDeadMasterDescription=Deadmaster lernen, die Energie zu manipulieren, die alle Lebewesen belebt. Während Sie Fortschritte machen, lernen Sie, einer Kreatur die Lebenskraft zu entziehen, während Ihre Magie ihren Körper zerstört und diese Lebensenergie in magische Kraft umwandelt, die Sie manipulieren können.
+Subclass/&WizardDeadMasterTitle=Totenmeister

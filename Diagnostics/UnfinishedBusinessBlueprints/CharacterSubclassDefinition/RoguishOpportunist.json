@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureRoguishOpportunistSeizeTheChance:cca88ecc-0956-5fa4-88fa-8ad0b2bcf610",
       "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOpportunistExposingWeakness:b6ba70b5-c3b4-5dfe-879e-41ecc08e7ae9",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

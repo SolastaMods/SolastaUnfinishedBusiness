@@ -324,7 +324,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("DomainDefiler", Resources.DomainDefiler, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainDefiler, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainDefiler,
                 featureInsidiousDeathMagic,
@@ -424,15 +424,15 @@ internal sealed class DomainDefiler : AbstractSubclass
             foreach (var rulesetCondition in attackMode.EffectDescription.effectForms
                          .Where(x => x.DamageForm.DamageType == DamageTypeNecrotic)
                          .Select(_ => RulesetCondition.CreateActiveCondition(
-                             defender.RulesetCharacter.Guid,
+                             defender.Guid,
                              _conditionInsidiousDeathMagic,
                              DurationType.Round,
                              levels,
                              TurnOccurenceType.StartOfTurn,
-                             attacker.RulesetCharacter.Guid,
+                             attacker.Guid,
                              attacker.RulesetCharacter.CurrentFaction.Name)))
             {
-                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                attacker.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
         }
     }

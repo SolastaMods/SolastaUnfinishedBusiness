@@ -16,5 +16,5 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeDescription=Quando vieni danneggiat
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=Usa la reazione per bandire il bersaglio.
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=Colpo di spaccatura
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=Colpo di spaccatura
-Subclass/&PatronRiftWalkerDescription=Il tuo protettore è uno dei rari esseri che chiama il vuoto tra i mondi la loro casa. Scivolano tra i piani con facilità e la conoscenza che hai acquisito interagendo con loro ti consente di sfruttare le persistenti energie di spaccatura a tuo vantaggio all'interno di solasta. A volte potresti essere pieno di desiderio per il lontano regno del tuo protettore, il desiderio di vagare tra le dimensioni per il resto dei tuoi giorni o cercare i segni di un altro evento Rift, sia per prevenire che per incoraggiare.
-Subclass/&PatronRiftWalkerTitle=Il Camminatore della Spaccatura
+Subclass/&PatronRiftWalkerDescription=Il tuo patrono è uno dei rari esseri che chiama il vuoto tra i mondi la loro casa. Scivolano tra i piani con facilità e la conoscenza che hai acquisito interagendo con loro ti consente di sfruttare le energie di spaccatura persistenti a tuo vantaggio all'interno di solasta. A volte potresti essere pieno di desiderio per il lontano regno del tuo protettore, il desiderio di vagare tra le dimensioni per il resto dei tuoi giorni o cercare i segni di un altro evento Rift, sia per prevenire che per incoraggiare.
+Subclass/&PatronRiftWalkerTitle=Il Riftwalker

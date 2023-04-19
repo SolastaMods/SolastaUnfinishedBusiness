@@ -15,4 +15,4 @@ Feature/&PowerSoulBladeSummonPactWeaponTitle=Arma del patto spirituale
 Feedback/&AdditionalDamageHexFormat=Esadecimale!
 Feedback/&AdditionalDamageHexLine={0} esagoni dell'anima {1} (+{2})
 Subclass/&PatronSoulBladeDescription=Hai fatto un patto con un'arma senziente con cui nutri le anime in cambio di potere.
-Subclass/&PatronSoulBladeTitle=La lama dell'anima
+Subclass/&PatronSoulBladeTitle=La Lama dell'Anima

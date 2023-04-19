@@ -45,38 +45,24 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierSoulBladeEmpowerWeapon")
+            .SetGuiPresentation("PowerSoulBladeEmpowerWeapon", Category.Feature)
+            .SetMagicalWeapon()
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .AddToDB();
+
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeEmpowerWeapon")
+            .Create(PowerArcaneFighterEnchantWeapon, "PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerSoulEmpower", Resources.PowerSoulEmpower, 256, 128))
-            .SetUniqueInstance()
+            .SetBonusToAttack(false, false, AttributeDefinitions.Charisma)
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanWeaponBeEmpowered))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Item,
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetItemPropertyForm(
-                        ItemPropertyUsage.Unlimited,
-                        1, new FeatureUnlockByLevel(
-                            FeatureDefinitionAttackModifierBuilder
-                                .Create("AttackModifierSoulBladeEmpowerWeapon")
-                                .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
-                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
-                                .SetMagicalWeapon()
-                                .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-                                .AddToDB(),
-                            0))
-                    .Build())
-                .Build())
             .AddToDB();
 
         // Common Hex Feature
@@ -123,6 +109,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var effectDescriptionHex = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
             .SetEffectForms(
@@ -327,8 +314,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         private static void ReceiveHealing(RulesetCharacter rulesetCharacter)
         {
-            var characterLevel = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var charisma = rulesetCharacter.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
+            var characterLevel = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var charisma = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healingReceived = characterLevel + charismaModifier;
 

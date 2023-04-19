@@ -22,5 +22,5 @@ Feature/&PowerPathOfTheLightIlluminatingBurstDescription=Hasta tres enemigos hac
 Feature/&PowerPathOfTheLightIlluminatingBurstTitle=Explosión iluminadora
 Feedback/&AdditionalDamageIlluminatingStrikeFormat=¡Golpe iluminador!
 Feedback/&AdditionalDamageIlluminatingStrikeLine=¡Iluminating Strike inflige daño adicional al objetivo!
-Subclass/&PathOfTheLightDescription=Los bárbaros que siguen el Camino de la Luz iluminan la oscuridad y protegen a sus aliados de los peligros que acechan en ella.
+Subclass/&PathOfTheLightDescription=Los bárbaros que siguen el Camino de la Luz iluminan la oscuridad y protegen a sus aliados de los peligros que acechan en su interior.
 Subclass/&PathOfTheLightTitle=Camino de la luz

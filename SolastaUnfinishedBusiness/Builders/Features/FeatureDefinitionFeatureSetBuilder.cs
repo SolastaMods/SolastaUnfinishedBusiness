@@ -15,27 +15,18 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
-    internal FeatureDefinitionFeatureSetBuilder AddFeatureSetNoSort(params FeatureDefinition[] featureDefinitions)
-    {
-        Definition.FeatureSet.AddRange(featureDefinitions);
-        return this;
-    }
-
-    internal FeatureDefinitionFeatureSetBuilder ClearFeatureSet()
-    {
-        Definition.FeatureSet.Clear();
-        return this;
-    }
-
     internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
         Definition.mode = mode;
         return this;
     }
 
-    internal FeatureDefinitionFeatureSetBuilder SetAncestryType(ExtraAncestryType ancestryType)
+    internal FeatureDefinitionFeatureSetBuilder SetAncestryType(
+        ExtraAncestryType ancestryType,
+        params string[] ancestryDamageTypeMap)
     {
         Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
+        Definition.ancestryDamageTypeMap.AddRange(ancestryDamageTypeMap);
         return this;
     }
 

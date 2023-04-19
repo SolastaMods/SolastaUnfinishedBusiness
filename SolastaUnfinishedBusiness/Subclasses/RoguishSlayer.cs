@@ -88,7 +88,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             // this is really ignored and treated in the custom damage validator
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(rogueHolder)
             .SetConditionOperations(
@@ -126,7 +125,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             // this is really ignored and treated in the custom damage validator
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(rogueHolder)
             .SetConditionOperations(
@@ -167,10 +165,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        /*
-        Level 17 - Fatal Strike
-        Starting at 17th level, when you attack and hit a creature during the first round of combat, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature. 
-        */
+        //
+        // Fatal Strike
+        //
+
+        var featureFatalStrike = FeatureDefinitionBuilder
+            .Create($"Feature{Name}FatalStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new AfterAttackEffectFatalStrike())
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -179,6 +182,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .AddFeaturesAtLevel(3, featureElimination)
             .AddFeaturesAtLevel(9, featureChainOfExecution)
             .AddFeaturesAtLevel(13, powerCloakOfShadows)
+            .AddFeaturesAtLevel(17, featureFatalStrike)
             .AddToDB();
     }
 
@@ -404,6 +408,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
             }
         }
 
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
+        }
+
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
             // Empty
@@ -456,5 +465,52 @@ internal sealed class RoguishSlayer : AbstractSubclass
     {
         // allows Chain of Execution damage to scale with rogue level
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
+
+    //
+    // Fatal Strike
+    //
+
+    private sealed class AfterAttackEffectFatalStrike : IBeforeAttackEffect
+    {
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || defender.RulesetCharacter is not { } rulesetDefender ||
+                !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
+            {
+                return;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
+            var attackerDexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+            var attackerProficiencyBonus =
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var defenderConstitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution));
+
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+                advantageTrends, defenderConstitutionModifier, 8 + attackerProficiencyBonus + attackerDexterityModifier,
+                false,
+                out var savingOutcome,
+                out _);
+
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
+            attackModifier.attackerDamageMultiplier *= 2;
+        }
     }
 }

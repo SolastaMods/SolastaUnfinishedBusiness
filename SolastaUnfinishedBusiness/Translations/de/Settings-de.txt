@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></ ich>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
@@ -18,6 +18,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
 ModUi/&AllowAssigningOfficialSpells=Lassen Sie zu, dass offizielle Zaubersprüche auf diesen Listen angezeigt werden
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
+ModUi/&AllowClubsToBeThrown=Lassen Sie Schläger wie Dolche oder Faustkeile werfen
 ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -30,7 +31,8 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
-ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe:</color>
+ModUi/&BackgroundsAndDeities=Hintergründe & Gottheiten
+ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberplatz gewirkt wird
@@ -52,11 +54,11 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielstandard, wirf alle
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis für die Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel, die das höchstmögliche Ergebnis erzielen, immer wieder neu und füge es dem Gesamtschaden hinzu
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Gottheiten:</color>
+ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -69,6 +71,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige 
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Füge neue Gegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2 <i><color=#F0DAA0>[Blinder Kampf, Verkrüppelung, Henker, Zweikampfwaffe, Gnadenlos, Faustkämpfer, Zwei Waffenkampf, Wächter, Anseilen]</color></i>
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Zeichenprüfung“ auf dem Hauptbildschirm > Zeichen
@@ -76,10 +79,11 @@ ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 4, 10 und 16
-ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalten Sie +1 auf Treffer und Schaden, aber Nachteile mit allen anderen Waffentyp]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
+ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
+ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber benachteilige mit allen anderen Waffentyp]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
@@ -89,15 +93,16 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone de
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
+ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufe 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>
+ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=#F0DAA0>[statt einer exklusiven Auswahl]</color></i>
 ModUi/&EnableSaveByLocation=Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
-ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></ ich>
+ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
@@ -131,7 +136,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
-ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie und Unterklassen Drakonische Entscheidungen]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -224,5 +229,3 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableAutoUpdate=Deaktivieren Sie die automatische Aktualisierung
-ModUi/&Rollback=Rollback zur vorherigen Version [Schließen Sie die Mod-Benutzeroberfläche zur Bestätigung]

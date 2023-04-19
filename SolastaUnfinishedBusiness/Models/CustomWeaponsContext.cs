@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -21,8 +22,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CustomWeaponsContext
 {
     private const string PolearmWeaponTag = "PolearmWeapon";
-
-    internal const string CeHandXbowType = "CEHandXbowType";
+    private const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
     internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
@@ -836,7 +836,7 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
             return;
         }
 
-        var casterLevel = character.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        var casterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
 
         damage.diceNumber = 1 + SpellAdvancementByCasterLevel[casterLevel - 1];
     }

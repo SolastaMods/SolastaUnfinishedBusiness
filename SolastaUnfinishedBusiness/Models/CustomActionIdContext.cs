@@ -3,8 +3,8 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
 using static RuleDefinitions;
 
@@ -70,7 +70,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitMain")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitMain)
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
@@ -79,7 +79,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitBonus")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitBonus)
             .SetActionType(ActionType.Bonus)
             .SetActionScope(ActionScope.Battle)
@@ -88,7 +88,7 @@ public static class CustomActionIdContext
         ActionDefinitionBuilder
             .Create(baseAction, "TacticianGambitNoCost")
             .SetGuiPresentation("TacticianGambit", Category.Action, Sprites.ActionGambit, 20)
-            .SetCustomSubFeatures(MartialTactician.GambitActionDiceBox.Instance)
+            .SetCustomSubFeatures(GambitsBuilders.GambitActionDiceBox.Instance)
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
@@ -110,11 +110,6 @@ public static class CustomActionIdContext
 
     private static void BuildFarStepAction()
     {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("ActionSurge", out var baseAction))
-        {
-            return;
-        }
-
         const string NAME = "FarStep";
 
         FarStep = FeatureDefinitionPowerBuilder
@@ -134,7 +129,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, $"Action{NAME}")
+            .Create($"Action{NAME}")
             .SetGuiPresentation(NAME, Category.Action, Sprites.FarStep, 71)
             .SetActionId(ExtraActionId.FarStep)
             .OverrideClassName("UsePower")
@@ -183,17 +178,30 @@ public static class CustomActionIdContext
         var actionType = action.actionType;
         var character = locationCharacter.RulesetCharacter;
 
-        if (actionId == (Id)ExtraActionId.CombatWildShape)
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (actionId)
         {
-            var power = character.GetPowerFromDefinition(action.ActivatedPower);
-            if (power is not { RemainingUses: > 0 } ||
-                (character is RulesetCharacterMonster monster &&
-                 monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
+            case (Id)ExtraActionId.CombatWildShape:
             {
-                result = ActionStatus.Unavailable;
-            }
+                var power = character.GetPowerFromDefinition(action.ActivatedPower);
+                if (power is not { RemainingUses: > 0 } ||
+                    (character is RulesetCharacterMonster monster &&
+                     monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
+                {
+                    result = ActionStatus.Unavailable;
+                }
 
-            return;
+                return;
+            }
+            case (Id)ExtraActionId.CombatRageStart:
+            {
+                if (character.HasAnyConditionOfType(ConditionRaging))
+                {
+                    result = ActionStatus.Unavailable;
+                }
+
+                return;
+            }
         }
 
         var isInvocationAction = IsInvocationActionId(actionId);
@@ -283,9 +291,9 @@ public static class CustomActionIdContext
         RulesetCharacter character, bool canCastSpells, bool canOnlyUseCantrips)
     {
         if (IsGambitActionId(actionId)
-            && character.HasPower(MartialTactician.GambitPool)
+            && character.HasPower(GambitsBuilders.GambitPool)
             && character.KnowsAnyInvocationOfActionId(actionId, scope)
-            && character.GetRemainingPowerCharges(MartialTactician.GambitPool) <= 0)
+            && character.GetRemainingPowerCharges(GambitsBuilders.GambitPool) <= 0)
         {
             return ActionStatus.OutOfUses;
         }

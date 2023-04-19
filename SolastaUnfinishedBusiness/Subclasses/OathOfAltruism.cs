@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -20,10 +21,10 @@ internal sealed class OathOfAltruism : AbstractSubclass
     {
         var autoPreparedSpellsAltruism = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetGuiPresentation("Subclass/&OathOfAltruismTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, HealingWord, ShieldOfFaith),
+                BuildSpellGroup(2, HealingWord, ShieldOfFaith),
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),
                 BuildSpellGroup(9, Counterspell, HypnoticPattern),
                 BuildSpellGroup(13, DominateBeast, GuardianOfFaith),
@@ -67,20 +68,17 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .Create()
             .SetConditionForm(conditionAuraOfTheGuardian, ConditionForm.ConditionOperation.Add)
             .Build();
-            
-        //
-        // 15
-        //
 
         var powerTakeThePain = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TakeThePain")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction, RuleDefinitions.RechargeRate.ChannelDivinity)
             .SetEffectDescription(
-            EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,RuleDefinitions.TargetType.Individuals)
-            .Build())
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
+                        RuleDefinitions.TargetType.Individuals)
+                    .Build())
             .SetCustomSubFeatures(new AfterActionTakeThePain())
             .AddToDB();
 
@@ -103,12 +101,9 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-    
-        private sealed class AfterActionTakeThePain : IOnAfterActionFeature
+
+    private sealed class AfterActionTakeThePain : IOnAfterActionFeature
     {
-        internal AfterActionTakeThePain()
-        {
-        }
         public void OnAfterAction(CharacterAction action)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
@@ -123,30 +118,35 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
             var self = action.ActingCharacter;
 
-            if (action is CharacterActionUsePower characterActionUsePower &&
-                characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                !characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
             {
-                foreach (var character in action.ActionParams.targetCharacters)
+                return;
+            }
+
+            foreach (var character in action.ActionParams.targetCharacters)
+            {
+                var targetHitPoints = character.RulesetCharacter.currentHitPoints;
+                var casterHitPoints = self.RulesetCharacter.currentHitPoints;
+
+                if (casterHitPoints <= targetHitPoints)
                 {
-                    int targetHitPoints = character.RulesetCharacter.currentHitPoints;
-                    int casterHitPoints = self.RulesetCharacter.currentHitPoints;
-                    if (casterHitPoints > targetHitPoints)
-                    {
-                        character.RulesetCharacter.ForceSetHealth(casterHitPoints, false);
-                        self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
-
-                        var profBonus = AttributeDefinitions.ComputeProficiencyBonus(self.RulesetCharacter
-                        .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
-
-                        var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
-                        .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
-
-                        self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier, RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn, self.RulesetCharacter.guid);
-
-                    }
+                    continue;
                 }
+
+                character.RulesetCharacter.ForceSetHealth(casterHitPoints, false);
+                self.RulesetCharacter.ForceSetHealth(targetHitPoints, false);
+
+                var profBonus = AttributeDefinitions.ComputeProficiencyBonus(self.RulesetCharacter
+                    .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+
+                var myCharismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(self.RulesetCharacter
+                    .TryGetAttributeValue(AttributeDefinitions.Charisma));
+
+                self.RulesetCharacter.ReceiveTemporaryHitPoints((profBonus * 2) + myCharismaModifier,
+                    RuleDefinitions.DurationType.UntilAnyRest, 0, RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                    self.RulesetCharacter.guid);
             }
         }
     }
-    
 }

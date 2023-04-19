@@ -12,7 +12,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -79,7 +79,6 @@ public static class RulesetActorPatcher
 
             // Find a better place to put this in?
             var source = addedCondition.AdditionalDamageType;
-            RulesetAttribute attribute;
 
             switch (addedCondition.AmountOrigin)
             {
@@ -101,30 +100,26 @@ public static class RulesetActorPatcher
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                     sourceAmount = sourceCharacter.GetClassLevel(source);
                     break;
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
-                    if (sourceCharacter.TryGetAttribute(source, out attribute))
-                    {
-                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
-                    }
 
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
+                    sourceAmount =
+                        AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
                     break;
+
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCopyAttributeFromSummoner:
-                    if (sourceCharacter.TryGetAttribute(source, out attribute))
+                    if (sourceCharacter.TryGetAttribute(source, out var attribute))
                     {
                         __instance.Attributes.Add(source, attribute);
                     }
 
                     break;
+
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus:
                     sourceAmount =
-                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-                    if (sourceCharacter.TryGetAttribute(source, out attribute))
-                    {
-                        sourceAmount += AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
-                    }
-
+                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus) +
+                        AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
                     break;
+
                 case ConditionDefinition.OriginOfAmount.None:
                     break;
                 case ConditionDefinition.OriginOfAmount.SourceDamage:
@@ -208,67 +203,43 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            var modulateSustainedDamage = typeof(IRulesetImplementationService).GetMethod("ModulateSustainedDamage");
-            var myModulateSustainedDamage =
-                typeof(ModulateSustainedDamage_Patch).GetMethod("MayModulateSustainedDamage");
             var myEnumerate = new Action<
                 RulesetActor,
                 List<FeatureDefinition>,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>,
+                ulong
             >(MyEnumerate).Method;
 
             return instructions
-                //PATCH: supports IIgnoreDamageAffinity    
-                .ReplaceCall(modulateSustainedDamage,
-                    2, "RulesetActor.ModulateSustainedDamage.1",
-                    new CodeInstruction(OpCodes.Ldarg, 4), // source guid
-                    new CodeInstruction(OpCodes.Call, myModulateSustainedDamage))
-                //PATCH: add `IDamageAffinityProvider` from dynamic item properties
-                //fixes game not applying damage reductions from dynamic item properties
-                //used for Inventor's Resistant Armor infusions
                 .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
-                    -1, "RulesetActor.ModulateSustainedDamage.2",
+                    -1, "RulesetActor.ModulateSustainedDamage",
+                    new CodeInstruction(OpCodes.Ldarg, 4), // source guid
                     new CodeInstruction(OpCodes.Call, myEnumerate));
-        }
-
-        [UsedImplicitly]
-        public static float MayModulateSustainedDamage(
-            IRulesetImplementationService service,
-            IDamageAffinityProvider provider,
-            RulesetActor actor,
-            string damageType,
-            float multiplier,
-            List<string> sourceTags,
-            bool wasFirstDamage,
-            out int damageReduction,
-            out string ancestryDamageType,
-            ulong sourceGuid)
-        {
-            ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(sourceGuid, out var rulesetEntity);
-
-            var caster = rulesetEntity as RulesetCharacter;
-            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
-
-            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, actor, damageType)))
-            {
-                return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
-                    wasFirstDamage,
-                    out damageReduction, out ancestryDamageType);
-            }
-
-            damageReduction = 0;
-            ancestryDamageType = string.Empty;
-
-            return multiplier;
         }
 
         private static void MyEnumerate(
             RulesetActor actor,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
+            ulong guid)
         {
-            actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(actor.featuresToBrowse, featuresOrigin);
+            //PATCH: supports IIgnoreDamageAffinity   
+            actor.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(featuresToBrowse, featuresOrigin);
 
+            ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(guid, out var rulesetEntity);
+
+            var caster = rulesetEntity as RulesetCharacter;
+            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+
+            foreach (var feature in features.ToList())
+            {
+                featuresToBrowse.RemoveAll(x =>
+                    x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+            }
+
+            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
+            //fixes game not applying damage reductions from dynamic item properties
+            //used for Inventor's Resistant Armor infusions
             if (actor is not RulesetCharacterHero hero)
             {
                 return;
@@ -291,16 +262,45 @@ public static class RulesetActorPatcher
     [UsedImplicitly]
     public static class RollDie_Patch
     {
+        //PATCH: supports DieRollModifierDamageTypeDependent
+        private static void EnumerateIDieRollModificationProvider(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition,
+                RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse);
+
+            var damageType = RulesetCharacterPatcher.RollMagicAttack_Patch
+                .CurrentMagicEffect?.EffectDescription.FindFirstDamageForm()?.damageType;
+
+            if (damageType != null)
+            {
+                featuresToBrowse.RemoveAll(x =>
+                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y && !y.damageTypes.Contains(damageType));
+            }
+        }
+
+
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
             var myRollDieMethod = typeof(RollDie_Patch).GetMethod("RollDie");
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateIDieRollModificationProvider).Method;
 
-            return instructions.ReplaceCalls(rollDieMethod, "RulesetActor.RollDie",
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Call, myRollDieMethod));
+            return instructions
+                .ReplaceCalls(rollDieMethod, "RulesetActor.RollDie.1",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Call, myRollDieMethod))
+                .ReplaceEnumerateFeaturesToBrowse("IDieRollModificationProvider",
+                    -1, "RulesetCharacter.RefreshSpellRepertoires",
+                    new CodeInstruction(OpCodes.Call, enumerate));
         }
 
         [UsedImplicitly]
@@ -486,51 +486,100 @@ public static class RulesetActorPatcher
         }
     }
 
-    //PATCH: supports DieRollModifierDamageTypeDependent
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    //PATCH: allow ISavingThrowAffinityProvider to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ComputeSavingThrowModifier))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
-    internal class RulesetActor_RollDamage_Patch
+    public static class ComputeSavingThrowModifier_Patch
     {
-        internal static DamageForm CurrentDamageForm;
-
         [UsedImplicitly]
-        public static void Prefix(DamageForm damageForm)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            CurrentDamageForm = damageForm;
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
+                -1, "RulesetActor.ComputeSavingThrowModifier",
+                new CodeInstruction(OpCodes.Call, enumerate));
         }
 
-        [UsedImplicitly]
-        public static void Postfix()
+        private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
-            CurrentDamageForm = null;
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
+                featuresOrigin);
+            featuresToBrowse.RemoveAll(x =>
+                !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
         }
     }
 
-    //PATCH: supports DieRollModifierDamageTypeDependent
-    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
+    //PATCH: allow recurrent effect forms effect level to be modified
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ExecuteRecurrentForms))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class RulesetActor_RerollDieAsNeeded_Patch
+    public static class ExecuteRecurrentForms_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(
-            FeatureDefinitionDieRollModifier dieRollModifier,
-            int rollScore,
-            ref int __result)
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
-                    featureDefinitionDieRollModifierDamageTypeDependent
-                || RulesetActor_RollDamage_Patch.CurrentDamageForm == null
-                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(
-                    RulesetActor_RollDamage_Patch.CurrentDamageForm.damageType))
+            var myApplyEffectForm = typeof(ExecuteRecurrentForms_Patch).GetMethod("ApplyEffectForms");
+            var applyEffectForm = typeof(IRulesetImplementationService).GetMethod("ApplyEffectForms");
+
+            //PATCH: supports IModifyRecurrentMagicEffect interface
+            return instructions.ReplaceCalls(
+                applyEffectForm,
+                "RulesetActor.ExecuteRecurrentForms",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myApplyEffectForm));
+        }
+
+        [UsedImplicitly]
+        public static int ApplyEffectForms(
+            RulesetImplementationManager __instance,
+            List<EffectForm> effectForms,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            List<string> effectiveDamageTypes,
+            out bool damageAbsorbedByTemporaryHitPoints,
+            out bool terminateEffectOnTarget,
+            bool retargeting,
+            bool proxyOnly,
+            bool forceSelfConditionOnly,
+            RuleDefinitions.EffectApplication effectApplication,
+            List<EffectFormFilter> filters,
+            RulesetActor rulesetActor,
+            RulesetCondition rulesetCondition)
+        {
+            var newEffectForms = effectForms
+                .Select(x =>
+                {
+                    var y = new EffectForm();
+
+                    y.Copy(x);
+
+                    return y;
+                })
+                .ToList();
+
+            foreach (var modifyRecurrentMagicEffect in rulesetCondition.ConditionDefinition
+                         .GetAllSubFeaturesOfType<IModifyRecurrentMagicEffect>())
             {
-                return true;
+                foreach (var effectForm in newEffectForms)
+                {
+                    modifyRecurrentMagicEffect.ModifyEffect(rulesetCondition, effectForm, rulesetActor);
+                }
             }
 
-            __result = rollScore;
-            return false;
+            return __instance.ApplyEffectForms(
+                newEffectForms, formsParams, effectiveDamageTypes,
+                out damageAbsorbedByTemporaryHitPoints, out terminateEffectOnTarget,
+                retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
         }
     }
 }

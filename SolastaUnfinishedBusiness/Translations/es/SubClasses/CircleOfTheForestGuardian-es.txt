@@ -1,4 +1,4 @@
-Condition/&ConditionForestGuardianBarkWardDescription=Protegido por los espíritus del bosque. Gana 4 HP temporales por cada nivel de Druida, con una duración de 10 minutos.
+Condition/&ConditionForestGuardianBarkWardDescription=Protegido por los espíritus del bosque. Gana 4 puntos de vida temporales por cada nivel de Druida, con una duración de 10 minutos.
 Condition/&ConditionForestGuardianBarkWardTitle=Guardián de la corteza
 Condition/&ConditionForestGuardianImprovedBarkWardDescription=Los espíritus del bosque infligen 2d8 de daño perforante a las criaturas que golpean con un ataque cuerpo a cuerpo.
 Condition/&ConditionForestGuardianImprovedBarkWardTitle=Guardián de ladridos mejorado

@@ -1,6 +1,6 @@
-﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Bônus Mestre Selvagem
-Feature/&FeatureSetWildMaster03Description=Você ganha um companheiro Spirit Beast que o acompanha em suas aventuras e é treinado para lutar ao seu lado. Ele ganha seu modificador de Sabedoria para classe de armadura, jogadas de ataque e jogadas de dano. Ele também ganha 4 HP por nível de personagem e só pode executar a ação Esquivar em seu turno, a menos que você o ordene para fazer o contrário.\nTanto a Besta Espiritual quanto o invocador compartilham a mesma iniciativa e você pode escolher um Urso, uma Águia ou um Lobo :\n. O Urso pode soprar um cone de fogo\n. A Águia uma linha de eletricidade\n. O Lobo um cone de frio.
-Feature/&PowerSpiritBeastBreathWeaponBlueTitle=Arma Relâmpago
+﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Bônus Wildmaster
+Feature/&FeatureSetWildMaster03Description=Você ganha um companheiro Spirit Beast que o acompanha em suas aventuras e é treinado para lutar ao seu lado. Ele ganha seu modificador de Sabedoria para classe de armadura, jogadas de ataque e jogadas de dano. Ele também ganha 4 HP por nível de personagem e só pode realizar a ação Esquivar em seu turno, a menos que você o ordene para fazer o contrário. \nTanto a Besta Espiritual quanto o invocador compartilham a mesma iniciativa e você pode escolher um Urso, uma Águia ou um Lobo :\n. O Urso pode soprar um cone de fogo\n. A Águia uma linha de eletricidade\n. O Lobo um cone de frio.
+Feature/&PowerSpiritBeastBreathWeaponBlueTitle=Arma de Relâmpago
 Feature/&PowerSpiritBeastBreathWeaponGoldTitle=Arma de fogo
 Feature/&PowerSpiritBeastBreathWeaponSilverTitle=Arma fria
 Feature/&PowerSpiritBeastBreathWeaponBlueDescription=Projete relâmpagos em uma linha de 5 pés de largura e 30 pés de comprimento. As criaturas na linha devem fazer um teste de resistência CON para reduzir pela metade o dano do raio. O dano é igual a 2d6 até o nível 4, aumentando para 3d6 no nível 5, 4d6 no nível 9, 5d6 no nível 13 e 6d6 no nível 17.
@@ -23,5 +23,5 @@ Feature/&PowerWildMasterSummonSpiritBeastDescription=Um {0} ligado a um Ranger.
 Feature/&PowerWildMasterSummonSpiritBeastPoolDescription=Invoque um Urso, uma Águia ou um Lobo.
 Feature/&PowerWildMasterSummonSpiritBeastPoolTitle=Invocação da Besta Espiritual
 Feature/&PowerWildMasterSummonSpiritBeastTitle=Convocar {0}
-Subclass/&RangerWildMasterDescription=O arquétipo do Wild Master incorpora uma amizade entre as raças civilizadas e as feras do mundo. Unidos em foco, espírito e ranger trabalham como um para lutar contra os inimigos monstruosos que ameaçam a civilização e o deserto.
-Subclass/&RangerWildMasterTitle=Mestre Selvagem
+Subclass/&RangerWildMasterDescription=O arquétipo Wildmaster incorpora uma amizade entre as raças civilizadas e as feras do mundo. Unidos em foco, espírito e ranger trabalham como um para lutar contra os inimigos monstruosos que ameaçam a civilização e o deserto.
+Subclass/&RangerWildMasterTitle=Wildmaster

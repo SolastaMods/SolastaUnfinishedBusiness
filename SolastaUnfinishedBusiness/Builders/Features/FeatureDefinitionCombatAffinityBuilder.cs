@@ -50,25 +50,27 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetPermanentCover(RuleDefinitions.CoverType permanentCover)
+    {
+        Definition.permanentCover = permanentCover;
+        return this;
+    }
+
 #if false
     internal FeatureDefinitionCombatAffinityBuilder SetInitiativeAffinity(RuleDefinitions.AdvantageType affinity)
     {
         Definition.initiativeAffinity = affinity;
         return this;
     }
-
-    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context)
-    {
-        Definition.situationalContext = context;
-        return this;
-    }
-
-    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context)
-    {
-        Definition.situationalContext = context;
-        return this;
-    }
 #endif
+
+    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context,
+        ConditionDefinition requiredCondition = null)
+    {
+        Definition.situationalContext = context;
+        Definition.requiredCondition = requiredCondition;
+        return this;
+    }
 
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {

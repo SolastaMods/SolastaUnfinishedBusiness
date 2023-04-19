@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
@@ -27,7 +28,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     {
         // LEVEL 03
 
-        // Light Bearer Magic
+        // Lightbearer Magic
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -35,7 +36,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Bless),
+                BuildSpellGroup(2, Bless),
                 BuildSpellGroup(5, BrandingSmite),
                 BuildSpellGroup(9, SpellsContext.BlindingSmite),
                 BuildSpellGroup(13, GuardianOfFaith),
@@ -115,6 +116,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                         DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                             .Where(x => x != CharacterFamilyDefinitions.Construct &&
                                         x != CharacterFamilyDefinitions.Undead)
+                            .Select(x => x.Name)
                             .ToArray())
                     .SetEffectForms(
                         EffectFormBuilder
@@ -265,7 +267,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         var featureWardingLight = FeatureDefinitionBuilder
             .Create($"Feature{Name}WardingLight")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AttackInitiatedWardingLight())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeOrAllyWardingLight())
             .AddToDB();
 
         // MAIN
@@ -326,7 +328,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (!rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (rulesetDefender == null || !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }
@@ -397,7 +399,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter = "Reaction/&CustomReactionBlessedGlowDescription"
                 };
@@ -416,9 +418,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
 
-            var usablePower =
-                rulesetAttacker.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower);
-
+            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
@@ -429,7 +429,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
         }
     }
 
@@ -466,7 +465,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Warding Light
     //
 
-    private sealed class AttackInitiatedWardingLight : IAttackInitiated
+    private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
         public IEnumerator OnAttackInitiated(
             GameLocationBattleManager __instance,
@@ -476,7 +475,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            return __instance.battle
+            if (__instance.battle == null)
+            {
+                yield break;
+            }
+
+            yield return __instance.battle
                 .GetOpposingContenders(attacker.Side)
                 .Where(opposingContender =>
                     opposingContender != defender && opposingContender.RulesetCharacter is

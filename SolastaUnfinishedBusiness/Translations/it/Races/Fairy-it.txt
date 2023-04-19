@@ -1,0 +1,14 @@
+﻿Feature/&FeatureSetFairyLanguagesDescription=Comune, qualsiasi altra lingua
+Feature/&FeatureSetFairyLanguagesTitle=Le lingue
+Feature/&FeatureSetFairyAbilityScoreDescription=Destrezza +2, Intelligenza, Saggezza o Carisma +1
+Feature/&FeatureSetFairyAbilityScoreTitle=Punteggi di abilità
+Feature/&FeatureSetFairyFlightDescription=A causa delle tue ali, hai una velocità di volo pari alla tua velocità di camminata. Non puoi usare questa velocità di volo se indossi un'armatura media o pesante.
+Feature/&FeatureSetFairyFlightTitle=Volo
+Feature/&CastSpellFairyDescription=Conosci il trucchetto <b>Burst of Radiance</b>. Al 3° livello impari <b>Fuoco fatato</b> e al 5° livello, <b>Esplosione di colore</b>. Entrambi possono essere usati una volta per riposo lungo.
+Feature/&CastSpellFairyTitle=Magia delle fate
+Race/&RaceFairyDescription=Il Feywild è la patria di molti popoli fantastici, comprese le fate. Le fate sono un piccolo popolo, ma non tanto quanto i loro amici folletti e folletti. Le prime fate parlavano Elfico, Goblin o Silvano, e gli incontri con visitatori umani hanno spinto molte di loro a imparare anche il Comune.
+Race/&RaceFairyTitle=Fata
+Feature/&PowerFairyFlightDismissDescription=Ignora il tuo volo.
+Feature/&PowerFairyFlightDismissTitle=Ignora volo
+Feature/&PowerFairyFlightSproutDescription=Come azione, puoi darti una velocità di volo pari alla tua velocità di camminata. Non puoi usarlo se indossi un'armatura media o pesante.
+Feature/&PowerFairyFlightSproutTitle=Volo

@@ -170,6 +170,6 @@ internal static class RulesetActorExtensions
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
     {
-        return conditions.Any(actor.HasConditionOfType);
+        return actor is RulesetCharacter && conditions.Any(actor.HasConditionOfType);
     }
 }

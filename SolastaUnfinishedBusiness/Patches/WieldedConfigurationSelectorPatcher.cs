@@ -5,8 +5,8 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -37,7 +37,7 @@ public static class WieldedConfigurationSelectorPatcher
 
         private static bool IsMonkWeapon(WeaponDescription description, GuiCharacter guiCharacter)
         {
-            return WayOfTheDistantHand.IsMonkWeapon(guiCharacter.RulesetCharacter, description);
+            return guiCharacter.RulesetCharacter.IsMonkWeapon(description);
         }
 
         [UsedImplicitly]

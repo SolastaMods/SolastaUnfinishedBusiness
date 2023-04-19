@@ -1,0 +1,14 @@
+﻿Feature/&FeatureSetFairyLanguagesDescription=Üblich, jede andere Sprache
+Feature/&FeatureSetFairyLanguagesTitle=Sprachen
+Feature/&FeatureSetFairyAbilityScoreDescription=Geschicklichkeit +2, Intelligenz, Weisheit oder Charisma +1
+Feature/&FeatureSetFairyAbilityScoreTitle=Fähigkeitswerte
+Feature/&FeatureSetFairyFlightDescription=Aufgrund Ihrer Flügel haben Sie eine Fluggeschwindigkeit, die Ihrer Gehgeschwindigkeit entspricht. Sie können diese Fluggeschwindigkeit nicht verwenden, wenn Sie eine mittlere oder schwere Rüstung tragen.
+Feature/&FeatureSetFairyFlightTitle=Flug
+Feature/&CastSpellFairyDescription=Du kennst den Cantrip <b>Burst of Radiance</b>. Auf Stufe 3 lernst du <b>Feenfeuer</b> und auf Stufe 5 <b>Color Burst</b>. Beide können einmal pro langer Pause verwendet werden.
+Feature/&CastSpellFairyTitle=Feenhafte Magie
+Race/&RaceFairyDescription=Die Feywild ist die Heimat vieler fantastischer Völker, einschließlich Feen. Feen sind ein kleines Volk, aber nicht annähernd so sehr wie ihre Feen- und Koboldfreunde. Die ersten Feen sprachen Elbisch, Kobold oder Sylvanisch, und Begegnungen mit menschlichen Besuchern veranlassten viele von ihnen, auch Gemeines zu lernen.
+Race/&RaceFairyTitle=Fee
+Feature/&PowerFairyFlightDismissDescription=Kündigen Sie Ihren Flug.
+Feature/&PowerFairyFlightDismissTitle=Flug abweisen
+Feature/&PowerFairyFlightSproutDescription=Als Aktion kannst du dir eine Fluggeschwindigkeit geben, die deiner Gehgeschwindigkeit entspricht. Sie können dies nicht verwenden, wenn Sie eine mittlere oder schwere Rüstung tragen.
+Feature/&PowerFairyFlightSproutTitle=Flug

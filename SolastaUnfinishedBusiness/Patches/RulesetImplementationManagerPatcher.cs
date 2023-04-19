@@ -5,8 +5,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -16,6 +19,16 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
+    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
+        featuresToBrowse.RemoveAll(x =>
+            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+    }
+
     [HarmonyPatch(typeof(RulesetImplementationManager),
         nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -43,25 +56,38 @@ public static class RulesetImplementationManagerPatcher
             RulesetActor rulesetActor,
             DamageForm damageForm,
             int addDice,
-            bool criticalSuccess,
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
-            bool canRerollDice,
-            EffectGroupInfo effectGroupInfo)
+            bool canRerollDice)
         {
+            var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
-            var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber / 2;
 
-            damageForm.bonusDamage += bonusDamage;
-            effectGroupInfo.bonusValue += bonusDamage;
+            if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
+                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+            {
+                diceType = hero.GetBardicInspirationDieValue();
+            }
 
-            return rulesetActor.RollDamage(
-                damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
-                damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+            var totalDamage = rulesetActor.RollDiceAndSum(
+                diceType,
+                attackModeDamage
+                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
+                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                damageForm.DiceNumber + addDice,
+                rolledValues, canRerollDice);
+
+            // add additional dices equal with dice max value
+            totalDamage += rolledValues.Count * diceMaxValue;
+            rolledValues.AddRange(Enumerable.Repeat(diceMaxValue, rolledValues.Count));
+
+            return Mathf.FloorToInt(damageMultiplier *
+                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
+                                        int.MaxValue) + additionalDamage));
         }
 
         private static int RollDiceKeepRollingMaxAndSum(
@@ -186,8 +212,7 @@ public static class RulesetImplementationManagerPatcher
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
-            bool canRerollDice,
-            EffectGroupInfo effectGroupInfo)
+            bool canRerollDice)
         {
             var hero = rulesetActor as RulesetCharacterHero ??
                        (rulesetActor as RulesetCharacter)?.OriginalFormCharacter as RulesetCharacterHero;
@@ -211,9 +236,9 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, false, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice, effectGroupInfo),
+                        canRerollDice),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
@@ -226,9 +251,9 @@ public static class RulesetImplementationManagerPatcher
                 },
                 RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
-                        canRerollDice, effectGroupInfo),
+                        canRerollDice),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
@@ -252,12 +277,11 @@ public static class RulesetImplementationManagerPatcher
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
-                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, EffectGroupInfo, int>(
+                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, int>(
                     RollDamage).Method;
 
             return instructions.ReplaceCalls(rollDamageMethod,
                 "RulesetImplementationManager.ApplyDamageForm",
-                new CodeInstruction(OpCodes.Ldloc, Main.IsDebugBuild ? 54 : 15), // EffectGroupInfo
                 new CodeInstruction(OpCodes.Call, myRollDamageMethod));
         }
     }
@@ -590,6 +614,63 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: support for `IRestrictedContextValidator` feature
             __result = RestrictedContextValidatorPatch.ModifyResult(__result, provider, character, itemDefinition,
                 rangedAttack, attackMode, rulesetEffect);
+        }
+    }
+
+    //PATCH: allow ISavingThrowAffinityProvider to be validated with IsCharacterValidHandler
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TryRollSavingThrow))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TryRollSavingThrow_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateFeatureDefinitionSavingThrowAffinity).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("ISavingThrowAffinityProvider",
+                -1, "RulesetImplementationManager.TryRollSavingThrow",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+
+        private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
+        {
+            var savingThrowBonus =
+                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
+                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+
+            var attr = attributeScore;
+
+            foreach (var attribute in rulesetActor
+                         .GetSubFeaturesByType<IChangeSavingThrowAttribute>()
+                         .Where(x => x.IsValid(rulesetActor, attr))
+                         .Select(x => x.SavingThrowAttribute(rulesetActor)))
+            {
+                var newSavingThrowBonus =
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
+
+                // get the last one instead unless we start using this with other subs and then need to decide which one is better
+                if (newSavingThrowBonus <= savingThrowBonus)
+                {
+                    continue;
+                }
+
+                attributeScore = attribute;
+                savingThrowBonus = newSavingThrowBonus;
+            }
+        }
+
+        //PATCH: supports IChangeSavingThrowAttribute interface
+        [UsedImplicitly]
+        public static void Prefix(RulesetActor target, ref string savingThrowAbility)
+        {
+            GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
     }
 }

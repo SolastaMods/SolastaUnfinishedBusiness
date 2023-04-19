@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -25,6 +26,7 @@ internal static class MeleeCombatFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featAlwaysReady = BuildAlwaysReady();
         var featBladeMastery = BuildBladeMastery();
         var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
@@ -42,6 +44,7 @@ internal static class MeleeCombatFeats
         var featSpearMastery = BuildSpearMastery();
 
         feats.AddRange(
+            featAlwaysReady,
             featBladeMastery,
             featCleavingAttack,
             featCrusherStr,
@@ -67,6 +70,7 @@ internal static class MeleeCombatFeats
             featSlasherStr);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featAlwaysReady,
             featDefensiveDuelist);
 
         GroupFeats.FeatGroupPiercer.AddFeats(
@@ -82,6 +86,7 @@ internal static class MeleeCombatFeats
             FeatDefinitions.DauntingPush,
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
+            featAlwaysReady,
             featBladeMastery,
             featCleavingAttack,
             featDefensiveDuelist,
@@ -194,7 +199,7 @@ internal static class MeleeCombatFeats
         const string NAME = "FeatSpearMastery";
         const string REACH_CONDITION = $"Condition{NAME}Reach";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponTypeWithoutAttackTag("Polearm", SpearType);
 
         var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
             .Create(REACH_CONDITION)
@@ -237,12 +242,11 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("SpearMastery")
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                .SetIgnoreCriticalDoubleDice(true)
-                // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
                 //Adding any property so that custom restricted context would trigger
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                 .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
                     (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                .SetIgnoreCriticalDoubleDice(true)
                 .AddToDB())
             .AddToDB();
 
@@ -393,6 +397,85 @@ internal static class MeleeCombatFeats
 
             attackMode.ToHitBonus += 1;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
+        }
+    }
+
+    #endregion
+
+    #region Always Ready
+
+    private static FeatDefinition BuildAlwaysReady()
+    {
+        var conditionAlwaysReady = ConditionDefinitionBuilder
+            .Create("ConditionAlwaysReady")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Permanent)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatAlwaysReady")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady))
+            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddToDB();
+    }
+
+    private sealed class CustomBehaviorAlwaysReady : IAfterAttackEffect, ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess ||
+                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.Guid,
+                _conditionDefinition,
+                _conditionDefinition.durationType,
+                _conditionDefinition.durationParameter,
+                _conditionDefinition.turnOccurence,
+                attacker.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
+
+            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.Ready)
+            {
+                readyActionType = ActionDefinitions.ReadyActionType.Melee
+            };
+
+            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
 
@@ -718,60 +801,22 @@ internal static class MeleeCombatFeats
 
     #region Crusher
 
-    private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
-        .Create("PowerFeatCrusherHit")
-        .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
-        .SetShowCasting(false)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetEffectForms(EffectFormBuilder
-                .Create()
-                .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                .Build())
-            .Build())
-        .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
+    private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
-        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.UsePowerReaction)
-        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-        .SetDamageDice(DieType.D1, 0)
-        .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
-        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-        .SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, _, ranged, mode, _) =>
-                (OperationType.Set,
-                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, null))))
-        .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
-        .Create("FeatureFeatCrusherCriticalHit")
-        .SetGuiPresentationNoContent(true)
-        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-        .SetDamageDice(DieType.D1, 0)
-        .SetNotificationTag(GroupFeats.Crusher)
-        .SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                (OperationType.Set,
-                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, character))),
-            new AfterAttackEffectFeatCrusher(
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatCrusherCriticalHit")
-                    .SetGuiPresentation("FeatCrusherStr", Category.Feat)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
-                    .SetFeatures(
-                        FeatureDefinitionCombatAffinityBuilder
-                            .Create("CombatAffinityFeatCrusher")
-                            .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
-                            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                            .AddToDB())
-                    .AddToDB(),
-                DamageTypeBludgeoning))
+        .SetCustomSubFeatures(new PhysicalAttackFinishedCrusher(
+            ConditionDefinitionBuilder
+                .Create("ConditionFeatCrusherCriticalHit")
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                .SetSpecialDuration(DurationType.Round, 1)
+                .SetConditionType(ConditionType.Detrimental)
+                .SetFeatures(
+                    FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityFeatCrusher")
+                        .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
+                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                        .AddToDB())
+                .AddToDB()))
         .AddToDB();
 
     private static FeatDefinition BuildCrusherStr()
@@ -782,11 +827,9 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Einar,
                 FeatureFeatCrusher,
-                FeatureFeatCrusherCriticalHit,
-                PowerFeatCrusherHit)
+                GameUiContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
-            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -798,57 +841,120 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Arun,
                 FeatureFeatCrusher,
-                FeatureFeatCrusherCriticalHit,
-                PowerFeatCrusherHit)
+                GameUiContext.ActionAffinityFeatCrusherToggle)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
-    private sealed class AfterAttackEffectFeatCrusher : IAfterAttackEffect
+    private sealed class PhysicalAttackFinishedCrusher : IPhysicalAttackFinished
     {
-        private readonly ConditionDefinition _criticalConditionDefinition;
-        private readonly string _damageType;
+        private const string SpecialFeatureName = "FeatureCrusher";
 
-        internal AfterAttackEffectFeatCrusher(
-            ConditionDefinition criticalConditionDefinition,
-            string damageType)
+        private readonly ConditionDefinition _criticalConditionDefinition;
+
+        public PhysicalAttackFinishedCrusher(ConditionDefinition conditionDefinition)
         {
-            _criticalConditionDefinition = criticalConditionDefinition;
-            _damageType = damageType;
+            _criticalConditionDefinition = conditionDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public IEnumerator OnAttackFinished(
+            GameLocationBattleManager battleManager,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome,
+            int damageAmount)
         {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (damage == null || damage.DamageType != _damageType)
+            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
-                return;
+                yield break;
             }
 
-            if (outcome is not RollOutcome.CriticalSuccess)
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (attackRollOutcome is RollOutcome.CriticalSuccess)
             {
-                return;
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    rulesetDefender.Guid,
+                    _criticalConditionDefinition,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    rulesetAttacker.Guid,
+                    rulesetAttacker.CurrentFaction.Name);
+
+                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
-                _criticalConditionDefinition,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
+            if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            if (attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName) ||
+                !rulesetAttacker.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle))
+            {
+                yield break;
+            }
+
+            var actionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (actionService == null || !battleManager.IsBattleInProgress)
+            {
+                yield break;
+            }
+
+            if (attackerAttackMode.ranged ||
+                !ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(attackerAttackMode, null, null))
+            {
+                yield break;
+            }
+
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter = "Reaction/&CustomReactionCrusherDescription"
+                };
+            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("Crusher", reactionParams);
+
+            actionService.AddInterruptRequest(reactionRequest);
+
+            yield return battleManager.WaitForReactions(
+                attacker, actionService, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var implementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+            var applyFormsParams = new RulesetImplementationDefinitions.ApplyFormsParams
+            {
+                sourceCharacter = rulesetAttacker,
+                targetCharacter = rulesetDefender,
+                position = defender.LocationPosition
+            };
+
+            implementationService.ApplyEffectForms(
+                new List<EffectForm>
+                {
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                        .Build()
+                },
+                applyFormsParams,
+                new List<string>(),
+                out _,
+                out _);
+
+            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
         }
     }
 
@@ -923,6 +1029,12 @@ internal static class MeleeCombatFeats
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
 
             switch (attackModifier.AttackAdvantageTrend)
@@ -959,8 +1071,7 @@ internal static class MeleeCombatFeats
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
                     var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
 
-                    var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
-                        .CurrentValue;
+                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
                     if (strengthMod <= 0)
@@ -1234,7 +1345,7 @@ internal static class MeleeCombatFeats
             }
 
             const int TO_HIT = -3;
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiency = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var toDamage = 3 + proficiency;
 
             attackMode.ToHitBonus += TO_HIT;
@@ -1258,7 +1369,7 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
-                    .SetGuiPresentation(Category.Condition)
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                     .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
@@ -1347,15 +1458,15 @@ internal static class MeleeCombatFeats
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
                 rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    attacker.RulesetCharacter.Guid,
+                    attacker.Guid,
                     _conditionDefinition,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    attacker.RulesetCharacter.Guid,
+                    attacker.Guid,
                     attacker.RulesetCharacter.CurrentFaction.Name);
 
-                defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)
@@ -1364,15 +1475,15 @@ internal static class MeleeCombatFeats
             }
 
             rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
+                defender.Guid,
                 _criticalConditionDefinition,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
+                attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

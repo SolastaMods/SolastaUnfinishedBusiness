@@ -372,12 +372,11 @@ internal static partial class SpellBuilders
             .Create("AdditionalDamageResonatingStrike")
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("ResonatingStrike")
-            .SetDamageDice(DieType.D8, 0)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetAttackModeOnly()
+            .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
-            .SetIgnoreCriticalDoubleDice(true)
+            .SetAttackModeOnly()
             .AddToDB();
 
         // hack as the ResonatingStrike damage distribution is odd (4,6,5,5) and SetAdv doesn't cover that
@@ -489,7 +488,6 @@ internal static partial class SpellBuilders
                                     .SetNotificationTag("SunlightBlade")
                                     .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                     .SetAttackModeOnly()
-                                    .SetAttackOnly()
                                     .SetDamageDice(DieType.D8, 1)
                                     .SetSpecificDamageType(DamageTypeRadiant)
                                     .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)

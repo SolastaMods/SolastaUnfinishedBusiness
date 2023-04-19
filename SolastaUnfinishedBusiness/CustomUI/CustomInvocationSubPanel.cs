@@ -27,12 +27,45 @@ public class CustomInvocationSubPanel : MonoBehaviour
         }
     }
 
-    internal static List<string> CustomInvocationsProficiencies(RulesetCharacterHero __instance)
+    internal static List<string> CustomInvocationsProficiencies(RulesetCharacterHero hero, InvocationSubPanel panel)
     {
-        var selectedClass = LevelUpContext.GetSelectedClass(__instance);
+        if (panel.TryGetComponent<CustomInvocationSubPanel>(out var custom))
+        {
+            var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
+                .OfType<InvocationDefinitionCustom>()
+                .Where(i => i.PoolType == custom.Type)
+                .Select(i => i.Name);
+
+            return hero.invocationProficiencies
+                .Intersect(customInvocations)
+                .ToList();
+        }
+        else
+        {
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+
+            if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
+                && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
+            {
+                return new List<string>();
+            }
+            
+            var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
+                .OfType<InvocationDefinitionCustom>()
+                .Select(i => i.Name);
+
+            return hero.invocationProficiencies
+                .Except(customInvocations)
+                .ToList();
+        }
+    }
+
+    internal static List<string> OnlyStandardInvocationProficiencies(RulesetCharacterHero hero)
+    {
+        var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
         if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
-            && !__instance.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
+            && !hero.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
         {
             return new List<string>();
         }
@@ -41,7 +74,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
             .OfType<InvocationDefinitionCustom>()
             .Select(i => i.Name);
 
-        return __instance.invocationProficiencies
+        return hero.invocationProficiencies
             .Except(customInvocations)
             .ToList();
     }

@@ -3,13 +3,12 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -80,8 +79,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         Level 17 - Ascension
         As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
         */
-         var conditionAscension = ConditionDefinitionBuilder
-            .Create(ConditionFlying12,$"Condition{Name}Ascension")
+        var conditionAscension = ConditionDefinitionBuilder
+            .Create(ConditionFlying12, $"Condition{Name}Ascension")
             .SetGuiPresentation(Category.Condition, ConditionFlying12)
             .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierHasted)
             .AddToDB();
@@ -93,10 +92,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                 .AddEffectForms(EffectFormBuilder
-                 .Create()
-                 .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
-                 .Build())
+                .AddEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionAscension, ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .SetDurationData(DurationType.Minute, 1)
                 .Build())
             .AddToDB();
@@ -232,16 +231,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Breath")
+            .Create($"FeatureSet{Name}Breath")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
-            .AddFeatureSetNoSort(
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .AddFeatureSet(
                 powerBlackElementalBreath,
                 powerBlueElementalBreath,
                 powerGoldElementalBreath,
                 powerGreenElementalBreath,
                 powerSilverElementalBreath)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
+                DamageTypeAcid, DamageTypeFire, DamageTypeCold, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonBreath;
@@ -445,16 +445,17 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonFury = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Fury")
+            .Create($"FeatureSet{Name}Fury")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .ClearFeatureSet()
-            .AddFeatureSetNoSort(
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.DeterminedByAncestry)
+            .AddFeatureSet(
                 powerDragonFuryAcid,
                 powerDragonFuryLightning,
                 powerDragonFuryFire,
                 powerDragonFuryPoison,
                 powerDragonFuryCold)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon,
+                DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison)
             .AddToDB();
 
         return featureWayOfDragonFury;
@@ -488,11 +489,11 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Constitution).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Constitution));
             var profBonus = AttributeDefinitions.ComputeProficiencyBonus(me.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
             var myWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(me.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, attackerConModifier, 8 + profBonus + myWisModifier, false, out var savingOutcome,
@@ -506,9 +507,9 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
                 out var damageType);
 
-            var myLevel = me.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var classLevel = me.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
 
-            var damageInt = myLevel switch
+            var damageInt = classLevel switch
             {
                 <= 4 => 8,
                 <= 10 => 12,

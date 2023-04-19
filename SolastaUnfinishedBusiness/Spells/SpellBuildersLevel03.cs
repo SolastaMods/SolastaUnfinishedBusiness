@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -166,7 +167,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, MagicWeapon)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("ElementalWeapon", Resources.ElementalWeapon, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Minute, 1)
@@ -226,7 +227,7 @@ internal static partial class SpellBuilders
                 AdditionalDamageElementalWeaponDescription(damageType), MagicWeapon.guiPresentation.SpriteReference)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(damageType)
-            .SetAttackOnly()
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 1)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
@@ -238,7 +239,7 @@ internal static partial class SpellBuilders
                 AdditionalDamageElementalWeaponDescription1(damageType), MagicWeapon.guiPresentation.SpriteReference)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(damageType)
-            .SetAttackOnly()
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 2)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)
@@ -250,7 +251,7 @@ internal static partial class SpellBuilders
                 AdditionalDamageElementalWeaponDescription2(damageType), MagicWeapon.guiPresentation.SpriteReference)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(damageType)
-            .SetAttackOnly()
+            .SetAttackModeOnly()
             .SetDamageDice(DieType.D4, 3)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetNotificationTag(NOTIFICATION_TAG)

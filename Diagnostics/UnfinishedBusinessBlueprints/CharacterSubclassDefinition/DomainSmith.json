@@ -71,9 +71,9 @@
     "description": "Subclass/&DomainSmithDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1219ae912ec913e4fac04ff4b0249bc0",
-      "m_SubObjectName": "GreatWeapon",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "64e7253c-b5c6-528f-832c-cf07fbbd3b51",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

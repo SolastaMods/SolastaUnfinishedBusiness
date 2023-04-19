@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FeaturePathOfTheElementsElementalConduitBlizzard:4dfa57de-e873-5035-a0dd-9fec78ee57a0",
+    "Definition:PowerPathOfTheElementsElementalConduitStorm:19b22e60-ee56-5272-97c1-93016008278c",
+    "Definition:FeaturePathOfTheElementsElementalConduitWildfire:d59e54d9-f4e0-5cd3-935b-c8790a312a67"
+  ],
+  "mode": "DeterminedByAncestry",
+  "ancestryDamageTypeMap": [
+    "DamageCold",
+    "DamageLightning",
+    "DamageFire"
+  ],
+  "ancestryType": 9001,
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheElementsElementalConduitTitle",
+    "description": "Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.\n• <b>Storm</b>: While you are raging, you gain flying speed equal to your walking speed.\n• <b>Blizzard</b>: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.\n• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to half your barbarian level.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ad5cda00-53ee-5029-a06e-047c6f755f32",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheElementsElementalConduit"
+}

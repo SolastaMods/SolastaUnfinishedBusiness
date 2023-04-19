@@ -18,8 +18,13 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoyalKnightProtection:01c1d769-c23c-5d21-a78d-84929bebd928",
+      "featureDefinition": "Definition:FeatureSetRoyalKnightInspiringProtection:5c6ff3f8-1564-560a-865c-67d0ee72d763",
       "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoyalKnightSpiritedSurge:43b86a3c-a419-527b-a99c-ad6bcea2cbc1",
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],
@@ -31,7 +36,7 @@
     "description": "Subclass/&MartialRoyalKnightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ff91b484-3707-57d1-892a-33fd61fd3caa",
+      "m_AssetGUID": "1849bf38-714c-56b9-8318-a64d9e11dc56",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

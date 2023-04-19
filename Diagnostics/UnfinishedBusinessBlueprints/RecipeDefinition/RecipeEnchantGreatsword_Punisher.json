@@ -9,12 +9,7 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Greatsword:f8a7ceac8de8c1a4497b55c8b8bd1de6"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Primed Battleaxe:f97fdb4e5c2b1f043bc1f465e8a0b4a0"
+      "itemDefinition": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

@@ -14,6 +14,12 @@ internal class
         return this;
     }
 
+    internal FeatureDefinitionAncestryBuilder SetDamageType(string damageType)
+    {
+        Definition.damageType = damageType;
+        return this;
+    }
+
     #region Constructors
 
     internal FeatureDefinitionAncestryBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

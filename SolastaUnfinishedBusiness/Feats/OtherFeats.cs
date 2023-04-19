@@ -4,11 +4,15 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -32,12 +36,14 @@ internal static class OtherFeats
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
+        var featInfusionAdept = BuildInfusionsAdept();
         var featInspiringLeader = BuildInspiringLeader();
-        var featMetamagic = BuildMetamagic();
+        var featMetamagicAdept = BuildMetamagicAdept();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featTacticianAdept = BuildTacticianAdept();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
@@ -51,12 +57,14 @@ internal static class OtherFeats
             featAstralArms,
             featEldritchAdept,
             featHealer,
+            featInfusionAdept,
             featInspiringLeader,
-            featMetamagic,
+            featMetamagicAdept,
             featMobile,
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featTacticianAdept,
             featTough,
             featWarCaster);
 
@@ -77,6 +85,12 @@ internal static class OtherFeats
             elementalMasterGroup,
             featWarCaster,
             spellSniperGroup);
+
+        GroupFeats.FeatGroupGeneralAdept.AddFeats(
+            featEldritchAdept,
+            featInfusionAdept,
+            featMetamagicAdept,
+            featTacticianAdept);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -108,6 +122,37 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Tactician Adept
+
+    private static FeatDefinition BuildTacticianAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatTacticianAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                GambitsBuilders.GambitPool,
+                GambitsBuilders.Learn2Gambit,
+                MartialTactician.BuildGambitPoolIncrease(2, "FeatTacticianAdept"))
+            .SetValidators(ValidatorsFeat.IsLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Infusions Adept
+
+    private static FeatDefinition BuildInfusionsAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatInfusionsAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(InventorClass.InfusionPool, InventorClass.BuildLearn(2, "FeatInfusionsAdept"))
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 
@@ -383,6 +428,34 @@ internal static class OtherFeats
 
     #endregion
 
+    #region Metamagic Adept
+
+    private static FeatDefinition BuildMetamagicAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatMetamagicAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                ActionAffinitySorcererMetamagicToggle,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddHalfProficiencyBonus,
+                        AttributeDefinitions.SorceryPoints)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolFeatMetamagicAdept")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
+                    .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .SetValidators(ValidatorsFeat.IsLevel2)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Common Helpers
 
     internal sealed class SpellTag
@@ -491,9 +564,10 @@ internal static class OtherFeats
             _damageTypes.AddRange(damageTypes);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor, string damageType)
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor actor)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
+            return provider.DamageAffinityType == DamageAffinityType.Resistance &&
+                   _damageTypes.Contains(provider.DamageType);
         }
     }
 
@@ -529,7 +603,7 @@ internal static class OtherFeats
                         .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
                         .SetGuiPresentation(guiPresentation)
                         .SetModifiers(RollContext.AttackRoll, 1, 1, 1,
-                            "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                            "Feature/&DieRollModifierFeatElementalMasterReroll", damageType)
                         .SetCustomSubFeatures(new IgnoreDamageResistanceElementalMaster(damageType))
                         .AddToDB(),
                     FeatureDefinitionDamageAffinityBuilder
@@ -562,90 +636,10 @@ internal static class OtherFeats
         }
 
         public bool CanIgnoreDamageAffinity(
-            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+            IDamageAffinityProvider provider, RulesetActor rulesetActor)
         {
-            return provider.DamageAffinityType == DamageAffinityType.Immunity && _damageTypes.Contains(damageType);
-        }
-    }
-
-    #endregion
-
-    #region Metamagic
-
-    private static FeatDefinition BuildMetamagic()
-    {
-        // KEEP FOR BACKWARD COMPATIBILITY until next DLC
-        BuildMetamagicBackwardCompatibility();
-
-        return FeatDefinitionBuilder
-            .Create("FeatMetamagicAdept")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                ActionAffinitySorcererMetamagicToggle,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(
-                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.SorceryPoints,
-                        2)
-                    .AddToDB(),
-                FeatureDefinitionPointPoolBuilder
-                    .Create("PointPoolFeatMetamagicAdept")
-                    .SetGuiPresentationNoContent(true)
-                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
-                    .AddToDB())
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
-    }
-
-    private static void BuildMetamagicBackwardCompatibility()
-    {
-        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
-                AttributeDefinitions.SorceryPoints)
-            .AddToDB();
-
-        var metaMagicFeats = new List<FeatDefinition>();
-        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
-
-        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
-                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
-                .SetGuiPresentationNoContent(true)
-                .SetFeatures(
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus3,
-                    FeatureDefinitionBuilder
-                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
-                        .AddToDB())
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                .AddToDB()));
-    }
-
-    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
-    {
-        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
-        {
-            MetamagicOption = metamagicOption;
-        }
-
-        private MetamagicOptionDefinition MetamagicOption { get; }
-
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
-            {
-                return;
-            }
-
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
+            return provider.DamageAffinityType == DamageAffinityType.Immunity &&
+                   _damageTypes.Contains(provider.DamageType);
         }
     }
 
@@ -819,8 +813,8 @@ internal static class OtherFeats
 
         private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
         {
-            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var constitution = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Constitution);
+            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
             {
                 saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
@@ -840,9 +834,16 @@ internal static class OtherFeats
                 return;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                return;
+            }
+
             var effectPower = GetUsablePower(attacker);
 
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
         }
     }
 

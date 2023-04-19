@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -27,7 +28,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPool{Name}{Specialization}")
             .SetGuiPresentation($"AttributeModifier{Name}{Specialization}", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
+            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
             .AddToDB();
 
     internal MartialWeaponMaster()
@@ -67,7 +68,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                     weaponTypeDefinition.GuiPresentation.Title,
                     featureSpecialization.GuiPresentation.Description,
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
-                .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
                 .SetCustomSubFeatures(Hidden.Marker)
                 .AddToDB();
@@ -344,7 +345,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (attacker.CurrentActionRankByType[ActionDefinitions.ActionType.Reaction] > 0)
+            if (!attacker.CanReact())
             {
                 yield break;
             }
@@ -354,7 +355,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            if (gameLocationActionService == null || gameLocationBattleService == null)
+            if (gameLocationActionService == null || gameLocationBattleService == null ||
+                !gameLocationBattleService.IsBattleInProgress)
             {
                 yield break;
             }
@@ -362,7 +364,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var specializedWeapons = GetSpecializedWeaponTypes(rulesetAttacker);
 
-            if (specializedWeapons.All(x => !ValidatorsCharacter.HasWeaponType(x)(rulesetAttacker)))
+            if (specializedWeapons.All(x => !ValidatorsWeapon.IsOfWeaponType(x)(attackMode, null, null)))
             {
                 yield break;
             }

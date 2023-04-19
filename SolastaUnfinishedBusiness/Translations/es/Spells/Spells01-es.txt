@@ -2,7 +2,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Atrapado
 Condition/&ConditionMuleDescription=Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
 Condition/&ConditionMuleTitle=Mula
-Condition/&ConditionSanctuaryDescription=Los ataques contra ti deben hacer una tirada de salvación de sabiduría. En una tirada de salvación fallida, el ataque falla. Los golpes críticos tratan la mitad.
+Condition/&ConditionSanctuaryDescription=Los ataques contra ti deben hacer una tirada de salvación de Sabiduría. En una tirada de salvación fallida, el ataque falla. Los golpes críticos tratan la mitad.
 Condition/&ConditionSanctuaryTitle=Protegido por Santuario
 Condition/&ConditionSkinOfRetributionDescription=Si una criatura te golpea con un ataque cuerpo a cuerpo mientras tienes estos puntos de golpe temporales, la criatura recibe 5 {0} por nivel de hechizo.
 Condition/&ConditionSkinOfRetributionTitle=Piel de retribución
@@ -22,7 +22,7 @@ Feedback/&AdditionalDamageThunderousSmiteFormat=Golpe atronador!
 Feedback/&AdditionalDamageThunderousSmiteLine={0} inflige más daño a {1} a través de un golpe atronador (+{2})
 Feedback/&AdditionalDamageWrathfulSmiteFormat=¡Castigo colérico!
 Feedback/&AdditionalDamageWrathfulSmiteLine={0} inflige más daño a {1} a través de un golpe airado (+{2})
-Spell/&ChromaticOrbDescription=Lanzas una esfera de energía de 4 pulgadas de diámetro a una criatura que puedes ver dentro del alcance. Eliges ácido, frío, fuego, relámpago, veneno o trueno para el tipo de orbe que creas y luego realizas un ataque de hechizo a distancia contra el objetivo. Si el ataque impacta, la criatura sufre 3d8 puntos de daño del tipo que hayas elegido.
+Spell/&ChromaticOrbDescription=Lanzas una esfera de energía de 4 pulgadas de diámetro a una criatura que puedes ver dentro del alcance. Eliges ácido, frío, fuego, relámpago, veneno o trueno para el tipo de orbe que creas, y luego realizas un ataque de hechizo a distancia contra el objetivo. Si el ataque impacta, la criatura sufre 3d8 puntos de daño del tipo que hayas elegido.
 Spell/&ChromaticOrbTitle=Orbe cromático
 Spell/&EarthTremorDescription=Golpeas el suelo y desatas un temblor de fuerza sísmica, arrojando tierra, rocas y arena.
 Spell/&EarthTremorTitle=Terremoto

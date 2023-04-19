@@ -1,0 +1,14 @@
+Feature/&CastSpellFairyDescription=你熟知<b>光辉爆发</b>戏法，在第3级时，你学会<b>妖火</b> ，在5级时，你学会<b>七彩喷射</b>。每次长休后可以使用一次。
+Feature/&CastSpellFairyTitle=仙灵魔法
+Feature/&FeatureSetFairyAbilityScoreDescription=敏捷 +2, 智力、感知或魅力 +1
+Feature/&FeatureSetFairyAbilityScoreTitle=属性值
+Feature/&FeatureSetFairyFlightDescription=由于你拥有翅膀，你的飞行速度等于你的移动速度。如果你穿着中甲或重甲，则无法飞行。
+Feature/&FeatureSetFairyFlightTitle=飞行
+Feature/&FeatureSetFairyLanguagesDescription=通用语以及你所选的一门语言
+Feature/&FeatureSetFairyLanguagesTitle=语言
+Feature/&PowerFairyFlightDismissDescription=取消你的飞行能力
+Feature/&PowerFairyFlightDismissTitle=取消飞行
+Feature/&PowerFairyFlightSproutDescription=你可以使用一个动作，使你的飞行速度等于你的移动速度。如果你穿着中甲或重甲，则无法飞行。
+Feature/&PowerFairyFlightSproutTitle=飞行
+Race/&RaceFairyDescription=妖精荒野是许多神奇民族的家园，包括仙灵。仙子是个娇小的种族，但比起他们的皮克精和小妖精朋友们来说还算大一些。最早的仙灵说的是精灵语、地精语或森林语，与人类来访者的相遇促使他们中的许多人也学会了通用语。
+Race/&RaceFairyTitle=仙灵

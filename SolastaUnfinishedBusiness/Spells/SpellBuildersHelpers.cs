@@ -21,9 +21,9 @@ internal static partial class SpellBuilders
 
     private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
     {
-        public int GetEffectLevel([NotNull] RulesetActor caster)
+        public int GetEffectLevel([NotNull] RulesetActor caster, RulesetEffectSpell rulesetEffectSpell)
         {
-            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            return caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         }
     }
 
@@ -111,7 +111,7 @@ internal static partial class SpellBuilders
     {
         public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
         {
-            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var level = caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             return SpellAdvancementByCasterLevel[level - 1];
         }
     }
@@ -201,8 +201,10 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            var rulesetDefender = defender.RulesetCharacter;
+
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                defender.RulesetCharacter.CurrentHitPoints > 50)
+                rulesetDefender == null || rulesetDefender.CurrentHitPoints > 50)
             {
                 return;
             }
@@ -214,10 +216,10 @@ internal static partial class SpellBuilders
                 DurationType.Minute,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
+                attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 
@@ -286,14 +288,21 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
-            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(defender.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
-            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(defender.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(rulesetDefender
+                .TryGetAttributeValue(AttributeDefinitions.CharacterLevel));
+            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(rulesetDefender
+                .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
                 advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier, false,
@@ -306,16 +315,16 @@ internal static partial class SpellBuilders
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
+                defender.Guid,
                 _conditionSanctuaryBuff,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                defender.RulesetCharacter.Guid,
-                defender.RulesetCharacter.CurrentFaction.Name
+                defender.Guid,
+                rulesetDefender.CurrentFaction.Name
             );
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 
@@ -352,17 +361,24 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.RulesetCharacter.Guid,
+                defender.Guid,
                 _conditionSanctuaryBuff,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                defender.RulesetCharacter.Guid,
-                defender.RulesetCharacter.CurrentFaction.Name
+                defender.Guid,
+                rulesetDefender.CurrentFaction.Name
             );
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

@@ -1,4 +1,4 @@
-Race/&RaceHalfElfDarkDescription=Elfos meio-escuros são descendentes de elfos que foram mudados ao longo do tempo por viverem nas inóspitas Badlands. Sua herança humana os tornou adaptáveis ​​à luz brilhante.
+Race/&RaceHalfElfDarkDescription=Elfos meio-escuros são descendentes de elfos que foram mudados ao longo do tempo por viverem nas inóspitas Badlands. Sua herança humana os tornou adaptáveis à luz brilhante.
 Race/&RaceHalfElfDarkTitle=Elfo meio-escuro
 Race/&RaceHalfElfHighDescription=Elfos meio-altos são treinados para usar magia muito cedo.
 Race/&RaceHalfElfHighTitle=Elfo meio alto

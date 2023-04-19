@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Invocations;
+using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
@@ -152,7 +152,7 @@ internal static class GameLocationBattleManagerTweaks
             {
                 if (hero != null)
                 {
-                    var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+                    var characterLevel = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                     diceNumber = provider.GetDiceOfRank(characterLevel);
                 }
             }
@@ -256,7 +256,7 @@ internal static class GameLocationBattleManagerTweaks
 
                 //use previously saved original RulesetCharacterHero
                 additionalDamageForm.BonusDamage +=
-                    hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                    hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
                 /*
                  * Support for wild-shaped characters
@@ -296,12 +296,12 @@ internal static class GameLocationBattleManagerTweaks
                     featureDefinition == AdditionalDamageLifedrinker)
                 {
                     spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
-                        .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
+                        .TryGetAttributeValue(AttributeDefinitions.Charisma));
                 }
                 else if (featureDefinition == AdditionalDamageTraditionShockArcanistArcaneFury)
                 {
                     spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
-                        .GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+                        .TryGetAttributeValue(AttributeDefinitions.Intelligence));
                 }
 
                 /*
@@ -777,59 +777,6 @@ internal static class GameLocationBattleManagerTweaks
 
                         break;
                     }
-                    /*
-                     * ######################################
-                     * [CE] EDIT START
-                     * Support for extra types of reactions
-                     */
-                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
-                        .UsePowerReaction:
-                    {
-                        // revalidating it here as game doesn't call this method in cases where attack mode is null
-                        var isValid = rulesetImplementation.IsValidContextForRestrictedContextProvider(
-                            provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode,
-                            rulesetEffect);
-
-                        if (!isValid)
-                        {
-                            break;
-                        }
-
-                        var hero = attacker.RulesetCharacter as RulesetCharacterHero;
-
-                        if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
-                        {
-                            hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-                        }
-
-                        reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerReaction);
-                        reactionParams.ActionModifiers.Add(new ActionModifier());
-
-                        var powerDefinition = DatabaseHelper.GetDefinition<FeatureDefinitionPower>(
-                            (featureDefinition as FeatureDefinitionAdditionalDamage).SpecificDamageType);
-                        var rulesetPower = hero.UsablePowers.Find(x => x.PowerDefinition == powerDefinition);
-
-                        if (rulesetPower is { RemainingUses: > 0 })
-                        {
-                            yield return instance.PrepareAndReactWithPowerReaction(
-                                attacker, defender, attacker, rulesetPower);
-
-                            validTrigger = reactionParams.ReactionValidated;
-
-                            if (validTrigger)
-                            {
-                                rulesetPower.ForceSpentPoints(powerDefinition.costPerUse);
-                            }
-                        }
-
-                        break;
-                    }
-                    /*
-                     * Support for extra types of reactions
-                     * [CE] EDIT END
-                     * ######################################
-                     */
-
                     /*
                      * ######################################
                      * [CE] EDIT START

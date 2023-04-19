@@ -25,8 +25,10 @@ internal static class SubclassesContext
     internal static void Load()
     {
         // Barbarian
+        LoadSubclass(new PathOfTheElements());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new PathOfTheReaver());
+        LoadSubclass(new PathOfTheSavagery());
         LoadSubclass(new PathOfTheSpirits());
 
         // Bard
@@ -42,6 +44,7 @@ internal static class SubclassesContext
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
+        LoadSubclass(new CircleOfTheLife());
         LoadSubclass(new CircleOfTheNight());
 
         // Fighter
@@ -54,6 +57,7 @@ internal static class SubclassesContext
         // Paladin
         LoadSubclass(new OathOfAltruism());
         LoadSubclass(new OathOfAncients());
+        LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
 
         // Ranger
@@ -73,6 +77,8 @@ internal static class SubclassesContext
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
         LoadSubclass(new SorcerousFieldManipulator());
+        LoadSubclass(new SorcerousSorrAkkath());
+        LoadSubclass(new SorcerousSpellBlade());
 
         // Monk
         LoadSubclass(new WayOfTheDiscordance());
@@ -110,6 +116,7 @@ internal static class SubclassesContext
     internal static void LateLoad()
     {
         CollegeOfLife.LateLoad();
+        CircleOfTheLife.LateLoad();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder, bool isBetaContent = false)

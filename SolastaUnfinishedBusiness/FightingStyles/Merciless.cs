@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
@@ -70,8 +70,8 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = rulesetCharacter.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var strength = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Strength);
             var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
             {
                 saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)

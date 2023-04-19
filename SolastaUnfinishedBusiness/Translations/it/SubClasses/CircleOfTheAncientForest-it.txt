@@ -40,4 +40,4 @@ Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTr
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} crea {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} crea {1}
 Subclass/&CircleOfTheAncientForestDescription=Hai stretto una relazione con una potente entità della natura: Antiche Driadi, Arcidruidi, Manifestazioni della Selva Fatata che si riversano nel piano materiale, Divinità dimenticate da un'era primordiale. Potrebbe desiderare che tu protegga il mondo naturale, viaggiare in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile ai mortali di breve durata.
-Subclass/&CircleOfTheAncientForestTitle=Circolo dell'Antica Foresta
+Subclass/&CircleOfTheAncientForestTitle=Circolo della Foresta Antica

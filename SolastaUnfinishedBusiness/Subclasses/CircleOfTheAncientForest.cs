@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -46,7 +48,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         var lifeSapFeature = FeatureDefinitionBuilder
             .Create(LifeSapName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new OnMagicalAttackDamageEffectAncientForestLifeSap())
+            .SetCustomSubFeatures(new MagicalAttackFinishedAncientForestLifeSap())
             .AddToDB();
 
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
@@ -323,9 +325,9 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .AddToDB();
     }
 
-    private sealed class OnMagicalAttackDamageEffectAncientForestLifeSap : IOnMagicalAttackDamageEffect
+    private sealed class MagicalAttackFinishedAncientForestLifeSap : IMagicalAttackFinished
     {
-        public void AfterOnMagicalAttackDamage(
+        public IEnumerator OnMagicalAttackFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -339,7 +341,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             if (caster.MissingHitPoints <= 0 ||
                 !rulesetEffect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage))
             {
-                return;
+                yield break;
             }
 
             var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
@@ -348,13 +350,13 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
             if (!belowHalfHealth && used != 0)
             {
-                return;
+                yield break;
             }
 
             attacker.UsedSpecialFeatures[LifeSapName] = used + 1;
 
-            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
+            var classLevel = caster.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Druid);
+            var healing = used == 0 && belowHalfHealth ? classLevel : Mathf.CeilToInt(classLevel / 2f);
             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 

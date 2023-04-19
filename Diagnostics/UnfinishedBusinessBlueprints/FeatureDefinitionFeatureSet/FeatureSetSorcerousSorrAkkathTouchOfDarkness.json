@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessFixed:347f99ae-b67c-5bb3-be35-18f95f9c96fd",
+    "Definition:PowerSorcerousSorrAkkathTouchOfDarknessPoints:ec1c310d-2e7e-5918-bc22-53cd9a49d836"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessTitle",
+    "description": "Feature/&FeatureSetSorcerousSorrAkkathTouchOfDarknessDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "afb11ef8-1f57-5999-9aba-07bfa7d847b2",
+  "contentPack": 9999,
+  "name": "FeatureSetSorcerousSorrAkkathTouchOfDarkness"
+}

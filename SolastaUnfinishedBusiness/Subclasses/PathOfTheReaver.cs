@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -33,13 +34,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .Create($"AdditionalDamage{Name}VoraciousFury")
                         .SetGuiPresentation($"Feature{Name}VoraciousFury", Category.Feature)
                         .SetNotificationTag("VoraciousFury")
-                        .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                         .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
                         .SetDamageDice(DieType.D1, 2)
                         .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
                         .SetSpecificDamageType(DamageTypeNecrotic)
-                        .SetFirstTargetOnly(true)
                         .SetCustomSubFeatures(new BarbarianHolder())
                         .AddToDB()))
             .AddToDB();
@@ -171,6 +171,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var damageForm = new DamageForm
@@ -178,8 +184,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
+            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch);
             GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
-
             RulesetActor.InflictDamage(
                 totalDamage,
                 damageForm,

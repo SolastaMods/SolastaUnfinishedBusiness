@@ -61,7 +61,9 @@ internal static class GlobalUniqueEffects
 
         var character = action.ActingCharacter.RulesetCharacter;
         var effects = GetLimitedPowerEffects(character, limiter);
+
         effects.Sort((a, b) => a.Guid.CompareTo(b.Guid));
+
         var limit = limiter.GetLimit(character);
         var remove = effects.Count - limit;
 
@@ -97,6 +99,7 @@ internal static class GlobalUniqueEffects
     internal static void TerminateMatchingUniqueEffect(RulesetCharacter character, RulesetEffect uniqueEffect)
     {
         var group = GetSameGroupItems(uniqueEffect.SourceDefinition);
+
         if (uniqueEffect is RulesetEffectPower { PowerDefinition.UniqueInstance: true }
             or RulesetEffectSpell { SpellDefinition.UniqueInstance: true })
         {
@@ -152,5 +155,5 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast }
+    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast, ArtilleristCannon }
 }
