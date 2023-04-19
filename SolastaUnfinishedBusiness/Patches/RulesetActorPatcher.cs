@@ -556,9 +556,16 @@ public static class RulesetActorPatcher
             RulesetActor rulesetActor,
             RulesetCondition rulesetCondition)
         {
-            var newEffectForms = new List<EffectForm>();
+            var newEffectForms = effectForms
+                .Select(x =>
+                {
+                    var y = new EffectForm();
 
-            newEffectForms.AddRange(effectForms);
+                    y.Copy(x);
+
+                    return y;
+                })
+                .ToList();
 
             foreach (var modifyRecurrentMagicEffect in rulesetCondition.ConditionDefinition
                          .GetAllSubFeaturesOfType<IModifyRecurrentMagicEffect>())

@@ -51,7 +51,8 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var conditionVerdancy = ConditionDefinitionBuilder
             .Create(ConditionVerdancy)
             .SetGuiPresentation(Category.Condition, ConditionChildOfDarkness_DimLight)
-            .SetSpecialDuration(DurationType.Round, 3, TurnOccurenceType.StartOfTurn)
+            // uses 2 but it will trigger 3 times as required because of the time we add it
+            .SetSpecialDuration(DurationType.Round, 2, TurnOccurenceType.EndOfSourceTurn)
             .SetPossessive()
             .CopyParticleReferences(ConditionAided)
             .AllowMultipleInstances()
