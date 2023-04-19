@@ -253,7 +253,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         var customBehaviorWolfLeadership = new CustomRagingAura(
-            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack);
+            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack, true);
 
         conditionPathOfTheSpiritsWolfLeadershipPack.SetCustomSubFeatures(customBehaviorWolfLeadership);
         powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(customBehaviorWolfLeadership);
