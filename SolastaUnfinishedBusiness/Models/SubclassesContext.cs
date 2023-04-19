@@ -44,6 +44,7 @@ internal static class SubclassesContext
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
+        LoadSubclass(new CircleOfTheLife());
         LoadSubclass(new CircleOfTheNight());
 
         // Fighter
@@ -115,6 +116,7 @@ internal static class SubclassesContext
     internal static void LateLoad()
     {
         CollegeOfLife.LateLoad();
+        CircleOfTheLife.LateLoad();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder, bool isBetaContent = false)
