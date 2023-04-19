@@ -110,7 +110,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var customBehaviorStorm = new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm);
+        var customBehaviorStorm = new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm, true);
 
         conditionElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
         powerElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
@@ -146,7 +146,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         var customBehaviorBlizzard =
-            new CustomRagingAura(powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard);
+            new CustomRagingAura(powerElementalBlessingBlizzard, conditionElementalBlessingBlizzard, true);
 
         conditionElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
         powerElementalBlessingBlizzard.SetCustomSubFeatures(customBehaviorBlizzard);
@@ -182,7 +182,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
             .AddToDB();
 
         var customBehaviorWildfire =
-            new CustomRagingAura(powerElementalBlessingWildfire, conditionElementalBlessingWildfire);
+            new CustomRagingAura(powerElementalBlessingWildfire, conditionElementalBlessingWildfire, true);
 
         conditionElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
         powerElementalBlessingWildfire.SetCustomSubFeatures(customBehaviorWildfire);
