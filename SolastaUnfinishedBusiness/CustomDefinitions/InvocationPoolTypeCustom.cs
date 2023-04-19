@@ -37,7 +37,7 @@ internal class InvocationPoolTypeCustom
     internal List<int> AllLevels { get; } = new();
     private List<InvocationDefinitionCustom> AllFeatures { get; } = new();
 
-    internal string PanelTitle => $"Screen/&InvocationPool{Name}Header";
+    internal string PanelTitle { get; private set; }
 
     internal static int GetClassOrSubclassLevel(RulesetCharacterHero hero, string classOrSubclassName)
     {
@@ -84,6 +84,7 @@ internal class InvocationPoolTypeCustom
         AssetReferenceSprite sprite = null,
         string requireClassLevel = null,
         bool hidden = false,
+        string panelTitle = null, 
         Id main = Id.CastInvocation,
         Id bonus = (Id)ExtraActionId.CastInvocationBonus,
         Id noCost = (Id)ExtraActionId.CastInvocationNoCost)
@@ -91,9 +92,10 @@ internal class InvocationPoolTypeCustom
         var pool = new InvocationPoolTypeCustom
         {
             Name = name,
+            PanelTitle = panelTitle ?? $"Screen/&InvocationPool{name}Header",
             Sprite = sprite,
             RequireClassLevels = requireClassLevel,
-            Hidden = hidden,
+            Hidden = hidden && string.IsNullOrEmpty(panelTitle),
             MainActionId = main,
             BonusActionId = bonus,
             NoCostActionId = noCost
