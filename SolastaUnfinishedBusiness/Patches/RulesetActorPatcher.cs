@@ -506,15 +506,73 @@ public static class RulesetActorPatcher
                 -1, "RulesetActor.ComputeSavingThrowModifier",
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
+
+        private static void EnumerateFeatureDefinitionSavingThrowAffinity(
+            RulesetCharacter __instance,
+            List<FeatureDefinition> featuresToBrowse,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+        {
+            __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse,
+                featuresOrigin);
+            featuresToBrowse.RemoveAll(x =>
+                !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+        }
     }
 
-    private static void EnumerateFeatureDefinitionSavingThrowAffinity(
-        RulesetCharacter __instance,
-        List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
+    //PATCH: allow recurrent effect forms effect level to be modified
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ExecuteRecurrentForms))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ExecuteRecurrentForms_Patch
     {
-        __instance.EnumerateFeaturesToBrowse<FeatureDefinitionSavingThrowAffinity>(featuresToBrowse, featuresOrigin);
-        featuresToBrowse.RemoveAll(x =>
-            !__instance.IsValid(x.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var myApplyEffectForm = typeof(ExecuteRecurrentForms_Patch).GetMethod("ApplyEffectForms");
+            var applyEffectForm = typeof(IRulesetImplementationService).GetMethod("ApplyEffectForms");
+
+            //PATCH: supports IModifyRecurrentMagicEffect interface
+            return instructions.ReplaceCalls(
+                applyEffectForm,
+                "RulesetActor.ExecuteRecurrentForms",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldarg_1),
+                new CodeInstruction(OpCodes.Call, myApplyEffectForm));
+        }
+
+        [UsedImplicitly]
+        public static int ApplyEffectForms(
+            RulesetImplementationManager __instance,
+            List<EffectForm> effectForms,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            List<string> effectiveDamageTypes,
+            out bool damageAbsorbedByTemporaryHitPoints,
+            out bool terminateEffectOnTarget,
+            bool retargeting,
+            bool proxyOnly,
+            bool forceSelfConditionOnly,
+            RuleDefinitions.EffectApplication effectApplication,
+            List<EffectFormFilter> filters,
+            RulesetActor rulesetActor,
+            RulesetCondition rulesetCondition)
+        {
+            var newEffectForms = new List<EffectForm>();
+
+            newEffectForms.AddRange(effectForms);
+
+            foreach (var modifyRecurrentMagicEffect in rulesetCondition.ConditionDefinition
+                         .GetAllSubFeaturesOfType<IModifyRecurrentMagicEffect>())
+            {
+                foreach (var effectForm in newEffectForms)
+                {
+                    modifyRecurrentMagicEffect.ModifyEffect(rulesetCondition, effectForm, rulesetActor);
+                }
+            }
+
+            return __instance.ApplyEffectForms(
+                newEffectForms, formsParams, effectiveDamageTypes,
+                out damageAbsorbedByTemporaryHitPoints, out terminateEffectOnTarget,
+                retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
+        }
     }
 }
