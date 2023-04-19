@@ -84,7 +84,7 @@ internal class InvocationPoolTypeCustom
         AssetReferenceSprite sprite = null,
         string requireClassLevel = null,
         bool hidden = false,
-        string panelTitle = null, 
+        string panelTitle = null,
         Id main = Id.CastInvocation,
         Id bonus = (Id)ExtraActionId.CastInvocationBonus,
         Id noCost = (Id)ExtraActionId.CastInvocationNoCost)

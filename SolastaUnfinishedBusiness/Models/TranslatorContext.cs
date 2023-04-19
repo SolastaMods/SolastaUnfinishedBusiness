@@ -477,7 +477,7 @@ internal static class TranslatorContext
 
             userCampaign.Description = Translate(userCampaign.Description, languageCode);
             userCampaign.TechnicalInfo = UbTranslationTag + Translate(userCampaign.TechnicalInfo, languageCode);
-            
+
             // magicSkySword : Translate location first, so that the translated cache of the location function can be used later
             // USER LOCATIONS
             foreach (var userLocation in userCampaign.UserLocations)
@@ -512,7 +512,8 @@ internal static class TranslatorContext
                                 {
                                     destination.DisplayedTitle = Translate(destination.DisplayedTitle, languageCode);
                                     // magicSkySword : the location name is actually the location id, so we must let it equal to the location id
-                                    destination.UserLocationName = Translate(destination.UserLocationName, languageCode);
+                                    destination.UserLocationName =
+                                        Translate(destination.UserLocationName, languageCode);
                                 }
 
                                 break;
@@ -520,7 +521,7 @@ internal static class TranslatorContext
                     }
                 }
             }
-            
+
             // USER DIALOGS
             foreach (var dialog in userCampaign.UserDialogs)
             {

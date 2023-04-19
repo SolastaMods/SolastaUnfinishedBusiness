@@ -49,7 +49,8 @@ public static class InvocationSubPanelPatcher
 
             var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
             var customInvocationsProficiencies =
-                new Func<RulesetCharacterHero, InvocationSubPanel, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
+                new Func<RulesetCharacterHero, InvocationSubPanel, List<string>>(CustomInvocationSubPanel
+                        .CustomInvocationsProficiencies)
                     .Method;
 
             return instructions

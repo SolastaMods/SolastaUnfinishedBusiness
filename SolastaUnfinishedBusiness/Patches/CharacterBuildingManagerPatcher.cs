@@ -264,7 +264,8 @@ public static class CharacterBuildingManagerPatcher
         {
             var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
             var customInvocationsProficiencies =
-                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel.OnlyStandardInvocationProficiencies)
+                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel
+                        .OnlyStandardInvocationProficiencies)
                     .Method;
 
             return instructions
