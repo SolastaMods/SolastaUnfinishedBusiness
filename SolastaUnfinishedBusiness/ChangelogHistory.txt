@@ -2,8 +2,10 @@
 
 1.4.33.76:
 
+- added Aegis Touched feats
 - added Circle of the Life subclass
 - added Path of the Savagery subclass
+- added Peregrination Touched feats
 - fixed Circle of the Night's primal strike
 - fixed Crippling and Slasher missing icons
 - fixed Fairy's flight
