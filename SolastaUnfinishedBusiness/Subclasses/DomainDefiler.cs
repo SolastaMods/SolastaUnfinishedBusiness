@@ -324,7 +324,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("DomainDefiler", Resources.DomainDefiler, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainDefiler, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainDefiler,
                 featureInsidiousDeathMagic,

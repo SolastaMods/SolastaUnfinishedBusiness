@@ -21,7 +21,7 @@ internal static partial class SpellBuilders
 
     private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
     {
-        public int GetEffectLevel([NotNull] RulesetActor caster)
+        public int GetEffectLevel([NotNull] RulesetActor caster, RulesetEffectSpell rulesetEffectSpell)
         {
             return caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
         }

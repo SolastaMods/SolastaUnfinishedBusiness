@@ -110,6 +110,7 @@ All settings start disabled by default.
 [*][b]Path of the Elements[/b]: Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Path of the Reaver[/b]: All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
+[*][b]Path of the Savagery[/b]: Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 [*][b]Path Of the Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
@@ -119,6 +120,7 @@ All settings start disabled by default.
 [*][b]Smith[/b]: Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 [*][b]Circle of the Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+[*][b]Circle of the Life[/b]: The Circle of Life strives to protect and preserve as many living beings as it can. These druids understand the significance of every life form in the natural cycle, be it large or small, and that every one of them is worth saving.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
@@ -161,6 +163,12 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Aegis Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Aegis Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Aegis Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Always Ready[/b]: You automatically ready a melee or unarmed attack at the end of your turn if you took the attack action and missed any melee or unarmed attack hit.
 [*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
@@ -289,6 +297,12 @@ You gain proficiency with medium armor and shields.
 [*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 ft and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 [*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 [*][b]Natural Fluidity[/b]: You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
+[*][b]Peregrination Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Peregrination Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
+[*][b]Peregrination Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 [*][b]Piercer [Str][/b]: You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
@@ -578,15 +592,15 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Innovation Artillerist, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Circle of the Life, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Innovation Artillerist, Multiclass
 [*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, rules, quality of life, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield
 [*][b]Haxermn[/b]: spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon
 [*][b]Nd[/b]: College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
-[*][b]HiddenHax[/b]: homebrew content design [Path of the Elemental Fury, Path of the Reaver, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon]
-[*][b]Taco[/b]: homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
+[*][b]HiddenHax[/b]: homebrew content design [Circle of the Life, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon]
+[*][b]Taco[/b]: homebrew content design [Circle of the Life, Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
 [*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
 [*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [*][b]tivie[/b]: Circle of the Night, Path of the Spirits

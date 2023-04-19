@@ -21,7 +21,8 @@ internal enum ExtraSituationalContext
     HasSpecializedWeaponInHands = 1005,
     HasLongswordInHands = 1006,
     HasGreatswordInHands = 1007,
-    IsNotInBrightLight = 1008
+    IsNotInBrightLight = 1008,
+    IsRagingAndDualWielding = 1009
 }
 
 #if false
@@ -192,7 +193,8 @@ internal enum ExtraActionId
     FeatCrusherToggle = 9017,
     CannonFlamethrower = 9018,
     CannonForceBallista = 9019,
-    CannonProtector = 9020
+    CannonProtector = 9020,
+    CombatRageStart = 9021
 }
 
 #if false

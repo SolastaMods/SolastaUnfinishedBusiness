@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
 
@@ -154,7 +153,7 @@ internal class ConditionDefinitionBuilder
         RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn)
     {
         // ReSharper disable once InvocationIsSkipped
-        PreConditions.IsValidDuration(durationType, duration);
+        // PreConditions.IsValidDuration(durationType, duration);
 
         if (duration != 0)
         {

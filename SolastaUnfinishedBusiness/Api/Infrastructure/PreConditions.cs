@@ -31,6 +31,7 @@ internal static class PreConditions
         }
     }
 
+#if false
     [Conditional("DEBUG")]
     [AssertionMethod]
     internal static void IsValidDuration(RuleDefinitions.DurationType type, int duration)
@@ -53,6 +54,7 @@ internal static class PreConditions
             }
         }
     }
+#endif
 
     [Conditional("DEBUG")]
     [AssertionMethod]

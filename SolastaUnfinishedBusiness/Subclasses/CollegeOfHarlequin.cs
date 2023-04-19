@@ -115,7 +115,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCollegeOfHarlequinFightingStyle")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.FightingStyle, FightingStyleDefinitions.TwoWeapon.Name)
+            .SetProficiencies(ProficiencyType.FightingStyle, "TwoWeapon")
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder

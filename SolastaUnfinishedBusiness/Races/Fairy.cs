@@ -121,7 +121,7 @@ internal static class FairyRaceBuilder
             .Create($"Power{Name}FlightSprout")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("FlightSprout", Resources.PowerAngelicFormSprout, 256, 128))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

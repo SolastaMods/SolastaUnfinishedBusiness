@@ -145,14 +145,14 @@ internal static partial class SpellBuilders
         const string ProxyPetalStormName = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxySpikeGrowth, ProxyPetalStormName)
+            .Create(EffectProxyDefinitions.ProxyGuardianOfFaith, ProxyPetalStormName)
             .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .AddToDB();
 
         var spriteReference = Sprites.GetSprite(NAME, Resources.ProtectThreshold, 128);
 
         var spell = SpellDefinitionBuilder
-            .Create(SpikeGrowth, "ProtectThreshold")
+            .Create(GuardianOfFaith, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
