@@ -6,10 +6,7 @@
 # REQUIRES:
 #   - Python 3.9.x
 
-import argparse
 import os
-import re
-import sys
 import codecs
 
 def unpack_record(record):
