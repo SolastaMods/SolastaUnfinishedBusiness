@@ -540,12 +540,11 @@ internal static class TranslatorContext
 
                     foreach (var functor in userDialogState.functors)
                     {
-                        switch (functor.type)
+                        functor.stringParameter = functor.type switch
                         {
-                            case "SetLocationStatus":
-                                functor.stringParameter = Translate(functor.stringParameter, languageCode);
-                                break;
-                        }
+                            "SetLocationStatus" => Translate(functor.stringParameter, languageCode),
+                            _ => functor.stringParameter
+                        };
                     }
                 }
             }
@@ -586,13 +585,11 @@ internal static class TranslatorContext
 
                         foreach (var completeFunctor in outcome.OnCompleteFunctors)
                         {
-                            switch (completeFunctor.type)
+                            completeFunctor.stringParameter = completeFunctor.type switch
                             {
-                                case "SetLocationStatus":
-                                    completeFunctor.stringParameter =
-                                        Translate(completeFunctor.stringParameter, languageCode);
-                                    break;
-                            }
+                                "SetLocationStatus" => Translate(completeFunctor.stringParameter, languageCode),
+                                _ => completeFunctor.stringParameter
+                            };
                         }
                     }
                 }

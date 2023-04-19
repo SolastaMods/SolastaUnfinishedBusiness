@@ -11,8 +11,8 @@ public class CustomRagingAura :
     INotifyConditionRemoval, IOnAfterActionFeature, ICharacterTurnStartListener
 {
     private readonly ConditionDefinition _conditionDefinition;
-    private readonly FeatureDefinitionPower _powerDefinition;
     private readonly bool _friendlyAura;
+    private readonly FeatureDefinitionPower _powerDefinition;
 
     public CustomRagingAura(
         FeatureDefinitionPower powerDefinition,
@@ -37,7 +37,6 @@ public class CustomRagingAura :
 
         if (_friendlyAura)
         {
-
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side == locationCharacter.Side &&
@@ -61,8 +60,9 @@ public class CustomRagingAura :
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             (!gameLocationBattleService.IsWithinXCells(locationCharacter, x, _powerDefinition.EffectDescription.targetParameter) ||
-                             !locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))))
+                             (!gameLocationBattleService.IsWithinXCells(locationCharacter, x,
+                                  _powerDefinition.EffectDescription.targetParameter) ||
+                              !locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))))
             {
                 var targetRulesetCharacter = targetLocationCharacter.RulesetCharacter;
                 var rulesetCondition =
@@ -76,16 +76,15 @@ public class CustomRagingAura :
             }
         }
 
-        if(!locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))
+        if (!locationCharacter.RulesetCharacter.HasConditionOfType("ConditionRaging"))
         {
             RemoveCondition(locationCharacter.RulesetActor);
         }
-
     }
 
     public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
     {
-            RemoveCondition(removedFrom); 
+        RemoveCondition(removedFrom);
     }
 
     public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -97,7 +96,7 @@ public class CustomRagingAura :
     {
         if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
             characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
-            _friendlyAura == true)
+            _friendlyAura)
         {
             AddCondition(action.ActingCharacter);
         }
@@ -106,7 +105,8 @@ public class CustomRagingAura :
             characterActionSpendPowerUnfriendly.activePower.PowerDefinition == _powerDefinition &&
             _friendlyAura == false)
         {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionDefinition.Name);
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                _conditionDefinition.Name);
         }
     }
 
@@ -154,9 +154,9 @@ public class CustomRagingAura :
         else
         {
             foreach (var targetRulesetCharacter in gameLocationCharacterService.AllValidEntities
-                        .Select(x => x.RulesetActor)
-                        .OfType<RulesetCharacter>()
-                        .Where(x => x.Side != sourceRulesetCharacter.Side))
+                         .Select(x => x.RulesetActor)
+                         .OfType<RulesetCharacter>()
+                         .Where(x => x.Side != sourceRulesetCharacter.Side))
             {
                 var rulesetCondition =
                     targetRulesetCharacter.AllConditions.FirstOrDefault(x =>
@@ -222,10 +222,9 @@ public class CustomRagingAura :
                     TurnOccurenceType.EndOfSourceTurn,
                     sourceLocationCharacter.Guid,
                     factionName);
-        
-                    targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
-                        condition);
-                
+
+                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
+                    condition);
             }
         }
     }

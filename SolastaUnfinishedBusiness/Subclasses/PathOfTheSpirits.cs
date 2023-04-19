@@ -95,9 +95,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         #endregion
-        
-                #region 14th LEVEL FEATURES
 
+        #region 14th LEVEL FEATURES
 
         // Animal Aspect
         // At 14th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at previous levels or a different one.
@@ -286,22 +285,22 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-        private static FeatureDefinition PowerPathOfTheSpiritsHonedBear()
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedBear()
     {
         var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
-           .Create($"Condition{SubclassName}HonedAnimalAspectsBear")
-           .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-           .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-               .Create($"CombatAffinityPowerHonedAnimalApsectsBear")
-               .SetGuiPresentationNoContent()
-               .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-               .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-               .AddToDB())
-           .SetPossessive()
-           .SetSilent(Silent.WhenAddedOrRemoved)
-           .SetSpecialDuration(DurationType.Round, 1)
-           .SetSpecialInterruptions(ConditionInterruption.RageStop)
-           .AddToDB();
+            .Create($"Condition{SubclassName}HonedAnimalAspectsBear")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                .Create("CombatAffinityPowerHonedAnimalAspectsBear")
+                .SetGuiPresentationNoContent()
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                .AddToDB())
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .AddToDB();
 
         var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
             .Create($"Power{SubclassName}HonedAnimalAspectsBear")
@@ -335,11 +334,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerPathOfTheSpiritsHonedEagle()
     {
         var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
-    .Create(ConditionDefinitions.ConditionFlying12, $"Condition{SubclassName}HonedAnimalAspectsEagle")
-    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying12)
-    .AddSpecialInterruptions(ConditionInterruption.RageStop)
-    .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
-    .AddToDB();
+            .Create(ConditionDefinitions.ConditionFlying12, $"Condition{SubclassName}HonedAnimalAspectsEagle")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying12)
+            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
+            .AddToDB();
 
         var powerHonedAnimalAspectsEagle = FeatureDefinitionPowerBuilder
             .Create($"Power{SubclassName}HonedAnimalAspectsEagle")
@@ -362,17 +361,16 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinition PowerPathOfTheSpiritsHonedWolf()
     {
-
         var actionAffinityHonedAnimalAspectsWolf = FeatureDefinitionActionAffinityBuilder
             .Create(ActionAffinityMountaineerShieldCharge, "ActionAffinityHonedAnimalAspectsWolf")
             .AddToDB();
 
-      var conditionHonedAnimalAspectsWolf = ConditionDefinitionBuilder
-        .Create($"Condition{SubclassName}HonedAnimalAspectsWolf")
-        .SetGuiPresentation(Category.Condition)
-        .AddFeatures(actionAffinityHonedAnimalAspectsWolf)
-        .AddSpecialInterruptions(ConditionInterruption.RageStop)
-        .AddToDB();
+        var conditionHonedAnimalAspectsWolf = ConditionDefinitionBuilder
+            .Create($"Condition{SubclassName}HonedAnimalAspectsWolf")
+            .SetGuiPresentation(Category.Condition)
+            .AddFeatures(actionAffinityHonedAnimalAspectsWolf)
+            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .AddToDB();
 
         var powerHonedAnimalAspectsWolf = FeatureDefinitionPowerBuilder
             .Create($"Power{SubclassName}HonedAnimalAspectsWolf")

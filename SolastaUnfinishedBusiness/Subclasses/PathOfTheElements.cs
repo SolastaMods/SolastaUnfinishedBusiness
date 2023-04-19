@@ -110,7 +110,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var customBehaviorStorm = new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm, true);
+        var customBehaviorStorm =
+            new CustomRagingAura(powerElementalBlessingStorm, conditionElementalBlessingStorm, true);
 
         conditionElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
         powerElementalBlessingStorm.SetCustomSubFeatures(customBehaviorStorm);
