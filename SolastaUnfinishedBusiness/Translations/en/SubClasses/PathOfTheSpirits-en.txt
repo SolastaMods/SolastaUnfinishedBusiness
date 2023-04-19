@@ -1,11 +1,11 @@
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=The spirit of the wolf grants you advantage on melee attack rolls.
 Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Wolf Spirit
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Honed Bear Aspect
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Honed Eagle Aspect
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Honed Wolf Aspect
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Gain disadvantages on attacks against all except on the source of this aura.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Honed Bear Aura
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Gain the ability to fly.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Honed Eagle Flight
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Gain the ability to shove as a bonus action.
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfTitle=Honed Wolf Bash
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take dash, disengage, or hide as a bonus action.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Eagle Spirit
 Feature/&FeatureSetPathOfTheSpiritsAnimalAspectChoiceBearDescription=The spirit of the bear increases your HP by 2 points for every level you take in this class and grants you advantage on Strength checks.
