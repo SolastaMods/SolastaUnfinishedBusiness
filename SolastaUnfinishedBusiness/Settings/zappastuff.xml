@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>0</SelectedTab>
+  <SelectedTab>1</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -116,12 +116,12 @@
   <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
-  <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
+  <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
-  <EnableFeatsAtEveryFourLevelsMiddle>true</EnableFeatsAtEveryFourLevelsMiddle>
-  <EnableBarbarianFightingStyle>false</EnableBarbarianFightingStyle>
+  <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
+  <EnableBarbarianFightingStyle>true</EnableBarbarianFightingStyle>
   <EnableFighterWeaponSpecialization>true</EnableFighterWeaponSpecialization>
   <EnableMonkWeaponSpecialization>true</EnableMonkWeaponSpecialization>
   <EnableLevel20>true</EnableLevel20>
@@ -149,7 +149,6 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
-    <string>RaceFairy</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -211,6 +210,8 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
+    <string>PathOfTheSavagery</string>
+    <string>CircleOfTheLife</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -358,8 +359,14 @@
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
     <string>FeatInfusionsAdept</string>
+    <string>FeatAegisTouchedCha</string>
+    <string>FeatAegisTouchedInt</string>
+    <string>FeatAegisTouchedWis</string>
     <string>FeatAlwaysReady</string>
     <string>FeatLunger</string>
+    <string>FeatPeregrinationTouchedCha</string>
+    <string>FeatPeregrinationTouchedInt</string>
+    <string>FeatPeregrinationTouchedWis</string>
     <string>FeatRopeItUp</string>
     <string>FeatSteadyAim</string>
   </FeatEnabled>
@@ -416,6 +423,8 @@
     <string>FeatGroupDefenseExpert</string>
     <string>FeatGroupVerdantTouched</string>
     <string>FeatGroupGeneralAdept</string>
+    <string>FeatGroupAegisTouched</string>
+    <string>FeatGroupPeregrinationTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -429,8 +438,6 @@
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
-    <string>Lunger</string>
-    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -1139,7 +1146,7 @@
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
-  <EnableCharacterChecker>true</EnableCharacterChecker>
+  <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>

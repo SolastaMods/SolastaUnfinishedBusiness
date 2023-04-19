@@ -140,7 +140,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
         // LEVEL 18
 
         const string POWER_SPIRITED_SURGE = $"Power{Name}SpiritedSurge";
-        
+
         var savingThrowAffinitySpiritedSurge = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}SpiritedSurge")
             .SetGuiPresentation(POWER_SPIRITED_SURGE, Category.Feature)
@@ -187,7 +187,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()

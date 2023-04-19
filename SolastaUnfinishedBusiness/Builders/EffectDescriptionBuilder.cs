@@ -1,5 +1,4 @@
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -203,7 +202,7 @@ internal class EffectDescriptionBuilder
         TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
         // ReSharper disable once InvocationIsSkipped
-        PreConditions.IsValidDuration(durationType, durationParameter);
+        // PreConditions.IsValidDuration(durationType, durationParameter);
 
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;
