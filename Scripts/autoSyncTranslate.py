@@ -44,7 +44,7 @@ def readRecord(filename):
 def sync_file(input_file, output_file, code):
     inputDict = readRecord(input_file)
     outputDict = readRecord(output_file)
-    print(f"sync\t{output_file}\tfrom\t{output_file}")
+    print(f"sync\t{output_file}\tfrom\t{input_file}")
     # compare
     for key, value in inputDict.items():
         if key not in outputDict:
