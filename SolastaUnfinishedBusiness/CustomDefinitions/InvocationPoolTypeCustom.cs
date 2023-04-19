@@ -182,10 +182,10 @@ internal class InvocationPoolTypeCustom
             Register("KindredSpiritChoice", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
-            Register("RangerTerrainTypeAffinity", hidden: true);
+            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle");
 
         internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
-            Register("RangerPreferredEnemy", hidden: true);
+            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle");
 
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", requireClassLevel: InventorClass.ClassName,
