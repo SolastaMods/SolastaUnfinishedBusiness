@@ -11,8 +11,8 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
     public static readonly IPowerUseValidity NotInCombat = new ValidatorsPowerUse(_ =>
         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
-    // public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
-    //     ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
+    public static readonly IPowerUseValidity InCombat = new ValidatorsPowerUse(_ =>
+        ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress);
 
     private readonly IsPowerUseValidHandler[] validators;
 
@@ -28,6 +28,9 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
 
     public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
+        var a = validators;
+        
+        
         return validators.All(v => v(character, power));
     }
 

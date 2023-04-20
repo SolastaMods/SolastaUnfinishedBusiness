@@ -110,13 +110,14 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("TempestFury", Resources.PowerTempestFury, 256, 128))
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -131,7 +132,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked))
+            .SetCustomSubFeatures(ValidatorsPowerUse.InCombat, new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
         powerTempestFury.SetCustomSubFeatures(new OnAfterActionTempestFury(powerTempestFury, powerTempestFuryLeap));
@@ -180,7 +181,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
-            .AddFeaturesAtLevel(3, featureSetTempestSwiftness)
+            .AddFeaturesAtLevel(3, featureSetTempestSwiftness, powerStormSurge, powerTempestFury)
             .AddFeaturesAtLevel(6, powerStormSurge)
             .AddFeaturesAtLevel(11, powerTempestFury)
             .AddFeaturesAtLevel(17, featureSetUnfetteredDeluge)
