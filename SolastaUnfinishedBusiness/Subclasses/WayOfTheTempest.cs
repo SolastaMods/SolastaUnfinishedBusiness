@@ -117,7 +117,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfTurn)
+                    .SetDurationData(DurationType.Round, 1)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -132,10 +132,12 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.InCombat, new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
-        powerTempestFury.SetCustomSubFeatures(new OnAfterActionTempestFury(powerTempestFury, powerTempestFuryLeap));
+        powerTempestFury.SetCustomSubFeatures(
+            ValidatorsPowerUse.InCombat,
+            new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked),
+            new OnAfterActionTempestFury(powerTempestFury, powerTempestFuryLeap));
 
         // LEVEL 17
 
@@ -181,7 +183,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
-            .AddFeaturesAtLevel(3, featureSetTempestSwiftness, powerStormSurge, powerTempestFury)
+            .AddFeaturesAtLevel(3, featureSetTempestSwiftness)
             .AddFeaturesAtLevel(6, powerStormSurge)
             .AddFeaturesAtLevel(11, powerTempestFury)
             .AddFeaturesAtLevel(17, featureSetUnfetteredDeluge)

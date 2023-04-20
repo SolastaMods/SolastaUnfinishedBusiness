@@ -28,9 +28,6 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
 
     public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
     {
-        var a = validators;
-        
-        
         return validators.All(v => v(character, power));
     }
 

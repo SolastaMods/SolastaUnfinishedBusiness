@@ -11,13 +11,13 @@
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Dispelled",
-  "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [
-    "Attacked"
+    "Attacks"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
