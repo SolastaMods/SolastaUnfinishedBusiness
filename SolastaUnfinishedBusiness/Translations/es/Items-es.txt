@@ -1,5 +1,3 @@
-
-=VACÍO
 Feature/&PowerHandwrapsOfPullingDescription=Como acción adicional, puedes acercar a una criatura a 15 pies hacia ti.
 Feature/&PowerHandwrapsOfPullingTitle=Atraer clientes o negocios
 Feedback/&ExtraDamageDescription=Daño adicional de Lightning Spear.

@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheTempestTempestSwiftnessDescription=You have disadvantage on the next attack roll you make.
+Condition/&ConditionWayOfTheTempestTempestSwiftnessTitle=Staggered
+Feature/&FeatureSetWayOfTheTempestTempestSwiftnessDescription=Starting at 3rd level, your base movement speed is increased by 10 feet. Whenever you use your Flurry of Blows feature, you also gain the benefits of the disengage action, and each of your bonus attacks provided by Flurry of Blows applies the staggered condition.
+Feature/&FeatureSetWayOfTheTempestTempestSwiftnessTitle=Tempest's Swiftness
+Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription=Beginning at 17th level, you gain the following benefits:\n• Your Dexterity score is increased by 2. Your maximum for Dexterity score is now 22.\n• Your base movement speed increases by an additional 10 feet.\n• You roll all Acrobatics ability checks with advantage.\n• You become immune to Slowed condition.
+Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle=Unfettered Deluge
+Feature/&PowerWayOfTheTempestStormSurgeDescription=Starting at 6th level, whenever a creature misses you with a melee attack, you can pay 1 Ki and use your reaction to immediately retaliate with a monk weapon or unarmed attack. If the attack hits, the creature must pass Dexterity saving throw, with DC being 8 + proficiency + Wisdom modifier or become Prone.
+Feature/&PowerWayOfTheTempestStormSurgeTitle=Storm Surge
+Feature/&PowerWayOfTheTempestTempestFuryDescription=At 11th level, after using your attack action, you can pay 3 ki to use Tempest's Fury as bonus action. Tempest's Fury is an upgraded version of your Flurry of Blows, that in addition to granting benefits of Disengage action and allowing you to make two unarmed attacks as bonus action that each apply Staggered condition, also immediately applies 1D8 bludgeoning damage to each enemy creature within 5 feet of you upon its activation. This also applies Staggered condition upon hit.
+Feature/&PowerWayOfTheTempestTempestFuryTitle=Tempest's Fury
+Reaction/&ReactionAttackStormSurgeDescription={0} attacked {1}. You can use your reaction to make a melee weapon attack against it.
+Reaction/&ReactionAttackStormSurgeReactDescription=Use your reaction to attack.
+Reaction/&ReactionAttackStormSurgeReactTitle=React
+Reaction/&ReactionAttackStormSurgeTitle=Storm Surge
+Subclass/&WayOfTheTempestDescription=Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists are hurricanes on the battlefield, rushing down and raining countless blows upon their enemies, all the while effortlessly evading and punishing incoming attacks.
+Subclass/&WayOfTheTempestTitle=Way of Tempest
