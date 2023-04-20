@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>1</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -149,6 +149,7 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceFairy</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -212,6 +213,7 @@
     <string>WizardSpellMaster</string>
     <string>PathOfTheSavagery</string>
     <string>CircleOfTheLife</string>
+    <string>WayOfTheTempest</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -369,6 +371,8 @@
     <string>FeatPeregrinationTouchedWis</string>
     <string>FeatRopeItUp</string>
     <string>FeatSteadyAim</string>
+    <string>FeatElementalAdeptDamagePoison</string>
+    <string>FeatElementalMasterDamagePoison</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -438,6 +442,8 @@
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
+    <string>Lunger</string>
+    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>

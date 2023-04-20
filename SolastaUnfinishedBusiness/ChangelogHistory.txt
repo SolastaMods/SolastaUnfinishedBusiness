@@ -2,8 +2,8 @@
 
 1.4.33.77:
 
-- added Path of the Spirit's level 14 feature
-- added Way of the Tempest subclass
+- added Path of the Spirit's honed animal aspect at level 14 by [NoKhaineNoGain]
+- added Way of the Tempest subclass by [HiddenHax]
 - fixed Web spell wrong DC calculation
 - fixed Infusions Adept interaction with Inventor
 - improved Chinese translations
