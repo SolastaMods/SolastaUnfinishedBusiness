@@ -72,6 +72,12 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // Storm Surge
 
+        var conditionStormSurge = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}StormSurge")
+            .SetSilent(Silent.None)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
         var powerStormSurge = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}StormSurge")
             .SetGuiPresentation(Category.Feature)
@@ -79,7 +85,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerStormSurge.SetCustomSubFeatures(new CustomBehaviorStormSurge(powerStormSurge));
+        powerStormSurge.SetCustomSubFeatures(new CustomBehaviorStormSurge(powerStormSurge, conditionStormSurge));
 
         // LEVEL 11
 
@@ -239,10 +245,12 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         private const string StormSurge = "StormSurge";
 
         private static FeatureDefinitionPower _powerStormSurge;
+        private static ConditionDefinition _conditionStormSurge;
 
-        public CustomBehaviorStormSurge(FeatureDefinitionPower powerStormSurge)
+        public CustomBehaviorStormSurge(FeatureDefinitionPower powerStormSurge, ConditionDefinition conditionStormSurge)
         {
             _powerStormSurge = powerStormSurge;
+            _conditionStormSurge = conditionStormSurge;
         }
 
         public void AfterOnAttackHit(
@@ -262,6 +270,11 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
+            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
@@ -288,10 +301,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 defender.Guid,
-                ConditionDefinitions.ConditionProne,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.StartOfTurn,
+                _conditionStormSurge,
+                _conditionStormSurge.DurationType,
+                _conditionStormSurge.DurationParameter,
+                _conditionStormSurge.TurnOccurence,
                 attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
