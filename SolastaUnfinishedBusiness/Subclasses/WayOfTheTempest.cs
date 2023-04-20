@@ -167,7 +167,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var abilityCheckAffinityUnfetteredDeluge = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}UnfetteredDeluge")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"FeatureSet{Name}UnfetteredDeluge", Category.Feature)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
                 (AttributeDefinitions.Strength, SkillDefinitions.Acrobatics))
             .AddToDB();

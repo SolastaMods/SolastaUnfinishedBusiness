@@ -103,7 +103,7 @@ public static class InnovationArmor
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
                     .AddToDB()
