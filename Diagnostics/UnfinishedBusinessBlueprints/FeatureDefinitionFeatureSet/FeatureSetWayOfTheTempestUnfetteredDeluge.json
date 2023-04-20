@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FeatureWayOfTheTempestUnfetteredDeluge:aec4f1cb-4b8b-562c-8a76-7e4300e5400a",
+    "Definition:MovementAffinityWayOfTheTempestUnfetteredDeluge:68459656-8a78-5a5b-a226-7e2857e46823",
+    "Definition:AbilityCheckAffinityWayOfTheTempestUnfetteredDeluge:b59f0f12-7068-57fa-82cd-533a20c36eff",
+    "Definition:ConditionAffinityWayOfTheTempestUnfetteredDeluge:9efc91e2-5c62-54e5-b153-6bd0bea65e8d"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle",
+    "description": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c841adf0-4484-5252-9715-ec354d0d0e6f",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfTheTempestUnfetteredDeluge"
+}
