@@ -197,14 +197,16 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("PowerPathOfTheSpiritsBearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Dispelled)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Dispelled)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
+                        .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 
@@ -292,7 +294,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create("CombatAffinityPowerHonedAnimalAspectsBear")
-                .SetGuiPresentationNoContent()
+                .SetGuiPresentation($"Condition{SubclassName}HonedAnimalAspectsBear", Category.Condition)
                 .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                 .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                 .AddToDB())
@@ -306,20 +308,21 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create($"Power{SubclassName}HonedAnimalAspectsBear")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .ExcludeCaster()
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
-                .SetDurationData(DurationType.Permanent)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionHonedAnimalAspectsBear,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .ExcludeCaster()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHonedAnimalAspectsBear,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var customBehaviorHonedBear = new CustomRagingAura(
