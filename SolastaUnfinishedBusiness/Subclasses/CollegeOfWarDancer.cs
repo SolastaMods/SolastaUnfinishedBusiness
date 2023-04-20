@@ -206,7 +206,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     private static bool RemoveMomentumAnyway(IControllableCharacter hero)
     {
         var currentMomentum = new List<RulesetCondition>();
-        var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+        var pb = hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
         currentMomentum.AddRange(
             hero.RulesetCharacter.ConditionsByCategory
@@ -349,7 +349,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             // only apply if number of momentum less than PB
             var currentMomentum = new List<RulesetCondition>();
-            var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+            var pb = hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             currentMomentum.AddRange(
                 hero.RulesetCharacter.ConditionsByCategory
                     .SelectMany(x => x.Value)

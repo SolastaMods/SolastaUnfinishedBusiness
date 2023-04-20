@@ -43,6 +43,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetConditionType(ConditionType.Detrimental)
+            .CopyParticleReferences(ConditionDefinitions.ConditionDistracted)
             .AddFeatures(combatAffinityTempestSwiftness)
             .AddSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
@@ -95,6 +96,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     .SetDurationData(DurationType.Dispelled)
                     .SetSavingThrowData(true, AttributeDefinitions.Constitution, false,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMonkStunningStrike)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -118,6 +120,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMonkStunningStrike)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
