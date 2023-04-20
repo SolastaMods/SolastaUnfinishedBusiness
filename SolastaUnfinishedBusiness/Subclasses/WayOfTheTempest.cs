@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -19,6 +20,8 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
     internal WayOfTheTempest()
     {
+        // LEVEL 03
+
         // Tempest's Swiftness
 
         var movementAffinityTempestSwiftness = FeatureDefinitionMovementAffinityBuilder
@@ -38,10 +41,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create($"Condition{Name}TempestSwiftness")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Dispelled)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(combatAffinityTempestSwiftness)
-            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var additionalDamageTempestSwiftness = FeatureDefinitionAdditionalDamageBuilder
@@ -64,6 +67,8 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .AddFeatureSet(movementAffinityTempestSwiftness, additionalDamageTempestSwiftness)
             .AddToDB();
 
+        // LEVEL 06
+
         // Storm Surge
 
         var powerStormSurge = FeatureDefinitionPowerBuilder
@@ -73,33 +78,65 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerStormSurge.SetCustomSubFeatures(new ReactToAttackOnMeFinishedStormSurge(powerStormSurge));
+        powerStormSurge.SetCustomSubFeatures(new CustomBehaviorStormSurge(powerStormSurge));
+
+        // LEVEL 11
 
         // Tempest’s Fury
+
+        var powerTempestFuryLeap = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TempestFuryLeap")
+            .SetGuiPresentation($"Power{Name}TempestFury", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
+                    .SetDurationData(DurationType.Dispelled)
+                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D8)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionTempestSwiftness, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
 
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
                                 ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionDisengaging,
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionDisengaging,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(ValidatorsCharacter.HasAttacked)
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked))
             .AddToDB();
 
-        powerTempestFury.SetCustomSubFeatures(new OnAfterActionTempestFury(powerTempestFury));
+        powerTempestFury.SetCustomSubFeatures(new OnAfterActionTempestFury(powerTempestFury, powerTempestFuryLeap));
+
+        // LEVEL 17
 
         // Unfettered Deluge
 
@@ -158,6 +195,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Tempest Swiftness
+    //
+
     private sealed class OnAfterActionTempestSwiftness : IOnAfterActionFeature
     {
         public void OnAfterAction(CharacterAction action)
@@ -170,12 +211,11 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
             var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
-
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 rulesetCharacter.guid,
                 conditionDisengaging,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.StartOfTurn,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name);
@@ -184,13 +224,72 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         }
     }
 
-    private class ReactToAttackOnMeFinishedStormSurge : IReactToAttackOnMeFinished
+    //
+    // Storm Surge
+    //
+
+    private class CustomBehaviorStormSurge : IReactToAttackOnMeFinished, IAfterAttackEffect
     {
+        private const string StormSurge = "StormSurge";
+
         private static FeatureDefinitionPower _powerStormSurge;
 
-        public ReactToAttackOnMeFinishedStormSurge(FeatureDefinitionPower powerStormSurge)
+        public CustomBehaviorStormSurge(FeatureDefinitionPower powerStormSurge)
         {
             _powerStormSurge = powerStormSurge;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (!attackMode.AttackTags.Contains(StormSurge))
+            {
+                return;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
+            var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = rulesetDefender.actionModifier.savingThrowAdvantageTrends;
+            var attackerWisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom));
+            var attackerProficiencyBonus =
+                rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var defenderDexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+
+            rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+                advantageTrends, defenderDexterityModifier, 8 + attackerProficiencyBonus + attackerWisdomModifier,
+                false,
+                out var savingOutcome,
+                out _);
+
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                defender.Guid,
+                ConditionDefinitions.ConditionProne,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
+                attacker.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
 
         public IEnumerator HandleReactToAttackOnMeFinished(
@@ -202,12 +301,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             ActionModifier modifier)
         {
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                yield break;
-            }
-
-            //do not trigger on my own turn, so won't retaliate on AoO
-            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
             {
                 yield break;
             }
@@ -251,16 +344,18 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             }
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+            retaliationMode.AddAttackTagAsNeeded(StormSurge);
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity)
             {
                 TargetCharacters = { attacker },
                 ActionModifiers = { retaliationModifier },
-                AttackMode = retaliationMode
+                AttackMode = retaliationMode,
+                StringParameter2 = $"Reaction/&ReactionAttack{StormSurge}Description"
             };
 
-            var reactionRequest = new ReactionRequestReactionAttack("StormSurge", reactionParams)
+            var reactionRequest = new ReactionRequestReactionAttack(StormSurge, reactionParams)
             {
                 Resource = new ReactionResourcePower(_powerStormSurge, Sprites.KiPointResourceIcon)
             };
@@ -282,10 +377,14 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     private sealed class OnAfterActionTempestFury : IOnAfterActionFeature
     {
         private readonly FeatureDefinitionPower _powerTempestFury;
+        private readonly FeatureDefinitionPower _powerTempestFuryLeap;
 
-        public OnAfterActionTempestFury(FeatureDefinitionPower powerTempestFury)
+        public OnAfterActionTempestFury(
+            FeatureDefinitionPower powerTempestFury,
+            FeatureDefinitionPower powerTempestFuryLeap)
         {
             _powerTempestFury = powerTempestFury;
+            _powerTempestFuryLeap = powerTempestFuryLeap;
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -293,14 +392,36 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _powerTempestFury)
             {
+                return;
             }
 
-            /*
-             * immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation.
-             * each of these extra attacks is a separate attack roll and applies Staggered condition upon hit.
-             */
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                return;
+            }
+
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerTempestFuryLeap, rulesetCharacter);
+
+            foreach (var targetLocationCharacter in Gui.Battle.AllContenders
+                         .Where(x =>
+                             x.Side != actingCharacter.Side &&
+                             gameLocationBattleService.IsWithin1Cell(actingCharacter, x)))
+            {
+                var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+
+                effectPower.ApplyEffectOnCharacter(
+                    targetLocationCharacter.RulesetCharacter, true, targetLocationCharacter.LocationPosition);
+            }
         }
     }
+
+    //
+    // Unfettered Deluge
+    //
 
     private sealed class CustomCodeUnfetteredDeluge : IFeatureDefinitionCustomCode
     {
