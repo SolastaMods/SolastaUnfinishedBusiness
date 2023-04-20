@@ -567,6 +567,7 @@ internal static class TranslatorContext
             }
 
             // USER QUESTS
+            //YiTaiV : Fixed an issue where some translation modules for triggered tasks were not recognized
             foreach (var quest in userCampaign.UserQuests)
             {
                 quest.Title = Translate(quest.Title, languageCode);
@@ -577,20 +578,26 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
+                    foreach (var outstart in userQuestStep.onStartFunctors)
+                    {
+                        yield return Update();
+
+
+                        if (outstart.type.Equals("SetLocationStatus"))
+                        { outstart.stringParameter = Translate(outstart.stringParameter, languageCode); }
+
+                    }
+
                     foreach (var outcome in userQuestStep.OutcomesTable)
                     {
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-
-                        foreach (var completeFunctor in outcome.OnCompleteFunctors)
-                        {
-                            completeFunctor.stringParameter = completeFunctor.type switch
-                            {
-                                "SetLocationStatus" => Translate(completeFunctor.stringParameter, languageCode),
-                                _ => completeFunctor.stringParameter
-                            };
-                        }
+                        outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode);
+                        if (outcome.validatorDescription.type.Equals("EnterLocation"))
+                        { outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode); }
+                        if (outcome.validatorDescription.type.Equals("LeaveLocation"))
+                        { outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode); }
                     }
                 }
             }
