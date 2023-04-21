@@ -161,20 +161,20 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
-            var condition = attacker.RulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
-
-            if (condition == null)
-            {
-                return;
-            }
-
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetAttacker == null ||
                 rulesetDefender == null ||
                 rulesetDefender.IsDeadOrDying)
+            {
+                return;
+            }
+            
+            var condition = rulesetAttacker.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
+
+            if (condition == null)
             {
                 return;
             }
