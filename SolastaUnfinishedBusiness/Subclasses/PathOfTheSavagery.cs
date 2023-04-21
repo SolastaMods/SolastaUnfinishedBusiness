@@ -210,7 +210,9 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
 
             // only on critical hits
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying || outcome is not RollOutcome.CriticalSuccess)
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
+                outcome is not RollOutcome.CriticalSuccess)
             {
                 return;
             }

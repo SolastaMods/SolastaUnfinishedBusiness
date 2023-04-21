@@ -266,9 +266,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 _conditionStormSurge.DurationParameter,
                 _conditionStormSurge.TurnOccurence,
                 attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
+                rulesetAttacker.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
 
         public IEnumerator HandleReactToAttackOnMeFinished(

@@ -482,8 +482,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
             ActionModifier attackModifier)
         {
             var battle = Gui.Battle;
-
-            if (battle == null || defender.RulesetCharacter is not { } rulesetDefender ||
+            var rulesetDefender = defender.RulesetCharacter;
+            
+            if (battle == null || 
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
                 return;
