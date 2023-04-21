@@ -65,7 +65,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMonkStunningStrike)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMonkFlurryOfBlows)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -91,14 +91,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // Unfettered Deluge
 
-        var conditionUnfetteredDeluge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}UnfetteredDeluge")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
         var combatAffinityTempestSwiftness = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}UnfetteredDeluge")
             .SetGuiPresentation($"Condition{Name}AppliedUnfetteredDeluge", Category.Condition)
@@ -109,8 +101,23 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create($"Condition{Name}AppliedUnfetteredDeluge")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSilent(Silent.WhenAdded)
+            .CopyParticleReferences(ConditionDefinitions.ConditionDistracted)
             .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(combatAffinityTempestSwiftness)
+            .AddToDB();
+
+        var conditionUnfetteredDeluge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}UnfetteredDeluge")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSilent(Silent.WhenRemoved)
+            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetCancellingConditions(conditionAppliedUnfetteredDeluge)
             .AddToDB();
 
         var additionalDamageUnfetteredDeluge = FeatureDefinitionAdditionalDamageBuilder
@@ -454,37 +461,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             failure = string.Empty;
 
             return true;
-        }
-    }
-
-    //
-    // Unfettered Deluge
-    //
-
-    private sealed class CustomCodeUnfetteredDeluge : IFeatureDefinitionCustomCode
-    {
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, 2);
-
-            hero.RefreshAll();
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            ModifyAttributeAndMax(hero, AttributeDefinitions.Dexterity, -2);
-        }
-
-        private static void ModifyAttributeAndMax([NotNull] RulesetActor hero, string attributeName, int amount)
-        {
-            var attribute = hero.GetAttribute(attributeName);
-
-            attribute.BaseValue += amount;
-            attribute.MaxValue += amount;
-            attribute.MaxEditableValue += amount;
-            attribute.Refresh();
-
-            hero.AbilityScoreIncreased?.Invoke(hero, attributeName, amount, amount);
         }
     }
 }
