@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>0</SelectedTab>
+  <SelectedTab>1</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -21,7 +21,7 @@
         <string>SpellListBard</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -634,6 +634,7 @@
           <string>SwordStorm</string>
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>RadiantMotes</string>
           <string>Sanctuary</string>
           <string>ColorBurst</string>
@@ -686,6 +687,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>ColorBurst</string>
@@ -694,6 +696,7 @@
           <string>SpellWeb</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>Foresight</string>
           <string>MeteorSwarmSingleTarget</string>
@@ -747,6 +750,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>Mule</string>
@@ -758,6 +762,7 @@
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
           <string>Foresight</string>
