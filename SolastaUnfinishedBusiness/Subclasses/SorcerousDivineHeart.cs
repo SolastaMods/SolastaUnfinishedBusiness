@@ -117,7 +117,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 .SetEffectForms(FeatureDefinitionPowers.PowerSorcererManaPainterDrain.EffectDescription.EffectForms[1])
                 .Build())
             .SetUsesAbilityBonus(ActivationTime.BonusAction,
-                RechargeRate.LongRest, "Wisdom")
+                RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .AddToDB();
 
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder

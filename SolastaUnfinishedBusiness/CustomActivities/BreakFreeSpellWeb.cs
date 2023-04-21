@@ -55,7 +55,7 @@ public class BreakFreeSpellWeb : ActivityBase
             if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
             {
                 //TODO: find a better way to calculate this DC
-                checkDC = 10 + rulesetCharacterHero.SpellRepertoires
+                checkDC = rulesetCharacterHero.SpellRepertoires
                     .Select(x => x.SaveDC)
                     .Max();
             }

@@ -172,7 +172,9 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (rulesetAttacker == null ||
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

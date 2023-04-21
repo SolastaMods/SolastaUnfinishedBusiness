@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:FeatureSetPathOfTheSpiritsAnimalAspectChoiceHonedBear:7f060a2d-15a4-524b-8d46-fdcf84d7dfc1",
+    "Definition:FeatureSetPathOfTheSpiritsAnimalAspectChoiceHonedEagle:de72f099-3c24-5f39-86cd-8d6f749b3cbb",
+    "Definition:FeatureSetPathOfTheSpiritsAnimalAspectChoiceHonedWolf:146f0f61-db6d-5d58-b895-19ff166596d2"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheSpiritsHonedAnimalAspectChoicesTitle",
+    "description": "Feature/&FeatureSetPathOfTheSpiritsHonedAnimalAspectChoicesDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3a840341-302f-5910-aeda-2708d35d64ab",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheSpiritsHonedAnimalAspectChoices"
+}

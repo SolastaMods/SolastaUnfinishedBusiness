@@ -210,7 +210,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     {
         var rulesetDefender = defender?.RulesetCharacter;
 
-        if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name))
+        if (rulesetDefender == null ||
+            rulesetDefender.IsDeadOrDying ||
+            rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name))
         {
             return;
         }
@@ -219,7 +221,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         var rulesetPower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
         var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
 
-        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+        effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
@@ -311,6 +313,11 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
+                if (rulesetDefender == null)
+                {
+                    continue;
+                }
+
                 // remove conditions up to the limit to also support Schism scenario
                 rulesetDefender.AllConditions
                     .FindAll(x => x.ConditionDefinition == _conditionDiscordance)
@@ -357,7 +364,14 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            defender.RulesetCharacter.AddConditionOfCategory(TagEffect, rulesetCondition);
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
+            rulesetDefender.AddConditionOfCategory(TagEffect, rulesetCondition);
         }
 
         // return the Monk level factoring in wildshape multiclass scenarios

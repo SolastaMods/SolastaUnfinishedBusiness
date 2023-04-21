@@ -576,6 +576,9 @@
   <data name="GambitResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/GambitResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KiPointResourceIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/KiPointResourceIcon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Kobold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Races/Kobold.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -639,6 +642,9 @@
   <data name="PowerMarshalSummonEternalComrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerMarshalSummonEternalComrade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PowerTempestFury" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerTempestFury.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AcidBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/AcidBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -653,6 +659,9 @@
   </data>
   <data name="HerbalismKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/HerbalismKit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CausticZap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/CausticZap.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChromaticOrb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ChromaticOrb.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -674,6 +683,9 @@
   </data>
   <data name="BanishmentSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BanishmentSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SonicBoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/SonicBoom.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ShadeBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ShadeBlade.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -954,11 +966,14 @@
   <data name="WayOfTheDistantHand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheDistantHand.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="WayOfTheDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WayOfTheSilhouette" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheSilhouette.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WayOfTheDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Subclasses\WayOfTheDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WayOfTheTempest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\WayOfTheTempest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WizardArcaneFighter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WizardArcaneFighter.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

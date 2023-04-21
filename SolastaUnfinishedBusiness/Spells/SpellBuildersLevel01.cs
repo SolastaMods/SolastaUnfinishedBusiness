@@ -17,6 +17,45 @@ internal static partial class SpellBuilders
 {
     #region LEVEL 01
 
+    internal static SpellDefinition BuildCausticZap()
+    {
+        const string NAME = "CausticZap";
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, 1)
+            .SetParticleEffectParameters(ShockingGrasp)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeAcid, 1, DieType.D4)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(ConditionDazzled, ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CausticZap, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(effectDescription)
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildChromaticOrb()
     {
         const string NAME = "ChromaticOrb";

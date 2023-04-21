@@ -1,5 +1,3 @@
-
-=LEER
 Feature/&PowerHandwrapsOfPullingDescription=Als Bonusaktion kannst du eine Kreatur innerhalb von 4,5 m näher an dich heranziehen.
 Feature/&PowerHandwrapsOfPullingTitle=Rollen Sie ein
 Feedback/&ExtraDamageDescription=Zusätzlicher Schaden durch Blitzspeer.

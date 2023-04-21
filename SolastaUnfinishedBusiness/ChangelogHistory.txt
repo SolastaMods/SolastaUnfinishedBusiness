@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.77:
+
+- added Caustic Zap spell at 1st, and Sonic Boom at 5th
+- added Path of the Spirit's honed animal aspect at 14th
+- added Way of the Tempest subclass
+- fixed Web spell wrong DC calculation
+- fixed Inventor infusions pool interaction with Infusion Adept feat pool
+
 1.4.33.76:
 
 - added Aegis Touched feats

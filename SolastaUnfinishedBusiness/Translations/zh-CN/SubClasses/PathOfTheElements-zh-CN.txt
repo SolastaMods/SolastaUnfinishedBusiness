@@ -29,4 +29,4 @@ Reaction/&CustomReactionElementalConduitWildfireReactDescription=强迫该生物
 Reaction/&CustomReactionElementalConduitWildfireReactTitle=野火导能
 Reaction/&CustomReactionElementalConduitWildfireTitle=野火导能
 Subclass/&PathOfTheElementsDescription=遵循元素之道的野蛮人学会了驾驭大自然的破坏性力量，将他们的愤怒转化为原始魔法的斗篷，盘旋在他们周围。当处于狂怒状态时，这条道路上的野蛮人会利用自然来制造毁灭性的元素之灾。
-Subclass/&PathOfTheElementsTitle=元素之路
+Subclass/&PathOfTheElementsTitle=元素道途

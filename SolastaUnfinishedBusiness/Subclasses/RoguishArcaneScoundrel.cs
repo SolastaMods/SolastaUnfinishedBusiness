@@ -53,7 +53,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}{DistractingAmbush}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -64,7 +64,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition)
                     .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, true,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,

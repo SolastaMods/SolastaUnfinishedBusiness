@@ -204,7 +204,9 @@ internal static partial class SpellBuilders
             var rulesetDefender = defender.RulesetCharacter;
 
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                rulesetDefender == null || rulesetDefender.CurrentHitPoints > 50)
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
+                rulesetDefender.CurrentHitPoints > 50)
             {
                 return;
             }

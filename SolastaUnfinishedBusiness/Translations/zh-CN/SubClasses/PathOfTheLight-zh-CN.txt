@@ -23,4 +23,4 @@ Feature/&PowerPathOfTheLightIlluminatingBurstTitle=光明爆破
 Feedback/&AdditionalDamageIlluminatingStrikeFormat=光明之击！
 Feedback/&AdditionalDamageIlluminatingStrikeLine=光明之击 对目标造成额外伤害！
 Subclass/&PathOfTheLightDescription=追随光明之路的野蛮人照亮了黑暗，并保护他们的盟友免受潜伏在黑暗中的危险。
-Subclass/&PathOfTheLightTitle=光明之道
+Subclass/&PathOfTheLightTitle=光明道途

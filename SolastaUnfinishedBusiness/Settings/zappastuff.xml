@@ -21,7 +21,7 @@
         <string>SpellListBard</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -149,6 +149,7 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceFairy</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -212,6 +213,7 @@
     <string>WizardSpellMaster</string>
     <string>PathOfTheSavagery</string>
     <string>CircleOfTheLife</string>
+    <string>WayOfTheTempest</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -369,6 +371,8 @@
     <string>FeatPeregrinationTouchedWis</string>
     <string>FeatRopeItUp</string>
     <string>FeatSteadyAim</string>
+    <string>FeatElementalAdeptDamagePoison</string>
+    <string>FeatElementalMasterDamagePoison</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -438,6 +442,8 @@
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
+    <string>Lunger</string>
+    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -628,6 +634,7 @@
           <string>SwordStorm</string>
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>RadiantMotes</string>
           <string>Sanctuary</string>
           <string>ColorBurst</string>
@@ -680,6 +687,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>ColorBurst</string>
@@ -688,6 +696,7 @@
           <string>SpellWeb</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>Foresight</string>
           <string>MeteorSwarmSingleTarget</string>
@@ -741,6 +750,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>Mule</string>
@@ -752,6 +762,7 @@
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
           <string>Foresight</string>
