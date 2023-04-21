@@ -213,6 +213,7 @@ internal static class SpellsContext
         RegisterSpell(Wrack, 0, SpellListCleric);
 
         // 1st level
+        RegisterSpell(BuildCausticZap(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);

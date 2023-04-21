@@ -660,6 +660,9 @@
   <data name="HerbalismKit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/HerbalismKit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CausticZap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/CausticZap.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ChromaticOrb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/ChromaticOrb.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
