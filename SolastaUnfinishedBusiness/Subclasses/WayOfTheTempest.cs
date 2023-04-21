@@ -37,7 +37,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         // Storm Surge
 
         var conditionStormSurge = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}StormSurge")
+            .Create(ConditionDefinitions.ConditionFrightened, $"Condition{Name}StormSurge")
             .SetSilent(Silent.None)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddToDB();
@@ -245,11 +245,11 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom));
             var attackerProficiencyBonus =
                 rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var defenderDexterityModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
-                rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Dexterity));
+            var defenderWisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(
+                rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
             rulesetDefender.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
-                advantageTrends, defenderDexterityModifier, 8 + attackerProficiencyBonus + attackerWisdomModifier,
+                advantageTrends, defenderWisdomModifier, 8 + attackerProficiencyBonus + attackerWisdomModifier,
                 false,
                 out var savingOutcome,
                 out _);
