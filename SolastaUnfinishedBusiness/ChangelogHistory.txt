@@ -2,11 +2,11 @@
 
 1.4.33.77:
 
-- added Path of the Spirit's honed animal aspect at level 14
+- added Caustic Zap spell at 1st, and Sonic Boom at 5th
+- added Path of the Spirit's honed animal aspect at 14th
 - added Way of the Tempest subclass
 - fixed Web spell wrong DC calculation
-- fixed Infusions Adept interaction with Inventor
-- improved Chinese translations
+- improved Infusions Adept interaction with Inventor
 - improved proficiencies UI display
 
 1.4.33.76:

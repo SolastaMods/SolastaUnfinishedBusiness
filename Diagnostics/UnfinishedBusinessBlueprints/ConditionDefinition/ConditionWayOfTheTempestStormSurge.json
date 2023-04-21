@@ -2,11 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Neutral",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityProneDefender:7a9070e36d361a14fb4dd02bd7d4438c",
-    "Definition:CombatAffinityProneAttackerContact:57619ae8566c8f14ea049ef8aaa52187",
-    "Definition:CombatAffinityProneAttackerAway:074df5f74f9b0f94e84ef804b7d53420"
+    "Definition:CombatAffinityFrightened:bd7a11317eacebb44966fa78e8b8f2dc",
+    "Definition:AbilityCheckAffinityFrightened:2a2719b10ea87f34f9f29e03cbdba5c7"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -47,13 +46,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "40ab6dfd54701724ab98b3f91c846a41",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "09122c24b2751d34a89764b8407ef696",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -265,12 +264,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionProneTitle",
-    "description": "Rules/&ConditionProneDescription",
+    "title": "Rules/&ConditionFrightenedTitle",
+    "description": "Rules/&ConditionFrightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c361725f0a278ea4bbef108455b7029d",
-      "m_SubObjectName": "ConditionProne",
+      "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
+      "m_SubObjectName": "ConditionFrightened",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
