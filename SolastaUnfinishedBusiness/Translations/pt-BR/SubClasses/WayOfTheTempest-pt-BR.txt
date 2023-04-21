@@ -14,5 +14,5 @@ Reaction/&ReactionAttackStormSurgeDescription={0} atacou {1}. Você pode usar su
 Reaction/&ReactionAttackStormSurgeReactDescription=Use sua reação para atacar.
 Reaction/&ReactionAttackStormSurgeReactTitle=Reagir
 Reaction/&ReactionAttackStormSurgeTitle=Tempestade
-Subclass/&WayOfTheTempestDescription=Monges do Caminho da Tempestade empurram seus corpos além de suas limitações físicas, utilizando técnicas de manipulação de ki transmitidas por seus mestres e professores. Esses artistas marciais são furacões no campo de batalha, avançando e desferindo incontáveis ​​golpes em seus inimigos, ao mesmo tempo evitando e punindo sem esforço os ataques recebidos.
+Subclass/&WayOfTheTempestDescription=Monges do Caminho da Tempestade empurram seus corpos além de suas limitações físicas, utilizando técnicas de manipulação de ki transmitidas por seus mestres e professores. Esses artistas marciais são furacões no campo de batalha, avançando e desferindo incontáveis golpes em seus inimigos, ao mesmo tempo evitando e punindo sem esforço os ataques recebidos.
 Subclass/&WayOfTheTempestTitle=Caminho da Tempestade

@@ -6,8 +6,7 @@
 - added Path of the Spirit's honed animal aspect at 14th
 - added Way of the Tempest subclass
 - fixed Web spell wrong DC calculation
-- improved Infusions Adept interaction with Inventor
-- improved proficiencies UI display
+- fixed Inventor infusions pool interaction with Infusion Adept feat pool
 
 1.4.33.76:
 
