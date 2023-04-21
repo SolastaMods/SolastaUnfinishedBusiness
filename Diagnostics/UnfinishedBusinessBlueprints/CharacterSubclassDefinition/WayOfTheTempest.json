@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWayOfTheTempestTempestSwiftness:667ef8a3-b59d-5a28-9f64-47aeda69547b",
+      "featureDefinition": "Definition:MovementAffinityWayOfTheTempestTempestSwiftness:c1b4d4bc-08ad-5dda-b874-185fe5e2cbfa",
       "level": 3
     },
     {

@@ -2,10 +2,8 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityWayOfTheTempestTempestSwiftness:708786d6-b723-51cf-8c22-95af64f7457a"
-  ],
+  "conditionType": "Beneficial",
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -15,9 +13,9 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "Attacks"
+    "AnyBattleTurnEnd"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -41,28 +39,23 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "c5c7a96be30574b488665e092df70a05",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "b67b670ae7d08a043adb077d7b0d674f",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "a3152faf3dbf3a140b5a0c5714d3f519",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -135,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestTempestSwiftnessTitle",
-    "description": "Condition/&ConditionWayOfTheTempestTempestSwiftnessDescription",
+    "title": "Condition/&ConditionWayOfTheTempestUnfetteredDelugeTitle",
+    "description": "Condition/&ConditionWayOfTheTempestUnfetteredDelugeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
@@ -156,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5696b231-9682-55a1-b75a-20537c799d7d",
+  "guid": "283ee866-3cea-5ba5-aa87-8b4381cd44cd",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheTempestTempestSwiftness"
+  "name": "ConditionWayOfTheTempestUnfetteredDeluge"
 }

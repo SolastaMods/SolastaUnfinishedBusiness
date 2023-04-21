@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -26,46 +27,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var movementAffinityTempestSwiftness = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}TempestSwiftness")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(2)
             .SetCustomSubFeatures(new OnAfterActionTempestSwiftness())
-            .AddToDB();
-
-        var combatAffinityTempestSwiftness = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}TempestSwiftness")
-            .SetGuiPresentation($"Condition{Name}TempestSwiftness", Category.Condition)
-            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-            .AddToDB();
-
-        var conditionTempestSwiftness = ConditionDefinitionBuilder
-            .Create($"Condition{Name}TempestSwiftness")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetConditionType(ConditionType.Detrimental)
-            .CopyParticleReferences(ConditionDefinitions.ConditionDistracted)
-            .AddFeatures(combatAffinityTempestSwiftness)
-            .AddSpecialInterruptions(ConditionInterruption.Attacks)
-            .AddToDB();
-
-        var additionalDamageTempestSwiftness = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}TempestSwiftness")
-            .SetGuiPresentationNoContent(true)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
-            .SetTargetCondition(
-                ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
-                (AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition.SourceHasCondition)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionTempestSwiftness,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
-            .AddToDB();
-
-        var featureSetTempestSwiftness = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}TempestSwiftness")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(movementAffinityTempestSwiftness, additionalDamageTempestSwiftness)
             .AddToDB();
 
         // LEVEL 06
@@ -91,31 +55,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // Tempest’s Fury
 
-        var powerTempestFuryLeap = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}TempestFuryLeap")
-            .SetGuiPresentation($"Power{Name}TempestFury", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
-                    .SetDurationData(DurationType.Dispelled)
-                    .SetSavingThrowData(true, AttributeDefinitions.Constitution, false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
-                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerMonkStunningStrike)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D8)
-                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionTempestSwiftness, ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .Build())
-            .AddToDB();
-
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
             .SetGuiPresentation(Category.Feature,
@@ -132,67 +71,81 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
-                                ConditionForm.ConditionOperation.Add)
+                                ConditionForm.ConditionOperation.Add, true)
                             .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionDisengaging,
-                                ConditionForm.ConditionOperation.Add)
+                                ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .Build())
             .AddToDB();
 
         powerTempestFury.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked),
-            new OnAfterActionTempestFury(powerTempestFury, powerTempestFuryLeap));
+            new PerformAttackAfterMagicEffectUseTempestFury(),
+            new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked));
 
         // LEVEL 17
 
         // Unfettered Deluge
 
-        var featureUnfetteredDeluge = FeatureDefinitionBuilder
-            .Create($"Feature{Name}UnfetteredDeluge")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CustomCodeUnfetteredDeluge())
+        var conditionUnfetteredDeluge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}UnfetteredDeluge")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var movementAffinityUnfetteredDeluge = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Name}UnfetteredDeluge")
-            .SetGuiPresentationNoContent(true)
-            .SetBaseSpeedAdditiveModifier(2)
-            .SetCustomSubFeatures(new OnAfterActionTempestSwiftness())
+        var combatAffinityTempestSwiftness = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}UnfetteredDeluge")
+            .SetGuiPresentation($"Condition{Name}AppliedUnfetteredDeluge", Category.Condition)
+            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 
-        var abilityCheckAffinityUnfetteredDeluge = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}UnfetteredDeluge")
-            .SetGuiPresentation($"FeatureSet{Name}UnfetteredDeluge", Category.Feature)
-            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
-                (AttributeDefinitions.Strength, SkillDefinitions.Acrobatics))
+        var conditionAppliedUnfetteredDeluge = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AppliedUnfetteredDeluge")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(combatAffinityTempestSwiftness)
             .AddToDB();
 
-        var conditionAffinityUnfetteredDeluge = FeatureDefinitionConditionAffinityBuilder
-            .Create($"ConditionAffinity{Name}UnfetteredDeluge")
+        var additionalDamageUnfetteredDeluge = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}UnfetteredDeluge")
             .SetGuiPresentationNoContent(true)
-            .SetConditionType(ConditionDefinitions.ConditionSlowed)
-            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                ConditionDefinition = conditionUnfetteredDeluge,
+                Operation = ConditionOperationDescription.ConditionOperation.Add
+            })
+            .AddToDB();
+
+        var additionalDamageAppliedUnfetteredDeluge = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}AppliedUnfetteredDeluge")
+            .SetGuiPresentationNoContent(true)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
+            .SetTargetCondition(conditionUnfetteredDeluge, AdditionalDamageTriggerCondition.TargetHasCondition)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                ConditionDefinition = conditionAppliedUnfetteredDeluge,
+                Operation = ConditionOperationDescription.ConditionOperation.Add
+            })
             .AddToDB();
 
         var featureSetUnfetteredDeluge = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}UnfetteredDeluge")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                featureUnfetteredDeluge,
-                movementAffinityUnfetteredDeluge,
-                abilityCheckAffinityUnfetteredDeluge,
-                conditionAffinityUnfetteredDeluge)
+            .AddFeatureSet(additionalDamageUnfetteredDeluge, additionalDamageAppliedUnfetteredDeluge)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
-            .AddFeaturesAtLevel(3, featureSetTempestSwiftness)
+            .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
             .AddFeaturesAtLevel(6, powerStormSurge)
             .AddFeaturesAtLevel(11, powerTempestFury)
             .AddFeaturesAtLevel(17, featureSetUnfetteredDeluge)
@@ -393,48 +346,114 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         }
     }
 
-    private sealed class OnAfterActionTempestFury : IOnAfterActionFeature
-    {
-        private readonly FeatureDefinitionPower _powerTempestFury;
-        private readonly FeatureDefinitionPower _powerTempestFuryLeap;
+    //
+    // Tempest Fury
+    //
 
-        public OnAfterActionTempestFury(
-            FeatureDefinitionPower powerTempestFury,
-            FeatureDefinitionPower powerTempestFuryLeap)
+    private sealed class PerformAttackAfterMagicEffectUseTempestFury : IPerformAttackAfterMagicEffectUse
+    {
+        public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; } =
+            CanMeleeAttack;
+
+        public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
+            DefaultAttackHandler;
+
+        public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; } =
+            DefaultCanUseHandler;
+
+        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
         {
-            _powerTempestFury = powerTempestFury;
-            _powerTempestFuryLeap = powerTempestFuryLeap;
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (battleService == null)
+            {
+                return false;
+            }
+
+            var attackModifier = new ActionModifier();
+            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+
+            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
+                target.LocationPosition, attackModifier);
+
+            return battleService.CanAttack(evalParams);
         }
 
-        public void OnAfterAction(CharacterAction action)
+        [NotNull]
+        private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
         {
-            if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerTempestFury)
+            var attacks = new List<CharacterActionParams>();
+            var actionParams = effect?.ActionParams;
+
+            if (actionParams == null)
             {
-                return;
+                return attacks;
             }
 
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            if (battleService == null)
             {
-                return;
+                return attacks;
             }
 
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerTempestFuryLeap, rulesetCharacter);
+            var caster = actionParams.ActingCharacter;
+            var targets = battleService.Battle.AllContenders
+                .Where(x => x.Side != caster.Side && battleService.IsWithin1Cell(caster, x))
+                .ToList();
 
-            foreach (var targetLocationCharacter in Gui.Battle.AllContenders
-                         .Where(x =>
-                             x.Side != actingCharacter.Side &&
-                             gameLocationBattleService.IsWithin1Cell(actingCharacter, x)))
+            if (caster == null || targets.Empty())
             {
-                var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
-
-                effectPower.ApplyEffectOnCharacter(
-                    targetLocationCharacter.RulesetCharacter, true, targetLocationCharacter.LocationPosition);
+                return attacks;
             }
+
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+
+            if (attackMode == null)
+            {
+                return attacks;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            rulesetAttackModeCopy.Copy(attackMode);
+
+            attackMode = rulesetAttackModeCopy;
+
+            //set action type to be same as the one used for the magic effect
+            attackMode.ActionType = effect.ActionType;
+
+            var attackModifier = new ActionModifier();
+
+            foreach (var target in targets.Where(t => CanMeleeAttack(caster, t)))
+            {
+                var attackActionParams =
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+
+                attackActionParams.TargetCharacters.Add(target);
+                attackActionParams.ActionModifiers.Add(attackModifier);
+                attacks.Add(attackActionParams);
+            }
+
+            return attacks;
+        }
+
+        private static bool DefaultCanUseHandler(
+            [NotNull] CursorLocationSelectTarget targeting,
+            GameLocationCharacter caster,
+            GameLocationCharacter target, [NotNull] out string failure)
+        {
+            failure = string.Empty;
+
+            return true;
         }
     }
 

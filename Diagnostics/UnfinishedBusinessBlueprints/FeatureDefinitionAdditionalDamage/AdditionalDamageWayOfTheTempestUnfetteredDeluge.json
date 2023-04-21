@@ -5,11 +5,11 @@
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": 9003,
+  "triggerCondition": "AlwaysActive",
   "requiredProperty": "Unarmed",
   "attackModeOnly": false,
   "attackOnly": false,
-  "requiredTargetCondition": "Definition:ConditionMonkFlurryOfBlowsUnarmedStrikeBonus:b86ca48afc417b247b22900df01189c2",
+  "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -39,7 +39,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionWayOfTheTempestTempestSwiftness:5696b231-9682-55a1-b75a-20537c799d7d",
+      "conditionDefinition": "Definition:ConditionWayOfTheTempestUnfetteredDeluge:283ee866-3cea-5ba5-aa87-8b4381cd44cd",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -80,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7a340f04-516e-533d-9a3a-820c46a60021",
+  "guid": "0487ae30-3d3b-57f6-b664-992bc95b48ae",
   "contentPack": 9999,
-  "name": "AdditionalDamageWayOfTheTempestTempestSwiftness"
+  "name": "AdditionalDamageWayOfTheTempestUnfetteredDeluge"
 }

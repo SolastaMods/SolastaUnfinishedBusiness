@@ -28,9 +28,9 @@
   "additionalDashTag": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessTitle",
+    "description": "Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestTempestSwiftnessTitle",
-    "description": "Condition/&ConditionWayOfTheTempestTempestSwiftnessDescription",
+    "title": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeTitle",
+    "description": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "708786d6-b723-51cf-8c22-95af64f7457a",
+  "guid": "c8ff7713-3e72-532c-a303-f2fc6df7537c",
   "contentPack": 9999,
-  "name": "CombatAffinityWayOfTheTempestTempestSwiftness"
+  "name": "CombatAffinityWayOfTheTempestUnfetteredDeluge"
 }

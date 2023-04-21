@@ -1,10 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureWayOfTheTempestUnfetteredDeluge:aec4f1cb-4b8b-562c-8a76-7e4300e5400a",
-    "Definition:MovementAffinityWayOfTheTempestUnfetteredDeluge:68459656-8a78-5a5b-a226-7e2857e46823",
-    "Definition:ConditionAffinityWayOfTheTempestUnfetteredDeluge:9efc91e2-5c62-54e5-b153-6bd0bea65e8d",
-    "Definition:AbilityCheckAffinityWayOfTheTempestUnfetteredDeluge:b59f0f12-7068-57fa-82cd-533a20c36eff"
+    "Definition:AdditionalDamageWayOfTheTempestUnfetteredDeluge:0487ae30-3d3b-57f6-b664-992bc95b48ae",
+    "Definition:AdditionalDamageWayOfTheTempestAppliedUnfetteredDeluge:6f9e855a-268e-5034-9473-4ee3fbee357c"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
