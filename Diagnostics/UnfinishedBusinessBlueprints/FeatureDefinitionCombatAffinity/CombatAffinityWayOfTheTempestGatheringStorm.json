@@ -9,7 +9,7 @@
   "autoCritical": false,
   "criticalHitImmunity": false,
   "myAttackAffinityFilter": "Always",
-  "myAttackAdvantage": "Disadvantage",
+  "myAttackAdvantage": "Advantage",
   "ignoreCover": false,
   "permanentCover": "None",
   "ignoreRangeAdvantage": false,
@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestAppliedGatheringStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestAppliedGatheringStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "97068b48-0216-55fc-9e18-032f7fdc9383",
+  "guid": "b1766f66-6b8a-5a99-8646-f2db0df46020",
   "contentPack": 9999,
-  "name": "CombatAffinityWayOfTheTempestAppliedUnfetteredDeluge"
+  "name": "CombatAffinityWayOfTheTempestGatheringStorm"
 }

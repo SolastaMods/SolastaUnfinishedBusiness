@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -11,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -35,84 +35,43 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // LEVEL 06
 
-        // Storm Surge
+        // Gathering Storm
 
-        var combatAffinityStormSurge = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}StormSurge")
-            .SetGuiPresentation($"Condition{Name}AppliedStormSurge", Category.Condition)
-            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+        var combatAffinityGatheringStorm = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}GatheringStorm")
+            .SetGuiPresentation($"Condition{Name}AppliedGatheringStorm", Category.Condition)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
 
-        var conditionAppliedStormSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AppliedStormSurge")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+        var conditionAppliedGatheringStorm = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AppliedGatheringStorm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiscipleImmuneLightning)
             .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSilent(Silent.WhenAdded)
-            .CopyParticleReferences(ConditionDefinitions.ConditionBranded)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(combatAffinityStormSurge)
-            .AddToDB();
-
-        var conditionStormSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}StormSurge")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
             .CopyParticleReferences(ConditionDefinitions.ConditionBranded)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
-            .SetCancellingConditions(conditionAppliedStormSurge)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetFeatures(combatAffinityGatheringStorm)
+            .AddToDB();
+
+        var conditionGatheringStorm = ConditionDefinitionBuilder
+            .Create($"Condition{Name}GatheringStorm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiscipleImmuneLightning)
+            .SetPossessive()
+            .SetSilent(Silent.WhenRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .CopyParticleReferences(ConditionDefinitions.ConditionGuided)
+            .SetCancellingConditions(conditionAppliedGatheringStorm)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        var additionalDamageStormSurge = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}StormSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionStormSurge,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
-            .AddToDB();
-
-        var additionalDamageAppliedStormSurge = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}AppliedStormSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetTargetCondition(conditionStormSurge, AdditionalDamageTriggerCondition.TargetHasCondition)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionAppliedStormSurge,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
-            .AddToDB();
-
-        var conditionExtraUnarmoredAttackStormSurge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ExtraUnarmoredAttackStormSurge")
-            .SetGuiPresentation(Category.Condition)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create($"Feature{Name}ExtraUnarmoredAttackStormSurge")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus))
-                    .AddToDB())
-            .AddToDB();
-
-        var featureStormSurge = FeatureDefinitionBuilder
-            .Create($"Feature{Name}StormSurge")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new OnAfterActionStormSurge(conditionExtraUnarmoredAttackStormSurge))
-            .AddToDB();
-
-        var featureSetStormSurge = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}StormSurge")
+        var featureGatheringStorm = FeatureDefinitionBuilder
+            .Create($"Feature{Name}GatheringStorm")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(additionalDamageStormSurge, additionalDamageAppliedStormSurge, featureStormSurge)
+            .SetCustomSubFeatures(
+                new CustomBehaviorGatheringStorm(
+                    conditionGatheringStorm,
+                    conditionAppliedGatheringStorm))
             .AddToDB();
 
         // LEVEL 11
@@ -128,7 +87,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Round)
                     .SetParticleEffectParameters(PowerMonkFlurryOfBlows)
                     .AddEffectForms(
                         EffectFormBuilder
@@ -154,36 +113,36 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // LEVEL 17
 
-        // Unfettered Deluge
+        // Eye of The Storm
 
         // Mark
 
-        var conditionUnfetteredDeluge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}UnfetteredDeluge")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
+        var conditionEyeOfTheStorm = ConditionDefinitionBuilder
+            .Create($"Condition{Name}EyeOfTheStorm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShocked)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .CopyParticleReferences(ConditionDefinitions.ConditionMarkedByBrandingSmite)
+            .CopyParticleReferences(ConditionDefinitions.ConditionShocked)
             .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
-        var additionalDamageUnfetteredDeluge = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}UnfetteredDeluge")
+        var additionalDamageEyeOfTheStorm = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}EyeOfTheStorm")
             .SetGuiPresentationNoContent(true)
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
-            .SetImpactParticleReference(AdditionalDamageHuntersMark.impactParticleReference)
+            .SetImpactParticleReference(ConditionDefinitions.ConditionShocked.conditionParticleReference)
             .SetConditionOperations(new ConditionOperationDescription
             {
-                ConditionDefinition = conditionUnfetteredDeluge,
+                ConditionDefinition = conditionEyeOfTheStorm,
                 Operation = ConditionOperationDescription.ConditionOperation.Add
             })
             .AddToDB();
 
         // Staggered
 
-        var abilityCheckAffinityUnfetteredDeluge = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create($"AbilityCheckAffinity{Name}AppliedUnfetteredDeluge")
-            .SetGuiPresentation($"Condition{Name}AppliedUnfetteredDeluge", Category.Condition)
+        var abilityCheckAffinityEyeOfTheStorm = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}AppliedEyeOfTheStorm")
+            .SetGuiPresentation($"Condition{Name}AppliedEyeOfTheStorm", Category.Condition)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                 AttributeDefinitions.Strength,
                 AttributeDefinitions.Dexterity,
@@ -193,26 +152,26 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 AttributeDefinitions.Charisma)
             .AddToDB();
 
-        var combatAffinityUnfetteredDeluge = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}AppliedUnfetteredDeluge")
-            .SetGuiPresentation($"Condition{Name}AppliedUnfetteredDeluge", Category.Condition)
+        var combatAffinityEyeOfTheStorm = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{Name}AppliedEyeOfTheStorm")
+            .SetGuiPresentation($"Condition{Name}AppliedEyeOfTheStorm", Category.Condition)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
 
-        var conditionAppliedUnfetteredDeluge = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AppliedUnfetteredDeluge")
+        var conditionAppliedEyeOfTheStorm = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AppliedEyeOfTheStorm")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .CopyParticleReferences(ConditionDefinitions.ConditionMarkedByHunter)
-            .AddFeatures(abilityCheckAffinityUnfetteredDeluge, combatAffinityUnfetteredDeluge)
+            .AddFeatures(abilityCheckAffinityEyeOfTheStorm, combatAffinityEyeOfTheStorm)
             .AddToDB();
 
         // Powers
 
-        var powerUnfetteredDelugeLeap = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}UnfetteredDelugeLeap")
-            .SetGuiPresentation($"FeatureSet{Name}UnfetteredDeluge", Category.Feature, hidden: true)
+        var powerEyeOfTheStormLeap = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}EyeOfTheStormLeap")
+            .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -229,39 +188,39 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionAppliedUnfetteredDeluge, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionAppliedEyeOfTheStorm, ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionUnfetteredDeluge, ConditionForm.ConditionOperation.Remove)
+                            .SetConditionForm(conditionEyeOfTheStorm, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
             .SetCustomSubFeatures(ValidatorsPowerUse.InCombat)
             .AddToDB();
 
-        var powerUnfetteredDeluge = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}UnfetteredDeluge")
-            .SetGuiPresentation($"FeatureSet{Name}UnfetteredDeluge", Category.Feature, PowerOathOfDevotionTurnUnholy)
+        var powerEyeOfTheStorm = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}EyeOfTheStorm")
+            .SetGuiPresentation($"FeatureSet{Name}EyeOfTheStorm", Category.Feature, PowerOathOfDevotionTurnUnholy)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(SpellDefinitions.ShockingGrasp)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetParticleEffectParameters(PowerDomainElementalLightningBlade)
                     .Build())
             .AddToDB();
 
-        powerUnfetteredDeluge.SetCustomSubFeatures(
+        powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new OnAfterActionUnfetteredDeluge(
-                powerUnfetteredDeluge, powerUnfetteredDelugeLeap, conditionUnfetteredDeluge));
+            new OnAfterActionEyeOfTheStorm(
+                powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
-        var featureSetUnfetteredDeluge = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}UnfetteredDeluge")
+        var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}EyeOfTheStorm")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(additionalDamageUnfetteredDeluge, powerUnfetteredDeluge, powerUnfetteredDelugeLeap)
+            .AddFeatureSet(additionalDamageEyeOfTheStorm, powerEyeOfTheStorm, powerEyeOfTheStormLeap)
             .AddToDB();
 
         //
@@ -272,9 +231,9 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
             .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
-            .AddFeaturesAtLevel(6, featureSetStormSurge)
+            .AddFeaturesAtLevel(6, featureGatheringStorm)
             .AddFeaturesAtLevel(11, powerTempestFury)
-            .AddFeaturesAtLevel(17, featureSetUnfetteredDeluge)
+            .AddFeaturesAtLevel(17, featureSetEyeOfTheStorm)
             .AddToDB();
     }
 
@@ -287,32 +246,83 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
-    // Storm Surge
+    // Gathering Storm
     //
 
-    private sealed class OnAfterActionStormSurge : IOnAfterActionFeature
+    private sealed class CustomBehaviorGatheringStorm : ICharacterTurnStartListener, IAfterAttackEffect
     {
-        private readonly ConditionDefinition _conditionStormSurge;
+        private readonly ConditionDefinition _conditionAppliedGatheringStorm;
+        private readonly ConditionDefinition _conditionGatheringStorm;
 
-        public OnAfterActionStormSurge(ConditionDefinition conditionStormSurge)
+        public CustomBehaviorGatheringStorm(
+            ConditionDefinition conditionGatheringStorm,
+            ConditionDefinition conditionAppliedGatheringStorm)
         {
-            _conditionStormSurge = conditionStormSurge;
+            _conditionGatheringStorm = conditionGatheringStorm;
+            _conditionAppliedGatheringStorm = conditionAppliedGatheringStorm;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
         {
-            if (action.ActionType != ActionDefinitions.ActionType.Main || action is CharacterActionAttack)
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (rulesetCharacter == null || rulesetCharacter.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfCategory(_conditionGatheringStorm.Name);
+
+                return;
+            }
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionGatheringStorm.Name) &&
+                !rulesetCharacter.HasAnyConditionOfType(_conditionAppliedGatheringStorm.Name))
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    rulesetCharacter.guid,
+                    _conditionGatheringStorm,
+                    _conditionGatheringStorm.DurationType,
+                    _conditionGatheringStorm.DurationParameter,
+                    _conditionGatheringStorm.TurnOccurence,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name);
+
+                rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+                return;
+            }
+
+            var rulesetConditionApplied = RulesetCondition.CreateActiveCondition(
+                rulesetCharacter.guid,
+                _conditionAppliedGatheringStorm,
+                _conditionAppliedGatheringStorm.DurationType,
+                _conditionAppliedGatheringStorm.DurationParameter,
+                _conditionAppliedGatheringStorm.TurnOccurence,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name);
+
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetConditionApplied);
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var condition = ConditionDefinitions.ConditionMonkMartialArtsUnarmedStrikeBonus;
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 rulesetCharacter.guid,
-                _conditionStormSurge,
-                _conditionStormSurge.DurationType,
-                _conditionStormSurge.DurationParameter,
-                _conditionStormSurge.TurnOccurence,
+                condition,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.StartOfTurn,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name);
 
@@ -409,7 +419,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             var caster = actionParams.ActingCharacter;
             var targets = battleService.Battle.AllContenders
-                .Where(x => x.Side != caster.Side && battleService.IsWithin1Cell(caster, x))
+                .Where(x => x.IsOppositeSide(caster.Side) && battleService.IsWithin1Cell(caster, x))
                 .ToList();
 
             if (caster == null || targets.Empty())
@@ -461,29 +471,29 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     }
 
     //
-    // Unfettered Deluge
+    // Eye of The Storm
     //
 
-    private sealed class OnAfterActionUnfetteredDeluge : IOnAfterActionFeature
+    private sealed class OnAfterActionEyeOfTheStorm : IOnAfterActionFeature
     {
-        private readonly ConditionDefinition _conditionUnfetteredDeluge;
-        private readonly FeatureDefinitionPower _powerUnfetteredDeluge;
-        private readonly FeatureDefinitionPower _powerUnfetteredDelugeLeap;
+        private readonly ConditionDefinition _conditionEyeOfTheStorm;
+        private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
+        private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
 
-        public OnAfterActionUnfetteredDeluge(
-            FeatureDefinitionPower powerUnfetteredDeluge,
-            FeatureDefinitionPower powerUnfetteredDelugeLeap,
-            ConditionDefinition conditionUnfetteredDeluge)
+        public OnAfterActionEyeOfTheStorm(
+            FeatureDefinitionPower powerEyeOfTheStorm,
+            FeatureDefinitionPower powerEyeOfTheStormLeap,
+            ConditionDefinition conditionEyeOfTheStorm)
         {
-            _powerUnfetteredDeluge = powerUnfetteredDeluge;
-            _powerUnfetteredDelugeLeap = powerUnfetteredDelugeLeap;
-            _conditionUnfetteredDeluge = conditionUnfetteredDeluge;
+            _powerEyeOfTheStorm = powerEyeOfTheStorm;
+            _powerEyeOfTheStormLeap = powerEyeOfTheStormLeap;
+            _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
         public void OnAfterAction(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _powerUnfetteredDeluge)
+                characterActionUsePower.activePower.PowerDefinition != _powerEyeOfTheStorm)
             {
                 return;
             }
@@ -495,18 +505,20 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 return;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var usablePower = UsablePowersProvider.Get(_powerUnfetteredDelugeLeap, rulesetCharacter);
+            var attacker = action.ActingCharacter;
+            var rulesetCharacter = attacker.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerEyeOfTheStormLeap, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
-            foreach (var targetLocationCharacter in battleService.Battle.AllContenders
-                         .Where(x => x.Side != rulesetCharacter.Side && x.RulesetCharacter != null)
+            foreach (var defender in battleService.Battle.AllContenders
+                         .Where(x => x.IsOppositeSide(attacker.Side))
                          .Where(x => x.RulesetCharacter.AllConditions
-                             .Any(y => y.ConditionDefinition == _conditionUnfetteredDeluge &&
+                             .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
                                        y.SourceGuid == rulesetCharacter.Guid)))
             {
-                effectPower.ApplyEffectOnCharacter(
-                    targetLocationCharacter.RulesetCharacter, true, targetLocationCharacter.LocationPosition);
+                EffectHelpers.StartVisualEffect(
+                    attacker, defender, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);
+                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
             }
         }
     }

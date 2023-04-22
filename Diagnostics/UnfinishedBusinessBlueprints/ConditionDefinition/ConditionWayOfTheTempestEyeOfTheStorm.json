@@ -3,23 +3,18 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityWayOfTheTempestStormSurge:9aa35180-e65f-5e40-8e70-9f525bd5defa"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
+  "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationType": "Minute",
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfSourceTurn",
-  "specialInterruptions": [
-    "Attacked",
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -136,12 +131,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestAppliedStormSurgeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestAppliedStormSurgeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestEyeOfTheStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
+      "m_AssetGUID": "37a0b9c04d666bc4eaf93a2a5ad0e2d2",
+      "m_SubObjectName": "ConditionShockingGrasp",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -157,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c45158b1-8307-5e8d-9bf4-55ea1422c69a",
+  "guid": "32a4adb6-25ee-5ec4-b5ea-d30eedff5ebe",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheTempestAppliedStormSurge"
+  "name": "ConditionWayOfTheTempestEyeOfTheStorm"
 }

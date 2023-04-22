@@ -2,22 +2,23 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityWayOfTheTempestAppliedUnfetteredDeluge:98c51502-f6b3-5858-949b-ace0fd8f13b2",
-    "Definition:CombatAffinityWayOfTheTempestAppliedUnfetteredDeluge:97068b48-0216-55fc-9e18-032f7fdc9383"
+    "Definition:CombatAffinityWayOfTheTempestGatheringStorm:b1766f66-6b8a-5a99-8646-f2db0df46020"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacked"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -134,12 +135,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestAppliedGatheringStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestAppliedGatheringStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
-      "m_SubObjectName": "ConditionTargeted",
+      "m_AssetGUID": "d19e331cb5b26b54499a6c7bdd19260a",
+      "m_SubObjectName": "ImmuneToLightning",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -155,7 +156,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1882cfcb-e6cf-5bd3-89f9-a5a44d35b034",
+  "guid": "ff7f0e37-369e-51ec-b562-528fa55b2fad",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheTempestAppliedUnfetteredDeluge"
+  "name": "ConditionWayOfTheTempestAppliedGatheringStorm"
 }

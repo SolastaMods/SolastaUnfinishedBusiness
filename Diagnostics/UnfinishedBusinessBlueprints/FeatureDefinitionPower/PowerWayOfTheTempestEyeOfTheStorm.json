@@ -86,7 +86,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "4bcfd3b84d6fd5f4ea65243ec317be36",
+        "m_AssetGUID": "cbdbba777a51a5742a7d89075c3d7ce0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -110,7 +110,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "817259d53e386934ea144edfbef304d5",
+        "m_AssetGUID": "dd58e0b2384b5b44983779b0fe5f537c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -296,8 +296,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle",
-    "description": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription",
+    "title": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormTitle",
+    "description": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1a00d386dfb4311468f2ac9e4c5b55ad",
@@ -317,7 +317,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f278aaa2-45d2-5f88-bead-0f0820ca8649",
+  "guid": "79d6e3ba-5386-5f3c-8e74-a4a69bc73b1a",
   "contentPack": 9999,
-  "name": "PowerWayOfTheTempestUnfetteredDeluge"
+  "name": "PowerWayOfTheTempestEyeOfTheStorm"
 }

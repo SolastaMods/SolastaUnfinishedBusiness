@@ -39,7 +39,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionWayOfTheTempestUnfetteredDeluge:283ee866-3cea-5ba5-aa87-8b4381cd44cd",
+      "conditionDefinition": "Definition:ConditionWayOfTheTempestEyeOfTheStorm:32a4adb6-25ee-5ec4-b5ea-d30eedff5ebe",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -85,7 +85,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0487ae30-3d3b-57f6-b664-992bc95b48ae",
+  "guid": "46380848-893d-599a-8219-8500dd16bc92",
   "contentPack": 9999,
-  "name": "AdditionalDamageWayOfTheTempestUnfetteredDeluge"
+  "name": "AdditionalDamageWayOfTheTempestEyeOfTheStorm"
 }

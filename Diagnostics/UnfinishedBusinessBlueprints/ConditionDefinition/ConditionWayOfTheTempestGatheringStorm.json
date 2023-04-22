@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -13,7 +13,7 @@
   "durationParameterDie": "D4",
   "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
     "AnyBattleTurnEnd"
   ],
@@ -26,7 +26,7 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
-    "Definition:ConditionWayOfTheTempestAppliedStormSurge:c45158b1-8307-5e8d-9bf4-55ea1422c69a"
+    "Definition:ConditionWayOfTheTempestAppliedGatheringStorm:ff7f0e37-369e-51ec-b562-528fa55b2fad"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -135,12 +135,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestStormSurgeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestStormSurgeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestGatheringStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestGatheringStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
-      "m_SubObjectName": "ConditionNegative",
+      "m_AssetGUID": "d19e331cb5b26b54499a6c7bdd19260a",
+      "m_SubObjectName": "ImmuneToLightning",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -156,7 +156,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c28dea8d-4300-5948-aceb-9349243a8006",
+  "guid": "c2e17ef0-6099-5818-97a7-6b88be9bc5dc",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheTempestStormSurge"
+  "name": "ConditionWayOfTheTempestGatheringStorm"
 }

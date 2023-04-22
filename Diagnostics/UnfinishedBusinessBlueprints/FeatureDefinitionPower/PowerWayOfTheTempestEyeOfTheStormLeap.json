@@ -112,8 +112,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWayOfTheTempestAppliedUnfetteredDeluge",
-          "conditionDefinition": "Definition:ConditionWayOfTheTempestAppliedUnfetteredDeluge:1882cfcb-e6cf-5bd3-89f9-a5a44d35b034",
+          "conditionDefinitionName": "ConditionWayOfTheTempestAppliedEyeOfTheStorm",
+          "conditionDefinition": "Definition:ConditionWayOfTheTempestAppliedEyeOfTheStorm:e53aeefd-dbe1-535b-a4ea-084f1fca66b0",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -139,8 +139,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionWayOfTheTempestUnfetteredDeluge",
-          "conditionDefinition": "Definition:ConditionWayOfTheTempestUnfetteredDeluge:283ee866-3cea-5ba5-aa87-8b4381cd44cd",
+          "conditionDefinitionName": "ConditionWayOfTheTempestEyeOfTheStorm",
+          "conditionDefinition": "Definition:ConditionWayOfTheTempestEyeOfTheStorm:32a4adb6-25ee-5ec4-b5ea-d30eedff5ebe",
           "operation": "Remove",
           "conditionsList": [],
           "applyToSelf": false,
@@ -386,8 +386,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle",
-    "description": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription",
+    "title": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormTitle",
+    "description": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -407,7 +407,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c523d6eb-8409-519d-89b9-a3565128b024",
+  "guid": "38cd49a8-19d1-562b-b43d-fe67248b63d6",
   "contentPack": 9999,
-  "name": "PowerWayOfTheTempestUnfetteredDelugeLeap"
+  "name": "PowerWayOfTheTempestEyeOfTheStormLeap"
 }
