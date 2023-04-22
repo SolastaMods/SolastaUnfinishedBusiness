@@ -926,9 +926,12 @@
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
+  <EnablePcgRandom>true</EnablePcgRandom>
   <EnableRespec>true</EnableRespec>
-  <EnableCheatMenu>true</EnableCheatMenu>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
+  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCheatMenu>true</EnableCheatMenu>
+  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
@@ -1157,8 +1160,6 @@
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
-  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>
   <UnleashEnemyAsNpc>true</UnleashEnemyAsNpc>
