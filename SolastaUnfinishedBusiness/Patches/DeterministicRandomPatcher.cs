@@ -9,23 +9,15 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class DeterministicRandomPatcher
 {
-    private static ulong _state;
+    private static int MySeed => (int)System.DateTime.Now.Ticks;
+
+    private static PcgRandom MyRandom { get; } = new((ulong)MySeed);
 
     private static float Next(double minValue, double maxValue)
     {
-        var result = (PcgRandom.Random.NextDouble() * (maxValue - minValue)) + minValue;
+        var result = (MyRandom.NextDouble() * (maxValue - minValue)) + minValue;
 
         return (float)result;
-    }
-
-    private static void ResetRandomState()
-    {
-        PcgRandom.Random.State = _state;
-    }
-
-    private static void RecordRandomState()
-    {
-        _state = PcgRandom.Random.State;
     }
 
     [HarmonyPatch(typeof(DeterministicRandom), nameof(DeterministicRandom.value), MethodType.Getter)]
@@ -41,16 +33,22 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            if (DeterministicRandom.lockFlags.Count > 0)
+            var service = ServiceRepository.GetService<IGameService>();
+
+            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
             {
-                __result = (float)PcgRandom.Random.NextDouble();
+                __result = (float)MyRandom.NextDouble();
 
                 return false;
             }
 
-            ResetRandomState();
-            __result = (float)PcgRandom.Random.NextDouble();
-            RecordRandomState();
+            service.Game.ResetDeterministicRandomState();
+
+            var num = (float)MyRandom.NextDouble();
+
+            service.Game.RecordDeterministicRandomState();
+
+            __result = num;
 
             return false;
         }
@@ -69,16 +67,22 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            if (DeterministicRandom.lockFlags.Count > 0)
+            var service = ServiceRepository.GetService<IGameService>();
+
+            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
             {
-                __result = PcgRandom.Random.Next(min, max);
+                __result = MyRandom.Next(min, max);
 
                 return false;
             }
 
-            ResetRandomState();
-            __result = PcgRandom.Random.Next(min, max);
-            RecordRandomState();
+            service.Game.ResetDeterministicRandomState();
+
+            var num = MyRandom.Next(min, max);
+
+            service.Game.RecordDeterministicRandomState();
+
+            __result = num;
 
             return false;
         }
@@ -97,64 +101,104 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            if (DeterministicRandom.lockFlags.Count > 0)
+            var service = ServiceRepository.GetService<IGameService>();
+
+            if (service == null || service.Game == null || DeterministicRandom.lockFlags.Count > 0)
             {
                 __result = Next(min, max);
 
                 return false;
             }
 
-            ResetRandomState();
-            __result = Next(min, max);
-            RecordRandomState();
+            service.Game.ResetDeterministicRandomState();
+
+            var num = Next(min, max);
+
+            service.Game.RecordDeterministicRandomState();
+
+            __result = num;
 
             return false;
         }
     }
 
-    [HarmonyPatch(typeof(DeterministicRandom), nameof(DeterministicRandom.ResetRandomState))]
+    [HarmonyPatch(typeof(Game), nameof(Game.RecordDeterministicRandomState))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class ResetRandomState_Patch
+    public static class RecordDeterministicRandomState_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(Game __instance)
         {
             if (!Main.Settings.EnablePcgRandom)
             {
                 return true;
             }
 
-            if (DeterministicRandom.lockFlags.Count > 0)
-            {
-                return false;
-            }
-
-            ResetRandomState();
+            __instance.randomSeed = (int)MyRandom.State;
 
             return false;
         }
     }
 
-    [HarmonyPatch(typeof(DeterministicRandom), nameof(DeterministicRandom.RecordRandomState))]
+    [HarmonyPatch(typeof(Game), nameof(Game.ResetDeterministicRandomState))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class RecordRandomState_Patch
+    public static class ResetDeterministicRandomState_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix()
+        public static bool Prefix(Game __instance)
         {
             if (!Main.Settings.EnablePcgRandom)
             {
                 return true;
             }
 
-            if (DeterministicRandom.lockFlags.Count > 0)
+            MyRandom.State = (ulong)__instance.randomSeed;
+
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(Game), nameof(Game.GenerateRandomSeed))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GenerateRandomSeed_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(Game __instance)
+        {
+            if (!Main.Settings.EnablePcgRandom)
             {
-                return false;
+                return true;
             }
 
-            RecordRandomState();
+            var service = ServiceRepository.GetService<INetworkingService>();
+
+            if (__instance.randomSeed == 0)
+            {
+                __instance.randomSeed = service?.RoomRandomSeed ?? 0;
+
+                if (__instance.randomSeed == 0)
+                {
+                    __instance.randomSeed = MySeed;
+                }
+            }
+            else
+            {
+                var num = service?.RoomRandomSeed ?? 0;
+
+                if (num == 0)
+                {
+                    num = __instance.randomSeed;
+                }
+
+                __instance.randomSeed = (num ^ 3) * 3 / 2;
+            }
+
+            MyRandom.State = (ulong)__instance.randomSeed;
+
+            __instance.RecordDeterministicRandomState();
 
             return false;
         }

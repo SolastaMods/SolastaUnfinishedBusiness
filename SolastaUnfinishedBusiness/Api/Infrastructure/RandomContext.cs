@@ -2,7 +2,6 @@
 // license: https://www.apache.org/licenses/LICENSE-2.0
 
 using System;
-using System.Diagnostics;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -17,12 +16,10 @@ public sealed class PcgRandom : Random
     /// <summary>
     /// Initializes a new instance of the <see cref="PcgRandom"/> class, using a time-dependent default seed value.
     /// </summary>
-    private PcgRandom()
+    public PcgRandom(ulong state)
     {
-        _rng = new Pcg32Single(unchecked((ulong)Stopwatch.GetTimestamp()));
+        _rng = new Pcg32Single(state);
     }
-
-    public static PcgRandom Random { get; } = new();
 
     public ulong State
     {
