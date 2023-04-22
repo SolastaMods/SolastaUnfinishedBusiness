@@ -1,4 +1,4 @@
-Action/&PersistentRageStartDescription=Eine Minute lang hast du einen Vorteil bei Stärkewürfen und -würfen, einen Bonus auf Schaden durch Nahkampfangriffe und Resistenz gegen Hieb-, Knüppel- und Stichschaden. Sie erhalten diese Vorteile nur, wenn Sie jetzt eine schwere Rüstung tragen.
+Action/&PersistentRageStartDescription=Eine Minute lang hast du einen Vorteil bei Stärkewürfen und -würfen, einen Bonus auf Schaden durch Nahkampfangriffe und Resistenz gegen Hieb-, Knüppel- und Stichschaden. Sie erhalten diese Vorteile nur, wenn Sie keine schwere Rüstung tragen.
 Condition/&ConditionMonkEmptyBodyDescription=Sie haben Widerstand gegen jeden Schaden außer Gewalt.
 Condition/&ConditionMonkEmptyBodyTitle=Leerer Körper
 Feature/&BattleStartedListenerMonkPerfectSelfDescription=Wenn du den Kampf beginnst und keine Ki-Punkte übrig hast, erhältst du 4 Ki-Punkte zurück.
