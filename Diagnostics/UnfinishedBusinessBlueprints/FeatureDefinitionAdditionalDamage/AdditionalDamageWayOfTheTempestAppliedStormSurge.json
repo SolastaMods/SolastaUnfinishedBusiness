@@ -6,10 +6,10 @@
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetHasCondition",
-  "requiredProperty": "Unarmed",
+  "requiredProperty": "UnarmedOrMonkWeapon",
   "attackModeOnly": false,
   "attackOnly": false,
-  "requiredTargetCondition": "Definition:ConditionWayOfTheTempestUnfetteredDeluge:283ee866-3cea-5ba5-aa87-8b4381cd44cd",
+  "requiredTargetCondition": "Definition:ConditionWayOfTheTempestStormSurge:c28dea8d-4300-5948-aceb-9349243a8006",
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -39,7 +39,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionWayOfTheTempestAppliedUnfetteredDeluge:1882cfcb-e6cf-5bd3-89f9-a5a44d35b034",
+      "conditionDefinition": "Definition:ConditionWayOfTheTempestAppliedStormSurge:c45158b1-8307-5e8d-9bf4-55ea1422c69a",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -80,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6f9e855a-268e-5034-9473-4ee3fbee357c",
+  "guid": "8f371165-e97a-5813-9e19-f0a5eb6bbb5d",
   "contentPack": 9999,
-  "name": "AdditionalDamageWayOfTheTempestAppliedUnfetteredDeluge"
+  "name": "AdditionalDamageWayOfTheTempestAppliedStormSurge"
 }

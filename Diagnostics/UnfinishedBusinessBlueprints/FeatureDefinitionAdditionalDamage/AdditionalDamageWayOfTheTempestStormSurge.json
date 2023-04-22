@@ -39,7 +39,7 @@
       "hasSavingThrow": false,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionWayOfTheTempestUnfetteredDeluge:283ee866-3cea-5ba5-aa87-8b4381cd44cd",
+      "conditionDefinition": "Definition:ConditionWayOfTheTempestStormSurge:c28dea8d-4300-5948-aceb-9349243a8006",
       "saveAffinity": "None",
       "canSaveToCancel": false,
       "saveOccurence": "EndOfTurn"
@@ -47,12 +47,7 @@
   ],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "impactParticleReference": null,
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
@@ -85,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0487ae30-3d3b-57f6-b664-992bc95b48ae",
+  "guid": "95f1f996-4504-5028-bdc9-8f250d018b25",
   "contentPack": 9999,
-  "name": "AdditionalDamageWayOfTheTempestUnfetteredDeluge"
+  "name": "AdditionalDamageWayOfTheTempestStormSurge"
 }

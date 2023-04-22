@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageWayOfTheTempestUnfetteredDeluge:0487ae30-3d3b-57f6-b664-992bc95b48ae",
-    "Definition:PowerWayOfTheTempestUnfetteredDeluge:f278aaa2-45d2-5f88-bead-0f0820ca8649",
-    "Definition:PowerWayOfTheTempestUnfetteredDelugeLeap:c523d6eb-8409-519d-89b9-a3565128b024"
+    "Definition:AdditionalDamageWayOfTheTempestStormSurge:95f1f996-4504-5028-bdc9-8f250d018b25",
+    "Definition:AdditionalDamageWayOfTheTempestAppliedStormSurge:8f371165-e97a-5813-9e19-f0a5eb6bbb5d",
+    "Definition:FeatureWayOfTheTempestStormSurge:d3ed99f2-bc60-50a5-92e1-72e71c1b35c1"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle",
-    "description": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription",
+    "title": "Feature/&FeatureSetWayOfTheTempestStormSurgeTitle",
+    "description": "Feature/&FeatureSetWayOfTheTempestStormSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c841adf0-4484-5252-9715-ec354d0d0e6f",
+  "guid": "978961af-f7b3-5eaf-9fc1-0cf7383680f5",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfTheTempestUnfetteredDeluge"
+  "name": "FeatureSetWayOfTheTempestStormSurge"
 }

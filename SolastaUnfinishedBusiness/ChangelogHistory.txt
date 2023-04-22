@@ -7,6 +7,7 @@
 - added Way of the Tempest subclass
 - fixed Web spell wrong DC calculation
 - fixed Inventor infusions pool interaction with Infusion Adept feat pool
+- fixed Path of the Reaver's corrupted blood causing a null exception
 
 1.4.33.76:
 
