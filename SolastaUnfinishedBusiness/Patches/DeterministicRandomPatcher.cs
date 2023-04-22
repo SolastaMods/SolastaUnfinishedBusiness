@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -9,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class DeterministicRandomPatcher
 {
-    private static int MySeed => (int)System.DateTime.Now.Ticks;
+    private static int MySeed => (int)DateTime.Now.Ticks;
 
     private static PcgRandom MyRandom { get; } = new((ulong)MySeed);
 
