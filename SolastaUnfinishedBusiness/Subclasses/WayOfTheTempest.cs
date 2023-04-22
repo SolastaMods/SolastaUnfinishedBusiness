@@ -45,18 +45,17 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var conditionAppliedGatheringStorm = ConditionDefinitionBuilder
             .Create($"Condition{Name}AppliedGatheringStorm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiscipleImmuneLightning)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .SetSpecialDuration(DurationType.Round, 1)
             .CopyParticleReferences(ConditionDefinitions.ConditionBranded)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .SetFeatures(combatAffinityGatheringStorm)
             .AddToDB();
 
         var conditionGatheringStorm = ConditionDefinitionBuilder
             .Create($"Condition{Name}GatheringStorm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDiscipleImmuneLightning)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
@@ -82,7 +81,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create($"Power{Name}TempestFury")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("TempestFury", Resources.PowerTempestFury, 256, 128))
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 3)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -279,13 +278,21 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                attacker.RulesetCharacter.RemoveAllConditionsOfCategory(_conditionGatheringStorm.Name);
+                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                    _conditionGatheringStorm.Name);
 
                 return;
             }
 
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionGatheringStorm.Name) &&
-                !rulesetCharacter.HasAnyConditionOfType(_conditionAppliedGatheringStorm.Name))
+            if (rulesetCharacter.HasAnyConditionOfType(_conditionAppliedGatheringStorm.Name))
+            {
+                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                    _conditionAppliedGatheringStorm.Name);
+
+                return;
+            }
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionGatheringStorm.Name))
             {
                 var rulesetCondition = RulesetCondition.CreateActiveCondition(
                     rulesetCharacter.guid,

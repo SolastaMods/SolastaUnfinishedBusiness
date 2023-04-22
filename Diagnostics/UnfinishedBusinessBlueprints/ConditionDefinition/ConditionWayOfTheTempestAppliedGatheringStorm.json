@@ -16,9 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacked"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -139,8 +137,8 @@
     "description": "Condition/&ConditionWayOfTheTempestAppliedGatheringStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d19e331cb5b26b54499a6c7bdd19260a",
-      "m_SubObjectName": "ImmuneToLightning",
+      "m_AssetGUID": "cd10433f24101be46898ed600f8c537b",
+      "m_SubObjectName": "ConditionLightSensitiveSaboteur",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
