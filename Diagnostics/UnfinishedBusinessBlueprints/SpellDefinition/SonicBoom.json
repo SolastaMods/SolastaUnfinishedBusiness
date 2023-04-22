@@ -4,7 +4,7 @@
   "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
-  "spellLevel": 1,
+  "spellLevel": 5,
   "ritual": false,
   "uniqueInstance": false,
   "castingTime": "Action",

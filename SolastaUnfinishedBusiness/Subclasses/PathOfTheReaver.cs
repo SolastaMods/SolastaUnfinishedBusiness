@@ -170,7 +170,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             {
                 return;
             }
-            
+
             var condition = rulesetAttacker.AllConditions
                 .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
 
@@ -186,7 +186,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
-            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch, EffectHelpers.EffectType.Effect);
+            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch,
+                EffectHelpers.EffectType.Effect);
             GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
             RulesetActor.InflictDamage(
                 totalDamage,

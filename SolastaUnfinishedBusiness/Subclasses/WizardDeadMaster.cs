@@ -328,7 +328,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             {
                 yield break;
             }
-            
+
             var characterFamily = rulesetDowned.CharacterFamily;
 
             if (characterFamily == Construct.Name || characterFamily == Undead.Name)

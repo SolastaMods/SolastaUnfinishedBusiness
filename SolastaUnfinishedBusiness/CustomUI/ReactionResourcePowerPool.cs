@@ -21,21 +21,3 @@ public class ReactionResourcePowerPool : ICustomReactionResource
         return character.GetRemainingPowerCharges(pool).ToString();
     }
 }
-
-public class ReactionResourcePower : ICustomReactionResource
-{
-    private readonly FeatureDefinitionPower power;
-
-    public ReactionResourcePower(FeatureDefinitionPower pool, AssetReferenceSprite icon)
-    {
-        power = pool;
-        Icon = icon;
-    }
-
-    public AssetReferenceSprite Icon { get; }
-
-    public string GetUses(RulesetCharacter character)
-    {
-        return character.GetRemainingUsesOfPower(UsablePowersProvider.Get(power, character)).ToString();
-    }
-}
