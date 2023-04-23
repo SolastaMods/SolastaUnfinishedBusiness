@@ -61,7 +61,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetSpecialDuration(DurationType.Round, 1)
             .CopyParticleReferences(ConditionDefinitions.ConditionGuided)
             .SetCancellingConditions(conditionAppliedGatheringStorm)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureGatheringStorm = FeatureDefinitionBuilder
