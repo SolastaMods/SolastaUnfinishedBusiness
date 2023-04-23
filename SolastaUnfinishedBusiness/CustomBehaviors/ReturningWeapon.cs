@@ -57,7 +57,7 @@ internal class ReturningWeapon
             return proximity;
         }
 
-        if (!droppedItem.HasSubFeatureOfType<ReturningWeapon>())
+        if (!droppedItem.HasSubFeatureOfType<ReturningWeapon>() && !hero.HasSubFeatureOfType<ReturningWeapon>())
         {
             return proximity;
         }

@@ -410,8 +410,7 @@ internal static class MeleeCombatFeats
             .Create("ConditionAlwaysReady")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -455,7 +454,7 @@ internal static class MeleeCombatFeats
                 attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)

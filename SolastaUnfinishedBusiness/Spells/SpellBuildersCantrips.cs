@@ -376,12 +376,9 @@ internal static partial class SpellBuilders
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
             .SetAttackModeOnly()
             .AddToDB();
-
-        // hack as the ResonatingStrike damage distribution is odd (4,6,5,5) and SetAdv doesn't cover that
-        additionalDamageResonatingStrike.diceByRankTable[4].diceNumber = 1;
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
