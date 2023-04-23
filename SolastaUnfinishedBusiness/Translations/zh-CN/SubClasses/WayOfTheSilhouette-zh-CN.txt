@@ -15,4 +15,4 @@ Reaction/&SpendPowerShadowySanctuaryReactDescription=用你的反应消失。
 Reaction/&SpendPowerShadowySanctuaryReactTitle=暗影庇护所
 Reaction/&SpendPowerShadowySanctuaryTitle=暗影庇护所
 Subclass/&WayOfSilhouetteDescription=暗影之道的实践者遵循重视隐秘和诡计的传统。这些僧侣充当间谍和刺客。有时，忍者修道院的成员是家庭成员，组成一个宣誓对他们的艺术和使命保密的氏族。其他修道院更像是盗贼行会，将他们的服务出租给贵族、富商或任何可以支付费用的人。不管他们的方法如何，这些修道院的负责人都希望他们的学生毫无疑问地服从。
-Subclass/&WayOfSilhouetteTitle=暗影之道
+Subclass/&WayOfSilhouetteTitle=暗影宗

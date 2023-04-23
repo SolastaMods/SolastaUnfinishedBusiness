@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationArmorGuardianModeDescription=获得<b>雷霆战拳</b>（1d8 雷电伤害）武器，如果你有空闲的手和<b>防御场</b>奖励动作来获得等于发明家等级的临时生命值。
+Condition/&ConditionInnovationArmorGuardianModeDescription=获得<b>雷霆战拳</b>（1d8 雷鸣伤害）武器，如果你有空闲的手和<b>防御场</b>奖励动作来获得等于发明家等级的临时生命值。
 Condition/&ConditionInnovationArmorGuardianModeTitle=守护者
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=获得<b>激电</b> 远程攻击（1d6 闪电伤害，本轮第一次攻击造成 2d6）。
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=渗透者
@@ -16,7 +16,7 @@ Feature/&PowerInnovationArmorDefensiveFieldDescription=激活后并在你的回�
 Feature/&PowerInnovationArmorDefensiveFieldTitle=防护力场
 Feature/&PowerInnovationArmorModeSelectorPoolDescription=每次短休或长休可以切换装甲模式。
 Feature/&PowerInnovationArmorModeSelectorPoolTitle=装甲模式开关
-Feature/&PowerInnovationArmorSwitchModeGuardianDescription=获得 <b>雷霆战拳</b>（1d8 雷电伤害）武器，如果你有空闲的手和<b>防护力场</b>奖励动作，则获得相当于发明家级别的临时HP，每轮触发1次，持续1分钟。
+Feature/&PowerInnovationArmorSwitchModeGuardianDescription=获得 <b>雷霆战拳</b>（1d8 雷鸣伤害）武器，如果你有空闲的手和<b>防护力场</b>奖励动作，则获得相当于发明家级别的临时HP，每轮触发1次，持续1分钟。
 Feature/&PowerInnovationArmorSwitchModeGuardianTitle=守卫模式
 Feature/&PowerInnovationArmorSwitchModeInfiltratorDescription=获得 <b>激电</b> 远程攻击（1d6 闪电伤害，本轮第一次攻击造成 2d6 伤害）、5 尺移动速度加值和敏捷（潜行）检定优势。
 Feature/&PowerInnovationArmorSwitchModeInfiltratorTitle=渗透模式
