@@ -410,15 +410,14 @@ internal static class MeleeCombatFeats
             .Create("ConditionAlwaysReady")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        return FeatDefinitionBuilder
             .Create("FeatAlwaysReady")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady))
-            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
             .AddToDB();
     }
 
