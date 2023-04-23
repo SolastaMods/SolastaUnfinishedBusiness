@@ -479,6 +479,9 @@
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
     <string>MetamagicAltruisticSpell</string>
+    <string>MetamagicFocusedSpell</string>
+    <string>MetamagicPowerfulSpell</string>
+    <string>MetamagicWidenedSpell</string>
   </MetamagicEnabled>
   <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
   <SpellListSliderPosition>
