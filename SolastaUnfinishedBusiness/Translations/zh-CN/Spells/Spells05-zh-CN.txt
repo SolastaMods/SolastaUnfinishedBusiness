@@ -10,3 +10,5 @@ Spell/&FarStepDescription=你传送到最远 60 尺的一个你能看到的未�
 Spell/&FarStepTitle=渺远步
 Spell/&MantleOfThornsDescription=用荆棘的光环包围自己。那些开始或穿过的人会受到 2d8 穿刺伤害。这种伤害在更高的等级上按每格 1d8 的比例增加。
 Spell/&MantleOfThornsTitle=荆棘披风
+Spell/&SonicBoomDescription=一个与气球颜色相近的小球体出现在你选择的范围内，随着一声砰然巨响，小球爆炸并释放出巨大的能量。半径30尺内的每个生物都必须进行一次力量豁免检定。豁免检定失败的目标被推到离中心30尺远的地方，并受到6d8的雷鸣伤害
+Spell/&SonicBoomTitle=鸣音爆
