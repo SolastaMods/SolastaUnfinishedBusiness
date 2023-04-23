@@ -9,14 +9,12 @@
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Permanent",
+  "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "turnOccurence": "StartOfTurn",
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
