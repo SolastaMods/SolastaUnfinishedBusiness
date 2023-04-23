@@ -1,8 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AdditionalDamageWayOfTheTempestUnfetteredDeluge:0487ae30-3d3b-57f6-b664-992bc95b48ae",
-    "Definition:AdditionalDamageWayOfTheTempestAppliedUnfetteredDeluge:6f9e855a-268e-5034-9473-4ee3fbee357c"
+    "Definition:PowerWayOfTheTempestEyeOfTheStorm:79d6e3ba-5386-5f3c-8e74-a4a69bc73b1a",
+    "Definition:PowerWayOfTheTempestEyeOfTheStormLeap:38cd49a8-19d1-562b-b43d-fe67248b63d6",
+    "Definition:AdditionalDamageWayOfTheTempestEyeOfTheStorm:46380848-893d-599a-8219-8500dd16bc92"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeTitle",
-    "description": "Feature/&FeatureSetWayOfTheTempestUnfetteredDelugeDescription",
+    "title": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormTitle",
+    "description": "Feature/&FeatureSetWayOfTheTempestEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c841adf0-4484-5252-9715-ec354d0d0e6f",
+  "guid": "a99b2d1f-3ccc-5c83-8539-11041623f5af",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfTheTempestUnfetteredDeluge"
+  "name": "FeatureSetWayOfTheTempestEyeOfTheStorm"
 }

@@ -20,9 +20,6 @@ public static class Sprites
 
     #region Misc
 
-    internal static AssetReferenceSprite KiPointResourceIcon =>
-        GetSprite("GambitResourceIcon", Resources.KiPointResourceIcon, 64);
-
     internal static AssetReferenceSprite GambitResourceIcon =>
         GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
 

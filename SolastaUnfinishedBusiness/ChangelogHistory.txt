@@ -2,11 +2,14 @@
 
 1.4.33.77:
 
+- added a better random number generator option under Gameplay > Tools [https://www.pcg-random.org/]
 - added Caustic Zap spell at 1st, and Sonic Boom at 5th
+- added Focused, Powerful, and Widened spell metamagic
 - added Path of the Spirit's honed animal aspect at 14th
-- added Way of the Tempest subclass
-- fixed Web spell wrong DC calculation
-- fixed Inventor infusions pool interaction with Infusion Adept feat pool
+- added Way of the Tempest subclass designed by [HiddenHax]
+- fixed Domain Defiler's insidious death magic
+- fixed Path of Reaver's corrupted blood
+- fixed Web spell break free DC calculation
 
 1.4.33.76:
 

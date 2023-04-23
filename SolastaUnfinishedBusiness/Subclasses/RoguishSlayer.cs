@@ -483,8 +483,8 @@ internal sealed class RoguishSlayer : AbstractSubclass
         {
             var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
-            
-            if (battle == null || 
+
+            if (battle == null ||
                 rulesetDefender == null ||
                 rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))

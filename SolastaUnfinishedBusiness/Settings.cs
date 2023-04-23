@@ -194,8 +194,8 @@ public class Settings : UnityModManager.ModSettings
 
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
-
     public int CriticalHitModeEnemies { get; set; }
+
     //
     // Gameplay - Items, Crafting & Merchants
     //
@@ -238,9 +238,12 @@ public class Settings : UnityModManager.ModSettings
     // General
     public bool EnableBetaContent { get; set; }
     public bool EnableSaveByLocation { get; set; }
+    public bool EnablePcgRandom { get; set; }
     public bool EnableRespec { get; set; }
-    public bool EnableCheatMenu { get; set; }
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
+    public bool EnableCharacterChecker { get; set; }
+    public bool EnableCheatMenu { get; set; }
+    public bool EnableHotkeyDebugOverlay { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
     public bool OverrideMinMaxLevel { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
@@ -333,8 +336,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableSortingDungeonMakerAssets { get; set; }
-    public bool EnableCharacterChecker { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }

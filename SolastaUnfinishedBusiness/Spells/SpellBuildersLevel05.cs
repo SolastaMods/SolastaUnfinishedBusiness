@@ -135,7 +135,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
             .SetParticleEffectParameters(Disintegrate)
@@ -149,7 +149,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 6)
+                    .SetMotionForm(MotionForm.MotionType.PushRandomDirection, 6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
             .Build();
@@ -158,7 +158,7 @@ internal static partial class SpellBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SonicBoom, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(1)
+            .SetSpellLevel(5)
             .SetSomaticComponent(true)
             .SetVerboseComponent(true)
             .SetMaterialComponent(MaterialComponentType.Mundane)

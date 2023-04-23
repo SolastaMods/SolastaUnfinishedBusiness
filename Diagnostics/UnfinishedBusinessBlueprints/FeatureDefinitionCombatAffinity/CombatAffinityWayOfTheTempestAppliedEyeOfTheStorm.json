@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -55,7 +55,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c8ff7713-3e72-532c-a303-f2fc6df7537c",
+  "guid": "b0a739e0-ee58-59e1-8de5-748dc4059c1d",
   "contentPack": 9999,
-  "name": "CombatAffinityWayOfTheTempestUnfetteredDeluge"
+  "name": "CombatAffinityWayOfTheTempestAppliedEyeOfTheStorm"
 }

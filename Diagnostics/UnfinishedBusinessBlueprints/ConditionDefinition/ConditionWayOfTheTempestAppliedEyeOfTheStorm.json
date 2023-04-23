@@ -4,15 +4,16 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityWayOfTheTempestUnfetteredDeluge:c8ff7713-3e72-532c-a303-f2fc6df7537c"
+    "Definition:AbilityCheckAffinityWayOfTheTempestAppliedEyeOfTheStorm:f24cfb0a-b167-59ac-b1a4-589df26987d0",
+    "Definition:CombatAffinityWayOfTheTempestAppliedEyeOfTheStorm:b0a739e0-ee58-59e1-8de5-748dc4059c1d"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
+  "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
@@ -39,19 +40,19 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "c5c7a96be30574b488665e092df70a05",
+    "m_AssetGUID": "606ae01bcf804704486f00cac4c1df5b",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "b67b670ae7d08a043adb077d7b0d674f",
+    "m_AssetGUID": "04d5994e23fc58040920b6300f86d163",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "a3152faf3dbf3a140b5a0c5714d3f519",
+    "m_AssetGUID": "00641b9d6a6c7f4419c9d6928d88d173",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -133,12 +134,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeTitle",
-    "description": "Condition/&ConditionWayOfTheTempestAppliedUnfetteredDelugeDescription",
+    "title": "Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormTitle",
+    "description": "Condition/&ConditionWayOfTheTempestAppliedEyeOfTheStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6530b9c65863efc4487e6039a5acc474",
-      "m_SubObjectName": "ConditionConfused",
+      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
+      "m_SubObjectName": "ConditionDazzled",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -154,7 +155,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1882cfcb-e6cf-5bd3-89f9-a5a44d35b034",
+  "guid": "e53aeefd-dbe1-535b-a4ea-084f1fca66b0",
   "contentPack": 9999,
-  "name": "ConditionWayOfTheTempestAppliedUnfetteredDeluge"
+  "name": "ConditionWayOfTheTempestAppliedEyeOfTheStorm"
 }
