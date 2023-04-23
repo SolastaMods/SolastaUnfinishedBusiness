@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
 ModUi/&ArcaneShieldstaffOptions=Permet à <color=#D89555>Arcane Shieldstaff</color> d'être harmonisé par n'importe quelle classe
-ModUi/&BackgroundsAndDeities=Arrière-plans et divinités
+ModUi/&BackgroundsAndRaces=Arrière-plans et divinités
 ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans</color>
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
 ModUi/&Bestiary=Bestiaire
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PrimedItems=Articles apprêtés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
 ModUi/&Races=<color=#F0DAA0>Courses</color>
-ModUi/&RacesClassesSubclasses=Races, classes et sous-classes
+ModUi/&ClassesAndSubclasses=Races, classes et sous-classes
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes en DM
 ModUi/&RelicForgeries=Contrefaçons de reliques

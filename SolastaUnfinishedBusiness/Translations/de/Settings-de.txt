@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
-ModUi/&BackgroundsAndDeities=Hintergründe & Gottheiten
+ModUi/&BackgroundsAndRaces=Hintergründe & Gottheiten
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Bestiary=Bestiarium
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Geprimte Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
-ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
+ModUi/&ClassesAndSubclasses=Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&RelicForgeries=Reliquienfälschungen

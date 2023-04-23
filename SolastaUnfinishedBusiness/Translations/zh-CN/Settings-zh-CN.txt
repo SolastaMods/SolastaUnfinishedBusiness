@@ -32,7 +32,7 @@ ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键�
 ModUi/&ApplySRDWeightToFoodRations=将食物配给的重量减少到2磅
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
-ModUi/&BackgroundsAndDeities=背景与神灵
+ModUi/&BackgroundsAndRaces=背景与神灵
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=怪物池
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>使用5环以上法术位施放时不需要专注
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
 ModUi/&Races=<color=#F0DAA0>种族</color>
-ModUi/&RacesClassesSubclasses=种族、职业和子职业
+ModUi/&ClassesAndSubclasses=种族、职业和子职业
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
 ModUi/&RelicForgeries=文物伪造品

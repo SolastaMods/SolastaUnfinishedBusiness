@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzir o peso da ração alimentar para 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
-ModUi/&BackgroundsAndDeities=Antecedentes e Divindades
+ModUi/&BackgroundsAndRaces=Antecedentes e Divindades
 ModUi/&Backgrounds=<color=#F0DAA0>Fundos</color>
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiário
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>Aplicativos:</color>
 ModUi/&PrimedItems=Itens com Primer
 ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
-ModUi/&RacesClassesSubclasses=Raças, classes e subclasses
+ModUi/&ClassesAndSubclasses=Raças, classes e subclasses
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM
 ModUi/&RelicForgeries=Falsificações de relíquias
