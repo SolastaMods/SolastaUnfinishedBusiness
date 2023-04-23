@@ -1,4 +1,4 @@
-Action/&PersistentRageStartDescription=Por um minuto, você tem vantagem em testes e testes de resistência de Força, um bônus para dano de ataque corpo a corpo e resistência a corte, concussão e dano perfurante. Você ganha esses benefícios apenas se estiver usando uma armadura pesada.
+Action/&PersistentRageStartDescription=Por um minuto, você tem vantagem em testes e testes de resistência de Força, um bônus para dano de ataque corpo a corpo e resistência a corte, concussão e dano perfurante. Você ganha esses benefícios apenas se não estiver usando armadura pesada.
 Condition/&ConditionMonkEmptyBodyDescription=Você tem resistência a todos os danos, exceto força.
 Condition/&ConditionMonkEmptyBodyTitle=Corpo vazio
 Feature/&BattleStartedListenerMonkPerfectSelfDescription=Quando você começa a batalha e não tem mais pontos de Ki, você recupera 4 pontos de Ki.
@@ -9,7 +9,7 @@ Feature/&CustomCodeBarbarianPrimalChampionDescription=No 20º nível, você inco
 Feature/&CustomCodeBarbarianPrimalChampionTitle=Campeão Primal
 Feature/&FeatureDruidBeastSpellsDescription=Você pode lançar muitos de seus feitiços de druida em qualquer forma que assumir usando Wild Shape. Você pode realizar os componentes somáticos e verbais de uma magia de druida enquanto estiver na forma de uma besta, mas não é capaz de fornecer componentes materiais.
 Feature/&FeatureDruidBeastSpellsTitle=Feitiços de Besta
-Feature/&FeatureSetMonkDiamondSoulDescription=A partir do 14º nível, seu domínio do Ki concede a você proficiência em todos os testes de resistência. Além disso, sempre que fizer um teste de resistência e falhar, você pode gastar 1 ponto de Ki para rolar novamente e obter o segundo resultado.
+Feature/&FeatureSetMonkDiamondSoulDescription=A partir do 14º nível, seu domínio do Ki garante a você proficiência em todos os testes de resistência. Além disso, sempre que fizer um teste de resistência e falhar, você pode gastar 1 ponto de Ki para rolar novamente e obter o segundo resultado.
 Feature/&FeatureSetMonkDiamondSoulTitle=Alma Diamante
 Feature/&FeatureSetMonkTongueSunMoonDescription=A partir do 13º nível, você aprende a tocar o Ki de outras mentes para entender todos os idiomas falados. Além disso, qualquer criatura que possa entender um idioma pode entender o que você diz.
 Feature/&FeatureSetMonkTongueSunMoonTitle=Língua do Sol e da Lua

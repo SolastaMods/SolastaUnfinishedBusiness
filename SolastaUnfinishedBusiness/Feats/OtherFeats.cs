@@ -520,7 +520,7 @@ internal static class OtherFeats
 
         var damageTypes = new[]
         {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
         };
 
         // ReSharper disable once LoopCanBeConvertedToQuery
@@ -583,7 +583,7 @@ internal static class OtherFeats
 
         var damageTypes = new[]
         {
-            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
         };
 
         // ReSharper disable once LoopCanBeConvertedToQuery

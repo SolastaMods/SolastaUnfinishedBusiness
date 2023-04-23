@@ -123,7 +123,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
     TargetWithin10Ft = 9000,
-    TargetIsDuelingWithYou = 9002
+    TargetIsDuelingWithYou = 9002,
+    SourceHasCondition = 9003
 }
 
 public enum ExtraConditionInterruption

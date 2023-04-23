@@ -13,6 +13,10 @@ internal static class MetamagicContext
     internal static void LateLoad()
     {
         LoadMetamagic(BuildMetamagicAltruisticSpell());
+        LoadMetamagic(BuildMetamagicFocusedSpell());
+        LoadMetamagic(BuildMetamagicPowerfulSpell());
+        LoadMetamagic(BuildMetamagicWidenedSpell());
+
         // sorting
         Metamagic = Metamagic.OrderBy(x => x.FormatTitle()).ToHashSet();
 

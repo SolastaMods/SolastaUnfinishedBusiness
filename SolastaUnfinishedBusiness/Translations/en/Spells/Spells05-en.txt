@@ -10,3 +10,5 @@ Spell/&FarStepDescription=You teleport up to 60 ft to an unoccupied space you ca
 Spell/&FarStepTitle=Far Step
 Spell/&MantleOfThornsDescription=Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 Spell/&MantleOfThornsTitle=Mantle of Thorns
+Spell/&SonicBoomDescription=A small orb the same color as the balloon used appears at a point you choose within range then expands with a loud crack into an explosion of force. Each creature in a 30-foot radius must make a Strength saving throw. A target is pushed up to 30 feet away from the center and dealt 6d8 thunder damage on a failed save, or half as much damage and no movement on a successful one.
+Spell/&SonicBoomTitle=Sonic Boom

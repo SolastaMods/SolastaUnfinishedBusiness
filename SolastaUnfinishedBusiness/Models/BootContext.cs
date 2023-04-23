@@ -192,7 +192,8 @@ internal static class BootContext
             .Replace("<b>", string.Empty)
             .Replace("<i>", string.Empty)
             .Replace("</b>", string.Empty)
-            .Replace("</i>", string.Empty);
+            .Replace("</i>", string.Empty)
+            .Replace("\n", "\n\t\t\t");
     }
 
     private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)

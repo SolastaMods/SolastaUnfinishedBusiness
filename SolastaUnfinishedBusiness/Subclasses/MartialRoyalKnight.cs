@@ -49,7 +49,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var abilityCheckAffinityRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create($"AbilityCheckAffinity{Name}RoyalEnvoy")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentation($"FeatureSet{Name}RoyalEnvoy", Category.Feature)
             .BuildAndSetAffinityGroups(
                 CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
                 DieType.D1,

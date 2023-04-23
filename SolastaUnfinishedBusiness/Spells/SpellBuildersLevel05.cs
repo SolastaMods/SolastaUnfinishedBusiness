@@ -129,5 +129,45 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildSonicBoom()
+    {
+        const string NAME = "SonicBoom";
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 3)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
+            .SetParticleEffectParameters(Disintegrate)
+            .SetSavingThrowData(
+                false, AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeThunder, 6, DieType.D8)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.PushRandomDirection, 6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SonicBoom, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(5)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetCastingTime(ActivationTime.Action)
+            .SetEffectDescription(effectDescription)
+            .AddToDB();
+
+        return spell;
+    }
+
     #endregion
 }

@@ -477,7 +477,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             }
             else
             {
-                tags[poolId].Max++;
+                tags[poolId].Max += featureSet.Points;
             }
         }
 
