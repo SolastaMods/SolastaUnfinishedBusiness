@@ -58,7 +58,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
             .SetPossessive()
             .SetSilent(Silent.WhenRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1)
             .CopyParticleReferences(ConditionDefinitions.ConditionGuided)
             .SetCancellingConditions(conditionAppliedGatheringStorm)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -159,10 +159,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var conditionAppliedEyeOfTheStorm = ConditionDefinitionBuilder
             .Create($"Condition{Name}AppliedEyeOfTheStorm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByHunter)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
-            .CopyParticleReferences(ConditionDefinitions.ConditionMarkedByHunter)
+            .CopyParticleReferences(ConditionDefinitions.ConditionDazzled)
             .AddFeatures(abilityCheckAffinityEyeOfTheStorm, combatAffinityEyeOfTheStorm)
             .AddToDB();
 
