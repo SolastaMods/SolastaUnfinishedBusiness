@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityFieldManipulatorControlHeightened:59aba99e-e34f-55f9-a2a1-5a9bf346be7b",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsFieldManipulator:abca93d7-b427-5b34-87cc-13bb662efe9e",
       "level": 1
     },
