@@ -601,20 +601,20 @@ A powerful wight, trained to withstand the light of day.
 [*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield
+[*][b]HiddenHax[/b]: homebrew content design [Circle of the Essence, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]
 [*][b]Haxermn[/b]: spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon
 [*][b]Nd[/b]: College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
-[*][b]HiddenHax[/b]: homebrew content design [Circle of the Essence, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]
 [*][b]tivie[/b]: Circle of the Night, Path of the Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist
 [*][b]RedOrca[/b]: Path of the Light
 [*][b]DreadMaker[/b]: Circle of the Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Taco[/b]: homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
 [*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
 [*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
 [*][b]Narria[/b]: modKit, mod UI improvements, Party Editor
-[*][b]Holic75[/b]: spells, Bolgrif
 [*][b]Pikachar2[/b]: spells
 [/list]
 

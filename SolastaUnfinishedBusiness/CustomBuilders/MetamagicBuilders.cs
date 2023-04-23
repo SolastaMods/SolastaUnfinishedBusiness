@@ -1,4 +1,6 @@
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -7,7 +9,11 @@ namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class MetamagicBuilders
 {
+    #region Metamagic Altruistic
+
     private const string MetamagicAltruistic = "MetamagicAltruisticSpell";
+    private const string MetamagicFocused = "MetamagicFocusedSpell";
+    private const string MetamagicWidened = "MetamagicWidenedSpell";
 
     internal static MetamagicOptionDefinition BuildMetamagicAltruisticSpell()
     {
@@ -83,4 +89,123 @@ internal static class MetamagicBuilders
             return effect;
         }
     }
+
+    #endregion
+
+    #region Metamagic Focused
+
+    internal static MetamagicOptionDefinition BuildMetamagicFocusedSpell()
+    {
+        var validator = new MetamagicApplicationValidator(IsMetamagicFocusedSpellValid);
+
+        var magicAffinity = FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagiAffinity{MetamagicFocused}")
+            .SetGuiPresentation(MetamagicFocused, Category.Feature)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create($"Condition{MetamagicFocused}")
+            .SetGuiPresentation(MetamagicFocused, Category.Feature,
+                DatabaseHelper.ConditionDefinitions.ConditionBearsEndurance)
+            .SetPossessive()
+            .AddFeatures(magicAffinity)
+            .AddToDB();
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicFocused)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost()
+            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicFocused(condition), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicFocusedSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        var spell = rulesetEffectSpell.SpellDefinition;
+
+        if (spell.RequiresConcentration)
+        {
+            return;
+        }
+
+        failure = "Failure/&FailureFlagSpellMustRequireConcentration";
+
+        result = false;
+    }
+
+    private sealed class ModifyMagicEffectMetamagicFocused : IModifyMagicEffect
+    {
+        private readonly ConditionDefinition _conditionFocused;
+
+        public ModifyMagicEffectMetamagicFocused(ConditionDefinition conditionFocused)
+        {
+            _conditionFocused = conditionFocused;
+        }
+
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+        {
+            effect.EffectForms.Add(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(_conditionFocused, ConditionForm.ConditionOperation.Add, true)
+                    .Build());
+
+            return effect;
+        }
+    }
+
+    #endregion
+
+    #region Metamagic Widened
+
+    internal static MetamagicOptionDefinition BuildMetamagicWidenedSpell()
+    {
+        var validator = new MetamagicApplicationValidator(IsMetamagicWidenedSpellValid);
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicWidened)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost(MetamagicCostMethod.FixedValue, 2)
+            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicWidened(), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicWidenedSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        var effect = rulesetEffectSpell.EffectDescription;
+
+        if (effect.targetType is not TargetType.Cone or TargetType.Cube or TargetType.Cylinder or TargetType.Sphere)
+        {
+            return;
+        }
+
+        failure = "Failure/&FailureFlagSpellMustBeOfTargetArea";
+
+        result = false;
+    }
+
+    private sealed class ModifyMagicEffectMetamagicWidened : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+        {
+            effect.targetParameter += 1;
+
+            return effect;
+        }
+    }
+
+    #endregion
 }
