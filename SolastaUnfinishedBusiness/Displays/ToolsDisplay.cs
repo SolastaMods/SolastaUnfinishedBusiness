@@ -510,7 +510,7 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), Main.LoadSettingFilenames, UI.Width((float)144));
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRefresh"), Main.LoadSettingFilenames, UI.Width((float)144));
             UI.ActionButton(Gui.Localize("ModUi/&SettingsOpenFolder"), () =>
             {
                 Process.Start(new ProcessStartInfo
