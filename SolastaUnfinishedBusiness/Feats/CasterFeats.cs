@@ -527,7 +527,7 @@ internal static class CasterFeats
                     .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                 .Build())
             .AddToDB();
 

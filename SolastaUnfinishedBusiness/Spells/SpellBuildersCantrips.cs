@@ -127,6 +127,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetDurationData(DurationType.Round, 1)
             .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
+            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

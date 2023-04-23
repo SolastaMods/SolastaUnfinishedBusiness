@@ -48,7 +48,7 @@ internal sealed class OathOfDread : AbstractSubclass
             .Create($"Condition{Name}MarkOfTheSubmission")
             .SetGuiPresentation(Category.Condition, ConditionMarkedByBrandingSmite)
             .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(ConditionMarkedByBrandingSmite.conditionParticleReference)
+            .SetConditionParticleReference(BestowCurse.EffectDescription.effectParticleParameters.conditionParticleReference)
             .SetPossessive()
             .AddToDB();
 

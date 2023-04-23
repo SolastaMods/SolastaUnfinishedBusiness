@@ -274,6 +274,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.Heal, EffectHelpers.EffectType.Effect);
             rulesetAttacker.ReceiveHealing(totalHealing, true, rulesetAttacker.Guid);
         }
     }
