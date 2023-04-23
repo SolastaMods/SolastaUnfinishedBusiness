@@ -1,3 +1,4 @@
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -9,11 +10,12 @@ namespace SolastaUnfinishedBusiness.CustomBuilders;
 
 internal static class MetamagicBuilders
 {
-    #region Metamagic Altruistic
-
     private const string MetamagicAltruistic = "MetamagicAltruisticSpell";
     private const string MetamagicFocused = "MetamagicFocusedSpell";
+    private const string MetamagicPowerful = "MetamagicPowerfulSpell";
     private const string MetamagicWidened = "MetamagicWidenedSpell";
+
+    #region Metamagic Altruistic
 
     internal static MetamagicOptionDefinition BuildMetamagicAltruisticSpell()
     {
@@ -156,6 +158,56 @@ internal static class MetamagicBuilders
                     .Create()
                     .SetConditionForm(_conditionFocused, ConditionForm.ConditionOperation.Add, true)
                     .Build());
+
+            return effect;
+        }
+    }
+
+    #endregion
+
+    #region Metamagic Powerful
+
+    internal static MetamagicOptionDefinition BuildMetamagicPowerfulSpell()
+    {
+        var validator = new MetamagicApplicationValidator(IsMetamagicPowerfulSpellValid);
+
+        return MetamagicOptionDefinitionBuilder
+            .Create(MetamagicPowerful)
+            .SetGuiPresentation(Category.Feature)
+            .SetCost(MetamagicCostMethod.SpellLevel)
+            .SetCustomSubFeatures(new ModifyMagicEffectMetamagicPowerful(), validator)
+            .AddToDB();
+    }
+
+    private static void IsMetamagicPowerfulSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
+    {
+        var effect = rulesetEffectSpell.EffectDescription;
+
+        if (effect.EffectForms.All(x => x.FormType != EffectForm.EffectFormType.Damage))
+        {
+            return;
+        }
+
+        failure = "Failure/&FailureFlagSpellMustHaveDamageForm";
+
+        result = false;
+    }
+
+    private sealed class ModifyMagicEffectMetamagicPowerful : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+        {
+            foreach (var effectForm in effect.EffectForms
+                         .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
+            {
+                effectForm.DamageForm.diceNumber += 1;
+            }
 
             return effect;
         }
