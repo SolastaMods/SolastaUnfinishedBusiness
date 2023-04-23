@@ -68,8 +68,11 @@ internal static class BlockAttacks
         var unitCharacter = unit.RulesetCharacter;
         var defenderCharacter = defender.RulesetCharacter;
 
-        if (defenderCharacter == null || !attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side ||
-            unit == defender || !unitCharacter.HasSubFeatureOfType<SpiritualShielding>())
+        if (defenderCharacter == null ||
+            !attacker.IsOppositeSide(unit.Side) ||
+            defender.Side != unit.Side ||
+            unit == defender ||
+            !unitCharacter.HasSubFeatureOfType<SpiritualShielding>())
         {
             yield break;
         }

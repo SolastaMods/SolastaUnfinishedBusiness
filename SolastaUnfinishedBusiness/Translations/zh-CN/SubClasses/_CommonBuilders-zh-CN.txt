@@ -1,4 +1,4 @@
-Feature/&AttributeModifierCasterFightingExtraAttackDescription=你获得一次额外攻击，现在在你的回合中最多可以攻击 2 次。
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=每个战斗回合, 当你使用攻击或 推撞动作时, 你可以额外攻击一次。
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=额外攻击
 Feature/&DamageAffinityGenericHardenToNecroticDescription=你对暗蚀伤害免疫，并且你的生命值上限不会降低。
 Feature/&DamageAffinityGenericHardenToNecroticTitle=硬化暗蚀

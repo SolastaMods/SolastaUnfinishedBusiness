@@ -131,10 +131,10 @@ internal static class ToolsDisplay
             Main.Settings.EnableSaveByLocation = toggle;
         }
 
-        toggle = Main.Settings.EnableCheatMenu;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.EnablePcgRandom;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCheatMenu = toggle;
+            Main.Settings.EnablePcgRandom = toggle;
         }
 
         toggle = Main.Settings.EnableRespec;
@@ -156,6 +156,14 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCharacterChecker = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnableCheatMenu;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCheatMenu = toggle;
         }
 
         toggle = Main.Settings.EnableHotkeyDebugOverlay;

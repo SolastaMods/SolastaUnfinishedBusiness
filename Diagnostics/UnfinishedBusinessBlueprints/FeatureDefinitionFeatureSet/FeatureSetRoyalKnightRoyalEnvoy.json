@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AbilityCheckAffinityRoyalKnightRoyalEnvoy:520ac8e7-0743-522e-bd20-151ef4ee0c80",
-    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3"
+    "Definition:SavingThrowAffinityCreedOfSolasta:684c3cc4950cbc4448e2f9534c17adf3",
+    "Definition:AbilityCheckAffinityRoyalKnightRoyalEnvoy:520ac8e7-0743-522e-bd20-151ef4ee0c80"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

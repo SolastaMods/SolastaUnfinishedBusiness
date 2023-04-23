@@ -1,4 +1,4 @@
-Action/&PersistentRageStartDescription=For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are now wearing heavy armor.
+Action/&PersistentRageStartDescription=For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
 Condition/&ConditionMonkEmptyBodyDescription=You have resistance to all damage but force.
 Condition/&ConditionMonkEmptyBodyTitle=Empty Body
 Feature/&BattleStartedListenerMonkPerfectSelfDescription=When you start battle and have no Ki points remaining, you regain 4 Ki points.

@@ -869,7 +869,8 @@ internal static class MeleeCombatFeats
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
                 yield break;
             }

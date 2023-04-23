@@ -478,41 +478,7 @@ internal static class TranslatorContext
             userCampaign.Description = Translate(userCampaign.Description, languageCode);
             userCampaign.TechnicalInfo = UbTranslationTag + Translate(userCampaign.TechnicalInfo, languageCode);
 
-            // USER DIALOGS
-            foreach (var dialog in userCampaign.UserDialogs)
-            {
-                dialog.Title = Translate(dialog.Title, languageCode);
-                dialog.Description = Translate(dialog.Description, languageCode);
-
-                foreach (var userDialogState in dialog.AllDialogStates
-                             .Where(x => x.Type is "AnswerChoice" or "CharacterSpeech" or "NpcSpeech"))
-                {
-                    foreach (var dialogLine in userDialogState.DialogLines)
-                    {
-                        yield return Update();
-
-                        dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
-                    }
-                }
-            }
-
-            // USER ITEMS
-            foreach (var item in userCampaign.UserItems)
-            {
-                yield return Update();
-
-                item.Title = Translate(item.Title, languageCode);
-                item.Description = Translate(item.Title, languageCode);
-
-                if (item.DocumentFragments.Count == 0)
-                {
-                    continue;
-                }
-
-                item.DocumentFragments = item.DocumentFragments
-                    .Select(documentFragment => Translate(documentFragment, languageCode)).ToList();
-            }
-
+            // magicSkySword : Translate location first, so that the translated cache of the location function can be used later
             // USER LOCATIONS
             foreach (var userLocation in userCampaign.UserLocations)
             {
@@ -545,12 +511,59 @@ internal static class TranslatorContext
                                 foreach (var destination in parameterValue.DestinationsList)
                                 {
                                     destination.DisplayedTitle = Translate(destination.DisplayedTitle, languageCode);
+                                    // magicSkySword : the location name is actually the location id, so we must let it equal to the location id
+                                    destination.UserLocationName =
+                                        Translate(destination.UserLocationName, languageCode);
                                 }
 
                                 break;
                         }
                     }
                 }
+            }
+
+            // USER DIALOGS
+            foreach (var dialog in userCampaign.UserDialogs)
+            {
+                dialog.Title = Translate(dialog.Title, languageCode);
+                dialog.Description = Translate(dialog.Description, languageCode);
+
+                foreach (var userDialogState in dialog.AllDialogStates
+                             .Where(x => x.Type is "AnswerChoice" or "CharacterSpeech" or "NpcSpeech"))
+                {
+                    foreach (var dialogLine in userDialogState.DialogLines)
+                    {
+                        yield return Update();
+
+                        dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
+                    }
+
+                    foreach (var functor in userDialogState.functors)
+                    {
+                        functor.stringParameter = functor.type switch
+                        {
+                            "SetLocationStatus" => Translate(functor.stringParameter, languageCode),
+                            _ => functor.stringParameter
+                        };
+                    }
+                }
+            }
+
+            // USER ITEMS
+            foreach (var item in userCampaign.UserItems)
+            {
+                yield return Update();
+
+                item.Title = Translate(item.Title, languageCode);
+                item.Description = Translate(item.Title, languageCode);
+
+                if (item.DocumentFragments.Count == 0)
+                {
+                    continue;
+                }
+
+                item.DocumentFragments = item.DocumentFragments
+                    .Select(documentFragment => Translate(documentFragment, languageCode)).ToList();
             }
 
             // USER QUESTS
@@ -569,6 +582,15 @@ internal static class TranslatorContext
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
+
+                        foreach (var completeFunctor in outcome.OnCompleteFunctors)
+                        {
+                            completeFunctor.stringParameter = completeFunctor.type switch
+                            {
+                                "SetLocationStatus" => Translate(completeFunctor.stringParameter, languageCode),
+                                _ => completeFunctor.stringParameter
+                            };
+                        }
                     }
                 }
             }

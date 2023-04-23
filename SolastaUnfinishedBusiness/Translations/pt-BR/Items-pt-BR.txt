@@ -1,5 +1,3 @@
-
-=VAZIO
 Feature/&PowerHandwrapsOfPullingDescription=Com uma ação bônus, você pode puxar uma criatura a até 4,5 metros para mais perto de você.
 Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Dano extra de Lighting Spear.

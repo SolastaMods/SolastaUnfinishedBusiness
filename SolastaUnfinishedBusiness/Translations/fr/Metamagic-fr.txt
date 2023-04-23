@@ -1,0 +1,16 @@
+Failure/&FailureFlagSpellMustBeOfTargetArea=Le sort doit avoir une zone d'effet conique, cube, cylindrique ou sphérique
+Failure/&FailureFlagSpellMustHaveDamageForm=Le sort doit avoir au moins une forme de dégâts
+Failure/&FailureFlagSpellMustRequireConcentration=Le sort doit demander de la concentration
+Failure/&FailureFlagSpellRangeMustBeSelf=La portée du sort doit être auto
+Feature/&MetamagicAltruisticSpellAllyDescription=Créez un sort pour cibler un allié à moins de 9 mètres au lieu de vous-même.
+Feature/&MetamagicAltruisticSpellAllyTitle=Sort partagé, allié uniquement
+Feature/&MetamagicAltruisticSpellDescription=Lorsque vous lancez un sort vous ciblant, vous pouvez dépenser 1 point de sorcellerie pour affecter à la place un allié à moins de 9 mètres. Ou vous pouvez dépenser 3 points de sorcellerie pour vous affecter vous-même et un allié à 9 mètres.
+Feature/&MetamagicAltruisticSpellSelfDescription=Crée un sort pour cibler un allié à moins de 9 mètres en plus de soi-même.
+Feature/&MetamagicAltruisticSpellSelfTitle=Sort partagé, Allié + Soi
+Feature/&MetamagicAltruisticSpellTitle=Sort partagé
+Feature/&MetamagicFocusedSpellDescription=Lorsque vous lancez un sort qui requiert de la concentration, vous pouvez dépenser 1 point de sorcellerie pour obtenir un avantage sur tous les jets de sauvegarde de Constitution que vous effectuez pour maintenir la concentration sur ce sort.
+Feature/&MetamagicFocusedSpellTitle=Sort concentré
+Feature/&MetamagicPowerfulSpellDescription=Vous pouvez dépenser 1 point de sorcellerie par niveau de sort pour augmenter le nombre de dés de dégâts de 1.
+Feature/&MetamagicPowerfulSpellTitle=Sort puissant
+Feature/&MetamagicWidenedSpellDescription=Vous pouvez dépenser 2 points de sorcellerie pour augmenter la zone d'effet d'un sort. Les sorts qui ont un cône, un cube, un cylindre ou une sphère d'effet augmentent en dimension, à l'incrément de 1,50 mètre le plus proche.
+Feature/&MetamagicWidenedSpellTitle=Sort élargi

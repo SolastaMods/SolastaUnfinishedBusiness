@@ -96,6 +96,28 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
         #endregion
 
+        #region 14th LEVEL FEATURES
+
+        // Animal Aspect
+        // At 14th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at previous levels or a different one.
+        var featureSetPathOfTheSpiritsHonedAnimalAspects = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetPathOfTheSpiritsHonedAnimalAspectChoices")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddFeatureSet(
+                //Bear: You hone your bear aspect. Gain an aura while raging applying disadvantages on enemies while attacking those other than you.
+                BuildAnimalAspectChoice("HonedBear",
+                    PowerPathOfTheSpiritsHonedBear()),
+                //Eagle: You hone your eagle aspect. Gain the ability to fly without extra movement while raging.
+                BuildAnimalAspectChoice("HonedEagle",
+                    PowerPathOfTheSpiritsHonedEagle()),
+                //Wolf: You hone your wolf aspect. Gain the ability to shove as a bonus action while raging.
+                BuildAnimalAspectChoice("HonedWolf",
+                    PowerPathOfTheSpiritsHonedWolf()))
+            .AddToDB();
+
+        #endregion
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(SubclassName)
             .SetGuiPresentation(Category.Subclass,
@@ -107,6 +129,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 featureSetPathOfTheSpiritsAnimalAspect)
             .AddFeaturesAtLevel(10,
                 featureSetPathOfTheSpiritsSpiritWalker)
+            .AddFeaturesAtLevel(14,
+                featureSetPathOfTheSpiritsHonedAnimalAspects)
             .AddToDB();
     }
 
@@ -173,14 +197,16 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("PowerPathOfTheSpiritsBearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Dispelled)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
+            .SetEffectDescription(
+                EffectDescriptionBuilder
                     .Create()
-                    .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
+                    .SetDurationData(DurationType.Dispelled)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
+                        .Build())
                     .Build())
-                .Build())
             .AddToDB();
     }
 
@@ -228,7 +254,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         var customBehaviorWolfLeadership = new CustomRagingAura(
-            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack);
+            powerPathOfTheSpiritsWolfLeadership, conditionPathOfTheSpiritsWolfLeadershipPack, true);
 
         conditionPathOfTheSpiritsWolfLeadershipPack.SetCustomSubFeatures(customBehaviorWolfLeadership);
         powerPathOfTheSpiritsWolfLeadership.SetCustomSubFeatures(customBehaviorWolfLeadership);
@@ -261,7 +287,110 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    //
-    // Wolf Leadership
-    //
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedBear()
+    {
+        var conditionHonedAnimalAspectsBear = ConditionDefinitionBuilder
+            .Create($"Condition{SubclassName}HonedAnimalAspectsBear")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                .Create("CombatAffinityPowerHonedAnimalAspectsBear")
+                .SetGuiPresentation($"Condition{SubclassName}HonedAnimalAspectsBear", Category.Condition)
+                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                .AddToDB())
+            .SetPossessive()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .AddToDB();
+
+        var powerHonedAnimalAspectsBear = FeatureDefinitionPowerBuilder
+            .Create($"Power{SubclassName}HonedAnimalAspectsBear")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .ExcludeCaster()
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHonedAnimalAspectsBear,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var customBehaviorHonedBear = new CustomRagingAura(
+            powerHonedAnimalAspectsBear, conditionHonedAnimalAspectsBear, false);
+
+        conditionHonedAnimalAspectsBear.SetCustomSubFeatures(customBehaviorHonedBear);
+        powerHonedAnimalAspectsBear.SetCustomSubFeatures(customBehaviorHonedBear);
+
+        return powerHonedAnimalAspectsBear;
+    }
+
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedEagle()
+    {
+        var conditionHonedAnimalAspectsEagle = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlying12, $"Condition{SubclassName}HonedAnimalAspectsEagle")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFlying12)
+            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetFeatures(FeatureDefinitionMoveModes.MoveModeFly8)
+            .AddToDB();
+
+        var powerHonedAnimalAspectsEagle = FeatureDefinitionPowerBuilder
+            .Create($"Power{SubclassName}HonedAnimalAspectsEagle")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionHonedAnimalAspectsEagle, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
+            .AddToDB();
+
+        return powerHonedAnimalAspectsEagle;
+    }
+
+    private static FeatureDefinition PowerPathOfTheSpiritsHonedWolf()
+    {
+        var actionAffinityHonedAnimalAspectsWolf = FeatureDefinitionActionAffinityBuilder
+            .Create(ActionAffinityMountaineerShieldCharge, "ActionAffinityHonedAnimalAspectsWolf")
+            .AddToDB();
+
+        var conditionHonedAnimalAspectsWolf = ConditionDefinitionBuilder
+            .Create($"Condition{SubclassName}HonedAnimalAspectsWolf")
+            .SetGuiPresentation(Category.Condition)
+            .AddFeatures(actionAffinityHonedAnimalAspectsWolf)
+            .AddSpecialInterruptions(ConditionInterruption.RageStop)
+            .AddToDB();
+
+        var powerHonedAnimalAspectsWolf = FeatureDefinitionPowerBuilder
+            .Create($"Power{SubclassName}HonedAnimalAspectsWolf")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionHonedAnimalAspectsWolf, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
+            .AddToDB();
+
+        return powerHonedAnimalAspectsWolf;
+    }
 }
