@@ -200,6 +200,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStunnedConjuredDeath { get; } = GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath");
         internal static ConditionDefinition ConditionSunbeam { get; } = GetDefinition<ConditionDefinition>("ConditionSunbeam");
         internal static ConditionDefinition ConditionSurprised { get; } = GetDefinition<ConditionDefinition>("ConditionSurprised");
+        internal static ConditionDefinition ConditionTraditionSurvivalUnbreakableBody { get; } = GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBody");
         internal static ConditionDefinition ConditionTrueStrike { get; } = GetDefinition<ConditionDefinition>("ConditionTrueStrike");
         internal static ConditionDefinition ConditionTurned { get; } = GetDefinition<ConditionDefinition>("ConditionTurned");
         internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
@@ -1238,6 +1239,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Barkskin { get; } = GetDefinition<SpellDefinition>("Barkskin");
         internal static SpellDefinition BeaconOfHope { get; } = GetDefinition<SpellDefinition>("BeaconOfHope");
         internal static SpellDefinition BestowCurse { get; } = GetDefinition<SpellDefinition>("BestowCurse");
+        internal static SpellDefinition BestowCurseOnAttackRoll { get; } = GetDefinition<SpellDefinition>("BestowCurseOnAttackRoll");
         internal static SpellDefinition BlackTentacles { get; } = GetDefinition<SpellDefinition>("BlackTentacles");
         internal static SpellDefinition BladeBarrier { get; } = GetDefinition<SpellDefinition>("BladeBarrier");
         internal static SpellDefinition Bless { get; } = GetDefinition<SpellDefinition>("Bless");

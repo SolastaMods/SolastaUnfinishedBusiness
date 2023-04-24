@@ -2,8 +2,8 @@
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura di dominio
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Il segnalino ha vantaggio sui tiri per colpire contro di te.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marchio di castigo
-Feature/&FeatureHarrowingCrusadeDescription=Quando una creatura sotto l'effetto del tuo Marchio di Castigo o della tua condizione di Spavento effettua un attacco, puoi usare la tua reazione per effettuare un attacco con un'arma da mischia contro quella creatura se si trova entro la gittata.
-Feature/&FeatureHarrowingCrusadeTitle=Crociata Straziante
+Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=Quando una creatura sotto l'effetto del tuo Marchio di Castigo o della tua condizione di Spavento effettua un attacco, puoi usare la tua reazione per effettuare un attacco con un'arma da mischia contro quella creatura se si trova entro la gittata.
+Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Crociata Straziante
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Come azione bonus, puoi castigare una creatura nemica entro 3 metri da essa, usando Incanalare Divinità. Ottieni vantaggio ai tiri per colpire contro la creatura per 1 minuto.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Incanalare Divinità: Marchio di Castigo
 Feature/&PowerOathOfDreadAuraOfDominationDescription=A partire dal 7° livello, emani costantemente un'aura minacciosa su tutti i nemici entro 3 metri finché non sei inabile. Se una creatura è spaventata o temuta e inizia il suo turno nella tua aura, la sua velocità viene ridotta a 0 e quella creatura subisce danni psichici pari alla metà del tuo livello da paladino. Al 18° livello, il raggio di quest'aura aumenta a 9 metri.

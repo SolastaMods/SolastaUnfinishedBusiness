@@ -2,8 +2,8 @@
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura der Herrschaft
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Der Marker ist bei Angriffswürfen gegen dich im Vorteil.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Zeichen der Züchtigung
-Feature/&FeatureHarrowingCrusadeDescription=Wenn eine Kreatur unter dem Effekt deines Zeichens der Züchtigung oder deines Schreckenszustands einen Angriff durchführt, kannst du deine Reaktion verwenden, um einen Nahkampfwaffenangriff gegen diese Kreatur durchzuführen, wenn sie sich in Reichweite befindet.
-Feature/&FeatureHarrowingCrusadeTitle=Erschütternder Kreuzzug
+Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=Wenn eine Kreatur unter dem Effekt deines Zeichens der Züchtigung oder deines Schreckenszustands einen Angriff durchführt, kannst du deine Reaktion verwenden, um einen Nahkampfwaffenangriff gegen diese Kreatur durchzuführen, wenn sie sich in Reichweite befindet.
+Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Erschütternder Kreuzzug
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Als Bonusaktion kannst du eine feindliche Kreatur in einem Umkreis von 3 m mit deiner Göttlichkeit kanalisieren. Du erhältst 1 Minute lang einen Vorteil bei Angriffswürfen gegen die Kreatur.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Channel Divinity: Zeichen der Züchtigung
 Feature/&PowerOathOfDreadAuraOfDominationDescription=Ab der 7. Stufe strahlst du ständig eine bedrohliche Aura auf alle Feinde innerhalb von 3 m aus, solange du nicht kampfunfähig bist. Wenn eine Kreatur verängstigt oder gefürchtet ist und ihren Zug in deiner Aura beginnt, wird ihre Geschwindigkeit auf 0 reduziert und diese Kreatur erleidet psychischen Schaden in Höhe der Hälfte deiner Paladinstufe. Auf der 18. Stufe erhöht sich die Reichweite dieser Aura auf 30 Fuß.
