@@ -593,6 +593,8 @@ internal static class PowerBundle
         return false;
     }
 
+    private static Transform _parent;
+    
     /**
      * Patch implementation
      * Replaces invocation activation with sub-power selection modal, after sub-power is selected activates invocation selected handler with proper sub-power index
@@ -623,6 +625,9 @@ internal static class PowerBundle
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
 
+        _parent = subpowerSelectionModal.transform.parent;
+        subpowerSelectionModal.transform.parent = box.transform.parent.parent;
+
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (_, i) =>
         {
             if (box != null)
@@ -645,14 +650,15 @@ internal static class PowerBundle
      */
     internal static void CloseSubPowerSelectionModal(bool instant)
     {
-        var screen = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
 
-        if (screen == null)
+        if (subpowerSelectionModal == null)
         {
             return;
         }
 
-        screen.Hide(instant);
+        subpowerSelectionModal.transform.parent = _parent;
+        subpowerSelectionModal.Hide(instant);
     }
 
     //TODO: decide if we need this, or can re-use native method of rest bundle powers
