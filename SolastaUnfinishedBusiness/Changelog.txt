@@ -1,8 +1,8 @@
 Open Mod UI > Tools and click History for full details:
 
-- fixed Always Ready, and Rope it Up feats not working at all
-- fixed Monk unarmed dice type to scale with class level
+- fixed Always Ready, and Rope it Up feats not triggering
+- fixed Monk unarmed dice type to scale up with class level
 - fixed Resonating Strike cantrip damage dice progression
 - improved SFX on Blade Ward spell, and Telekinesis feats
 - improved SFX on Oath of Dread, Roguish Slayer, and Way of Discordance
-- reorganized the UI so now only Gameplay settings must be in sync on MP
+- improved the UI so now only gameplay settings must be in sync on MP
