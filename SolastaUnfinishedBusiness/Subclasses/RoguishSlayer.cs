@@ -90,6 +90,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(rogueHolder)
+            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -127,7 +128,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(rogueHolder)
-            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {

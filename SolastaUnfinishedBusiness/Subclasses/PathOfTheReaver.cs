@@ -37,6 +37,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                         .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+                        .SetImpactParticleReference(ConditionDefinitions
+                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
                         .SetDamageDice(DieType.D1, 2)
                         .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
                         .SetSpecificDamageType(DamageTypeNecrotic)
