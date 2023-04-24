@@ -796,13 +796,12 @@ public static class GameLocationBattleManagerPatcher
             var features = attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>();
 
             //call all before handlers
-#if false
+
             foreach (var feature in features)
             {
                 yield return feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
-#endif
 
             while (values.MoveNext())
             {

@@ -575,6 +575,7 @@ RaceFairy	Male	Lucky
 RaceFairy	Male	Nightfall
 RaceFairy	Male	Canyon
 RaceFairy	Male	Wurrael
+RaceFairy	Male	Tamadylyc
 RaceFairy	Female	Sylmoira
 RaceFairy	Female	Fastina
 RaceFairy	Female	Envaris
@@ -584,6 +585,7 @@ RaceFairy	Female	Mellewen
 RaceFairy	Female	Magna
 RaceFairy	Female	Twig
 RaceFairy	Female	Twilight
+RaceFairy	Female	Mirayarus
 RaceFairy	Female	Jade
 RaceFairy	Sur	Ceinnath
 RaceFairy	Sur	Joxisys
@@ -594,4 +596,5 @@ RaceFairy	Sur	Yeswenys
 RaceFairy	Sur	Maeradok
 RaceFairy	Sur	Rhubarb
 RaceFairy	Sur	Rock
+RaceFairy	Sur	Magna
 RaceFairy	Sur	Crator

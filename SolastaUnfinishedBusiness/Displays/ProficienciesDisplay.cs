@@ -59,8 +59,7 @@ internal static class ProficienciesDisplay
             InvocationsContext.Invocations,
             Main.Settings.InvocationEnabled,
             ref displayToggle,
-            ref sliderPos,
-            headerRendering: InvocationsHeader);
+            ref sliderPos);
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
@@ -102,20 +101,6 @@ internal static class ProficienciesDisplay
             20.Space();
             UI.ActionButton("Solasta Fighting Styles docs".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaFightingStyles.md"), UI.Width((float)200));
-        }
-
-        UI.Label();
-    }
-
-    private static void InvocationsHeader()
-    {
-        using (UI.HorizontalScope())
-        {
-            UI.ActionButton("UB Invocations docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("UnfinishedBusinessInvocations.md"), UI.Width((float)200));
-            20.Space();
-            UI.ActionButton("Solasta Invocations docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
         }
 
         UI.Label();

@@ -1,4 +1,6 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=Lorsque vous lancez des sorts d'enchantement, d'abjuration et d'illusion, ceux de votre liste préparée automatiquement, ils sont lancés à un emplacement de sort d'un niveau supérieur à celui utilisé.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Manipulation des Arcanes
+Feature/&MagicAffinityFieldManipulatorDCDescription=Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 2. De plus, lorsque vous lancez un sort d'ensorceleur affecté par un effet métamagique, les créatures ont un désavantage au jet de sauvegarde.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Force arcanique
 Feature/&PowerFieldManipulatorDominatePersonDescription=Vous pouvez utiliser Dominer une personne un nombre de fois par repos long égal à votre modificateur de Charisme.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Dominer la personne

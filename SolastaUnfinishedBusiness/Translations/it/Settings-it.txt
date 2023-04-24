@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione di cibo a 2 libbre
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
-ModUi/&BackgroundsAndDeities=Sfondi e divinità
+ModUi/&BackgroundsAndRaces=Sfondi e gare
 ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
 ModUi/&Basic=<color=#F0DAA0> Base:</color>
 ModUi/&Bestiary=Bestiario
@@ -93,10 +93,10 @@ ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del M
 ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
-ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</color></i>
+ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</colore></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&EnablePcgRandom=Abilita un migliore algoritmo casuale <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
-ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se nessuno è selezionato <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
+ModUi/&EnablePcgRandom=Abilita un migliore algoritmo generatore casuale <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se non ne è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
@@ -114,7 +114,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco della campagna ufficiale per
 ModUi/&FactionRelations=<color=#F0DAA0> Fazioni:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificatore del tempo di gioco quando si preme la barra spaziatrice</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Gruppi di talenti</color>
-ModUi/&FeatGroupsHelp=. Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credi, stili di combattimento, metamagia, ecc.]</color></i>\n. I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n. Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
+ModUi/&FeatGroupsHelp=. Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credo, stili di combattimento, metamagia, ecc.]</color></i>\n. I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n. Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
 ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
@@ -137,7 +137,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</color></i>
+ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Esploratore</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Bestia affine, <color=#D89555>Barbaro</color> Sentiero degli elementi e sottoclassi scelte Draconiche]</colore></i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0> Patch:</color>
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
 ModUi/&Races=<color=#F0DAA0>Gare</color>
-ModUi/&RacesClassesSubclasses=Razze, classi e sottoclassi
+ModUi/&ClassesAndSubclasses=Classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
 ModUi/&RelicForgeries=Falsi di reliquie

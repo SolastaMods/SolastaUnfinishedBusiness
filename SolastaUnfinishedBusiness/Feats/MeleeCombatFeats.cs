@@ -410,25 +410,33 @@ internal static class MeleeCombatFeats
             .Create("ConditionAlwaysReady")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        var featureAlwaysReady = FeatureDefinitionBuilder
+            .Create("FeatureAlwaysReady")
+            .SetGuiPresentation("FeatAlwaysReady", Category.Feat)
+            .AddToDB();
+
+        featureAlwaysReady.SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady,
+            featureAlwaysReady));
+
+        return FeatDefinitionBuilder
             .Create("FeatAlwaysReady")
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady))
-            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddFeatures(featureAlwaysReady)
             .AddToDB();
     }
 
     private sealed class CustomBehaviorAlwaysReady : IAfterAttackEffect, ICharacterTurnEndListener
     {
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _featureDefinition;
 
-        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition)
+        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition, FeatureDefinition featureDefinition)
         {
             _conditionDefinition = conditionDefinition;
+            _featureDefinition = featureDefinition;
         }
 
         public void AfterOnAttackHit(
@@ -456,25 +464,26 @@ internal static class MeleeCombatFeats
                 attacker.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name) ||
+                rulesetCharacter.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
-
-            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
 
             var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.Ready)
             {
                 readyActionType = ActionDefinitions.ReadyActionType.Melee
             };
 
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }

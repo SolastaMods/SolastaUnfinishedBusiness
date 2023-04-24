@@ -1,4 +1,6 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=Wenn Sie einige Verzauberungs-, Bann- und Illusionszauber wirken, die in Ihrer automatisch vorbereiteten Liste stehen, werden sie mit einem Zauberplatz gewirkt, der 1 Stufe höher ist als der verwendete.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Arkane Manipulation
+Feature/&MagicAffinityFieldManipulatorDCDescription=Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 2. Auch wenn du einen Hexerzauber wirkst, der von einem metamagischen Effekt betroffen ist, haben Kreaturen einen Nachteil beim Rettungswurf.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Arkane Kraft
 Feature/&PowerFieldManipulatorDominatePersonDescription=Du kannst Person beherrschen so oft pro langer Pause verwenden, wie es deinem Charisma-Modifikator entspricht.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Person dominieren

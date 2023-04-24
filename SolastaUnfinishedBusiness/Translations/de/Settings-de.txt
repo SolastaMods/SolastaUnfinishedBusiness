@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
-ModUi/&BackgroundsAndDeities=Hintergründe & Gottheiten
+ModUi/&BackgroundsAndRaces=Hintergründe & Rennen
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Bestiary=Bestiarium
@@ -58,7 +58,7 @@ ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -77,7 +77,7 @@ ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Maus
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Zeichenprüfung“ auf dem Hauptbildschirm > Zeichen
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
-ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkelloses Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
@@ -95,7 +95,7 @@ ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkons
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufe 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsalgorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
+ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgeneratoralgorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Geprimte Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
-ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
+ModUi/&ClassesAndSubclasses=Klassen & Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&RelicForgeries=Reliquienfälschungen

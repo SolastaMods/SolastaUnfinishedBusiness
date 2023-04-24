@@ -1,4 +1,6 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del tiro salvezza aumenta di 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=Quando lanci alcuni incantesimi di Ammaliamento, Abiurazione e Illusione, quelli nella tua lista di preparazione automatica, vengono lanciati a uno slot incantesimo di 1 livello superiore a quello usato.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Manipolazione arcana
+Feature/&MagicAffinityFieldManipulatorDCDescription=È più difficile per gli avversari resistere ai tuoi incantesimi. La CD del tiro salvezza aumenta di 2. Inoltre, quando lanci un incantesimo da stregone influenzato da un effetto di metamagia, le creature hanno svantaggio al tiro salvezza.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Forza Arcana
 Feature/&PowerFieldManipulatorDominatePersonDescription=Puoi usare Dominare Persone un numero di volte per riposo lungo pari al tuo modificatore di Carisma.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Persona dominante

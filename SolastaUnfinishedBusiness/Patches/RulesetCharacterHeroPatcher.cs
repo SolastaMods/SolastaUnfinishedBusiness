@@ -402,6 +402,32 @@ public static class RulesetCharacterHeroPatcher
     [UsedImplicitly]
     public static class UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel_Patch
     {
+        private static int TryGetAttributeValue(
+            RulesetEntity __instance,
+            string attribute,
+            RulesetCharacterHero rulesetCharacterHero)
+        {
+            var monkLevels = rulesetCharacterHero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
+
+            return monkLevels;
+        }
+
+        //PATCH: Monks should use class level on damage dice
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var tryGetAttributeValueMethod = typeof(RulesetEntity).GetMethod("TryGetAttributeValue");
+
+            var myTryGetAttributeValueMethod =
+                new Func<RulesetEntity, string, RulesetCharacterHero, int>(TryGetAttributeValue).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceCalls(tryGetAttributeValueMethod,
+                "RulesetCharacterHero.UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myTryGetAttributeValueMethod));
+        }
+
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance,
             RulesetAttackMode attackMode,

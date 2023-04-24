@@ -32,7 +32,7 @@ ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键�
 ModUi/&ApplySRDWeightToFoodRations=将食物配给的重量减少到2磅
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
 ModUi/&Backgrounds=<color=#F0DAA0>背景</color>
-ModUi/&BackgroundsAndDeities=背景与神灵
+ModUi/&BackgroundsAndRaces=背景与神灵
 ModUi/&Basic=<color=#F0DAA0>基本：</color>
 ModUi/&Bestiary=怪物池
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>使用5环以上法术位施放时不需要专注
@@ -95,6 +95,7 @@ ModUi/&EnableLogDialoguesToConsole=在叙述序列期间启用日志对话到游
 ModUi/&EnableMinInOutAttributes=<i>+强制能力得分最低的前置条件</i>
 ModUi/&EnableMonkWeaponSpecialization=在等级2和11启用<color=#D89555>僧侣</color><b>武器专精</b><i><color=#F0DAA0>[所选武器类型成为你的僧侣武器]</color></i>
 ModUi/&EnableMulticlass=启用兼职<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于5人或6人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
@@ -170,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
 ModUi/&Races=<color=#F0DAA0>种族</color>
-ModUi/&RacesClassesSubclasses=种族、职业和子职业
+ModUi/&ClassesAndSubclasses=种族、职业和子职业
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
 ModUi/&RelicForgeries=文物伪造品
@@ -192,12 +193,12 @@ ModUi/&SelectSuggested=选择建议
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
 ModUi/&Settings=<color=#F0DAA0>设置：</color>
-ModUi/&SettingsExport=出口
-ModUi/&SettingsHelp=.作为主持人，你可以导出当前配置，打开导出文件夹并轻松与同行共享\n。作为来宾，你可以打开导出文件夹，从主机粘贴共享文件并将其加载到<b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&SettingsExport=导出
+ModUi/&SettingsHelp=.作为城主，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n。作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
 ModUi/&SettingsLoad=.加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
-ModUi/&SettingsRemove=消除
+ModUi/&SettingsRemove=移除
 ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[测试]</color></b>显示按钮，打开有关受控怪物的信息<i><color=#F0DAA0>[野性德鲁伊、召唤物、NPC追随者等。]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引导神力</color>次数，类似于法术位
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标。将鼠标悬停在它上面将显示制作物品的工具提示。

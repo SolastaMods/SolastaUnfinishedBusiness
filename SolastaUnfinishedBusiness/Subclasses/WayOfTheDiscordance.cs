@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -11,7 +12,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -47,6 +48,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Permanent)
+        .CopyParticleReferences(ConditionDefinitions.ConditionMalediction)
         .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
         .AddToDB();
 
@@ -93,7 +95,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(SpellDefinitions.Bane)
+                    .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -138,7 +140,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                         .Create()
                         .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3, 3)
                         .SetDurationData(DurationType.Minute, 1)
-                        .SetParticleEffectParameters(SpellDefinitions.DreadfulOmen)
+                        .SetParticleEffectParameters(DreadfulOmen)
                         .SetSavingThrowData(
                             false,
                             Constitution,
@@ -344,6 +346,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 effectPower.EffectDescription.effectParticleParameters.targetParticleReference =
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
+                EffectHelpers.StartVisualEffect(
+                    gameLocationAttacker, gameLocationDefender, Malediction,
+                    EffectHelpers.EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
 
                 ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);

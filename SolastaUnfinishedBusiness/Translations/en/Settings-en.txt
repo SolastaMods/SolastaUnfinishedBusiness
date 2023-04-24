@@ -31,7 +31,7 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&BackgroundsAndDeities=Backgrounds & Deities
+ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
@@ -171,7 +171,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
 ModUi/&Races=<color=#F0DAA0>Races</color>
-ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
+ModUi/&ClassesAndSubclasses=Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&RelicForgeries=Relic Forgeries
