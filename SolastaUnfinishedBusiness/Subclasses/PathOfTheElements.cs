@@ -548,6 +548,13 @@ internal sealed class PathOfTheElements : AbstractSubclass
             _magicEffect = magicEffect;
         }
 
+        public IEnumerator BeforeOnMagicalAttackDamage(GameLocationCharacter attacker, GameLocationCharacter defender,
+            ActionModifier magicModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms, bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+        }
+
         public IEnumerator OnMagicalAttackFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

@@ -1,4 +1,6 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=When casting some Enchantment, Abjuration, and Illusion spells, the ones in your auto prepared list, they are cast at a spell slot 1 level higher than the one used.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Arcane Manipulation
+Feature/&MagicAffinityFieldManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 2. Also, when you cast a sorcerer spell affected by a metamagic effected creatures have disadvantage on the saving throw.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Arcane Force
 Feature/&PowerFieldManipulatorDominatePersonDescription=You can use Dominate Person a number of times per long rest equal to your Charisma modifier.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Dominate Person

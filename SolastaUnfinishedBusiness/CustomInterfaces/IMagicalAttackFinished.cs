@@ -6,7 +6,6 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IMagicalAttackFinished
 {
-#if false
     [UsedImplicitly]
     IEnumerator BeforeOnMagicalAttackDamage(
         GameLocationCharacter attacker,
@@ -16,7 +15,6 @@ public interface IMagicalAttackFinished
         List<EffectForm> actualEffectForms,
         bool firstTarget,
         bool criticalHit);
-#endif
 
     [UsedImplicitly]
     IEnumerator OnMagicalAttackFinished(

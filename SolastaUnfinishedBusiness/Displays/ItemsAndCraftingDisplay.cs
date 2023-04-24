@@ -1,13 +1,70 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ItemsAndCraftingDisplay
 {
     private const int MaxColumns = 1;
+
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
+    {
+        (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true),
+        (Gui.Localize("Equipment/&ItemTypeAmmunitionTitle"), a => a.IsAmmunition),
+        (Gui.Localize("MerchantCategory/&ArmorTitle"), a => a.IsArmor),
+        (Gui.Localize("MerchantCategory/&DocumentTitle"), a => a.IsDocument),
+        (Gui.Localize("Equipment/&ItemTypeSpellFocusTitle"), a => a.IsFocusItem),
+        (Gui.Localize("Screen/&TravelFoodTitle"), a => a.IsFood),
+        (Gui.Localize("Equipment/&ItemTypeLightSourceTitle"), a => a.IsLightSourceItem),
+        (Gui.Localize("Equipment/&SpellbookTitle"), a => a.IsSpellbook),
+        (Gui.Localize("Equipment/&ItemTypeStarterPackTitle"), a => a.IsStarterPack),
+        (Gui.Localize("Screen/&ProficiencyToggleToolTitle"), a => a.IsTool),
+        (Gui.Localize("Merchant/&DungeonMakerMagicalDevicesTitle"), a => a.IsUsableDevice),
+        (Gui.Localize("MerchantCategory/&WeaponTitle"), a => a.IsWeapon),
+        (Gui.Localize("Tooltip/&TagFactionRelicTitle"), a => a.IsFactionRelic)
+    };
+
+    private static readonly string[] ItemsFiltersLabels = ItemsFilters.Select(x => x.Item1).ToArray();
+
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsItemTagsFilters =
+        TagsDefinitions.AllItemTags
+            .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
+                (Gui.Localize($"Tooltip/&Tag{x}Title"), a => a.ItemTags.Contains(x)))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true))
+            .OrderBy(x => x.Item1)
+            .ToArray();
+
+    private static readonly string[] ItemsItemTagsFiltersLabels = ItemsItemTagsFilters.Select(x => x.Item1).ToArray();
+
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsWeaponTagsFilters =
+        TagsDefinitions.AllWeaponTags
+            .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
+                (Gui.Localize($"Tooltip/&Tag{x}Title"),
+                    a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), _ => true))
+            .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"),
+                a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
+            .OrderBy(x => x.Item1)
+            .ToArray();
+
+    private static readonly string[] ItemsWeaponTagsFiltersLabels =
+        ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
+
+    private static Vector2 ItemPosition { get; set; } = Vector2.zero;
+
+    private static int CurrentItemsFilterIndex { get; set; }
+
+    private static int CurrentItemsItemTagsFilterIndex { get; set; }
+
+    private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
+
+    private static bool DisplayItemsToggle { get; set; }
 
     private static void AddUIForWeaponKey([NotNull] string key)
     {
@@ -265,6 +322,8 @@ internal static class ItemsAndCraftingDisplay
             }
         }
 
+        DisplayItems();
+
         UI.Label();
 
         toggle = Main.Settings.DisplayMerchantsToggle;
@@ -349,5 +408,135 @@ internal static class ItemsAndCraftingDisplay
         }
 
         UI.Label();
+    }
+
+
+    private static void DisplayItems()
+    {
+        var toggle = DisplayItemsToggle;
+
+        UI.Label();
+
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Items"), ref toggle))
+        {
+            DisplayItemsToggle = toggle;
+        }
+
+        if (!DisplayItemsToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+
+        if (!characterInspectionScreen.Visible || characterInspectionScreen.externalContainer == null)
+        {
+            UI.Label(Gui.Localize("ModUi/&ItemsHelp1"));
+
+            return;
+        }
+
+        using (UI.HorizontalScope())
+        {
+            UI.Space(40f);
+            UI.Label("Category".Bold(), UI.Width((float)100));
+
+            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            {
+                UI.Space(40f);
+                UI.Label("Weapon Tag".Bold(), UI.Width((float)100));
+            }
+
+            UI.Space(40f);
+            UI.Label("Item Tag".Bold(), UI.Width((float)100));
+
+            UI.Space(40f);
+            UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
+        }
+
+        using (UI.HorizontalScope(UI.Width((float)800), UI.Height(400)))
+        {
+            var intValue = CurrentItemsFilterIndex;
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    ItemsFiltersLabels,
+                    ItemsFiltersLabels.Length,
+                    1, UI.Width((float)140)))
+            {
+                CurrentItemsFilterIndex = intValue;
+
+                if (CurrentItemsFilterIndex != 11 /* Weapons */)
+                {
+                    CurrentItemsWeaponTagsFilterIndex = 0;
+                }
+            }
+
+            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            {
+                intValue = CurrentItemsWeaponTagsFilterIndex;
+                if (UI.SelectionGrid(
+                        ref intValue,
+                        ItemsWeaponTagsFiltersLabels,
+                        ItemsWeaponTagsFiltersLabels.Length,
+                        1, UI.Width((float)140)))
+                {
+                    CurrentItemsWeaponTagsFilterIndex = intValue;
+                }
+            }
+
+            intValue = CurrentItemsItemTagsFilterIndex;
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    ItemsItemTagsFiltersLabels,
+                    ItemsItemTagsFiltersLabels.Length,
+                    1, UI.Width((float)140)))
+            {
+                CurrentItemsItemTagsFilterIndex = intValue;
+            }
+
+            DisplayItemsBox();
+        }
+    }
+
+    private static void DisplayItemsBox()
+    {
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var rulesetItemFactoryService = ServiceRepository.GetService<IRulesetItemFactoryService>();
+        var characterName = characterInspectionScreen.InspectedCharacter.Name;
+
+        var items = DatabaseRepository.GetDatabase<ItemDefinition>()
+            .Where(x => !x.guiPresentation.Hidden)
+            .Where(x => ItemsFilters[CurrentItemsFilterIndex].Item2(x))
+            .Where(x => ItemsItemTagsFilters[CurrentItemsItemTagsFilterIndex].Item2(x))
+            .Where(x => ItemsWeaponTagsFilters[CurrentItemsWeaponTagsFilterIndex].Item2(x))
+            .OrderBy(x => x.FormatTitle());
+
+        using var scrollView =
+            new GUILayout.ScrollViewScope(ItemPosition, UI.AutoWidth(), UI.AutoHeight());
+
+        ItemPosition = scrollView.scrollPosition;
+
+        foreach (var item in items)
+        {
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("+".Bold().Red(), () =>
+                    {
+                        var rulesetItem = rulesetItemFactoryService.CreateStandardItem(item, true, characterName);
+
+                        characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
+                    },
+                    UI.Width((float)30));
+
+                var label = item.GuiPresentation.Title.StartsWith("Equipment/&CraftingManual")
+                    ? Gui.Format(item.GuiPresentation.Title,
+                        item.DocumentDescription.RecipeDefinition.CraftedItem.FormatTitle())
+                    : item.FormatTitle();
+
+                UI.Label(label, UI.AutoWidth());
+            }
+        }
     }
 }

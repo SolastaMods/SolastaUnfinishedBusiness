@@ -1,8 +1,10 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=Al lanzar algunos hechizos de Encantamiento, Abjuración e Ilusión, los que están en tu lista preparada automáticamente, se lanzan en un espacio de hechizo 1 nivel más alto que el utilizado.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Manipulación Arcana
+Feature/&MagicAffinityFieldManipulatorDCDescription=Es más difícil para los oponentes resistir tus hechizos. La CD de salvación aumenta en 2. Además, cuando lanzas un hechizo de hechicero afectado por una metamágica, las criaturas afectadas tienen desventaja en la tirada de salvación.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Fuerza Arcana
 Feature/&PowerFieldManipulatorDominatePersonDescription=Puedes usar Dominar persona un número de veces por descanso prolongado igual a tu modificador de Carisma.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Dominar persona
 Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Gana competencia en tiradas de salvación con Inteligencia y Sabiduría.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Resistencia Mental
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Resistencia mental
 Subclass/&FieldManipulatorDescription=Los manipuladores de campo sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
 Subclass/&FieldManipulatorTitle=Manipulador de campo

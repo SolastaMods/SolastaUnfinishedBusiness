@@ -1,20 +1,8 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
-  "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
-  "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
-  "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": false,
-  "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
-  "knownFeatsPrerequisite": [],
-  "features": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feat/&FeatAlwaysReadyTitle",
     "description": "Feat/&FeatAlwaysReadyDescription",
     "spriteReference": {
@@ -36,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15c11d2a-5817-54a7-8c8c-bcc602ab486b",
+  "guid": "4f421b5c-5783-5b84-861c-08700dea1535",
   "contentPack": 9999,
-  "name": "FeatAlwaysReady"
+  "name": "FeatureAlwaysReady"
 }

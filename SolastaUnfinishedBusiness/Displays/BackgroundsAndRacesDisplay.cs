@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class BackgroundsAndDeitiesDisplay
+internal static class BackgroundsAndRacesDisplay
 {
     internal static void DisplayBackgroundsAndDeities()
     {
@@ -18,6 +18,18 @@ internal static class BackgroundsAndDeitiesDisplay
             ref sliderPos);
         Main.Settings.DisplayBackgroundsToggle = displayToggle;
         Main.Settings.BackgroundSliderPosition = sliderPos;
+
+        displayToggle = Main.Settings.DisplayRacesToggle;
+        sliderPos = Main.Settings.RaceSliderPosition;
+        ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&Races"),
+            RacesContext.Switch,
+            RacesContext.Races,
+            Main.Settings.RaceEnabled,
+            ref displayToggle,
+            ref sliderPos);
+        Main.Settings.DisplayRacesToggle = displayToggle;
+        Main.Settings.RaceSliderPosition = sliderPos;
 
 #if false
         displayToggle = Main.Settings.DisplayDeitiesToggle;

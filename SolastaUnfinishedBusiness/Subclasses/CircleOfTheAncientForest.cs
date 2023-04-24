@@ -327,6 +327,13 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
     private sealed class MagicalAttackFinishedAncientForestLifeSap : IMagicalAttackFinished
     {
+        public IEnumerator BeforeOnMagicalAttackDamage(GameLocationCharacter attacker, GameLocationCharacter defender,
+            ActionModifier magicModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms, bool firstTarget,
+            bool criticalHit)
+        {
+            yield break;
+        }
+
         public IEnumerator OnMagicalAttackFinished(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

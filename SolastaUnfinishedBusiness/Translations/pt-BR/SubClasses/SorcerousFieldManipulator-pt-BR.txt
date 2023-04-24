@@ -1,4 +1,6 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 2.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=Ao lançar alguns feitiços de Encantamento, Abjuração e Ilusão, os que estão em sua lista preparada automaticamente, eles são lançados em um slot de feitiço 1 nível acima do usado.
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Manipulação Arcana
+Feature/&MagicAffinityFieldManipulatorDCDescription=É mais difícil para os oponentes resistirem aos seus feitiços. A CD do teste de resistência aumenta em 2. Além disso, quando você lança um feitiço de feiticeiro afetado por uma metamágica, as criaturas têm desvantagem no teste de resistência.
 Feature/&MagicAffinityFieldManipulatorDCTitle=Força Arcana
 Feature/&PowerFieldManipulatorDominatePersonDescription=Você pode usar Dominar Pessoa um número de vezes por descanso longo igual ao seu modificador de Carisma.
 Feature/&PowerFieldManipulatorDominatePersonTitle=Dominar Pessoa

@@ -1,0 +1,171 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "affinity": "Disadvantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&MagicAffinityFieldManipulatorDCTitle",
+    "description": "Feature/&MagicAffinityFieldManipulatorDCDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4dc7ee86-a401-5f19-933f-0fcca3d516c7",
+  "contentPack": 9999,
+  "name": "SavingThrowAffinityFieldManipulatorDC"
+}

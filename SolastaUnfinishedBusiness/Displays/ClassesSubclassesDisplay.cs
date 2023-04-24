@@ -4,24 +4,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class RacesClassesSubclassesDisplay
+internal static class ClassesSubclassesDisplay
 {
     internal static void DisplayClassesAndSubclasses()
     {
-        var displayToggle = Main.Settings.DisplayRacesToggle;
-        var sliderPos = Main.Settings.RaceSliderPosition;
-        ModUi.DisplayDefinitions(
-            Gui.Localize("ModUi/&Races"),
-            RacesContext.Switch,
-            RacesContext.Races,
-            Main.Settings.RaceEnabled,
-            ref displayToggle,
-            ref sliderPos);
-        Main.Settings.DisplayRacesToggle = displayToggle;
-        Main.Settings.RaceSliderPosition = sliderPos;
-
-        displayToggle = Main.Settings.DisplayClassesToggle;
-        sliderPos = Main.Settings.ClassSliderPosition;
+        var displayToggle = Main.Settings.DisplayClassesToggle;
+        var sliderPos = Main.Settings.ClassSliderPosition;
         ModUi.DisplayDefinitions(
             Gui.Localize("ModUi/&Classes"),
             ClassesContext.Switch,
