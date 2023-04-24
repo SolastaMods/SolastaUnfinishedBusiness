@@ -1,8 +1,7 @@
 Open Mod UI > Tools and click History for full details:
 
-- fixed Always Ready, and Rope it Up feats not triggering
-- fixed Monk unarmed dice type to scale up with class level
-- fixed Resonating Strike cantrip damage dice progression
-- improved SFX on Blade Ward spell, and Telekinesis feats
-- improved SFX on Oath of Dread, Roguish Slayer, and Way of Discordance
-- improved the UI so now only gameplay settings must be in sync on MP
+- added UB and vanilla classes display documentation buttons to mod UI
+- changed Caustic Zap progression to one additional enemy per slot level
+- changed Roguish Arcane Scoundrel's gambit to a bonus action
+- fixed the invocations subpowers panel rendering layer
+- improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
