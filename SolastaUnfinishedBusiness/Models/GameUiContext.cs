@@ -786,6 +786,7 @@ internal static class GameUiContext
 
     private static FeatureDefinitionActionAffinity ActionAffinityMonsterSwapAttackToggle { get; set; }
 
+#if false
     private static void LoadMonsterSwapAttackToggle()
     {
         _ = ActionDefinitionBuilder
@@ -802,6 +803,7 @@ internal static class GameUiContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle)
             .AddToDB();
     }
+#endif
 
     internal static void AddMonsterSwapAttackToggle(RulesetCharacterMonster monster)
     {
@@ -901,7 +903,7 @@ internal static class GameUiContext
         LoadFeatCrusherToggle();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
-        LoadMonsterSwapAttackToggle();
+        //LoadMonsterSwapAttackToggle();
         LoadFormationGrid();
 
         var inputService = ServiceRepository.GetService<IInputService>();
