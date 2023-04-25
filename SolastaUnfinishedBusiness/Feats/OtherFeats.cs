@@ -113,7 +113,7 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildEldritchAdept()
     {
-        return FeatDefinitionBuilder
+        return FeatDefinitionWithPrerequisitesBuilder
             .Create(FeatEldritchAdept)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -122,6 +122,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
+            .SetValidators(ValidatorsFeat.IsLevel2)
             .AddToDB();
     }
 
