@@ -13,7 +13,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 3,
       "spellsList": [
-        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64"
       ]
     },
     {
@@ -71,7 +71,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "abca93d7-b427-5b34-87cc-13bb662efe9e",
+  "guid": "30e69802-0420-56cd-a5a4-efe6bfdc2e07",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsFieldManipulator"
+  "name": "AutoPreparedSpellsSorcerousFieldManipulator"
 }

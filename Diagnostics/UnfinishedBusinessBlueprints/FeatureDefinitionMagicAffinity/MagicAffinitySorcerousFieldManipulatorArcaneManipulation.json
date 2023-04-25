@@ -30,14 +30,7 @@
   "scribeCostMultiplier": 1.0,
   "additionalScribedSpells": 0,
   "additionalKnownSpellsCount": 0,
-  "warListSpells": [
-    "Banishment",
-    "Counterspell",
-    "GlobeOfInvulnerability",
-    "HoldMonster",
-    "Invisibility",
-    "Sleep"
-  ],
+  "warListSpells": [],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
   "extendedSpellList": null,
@@ -60,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle",
-    "description": "Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription",
+    "title": "Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationTitle",
+    "description": "Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -81,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "59aba99e-e34f-55f9-a2a1-5a9bf346be7b",
+  "guid": "a354d041-96dd-5982-8633-5506050a82cc",
   "contentPack": 9999,
-  "name": "MagicAffinityFieldManipulatorControlHeightened"
+  "name": "MagicAffinitySorcerousFieldManipulatorArcaneManipulation"
 }
