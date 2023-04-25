@@ -4,11 +4,13 @@
 
 - added UB and vanilla classes display documentation buttons to mod UI
 - changed Caustic Zap progression to one additional enemy per slot level
-- changed Powerful metamagic cost to 2 fixed points
+- changed Powerful metamagic cost to 1 fixed point
 - changed Roguish Arcane Scoundrel's gambit to a bonus action
-- fixed Bow Mastery feat not granting bonus attack when enemy successfully reacts on first
+- fixed some feats not granting bonus attack under certain scenarios
 - improved the invocations subpowers panel rendering logic
 - improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
+- removed monster attacks swap feature as it was causing issues on MP
+- refactored Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
 
 1.4.33.78:
 
