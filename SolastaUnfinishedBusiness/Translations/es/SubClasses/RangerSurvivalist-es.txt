@@ -1,0 +1,16 @@
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceDescription=-2 a la clase de armadura.
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceTitle=Experiencia inigualable
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La primera vez que golpeas a una criatura con un ataque de arma en cada uno de tus turnos, debe hacer una tirada de salvación de Destreza contra la CD de tu hechizo de guardabosques o quedar obstaculizada durante un minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, finalizando el efecto si tiene éxito.
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Huelga de inhabilitación
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeDescription=Cambia la condición infligida por Golpe incapacitante de obstaculizado a restringido. Deshabilitar Golpe ahora se aplica a todos los ataques con armas, no solo al primero por turno.
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeTitle=Golpe de desactivación mejorado
+Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Obtienes hechizos de bonificación que se consideran hechizos de guardabosques para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de guardabosques que conoces:\n{0}\n\n
+Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Hechizos de bonificación de superviviente
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Obtenga ventaja en las pruebas de Supervivencia para aumentar el conocimiento de las criaturas, así como todos los beneficios del estilo de lucha Verdugo.
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Mente analítica
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceDescription=Gana competencia en las tiradas de salvación de Sabiduría. Elige 3 tipos de enemigos favoritos adicionales. Al golpear a un enemigo predilecto con un ataque, reduce su clase de armadura en 2 hasta el comienzo de tu próximo turno.
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceTitle=Experiencia inigualable
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Obtenga competencia en Supervivencia, o experiencia si ya es competente.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Desterrado errante
+Subclass/&RangerSurvivalistDescription=Los guardabosques que viven mucho más allá de los límites de la civilización entienden que las cacerías más exitosas son aquellas en las que la presa no puede huir ni defenderse. Los supervivientes son capaces de analizar todas las debilidades de los objetivos potenciales y recurren al mundo natural para obstaculizar a sus enemigos mientras destruyen sus defensas con ataques precisos.
+Subclass/&RangerSurvivalistTitle=Superviviente

@@ -1,0 +1,16 @@
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceDescription=-2 zur Rüstungsklasse.
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceTitle=Unübertroffene Erfahrung
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=Wenn du in jedem deiner Züge zum ersten Mal eine Kreatur mit einem Waffenangriff triffst, muss sie einen Geschicklichkeitsrettungswurf gegen den SG deines Waldläuferzaubers machen oder wird für eine Minute behindert. Eine Kreatur kann den Rettungswurf am Ende jedes ihrer Züge wiederholen, wodurch der Effekt bei einem Erfolg beendet wird.
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Streik deaktivieren
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeDescription=Ändert den durch 'Behindernder Schlag' verursachten Zustand von 'behindert' zu 'zurückgehalten'. Schlag deaktivieren gilt jetzt für alle Waffenangriffe, nicht nur für den ersten pro Runde.
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeTitle=Verbesserter Deaktivierungsschlag
+Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}\n\n
+Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Überlebenskünstler-Bonuszauber
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Gewinnen Sie einen Vorteil bei Überlebenswürfen, um das Wissen über Kreaturen sowie alle Vorteile des Kampfstils des Scharfrichters zu erweitern.
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Analytischen Verstand
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceDescription=Erwerbe Kenntnisse in Weisheitswürfen. Wähle 3 zusätzliche bevorzugte Gegnertypen. Wenn du einen bevorzugten Feind mit einem Angriff triffst, reduziere seine Rüstungsklasse bis zum Beginn deines nächsten Zuges um 2.
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceTitle=Unübertroffene Erfahrung
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Erwerben Sie Kenntnisse im Überleben oder Fachwissen, wenn Sie bereits geübt sind.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Wandernder Ausgestoßener
+Subclass/&RangerSurvivalistDescription=Ranger, die weit außerhalb der Zivilisation leben, wissen, dass die erfolgreichsten Jagden diejenigen sind, bei denen die Beute weder fliehen noch sich wehren kann. Überlebenskünstler sind in der Lage, jede Schwäche potenzieller Ziele zu analysieren und die natürliche Welt anzurufen, um ihre Feinde zu behindern, während sie ihre Verteidigung mit präzisen Angriffen zerschreddern.
+Subclass/&RangerSurvivalistTitle=Überlebenskünstler

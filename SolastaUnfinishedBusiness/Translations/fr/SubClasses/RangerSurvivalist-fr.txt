@@ -1,0 +1,16 @@
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceDescription=-2 à la classe d'armure.
+Condition/&ConditionRangerSurvivalistUnmatchedExperienceTitle=Expérience inégalée
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La première fois que vous touchez une créature avec une attaque avec une arme à chacun de vos tours, elle doit effectuer un jet de sauvegarde de Dextérité contre le DD de votre sort de rôdeur ou être gênée pendant une minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet en cas de réussite.
+Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Désactivation de la grève
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeDescription=Modifie la condition infligée par Disabling Strike de gêné à retenu. La désactivation de Frappe s'applique désormais à toutes les attaques avec une arme, et pas seulement à la première par tour.
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeTitle=Frappe de désactivation améliorée
+Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Vous gagnez des sorts bonus qui sont considérés comme des sorts de Ranger pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de Ranger que vous connaissez :\n{0}\n\n
+Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Sorts bonus de survivaliste
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription=Bénéficiez d'un avantage sur les tests de survie pour augmenter la connaissance des créatures ainsi que tous les avantages du style de combat Bourreau.
+Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle=Esprit analytique
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceDescription=Maîtriser les jets de sauvegarde de Sagesse. Choisissez 3 types d'ennemis favoris supplémentaires. Lorsque vous touchez un ennemi favori avec une attaque, réduisez sa classe d'armure de 2 jusqu'au début de votre prochain tour.
+Feature/&FeatureSetRangerSurvivalistUnmatchedExperienceTitle=Expérience inégalée
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription=Acquérir des compétences en survie, ou une expertise si déjà compétent.
+Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle=Paria errant
+Subclass/&RangerSurvivalistDescription=Les Rangers qui vivent bien au-delà des limites de la civilisation comprennent que les chasses les plus réussies sont celles où la proie ne peut ni fuir ni riposter. Les survivalistes sont capables d'analyser toutes les faiblesses des cibles potentielles et de faire appel au monde naturel pour gêner leurs ennemis tout en déchiquetant leurs défenses avec des attaques précises.
+Subclass/&RangerSurvivalistTitle=Survivant
