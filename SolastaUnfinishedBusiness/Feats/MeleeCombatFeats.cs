@@ -964,7 +964,7 @@ internal static class MeleeCombatFeats
                 out _,
                 out _);
 
-            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
         }
     }
 

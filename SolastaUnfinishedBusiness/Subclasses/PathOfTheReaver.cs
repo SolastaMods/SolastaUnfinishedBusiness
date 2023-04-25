@@ -336,7 +336,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
-            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
 
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var multiplier = outcome is RollOutcome.Success ? 1 : 2;

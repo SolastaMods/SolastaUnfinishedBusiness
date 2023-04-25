@@ -2,6 +2,8 @@ Open Mod UI > Tools and click History for full details:
 
 - added UB and vanilla classes display documentation buttons to mod UI
 - changed Caustic Zap progression to one additional enemy per slot level
+- changed Powerful metamagic cost to 2 fixed points
 - changed Roguish Arcane Scoundrel's gambit to a bonus action
+- fixed Bow Mastery feat not granting bonus attack when enemy successfully reacts on first
 - improved the invocations subpowers panel rendering logic
 - improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
