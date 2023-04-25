@@ -14,19 +14,21 @@ internal sealed class Executioner : AbstractFightingStyle
 {
     private const string ExecutionerName = "Executioner";
 
+    internal static readonly FeatureDefinition FeatureFightingStyleExecutioner = FeatureDefinitionBuilder
+        .Create("FeatureFightingStyleExecutioner")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageFightingStyleExecutioner")
+            .SetGuiPresentation(ExecutionerName, Category.FightingStyle)
+            .SetNotificationTag(ExecutionerName)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .AddToDB()))
+        .AddToDB();
+
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(ExecutionerName)
-        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Executioner", Resources.Executioner, 256))
-        .SetFeatures(FeatureDefinitionBuilder
-            .Create("FeatureFightingStyleExecutioner")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageFightingStyleExecutioner")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag(ExecutionerName)
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                .AddToDB()))
-            .AddToDB())
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite(ExecutionerName, Resources.Executioner, 256))
+        .SetFeatures(FeatureFightingStyleExecutioner)
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
