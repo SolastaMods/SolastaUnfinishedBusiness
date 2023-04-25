@@ -2,16 +2,12 @@
 
 1.4.33.79:
 
-- added UB and vanilla classes display documentation buttons to mod UI
 - changed Caustic Zap progression to one additional enemy per slot level
 - changed Powerful metamagic cost to 1 fixed point
 - changed Roguish Arcane Scoundrel's gambit to a bonus action
-- fixed some feats not granting bonus attack under certain scenarios
-- improved the invocations subpowers panel rendering logic
-- improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
-- removed backward compatibility support for Tactical Surge - RESPEC IS REQUIRED
-- removed monster attacks swap feature as it was causing issues on MP
-- refactored Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
+- rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
+- removed backward compatibility support for Tactician's Tactical Surge - RESPEC IS REQUIRED
+- removed shape form / summons attacks swap action - RESPEC IS REQUIRED IF IN SHAPE FORM / SUMMONS
 
 1.4.33.78:
 

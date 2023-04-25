@@ -4,7 +4,6 @@ ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 ft of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Add a toggle to allow <color=#D89555>Monks</color> to enable/disable Ki Points <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form or controlled monsters to select which attack to use first <i><color=#F0DAA0>[useful with a mix of melee and ranged ones]</color></i>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
