@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -30,7 +29,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Entangle),
-                BuildSpellGroup(5, Blindness),
+                BuildSpellGroup(5, Models.SpellsContext.Web),
                 BuildSpellGroup(9, SleetStorm),
                 BuildSpellGroup(13, GreaterInvisibility),
                 BuildSpellGroup(17, HoldMonster))
@@ -106,10 +105,8 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 canSaveToCancel = true,
                 saveOccurence = TurnOccurenceType.EndOfTurn
             })
+            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrikeDisablingStrike())
             .AddToDB();
-
-        additionalDamageImprovedDisablingStrike.otherSimilarAdditionalDamages =
-            new List<FeatureDefinitionAdditionalDamage> { additionalDamageDisablingStrike };
 
         //
         // LEVEL 15
@@ -134,19 +131,9 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
         var savingThrowAffinityUnmatchedExperience = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}UnmatchedExperience")
-            .SetGuiPresentation($"FeatureSet{Name}UnmatchedExperience", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, true, AttributeDefinitions.Wisdom)
             .SetCustomSubFeatures(new AfterAttackEffectUnmatchedExperience(conditionUnmatchedExperience))
-            .AddToDB();
-
-        var featureSetUnmatchedExperience = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}UnmatchedExperience")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                savingThrowAffinityUnmatchedExperience,
-                FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice,
-                FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice,
-                FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)
             .AddToDB();
 
         //
@@ -165,7 +152,8 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .AddFeaturesAtLevel(11,
                 additionalDamageImprovedDisablingStrike)
             .AddFeaturesAtLevel(15,
-                featureSetUnmatchedExperience)
+                savingThrowAffinityUnmatchedExperience,
+                FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice)
             .AddToDB();
     }
 
@@ -176,6 +164,22 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class CustomCodeImprovedDisablingStrikeDisablingStrike : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x.Name == $"AdditionalDamage{Name}DisablingStrike");
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // Empty
+        }
+    }
 
     private sealed class AfterAttackEffectUnmatchedExperience : IAfterAttackEffect
     {

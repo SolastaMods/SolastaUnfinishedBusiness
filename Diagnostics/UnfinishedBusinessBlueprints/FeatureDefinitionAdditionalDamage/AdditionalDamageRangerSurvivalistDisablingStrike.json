@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Executioner",
-  "limitedUsage": "None",
+  "notificationTag": "",
+  "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "requiredProperty": "Weapon",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,
@@ -15,7 +15,7 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": "ProficiencyBonus",
+  "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
   "damageDiceNumber": 0,
@@ -27,13 +27,24 @@
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": false,
+  "hasSavingThrow": true,
   "savingThrowAbility": "Dexterity",
-  "dcComputation": "FixedValue",
-  "savingThrowDC": 10,
-  "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "dcComputation": "SpellCastingFeature",
+  "savingThrowDC": 12,
+  "savingThrowDCAbilityModifier": "Wisdom",
+  "damageSaveAffinity": "Negates",
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": true,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionHindered_By_Frost:c148df61de4a42345aeb1962d83f7b58",
+      "saveAffinity": "None",
+      "canSaveToCancel": true,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,
@@ -48,8 +59,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "FightingStyle/&ExecutionerTitle",
-    "description": "FightingStyle/&ExecutionerDescription",
+    "title": "Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle",
+    "description": "Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -69,7 +80,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62bdad0b-d7b8-5454-8f69-acf886966250",
+  "guid": "a9674f1b-57bb-58b3-aa2e-6fe62446a220",
   "contentPack": 9999,
-  "name": "AdditionalDamageFightingStyleExecutioner"
+  "name": "AdditionalDamageRangerSurvivalistDisablingStrike"
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -684,6 +685,17 @@ internal static class CharacterContext
             .ToList();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
+
+        var rangerSurvivalist = GetDefinition<CharacterSubclassDefinition>("RangerSurvivalist");
+
+        replacedFeatures = rangerSurvivalist.FeatureUnlocks
+            .Select(x =>
+                x.FeatureDefinition == AdditionalDamageRangerFavoredEnemyChoice
+                    ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
+                    : x)
+            .ToList();
+
+        rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     private static void SwitchDruidKindredBeastToUseCustomInvocationPools()

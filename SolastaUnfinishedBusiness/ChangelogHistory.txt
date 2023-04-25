@@ -5,7 +5,7 @@
 - added UB and vanilla classes display documentation buttons to mod UI
 - changed Caustic Zap progression to one additional enemy per slot level
 - changed Roguish Arcane Scoundrel's gambit to a bonus action
-- fixed the invocations subpowers panel rendering layer
+- improved the invocations subpowers panel rendering logic
 - improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
 
 1.4.33.78:
