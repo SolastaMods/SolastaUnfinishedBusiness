@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -35,13 +37,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         var powerDisplacement = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Displacement")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, MistyStep)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(MistyStep)
                     .SetSavingThrowData(
                         true,
                         AttributeDefinitions.Charisma,
@@ -85,6 +88,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -104,21 +108,24 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var effectDescriptionForcefulStep = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.IndividualsUnique)
+            .SetParticleEffectParameters(PowerMelekTeleport)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 24)
+                    .Build())
+            .Build();
+
         var powerForcefulStepFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepFixed")
-            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature)
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature,
+                PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 24)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(effectDescriptionForcefulStep)
             .AddToDB();
 
         powerForcefulStepFixed.SetCustomSubFeatures(
@@ -129,17 +136,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             .Create($"Power{Name}ForcefulStepPoints")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 24)
-                            .Build())
-                    .Build())
+            .SetEffectDescription(effectDescriptionForcefulStep)
             .SetCustomSubFeatures(new OnAfterActionFeatureForcefulStep(powerForcefulStepApply))
             .AddToDB();
 
@@ -170,6 +167,15 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    internal static void LateLoad()
+    {
+        MagicAffinityHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
+            .SpellsByLevel
+            .SelectMany(x => x.Spells)
+            .Where(x => x.SchoolOfMagic is SchoolEnchantement or SchoolAbjuration or SchoolIllusion)
+            .Select(x => x.Name));
+    }
 
     //
     // Forceful Step Fixed

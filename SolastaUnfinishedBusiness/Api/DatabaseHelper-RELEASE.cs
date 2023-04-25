@@ -620,8 +620,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } = GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
         internal static FeatureDefinitionPower PowerSorcererManaPainterTap { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterTap");
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
+        internal static FeatureDefinitionPower PowerMelekTeleport { get; } = GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");
         internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
+        internal static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash");
         internal static FeatureDefinitionPower PowerMonkStunningStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike");
         internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
