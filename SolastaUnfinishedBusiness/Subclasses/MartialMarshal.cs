@@ -360,6 +360,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetGuiPresentation("FeatureMarshalKnowledgeableDefense", Category.Feature)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .SetSilent(Silent.WhenRemoved)
                 .SetPossessive()
                 .AddFeatures(
                     FeatureDefinitionAttributeModifierBuilder
