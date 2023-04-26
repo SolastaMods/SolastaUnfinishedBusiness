@@ -848,6 +848,7 @@ public static class InnovationArtillerist
 
         return gameLocationCharacterService != null &&
                gameLocationCharacterService.AllValidEntities
+                   .ToList()
                    .Where(x => x.Side == character.Side)
                    .SelectMany(x => x.RulesetCharacter.AllConditions
                        .Where(y => y.ConditionDefinition ==

@@ -1,10 +1,15 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SkillOrExpertise",
+  "proficiencies": [
+    "Survival"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureHarrowingCrusadeTitle",
-    "description": "Feature/&FeatureHarrowingCrusadeDescription",
+    "title": "Feature/&ProficiencyRangerSurvivalistWanderingOutcastTitle",
+    "description": "Feature/&ProficiencyRangerSurvivalistWanderingOutcastDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c8c7959-e47f-5e96-858c-4074ad120956",
+  "guid": "002b9e59-4a9c-5625-bcf8-f92a614d68bc",
   "contentPack": 9999,
-  "name": "FeatureHarrowingCrusade"
+  "name": "ProficiencyRangerSurvivalistWanderingOutcast"
 }

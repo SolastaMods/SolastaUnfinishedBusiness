@@ -123,7 +123,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         var powerGambit = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Gambit")
             .SetGuiPresentation(Category.Feature, SpellsContext.MirrorImage)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellsContext.MirrorImage.EffectDescription)

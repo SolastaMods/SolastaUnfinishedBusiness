@@ -16,7 +16,8 @@ internal static class ClassesSubclassesDisplay
             ClassesContext.Classes,
             Main.Settings.ClassEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: ClassesHeader);
         Main.Settings.DisplayClassesToggle = displayToggle;
         Main.Settings.ClassSliderPosition = sliderPos;
 
@@ -32,6 +33,20 @@ internal static class ClassesSubclassesDisplay
             headerRendering: SubclassesHeader);
         Main.Settings.DisplaySubclassesToggle = displayToggle;
         Main.Settings.SubclassSliderPosition = sliderPos;
+
+        UI.Label();
+    }
+
+    private static void ClassesHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Classes Docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessClasses.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Classes Docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaClasses.md"), UI.Width((float)200));
+        }
 
         UI.Label();
     }

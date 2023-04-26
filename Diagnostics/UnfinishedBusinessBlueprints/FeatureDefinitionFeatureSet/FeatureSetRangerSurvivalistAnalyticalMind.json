@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AbilityCheckRangerSurvivalistAnalyticalMind:bb200e27-5cfe-5e79-a96e-7187cbb59644",
+    "Definition:FeatureFightingStyleExecutioner:44cbdc12-60f2-546b-8b9a-2be9e29b7c23"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRangerSurvivalistAnalyticalMindTitle",
+    "description": "Feature/&FeatureSetRangerSurvivalistAnalyticalMindDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4bb039d2-6358-5449-aba4-a4687793cbd5",
+  "contentPack": 9999,
+  "name": "FeatureSetRangerSurvivalistAnalyticalMind"
+}

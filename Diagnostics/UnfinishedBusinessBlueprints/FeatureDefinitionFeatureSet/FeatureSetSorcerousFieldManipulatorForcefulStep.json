@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerSorcerousFieldManipulatorForcefulStepFixed:5f5039e4-886f-5c18-925b-6915d8cc381b",
+    "Definition:PowerSorcerousFieldManipulatorForcefulStepPoints:83069586-5031-5b43-8639-7949b9690780",
+    "Definition:PowerSorcerousFieldManipulatorForcefulStepApply:82a615b1-7197-54d7-add5-882888535f18"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle",
+    "description": "Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "4e4cb028-4e59-5331-84e6-145b74cd5db9",
+  "contentPack": 9999,
+  "name": "FeatureSetSorcerousFieldManipulatorForcefulStep"
+}

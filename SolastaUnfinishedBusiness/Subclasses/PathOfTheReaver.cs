@@ -37,6 +37,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                         .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+                        .SetImpactParticleReference(ConditionDefinitions
+                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
                         .SetDamageDice(DieType.D1, 2)
                         .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
                         .SetSpecificDamageType(DamageTypeNecrotic)
@@ -334,7 +336,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
-            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
 
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var multiplier = outcome is RollOutcome.Success ? 1 : 2;

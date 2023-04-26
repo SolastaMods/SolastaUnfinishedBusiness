@@ -149,7 +149,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetMotionForm(MotionForm.MotionType.PushRandomDirection, 6)
+                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 6)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
             .Build();
@@ -164,6 +164,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
+            .SetCustomSubFeatures(PushesFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

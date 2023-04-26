@@ -174,7 +174,7 @@ internal static class MetamagicBuilders
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicPowerful)
             .SetGuiPresentation(Category.Feature)
-            .SetCost(MetamagicCostMethod.SpellLevel)
+            .SetCost()
             .SetCustomSubFeatures(new ModifyMagicEffectMetamagicPowerful(), validator)
             .AddToDB();
     }
@@ -188,7 +188,7 @@ internal static class MetamagicBuilders
     {
         var effect = rulesetEffectSpell.EffectDescription;
 
-        if (effect.EffectForms.All(x => x.FormType != EffectForm.EffectFormType.Damage))
+        if (effect.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Damage))
         {
             return;
         }

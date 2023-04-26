@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureHarrowingCrusade:8c8c7959-e47f-5e96-858c-4074ad120956",
+      "featureDefinition": "Definition:FeatureOathOfDreadHarrowingCrusade:2f23444c-7dad-5392-af85-bbcc9b0659b3",
       "level": 15
     }
   ],

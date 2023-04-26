@@ -102,10 +102,10 @@ public static class CharacterActionPanelPatcher
                 DoReorder((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
             }
 
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle))
-            {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle, 0);
-            }
+            // if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle))
+            // {
+            //     DoReorder((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle, 0);
+            // }
 
             //PATCH: hide power button on action panel if no valid powers to use or see
             actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
@@ -122,8 +122,9 @@ public static class CharacterActionPanelPatcher
                     ActionDefinitions.ActionType.Bonus, battle),
                 ActionDefinitions.Id.PowerNoCost => !character.CanSeeAndUseAtLeastOnePower(
                     ActionDefinitions.ActionType.NoCost, battle),
-                (ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle => GameLocationCharacter
-                    .GetFromActor(character).HasAttackedSinceLastTurn,
+                // (ActionDefinitions.Id)
+                //     ExtraActionId.MonsterSwapAttackToggle =>
+                //     GameLocationCharacter.GetFromActor(character).HasAttackedSinceLastTurn,
                 _ => false
             };
         }

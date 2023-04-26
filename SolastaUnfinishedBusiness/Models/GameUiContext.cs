@@ -784,6 +784,7 @@ internal static class GameUiContext
             .AddToDB();
     }
 
+#if false
     private static FeatureDefinitionActionAffinity ActionAffinityMonsterSwapAttackToggle { get; set; }
 
     private static void LoadMonsterSwapAttackToggle()
@@ -814,7 +815,8 @@ internal static class GameUiContext
             monster.ActiveFeatures.Add(ActionAffinityMonsterSwapAttackToggle);
         }
     }
-
+#endif
+    
     internal static void ResetFormationGrid(int selectedSet)
     {
         for (var y = 0; y < GridSize; y++)
@@ -901,7 +903,7 @@ internal static class GameUiContext
         LoadFeatCrusherToggle();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
-        LoadMonsterSwapAttackToggle();
+        //LoadMonsterSwapAttackToggle();
         LoadFormationGrid();
 
         var inputService = ServiceRepository.GetService<IInputService>();

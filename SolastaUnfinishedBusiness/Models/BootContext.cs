@@ -156,6 +156,8 @@ internal static class BootContext
                 Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
             }
 
+            DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<FeatDefinition>("UnfinishedBusinessFeats",
@@ -187,13 +189,50 @@ internal static class BootContext
     {
         return input
             .Replace("<color=#add8e6ff>", string.Empty)
-            .Replace("<#57BCF4>", "\t\t\t\n")
+            .Replace("<#57BCF4>", "\n\t")
             .Replace("</color>", string.Empty)
             .Replace("<b>", string.Empty)
             .Replace("<i>", string.Empty)
             .Replace("</b>", string.Empty)
-            .Replace("</i>", string.Empty)
-            .Replace("\n", "\n\t\t\t");
+            .Replace("</i>", string.Empty);
+    }
+
+    private static void DumpClasses(string groupName, Func<BaseDefinition, bool> filter)
+    {
+        var outString = new StringBuilder();
+
+        foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+                     .Where(x => filter(x))
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            outString.Append($"# {klass.FormatTitle()}\n\n");
+            outString.Append(klass.FormatDescription());
+            outString.Append("\n\n");
+
+            var level = 0;
+
+            foreach (var featureUnlockByLevel in klass.FeatureUnlocks
+                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                         .OrderBy(x => x.level))
+            {
+                if (level != featureUnlockByLevel.level)
+                {
+                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    level = featureUnlockByLevel.level;
+                }
+
+                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"{description}\n\n");
+            }
+
+            outString.Append("\n\n\n");
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Classes.md");
+        sw.WriteLine(outString.ToString());
     }
 
     private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
@@ -228,8 +267,8 @@ internal static class BootContext
                     var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                     var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                    outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
-                    outString.Append($"\t\t{description}\n\n");
+                    outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                    outString.Append($"{description}\n\n");
                 }
 
                 outString.Append("\n\n\n");
@@ -443,6 +482,8 @@ internal static class BootContext
 
     internal static void DisplayRollbackMessage()
     {
+        UnityModManager.UI.Instance.ToggleWindow(false);
+
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",

@@ -1,0 +1,69 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerSurvivalistDisablingStrike:a9674f1b-57bb-58b3-aa2e-6fe62446a220",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRangerSurvivalist:546e00ed-dab7-51b1-91a3-f80cc5e0ef66",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRangerSurvivalistWanderingOutcast:002b9e59-4a9c-5625-bcf8-f92a614d68bc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRangerSurvivalistAnalyticalMind:4bb039d2-6358-5449-aba4-a4687793cbd5",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerSurvivalistImprovedDisablingStrike:e92221dc-4fea-5a5f-a42e-df93b9a4f877",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRangerFavoredEnemyChoice:2a798d74282db5d4bb4247c6ffe14b63",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityRangerSurvivalistUnmatchedExperience:9a68b999-aeca-5951-86a7-ddd39422a7a4",
+      "level": 15
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RangerSurvivalistTitle",
+    "description": "Subclass/&RangerSurvivalistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "33c33412-c026-546c-a36e-6dc088d5320e",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fd772152-3399-528b-abdb-0166f22d00a6",
+  "contentPack": 9999,
+  "name": "RangerSurvivalist"
+}

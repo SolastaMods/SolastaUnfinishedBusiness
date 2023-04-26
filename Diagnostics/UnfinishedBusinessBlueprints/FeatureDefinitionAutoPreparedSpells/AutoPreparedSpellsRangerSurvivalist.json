@@ -1,57 +1,50 @@
 {
   "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
-  "autopreparedTag": "Origin",
+  "autopreparedTag": "Ranger",
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 1,
+      "classLevel": 2,
       "spellsList": [
-        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64"
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 3,
-      "spellsList": [
-        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179"
-      ]
-    },
-    {
-      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 7,
-      "spellsList": [
-        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8"
+        "Definition:SpellWeb:1fd65e0f-7caf-5a2e-b7fe-84594e029367"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 9,
       "spellsList": [
-        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82"
       ]
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 11,
+      "classLevel": 13,
       "spellsList": [
-        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177"
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16"
       ]
     }
   ],
-  "spellcastingClass": "Definition:Sorcerer:7214644869e323444b7817d1804eb985",
+  "spellcastingClass": "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40",
   "affinityRace": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ExpandedSpellsTitle",
-    "description": "Feature/&ExpandedSpellsDescription",
+    "title": "Feature/&AutoPreparedSpellsRangerSurvivalistTitle",
+    "description": "Feature/&AutoPreparedSpellsRangerSurvivalistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -71,7 +64,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "abca93d7-b427-5b34-87cc-13bb662efe9e",
+  "guid": "546e00ed-dab7-51b1-91a3-f80cc5e0ef66",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsFieldManipulator"
+  "name": "AutoPreparedSpellsRangerSurvivalist"
 }

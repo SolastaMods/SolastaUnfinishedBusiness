@@ -173,7 +173,7 @@
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "PerAdditionalSlotLevel",
-      "incrementMultiplier": 2,
+      "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,

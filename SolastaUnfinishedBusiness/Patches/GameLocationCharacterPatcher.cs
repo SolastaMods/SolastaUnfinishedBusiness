@@ -101,6 +101,9 @@ public static class GameLocationCharacterPatcher
             {
                 effect.BeforeOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
+
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 
@@ -132,9 +135,6 @@ public static class GameLocationCharacterPatcher
             {
                 effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
-
-            //PATCH: registers which weapon types were used so far on attacks
-            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 

@@ -4,21 +4,19 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:SavingThrowAffinityFieldManipulatorDC:4dc7ee86-a401-5f19-933f-0fcca3d516c7"
+    "Definition:AttributeModifierRangerSurvivalistImprovedDisablingStrike:3eeccab0-8b60-5f3f-b529-256bfe40926b"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameterDie": "D1",
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [
-    "Attacked"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -88,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,9 +127,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle",
+    "description": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b73f8237-4717-5e2b-80e9-3f8987482195",
+  "guid": "4a9a8a8d-8407-543f-90c6-87918885957c",
   "contentPack": 9999,
-  "name": "ConditionFieldManipulatorDC"
+  "name": "ConditionRangerSurvivalistImprovedDisablingStrike"
 }

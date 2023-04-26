@@ -328,7 +328,7 @@
     "description": "Feature/&PowerOathOfDreadDreadfulPresenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dc3672c8-2c26-54d6-abe4-b65699538090",
+      "m_AssetGUID": "914d1260-d6ef-5fc9-8d9e-069247e63b48",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

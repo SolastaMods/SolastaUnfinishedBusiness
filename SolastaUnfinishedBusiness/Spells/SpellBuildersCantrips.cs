@@ -144,6 +144,9 @@ internal static partial class SpellBuilders
                     .Build())
             .Build();
 
+        effectDescription.EffectParticleParameters.casterParticleReference =
+            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
+
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)

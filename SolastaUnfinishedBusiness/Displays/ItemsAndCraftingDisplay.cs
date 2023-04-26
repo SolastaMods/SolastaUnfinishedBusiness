@@ -134,7 +134,6 @@ internal static class ItemsAndCraftingDisplay
     internal static void DisplayItemsAndCrafting()
     {
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
         var toggle = Main.Settings.AddCustomIconsToOfficialItems;

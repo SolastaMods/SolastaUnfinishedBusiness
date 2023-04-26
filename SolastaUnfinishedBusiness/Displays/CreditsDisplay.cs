@@ -15,20 +15,20 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
-            "Fairy, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, " +
-            "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, " +
-            "Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, " +
+            "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
+            "Fairy, Half-elf, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, " +
+            "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, " +
+            "Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, " +
             "Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Multiclass"),
         ("TPABOBAP",
-            "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, " +
+            "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
             "Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew content design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
+            "homebrew content design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
