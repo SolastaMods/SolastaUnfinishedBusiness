@@ -92,7 +92,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
         var attributeModifierImprovedDisablingStrike = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ImprovedDisablingStrike")
-            .SetGuiPresentation($"Condition{Name}UnmatchedExperience", Category.Condition)
+            .SetGuiPresentation($"Condition{Name}ImprovedDisablingStrike", Category.Condition)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
             .AddToDB();
 
