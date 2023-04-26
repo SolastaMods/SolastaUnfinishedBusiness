@@ -203,7 +203,6 @@ ModUi/&ShowChannelDivinityOnPortrait=在英雄头像上显示<color=#D89555>引�
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标。将鼠标悬停在它上面将显示制作物品的工具提示。
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制作配方
 ModUi/&ShowDescriptions=显示说明
-ModUi/&SpellInstructions=.你可以将每个法术单独分配给任何法表或直接使用推荐组合
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>

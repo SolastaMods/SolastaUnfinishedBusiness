@@ -202,7 +202,6 @@ ModUi/&ShowChannelDivinityOnPortrait=Montre combien d'utilisations <color=#D8955
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire. Passer la souris dessus affichera une info-bulle pour l'objet fabriqué
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions
-ModUi/&SpellInstructions=. Vous pouvez attribuer individuellement chaque sort à n'importe quelle liste de sorts ou simplement sélectionner l'ensemble suggéré
 ModUi/&SpellLevelFilter=<b><i><color=white>filtre de niveau orthographique</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>
 ModUi/&SpellsMenu=Sorts
 ModUi/&SRD=<color=#F0DAA0>SRD :</color>

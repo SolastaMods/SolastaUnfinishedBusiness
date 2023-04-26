@@ -202,7 +202,6 @@ ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divini
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
-ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
 ModUi/&SpellsMenu=Spells
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>

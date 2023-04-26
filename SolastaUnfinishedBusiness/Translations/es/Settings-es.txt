@@ -202,7 +202,6 @@ ModUi/&ShowChannelDivinityOnPortrait=Muestra cuántos usos de <color=#D89555>Cha
 ModUi/&ShowCraftedItemOnRecipeIcon=Muestre el ícono del artículo elaborado cerca del artículo de la receta en la tienda y el inventario. Al pasar el cursor sobre él, se mostrará información sobre herramientas para el artículo creado.
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información detallada sobre herramientas
 ModUi/&ShowDescriptions=Mostrar descripciones
-ModUi/&SpellInstructions=. Puede asignar individualmente cada hechizo a cualquier lista de hechizos o simplemente seleccionar el conjunto sugerido
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>

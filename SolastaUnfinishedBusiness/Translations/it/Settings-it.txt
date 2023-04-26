@@ -202,7 +202,6 @@ ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Incanal
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
 ModUi/&ShowDescriptions=Mostra descrizioni
-ModUi/&SpellInstructions=. Puoi assegnare individualmente ogni incantesimo a qualsiasi elenco di incantesimi o semplicemente selezionare il set suggerito
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
