@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -224,7 +225,6 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 yield return null;
             }
 
-#if false
             var target = actionParams.TargetCharacters[0];
             var gameLocationPositioningService =
                 ServiceRepository.GetService<IGameLocationPositioningService>() as GameLocationPositioningManager;
@@ -234,12 +234,45 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 yield break;
             }
 
-            var canPlaceCharacter = gameLocationPositioningService.CanPlaceCharacterImpl(
-                target, target.RulesetCharacter.SizeParams, position, CellHelpers.PlacementMode.Station);
-#endif
+            var xCoord = new[] { 0, -1, 1, -2, 2 };
+            var yCoord = new[] { 0, -1, 1, -2, 2 };
+            var canPlaceCharacter = false;
+            var finalPosition = int3.zero;
+
+            foreach (var x in xCoord)
+            {
+                foreach (var y in yCoord)
+                {
+                    finalPosition = position + new int3(x, 0, y);
+
+                    canPlaceCharacter = gameLocationPositioningService.CanPlaceCharacterImpl(
+                        target, target.RulesetCharacter.SizeParams, finalPosition, CellHelpers.PlacementMode.Station);
+
+                    if (canPlaceCharacter)
+                    {
+                        break;
+                    }
+                }
+
+                if (canPlaceCharacter)
+                {
+                    break;
+                }
+            }
+
+            //fall back to target original position
+            if (!canPlaceCharacter)
+            {
+                const string ERROR = "DISPLACEMENT: aborted as cannot place character on destination";
+
+                finalPosition = target.LocationPosition;
+
+                Gui.GuiService.ShowAlert(ERROR, Gui.ColorFailure);
+                Main.Error(ERROR);
+            }
 
             rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
-            characterAction.ActionParams.Positions.Add(position);
+            characterAction.ActionParams.Positions.Add(finalPosition);
         }
     }
 
