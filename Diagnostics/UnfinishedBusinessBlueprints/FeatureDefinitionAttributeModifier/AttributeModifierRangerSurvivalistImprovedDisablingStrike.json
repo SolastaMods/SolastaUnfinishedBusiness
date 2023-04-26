@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRangerSurvivalistUnmatchedExperienceTitle",
-    "description": "Condition/&ConditionRangerSurvivalistUnmatchedExperienceDescription",
+    "title": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle",
+    "description": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "04e690b9-b68e-5d41-b1fc-cc3b49b97dee",
+  "guid": "3eeccab0-8b60-5f3f-b529-256bfe40926b",
   "contentPack": 9999,
-  "name": "AttributeModifierRangerSurvivalistUnmatchedExperience"
+  "name": "AttributeModifierRangerSurvivalistImprovedDisablingStrike"
 }

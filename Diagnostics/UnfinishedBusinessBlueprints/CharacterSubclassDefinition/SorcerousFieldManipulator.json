@@ -23,17 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcerousFieldManipulatorForcefulStepFixed:5f5039e4-886f-5c18-925b-6915d8cc381b",
-      "level": 18
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcerousFieldManipulatorForcefulStepPoints:83069586-5031-5b43-8639-7949b9690780",
-      "level": 18
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSorcerousFieldManipulatorForcefulStepApply:82a615b1-7197-54d7-add5-882888535f18",
+      "featureDefinition": "Definition:FeatureSetSorcerousFieldManipulatorForcefulStep:4e4cb028-4e59-5331-84e6-145b74cd5db9",
       "level": 18
     }
   ],
