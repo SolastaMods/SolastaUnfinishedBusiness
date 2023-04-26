@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -29,7 +30,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Entangle),
-                BuildSpellGroup(5, Models.SpellsContext.Web),
+                BuildSpellGroup(5, SpellsContext.Web),
                 BuildSpellGroup(9, SleetStorm),
                 BuildSpellGroup(13, GreaterInvisibility),
                 BuildSpellGroup(17, HoldMonster))
@@ -44,6 +45,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .AddToDB();
 
         // Disabling Strike
+
 
         var additionalDamageDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DisablingStrike")
@@ -87,6 +89,22 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
         // Improved Disabling Strike
 
+
+        var attributeModifierImprovedDisablingStrike = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ImprovedDisablingStrike")
+            .SetGuiPresentation($"Condition{Name}UnmatchedExperience", Category.Condition)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
+            .AddToDB();
+
+        var conditionImprovedDisablingStrike = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ImprovedDisablingStrike")
+            .SetGuiPresentation(Category.Condition)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .AddFeatures(attributeModifierImprovedDisablingStrike)
+            .AddToDB();
+
         var additionalDamageImprovedDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}ImprovedDisablingStrike")
             .SetGuiPresentation(Category.Feature)
@@ -95,17 +113,14 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 AttributeDefinitions.Dexterity)
             .SetConditionOperations(new ConditionOperationDescription
             {
-                ConditionDefinition = ConditionDefinitionBuilder
-                    .Create(ConditionDefinitions.ConditionRestrainedByEntangle,
-                        $"Condition{Name}ImprovedDisablingStrike")
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .AddToDB(),
+                ConditionDefinition = ConditionDefinitions.ConditionHindered_By_Frost,
                 Operation = ConditionOperationDescription.ConditionOperation.Add,
                 hasSavingThrow = true,
                 canSaveToCancel = true,
                 saveOccurence = TurnOccurenceType.EndOfTurn
             })
-            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrikeDisablingStrike())
+            .SetCustomSubFeatures(
+                new CustomBehaviorImprovedDisablingStrikeDisablingStrike(conditionImprovedDisablingStrike))
             .AddToDB();
 
         //
@@ -114,26 +129,10 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
         // Unmatched Experience
 
-        var attributeModifierUnmatchedExperience = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}UnmatchedExperience")
-            .SetGuiPresentation($"Condition{Name}UnmatchedExperience", Category.Condition)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, -2)
-            .AddToDB();
-
-        var conditionUnmatchedExperience = ConditionDefinitionBuilder
-            .Create($"Condition{Name}UnmatchedExperience")
-            .SetGuiPresentation(Category.Condition)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .AddFeatures(attributeModifierUnmatchedExperience)
-            .AddToDB();
-
         var savingThrowAffinityUnmatchedExperience = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}UnmatchedExperience")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, true, AttributeDefinitions.Wisdom)
-            .SetCustomSubFeatures(new AfterAttackEffectUnmatchedExperience(conditionUnmatchedExperience))
             .AddToDB();
 
         //
@@ -165,27 +164,12 @@ internal sealed class RangerSurvivalist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomCodeImprovedDisablingStrikeDisablingStrike : IFeatureDefinitionCustomCode
-    {
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
-            {
-                featureDefinitions.RemoveAll(x => x.Name == $"AdditionalDamage{Name}DisablingStrike");
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            // Empty
-        }
-    }
-
-    private sealed class AfterAttackEffectUnmatchedExperience : IAfterAttackEffect
+    private sealed class CustomBehaviorImprovedDisablingStrikeDisablingStrike :
+        IFeatureDefinitionCustomCode, IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public AfterAttackEffectUnmatchedExperience(ConditionDefinition conditionDefinition)
+        public CustomBehaviorImprovedDisablingStrikeDisablingStrike(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
@@ -221,6 +205,19 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 rulesetAttacker.CurrentFaction.Name);
 
             rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x.Name == $"AdditionalDamage{Name}DisablingStrike");
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // Empty
         }
     }
 }

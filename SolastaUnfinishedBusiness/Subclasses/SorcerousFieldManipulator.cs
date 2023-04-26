@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -20,7 +22,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     internal SorcerousFieldManipulator()
     {
-        // LEVEL 03
+        // LEVEL 01
 
         var autoPreparedSpellsFieldManipulator = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
@@ -44,7 +46,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
-                    .SetParticleEffectParameters(MistyStep)
+                    .SetParticleEffectParameters(Banishment)
                     .SetSavingThrowData(
                         true,
                         AttributeDefinitions.Charisma,
@@ -54,8 +56,10 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(new ModifyActionParamsDisplacement(), PushesFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -89,6 +93,11 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -102,7 +111,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionProne, ConditionForm.ConditionOperation.Add)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
@@ -111,19 +120,18 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
         var effectDescriptionForcefulStep = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
             .SetParticleEffectParameters(PowerMelekTeleport)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 24)
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                     .Build())
             .Build();
 
         var powerForcefulStepFixed = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepFixed")
-            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature,
-                PowerMonkStepOfTheWindDash)
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
             .SetEffectDescription(effectDescriptionForcefulStep)
             .AddToDB();
@@ -134,7 +142,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
-            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature)
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
             .SetEffectDescription(effectDescriptionForcefulStep)
             .SetCustomSubFeatures(new OnAfterActionFeatureForcefulStep(powerForcefulStepApply))
@@ -142,6 +150,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepPoints.SetCustomSubFeatures(
             new PowerUseValidityForcefulStepPoints(powerForcefulStepFixed));
+
+        var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ForcefulStep")
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature)
+            .AddFeatureSet(powerForcefulStepFixed, powerForcefulStepPoints, powerForcefulStepApply)
+            .AddToDB();
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -154,7 +170,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddFeaturesAtLevel(14,
                 proficiencyMentalResistance)
             .AddFeaturesAtLevel(18,
-                powerForcefulStepFixed, powerForcefulStepPoints, powerForcefulStepApply)
+                featureSetForcefulStep)
             .AddToDB();
     }
 
@@ -173,15 +189,51 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
         MagicAffinityHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
             .SpellsByLevel
             .SelectMany(x => x.Spells)
-            .Where(x => x.SchoolOfMagic is SchoolEnchantement or SchoolAbjuration or SchoolIllusion)
+            // don't use the constant as it has a typo
+            .Where(x => x.SchoolOfMagic is "SchoolEnchantment" or SchoolAbjuration or SchoolIllusion)
             .Select(x => x.Name));
+    }
+
+    //
+    // Displacement
+    //
+
+    private sealed class ModifyActionParamsDisplacement : IModifyActionParams
+    {
+        public IEnumerator Modify(CharacterAction characterAction)
+        {
+            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
+
+            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition.Name != $"Power{Name}Displacement")
+            {
+                yield break;
+            }
+
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+            var actionParams = characterAction.actionParams;
+            var position = actionParams.TargetCharacters[0].LocationPosition;
+
+            rulesetEffectPower.EffectDescription.targetType = TargetType.Position;
+            cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
+
+            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursor)
+            {
+                position = cursor.hoveredLocation;
+
+                yield return null;
+            }
+
+            rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
+            characterAction.ActionParams.Positions.Add(position);
+        }
     }
 
     //
     // Forceful Step Fixed
     //
 
-    private class PowerUseValidityForcefulStepFixed : IPowerUseValidity
+    private sealed class PowerUseValidityForcefulStepFixed : IPowerUseValidity
     {
         private readonly FeatureDefinitionPower _powerForcefulStepFixed;
 
@@ -202,7 +254,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step Points
     //
 
-    private class PowerUseValidityForcefulStepPoints : IPowerUseValidity
+    private sealed class PowerUseValidityForcefulStepPoints : IPowerUseValidity
     {
         private readonly FeatureDefinitionPower _powerForcefulStepFixed;
 
@@ -253,10 +305,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
             foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
                          .Where(x =>
                              gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2) &&
                              !x.RulesetCharacter.IsDeadOrDying))
             {
+                EffectHelpers.StartVisualEffect(
+                    action.ActingCharacter, gameLocationTarget, EldritchBlast);
                 effectPower.ApplyEffectOnCharacter(gameLocationTarget.RulesetCharacter, true,
                     gameLocationTarget.LocationPosition);
             }
