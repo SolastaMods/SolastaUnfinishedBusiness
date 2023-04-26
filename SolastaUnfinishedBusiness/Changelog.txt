@@ -2,7 +2,8 @@ Open Mod UI > Tools and click History for full details:
 
 - changed Caustic Zap progression to one additional enemy per slot level
 - changed Powerful metamagic cost to 1 fixed point
+- changed RESPEC to copy over stats from older hero
 - changed Roguish Arcane Scoundrel's gambit to a bonus action
 - rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
-- removed backward compatibility support for Tactical Surge - RESPEC IS REQUIRED
-- removed monster attacks swap feature as it was causing issues on MP - RESPEC IS REQUIRED IF IN SHAPE FORM / SUMMONS
+- removed backward compatibility support for Tactician's Tactical Surge - RESPEC IS REQUIRED
+- removed shape form / summons attacks swap action - DISABLE SETTING / LOAD / SAVE IF IN SHAPE FORM / HAVE SUMMONS
