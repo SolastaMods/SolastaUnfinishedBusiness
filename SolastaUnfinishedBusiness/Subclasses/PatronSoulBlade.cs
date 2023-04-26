@@ -319,7 +319,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healingReceived = characterLevel + charismaModifier;
 
-            if (rulesetCharacter.MissingHitPoints > 0)
+            if (rulesetCharacter.MissingHitPoints > 0 && !rulesetCharacter.IsDeadOrDyingOrUnconscious)
             {
                 rulesetCharacter.ReceiveHealing(healingReceived, true, rulesetCharacter.Guid);
             }
