@@ -511,7 +511,7 @@ Infuse body armor or clothes to provide advantage on rolls to maintain concentra
 
 # Minor Elemental
 
-Once per turn, when you hit a creature with this weapon, deal an additional 1d6 damage of the selected type. This damage increases to 2D6 at level 9th and 3D6 at level 15th.
+Once per turn, when you hit a creature with this weapon, deal an additional 1d6 damage of the selected type.
 
 # Misty Step
 
@@ -661,7 +661,7 @@ Medreth Sharpeye forged those brooches to protect Coedymwarth scouts against the
 # Replica Cloak of Elvenkind
 
 Create replica <b>Cloak of Elvenkind</b>:
-Crafted in Colthannin for the human allies of the Realm protecting its borders. Grants advantage to stealth checks, and cancels an enemy's perception check advantage to spot you when you're attacking it in stealth mode.
+Crafted in Colthannin for human allies of the Realm protecting its borders.
 
 # Replica Cloak of Protection
 
@@ -843,10 +843,6 @@ A spirit creature bonded to a druid.
 A spirit creature bonded to a druid.
 
 # Spirit Spider
-
-A spirit creature bonded to a druid.
-
-# Spirit Tiger
 
 A spirit creature bonded to a druid.
 
