@@ -578,6 +578,10 @@ internal static class PowerBundle
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var transform = subpowerSelectionModal.transform;
+
+        _parent = transform.parent;
+        transform.parent = box.transform.parent.parent;
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
@@ -658,7 +662,12 @@ internal static class PowerBundle
             return;
         }
 
-        subpowerSelectionModal.transform.parent = _parent;
+        // required to support the after rest action menu that doesn't keep state
+        if (_parent != null)
+        {
+            subpowerSelectionModal.transform.parent = _parent;
+        }
+
         subpowerSelectionModal.Hide(instant);
     }
 
@@ -696,6 +705,7 @@ internal static class PowerBundle
             instance.button.interactable = false;
 
             var power = rulesetPower.powerDefinition.Name;
+
             ServiceRepository.GetService<IGameRestingService>().ExecuteAsync(ExecuteAsync(instance, power), power);
         }, instance.RectTransform);
 
