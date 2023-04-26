@@ -224,6 +224,20 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 yield return null;
             }
 
+#if false
+            var target = actionParams.TargetCharacters[0];
+            var gameLocationPositioningService =
+                ServiceRepository.GetService<IGameLocationPositioningService>() as GameLocationPositioningManager;
+
+            if (gameLocationPositioningService == null)
+            {
+                yield break;
+            }
+
+            var canPlaceCharacter = gameLocationPositioningService.CanPlaceCharacterImpl(
+                target, target.RulesetCharacter.SizeParams, position, CellHelpers.PlacementMode.Station);
+#endif
+
             rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
             characterAction.ActionParams.Positions.Add(position);
         }
