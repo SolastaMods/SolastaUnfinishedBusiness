@@ -29,6 +29,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetSpecialDuration(DurationType.Minute, 1)
+        .CopyParticleReferences(ConditionDefinitions.ConditionMalediction)
         .AddFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}ProfoundTurmoil")
@@ -210,16 +211,16 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
     private static void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
     {
-        var rulesetDefender = defender?.RulesetCharacter;
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender == null ||
-            rulesetDefender.IsDeadOrDying ||
-            rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name))
+        if (rulesetDefender.IsDeadOrDying ||
+            rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name) ||
+            rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk) < 17)
         {
             return;
         }
 
-        var rulesetAttacker = attacker.RulesetCharacter;
         var rulesetPower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
         var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
 
@@ -339,7 +340,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     continue;
                 }
 
-                damageForm.BonusDamage = rulesetAttacker.TryGetAttributeValue(ProficiencyBonus) / 2;
+                damageForm.BonusDamage = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Wisdom));
                 damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                     .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 

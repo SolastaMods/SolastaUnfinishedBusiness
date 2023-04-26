@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -63,9 +62,9 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (battle == null)
+            if (gameLocationBattleService == null)
             {
                 yield break;
             }
@@ -82,8 +81,10 @@ internal sealed class Merciless : AbstractFightingStyle
                 EffectDescription = { targetParameter = (distance * 2) + 1 }
             };
 
-            foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy => downedCreature.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))
+            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
+                         .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance)))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }

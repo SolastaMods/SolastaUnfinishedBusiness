@@ -123,7 +123,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "PushRandomDirection",
+          "type": "PushFromOrigin",
           "distance": 6,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false

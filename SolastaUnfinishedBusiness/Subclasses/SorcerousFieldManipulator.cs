@@ -1,76 +1,79 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class SorcerousFieldManipulator : AbstractSubclass
 {
+    private const string Name = "SorcerousFieldManipulator";
+
     internal SorcerousFieldManipulator()
     {
+        // LEVEL 01
+
         var autoPreparedSpellsFieldManipulator = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsFieldManipulator")
+            .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Sleep)
-            .AddPreparedSpellGroup(3, Invisibility)
+            .AddPreparedSpellGroup(3, HoldPerson)
             .AddPreparedSpellGroup(5, Counterspell)
             .AddPreparedSpellGroup(7, Banishment)
             .AddPreparedSpellGroup(9, HoldMonster)
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
-        var magicAffinityFieldManipulatorControlHeightened = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityFieldManipulatorControlHeightened")
+        var powerDisplacement = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Displacement")
+            .SetGuiPresentation(Category.Feature, MistyStep)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(Banishment)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Charisma,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.TeleportToDestination, 12)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ModifyActionParamsDisplacement(), PushesFromEffectPoint.Marker)
+            .AddToDB();
+
+        // LEVEL 06
+
+        MagicAffinityHeightened = FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{Name}ArcaneManipulation")
             .SetGuiPresentation(Category.Feature)
-            .SetWarList(1,
-                Banishment, // abjuration 4
-                Counterspell, // abjuration 3
-                GlobeOfInvulnerability, // abjuration 6
-                HoldMonster, // Enchantment 5
-                Invisibility, // illusion 2
-                Sleep) // enchantment 1
+            .SetWarList(1)
             .AddToDB();
 
-        var savingThrowAffinityFieldManipulatorDC = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create("SavingThrowAffinityFieldManipulatorDC")
-            .SetGuiPresentation("MagicAffinityFieldManipulatorDC", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, true,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB();
+        // LEVEL 14
 
-        var conditionFieldManipulatorDC = ConditionDefinitionBuilder
-            .Create("ConditionFieldManipulatorDC")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(savingThrowAffinityFieldManipulatorDC)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
-            .AddToDB();
-
-        var magicAffinityFieldManipulatorDc = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityFieldManipulatorDC")
-            .SetGuiPresentation(Category.Feature)
-            .SetCastingModifiers(0, SpellParamsModifierType.None, 2)
-            .SetCustomSubFeatures(new FieldManipulatorMagicalAttackFinished(conditionFieldManipulatorDC))
-            .AddToDB();
-
-        var proficiencyFieldManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyFieldManipulatorMentalSavingThrows")
+        var proficiencyMentalResistance = FeatureDefinitionProficiencyBuilder
+            .Create($"Proficiency{Name}MentalResistance")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 ProficiencyType.SavingThrow,
@@ -78,28 +81,100 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 AttributeDefinitions.Wisdom)
             .AddToDB();
 
-        var powerFieldManipulatorDominatePerson = FeatureDefinitionPowerBuilder
-            .Create("PowerFieldManipulatorDominatePerson")
-            .SetGuiPresentation(Category.Feature, DominatePerson)
-            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
-            .SetEffectDescription(DominatePerson.EffectDescription)
+        // LEVEL 18
+
+        var powerForcefulStepApply = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ForcefulStepApply")
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(EldritchBlast)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 3, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .AddToDB();
 
+        var effectDescriptionForcefulStep = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Position)
+            .SetParticleEffectParameters(PowerMelekTeleport)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                    .Build())
+            .Build();
+
+        var powerForcefulStepFixed = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ForcefulStepFixed")
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 3)
+            .SetEffectDescription(effectDescriptionForcefulStep)
+            .AddToDB();
+
+        powerForcefulStepFixed.SetCustomSubFeatures(
+            new PowerUseValidityForcefulStepFixed(powerForcefulStepFixed),
+            new OnAfterActionFeatureForcefulStep(powerForcefulStepApply));
+
+        var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ForcefulStepPoints")
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
+            .SetEffectDescription(effectDescriptionForcefulStep)
+            .SetCustomSubFeatures(new OnAfterActionFeatureForcefulStep(powerForcefulStepApply))
+            .AddToDB();
+
+        powerForcefulStepPoints.SetCustomSubFeatures(
+            new PowerUseValidityForcefulStepPoints(powerForcefulStepFixed));
+
+        var featureSetForcefulStep = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}ForcefulStep")
+            .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature)
+            .AddFeatureSet(powerForcefulStepFixed, powerForcefulStepPoints, powerForcefulStepApply)
+            .AddToDB();
+
+        // MAIN
+
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("FieldManipulator")
-            .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("SorcererFieldManipulator", Resources.SorcererFieldManipulator, 256))
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.SorcererFieldManipulator, 256))
             .AddFeaturesAtLevel(1,
-                magicAffinityFieldManipulatorControlHeightened,
-                autoPreparedSpellsFieldManipulator)
+                autoPreparedSpellsFieldManipulator,
+                powerDisplacement)
             .AddFeaturesAtLevel(6,
-                magicAffinityFieldManipulatorDc)
+                MagicAffinityHeightened)
             .AddFeaturesAtLevel(14,
-                proficiencyFieldManipulatorMentalSavingThrows)
+                proficiencyMentalResistance)
             .AddFeaturesAtLevel(18,
-                powerFieldManipulatorDominatePerson)
+                featureSetForcefulStep)
             .AddToDB();
     }
+
+    private static FeatureDefinitionMagicAffinity MagicAffinityHeightened { get; set; }
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -109,50 +184,138 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class FieldManipulatorMagicalAttackFinished : IMagicalAttackFinished
+    internal static void LateLoad()
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        MagicAffinityHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
+            .SpellsByLevel
+            .SelectMany(x => x.Spells)
+            // don't use the constant as it has a typo
+            .Where(x => x.SchoolOfMagic is "SchoolEnchantment" or SchoolAbjuration or SchoolIllusion)
+            .Select(x => x.Name));
+    }
 
-        public FieldManipulatorMagicalAttackFinished(ConditionDefinition conditionDefinition)
+    //
+    // Displacement
+    //
+
+    private sealed class ModifyActionParamsDisplacement : IModifyActionParams
+    {
+        public IEnumerator Modify(CharacterAction characterAction)
         {
-            _conditionDefinition = conditionDefinition;
-        }
+            var rulesetEffect = characterAction.ActionParams.RulesetEffect;
 
-        public IEnumerator BeforeOnMagicalAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition.Name != $"Power{Name}Displacement")
             {
                 yield break;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetDefender.Guid,
-                _conditionDefinition,
-                _conditionDefinition.durationType,
-                _conditionDefinition.durationParameter,
-                _conditionDefinition.turnOccurence,
-                rulesetAttacker.Guid,
-                rulesetAttacker.CurrentFaction.Name);
+            var cursorService = ServiceRepository.GetService<ICursorService>();
+            var actionParams = characterAction.actionParams;
+            var position = actionParams.TargetCharacters[0].LocationPosition;
 
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetEffectPower.EffectDescription.targetType = TargetType.Position;
+            cursorService.ActivateCursor<CursorLocationSelectPosition>(actionParams);
+
+            while (cursorService.CurrentCursor is CursorLocationSelectPosition cursor)
+            {
+                position = cursor.hoveredLocation;
+
+                yield return null;
+            }
+
+            rulesetEffectPower.EffectDescription.targetType = TargetType.IndividualsUnique;
+            characterAction.ActionParams.Positions.Add(position);
+        }
+    }
+
+    //
+    // Forceful Step Fixed
+    //
+
+    private sealed class PowerUseValidityForcefulStepFixed : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerForcefulStepFixed;
+
+        public PowerUseValidityForcefulStepFixed(FeatureDefinitionPower powerForcefulStepFixed)
+        {
+            _powerForcefulStepFixed = powerForcefulStepFixed;
         }
 
-        public IEnumerator OnMagicalAttackFinished(GameLocationCharacter attacker, GameLocationCharacter defender,
-            ActionModifier magicModifier, RulesetEffect rulesetEffect, List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
         {
-            yield break;
+            var usablePower = UsablePowersProvider.Get(_powerForcefulStepFixed, character);
+
+            return usablePower.RemainingUses > 0;
+        }
+    }
+
+    //
+    // Forceful Step Points
+    //
+
+    private sealed class PowerUseValidityForcefulStepPoints : IPowerUseValidity
+    {
+        private readonly FeatureDefinitionPower _powerForcefulStepFixed;
+
+        public PowerUseValidityForcefulStepPoints(FeatureDefinitionPower powerForcefulStepFixed)
+        {
+            _powerForcefulStepFixed = powerForcefulStepFixed;
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower featureDefinitionPower)
+        {
+            var usablePower = UsablePowersProvider.Get(_powerForcefulStepFixed, character);
+
+            return usablePower.RemainingUses == 0;
+        }
+    }
+
+    //
+    // Forceful Step Apply
+    //
+
+    private sealed class OnAfterActionFeatureForcefulStep : IOnAfterActionFeature
+    {
+        private readonly FeatureDefinitionPower _powerApply;
+
+        public OnAfterActionFeatureForcefulStep(FeatureDefinitionPower powerApply)
+        {
+            _powerApply = powerApply;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                (characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepFixed" &&
+                 characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepPoints"))
+            {
+                return;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                return;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+            var usablePower = UsablePowersProvider.Get(_powerApply, rulesetAttacker);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+
+            foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
+                         .Where(x =>
+                             gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2) &&
+                             !x.RulesetCharacter.IsDeadOrDying))
+            {
+                EffectHelpers.StartVisualEffect(
+                    action.ActingCharacter, gameLocationTarget, EldritchBlast);
+                effectPower.ApplyEffectOnCharacter(gameLocationTarget.RulesetCharacter, true,
+                    gameLocationTarget.LocationPosition);
+            }
         }
     }
 }

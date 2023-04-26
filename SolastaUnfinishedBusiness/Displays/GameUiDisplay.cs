@@ -199,12 +199,6 @@ internal static class GameUiDisplay
 
         UI.Label();
 
-        toggle = Main.Settings.AddMonsterSwapAttackToggle;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddMonsterSwapAttackToggle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddMonsterSwapAttackToggle = toggle;
-        }
-
         toggle = Main.Settings.AddMonkKiPointsToggle;
         if (UI.Toggle(Gui.Localize("ModUi/&AddMonkKiPointsToggle"), ref toggle, UI.AutoWidth()))
         {

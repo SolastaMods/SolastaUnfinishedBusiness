@@ -8,7 +8,7 @@
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",

@@ -132,7 +132,7 @@
     "description": "Condition/&ConditionTacticianTacticalSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "009a0dd5-4cbc-546d-bb0f-559ffe689449",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

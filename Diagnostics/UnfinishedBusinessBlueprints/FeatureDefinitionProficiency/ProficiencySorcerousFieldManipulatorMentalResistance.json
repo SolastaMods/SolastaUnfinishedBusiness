@@ -9,8 +9,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle",
-    "description": "Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription",
+    "title": "Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle",
+    "description": "Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "25355fc5-62cf-55a4-827d-24ec9938cb5b",
+  "guid": "ace89e55-ac6f-5e4f-96c3-6f3d7c6126e8",
   "contentPack": 9999,
-  "name": "ProficiencyFieldManipulatorMentalSavingThrows"
+  "name": "ProficiencySorcerousFieldManipulatorMentalResistance"
 }

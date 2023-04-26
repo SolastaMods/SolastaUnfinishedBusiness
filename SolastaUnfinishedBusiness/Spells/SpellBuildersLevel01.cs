@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
             .SetParticleEffectParameters(ShockingGrasp)
             .SetEffectForms(
                 EffectFormBuilder

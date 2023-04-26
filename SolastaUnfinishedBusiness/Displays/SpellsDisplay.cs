@@ -14,7 +14,6 @@ internal static class SpellsDisplay
     internal static void DisplaySpells()
     {
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
         UI.Label();
 
         var toggle = Main.Settings.AllowAssigningOfficialSpells;

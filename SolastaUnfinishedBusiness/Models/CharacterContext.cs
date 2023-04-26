@@ -684,6 +684,17 @@ internal static class CharacterContext
             .ToList();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
+
+        var rangerSurvivalist = GetDefinition<CharacterSubclassDefinition>("RangerSurvivalist");
+
+        replacedFeatures = rangerSurvivalist.FeatureUnlocks
+            .Select(x =>
+                x.FeatureDefinition == AdditionalDamageRangerFavoredEnemyChoice
+                    ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
+                    : x)
+            .ToList();
+
+        rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     private static void SwitchDruidKindredBeastToUseCustomInvocationPools()

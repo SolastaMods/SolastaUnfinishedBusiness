@@ -328,7 +328,7 @@
     "description": "Feature/&PowerOathOfDreadAuraOfDominationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "bb8de5d1-0f81-51e6-8060-e80018f0b615",
+      "m_AssetGUID": "4f70eacb-bdf2-5f39-9c71-b544a290548c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

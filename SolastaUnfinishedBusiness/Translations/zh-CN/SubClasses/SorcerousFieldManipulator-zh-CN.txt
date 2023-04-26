@@ -1,8 +1,0 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=对手更难抵抗你的法术。豁免 DC 增加 2。
-Feature/&MagicAffinityFieldManipulatorDCTitle=奥术之力
-Feature/&PowerFieldManipulatorDominatePersonDescription=每次长休你可以使用支配他人的次数等于你的魅力调整值。
-Feature/&PowerFieldManipulatorDominatePersonTitle=支配人类
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=熟练掌握智力和感知的豁免检定。
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=心理抵抗
-Subclass/&FieldManipulatorDescription=战场操纵者擅长控制战场并防止敌人攻击他们。
-Subclass/&FieldManipulatorTitle=战场操纵者

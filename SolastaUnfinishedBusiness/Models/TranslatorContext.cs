@@ -567,6 +567,7 @@ internal static class TranslatorContext
             }
 
             // USER QUESTS
+            //YiTaiV : Fixed an issue where some translation modules for triggered tasks were not recognized
             foreach (var quest in userCampaign.UserQuests)
             {
                 quest.Title = Translate(quest.Title, languageCode);
@@ -577,19 +578,33 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
+                    foreach (var outStart in userQuestStep.onStartFunctors)
+                    {
+                        yield return Update();
+
+
+                        if (outStart.type == "SetLocationStatus")
+                        {
+                            outStart.stringParameter = Translate(outStart.stringParameter, languageCode);
+                        }
+                    }
+
                     foreach (var outcome in userQuestStep.OutcomesTable)
                     {
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
+                        outcome.validatorDescription.stringParameter =
+                            Translate(outcome.validatorDescription.stringParameter, languageCode);
 
-                        foreach (var completeFunctor in outcome.OnCompleteFunctors)
+                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                        switch (outcome.validatorDescription.type)
                         {
-                            completeFunctor.stringParameter = completeFunctor.type switch
-                            {
-                                "SetLocationStatus" => Translate(completeFunctor.stringParameter, languageCode),
-                                _ => completeFunctor.stringParameter
-                            };
+                            case QuestDefinitions.QuestValidatorType.EnterLocation:
+                            case QuestDefinitions.QuestValidatorType.LeaveLocation:
+                                outcome.validatorDescription.stringParameter =
+                                    Translate(outcome.validatorDescription.stringParameter, languageCode);
+                                break;
                         }
                     }
                 }

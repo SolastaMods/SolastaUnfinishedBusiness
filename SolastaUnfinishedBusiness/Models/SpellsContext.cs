@@ -40,6 +40,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
+    internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
@@ -231,7 +232,7 @@ internal static class SpellsContext
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildWeb(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);

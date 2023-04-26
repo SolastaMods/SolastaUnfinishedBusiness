@@ -114,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "2ce63100f4aeab54abc545c17d51e7bc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -138,7 +138,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "24283f60725aac3408a504c7bcc617ad",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -253,13 +253,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "61feaf32d1d5c1d4189ce24fbeb86e26",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a109822c8f688c845840e2597b6d97c9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -328,7 +328,7 @@
     "description": "Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7b9bbe61-bd29-55b4-afca-9c22a9a1c3f1",
+      "m_AssetGUID": "7c2e134e-2f4a-55ac-ab70-588ff6cdce7d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

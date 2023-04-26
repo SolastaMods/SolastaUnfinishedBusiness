@@ -3,7 +3,9 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -56,13 +58,24 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterAction __instance)
         {
-            //PATCH: support for character action tracking
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter != null)
+            {
+                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IModifyActionParams>();
+
+                foreach (var modifyActionParam in modifyActionParams)
+                {
+                    yield return modifyActionParam.Modify(__instance);
+                }
+            }
 
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
+            //PATCH: support for character action tracking
             Global.ActionFinished(__instance);
         }
     }

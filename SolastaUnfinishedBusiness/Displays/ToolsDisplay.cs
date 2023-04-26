@@ -41,7 +41,6 @@ internal static class ToolsDisplay
     private static void DisplayGeneral()
     {
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
         using (UI.HorizontalScope())

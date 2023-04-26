@@ -190,8 +190,8 @@ internal static class ToolsContext
             IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 
-        private static void FinalizeRespec([NotNull] RulesetCharacter oldHero,
-            [NotNull] RulesetCharacter newHero)
+        private static void FinalizeRespec([NotNull] RulesetCharacterHero oldHero,
+            [NotNull] RulesetCharacterHero newHero)
         {
             var tags = oldHero.Tags;
             var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
@@ -219,6 +219,14 @@ internal static class ToolsContext
 
                 newHero.Tags.AddRange(tags);
                 newHero.Attributes[AttributeDefinitions.Experience] = experience;
+                newHero.criticalHits = oldHero.criticalHits;
+                newHero.criticalFailures = oldHero.criticalFailures;
+                newHero.inflictedDamage = oldHero.inflictedDamage;
+                newHero.slainEnemies = oldHero.slainEnemies;
+                newHero.sustainedInjuries = oldHero.sustainedInjuries;
+                newHero.restoredHealth = oldHero.restoredHealth;
+                newHero.usedMagicAndPowers = oldHero.usedMagicAndPowers;
+                newHero.knockOuts = oldHero.knockOuts;
 
                 CopyInventoryOver(oldHero, gameLocationCharacter.LocationPosition);
 

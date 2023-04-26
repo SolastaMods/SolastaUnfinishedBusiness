@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.4.33.79:
+
+- added Ranger Survivalist subclass
+- changed Caustic Zap progression to one additional enemy per slot level
+- changed Powerful metamagic cost to 1 fixed point
+- changed RESPEC to copy over adventure stats from older hero
+- changed Roguish Arcane Scoundrel's gambit to bonus action
+- changed power bundles sub menu to render on top of other UI elements
+- rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
+- removed shape form / summons attacks swap action as causing MP desyncs
+
 1.4.33.78:
 
 - fixed Always Ready, and Rope it Up feats not triggering
