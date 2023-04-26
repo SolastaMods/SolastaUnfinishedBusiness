@@ -404,7 +404,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             var battleManager = gameLocationBattleService as GameLocationBattleManager;
             var allies = new List<GameLocationCharacter>();
 
-            foreach (var guestCharacter in characterService.GuestCharacters)
+            foreach (var guestCharacter in characterService.GuestCharacters.ToList())
             {
                 if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
                     || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))

@@ -196,7 +196,6 @@
     <string>RoguishRaven</string>
     <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
-    <string>FieldManipulator</string>
     <string>SorcerousSorrAkkath</string>
     <string>SorcerousSpellBlade</string>
     <string>WayOfTheDiscordance</string>
@@ -215,6 +214,7 @@
     <string>CircleOfTheLife</string>
     <string>WayOfTheTempest</string>
     <string>RangerSurvivalist</string>
+    <string>SorcerousFieldManipulator</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
