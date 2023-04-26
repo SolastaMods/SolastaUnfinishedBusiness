@@ -784,9 +784,9 @@ internal static class GameUiContext
             .AddToDB();
     }
 
+#if false
     private static FeatureDefinitionActionAffinity ActionAffinityMonsterSwapAttackToggle { get; set; }
 
-#if false
     private static void LoadMonsterSwapAttackToggle()
     {
         _ = ActionDefinitionBuilder
@@ -803,7 +803,6 @@ internal static class GameUiContext
             .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle)
             .AddToDB();
     }
-#endif
 
     internal static void AddMonsterSwapAttackToggle(RulesetCharacterMonster monster)
     {
@@ -816,7 +815,8 @@ internal static class GameUiContext
             monster.ActiveFeatures.Add(ActionAffinityMonsterSwapAttackToggle);
         }
     }
-
+#endif
+    
     internal static void ResetFormationGrid(int selectedSet)
     {
         for (var y = 0; y < GridSize; y++)

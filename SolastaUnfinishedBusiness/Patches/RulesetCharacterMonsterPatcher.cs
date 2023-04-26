@@ -27,7 +27,7 @@ public static class RulesetCharacterMonsterPatcher
         public static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
             //PATCH: add a toggle to allow monsters to swap attacks
-            GameUiContext.AddMonsterSwapAttackToggle(__instance);
+            // GameUiContext.AddMonsterSwapAttackToggle(__instance);
 
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
