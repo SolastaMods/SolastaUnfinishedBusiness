@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -25,6 +26,9 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
+        // BACKWARD COMPATIBILITY
+        BuildTacticalSurge();
+
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn1")
             .SetGuiPresentation(Category.Feature)
@@ -254,7 +258,6 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-#if false
     private static void BuildTacticalSurge()
     {
         const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
@@ -273,14 +276,13 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var condition = ConditionDefinitionBuilder
             .Create(CONDITION_NAME)
-            .SetGuiPresentation(Category.Condition, Sprites.ConditionTacticalSurge)
+            .SetGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetFeatures(tick)
             .AddToDB();
 
         feature.SetCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
     }
-#endif
 
     private class RefundPowerUseAfterCrit : IAfterAttackEffect
     {
@@ -434,7 +436,6 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-#if false
     private class TacticalSurge : IOnAfterActionFeature
     {
         private readonly ConditionDefinition condition;
@@ -499,7 +500,6 @@ internal sealed class MartialTactician : AbstractSubclass
             character.UpdateUsageForPower(power, charges);
         }
     }
-#endif
 
     private sealed class PhysicalAttackInitiatedTacticalAwareness : IPhysicalAttackInitiated
     {
