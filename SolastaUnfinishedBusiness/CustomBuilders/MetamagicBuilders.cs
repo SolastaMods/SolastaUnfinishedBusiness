@@ -174,7 +174,7 @@ internal static class MetamagicBuilders
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicPowerful)
             .SetGuiPresentation(Category.Feature)
-            .SetCost(MetamagicCostMethod.FixedValue, 1)
+            .SetCost()
             .SetCustomSubFeatures(new ModifyMagicEffectMetamagicPowerful(), validator)
             .AddToDB();
     }
