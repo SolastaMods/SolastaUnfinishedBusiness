@@ -88,7 +88,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Strength)
                     .SetParticleEffectParameters(SpellDefinitions.VampiricTouch)
