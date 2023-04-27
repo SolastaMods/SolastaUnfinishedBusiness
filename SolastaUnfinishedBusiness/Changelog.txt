@@ -1,9 +1,6 @@
 Open Mod UI > Tools and click History for full details:
 
+- added Druid's arch druid at 20th
+- added Rogue's elusive at 18th
 - added Wizard's spell mastery at 18th
-- changed Caustic Zap sprite
-- changed Fairy's flight duration to permanent
 - fixed power bundles sub menu positioning
-- fixed Inventor's quick wit rolled value on combat log
-- fixed Ranger Survivalist minor issues on durations
-- improved Sorcerous Field Manipulator's displacement
