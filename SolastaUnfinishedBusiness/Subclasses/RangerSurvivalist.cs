@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RangerSurvivalist : AbstractSubclass
 {
-    private const string Name = "RangerSurvivalist";
+    internal const string Name = "RangerSurvivalist";
 
     internal RangerSurvivalist()
     {
@@ -45,7 +45,6 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .AddToDB();
 
         // Disabling Strike
-
 
         var additionalDamageDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DisablingStrike")

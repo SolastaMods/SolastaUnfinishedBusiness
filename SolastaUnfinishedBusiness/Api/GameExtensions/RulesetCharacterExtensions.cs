@@ -26,6 +26,21 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
+    internal static int GetSubclassLevel(this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
+    {
+        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+
+        // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
+        if (hero == null ||
+            hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition) &&
+            characterSubclassDefinition.Name != subclass)
+        {
+            return 1;
+        }
+
+        return hero.GetClassLevel(klass);
+    }
+    
     internal static RulesetItem GetMainWeapon(this RulesetCharacter hero)
     {
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
