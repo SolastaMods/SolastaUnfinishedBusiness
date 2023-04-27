@@ -42,6 +42,7 @@ internal static class CreditsDisplay
             "homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons"),
         ("DubhHerder", "quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]"),
         ("Stuffies12", "homebrew content design [Ranger Hellwalker, Ranger Lightbearer]"),
+        ("Earendil", "homebrew content design [Ranger Survivalist]"),
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("Pikachar2", "spells")
     };
