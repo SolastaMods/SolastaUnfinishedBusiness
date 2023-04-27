@@ -1,4 +1,6 @@
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 alla classe armatura.
+Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 per spostare la velocità.
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Colpo disabilitante
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 alla classe armatura e alla velocità di movimento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Colpo disabilitante migliorato
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La prima volta che colpisci una creatura con un attacco con un'arma in ciascuno dei tuoi turni, deve effettuare un tiro salvezza su Destrezza contro la CD del tuo incantesimo da ranger o rimanere ostacolata per un minuto. Una creatura può ripetere il tiro salvezza alla fine di ciascuno dei suoi turni, terminando l'effetto in caso di successo.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Colpo invalidante

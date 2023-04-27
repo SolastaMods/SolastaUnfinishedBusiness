@@ -4,7 +4,6 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:AttributeModifierRangerSurvivalistImprovedDisablingStrike:3eeccab0-8b60-5f3f-b529-256bfe40926b",
     "Definition:MovementAffinityConditionHindered:d8369308deca3fc47a6a9c3ab5518949"
   ],
   "allowMultipleInstances": false,
@@ -264,8 +263,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle",
-    "description": "Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription",
+    "title": "Condition/&ConditionRangerSurvivalistDisablingStrikeTitle",
+    "description": "Condition/&ConditionRangerSurvivalistDisablingStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",
@@ -285,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4a9a8a8d-8407-543f-90c6-87918885957c",
+  "guid": "8877b753-4b3d-5006-b717-09a756255405",
   "contentPack": 9999,
-  "name": "ConditionRangerSurvivalistImprovedDisablingStrike"
+  "name": "ConditionRangerSurvivalistDisablingStrike"
 }

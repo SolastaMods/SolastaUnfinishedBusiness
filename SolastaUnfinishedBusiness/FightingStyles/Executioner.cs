@@ -16,7 +16,7 @@ internal sealed class Executioner : AbstractFightingStyle
 {
     private const string ExecutionerName = "Executioner";
 
-    internal static readonly FeatureDefinition FeatureFightingStyleExecutioner = FeatureDefinitionBuilder
+    private static readonly FeatureDefinition FeatureFightingStyleExecutioner = FeatureDefinitionBuilder
         .Create("FeatureFightingStyleExecutioner")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
@@ -78,6 +78,9 @@ internal sealed class Executioner : AbstractFightingStyle
                     ConditionParalyzed,
                     ConditionProne,
                     ConditionStunned,
+                    $"Condition{RangerSurvivalist.Name}DisablingStrike",
+                    $"Condition{RangerSurvivalist.Name}ImprovedDisablingStrike",
+                    "ConditionHindered_By_Frost",
                     "ConditionHindered");
             }
 

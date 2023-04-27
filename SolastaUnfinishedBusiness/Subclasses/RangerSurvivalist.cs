@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
@@ -16,6 +15,11 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class RangerSurvivalist : AbstractSubclass
 {
     internal const string Name = "RangerSurvivalist";
+
+    private static readonly FeatureDefinitionFeatureSet FeatureSetAnalyticalMind = FeatureDefinitionFeatureSetBuilder
+        .Create($"FeatureSet{Name}AnalyticalMind")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
 
     internal RangerSurvivalist()
     {
@@ -46,6 +50,13 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
         // Disabling Strike
 
+        var conditionDisablingStrike = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionHindered_By_Frost, $"Condition{Name}DisablingStrike")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Minute, 1)
+            .AddToDB();
+
         var additionalDamageDisablingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DisablingStrike")
             .SetGuiPresentation(Category.Feature)
@@ -55,7 +66,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 AttributeDefinitions.Dexterity)
             .SetConditionOperations(new ConditionOperationDescription
             {
-                ConditionDefinition = ConditionDefinitions.ConditionHindered_By_Frost,
+                ConditionDefinition = conditionDisablingStrike,
                 Operation = ConditionOperationDescription.ConditionOperation.Add,
                 hasSavingThrow = true,
                 canSaveToCancel = true,
@@ -76,18 +87,13 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Survival))
             .AddToDB();
 
-        var featureSetAnalyticalMind = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}AnalyticalMind")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(abilityCheckAnalyticalMind, Executioner.FeatureFightingStyleExecutioner)
-            .AddToDB();
+        FeatureSetAnalyticalMind.FeatureSet.Add(abilityCheckAnalyticalMind);
 
         //
         // LEVEL 11
         //
 
         // Improved Disabling Strike
-
 
         var attributeModifierImprovedDisablingStrike = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}ImprovedDisablingStrike")
@@ -96,11 +102,8 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .AddToDB();
 
         var conditionImprovedDisablingStrike = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ImprovedDisablingStrike")
-            .SetGuiPresentation(Category.Condition)
-            .SetConditionType(ConditionType.Detrimental)
-            .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .Create(conditionDisablingStrike, $"Condition{Name}ImprovedDisablingStrike")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddFeatures(attributeModifierImprovedDisablingStrike)
             .AddToDB();
 
@@ -112,14 +115,13 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 AttributeDefinitions.Dexterity)
             .SetConditionOperations(new ConditionOperationDescription
             {
-                ConditionDefinition = ConditionDefinitions.ConditionHindered_By_Frost,
+                ConditionDefinition = conditionImprovedDisablingStrike,
                 Operation = ConditionOperationDescription.ConditionOperation.Add,
                 hasSavingThrow = true,
                 canSaveToCancel = true,
                 saveOccurence = TurnOccurenceType.EndOfTurn
             })
-            .SetCustomSubFeatures(
-                new CustomBehaviorImprovedDisablingStrikeDisablingStrike(conditionImprovedDisablingStrike))
+            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrike())
             .AddToDB();
 
         //
@@ -146,7 +148,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                 additionalDamageDisablingStrike,
                 proficiencyWanderingOutcast)
             .AddFeaturesAtLevel(7,
-                featureSetAnalyticalMind)
+                FeatureSetAnalyticalMind)
             .AddFeaturesAtLevel(11,
                 additionalDamageImprovedDisablingStrike)
             .AddFeaturesAtLevel(15,
@@ -163,49 +165,14 @@ internal sealed class RangerSurvivalist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorImprovedDisablingStrikeDisablingStrike :
-        IFeatureDefinitionCustomCode, IAfterAttackEffect
+    internal static void LateLoad()
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        FeatureSetAnalyticalMind.FeatureSet.Add(
+            GetDefinition<FeatureDefinitionProficiency>($"ProficiencyFeatExecutioner"));
+    }
 
-        public CustomBehaviorImprovedDisablingStrikeDisablingStrike(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome is not RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                return;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
-            {
-                return;
-            }
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetDefender.guid,
-                _conditionDefinition,
-                _conditionDefinition.DurationType,
-                _conditionDefinition.DurationParameter,
-                _conditionDefinition.TurnOccurence,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name);
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-        }
-
+    private sealed class CustomCodeImprovedDisablingStrike : IFeatureDefinitionCustomCode
+    {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)

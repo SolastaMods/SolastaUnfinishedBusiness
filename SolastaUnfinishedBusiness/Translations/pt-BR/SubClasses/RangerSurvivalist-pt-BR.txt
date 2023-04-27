@@ -1,4 +1,6 @@
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 na classe de armadura.
+Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 para mover a velocidade.
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Golpe incapacitante
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 para classe de armadura e velocidade de movimento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Golpe incapacitante aprimorado
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=A primeira vez que você atingir uma criatura com um ataque de arma em cada um de seus turnos, ela deve fazer um teste de resistência de Destreza contra a CD da sua magia ranger ou ficará impedida por um minuto. Uma criatura pode repetir o teste de resistência no final de cada um de seus turnos, terminando o efeito em caso de sucesso.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Desabilitando Greve

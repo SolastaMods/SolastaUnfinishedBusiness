@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:AbilityCheckRangerSurvivalistAnalyticalMind:bb200e27-5cfe-5e79-a96e-7187cbb59644",
-    "Definition:FeatureFightingStyleExecutioner:44cbdc12-60f2-546b-8b9a-2be9e29b7c23"
+    "Definition:ProficiencyFeatExecutioner:23005652-c56a-5d5b-a436-83002577c316"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

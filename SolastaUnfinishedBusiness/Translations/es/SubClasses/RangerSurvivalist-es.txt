@@ -1,4 +1,6 @@
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 a la clase de armadura.
+Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 para mover la velocidad.
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Golpe de desactivación
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 a la clase de armadura y velocidad de movimiento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Golpe de desactivación mejorado
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La primera vez que golpeas a una criatura con un ataque de arma en cada uno de tus turnos, debe hacer una tirada de salvación de Destreza contra la CD de tu hechizo de guardabosques o quedar obstaculizada durante un minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, finalizando el efecto si tiene éxito.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Huelga de inhabilitación
