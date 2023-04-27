@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&RogueElusiveTitle",
-    "description": "Feature/&RogueElusiveDescription",
+    "title": "Feature/&FeatureRogueElusiveTitle",
+    "description": "Feature/&FeatureRogueElusiveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "655fa6c6-05e2-5502-a41b-45d474f72873",
+  "guid": "760732d6-b1c4-5085-9a46-2874e74621e0",
   "contentPack": 9999,
-  "name": "RogueElusive"
+  "name": "FeatureRogueElusive"
 }
