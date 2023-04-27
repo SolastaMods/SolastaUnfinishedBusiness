@@ -12,12 +12,14 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
+        bool onlyIfCanUseAction,
         ReadyActionType readyActionType,
         GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
         {
-            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses,
+                onlyIfCanUseAction);
         }
 
         return guiAction.ForcedAttackMode;
@@ -28,12 +30,14 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
+        bool onlyIfCanUseAction,
         ReadyActionType readyActionType,
         [CanBeNull] RulesetAttackMode forcedAttack)
     {
         if (actionId != Id.AttackOff || forcedAttack == null)
         {
-            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
+            return character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses,
+                onlyIfCanUseAction);
         }
 
         return forcedAttack;

@@ -147,6 +147,7 @@ public static class CharacterActionPanelPatcher
                 ActionDefinitions.Id,
                 bool,
                 bool,
+                bool,
                 ActionDefinitions.ReadyActionType,
                 GuiCharacterAction,
                 RulesetAttackMode
