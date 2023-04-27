@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -146,7 +147,12 @@ public static class RulesetCharacterHeroPatcher
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, RulesetInvocation invocation)
         {
             //PATCH: make sure we can't cast hidden invocations, so they will be hidden
-            if (invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(__instance, definition));
+
+            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
             {
                 __result = false;
 
