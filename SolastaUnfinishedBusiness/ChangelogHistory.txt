@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.80:
+
+- changed Caustic Zap sprite
+- changed Fairy's flight duration to permanent
+- fixed power bundles sub menu positioning
+- fixed quick wit rolled value on combat log
+- improved Sorcerous Field Manipulator's displacement
+
 1.4.33.79:
 
 - added Ranger Survivalist subclass

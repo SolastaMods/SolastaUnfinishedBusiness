@@ -709,24 +709,9 @@ internal static class GambitsBuilders
             .AddToDB();
     }
 
-    private static int GetTacticianLevel(RulesetCharacter character)
-    {
-        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
-
-        // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
-        if (hero != null &&
-            hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
-                out var characterSubclassDefinition) && characterSubclassDefinition.Name != MartialTactician.Name)
-        {
-            return 1;
-        }
-
-        return character.GetClassLevel(CharacterClassDefinitions.Fighter);
-    }
-
     private static DieType GetGambitDieSize(RulesetCharacter character)
     {
-        var level = GetTacticianLevel(character);
+        var level = character.GetSubclassLevel(CharacterClassDefinitions.Fighter, MartialTactician.Name);
 
         return level switch
         {

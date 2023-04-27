@@ -615,6 +615,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Taco[/b]: homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
 [*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
 [*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
+[*][b]Earendil[/b]: homebrew content design [Ranger Survivalist]
 [*][b]Narria[/b]: modKit, mod UI improvements, Party Editor
 [*][b]Pikachar2[/b]: spells
 [/list]

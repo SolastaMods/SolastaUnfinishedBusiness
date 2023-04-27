@@ -39,7 +39,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionHindered_By_Frost:c148df61de4a42345aeb1962d83f7b58",
+      "conditionDefinition": "Definition:ConditionRangerSurvivalistImprovedDisablingStrike:4a9a8a8d-8407-543f-90c6-87918885957c",
       "saveAffinity": "None",
       "canSaveToCancel": true,
       "saveOccurence": "EndOfTurn"
