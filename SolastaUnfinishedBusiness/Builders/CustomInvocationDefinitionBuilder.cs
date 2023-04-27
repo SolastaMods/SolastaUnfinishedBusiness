@@ -4,6 +4,8 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+internal delegate bool IsInvocationValidHandler(RulesetCharacter character, InvocationDefinition invocation);
+
 [UsedImplicitly]
 internal class CustomInvocationDefinitionBuilder
     : InvocationDefinitionBuilder<InvocationDefinitionCustom, CustomInvocationDefinitionBuilder>

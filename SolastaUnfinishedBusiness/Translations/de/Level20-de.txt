@@ -35,3 +35,5 @@ Feature/&RogueSlipperyMindDescription=Sie haben eine größere mentale Stärke e
 Feature/&RogueSlipperyMindTitle=Schlüpfriger Geist
 Feature/&SenseRangerFeralSensesDescription=Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
 Feature/&SenseRangerFeralSensesTitle=Wilde Sinne
+Feature/&GrantInvocationsSpellMasteryDescription=Du hast bestimmte Zaubersprüche so gemeistert, dass du sie nach Belieben wirken kannst. Die ersten beiden Zaubersprüche der 1. und 2. Stufe, die Sie vorbereiten, können auf ihrer niedrigsten Stufe gewirkt werden, ohne einen Zauberslot zu verbrauchen. Wenn Sie einen der beiden Zauber auf einer höheren Stufe wirken möchten, müssen Sie wie gewohnt einen Zauberplatz ausgeben.
+Feature/&GrantInvocationsSpellMasteryTitle=Zauberbeherrschung

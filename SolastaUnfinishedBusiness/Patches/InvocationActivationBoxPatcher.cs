@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -23,6 +24,7 @@ public static class InvocationActivationBoxPatcher
 
         var slotTable = boxRect.Find(TableName);
 
+        // don't use null propagation on unity objects
         if (slotTable != null)
         {
             slotTable.gameObject.SetActive(false);
@@ -30,6 +32,7 @@ public static class InvocationActivationBoxPatcher
 
         var highTransform = boxRect.Find(HighSlotsName);
 
+        // don't use null propagation on unity objects
         if (highTransform != null)
         {
             highTransform.gameObject.SetActive(false);
@@ -52,8 +55,13 @@ public static class InvocationActivationBoxPatcher
             //PATCH: clean up custom widgets added for power invocations
             DisablePowerUseSlots(__instance);
 
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(activator, definition));
+
             //PATCH: make sure hidden invocations are indeed hidden and not interactable
-            if (__instance.Invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            if (__instance.Invocation.invocationDefinition.HasSubFeatureOfType<Hidden>() || !isValid)
             {
                 __instance.gameObject.SetActive(false);
                 __instance.button.interactable = false;

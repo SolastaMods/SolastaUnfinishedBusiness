@@ -6,10 +6,13 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -591,12 +594,81 @@ internal static class Level20Context
         SpellListWarlock.maxSpellLevel = 9;
     }
 
+    private static (FeatureDefinition, FeatureDefinition) BuildWizardSpellMastery()
+    {
+        const string SPELL_MASTERY = "SpellMastery";
+
+        static IsInvocationValidHandler IsValid()
+        {
+            return (character, invocation) =>
+            {
+                var spellRepertoire = character.GetClassSpellRepertoire(Wizard);
+
+                if (spellRepertoire == null)
+                {
+                    return false;
+                }
+
+                // get the first 2 non reaction prepared spells of 1st or 2nd level
+                var preparedSpells = spellRepertoire.PreparedSpells
+                    .Where(x => x.SpellLevel is 1 or 2 && x.ActivationTime != ActivationTime.Reaction)
+                    .Take(2);
+
+                return preparedSpells.Contains(invocation.GrantedSpell);
+            };
+        }
+
+        const string FEATURE_NAME = $"CastSpell{SPELL_MASTERY}";
+
+        var castSpellSpellMastery = FeatureDefinitionCastSpellBuilder
+            .Create(FEATURE_NAME)
+            .SetGuiPresentationNoContent(true)
+            .SetFocusType(EquipmentDefinitions.FocusType.None)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.None)
+            .SetSlotsPerLevel(CasterProgression.None)
+            .SetSpellList(SpellsContext.EmptySpellList)
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        // any non reaction spell of 1st or 2nd level
+        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
+            .Where(x => x.level is 1 or 2)
+            .SelectMany(x => x.Spells)
+            .Where(x => x.ActivationTime != ActivationTime.Reaction);
+
+        var invocations = allPossibleSpells
+            .Where(x => x.castingTime is not ActivationTime.Reaction)
+            .Select(spell =>
+                CustomInvocationDefinitionBuilder
+                    .Create($"CustomInvocation{SPELL_MASTERY}{spell.Name}")
+                    .SetGuiPresentation(spell.GuiPresentation)
+                    .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(FEATURE_NAME))
+                    .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
+                    .SetGrantedSpell(spell)
+                    .SetCustomSubFeatures(IsValid())
+                    .AddToDB());
+
+        var grantInvocationsSpellMastery = FeatureDefinitionGrantInvocationsBuilder
+            .Create($"GrantInvocations{SPELL_MASTERY}")
+            .SetGuiPresentation(Category.Feature)
+            .SetInvocations(invocations)
+            .AddToDB();
+
+        return (castSpellSpellMastery, grantInvocationsSpellMastery);
+    }
+
     private static void WizardLoad()
     {
+        var (castSpellSpellMastery,
+            grantInvocationsSpellMastery) = BuildWizardSpellMastery();
+
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetAbilityScoreChoice, 16),
-            // TODO 18: Spell Mastery
+            new(castSpellSpellMastery, 2),
+            new(grantInvocationsSpellMastery, 2),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Signature Spells
         });
