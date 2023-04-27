@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListGalar:6aa780a59af6a7e4f825e11bca0cd0d0",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,

@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    950,
+    1550,
     0,
     0,
     0
@@ -50,7 +50,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+1:1befa75fb0cf6d644bfefb3b9e489e96",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": true,
@@ -203,6 +203,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ScaleMaillvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -216,14 +217,15 @@
       "Armor",
       "Armor",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,5 +1,6 @@
 {
   "$type": "TerrainTypeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

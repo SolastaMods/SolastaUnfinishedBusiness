@@ -1,14 +1,16 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
+  "parentCondition": "Definition:ConditionCharmed:b625b88863e83524ba652432379348a9",
   "conditionType": "Detrimental",
   "features": [
-    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc"
+    "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
+    "Definition:ActionAffinityConditionIncapacitated:0a38f5c8f6d13a0479249a8e935f64c0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

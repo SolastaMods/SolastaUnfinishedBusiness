@@ -359,8 +359,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&FunctionPotionDrinkTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Equipment/&WarningLineContent",
+    "description": "Equipment/&WarningLineContent",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8689fa89d8b1645488f398a9c622bc11",

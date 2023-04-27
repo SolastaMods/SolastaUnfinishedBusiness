@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDryad_Queen:a8d2318adfbad634bacd1cf183884267",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 13,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,

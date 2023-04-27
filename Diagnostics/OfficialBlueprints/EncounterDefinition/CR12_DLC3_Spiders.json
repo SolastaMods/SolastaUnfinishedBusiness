@@ -1,0 +1,59 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 12,
+  "locationOverride": "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c",
+  "locationBlacklist": [],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Spider_Queen:5626a4511d68a3945b9c5d330b9b472c",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Spiderlings:5b2fa574bb65dbf42a265d449ce103c5",
+      "number": 9,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR12_Spiders_Title",
+    "description": "Encounter/&DLC3_CR12_Spiders_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4d34b415c070a9c40bbd77ab2f927088",
+  "contentPack": "PalaceOfIce",
+  "name": "CR12_DLC3_Spiders"
+}

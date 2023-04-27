@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    350,
+    600,
     0,
     0,
     0
@@ -30,8 +30,8 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifier_BootsOfFirstStrike_Initiative:b2f25f3c3fa1c974d97ac4a97afbbc6d",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -186,10 +186,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -205,8 +208,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -232,6 +234,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "ef53cae866ecfe646965484c68875aaa",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "BootsOfFirstStrike"
 }

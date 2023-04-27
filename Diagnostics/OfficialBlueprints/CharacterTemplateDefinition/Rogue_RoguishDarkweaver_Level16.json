@@ -1,0 +1,152 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Darkweaver16",
+  "surName": "Rogue",
+  "abilityScores": [
+    12,
+    18,
+    11,
+    13,
+    9,
+    15
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Elf:143998b174becf84682ae849dfe9d757",
+  "subRace": "Definition:ElfSylvan:1b0e27feb0a8d6944b907d5afaf28e0a",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinCopperish",
+  "musculatureMorphotypeValue": 28.9,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColorBrown",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorGreen",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "mainClass": "Definition:Rogue:8ae0dcdf1cf0a264c8198e0ca715eaf3",
+  "subClass": "Definition:RoguishDarkweaver:925b9a2fac1dc674882aa606552c4730",
+  "deity": null,
+  "background": "Definition:KS_Ruad_Swifthand:8e1f693366771d04486ca7a36c78de90",
+  "backgroundPersonalityFlag1": "",
+  "backgroundPersonalityFlag2": "",
+  "alignment": "ChaoticGood",
+  "alignmentPersonalityFlag1": "Selfishness",
+  "alignmentPersonalityFlag2": "Cynicism",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
+    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
+    "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+    "Definition:PoisonersKit:baf065854a7ae414fbb415d7b3d88fec",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Arrow+1:00e9f1acc34f18649ac6588f6b5877f3",
+    "Definition:RingProtection+1:4a51b5654f7506d48818645f3024d4ea",
+    "Definition:LeatherArmor+1:12dbe40621f03d4409d59a514b1189dd",
+    "Definition:CloakOfElvenkind:b92ab0211a8e8594a85b52d7abaa05f1",
+    "Definition:Arrow_Poisoned_GhoulsCaress:55bf43a3ba2cc06418e991f908e908be",
+    "Definition:Arrow+2:9fa49acfa5becca468df85ef769a5598",
+    "Definition:Shortbow+2:9338b72302e858b4ba9309b3399ab992"
+  ],
+  "startingMoney": [
+    0,
+    51,
+    0,
+    10,
+    0
+  ],
+  "skillsOverride": [
+    "Athletics",
+    "Acrobatics",
+    "SleightOfHand",
+    "Athletics",
+    "Performance",
+    "Survival"
+  ],
+  "toolsOverride": [
+    "PoisonersKitType"
+  ],
+  "featsOverride": [
+    "TakeAim"
+  ],
+  "invocationsOverride": [],
+  "expertisesOverride": [
+    "Stealth",
+    "ThievesToolsType"
+  ],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 16,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 97,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "offHandItemDefinition": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL2",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "CharacterTemplate/&VioletTitle",
+    "description": "CharacterTemplate/&VioletDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b465b4f3023586a4fb27c72ca88ccdc9",
+      "m_SubObjectName": "Rogue_RoguishDarkweaver_Level10",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 99,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3268841795223a8418837b3c64c82588",
+  "contentPack": "BaseGame",
+  "name": "Rogue_RoguishDarkweaver_Level16"
+}

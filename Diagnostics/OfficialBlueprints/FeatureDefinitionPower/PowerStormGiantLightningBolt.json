@@ -291,7 +291,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation2",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,

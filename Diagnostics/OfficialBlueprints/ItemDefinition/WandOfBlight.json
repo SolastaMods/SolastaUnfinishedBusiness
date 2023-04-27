@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2000,
+    2400,
     0,
     0,
     0
@@ -44,7 +44,7 @@
     "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
     "Definition:Wizard:a279003a65f95a64eb58fcc71463c734"
   ],
-  "itemRarity": "VeryRare",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -229,6 +229,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -237,8 +238,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -264,6 +264,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "36b4da9e904ddd4428eb45a62a3af4f4",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "WandOfBlight"
 }

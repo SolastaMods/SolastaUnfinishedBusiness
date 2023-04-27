@@ -313,6 +313,8 @@
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -350,10 +352,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Heavy",
-        "id": 1423590348,
-        "guid": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4",
-        "name": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4"
+        "objectName": "Bite_Heavy",
+        "id": 211654895,
+        "guid": "C1F73615-EF4C-4DA7-BF1D-5831DDF99E30",
+        "name": "C1F73615-EF4C-4DA7-BF1D-5831DDF99E30"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

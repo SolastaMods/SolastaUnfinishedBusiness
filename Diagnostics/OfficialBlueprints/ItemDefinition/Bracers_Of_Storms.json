@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    750,
+    2000,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
@@ -186,10 +186,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -205,8 +208,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -232,6 +234,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "2c65e9de4f50c864780e5c87ae6b3d37",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Bracers_Of_Storms"
 }

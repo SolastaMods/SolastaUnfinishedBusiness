@@ -1,5 +1,6 @@
 {
   "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "package": {
     "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
     "weightedDecisions": []

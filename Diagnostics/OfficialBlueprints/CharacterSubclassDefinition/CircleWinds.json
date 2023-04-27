@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerWindGuidingWinds:ff5358e07996e9249b0135c4d19b0153",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWindUnfettered:7f788cdb537fac24da5935626c968a09",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

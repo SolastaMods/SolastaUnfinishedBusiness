@@ -1,0 +1,81 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 13,
+  "locationOverride": null,
+  "locationBlacklist": [],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Winter_Wolf:355dd21d6b2867a41a2855dc09f2897c",
+      "number": 3,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Chieftain:bbd0760a8c2af3244b9cd4f4558209ee",
+      "number": 4,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall:a51ae7a702e42f84c93bbcb330605b3e",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Beastmaster:5885ead7a49fdfa408a1fe5112c8a6d1",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackMedium:e31ffe17fd246524babea266f9755888",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Archer:56e3bdf97083f2e48899fa9a6afed684",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR13_Orcs_Beasts_Title",
+    "description": "Encounter/&OrcPartyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7ed0ee5b7c8ac844fb8a89529e0f3c22",
+  "contentPack": "PalaceOfIce",
+  "name": "CR13_DLC3_Orcs_Beasts"
+}

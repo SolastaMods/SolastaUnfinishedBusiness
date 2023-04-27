@@ -10881,6 +10881,27 @@
                   },
                   "m_Scale": 1.0,
                   "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 30504,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 12.796875,
+                    "m_Height": 10.640625,
+                    "m_HorizontalBearingX": 1.765625,
+                    "m_HorizontalBearingY": 33.515625,
+                    "m_HorizontalAdvance": 40.0
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 26,
+                    "m_Width": 14,
+                    "m_Height": 12
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
                 }
               ],
               "m_CharacterTable": [
@@ -10889,6 +10910,13 @@
                   "m_ElementType": "Character",
                   "m_Unicode": 8217,
                   "m_GlyphIndex": 30502,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 8221,
+                  "m_GlyphIndex": 30504,
                   "m_Scale": 1.0
                 }
               ],
@@ -10906,21 +10934,35 @@
                   "m_Y": 0,
                   "m_Width": 15,
                   "m_Height": 21
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 21,
+                  "m_Width": 23,
+                  "m_Height": 21
                 }
               ],
               "m_FreeGlyphRects": [
                 {
                   "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
                   "m_X": 0,
-                  "m_Y": 21,
+                  "m_Y": 42,
                   "m_Width": 4095,
-                  "m_Height": 2026
+                  "m_Height": 2005
                 },
                 {
                   "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
                   "m_X": 15,
                   "m_Y": 0,
                   "m_Width": 4080,
+                  "m_Height": 21
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 23,
+                  "m_Y": 0,
+                  "m_Width": 4072,
                   "m_Height": 2047
                 }
               ],

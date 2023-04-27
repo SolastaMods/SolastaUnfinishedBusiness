@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Tiefling:5a0f67df27e0274438f46e6eb59448cb",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_10",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 65.43164,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_E",
+  "hairShapeMorphotype": "HairShape_N",
+  "hairColorMorphotype": "HairColorRed",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorGolden",
+  "bodyDecorationMorphotype": "BodyDecoration_SorcererManaPainter",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_16",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_E",
+  "tailMorphotype": "Tail_B",
+  "armorDefinition": "Enchanted_ScaleMailOfRobustness",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 0.9198113,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.9433962,
+    "g": 0.866042256,
+    "b": 0.369348466,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6792453,
+    "g": 0.356347978,
+    "b": 0.137771428,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Gallivan_Investigation_05_Title",
+    "description": "NPC/&DLC3_NPC_Gallivan_Investigation_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8c7352fb67018354698c1de00390dda5",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Gallivan_Suspect_05",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "182a6754e08cc1b4d91a4666961da42c",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_Gallivan_Suspect_05"
+}

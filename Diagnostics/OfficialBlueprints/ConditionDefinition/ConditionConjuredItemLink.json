@@ -9,6 +9,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -263,12 +264,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&ActionAffinityConjuredItemLinkTitle",
+    "description": "Feature/&ActionAffinityConjuredItemLinkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

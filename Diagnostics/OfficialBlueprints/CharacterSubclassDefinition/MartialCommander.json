@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMartialCommanderInvigoratingShout:f890378a453b6f349a2cb591434a6908",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerMartialCommanderLeadByExample:358792966a0dead4a84fe0789d44b371",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [

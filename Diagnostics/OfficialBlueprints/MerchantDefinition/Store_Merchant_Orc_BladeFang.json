@@ -65,6 +65,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Rapier_BlackAdder:44e86195d5bf9984c9be341edb9faadc",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

@@ -291,8 +291,8 @@
   "triggeredBySpecialMove": false,
   "activationTime": "OnAttackHitWithOneHandedWeaponAuto",
   "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "None",
-  "autoActivationPowerTag": "None",
+  "autoActivationRequiredTargetCreatureTag": "",
+  "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
@@ -324,13 +324,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerFeatDistractingGambitTitle",
+    "description": "Feature/&PowerFeatDistractingGambitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

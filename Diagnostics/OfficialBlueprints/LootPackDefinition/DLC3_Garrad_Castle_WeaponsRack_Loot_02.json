@@ -1,0 +1,66 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_Magic_Shortsword_Sovereign:f64f78df81bfa454e848da6ea36da1ca",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_Magic_Shortsword_Sovereign:f64f78df81bfa454e848da6ea36da1ca",
+      "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_GarradsCastle_ItemClue7:983a5d5aa12fdfb429da26d93c22062d",
+      "treasureTableDefinition": "Definition:RandomTreasureTableI3_RandomAmmo:d2ca08e2cdd6756448182109e12127a9",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "bdcb1e8d945089f428ba6ccddbf425f2",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Garrad_Castle_WeaponsRack_Loot_02"
+}

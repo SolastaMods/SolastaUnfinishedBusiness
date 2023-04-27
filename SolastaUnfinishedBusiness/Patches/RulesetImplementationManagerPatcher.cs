@@ -209,6 +209,7 @@ public static class RulesetImplementationManagerPatcher
             int additionalDamage,
             int damageRollReduction,
             float damageMultiplier,
+            bool maximumDamage,
             bool useVersatileDamage,
             bool attackModeDamage,
             List<int> rolledValues,
@@ -229,7 +230,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 return rulesetActor.RollDamage(
                     damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
-                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
             return hero.Side switch
@@ -246,7 +247,8 @@ public static class RulesetImplementationManagerPatcher
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
                     _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
+                        rolledValues,
                         canRerollDice)
                 },
                 RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
@@ -261,12 +263,13 @@ public static class RulesetImplementationManagerPatcher
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
                     _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
-                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        damageRollReduction, damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage,
+                        rolledValues,
                         canRerollDice)
                 },
                 _ => rulesetActor.RollDamage(
                     damageForm, addDice, true, additionalDamage, damageRollReduction,
-                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
+                    damageMultiplier, maximumDamage, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
         }
 
@@ -277,7 +280,7 @@ public static class RulesetImplementationManagerPatcher
             var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
             var myRollDamageMethod =
                 new Func<RulesetActor,
-                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, int>(
+                    DamageForm, int, bool, int, int, float, bool, bool, bool, List<int>, bool, int>(
                     RollDamage).Method;
 
             return instructions.ReplaceCalls(rollDamageMethod,

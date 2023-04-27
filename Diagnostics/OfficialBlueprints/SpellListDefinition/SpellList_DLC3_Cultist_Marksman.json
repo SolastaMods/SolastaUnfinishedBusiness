@@ -1,0 +1,50 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": false,
+  "maxSpellLevel": 2,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "4e82b1817920d604bac76c71cd467ec5",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC3_Cultist_Marksman"
+}
