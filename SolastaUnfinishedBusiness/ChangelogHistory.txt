@@ -2,7 +2,9 @@
 
 1.4.33.80:
 
+- added Battleaxe magical items and recipes
 - added Druid's arch druid at 20th
+- added Ranger's foe slayer at 20th
 - added Rogue's elusive at 18th
 - added Wizard's spell mastery at 18th
 - changed Caustic Zap sprite

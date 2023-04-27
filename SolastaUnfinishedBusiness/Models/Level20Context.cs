@@ -584,6 +584,13 @@ internal static class Level20Context
             .SetSense(SenseMode.Type.DetectInvisibility, 6)
             .AddToDB();
 
+        var featureFoeSlayer = FeatureDefinitionBuilder
+            .Create("FeatureRangerFoeSlayer")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureFoeSlayer.SetCustomSubFeatures(new ModifyAttackModeForWeaponRangerFoeSlayer(featureFoeSlayer));
+
         if (!Main.IsDebugBuild)
         {
             Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -596,8 +603,7 @@ internal static class Level20Context
 
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Ranger Foe Slayer
+            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19), new(featureFoeSlayer, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -628,7 +634,7 @@ internal static class Level20Context
         }
 
         var featureRogueElusive = FeatureDefinitionBuilder
-            .Create("RogueElusive")
+            .Create("FeatureRogueElusive")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
             .AddToDB();
@@ -1018,6 +1024,34 @@ internal static class Level20Context
             }
 
             attackModifier.ignoreAdvantage = true;
+        }
+    }
+
+    private sealed class ModifyAttackModeForWeaponRangerFoeSlayer : IModifyAttackModeForWeapon
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifyAttackModeForWeaponRangerFoeSlayer(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
+            damage.BonusDamage += wisdomModifier;
+            damage.DamageBonusTrends.Add(new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
+                _featureDefinition.Name,
+                _featureDefinition));
         }
     }
 }
