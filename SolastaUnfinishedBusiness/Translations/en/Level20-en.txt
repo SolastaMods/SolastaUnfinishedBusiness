@@ -35,3 +35,5 @@ Feature/&RogueSlipperyMindDescription=You have acquired greater mental Strength.
 Feature/&RogueSlipperyMindTitle=Slippery Mind
 Feature/&SenseRangerFeralSensesDescription=You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you cannot see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 Feature/&SenseRangerFeralSensesTitle=Feral Senses
+Feature/&GrantInvocationsSpellMasteryDescription=You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal. 
+Feature/&GrantInvocationsSpellMasteryTitle=Spell Mastery

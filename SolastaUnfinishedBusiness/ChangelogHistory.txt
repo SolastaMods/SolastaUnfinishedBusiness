@@ -2,10 +2,12 @@
 
 1.4.33.80:
 
+- added Wizard's spell mastery at 18th
 - changed Caustic Zap sprite
 - changed Fairy's flight duration to permanent
 - fixed power bundles sub menu positioning
-- fixed quick wit rolled value on combat log
+- fixed Inventor's quick wit rolled value on combat log
+- fixed Ranger Survivalist minor issues on durations
 - improved Sorcerous Field Manipulator's displacement
 
 1.4.33.79:

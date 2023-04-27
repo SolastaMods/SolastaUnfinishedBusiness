@@ -93,6 +93,14 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
             .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "CastSpellMasteryMain")
+            .SetGuiPresentation("CastSpellMastery", Category.Action, Sprites.ActionPlaneMagic, 10)
+            .SetActionId(ExtraActionId.CastSpellMasteryMain)
+            .SetActionType(ActionType.Main)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
     }
 
     private static void BuildCustomPushedAction()

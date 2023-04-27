@@ -35,3 +35,5 @@ Feature/&RogueSlipperyMindDescription=Vous avez acquis une plus grande force men
 Feature/&RogueSlipperyMindTitle=Esprit glissant
 Feature/&SenseRangerFeralSensesDescription=Vous gagnez des sens surnaturels qui vous aident à combattre des créatures que vous ne pouvez pas voir. Lorsque vous attaquez une créature que vous ne pouvez pas voir, votre incapacité à la voir n'impose pas de désavantage à vos jets d'attaque contre elle.
 Feature/&SenseRangerFeralSensesTitle=Sens sauvages
+Feature/&GrantInvocationsSpellMasteryDescription=Vous avez acquis une telle maîtrise de certains sorts que vous pouvez les lancer à volonté. Les deux premiers sorts de magicien de niveau 1 et 2 que vous préparez peuvent être lancés à leur niveau le plus bas sans dépenser d'emplacement de sort. Si vous souhaitez lancer l'un ou l'autre des sorts à un niveau supérieur, vous devez dépenser un emplacement de sort normalement.
+Feature/&GrantInvocationsSpellMasteryTitle=Maîtrise des sorts
