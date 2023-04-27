@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -626,10 +627,15 @@ internal static class Level20Context
             });
         }
 
+        var featureRogueElusive = FeatureDefinitionBuilder
+            .Create("RogueElusive")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
+            .AddToDB();
+
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: Rogue Elusive
-            new(FeatureSetAbilityScoreChoice, 19)
+            new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Rogue Stroke of Luck
         });
     }
@@ -981,6 +987,37 @@ internal static class Level20Context
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
             GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
+        }
+    }
+
+    private sealed class PhysicalAttackInitiatedOnMeRogueElusive : IPhysicalAttackInitiatedOnMe
+    {
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
+            if (rulesetDefender.HasAnyConditionOfType(
+                    ConditionIncapacitated,
+                    ConditionParalyzed,
+                    ConditionPetrified,
+                    ConditionStunned,
+                    ConditionUnconscious))
+            {
+                yield break;
+            }
+
+            attackModifier.ignoreAdvantage = true;
         }
     }
 }
