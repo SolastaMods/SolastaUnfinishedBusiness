@@ -67,8 +67,10 @@ internal sealed class Executioner : AbstractFightingStyle
                 return false;
             }
 
-            if (attacker.RulesetCharacter
-                    .GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger, RangerSurvivalist.Name) >= 11)
+            var survivalistLevel = attacker.RulesetCharacter
+                .GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger, RangerSurvivalist.Name);
+
+            if (survivalistLevel >= 11)
             {
                 return rulesetDefender.HasAnyConditionOfType(
                     ConditionBlinded,
@@ -78,9 +80,6 @@ internal sealed class Executioner : AbstractFightingStyle
                     ConditionParalyzed,
                     ConditionProne,
                     ConditionStunned,
-                    $"Condition{RangerSurvivalist.Name}DisablingStrike",
-                    $"Condition{RangerSurvivalist.Name}ImprovedDisablingStrike",
-                    "ConditionHindered_By_Frost",
                     "ConditionHindered");
             }
 
