@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -42,28 +44,51 @@ internal sealed class Executioner : AbstractFightingStyle
         {
         }
 
-        internal override bool IsValid(GameLocationBattleManager battleManager, GameLocationCharacter attacker,
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier, RulesetAttackMode attackMode, bool rangedAttack, AdvantageType advantageType,
-            List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
             out CharacterActionParams reactionParams)
         {
             reactionParams = null;
 
-            if (attackMode == null)
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (attackMode == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return false;
             }
 
-            return defender?.RulesetCharacter.HasAnyConditionOfType(
+            if (attacker.RulesetCharacter
+                    .GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger, RangerSurvivalist.Name) >= 11)
+            {
+                return rulesetDefender.HasAnyConditionOfType(
+                    ConditionBlinded,
+                    ConditionFrightened,
+                    ConditionRestrained,
+                    ConditionIncapacitated,
+                    ConditionParalyzed,
+                    ConditionProne,
+                    ConditionStunned,
+                    "ConditionHindered");
+            }
+
+            return rulesetDefender.HasAnyConditionOfType(
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,
                 ConditionIncapacitated,
                 ConditionParalyzed,
                 ConditionProne,
-                ConditionStunned
-            ) == true;
+                ConditionStunned);
         }
     }
 }
