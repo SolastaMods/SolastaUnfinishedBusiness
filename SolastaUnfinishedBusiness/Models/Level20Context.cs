@@ -307,17 +307,22 @@ internal static class Level20Context
 
     private static void DruidLoad()
     {
-        // only a placeholder to display the feature name
-        // this is solved on CanCastSpells patch
-        var druidBeastSpells = FeatureDefinitionBuilder
+        // only a placeholder to display the feature name as this is solved on CanCastSpells patch
+        var featureDruidBeastSpells = FeatureDefinitionBuilder
             .Create("FeatureDruidBeastSpells")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        var magicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityArchDruid")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, true, true, true)
+            .SetCustomSubFeatures(new OnAfterActionFeatureArchDruid())
+            .AddToDB();
+
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(druidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Druid Arch Druid
+            new(featureDruidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19), new(magicAffinityArchDruid, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -739,6 +744,29 @@ internal static class Level20Context
         }
 
         return code;
+    }
+
+    private sealed class OnAfterActionFeatureArchDruid : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower)
+            {
+                return;
+            }
+
+            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
+
+            if (powerDefinition.Name != "PowerCircleOfTheNightWildShapeCombat" &&
+                powerDefinition.Name != "PowerDruidWildShape")
+            {
+                return;
+            }
+
+            var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, action.ActingCharacter.RulesetCharacter);
+
+            usablePower.RepayUse();
+        }
     }
 
     private sealed class ChangeAbilityCheckBarbarianIndomitableMight : IChangeAbilityCheck
