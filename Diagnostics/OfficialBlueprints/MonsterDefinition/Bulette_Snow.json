@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Monstrosity",
   "creatureTags": [],
@@ -89,7 +89,9 @@
     "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
     "Definition:ConditionAffinityMindControlledImmunity:2f69cc55a85055743810ccf48cdd55df",
     "Definition:ConditionAffinityMindDominatedImmunity:d611fc277b51e114ba4de9bad1c4a577",
-    "Definition:ConditionAffinityBlindnessImmunity:0d2434c320408d74e9c8fa43ec0716b7"
+    "Definition:ConditionAffinityBlindnessImmunity:0d2434c320408d74e9c8fa43ec0716b7",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
   ],
   "attackIterations": [
     {
@@ -111,7 +113,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -185,18 +187,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "75b33787b65ba8d489e061b2efcd0bb4",
+      "m_AssetGUID": "fcf2eaa0ccb2d5f41aa1bcb3dd35c02f",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.6,
+    "maleModelScale": 0.656,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "75b33787b65ba8d489e061b2efcd0bb4",
+      "m_AssetGUID": "fcf2eaa0ccb2d5f41aa1bcb3dd35c02f",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.6,
+    "femaleModelScale": 0.656,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

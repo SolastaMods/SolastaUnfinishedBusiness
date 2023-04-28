@@ -1,6 +1,8 @@
 {
   "$type": "LocationDefinition, Assembly-CSharp",
   "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
   "alwaysHidden": false,
   "registeredFactions": [],
   "registeredVariables": [],
@@ -185,8 +187,8 @@
     "unchartedDescription": "Feature/&Emptystring",
     "knownTitle": "Feature/&Emptystring",
     "knownDescription": "Feature/&Emptystring",
-    "exploredTitle": "Map/&Encounter_Jungle_Village_Title",
-    "exploredDescription": "Map/&Encounter_Jungle_Village_Description"
+    "exploredTitle": "LocationType/&Encounter_Bridge_Title",
+    "exploredDescription": "LocationType/&Encounter_Bridge_Description"
   },
   "challengeRating": -1,
   "focusWhenRevealed": false,
@@ -201,11 +203,12 @@
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "entranceIdxToSpriteReferenceMappings": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "LocationType/&Encounter_Bridge_Title",
-    "description": "LocationType/&Encounter_Bridge_Description",
+    "title": "LocationType/&Encounter_Woods_Title",
+    "description": "LocationType/&Encounter_Woods_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0337e46d6931f3c4d8bcef9c757249aa",

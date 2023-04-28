@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [
@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulEvil",
-  "armorClass": 18,
+  "armorClass": 15,
   "armor": "",
   "hitDice": 13,
   "hitDiceType": "D8",
@@ -140,9 +140,10 @@
     "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
     "Definition:SavingThrowAffinityShapechangerMoonbeam:e9f14453bf46ca745ab8318d4dc3102f",
     "Definition:MoveModeFly8:d7d73f75fe686914f998f3c7b3f83e28",
-    "Definition:CastSpell_Kratshar:f66a79a01f1142241b66089e41d14963",
+    "Definition:CastSpell_DLC3_Kratshar:f66a79a01f1142241b66089e41d14963",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
-    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3"
+    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "attackIterations": [
     {
@@ -164,7 +165,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -228,17 +229,19 @@
       "m_SubObjectType": ""
     },
     "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "monsterPresentationDefinitions": [
+      "Definition:M_Sorr-Akkath_Krashtar:d21248a701e5d014b9947ada279df29d"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "faeb6798b34a45e45a321cfec6742d56",
+      "m_AssetGUID": "eebce908cc83b1240b3ee55de25e7c75",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.8,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "faeb6798b34a45e45a321cfec6742d56",
+      "m_AssetGUID": "eebce908cc83b1240b3ee55de25e7c75",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -247,7 +250,7 @@
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": false,
+    "canGeneratePortrait": true,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
@@ -258,10 +261,10 @@
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
-      "x": 0.5,
+      "x": 0.44,
       "y": 0.4
     },
-    "portraitCameraFOV": 40.0,
+    "portraitCameraFOV": 50.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
@@ -283,8 +286,8 @@
     "description": "Monster/&Sorak_Kratshar_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7b70269d7f30c854c9257c45c8f24098",
-      "m_SubObjectName": "CustomPortrait_Sorr-Akkath_Kratshar",
+      "m_AssetGUID": "6fece2d81c80a4041b506f8c3e7865a8",
+      "m_SubObjectName": "Sorr-Akkath_Kratshar_MonsterDefinition",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

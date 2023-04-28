@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetPatronFiendFiendishResilience:eeed9ff39c80f704dbd5fe2891a5f749",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPatronFiendHurlThroughHell:0af0f7e012ceed44b80037acaf233ca7",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

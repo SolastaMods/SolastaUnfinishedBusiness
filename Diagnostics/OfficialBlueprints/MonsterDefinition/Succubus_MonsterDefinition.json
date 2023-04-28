@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [
@@ -105,7 +105,9 @@
     "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
     "Definition:PowerPhaseIncubusTeleport:03745cdc8906a63459d41fe8ee07a1f9",
     "Definition:PowerIncubusDemonicInfluence:60f8b289fa22ade4b9d045379baa06fe",
-    "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424"
+    "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
@@ -132,7 +134,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Reference",
   "bestiaryReference": "Definition:Incubus_MonsterDefinition:b66bd35008bf8a34aa2b57a1305dcecf",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -150,9 +152,7 @@
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
-    "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Succubus:03c97522edc2d854a9508aa719d37ce0"
-    ],
+    "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
@@ -187,7 +187,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "a94d112c420e66840a2593b6ea6e8e93",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -198,17 +198,19 @@
       "m_SubObjectType": ""
     },
     "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "monsterPresentationDefinitions": [
+      null
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "ce3992b8d5e09384599a72082d69bd3e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "ce3992b8d5e09384599a72082d69bd3e",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -253,8 +255,8 @@
     "description": "Monster/&Succubus_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
+      "m_AssetGUID": "7aaa7589764ba37469a417060b993e61",
+      "m_SubObjectName": "NPC_Presentation_Succubus",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Arrow_Poisoned_TheBurden:7bf97a36e4b9eea40abe4438b2f3c0e7",
   "stackCount": 5,
-  "craftingHours": 32,
-  "craftingDC": 15,
+  "craftingHours": 4,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

@@ -4,7 +4,7 @@
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Light6",
-  "surName": "Monk",
+  "surName": "Race/&HumanSurName16Title",
   "abilityScores": [
     15,
     18,
@@ -119,7 +119,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "1620c98a7495415298447c506db49a9b",
+  "guid": "3a75ac8c8d079b247b4c18f2e360d4c5",
   "contentPack": "BaseGame",
   "name": "Monk_Light_Level06"
 }

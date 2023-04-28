@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkin_04",
+  "musculatureMorphotypeValue": 47.1847839,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 0.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_CA_D",
+  "hairShapeMorphotype": "HairShape_Z",
+  "hairColorMorphotype": "HairColor_43",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_27",
+  "scarsMorphotype": "Scars_02",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Leather",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.311320752,
+    "g": 0.0690192059,
+    "b": 0.275411755,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6960016,
+    "g": 0.163136333,
+    "b": 0.8867924,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.371743441,
+    "g": 0.0,
+    "b": 0.735849,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.531036437,
+    "g": 0.0323068723,
+    "b": 0.622641444,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Cultist_Archer_Title",
+    "description": "NPC/&DLC3_NPC_Cultist_Archer_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "46600af79d43b3f4dbcc2753204be0a7",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Cultist_Archer_M",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "10ab3155b0607bb439c3a34c961680e6",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_Cultist_Archer_M"
+}

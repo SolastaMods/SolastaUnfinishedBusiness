@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1600,
+    1000,
     0,
     0,
     0
@@ -30,10 +30,10 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": false,
+  "requiresAttunement": true,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Rare",
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -213,6 +213,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -221,8 +222,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -248,6 +248,6 @@
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
   "guid": "88eb831b644a43b4ca1c7fe344179197",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "BeltOfRegeneration"
 }

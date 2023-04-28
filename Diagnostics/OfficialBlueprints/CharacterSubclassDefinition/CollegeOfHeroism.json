@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBardHeroismThunderingVoice:ad638f8912750c648abad5d2d44c02bc",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardHeroismAtRoadsEnd:84a517ed445eaa04fb31a0a33155f742",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],
