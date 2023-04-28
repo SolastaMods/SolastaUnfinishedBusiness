@@ -76,15 +76,16 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetSavingThrowData()
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                canSaveToCancel = true,
-                hasSavingThrow = true,
-                saveOccurence = TurnOccurenceType.StartOfTurn,
-                conditionDefinition = conditionDammingStrike,
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                saveAffinity = EffectSavingThrowType.Negates
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    canSaveToCancel = true,
+                    hasSavingThrow = true,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = conditionDammingStrike,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .AddToDB();
 
         // Cursed Tongue

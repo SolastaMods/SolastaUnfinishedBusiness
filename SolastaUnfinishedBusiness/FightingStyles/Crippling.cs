@@ -43,8 +43,7 @@ internal sealed class Crippling : AbstractFightingStyle
                                         AttributeDefinitions.ArmorClass, -1)
                                     .AddToDB())
                             .AddToDB(),
-                        operation = ConditionOperationDescription.ConditionOperation.Add,
-                        saveAffinity = EffectSavingThrowType.None
+                        operation = ConditionOperationDescription.ConditionOperation.Add
                     })
                 .AddToDB())
         .AddToDB();

@@ -520,20 +520,21 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                hasSavingThrow = true,
-                canSaveToCancel = true,
-                saveAffinity = EffectSavingThrowType.Negates,
-                saveOccurence = TurnOccurenceType.StartOfTurn,
-                conditionDefinition = ConditionDefinitionBuilder
-                    .Create($"Condition{NAME}Enemy")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(power))
-                    .AddToDB(),
-                operation = ConditionOperationDescription.ConditionOperation.Add
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create($"Condition{NAME}Enemy")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(power))
+                        .AddToDB(),
+                    operation = ConditionOperationDescription.ConditionOperation.Add
+                })
             .AddToDB();
 
         var conditionThunderousSmite = ConditionDefinitionBuilder

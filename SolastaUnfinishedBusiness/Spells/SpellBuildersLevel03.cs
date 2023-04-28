@@ -405,12 +405,12 @@ internal static partial class SpellBuilders
                                 .SetNotificationTag($"SpiritShroud{damage}")
                                 .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
                                 .SetAttackOnly()
-                                .SetConditionOperations(new ConditionOperationDescription
-                                {
-                                    operation = ConditionOperationDescription.ConditionOperation.Add,
-                                    conditionDefinition = noHeal,
-                                    hasSavingThrow = false
-                                })
+                                .SetConditionOperations(
+                                    new ConditionOperationDescription
+                                    {
+                                        conditionDefinition = noHeal,
+                                        operation = ConditionOperationDescription.ConditionOperation.Add
+                                    })
                                 .SetDamageDice(DieType.D8, 1)
                                 .SetSpecificDamageType(damage)
                                 .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 0, 1, 2)
