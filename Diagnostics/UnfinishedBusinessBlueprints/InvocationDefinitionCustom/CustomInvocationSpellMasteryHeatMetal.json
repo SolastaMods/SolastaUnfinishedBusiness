@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 3,
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:HeatMetal:79c46ad5f66e0a34e8ec9ed3f08933fa",

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 3,
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:DetectPoisonAndDisease:18da711013867d949913c54b69bc70f1",

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
   "requiredKnownSpell": null,
-  "requiredLevel": 1,
+  "requiredLevel": 3,
   "requiredPact": null,
   "grantedFeature": null,
   "grantedSpell": "Definition:CalmEmotions:a879080b607fd75458e0eca2dea58e8a",

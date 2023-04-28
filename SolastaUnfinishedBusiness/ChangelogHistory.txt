@@ -10,7 +10,7 @@
 - added Wizard's spell mastery at 18th and signature spells at 20th
 - changed Caustic Zap sprite
 - changed Fairy's flight duration to permanent
-- fixed power bundles sub menu not showing
+- fixed power bundles submenu rendering
 - fixed Inventor's quick wit rolled value on log
 - fixed Ranger Survivalist minor issues
 - improved Sorcerous Field Manipulator's displacement logic

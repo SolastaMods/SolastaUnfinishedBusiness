@@ -44,6 +44,7 @@ ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪雨暴</color>更改为使用
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
+ModUi/&ClassesAndSubclasses=种族、职业和子职业
 ModUi/&Crafting=<color=#F0DAA0>制作：</color>
 ModUi/&CraftingHelp=.按下按钮即可在当前队伍中立即学习配方\n。添加到商店的物品可能需要队伍离开该地点然后回来
 ModUi/&Credits=制作人员
@@ -129,8 +130,8 @@ ModUi/&FormationSelected=已选择编队集{0}
 ModUi/&FullyControlConjurations=完全控制魔法造物<i><color=#F0DAA0>[动物、元素等]</color></i>
 ModUi/&GameUi=游戏界面
 ModUi/&Gameplay=玩法
-ModUi/&General=<color=#F0DAA0>一般：</color>
-ModUi/&GeneralMenu=一般的
+ModUi/&General=<color=#F0DAA0>通用：</color>
+ModUi/&GeneralMenu=通用
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
 ModUi/&House=<color=#F0DAA0>房子：</color>
@@ -170,7 +171,6 @@ ModUi/&Patches=<color=#F0DAA0>补丁：</color>
 ModUi/&PrimedItems=制备好的物品
 ModUi/&Progression=<color=#F0DAA0>进度：</color>
 ModUi/&Races=<color=#F0DAA0>种族</color>
-ModUi/&ClassesAndSubclasses=种族、职业和子职业
 ModUi/&RecipeCost=<color=white>配方成本</color>
 ModUi/&RecipesInDm=地城中的配方
 ModUi/&RelicForgeries=文物伪造品
@@ -193,7 +193,7 @@ ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
 ModUi/&Settings=<color=#F0DAA0>设置：</color>
 ModUi/&SettingsExport=导出
-ModUi/&SettingsHelp=.作为城主，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n。作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
+ModUi/&SettingsHelp=.作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n.作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
 ModUi/&SettingsLoad=.加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新

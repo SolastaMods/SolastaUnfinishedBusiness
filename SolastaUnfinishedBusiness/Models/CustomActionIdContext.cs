@@ -103,7 +103,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, "SignatureSpellsMain")
+            .Create(baseAction, "CastSignatureSpellsMain")
             .SetGuiPresentation("CastSignatureSpells", Category.Action, Sprites.ActionPlaneMagic, 10)
             .SetActionId(ExtraActionId.CastSignatureSpellsMain)
             .SetActionType(ActionType.Main)

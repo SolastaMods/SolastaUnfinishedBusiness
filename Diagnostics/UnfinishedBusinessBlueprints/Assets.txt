@@ -8,6 +8,7 @@ CastInvocationBonus	ActionDefinition	ActionDefinition	f2d189c0-5e0a-5a69-9ace-b4
 CastInvocationNoCost	ActionDefinition	ActionDefinition	0a4870d5-055f-5c2a-a6bd-e9529bb4a963
 CastPlaneMagicBonus	ActionDefinition	ActionDefinition	c02d5cad-8d69-5b88-8b98-790acbbca5b9
 CastPlaneMagicMain	ActionDefinition	ActionDefinition	77bc881a-c83d-5817-a1b8-b30a01442dfd
+CastSignatureSpellsMain	ActionDefinition	ActionDefinition	6359cd25-fe50-58d4-96e3-ac254323cfd8
 CastSpellMasteryMain	ActionDefinition	ActionDefinition	b84732e6-bfb3-5555-8301-48542befdfad
 CombatRageStart	ActionDefinition	ActionDefinition	9206ca7c-6ae0-59f1-8f28-ffd769a921d9
 CombatWildShape	ActionDefinition	ActionDefinition	24ead3d3-6347-5c8b-99b0-c28850ea83ea
@@ -18,7 +19,6 @@ InventorInfusion	ActionDefinition	ActionDefinition	642db154-e1fa-5314-a5f5-68593
 MonkKiPointsToggle	ActionDefinition	ActionDefinition	ce5d3c3e-7e36-5333-a9a1-080bcadbdd95
 PaladinSmiteToggle	ActionDefinition	ActionDefinition	65d9b910-2fb6-5eee-afe8-dc65ad1386a9
 PushedCustom	ActionDefinition	ActionDefinition	bfbd8373-389e-558c-8c4b-d20700c78ec2
-SignatureSpellsMain	ActionDefinition	ActionDefinition	bc71c526-d9d5-5c0e-881f-1ec05eb9f800
 TacticianGambitBonus	ActionDefinition	ActionDefinition	b1ef155a-7411-575e-8e44-7250ed15ffa4
 TacticianGambitMain	ActionDefinition	ActionDefinition	e43aa2c6-cefa-5fb6-af89-a4301acd224c
 TacticianGambitNoCost	ActionDefinition	ActionDefinition	c06b3df4-5fb5-52f9-a63f-c73a48207c25
