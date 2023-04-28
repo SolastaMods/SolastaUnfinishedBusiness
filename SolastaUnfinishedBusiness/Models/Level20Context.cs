@@ -639,10 +639,18 @@ internal static class Level20Context
             .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
             .AddToDB();
 
+        var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
+            .Create("PowerRogueStrokeOfLuck")
+            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerRogueStrokeOfLuck.SetCustomSubFeatures(new AlterAttackOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Rogue Stroke of Luck
+            new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
         });
     }
 
@@ -1052,6 +1060,58 @@ internal static class Level20Context
             damage.DamageBonusTrends.Add(new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
                 _featureDefinition.Name,
                 _featureDefinition));
+        }
+    }
+
+    private class AlterAttackOutcomeRogueStrokeOfLuck : IAlterAttackOutcome
+    {
+        private readonly FeatureDefinitionPower _power;
+
+        public AlterAttackOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        {
+            _power = power;
+        }
+
+        public IEnumerator TryAlterAttackOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            var rulesetCharacter = me.RulesetCharacter;
+
+            if (rulesetCharacter == null || rulesetCharacter.GetRemainingPowerCharges(_power) <= 0)
+            {
+                yield break;
+            }
+
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription"
+            };
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("RogueStrokeOfLuck", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            action.AttackRollOutcome = RollOutcome.Success;
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _power);
         }
     }
 }

@@ -5,7 +5,7 @@
 - added Battleaxe magical items and recipes
 - added Druid's arch druid at 20th
 - added Ranger's foe slayer at 20th
-- added Rogue's elusive at 18th
+- added Rogue's elusive at 18th and stroke of luck at 20th
 - added Wizard's spell mastery at 18th
 - changed Caustic Zap sprite
 - changed Fairy's flight duration to permanent
