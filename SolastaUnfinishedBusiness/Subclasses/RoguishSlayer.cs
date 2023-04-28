@@ -94,7 +94,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
@@ -131,7 +130,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })

@@ -129,11 +129,12 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetRequiredProperty(RestrictedContextRequiredProperty.UnarmedOrMonkWeapon)
             .SetImpactParticleReference(ConditionDefinitions.ConditionShocked.conditionParticleReference)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionEyeOfTheStorm,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    ConditionDefinition = conditionEyeOfTheStorm,
+                    Operation = ConditionOperationDescription.ConditionOperation.Add
+                })
             .AddToDB();
 
         // Staggered

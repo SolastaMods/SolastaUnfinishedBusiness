@@ -558,20 +558,21 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
 [*][b]Required Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
 [*][b]Relic Forgeries[/b]: Tirmarian Holy Symbol, Depleted Rune, Imperial Gate Plaque, Aksha's Journal, Ancient Manifest, Tirmarian Master Smith's Memoirs, Tirmarian Inquisitor's Journal, Poem, The Elven Wars, Silent Whisper Parchment
-[*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
-[*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
-[*][b]Handaxe[/b]: Handaxe of Acuteness, Handaxe of Sharpness, Souldrinker Handaxe, Frostburn Handaxe
-[*][b]Javelin[/b]: Javelin of Acuteness, Javelin of Sharpness, Souldrinker Javelin, Frostburn Javelin
-[*][b]Dart[/b]: Dart of Acuteness, Dart of Sharpness, Souldrinker Dart, Frostburn Dart
 [*][b]Club[/b]: Club of Acuteness, Bearclaw Club, Club of Power, Lightbringer Club, Punisher Club
 [*][b]Maul[/b]: Maul of Acuteness, Bearclaw Maul, Maul of Power, Lightbringer Maul, Punisher Maul
 [*][b]Warhammer[/b]: Warhammer of Acuteness, Bearclaw Warhammer, Warhammer of Power, Lightbringer Warhammer, Punisher Warhammer
-[*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
-[*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
-[*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
-[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
+[*][b]Battleaxe[/b]: Battleaxe of Acuteness, Bearclaw Battleaxe, Battleaxe of Power, Lightbringer Battleaxe, Punisher Battleaxe
+[*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
+[*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
 [*][b]Greataxe[/b]: Greataxe of Acuteness, Bearclaw Greataxe, Greataxe of Power, Lightbringer Greataxe, Punisher Greataxe
 [*][b]Greatsword[/b]: Punisher Greatsword
+[*][b]Handaxe[/b]: Handaxe of Acuteness, Handaxe of Sharpness, Souldrinker Handaxe, Frostburn Handaxe
+[*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
+[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
+[*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
+[*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
+[*][b]Javelin[/b]: Javelin of Acuteness, Javelin of Sharpness, Souldrinker Javelin, Frostburn Javelin
+[*][b]Dart[/b]: Dart of Acuteness, Dart of Sharpness, Souldrinker Dart, Frostburn Dart
 [*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection

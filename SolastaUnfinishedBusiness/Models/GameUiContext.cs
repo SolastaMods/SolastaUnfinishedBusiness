@@ -816,7 +816,7 @@ internal static class GameUiContext
         }
     }
 #endif
-    
+
     internal static void ResetFormationGrid(int selectedSet)
     {
         for (var y = 0; y < GridSize; y++)

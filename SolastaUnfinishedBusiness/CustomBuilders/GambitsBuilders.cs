@@ -61,11 +61,12 @@ internal static class GambitsBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                conditionName = MartialTactician.MarkDamagedByGambit
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionName = MartialTactician.MarkDamagedByGambit
+                })
             .SetFrequencyLimit(limit)
             .AddToDB();
     }

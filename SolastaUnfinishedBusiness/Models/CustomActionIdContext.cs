@@ -101,6 +101,14 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Main)
             .SetActionScope(ActionScope.All)
             .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "SignatureSpellsMain")
+            .SetGuiPresentation("CastSignatureSpells", Category.Action, Sprites.ActionPlaneMagic, 10)
+            .SetActionId(ExtraActionId.CastSignatureSpellsMain)
+            .SetActionType(ActionType.Main)
+            .SetActionScope(ActionScope.All)
+            .AddToDB();
     }
 
     private static void BuildCustomPushedAction()
@@ -322,6 +330,8 @@ public static class CustomActionIdContext
                    or ExtraActionId.InventorInfusion
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus
+                   or ExtraActionId.CastSpellMasteryMain
+                   or ExtraActionId.CastSignatureSpellsMain
                || IsGambitActionId(id);
     }
 

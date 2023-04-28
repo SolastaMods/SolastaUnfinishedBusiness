@@ -53,6 +53,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
         var conditionDisablingStrike = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionHindered_By_Frost, $"Condition{Name}DisablingStrike")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
@@ -64,14 +65,16 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.Negates,
                 AttributeDefinitions.Dexterity)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionDisablingStrike,
-                Operation = ConditionOperationDescription.ConditionOperation.Add,
-                hasSavingThrow = true,
-                canSaveToCancel = true,
-                saveOccurence = TurnOccurenceType.EndOfTurn
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    ConditionDefinition = conditionDisablingStrike,
+                    Operation = ConditionOperationDescription.ConditionOperation.Add,
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveOccurence = TurnOccurenceType.EndOfTurn,
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .AddToDB();
 
         //
@@ -104,6 +107,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
         var conditionImprovedDisablingStrike = ConditionDefinitionBuilder
             .Create(conditionDisablingStrike, $"Condition{Name}ImprovedDisablingStrike")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetParentCondition(ConditionDefinitions.ConditionHindered)
             .AddFeatures(attributeModifierImprovedDisablingStrike)
             .AddToDB();
 
@@ -113,14 +117,16 @@ internal sealed class RangerSurvivalist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.Negates,
                 AttributeDefinitions.Dexterity)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionImprovedDisablingStrike,
-                Operation = ConditionOperationDescription.ConditionOperation.Add,
-                hasSavingThrow = true,
-                canSaveToCancel = true,
-                saveOccurence = TurnOccurenceType.EndOfTurn
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    ConditionDefinition = conditionImprovedDisablingStrike,
+                    Operation = ConditionOperationDescription.ConditionOperation.Add,
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveOccurence = TurnOccurenceType.EndOfTurn,
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrike())
             .AddToDB();
 
@@ -168,7 +174,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
     internal static void LateLoad()
     {
         FeatureSetAnalyticalMind.FeatureSet.Add(
-            GetDefinition<FeatureDefinitionProficiency>($"ProficiencyFeatExecutioner"));
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyFeatExecutioner"));
     }
 
     private sealed class CustomCodeImprovedDisablingStrike : IFeatureDefinitionCustomCode

@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionHindered:a7ec75561313d2a41aab8635a306ed41",
   "conditionType": "Detrimental",
   "features": [
     "Definition:AttributeModifierRangerSurvivalistImprovedDisablingStrike:3eeccab0-8b60-5f3f-b529-256bfe40926b",
