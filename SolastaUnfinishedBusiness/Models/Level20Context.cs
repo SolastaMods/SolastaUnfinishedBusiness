@@ -376,8 +376,9 @@ internal static class Level20Context
             .Create("MagicAffinityArchDruid")
             .SetGuiPresentation(Category.Feature)
             .SetHandsFullCastingModifiers(true, true, true, true)
-            .SetCustomSubFeatures(new OnAfterActionFeatureArchDruid())
             .AddToDB();
+
+        magicAffinityArchDruid.SetCustomSubFeatures(new OnAfterActionFeatureArchDruid(magicAffinityArchDruid));
 
         if (!Main.IsDebugBuild)
         {
@@ -940,6 +941,13 @@ internal static class Level20Context
 
     private sealed class OnAfterActionFeatureArchDruid : IOnAfterActionFeature
     {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public OnAfterActionFeatureArchDruid(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
         public void OnAfterAction(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower)
@@ -955,8 +963,16 @@ internal static class Level20Context
                 return;
             }
 
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                return;
+            }
+
             var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, action.ActingCharacter.RulesetCharacter);
 
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
             usablePower.RepayUse();
         }
     }
