@@ -85,7 +85,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionDistractingAmbush
                 })

@@ -925,7 +925,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 
         //reuse DC modifier from previous checks, not 100% sure this is correct
         var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + saveOutcomeDelta;
+        var rolled = saveDc + saveOutcomeDelta - bonus;
         var success = saveOutcomeDelta >= 0;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";

@@ -1,5 +1,20 @@
 ﻿CHANGES:
 
+1.4.33.80:
+
+- added Battleaxe magical items and recipes
+- added Bard's superior inspiration at 20th
+- added Druid's arch druid at 20th
+- added Ranger's foe slayer at 20th
+- added Rogue's elusive at 18th and stroke of luck at 20th
+- added Wizard's spell mastery at 18th and signature spells at 20th
+- changed Caustic Zap sprite
+- changed Fairy's flight duration to permanent
+- fixed power bundles submenu rendering
+- fixed Inventor's quick wit rolled value on log
+- fixed Ranger Survivalist minor issues
+- improved Sorcerous Field Manipulator's displacement logic
+
 1.4.33.79:
 
 - added Ranger Survivalist subclass

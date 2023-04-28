@@ -94,10 +94,8 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(
         ConditionOperationDescription.ConditionOperation operation, ConditionDefinition condition)
     {
-        return AddConditionOperation(new ConditionOperationDescription
-        {
-            operation = operation, conditionDefinition = condition
-        });
+        return AddConditionOperation(
+            new ConditionOperationDescription { operation = operation, conditionDefinition = condition });
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(

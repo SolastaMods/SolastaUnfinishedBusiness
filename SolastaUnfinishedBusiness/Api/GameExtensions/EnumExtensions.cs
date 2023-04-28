@@ -196,7 +196,9 @@ internal enum ExtraActionId
     CannonFlamethrower = 9018,
     CannonForceBallista = 9019,
     CannonProtector = 9020,
-    CombatRageStart = 9021
+    CombatRageStart = 9021,
+    CastSpellMasteryMain = 9022,
+    CastSignatureSpellsMain = 9023
 }
 
 #if false

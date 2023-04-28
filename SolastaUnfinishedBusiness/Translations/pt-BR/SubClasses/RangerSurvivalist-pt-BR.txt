@@ -1,8 +1,10 @@
-Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 na classe de armadura.
+Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 para mover a velocidade.
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Golpe incapacitante
+Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 para classe de armadura e velocidade de movimento.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Golpe incapacitante aprimorado
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=A primeira vez que você atingir uma criatura com um ataque de arma em cada um de seus turnos, ela deve fazer um teste de resistência de Destreza contra a CD da sua magia ranger ou ficará impedida por um minuto. Uma criatura pode repetir o teste de resistência no final de cada um de seus turnos, terminando o efeito em caso de sucesso.
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeTitle=Desabilitando Greve
-Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeDescription=Seu Disabling Strike agora se aplica a todos os ataques de arma que você fizer e reduz a CA da criatura em 2, além de impedi-la.
+Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeDescription=Seu Disabling Strike agora se aplica a todos os ataques de arma que você fizer e reduz a CA da criatura em 2, além de impedi-la. Além disso, os benefícios do seu estilo de luta Executioner agora se estendem às criaturas afetadas pela condição prejudicada.
 Feature/&AdditionalDamageRangerSurvivalistImprovedDisablingStrikeTitle=Golpe incapacitante aprimorado
 Feature/&AutoPreparedSpellsRangerSurvivalistDescription=Você ganha feitiços de bônus que são considerados feitiços de Ranger para você, eles estão sempre preparados e não contam para o número de feitiços de Ranger que você conhece:\n{0}\n\n
 Feature/&AutoPreparedSpellsRangerSurvivalistTitle=Magias Bônus de Sobrevivência

@@ -23,13 +23,15 @@ internal class FeatureDefinitionMagicAffinityBuilder
     }
 
     internal FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(
-        bool weapon,
-        bool weaponOrShield,
-        bool weaponAsFocus)
+        bool weapon = false,
+        bool weaponOrShield = false,
+        bool weaponAsFocus = false,
+        bool impairedSpeech = false)
     {
         Definition.somaticWithWeaponOrShield = weaponOrShield;
         Definition.somaticWithWeapon = weapon;
         Definition.canUseProficientWeaponAsFocus = weaponAsFocus;
+        Definition.impairedSpeech = impairedSpeech;
 
         return this;
     }

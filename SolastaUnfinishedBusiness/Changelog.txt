@@ -1,10 +1,9 @@
 Open Mod UI > Tools and click History for full details:
 
-- added Ranger Survivalist subclass
-- changed Caustic Zap progression to one additional enemy per slot level
-- changed Powerful metamagic cost to 1 fixed point
-- changed RESPEC to copy over adventure stats from older hero
-- changed Roguish Arcane Scoundrel's gambit to bonus action
-- changed power bundles sub menu to render on top of other UI elements
-- rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
-- removed shape form / summons attacks swap action as causing MP desyncs
+- added Battleaxe magical items and recipes
+- added Bard's superior inspiration at 20th
+- added Druid's arch druid at 20th
+- added Ranger's foe slayer at 20th
+- added Rogue's elusive at 18th and stroke of luck at 20th
+- added Wizard's spell mastery at 18th and signature spells at 20th
+- fixed power bundles submenu rendering

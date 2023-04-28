@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -29,7 +30,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(ref float __result)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }
@@ -63,7 +64,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(ref int __result, int min, int max)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }
@@ -97,7 +98,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(ref float __result, float min, float max)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }
@@ -131,7 +132,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(Game __instance)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }
@@ -150,7 +151,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(Game __instance)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }
@@ -169,7 +170,7 @@ public static class DeterministicRandomPatcher
         [UsedImplicitly]
         public static bool Prefix(Game __instance)
         {
-            if (!Main.Settings.EnablePcgRandom)
+            if (!Main.Settings.EnablePcgRandom || Global.IsMultiplayer)
             {
                 return true;
             }

@@ -119,6 +119,7 @@ internal static class SubclassesContext
     {
         CircleOfTheLife.LateLoad();
         CollegeOfLife.LateLoad();
+        RangerSurvivalist.LateLoad();
         SorcerousFieldManipulator.LateLoad();
     }
 
