@@ -15,7 +15,7 @@
   "cantripRetribution": false,
   "forcedSavingThrowAffinity": "None",
   "forcedSpellDefinition": null,
-  "impairedSpeech": true,
+  "impairedSpeech": false,
   "somaticWithWeaponOrShield": true,
   "somaticWithWeapon": true,
   "canUseProficientWeaponAsFocus": true,
