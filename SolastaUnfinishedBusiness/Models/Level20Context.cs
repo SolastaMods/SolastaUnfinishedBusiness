@@ -639,7 +639,7 @@ internal static class Level20Context
             {
                 new(SenseRogueBlindsense, 14),
                 new(ProficiencyRogueSlipperyMind, 15),
-                new(FeatureSetAbilityScoreChoice, 16),
+                new(FeatureSetAbilityScoreChoice, 16)
             });
         }
 
@@ -805,13 +805,13 @@ internal static class Level20Context
             .Where(x => x.ActivationTime != ActivationTime.Reaction);
 
         var invocations = allPossibleSpells
-            .Where(x => x.castingTime is not ActivationTime.Reaction)
             .Select(spell =>
                 CustomInvocationDefinitionBuilder
                     .Create($"CustomInvocation{SPELL_MASTERY}{spell.Name}")
                     .SetGuiPresentation(spell.GuiPresentation)
                     .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
                     .SetGrantedSpell(spell)
+                    .SetRequirements(3)
                     .SetCustomSubFeatures(
                         ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name),
                         IsValid())
@@ -826,16 +826,49 @@ internal static class Level20Context
         return grantInvocationsSpellMastery;
     }
 
+    private static FeatureDefinition BuildWizardSignatureSpells()
+    {
+        const string SIGNATURE_SPELLS = "SignatureSpells";
+
+        // any non reaction spell of 3rd level
+        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
+            .Where(x => x.level is 3)
+            .SelectMany(x => x.Spells)
+            .Where(x => x.ActivationTime != ActivationTime.Reaction)
+            .ToList();
+
+        allPossibleSpells
+            .ForEach(spell =>
+                CustomInvocationDefinitionBuilder
+                    .Create($"CustomInvocation{SIGNATURE_SPELLS}{spell.name}")
+                    .SetGuiPresentation(spell.GuiPresentation)
+                    .SetPoolType(InvocationPoolTypeCustom.Pools.SignatureSpells)
+                    .SetGrantedSpell(spell)
+                    .SetCustomSubFeatures(
+                        InvocationShortRestRecharge.Marker,
+                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name))
+                    .AddToDB());
+
+        var invocationPoolWizardSignatureSpells = CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolWizardSignatureSpells")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.SignatureSpells, 2)
+            .AddToDB();
+
+        return invocationPoolWizardSignatureSpells;
+    }
+
     private static void WizardLoad()
     {
-        var grantInvocationsSpellMastery = BuildWizardSpellMastery();
+        var spellMastery = BuildWizardSpellMastery();
+        var signatureSpells = BuildWizardSignatureSpells();
 
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetAbilityScoreChoice, 16),
-            new(grantInvocationsSpellMastery, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Signature Spells
+            new(spellMastery, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(signatureSpells, 20)
         });
 
         EnumerateSlotsPerLevel(
