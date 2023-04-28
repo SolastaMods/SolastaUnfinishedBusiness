@@ -131,10 +131,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetImpactParticleReference(ConditionDefinitions.ConditionShocked.conditionParticleReference)
             .SetConditionOperations(
                 new ConditionOperationDescription
-            {
-                ConditionDefinition = conditionEyeOfTheStorm,
-                Operation = ConditionOperationDescription.ConditionOperation.Add
-            })
+                {
+                    ConditionDefinition = conditionEyeOfTheStorm,
+                    Operation = ConditionOperationDescription.ConditionOperation.Add
+                })
             .AddToDB();
 
         // Staggered

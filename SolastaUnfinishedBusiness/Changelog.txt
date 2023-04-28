@@ -5,5 +5,5 @@ Open Mod UI > Tools and click History for full details:
 - added Druid's arch druid at 20th
 - added Ranger's foe slayer at 20th
 - added Rogue's elusive at 18th and stroke of luck at 20th
-- added Wizard's spell mastery at 18th
+- added Wizard's spell mastery at 18th and signature spells at 20th
 - fixed power bundles sub menu not showing
