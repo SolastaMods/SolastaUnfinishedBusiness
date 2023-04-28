@@ -4,7 +4,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "",
-    "description": "Equipment/&ItemFlagIngredientDescription",
+    "description": "Equipment/&ItemFlagCraftingComponentDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "af3d2d38fabdca246b6b259f325f6034",

@@ -1,0 +1,66 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_Enchant_RiverEmerald:7858849b8df8d5d438f06743ab205622",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Ice:75fae984d7b2a05419c5681b5c4a7415",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Ice_Minor:1dfa744ba030c744c92e60d6d9576dfa",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "16828fb79f32c39459962426ddafcb5d",
+  "contentPack": "PrimalCalling",
+  "name": "DLC3_Kaupaa_Keep_Lootpack_DemonHideoutCrate02"
+}

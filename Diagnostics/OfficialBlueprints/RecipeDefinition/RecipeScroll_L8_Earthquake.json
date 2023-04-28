@@ -1,0 +1,64 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollEarthquake:bd6653df7ac0c464988b49550c2de309",
+  "stackCount": 1,
+  "craftingHours": 6,
+  "craftingDC": 25,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:1000_GP_Diamond:b6dcb2b305ede8440bf70c35e774e736"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 10,
+      "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 7,
+      "itemDefinition": "Definition:Ingredient_Skarn:e97f0c5417a96c3439e8aaf66a58d342"
+    }
+  ],
+  "spellDefinition": "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollEarthquakeTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9893847ed8394e9478334b0de65288f2",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L8_Earthquake"
+}

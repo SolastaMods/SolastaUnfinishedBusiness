@@ -200,6 +200,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -210,8 +211,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -237,6 +237,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "e82a3790a4fa6b74ea5c986c9551d888",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "DLC1_Equipment_Quest_Mask_04_Guard_Report_Document"
 }

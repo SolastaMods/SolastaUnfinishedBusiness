@@ -1,6 +1,8 @@
 {
   "$type": "LocationDefinition, Assembly-CSharp",
   "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
   "alwaysHidden": false,
   "registeredFactions": [],
   "registeredVariables": [
@@ -298,6 +300,7 @@
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "entranceIdxToSpriteReferenceMappings": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

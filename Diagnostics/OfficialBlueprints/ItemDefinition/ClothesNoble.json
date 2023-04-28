@@ -186,6 +186,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -199,6 +200,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -211,13 +214,14 @@
       "Armor",
       "Shape",
       "Armor",
+      "Shape",
+      "Shape",
       "Shape"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -225,8 +229,8 @@
     "description": "Equipment/&Armor_Noble_ClothesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b5152b8d06b85f449b99190dd2a74c7d",
-      "m_SubObjectName": "NobleOutfit_male",
+      "m_AssetGUID": "bfde33441923e784c8dea21baf526900",
+      "m_SubObjectName": "NobleOutfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

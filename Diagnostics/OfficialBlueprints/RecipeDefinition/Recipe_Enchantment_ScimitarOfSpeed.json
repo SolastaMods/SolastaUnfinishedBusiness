@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Enchanted_Scimitar_Of_Speed:997c6afa1884c164f9e0e0c30279ccb5",
   "stackCount": 1,
-  "craftingHours": 96,
-  "craftingDC": 16,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -14,14 +15,14 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Enchant_LifeStone:fe44147b00fe32445bdc2bb69579a39b"
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
     }
   ],
   "spellDefinition": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Enchanted_Scimitar_Of_Speed_Title",
+    "title": "Equipment/&ScimitarOfSharpness_Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -43,6 +44,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "24892d43a11c176488ba05bd8e0359e1",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "Recipe_Enchantment_ScimitarOfSpeed"
 }

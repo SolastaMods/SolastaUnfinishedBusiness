@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "sex": "Female",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkin_04",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_NPC_Karelia_Snowfox",
+  "hairShapeMorphotype": "HairShape_Z",
+  "hairColorMorphotype": "HairColor_31",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_003",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_13",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Enchanted_HalfPlateOfFortitude",
+  "helmetDefinition": "",
+  "tabardDefinition": "ClothesTabardDLC3_Southern",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_SouthernClans_Guard_City_Title",
+    "description": "NPC/&DLC3_NPC_SouthernClans_Guard_City_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5af6a6e866d67b94f83b1a5a5f4376ce",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Guard_07",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "a00509d6b5fc31c4d9810d6e6102ab0a",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_SouthernClans_Guard_07"
+}

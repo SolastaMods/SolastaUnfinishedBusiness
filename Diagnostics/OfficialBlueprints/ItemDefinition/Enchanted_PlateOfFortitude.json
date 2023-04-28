@@ -1,0 +1,256 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "merchantCategory": "Armor",
+  "weight": 40.0,
+  "slotTypes": [
+    "TorsoSlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "TorsoSlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    25500,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Metal"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Legendary",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:AbilityCheckAffinityStealthDisadvantage:9c11dd5a3648c3e428c06d67996180a5",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndVisible"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    }
+  ],
+  "isArmor": true,
+  "armorDefinition": {
+    "$type": "ArmorDescription, Assembly-CSharp",
+    "armorType": "PlateType",
+    "armorClassValue": 18,
+    "isBaseArmorClass": true,
+    "maxDexterityBonus": 0,
+    "requiresMinimalStrength": true,
+    "minimalStrength": 15
+  },
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&PlatePlus1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&ScaleArmorPlus1_Unidentified_Description",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": true,
+    "isArmorAddressableNameGenderSpecific": false,
+    "armorAddressableName": "FullPlate",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "FullPlatelvl1",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [
+      "Armor",
+      "Nothing",
+      "Shape",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor"
+    ],
+    "femaleBodyPartBehaviours": [],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "clueSuspectPairs": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&PlateOfFortitude_Title",
+    "description": "Equipment/&GenericCraftedArmor+3_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8410ae69caddc1341920572b626ee332",
+      "m_SubObjectName": "DLC3_Plate+3",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5db9113dc23c1ce479c7632fb1a274b2",
+  "contentPack": "BaseGame",
+  "name": "Enchanted_PlateOfFortitude"
+}

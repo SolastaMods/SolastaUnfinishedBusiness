@@ -1,0 +1,293 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "DLC3_Faction_ElvenClan",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 15,
+  "armor": "StuddedLeather",
+  "hitDice": 8,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 16,
+  "standardHitPoints": 60,
+  "abilityScores": [
+    12,
+    18,
+    14,
+    10,
+    10,
+    12
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 4
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 5
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Athletics",
+      "bonus": 4
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Stealth",
+      "bonus": 7
+    }
+  ],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:RangedWithSelfHealCombatDecisions:1c48a55f5afa782449b7693b329f3481",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.0
+    },
+    "name": "PrioritizeDamageDealers_Ranged"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_F_Sima",
+        "id": 3081666694,
+        "guid": "C5A3F32D-3481-4D04-9DBE-0634B7C1CBDA",
+        "name": "C5A3F32D-3481-4D04-9DBE-0634B7C1CBDA"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 3.0,
+  "challengeRating": 3.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:DLC3_NPC_ElvenClans_Guard_Loot_Drop:41d42f1221884cb46977a89f407d06f8",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
+    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
+    "Definition:PowerFighterSecondWind_Dominion_Soldier:c3dde3d8e12201c4bb90f5da1ef7cadd",
+    "Definition:AttackModifierFightingStyleArchery:04969ccd466cdac489c0b80365bbaf86"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Guard_Captain_Elven_Shortbow:2b25cc889461ee544b284b3d80d25340"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Guard_Captain_Elven_Shortsword:7ad41ff1d047b2148b7af2b4eacd9a08"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "Run",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": true,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_DLC3_ElvenClans_GuardCaptain:31c3e3fe7c88dbc469f02be625b30947"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "06a468f2a92070841bf16acd0e7bd262",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": false,
+    "hasPhantomFadingFeet": false,
+    "hasPhantomVertexAnimation": false,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.6553079,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.6553079,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": true,
+  "uniqueNameId": "ElvenClans_GuardCaptain",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Elven_GuardCaptain_Title",
+    "description": "NPC/&DLC3_NPC_Elven_GuardCaptain_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "fb1928bb271c6a948b4ab97566365430",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_NPC_ElvenClans_GuardPalace"
+}

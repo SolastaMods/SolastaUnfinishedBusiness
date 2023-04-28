@@ -1,5 +1,6 @@
 {
   "$type": "CampaignNodeTypeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "graphicsCampaignNodeReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "a25bbb3d3c212a84383373d1a6fa48b8",

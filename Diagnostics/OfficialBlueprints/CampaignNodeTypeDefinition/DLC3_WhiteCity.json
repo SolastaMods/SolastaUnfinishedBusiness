@@ -1,0 +1,37 @@
+{
+  "$type": "CampaignNodeTypeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "graphicsCampaignNodeReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "ad4cb6b430211b54eb3bc1eb168f8d17",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6c97677e11097694b914e29b1dc7353f",
+  "contentPack": "BaseGame",
+  "name": "DLC3_WhiteCity"
+}

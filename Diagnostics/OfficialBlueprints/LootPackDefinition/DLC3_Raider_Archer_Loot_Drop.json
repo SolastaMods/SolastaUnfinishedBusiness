@@ -1,0 +1,96 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:StuddedLeather:d5ecaa9b5baa3e94f96107c280f33c0c",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:5D6_Gold_Coins:c7ef4dc502217ae498b72232aaf308e4",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D20",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+      "treasureTableDefinition": "Definition:Random_BrimstoneViper_Table:64810a6a0bb85904f8b5579306cb2c2a",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5259bb1a7be597544a26e2eb3723559a",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Raider_Archer_Loot_Drop"
+}

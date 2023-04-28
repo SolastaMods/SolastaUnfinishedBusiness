@@ -1,0 +1,55 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": false,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Furniture",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "29572c1a16d0f8d4e8c442b0628eaa6e",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&CaravanDestroyTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a6d79e2a2cecb294893f3e0f7c797bb6",
+      "m_SubObjectName": "Table",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "af0173c604eb9104889d08cd662d20a4",
+  "contentPack": "BaseGame",
+  "name": "Caravan_Destroy_A"
+}

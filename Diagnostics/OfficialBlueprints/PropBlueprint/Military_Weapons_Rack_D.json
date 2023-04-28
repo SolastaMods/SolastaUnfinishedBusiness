@@ -1,0 +1,65 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": false,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Furniture",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "00c6b8c98636ca34bbd05684a1639545",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "767af452256d5a24d961a1aa1e6b990b",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&MilitaryWeaponsRackTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f6178a30c7fcb844492a50e6efc75b07",
+      "m_SubObjectName": "FireBasin",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "07e79efc41f305145a5f09627fa37b16",
+  "contentPack": "BaseGame",
+  "name": "Military_Weapons_Rack_D"
+}

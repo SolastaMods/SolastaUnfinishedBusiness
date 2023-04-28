@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfGiantStrengthFire:b25e1731ffb23954b947429ffe909020",
   "stackCount": 1,
-  "craftingHours": 84,
-  "craftingDC": 17,
+  "craftingHours": 4,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

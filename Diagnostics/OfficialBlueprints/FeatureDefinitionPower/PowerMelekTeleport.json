@@ -321,7 +321,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&PowerMelekTeleport_Title",
     "description": "Feature/&PowerMelekTeleport_Description",
     "spriteReference": {

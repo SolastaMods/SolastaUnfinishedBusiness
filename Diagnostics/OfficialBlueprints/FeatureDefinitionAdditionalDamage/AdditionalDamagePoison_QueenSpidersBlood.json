@@ -30,9 +30,9 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
-  "savingThrowDC": 15,
+  "savingThrowDC": 19,
   "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "Negates",
+  "damageSaveAffinity": "HalfDamage",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",
@@ -40,7 +40,7 @@
       "operation": "Add",
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionPoisonedQueenSpiderBlood:1c647212482306544b1b81be64d0c137",
-      "saveAffinity": "HalfDamage",
+      "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "EndOfTurn"
     }

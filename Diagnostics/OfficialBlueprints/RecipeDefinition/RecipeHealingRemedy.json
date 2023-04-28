@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
   "stackCount": 1,
-  "craftingHours": 8,
-  "craftingDC": 12,
+  "craftingHours": 2,
+  "craftingDC": 10,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

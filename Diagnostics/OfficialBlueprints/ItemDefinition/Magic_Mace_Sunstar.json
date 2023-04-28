@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4500,
+    10000,
     0,
     0,
     0
@@ -35,12 +35,7 @@
   "magical": true,
   "requiresAttunement": true,
   "requiresIdentification": true,
-  "requiredAttunementClasses": [
-    "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
-    "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
-    "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
-    "Definition:Ranger:d4cb9ea3b00ab6a4c9d3cd07aa199f40"
-  ],
+  "requiredAttunementClasses": [],
   "itemRarity": "Legendary",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
@@ -50,7 +45,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Sunstar:075cdf1913cc4824e88d18e42515be99",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -58,7 +53,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Sunstar2:c64f57554913a9542a565b3703123d7f",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -513,6 +508,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -521,8 +517,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -548,6 +543,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "e9a4fe29d1925634bb1d44e04172e53d",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Magic_Mace_Sunstar"
 }

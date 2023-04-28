@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4500,
+    10000,
     0,
     0,
     0
@@ -45,7 +45,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Feybane:ff258b0307039f44089f55ce7ddd39e5",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -53,7 +53,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Feybane2:2e27a4dbdc2157f4ab9a7b446bc0b631",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -583,6 +583,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -591,8 +592,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -618,6 +618,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "e1cda03cd43349c4e8d297f2e66d113e",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Magic_Dagger_Feybane"
 }

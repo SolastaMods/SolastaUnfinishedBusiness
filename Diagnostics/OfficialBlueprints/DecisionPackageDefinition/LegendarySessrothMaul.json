@@ -1,0 +1,43 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "8e10a7944322dd1498697b486c3ffcb9",
+  "contentPack": "BaseGame",
+  "name": "LegendarySessrothMaul"
+}

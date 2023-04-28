@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "type": "Battle",
   "challengeRating": 18,
   "locationOverride": null,

@@ -51,8 +51,8 @@
     "description": "Spell/&SpellWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "47bc3df414a2f4b438b0a7d7edefbfa7",
-      "m_SubObjectName": "ProxySpellWard",
+      "m_AssetGUID": "12abe4b06c579804ea356c1c9717921e",
+      "m_SubObjectName": "SpellWard",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

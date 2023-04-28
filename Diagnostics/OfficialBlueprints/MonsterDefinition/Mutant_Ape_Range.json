@@ -80,8 +80,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:Mutant_Ape:4828023e184c8904c822d9466abf4b16",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,

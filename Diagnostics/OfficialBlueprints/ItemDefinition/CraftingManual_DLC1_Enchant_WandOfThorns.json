@@ -16,7 +16,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    200,
+    500,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -200,6 +200,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -208,8 +209,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -217,8 +217,8 @@
     "description": "Equipment/&CraftingManualDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f208675cc74e7464a8788433336dabc0",
-      "m_SubObjectName": "RecipeManual3",
+      "m_AssetGUID": "dbf9734a19bffbf43ba52d195783d5fe",
+      "m_SubObjectName": "RecipeManual1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -235,6 +235,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "ffad79210258ffa498d0dbf499c24945",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "CraftingManual_DLC1_Enchant_WandOfThorns"
 }

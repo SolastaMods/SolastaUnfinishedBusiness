@@ -1,0 +1,37 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": false,
+  "sceneReferenceOverride": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "1ecd0bdb71d2d154ebae05ba8c59157c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&DwarfInteriorTitle",
+    "description": "Environment/&DwarfInteriorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f5dabe1eba1a81f478aba897c3545b78",
+      "m_SubObjectName": "EnvironmentDwarfInterior",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 6,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "66729d14ccd28bb45bdfe06f683ef218",
+  "contentPack": "PalaceOfIce",
+  "name": "DwarfInterior"
+}

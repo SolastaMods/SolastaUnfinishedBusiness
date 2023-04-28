@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "type": "Battle",
   "challengeRating": 6,
   "locationOverride": "Definition:DLC1_Encounter_Jungle_River_LocationDB:37a12bdacdb526c41abebe05a5cf2359",

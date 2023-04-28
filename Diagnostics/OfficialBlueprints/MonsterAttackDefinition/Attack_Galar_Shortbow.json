@@ -308,11 +308,13 @@
   },
   "projectile": "Arrow",
   "projectileBone": "Prop1",
-  "itemDefinitionMainHand": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873",
+  "itemDefinitionMainHand": "Definition:Shortbow:127ccd4869d66bb48aa8e800a6f1d9d8",
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -374,9 +376,9 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "897d19c73cbdc8c4482dea01192136d3",
+      "m_SubObjectName": "StandardShortbow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

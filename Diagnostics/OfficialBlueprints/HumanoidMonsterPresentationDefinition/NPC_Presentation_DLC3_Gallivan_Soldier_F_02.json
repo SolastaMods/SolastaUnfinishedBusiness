@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_AF",
+  "skinMorphotype": "FaceAndSkin_30",
+  "musculatureMorphotypeValue": 43.6,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_AF_A",
+  "hairShapeMorphotype": "HairShape_H",
+  "hairColorMorphotype": "HairColor_21",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_008",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_05",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_04",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Breastplate",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.06617352,
+    "g": 1.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.06617352,
+    "g": 1.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_GallivanHopliteF_Title",
+    "description": "NPC/&DLC3_NPC_GallivanHopliteF_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a59aaa4d74f9582418be524d015657b1",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Gallivan_Soldier_F_02",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "8503582e77b7a5249b6e76e0618afa99",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_Gallivan_Soldier_F_02"
+}

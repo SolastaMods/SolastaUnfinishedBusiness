@@ -1,0 +1,316 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Fiend",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
+  "alignment": "ChaoticEvil",
+  "armorClass": 21,
+  "armor": "",
+  "hitDice": 21,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 189,
+  "standardHitPoints": 160,
+  "abilityScores": [
+    27,
+    24,
+    28,
+    26,
+    27,
+    30
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 15
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 16
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 15
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 17
+    }
+  ],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 15
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Deception",
+      "bonus": 17
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Stealth",
+      "bonus": 14
+    }
+  ],
+  "legendaryCreature": true,
+  "maxLegendaryResistances": 1,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeNooneButFocus"
+  },
+  "languages": [
+    "Language_Abyssal",
+    "Language_Infernal",
+    "Language_Draconic",
+    "Language_Common"
+  ],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_M_Marduk",
+        "id": 1415357433,
+        "guid": "C8441847-79EA-4077-B4C2-67427379E4F0",
+        "name": "C8441847-79EA-4077-B4C2-67427379E4F0"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 0.0,
+  "challengeRating": 21.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Sessroth_loot_drop2:cb65b6a19a7ff0f4eb173cc261195552",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
+    null,
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
+    "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
+    "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:PowerSessrothBreath:87ed729c1671d1148b037e4685b161ec",
+    "Definition:Regeneration_Sessroth:af1c404109f7b66489f45b59d8dc4e0a"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Sessroth_Maul:5008cd15f9ded544db629e251b7bd4f6"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 2,
+      "monsterAttackDefinition": "Definition:Attack_Sessroth_Javelin:e1fe7b87ef20e0e4f914507357eec8fa"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "Walk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 100,
+  "height": 0,
+  "weight": 0,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "be753c1e854bd9840b67e4d7b1c01c5b",
+    "m_SubObjectName": "Hezrou_Bestiary",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "2f713c2d20990c94a835e0d71daae378",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.656,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "2f713c2d20990c94a835e0d71daae378",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.656,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "Sessroth03",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_Sessroth_Title",
+    "description": "NPC/&DLC3_Sessroth_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a6c603f856380f34faca3636475fa6e5",
+      "m_SubObjectName": "CustomPortrait_DLC3_Sessroth",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "13f7e61f06f51744a9d621dca676b542",
+  "contentPack": "PalaceOfIce",
+  "name": "Sessroth_Dummy_NotUnique"
+}

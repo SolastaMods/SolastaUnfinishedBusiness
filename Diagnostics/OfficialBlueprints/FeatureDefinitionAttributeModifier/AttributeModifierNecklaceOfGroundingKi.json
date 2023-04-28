@@ -9,8 +9,8 @@
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
     "description": "Equipment/&NecklaceOfGrounding_Power_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

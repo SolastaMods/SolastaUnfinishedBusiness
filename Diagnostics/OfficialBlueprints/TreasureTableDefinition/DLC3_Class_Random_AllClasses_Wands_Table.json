@@ -1,0 +1,69 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandMagicMissile:7617927d5593fac4982b711a9b9643ec",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfBlight:36b4da9e904ddd4428eb45a62a3af4f4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfLightningBolts:ed39d2c184af32e448f0cf956d2af68b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfThorns:31bb2bfefa6be1f41b0b2d03f7b63e80",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:WandOfWinter:8504a802e95f0bd4180644ef703b7569",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9ac5ecada2b36f84796fa13b3bdb5631",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Class_Random_AllClasses_Wands_Table"
+}

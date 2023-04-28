@@ -1,0 +1,65 @@
+{
+  "$type": "PropBlueprint, Assembly-CSharp",
+  "groundPlacement": true,
+  "groundLowPlacement": false,
+  "groundHighPlacement": true,
+  "wallPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": false,
+  "openingHighPlacement": false,
+  "propPlacement": false,
+  "lightSources": [],
+  "category": "Furniture",
+  "dimensions": {
+    "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"
+  },
+  "prefabsByEnvironment": [
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "d4721386e99a0f24dab8aa35b50fcf5b",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "55bebedeb27370842a41a1286dc0d8de",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Prop/&BarrelStackTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a6d79e2a2cecb294893f3e0f7c797bb6",
+      "m_SubObjectName": "Table",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "d1237bb6d41b0934cbf2605ed1d650a2",
+  "contentPack": "BaseGame",
+  "name": "BarrelStackCrystal"
+}

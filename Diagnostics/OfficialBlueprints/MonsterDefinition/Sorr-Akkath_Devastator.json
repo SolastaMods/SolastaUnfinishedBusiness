@@ -1,8 +1,8 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
-  "characterFamily": "Fiend",
+  "characterFamily": "Monstrosity",
   "creatureTags": [
     "Shapechanger"
   ],
@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "LawfulEvil",
-  "armorClass": 18,
+  "armorClass": 16,
   "armor": "",
   "hitDice": 15,
   "hitDiceType": "D10",
@@ -112,7 +112,8 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08"
+    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "attackIterations": [
     {
@@ -134,7 +135,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -198,17 +199,19 @@
       "m_SubObjectType": ""
     },
     "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "monsterPresentationDefinitions": [
+      "Definition:M_Sorr-Akkath_Devastator:f4e0904608ad3a04998ce2119657c3d7"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a6c2e84b33780a843a8d19665c3f06a4",
+      "m_AssetGUID": "460ddf278d2ce9041bcddf0e98b94c80",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 1.35,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a6c2e84b33780a843a8d19665c3f06a4",
+      "m_AssetGUID": "460ddf278d2ce9041bcddf0e98b94c80",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -249,12 +252,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&SorakAbominationTitle",
-    "description": "Monster/&SorakAbominationDescription",
+    "title": "Monster/&SorakDevastatorTitle",
+    "description": "Monster/&SorakDevastatorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "30a1db9e2a26edf419c9ee93b95559e3",
-      "m_SubObjectName": "CustomPortrait_SorakDevastator",
+      "m_AssetGUID": "e72befbee0601314ea124042f9c739df",
+      "m_SubObjectName": "Sorr-Akkath_Devastator",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
