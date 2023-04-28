@@ -1,5 +1,9 @@
 Action/&CastPlaneMagicDescription=施展你从 位面之触 专长中获得的法术之一
 Action/&CastPlaneMagicTitle=通道位面魔法
+Action/&CastSignatureSpellsDescription=使用这些3级法术时不消耗法术位
+Action/&CastSignatureSpellsTitle=招牌法术
+Action/&CastSpellMasteryDescription=你施放的1环或2环法术不消耗法术位
+Action/&CastSpellMasteryTitle=法术精通
 Action/&FarStepDescription=传送最多 60 尺到一个你能看到的未被占用的空间
 Action/&FarStepTitle=远步
 Action/&FeatCrusherToggleDescription=启用粉碎者提示弹窗
