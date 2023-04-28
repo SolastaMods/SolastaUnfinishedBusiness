@@ -318,11 +318,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                 false, // check this
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out _,
+                out var successDelta,
                 -1,
                 false);
 
             action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
 
             GameConsoleHelper.LogCharacterUsedPower(character, _power);
         }
