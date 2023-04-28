@@ -76,15 +76,16 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetSavingThrowData()
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                canSaveToCancel = true,
-                hasSavingThrow = true,
-                saveOccurence = TurnOccurenceType.StartOfTurn,
-                conditionDefinition = conditionDammingStrike,
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                saveAffinity = EffectSavingThrowType.Negates
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    canSaveToCancel = true,
+                    hasSavingThrow = true,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = conditionDammingStrike,
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .AddToDB();
 
         // Cursed Tongue
@@ -328,6 +329,8 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
                          .Where(x => x != gameLocationDefender))
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;

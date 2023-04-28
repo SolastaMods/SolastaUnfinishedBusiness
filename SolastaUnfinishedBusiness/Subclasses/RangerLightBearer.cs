@@ -425,6 +425,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
                          .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);

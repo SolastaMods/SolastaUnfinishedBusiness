@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSorcerousFieldManipulatorDisplacement:164244c9-e119-530c-bfef-3c9b33618f9e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsSorcerousFieldManipulator:30e69802-0420-56cd-a5a4-efe6bfdc2e07",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinitySorcerousFieldManipulatorArcaneManipulation:a354d041-96dd-5982-8633-5506050a82cc",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencySorcerousFieldManipulatorMentalResistance:ace89e55-ac6f-5e4f-96c3-6f3d7c6126e8",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSorcerousFieldManipulatorForcefulStep:4e4cb028-4e59-5331-84e6-145b74cd5db9",
+      "level": 18
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&SorcerousFieldManipulatorTitle",
+    "description": "Subclass/&SorcerousFieldManipulatorDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e5465e6f-5cab-5369-99de-7c9c2030cfc8",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e46ae493-1295-5e05-8e75-2fa31a0cecd0",
+  "contentPack": 9999,
+  "name": "SorcerousFieldManipulator"
+}

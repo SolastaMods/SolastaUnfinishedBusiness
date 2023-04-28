@@ -360,6 +360,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetGuiPresentation("FeatureMarshalKnowledgeableDefense", Category.Feature)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .SetSilent(Silent.WhenRemoved)
                 .SetPossessive()
                 .AddFeatures(
                     FeatureDefinitionAttributeModifierBuilder
@@ -403,7 +404,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             var battleManager = gameLocationBattleService as GameLocationBattleManager;
             var allies = new List<GameLocationCharacter>();
 
-            foreach (var guestCharacter in characterService.GuestCharacters)
+            foreach (var guestCharacter in characterService.GuestCharacters.ToList())
             {
                 if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
                     || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))

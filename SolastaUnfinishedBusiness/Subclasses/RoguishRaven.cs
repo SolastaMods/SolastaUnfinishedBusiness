@@ -293,7 +293,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
             var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
             {
-                StringParameter = "Reaction/&CustomReactionDeadlyAimReactDescription"
+                StringParameter = "Reaction/&CustomReactionRavenDeadlyAimReactDescription"
             };
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("RavenDeadlyAim", reactionParams);

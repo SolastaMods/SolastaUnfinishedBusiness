@@ -20,6 +20,8 @@ internal static class PowerBundle
 
     private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
 
+    private static Transform _parent;
+
     internal static void RechargeLinkedPowers(
         [NotNull] RulesetCharacter character,
         RuleDefinitions.RestType restType)
@@ -576,6 +578,10 @@ internal static class PowerBundle
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var transform = subpowerSelectionModal.transform;
+
+        _parent = transform.parent;
+        transform.parent = box.transform.parent.parent;
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
@@ -593,8 +599,6 @@ internal static class PowerBundle
         return false;
     }
 
-    private static Transform _parent;
-    
     /**
      * Patch implementation
      * Replaces invocation activation with sub-power selection modal, after sub-power is selected activates invocation selected handler with proper sub-power index
@@ -624,9 +628,10 @@ internal static class PowerBundle
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var transform = subpowerSelectionModal.transform;
 
-        _parent = subpowerSelectionModal.transform.parent;
-        subpowerSelectionModal.transform.parent = box.transform.parent.parent;
+        _parent = transform.parent;
+        transform.parent = box.transform.parent.parent;
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (_, i) =>
         {
@@ -657,7 +662,12 @@ internal static class PowerBundle
             return;
         }
 
-        subpowerSelectionModal.transform.parent = _parent;
+        // required to support the after rest action menu that doesn't keep state
+        if (_parent != null)
+        {
+            subpowerSelectionModal.transform.parent = _parent;
+        }
+
         subpowerSelectionModal.Hide(instant);
     }
 
@@ -695,6 +705,7 @@ internal static class PowerBundle
             instance.button.interactable = false;
 
             var power = rulesetPower.powerDefinition.Name;
+
             ServiceRepository.GetService<IGameRestingService>().ExecuteAsync(ExecuteAsync(instance, power), power);
         }, instance.RectTransform);
 

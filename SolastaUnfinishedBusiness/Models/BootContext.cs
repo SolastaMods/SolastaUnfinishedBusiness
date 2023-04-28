@@ -189,13 +189,12 @@ internal static class BootContext
     {
         return input
             .Replace("<color=#add8e6ff>", string.Empty)
-            .Replace("<#57BCF4>", "\t\t\t\n")
+            .Replace("<#57BCF4>", "\n\t")
             .Replace("</color>", string.Empty)
             .Replace("<b>", string.Empty)
             .Replace("<i>", string.Empty)
             .Replace("</b>", string.Empty)
-            .Replace("</i>", string.Empty)
-            .Replace("\n", "\n\t\t\t");
+            .Replace("</i>", string.Empty);
     }
 
     private static void DumpClasses(string groupName, Func<BaseDefinition, bool> filter)
@@ -225,8 +224,8 @@ internal static class BootContext
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
-                outString.Append($"\t\t{description}\n\n");
+                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"{description}\n\n");
             }
 
             outString.Append("\n\n\n");
@@ -268,8 +267,8 @@ internal static class BootContext
                     var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                     var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                    outString.Append($"\t\t* {featureDefinition.FormatTitle()}\n\n");
-                    outString.Append($"\t\t{description}\n\n");
+                    outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                    outString.Append($"{description}\n\n");
                 }
 
                 outString.Append("\n\n\n");

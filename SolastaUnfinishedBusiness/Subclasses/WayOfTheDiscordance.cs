@@ -340,7 +340,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     continue;
                 }
 
-                damageForm.BonusDamage = rulesetAttacker.TryGetAttributeValue(ProficiencyBonus) / 2;
+                damageForm.BonusDamage = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Wisdom));
                 damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                     .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 

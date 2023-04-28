@@ -181,6 +181,12 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom KindredSpiritChoice =
             Register("KindredSpiritChoice", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
+            Register("MartialWeaponMaster", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
+            Register("MonkWeaponSpecialization", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
             Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle");
 
@@ -191,17 +197,19 @@ internal class InvocationPoolTypeCustom
             Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
 
+        internal static readonly InvocationPoolTypeCustom SpellMastery =
+            Register("SpellMastery", hidden: true,
+                main: (Id)ExtraActionId.CastSpellMasteryMain);
+
+        internal static readonly InvocationPoolTypeCustom SignatureSpells =
+            Register("SignatureSpells", requireClassLevel: CharacterClassDefinitions.Wizard.Name,
+                main: (Id)ExtraActionId.CastSignatureSpellsMain);
+
         internal static readonly InvocationPoolTypeCustom Gambit =
             Register("Gambit", requireClassLevel: MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
-
-        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
-            Register("MartialWeaponMaster", hidden: true);
-
-        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
-            Register("MonkWeaponSpecialization", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic", hidden: true,

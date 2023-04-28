@@ -4,7 +4,6 @@ ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen S
 ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -203,7 +202,6 @@ ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Göttlic
 ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an. Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
-ModUi/&SpellInstructions=. Du kannst jeden Zauber einzeln jeder Zauberliste zuordnen oder einfach das vorgeschlagene Set auswählen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>

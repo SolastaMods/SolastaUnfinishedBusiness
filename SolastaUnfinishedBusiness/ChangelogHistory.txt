@@ -1,12 +1,30 @@
 ﻿CHANGES:
 
+1.4.33.80:
+
+- added Battleaxe magical items and recipes
+- added Bard's superior inspiration at 20th
+- added Druid's arch druid at 20th
+- added Ranger's foe slayer at 20th
+- added Rogue's elusive at 18th and stroke of luck at 20th
+- added Wizard's spell mastery at 18th and signature spells at 20th
+- changed Caustic Zap sprite
+- changed Fairy's flight duration to permanent
+- fixed power bundles sub menu not showing
+- fixed Inventor's quick wit rolled value on log
+- fixed Ranger Survivalist minor issues
+- improved Sorcerous Field Manipulator's displacement logic
+
 1.4.33.79:
 
-- added UB and vanilla classes display documentation buttons to mod UI
+- added Ranger Survivalist subclass
 - changed Caustic Zap progression to one additional enemy per slot level
-- changed Roguish Arcane Scoundrel's gambit to a bonus action
-- fixed the invocations subpowers panel rendering layer
-- improved SFX on Oath of Dread, Path of the Reaver, Roguish Slayer, and Way of Discordance
+- changed Powerful metamagic cost to 1 fixed point
+- changed RESPEC to copy over adventure stats from older hero
+- changed Roguish Arcane Scoundrel's gambit to bonus action
+- changed power bundles sub menu to render on top of other UI elements
+- rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
+- removed shape form / summons attacks swap action as causing MP desyncs
 
 1.4.33.78:
 

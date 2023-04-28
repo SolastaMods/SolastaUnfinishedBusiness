@@ -134,6 +134,7 @@ All settings start disabled by default.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Lightbearer[/b]: The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 [*][b]Hellwalker[/b]: You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
+[*][b]Survivalist[/b]: Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 [*][b]Wildmaster[/b]: The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 [*][b]Acrobat[/b]: The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, the Acrobat sees a means to a very specific end: Performance!
 [*][b]Arcane Scoundrel[/b]: With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
@@ -557,20 +558,21 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
 [*][b]Required Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
 [*][b]Relic Forgeries[/b]: Tirmarian Holy Symbol, Depleted Rune, Imperial Gate Plaque, Aksha's Journal, Ancient Manifest, Tirmarian Master Smith's Memoirs, Tirmarian Inquisitor's Journal, Poem, The Elven Wars, Silent Whisper Parchment
-[*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
-[*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
-[*][b]Handaxe[/b]: Handaxe of Acuteness, Handaxe of Sharpness, Souldrinker Handaxe, Frostburn Handaxe
-[*][b]Javelin[/b]: Javelin of Acuteness, Javelin of Sharpness, Souldrinker Javelin, Frostburn Javelin
-[*][b]Dart[/b]: Dart of Acuteness, Dart of Sharpness, Souldrinker Dart, Frostburn Dart
 [*][b]Club[/b]: Club of Acuteness, Bearclaw Club, Club of Power, Lightbringer Club, Punisher Club
 [*][b]Maul[/b]: Maul of Acuteness, Bearclaw Maul, Maul of Power, Lightbringer Maul, Punisher Maul
 [*][b]Warhammer[/b]: Warhammer of Acuteness, Bearclaw Warhammer, Warhammer of Power, Lightbringer Warhammer, Punisher Warhammer
-[*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
-[*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
-[*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
-[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
+[*][b]Battleaxe[/b]: Battleaxe of Acuteness, Bearclaw Battleaxe, Battleaxe of Power, Lightbringer Battleaxe, Punisher Battleaxe
+[*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
+[*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
 [*][b]Greataxe[/b]: Greataxe of Acuteness, Bearclaw Greataxe, Greataxe of Power, Lightbringer Greataxe, Punisher Greataxe
 [*][b]Greatsword[/b]: Punisher Greatsword
+[*][b]Handaxe[/b]: Handaxe of Acuteness, Handaxe of Sharpness, Souldrinker Handaxe, Frostburn Handaxe
+[*][b]Quarterstaff[/b]: Quarterstaff of Acuteness, Stormblade Quarterstaff, Frostburn Quarterstaff, Lightbringer Quarterstaff, Dragonblade Quarterstaff, Warden Quarterstaff, Whiteburn Quarterstaff, Souldrinker Quarterstaff
+[*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
+[*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
+[*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
+[*][b]Javelin[/b]: Javelin of Acuteness, Javelin of Sharpness, Souldrinker Javelin, Frostburn Javelin
+[*][b]Dart[/b]: Dart of Acuteness, Dart of Sharpness, Souldrinker Dart, Frostburn Dart
 [*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
@@ -597,11 +599,11 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, Fairy, Half-elf variants, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Forceblade, Sorcerous Field Manipulator, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Wildmaster, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Multiclass
-[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, Fairy, Half-elf, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Multiclass
+[*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield
-[*][b]HiddenHax[/b]: homebrew content design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]
+[*][b]HiddenHax[/b]: homebrew content design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]
 [*][b]Haxermn[/b]: spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon
 [*][b]Nd[/b]: College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart
@@ -614,6 +616,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Taco[/b]: homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], fighting styles, races, subclasses, powers, weapons, favored terrain and preferred enemy icons
 [*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]
 [*][b]Stuffies12[/b]: homebrew content design [Ranger Hellwalker, Ranger Lightbearer]
+[*][b]Earendil[/b]: homebrew content design [Ranger Survivalist]
 [*][b]Narria[/b]: modKit, mod UI improvements, Party Editor
 [*][b]Pikachar2[/b]: spells
 [/list]

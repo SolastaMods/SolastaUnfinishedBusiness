@@ -64,6 +64,7 @@ internal static class SubclassesContext
         LoadSubclass(new RangerArcanist());
         LoadSubclass(new RangerLightBearer());
         LoadSubclass(new RangerHellWalker());
+        LoadSubclass(new RangerSurvivalist());
         LoadSubclass(new RangerWildMaster());
 
         // Rogue
@@ -116,8 +117,10 @@ internal static class SubclassesContext
 
     internal static void LateLoad()
     {
-        CollegeOfLife.LateLoad();
         CircleOfTheLife.LateLoad();
+        CollegeOfLife.LateLoad();
+        RangerSurvivalist.LateLoad();
+        SorcerousFieldManipulator.LateLoad();
     }
 
     private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder, bool isBetaContent = false)

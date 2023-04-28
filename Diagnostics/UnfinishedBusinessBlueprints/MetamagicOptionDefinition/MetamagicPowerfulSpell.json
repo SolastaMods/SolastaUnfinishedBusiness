@@ -1,6 +1,6 @@
 {
   "$type": "MetamagicOptionDefinition, Assembly-CSharp",
-  "costMethod": "SpellLevel",
+  "costMethod": "FixedValue",
   "sorceryPointsCost": 1,
   "metamagicType": 9000,
   "parameterMethod": "FixedValue",

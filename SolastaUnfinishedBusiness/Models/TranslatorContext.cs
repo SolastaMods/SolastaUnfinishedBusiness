@@ -578,14 +578,15 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
-                    foreach (var outstart in userQuestStep.onStartFunctors)
+                    foreach (var outStart in userQuestStep.onStartFunctors)
                     {
                         yield return Update();
 
 
-                        if (outstart.type.Equals("SetLocationStatus"))
-                        { outstart.stringParameter = Translate(outstart.stringParameter, languageCode); }
-
+                        if (outStart.type == "SetLocationStatus")
+                        {
+                            outStart.stringParameter = Translate(outStart.stringParameter, languageCode);
+                        }
                     }
 
                     foreach (var outcome in userQuestStep.OutcomesTable)
@@ -593,11 +594,18 @@ internal static class TranslatorContext
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-                        outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode);
-                        if (outcome.validatorDescription.type.Equals("EnterLocation"))
-                        { outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode); }
-                        if (outcome.validatorDescription.type.Equals("LeaveLocation"))
-                        { outcome.validatorDescription.stringParameter = Translate(outcome.validatorDescription.stringParameter, languageCode); }
+                        outcome.validatorDescription.stringParameter =
+                            Translate(outcome.validatorDescription.stringParameter, languageCode);
+
+                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                        switch (outcome.validatorDescription.type)
+                        {
+                            case QuestDefinitions.QuestValidatorType.EnterLocation:
+                            case QuestDefinitions.QuestValidatorType.LeaveLocation:
+                                outcome.validatorDescription.stringParameter =
+                                    Translate(outcome.validatorDescription.stringParameter, languageCode);
+                                break;
+                        }
                     }
                 }
             }
