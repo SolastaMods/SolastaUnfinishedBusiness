@@ -26,7 +26,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         // 2nd level
 
-        var combatWildshape = BuildWildShapePower();
+        PowerCircleOfTheNightWildShapeCombat = BuildWildShapePower();
 
         // remove regular WS action
 
@@ -115,7 +115,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("CircleOfTheNight", Resources.CircleOfTheNight, 256))
             .AddFeaturesAtLevel(2,
-                combatWildshape,
+                PowerCircleOfTheNightWildShapeCombat,
                 actionAffinityWildshape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
@@ -129,6 +129,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 powerCircleOfTheNightWildShapeMasterfulHealing)
             .AddToDB();
     }
+
+    internal static FeatureDefinitionPower PowerCircleOfTheNightWildShapeCombat { get; private set; }
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
