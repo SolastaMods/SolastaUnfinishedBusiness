@@ -322,6 +322,7 @@ public static class CustomActionIdContext
                    or ExtraActionId.InventorInfusion
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus
+                   or ExtraActionId.CastSpellMasteryMain
                || IsGambitActionId(id);
     }
 

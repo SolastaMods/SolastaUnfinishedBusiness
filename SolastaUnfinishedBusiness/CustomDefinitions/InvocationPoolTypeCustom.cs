@@ -205,7 +205,7 @@ internal class InvocationPoolTypeCustom
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic", hidden: true,
-                main: (Id)ExtraActionId.CastSpellMasteryMain,
+                main: (Id)ExtraActionId.CastPlaneMagicMain,
                 bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
 
         internal static readonly InvocationPoolTypeCustom SpellMastery =

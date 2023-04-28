@@ -332,6 +332,7 @@ internal static partial class SpellBuilders
             .Create(ConditionHindered_By_Frost, "ConditionSpiritShroudHinder")
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
+            .SetParentCondition(ConditionHindered)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .CopyParticleReferences(ConditionSpiritGuardians)
             .AddToDB();

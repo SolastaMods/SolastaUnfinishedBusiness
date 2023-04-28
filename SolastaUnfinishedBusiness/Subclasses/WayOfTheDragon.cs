@@ -552,7 +552,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter,
                         ConditionDefinitions.ConditionPoisoned);
                     yield break;
-                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost.Name):
+                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered):
                     attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeCold, false, me.Guid, null,
                         out _);
                     yield break;
