@@ -188,17 +188,17 @@ internal class InvocationPoolTypeCustom
             Register("MonkWeaponSpecialization", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
-            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle");
+            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
-            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle");
+            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
 
         internal static readonly InvocationPoolTypeCustom SpellMastery =
-            Register("SpellMastery", hidden: true,
+            Register("SpellMastery",
                 main: (Id)ExtraActionId.CastSpellMasteryMain);
 
         internal static readonly InvocationPoolTypeCustom SignatureSpells =
