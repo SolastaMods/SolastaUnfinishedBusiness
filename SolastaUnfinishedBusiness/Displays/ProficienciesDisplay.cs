@@ -59,7 +59,8 @@ internal static class ProficienciesDisplay
             InvocationsContext.Invocations,
             Main.Settings.InvocationEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: InvocationsHeader);
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
@@ -71,7 +72,8 @@ internal static class ProficienciesDisplay
             MetamagicContext.Metamagic,
             Main.Settings.MetamagicEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: MetamagicHeader);
         Main.Settings.DisplayMetamagicToggle = displayToggle;
         Main.Settings.MetamagicSliderPosition = sliderPos;
 
@@ -101,6 +103,34 @@ internal static class ProficienciesDisplay
             20.Space();
             UI.ActionButton("Solasta Fighting Styles docs".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaFightingStyles.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+    }
+
+    private static void InvocationsHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Invocations docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessInvocations.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Invocations docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+    }
+
+    private static void MetamagicHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Metamagic docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessMetamagic.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Metamagic docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaMetamagic.md"), UI.Width((float)200));
         }
 
         UI.Label();

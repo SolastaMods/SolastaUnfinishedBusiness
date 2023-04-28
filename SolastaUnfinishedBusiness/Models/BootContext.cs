@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityModManagerNet;
@@ -168,8 +169,20 @@ internal static class BootContext
             DumpOthers<FightingStyleDefinition>("SolastaFightingStyles",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<InvocationDefinition>("UnfinishedBusinessInvocations",
-                x => x.ContentPack == CeContentPackContext.CeContentPack);
+                x => x.ContentPack == CeContentPackContext.CeContentPack && x is not InvocationDefinitionCustom);
             DumpOthers<InvocationDefinition>("SolastaInvocations",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<SpellDefinition>("UnfinishedBusinessSpells",
+                x => x.ContentPack == CeContentPackContext.CeContentPack && !x.Name.StartsWith("SpellPower"));
+            DumpOthers<SpellDefinition>("SolastaSpells",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<ItemDefinition>("SolastaItems",
+                x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpOthers<MetamagicOptionDefinition>("UnfinishedBusinessMetamagic",
+                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<MetamagicOptionDefinition>("SolastaMetamagic",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
 
             // really don't have a better place for these fixes here ;-)
