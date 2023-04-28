@@ -40,7 +40,7 @@
       "operation": "Add",
       "conditionName": "",
       "conditionDefinition": "Definition:ConditionRangerSurvivalistDisablingStrike:8877b753-4b3d-5006-b717-09a756255405",
-      "saveAffinity": "None",
+      "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "EndOfTurn"
     }
