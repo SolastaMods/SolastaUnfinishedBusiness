@@ -39,9 +39,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class Level20Context
 {
     internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
-
     internal const int ModMaxLevel = 20;
-
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
     internal static readonly int GameMaxLevel = Main.IsDebugBuild ? 16 : 12;
@@ -78,7 +76,11 @@ internal static class Level20Context
             .SelectMany(a => a.FeatureUnlocks)
             .Select(b => b.FeatureDefinition);
 
-        var allFeatures = classesFeatures.Concat(subclassesFeatures).ToList();
+        var racesFeatures = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
         var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
         var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
 
@@ -233,6 +235,12 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
+        var featureBardSuperiorInspiration = FeatureDefinitionBuilder
+            .Create("FeatureBardSuperiorInspiration")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new BattleStartedListenerBardSuperiorInspiration())
+            .AddToDB();
+
         if (!Main.IsDebugBuild)
         {
             Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -245,8 +253,9 @@ internal static class Level20Context
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Bard Superior Inspiration
+            new(pointPoolBardMagicalSecrets18, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(featureBardSuperiorInspiration, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -418,6 +427,7 @@ internal static class Level20Context
             new(powerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
+            // TODO 18: Martial Archetype
             new(AttributeModifierFighterExtraAttack, 20)
         });
     }
@@ -629,7 +639,7 @@ internal static class Level20Context
             {
                 new(SenseRogueBlindsense, 14),
                 new(ProficiencyRogueSlipperyMind, 15),
-                new(FeatureSetAbilityScoreChoice, 16)
+                new(FeatureSetAbilityScoreChoice, 16),
             });
         }
 
@@ -641,7 +651,7 @@ internal static class Level20Context
 
         var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
             .Create("PowerRogueStrokeOfLuck")
-            .SetGuiPresentation("FeatureSetRavenDeadlyAim", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
@@ -650,6 +660,7 @@ internal static class Level20Context
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
+            // TODO 17: Roguish Archetype
             new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
         });
     }
@@ -702,6 +713,7 @@ internal static class Level20Context
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(PointPoolSorcererAdditionalMetamagic, 17),
+            // TODO 18: Sorcerous Origin
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerSorcerousRestoration, 20)
         });
@@ -749,7 +761,7 @@ internal static class Level20Context
 
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolWarlockMysticArcanum9, 18),
+            new(pointPoolWarlockMysticArcanum9, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerWarlockEldritchMaster, 20)
         });
@@ -762,7 +774,7 @@ internal static class Level20Context
         SpellListWarlock.maxSpellLevel = 9;
     }
 
-    private static (FeatureDefinition, FeatureDefinition) BuildWizardSpellMastery()
+    private static FeatureDefinition BuildWizardSpellMastery()
     {
         const string SPELL_MASTERY = "SpellMastery";
 
@@ -786,20 +798,6 @@ internal static class Level20Context
             };
         }
 
-        const string FEATURE_NAME = $"CastSpell{SPELL_MASTERY}";
-
-        var castSpellSpellMastery = FeatureDefinitionCastSpellBuilder
-            .Create(FEATURE_NAME)
-            .SetGuiPresentationNoContent(true)
-            .SetFocusType(EquipmentDefinitions.FocusType.None)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.None)
-            .SetSlotsPerLevel(CasterProgression.None)
-            .SetSpellList(SpellsContext.EmptySpellList)
-            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-            .AddToDB();
-
         // any non reaction spell of 1st or 2nd level
         var allPossibleSpells = SpellListAllSpells.SpellsByLevel
             .Where(x => x.level is 1 or 2)
@@ -812,10 +810,11 @@ internal static class Level20Context
                 CustomInvocationDefinitionBuilder
                     .Create($"CustomInvocation{SPELL_MASTERY}{spell.Name}")
                     .SetGuiPresentation(spell.GuiPresentation)
-                    .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(FEATURE_NAME))
                     .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
                     .SetGrantedSpell(spell)
-                    .SetCustomSubFeatures(IsValid())
+                    .SetCustomSubFeatures(
+                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name),
+                        IsValid())
                     .AddToDB());
 
         var grantInvocationsSpellMastery = FeatureDefinitionGrantInvocationsBuilder
@@ -824,19 +823,17 @@ internal static class Level20Context
             .SetInvocations(invocations)
             .AddToDB();
 
-        return (castSpellSpellMastery, grantInvocationsSpellMastery);
+        return grantInvocationsSpellMastery;
     }
 
     private static void WizardLoad()
     {
-        var (castSpellSpellMastery,
-            grantInvocationsSpellMastery) = BuildWizardSpellMastery();
+        var grantInvocationsSpellMastery = BuildWizardSpellMastery();
 
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetAbilityScoreChoice, 16),
-            new(castSpellSpellMastery, 2),
-            new(grantInvocationsSpellMastery, 2),
+            new(grantInvocationsSpellMastery, 18),
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Signature Spells
         });
@@ -1021,16 +1018,12 @@ internal static class Level20Context
                 yield break;
             }
 
-            if (rulesetDefender.HasAnyConditionOfType(
-                    ConditionIncapacitated,
-                    ConditionParalyzed,
-                    ConditionPetrified,
-                    ConditionStunned,
-                    ConditionUnconscious))
+            if (rulesetDefender.HasAnyConditionOfType(ConditionIncapacitated))
             {
                 yield break;
             }
 
+            attackModifier.attackAdvantageTrends.Clear();
             attackModifier.ignoreAdvantage = true;
         }
     }
@@ -1110,8 +1103,33 @@ internal static class Level20Context
                 yield break;
             }
 
+            var delta = -action.AttackSuccessDelta;
+
             action.AttackRollOutcome = RollOutcome.Success;
-            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _power);
+            attackModifier.AttackRollModifier += delta;
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, _power.Name, _power));
+        }
+    }
+
+    private sealed class BattleStartedListenerBardSuperiorInspiration : ICharacterBattleStartedListener
+    {
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var character = locationCharacter.RulesetCharacter;
+
+            if (character == null)
+            {
+                return;
+            }
+
+            if (character.RemainingBardicInspirations != 0)
+            {
+                return;
+            }
+
+            character.usedBardicInspiration--;
+            character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
+            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&BardBardicInspirationTitle");
         }
     }
 }
