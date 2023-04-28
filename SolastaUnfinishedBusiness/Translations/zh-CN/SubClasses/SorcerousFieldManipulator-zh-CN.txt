@@ -1,3 +1,5 @@
+Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=当你释放位于你的法术表内的附魔、防护或幻术系法术时，它们被视为使用更高1环的法术环位释放。
+Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=奥术操控
 Feature/&MagicAffinityFieldManipulatorDCDescription=对手更难抵抗你的法术。豁免 DC 增加 2。
 Feature/&MagicAffinityFieldManipulatorDCTitle=奥术之力
 Feature/&PowerFieldManipulatorDominatePersonDescription=每次长休你可以使用支配他人的次数等于你的魅力调整值。
