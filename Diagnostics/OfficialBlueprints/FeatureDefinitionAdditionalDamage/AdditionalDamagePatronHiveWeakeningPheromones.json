@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "WeakeningPheromones",
-  "limitedUsage": "None",
-  "firstTargetOnly": true,
+  "limitedUsage": "OncePerTurn",
+  "firstTargetOnly": false,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
   "triggerCondition": "SpellDamagesTarget",

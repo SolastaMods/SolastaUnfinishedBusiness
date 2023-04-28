@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:HalfOrc:6f259157cdf267c49994b97231d6feb0",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_HO",
+  "skinMorphotype": "FaceAndSkin_08",
+  "musculatureMorphotypeValue": 36.0197678,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_HO_C",
+  "hairShapeMorphotype": "HairShape_Q",
+  "hairColorMorphotype": "HairColor_41",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorGolden",
+  "bodyDecorationMorphotype": "BodyDecoration_SorcererManaPainter",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_SorcererHauntedSoul_06",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "Primed_StuddedLeather",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.417096823,
+    "g": 0.5327357,
+    "b": 0.8584906,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6509434,
+    "g": 0.2118636,
+    "b": 0.2118636,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8207547,
+    "g": 0.236160487,
+    "b": 0.236160487,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6037736,
+    "g": 0.28764683,
+    "b": 0.28764683,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Garrad_Stableboy_Title",
+    "description": "NPC/&DLC3_NPC_Garrad_Stableboy_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d0999981c65d0f742a8259ea642d30fc",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Garrad_Stableboy",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "6729b161e7ff3fa4f8ab1bb6102ff916",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_Garrad_Stableboy"
+}

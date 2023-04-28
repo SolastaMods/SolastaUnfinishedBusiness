@@ -1,0 +1,62 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "TriggerBlizzardLight",
+  "searchKey": "Trigger_Blizzard_Light",
+  "eventProbability": 1.0,
+  "selfProbability": 1.0,
+  "playbackDelay": 0.0,
+  "canUseWhileCautious": true,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_1_Player_Blizzard1",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_2_Player_Blizzard1",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_3_Player_Blizzard1",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_3_Player_Blizzard1",
+      "list": "Formal",
+      "mode": "Self"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9e8b622522420304e92d74b4d3ea2da8",
+  "contentPack": "BaseGame",
+  "name": "BanterEventBlizzardLight"
+}

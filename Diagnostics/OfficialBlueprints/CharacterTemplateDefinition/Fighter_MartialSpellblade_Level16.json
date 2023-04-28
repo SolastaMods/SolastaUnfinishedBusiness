@@ -1,0 +1,152 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "isPremade": false,
+  "premadeFilename": "",
+  "firstName": "Spellblade16",
+  "surName": "Fighter",
+  "abilityScores": [
+    18,
+    10,
+    14,
+    10,
+    9,
+    12
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRace": null,
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_CA_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
+  "subClass": "Definition:MartialSpellblade:09e74bece88a0c74a97f67f542ad3046",
+  "deity": null,
+  "background": "Definition:KS_Garrad_Miles:9c0e0a6309ebbda479943f6bb321227e",
+  "backgroundPersonalityFlag1": "",
+  "backgroundPersonalityFlag2": "",
+  "alignment": "LawfulNeutral",
+  "alignmentPersonalityFlag1": "Lawfulness",
+  "alignmentPersonalityFlag2": "Authority",
+  "fightingStyle": "Definition:GreatWeapon:ab94d90f7226c7b4ca82f1829e495d02",
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Greatsword+1:625562662a9dfed498a5409a3be8f149",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:HalfPlate+1:04465d122ec83904fbf030c8fb8abfda",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:Food_Ration:59973b7c0f7bd2f4089ec4406628b941",
+    "Definition:WandMagicMissile:7617927d5593fac4982b711a9b9643ec"
+  ],
+  "startingMoney": [
+    0,
+    600,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Perception",
+    "Survival",
+    "Athletics",
+    "Intimidation",
+    "Nature"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [
+    "FollowUpStrike"
+  ],
+  "invocationsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [
+    "Language_Orc"
+  ],
+  "metamagicOverride": [],
+  "characterLevel": 16,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+    "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [
+    "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+    "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+    "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f",
+    "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9"
+  ],
+  "knownSubclassSpells": [],
+  "extraSpellsByTags": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Male",
+  "pronoun": "Male",
+  "age": 22,
+  "preferredAncestry": null,
+  "featurePreferences": [],
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "MAL1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "725202a2765bd7f47aa048ff3ea17a87",
+      "m_SubObjectName": "Fighter_MartialSpellblade_Level10",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 99,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "07f4ea0402fd5584d895d7072b6e29be",
+  "contentPack": "BaseGame",
+  "name": "Fighter_MartialSpellblade_Level16"
+}

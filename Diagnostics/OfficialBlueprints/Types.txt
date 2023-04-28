@@ -11,6 +11,7 @@ BiomeDefinition
 BlueprintCategory
 CalendarDefinition
 CampaignDefinition
+CampaignMapDefinition
 CampaignNodeTypeDefinition
 CharacterBackgroundDefinition
 CharacterClassDefinition
@@ -20,6 +21,7 @@ CharacterRaceDefinition
 CharacterSizeDefinition
 CharacterSubclassDefinition
 CharacterTemplateDefinition
+CharacterToLootPackMapDefinition
 ClueDefinition
 ConditionDefinition
 ContentPackDefinition

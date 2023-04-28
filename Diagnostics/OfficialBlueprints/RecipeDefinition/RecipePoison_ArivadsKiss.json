@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Poison_ArivadsKiss:569f185b7cce0e74f9b638fc29e7ef35",
   "stackCount": 1,
-  "craftingHours": 16,
-  "craftingDC": 13,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

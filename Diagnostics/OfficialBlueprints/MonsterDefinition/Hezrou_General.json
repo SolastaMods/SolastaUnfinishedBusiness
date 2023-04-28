@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [],
@@ -141,7 +141,7 @@
       }
     }
   ],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 70.0,
   "challengeRating": 14.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Hezrou_General_loot_drop:7bc4404d5eb3a3d4dab3f448b1cdf38e",
@@ -163,7 +163,9 @@
     "Definition:LightAffinity_DemonGeneral:5e7b8cc1efb2b78409be2ec7d95aa6c5",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
-    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3"
+    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
@@ -195,7 +197,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

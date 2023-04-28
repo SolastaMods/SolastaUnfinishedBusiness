@@ -8,6 +8,7 @@
   "minStartLevel": 1,
   "maxStartLevel": 1,
   "maxLevelImport": 12,
+  "forceLevelUpTo": 0,
   "levelCap": 12,
   "predefinedParty": [
     "Level1_Paladin_Berden_Redstone",
@@ -30,6 +31,12 @@
   "graphicsCampaignMapReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "b2b6b821326295e4db1b55bc0da0d011",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "nodesAndSegmentsPrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "58b8bb4aab62f48498ffd502b1dff3b8",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -1706,6 +1713,7 @@
   "recommendedSceneNameStartsWith": "",
   "variablesToImport": [],
   "questStatusToImport": [],
+  "warningText": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

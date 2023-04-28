@@ -25,6 +25,14 @@
         "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
         "Definition:Haste:134efafc59c7c58438b711271fb2c785"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",

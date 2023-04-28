@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2600,
+    6500,
     0,
     0,
     0
@@ -33,7 +33,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Rare",
+  "itemRarity": "VeryRare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -211,6 +211,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -224,6 +225,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -236,13 +239,14 @@
       "Armor",
       "Armor",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -268,6 +272,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "ade371c226a745a408339cf929f89c68",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Enchanted_Druid_Armor_Of_The_Primal_Oak"
 }

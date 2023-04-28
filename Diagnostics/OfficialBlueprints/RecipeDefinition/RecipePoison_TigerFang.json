@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Poison_TigerFang:cbca0dafdd85dd240916dbd8ca7b5993",
   "stackCount": 1,
-  "craftingHours": 10,
-  "craftingDC": 14,
+  "craftingHours": 5,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

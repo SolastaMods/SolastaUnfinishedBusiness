@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellList_DLC1_Cafrain:9f909327942d1104882e138af98fb49b",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 6,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     1,

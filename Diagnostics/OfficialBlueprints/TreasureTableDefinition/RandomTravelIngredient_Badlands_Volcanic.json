@@ -1,5 +1,6 @@
 {
   "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
@@ -15,7 +16,7 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
+      "odds": 6,
       "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395",
       "amount": 1
     },
@@ -125,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TreasureTable/&IngredientsTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "TreasureTable/&Travel_BadlandsVolcanic_Title",
+    "description": "TreasureTable/&Travel_BadlandsVolcanic_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

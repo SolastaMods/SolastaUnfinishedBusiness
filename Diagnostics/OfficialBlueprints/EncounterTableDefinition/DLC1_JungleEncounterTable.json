@@ -1,5 +1,6 @@
 {
   "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "encounterOccurences": [
     {
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",

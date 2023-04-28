@@ -3,7 +3,8 @@
   "featureSet": [
     "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
     "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
-    "Definition:ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern:b167a3e7068de17408d30d8f85daeed5"
+    "Definition:ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern:b167a3e7068de17408d30d8f85daeed5",
+    "Definition:ConditionAffinityElfFeyAncestryCharmedDemonicInfluence:d829fe1016a9f47438e0aa9408af6ee7"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

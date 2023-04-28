@@ -1,0 +1,68 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Elven_Suspect_01_InnOwner:c40348d7a3b622447b0e63cb23f0aad7",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Elven_Suspect_02_ShopOwner:1cfc898bfcf2abb4892aef96bf8a20ec",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Elven_Suspect_03_Civilian:1636810bc476840498e30f3ada5167fa",
+      "traitor": false,
+      "reputationLevel": "Low",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Elven_Suspect_04_Guard:7e01a68eaed40194d83ef77d32780d0b",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Elven_Suspect_05_Guard_Traitor:d77ce015a5794fe4e92716d136e41129",
+      "traitor": true,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    }
+  ],
+  "quest": "Definition:DLC3_Quest_ElvenClans_00_Quest:f6123e5c224e6894a9db44bc4b08b8a2",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Investigation/&DLC3_ElvenSettlements_Title",
+    "description": "Investigation/&DLC3_ElvenSettlements_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "00b4f9fef18c0e44aafea2e55137a750",
+  "contentPack": "BaseGame",
+  "name": "DLC3_ElvenSettlement_Investigation"
+}

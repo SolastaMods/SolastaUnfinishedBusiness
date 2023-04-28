@@ -1,5 +1,6 @@
 {
   "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "encounterOccurences": [
     {
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
@@ -757,6 +758,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "187fce30cb5c3d34983ef29b65b87f81",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "DLC1_EncounterTable_NoMutants"
 }

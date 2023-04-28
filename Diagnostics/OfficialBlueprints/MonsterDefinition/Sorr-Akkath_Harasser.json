@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [
@@ -10,7 +10,7 @@
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulEvil",
-  "armorClass": 17,
+  "armorClass": 14,
   "armor": "",
   "hitDice": 11,
   "hitDiceType": "D8",
@@ -112,7 +112,8 @@
     "Definition:PowerSorakAssassinShadowMurder:639ad45d0c972ae44bdcb127f7f3506d",
     "Definition:PowerSorakShadowEscape_at_will:941ea12a9e8e765479d0b7a57555afe4",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
-    "Definition:PowerSorakDreadLaughter:fdc52ef5aeca9364291d205e34bb54d9"
+    "Definition:PowerSorakDreadLaughter:fdc52ef5aeca9364291d205e34bb54d9",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6"
   ],
   "attackIterations": [
     {
@@ -139,7 +140,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -203,17 +204,19 @@
       "m_SubObjectType": ""
     },
     "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "monsterPresentationDefinitions": [
+      "Definition:M_Sorr-Akkath_Harasser:2b22aa89e0d95dd4194a79403d914389"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "7b4804b92551e5041b77448364033733",
+      "m_AssetGUID": "3a989693cc904b7439b946a6da9ca135",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.75,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "7b4804b92551e5041b77448364033733",
+      "m_AssetGUID": "3a989693cc904b7439b946a6da9ca135",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -222,7 +225,7 @@
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": false,
+    "canGeneratePortrait": true,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
@@ -233,10 +236,10 @@
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
-      "x": 0.5,
+      "x": 0.45,
       "y": 0.4
     },
-    "portraitCameraFOV": 40.0,
+    "portraitCameraFOV": 55.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
@@ -258,8 +261,8 @@
     "description": "Monster/&SorakHarasser_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d3f84d1cab4ce834a9d1640937136fa6",
-      "m_SubObjectName": "CustomPortrait_SorakHarasser",
+      "m_AssetGUID": "9a24e140d1ca2e74fbea7557ac9c04af",
+      "m_SubObjectName": "Sorr-Akkath_Harasser",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

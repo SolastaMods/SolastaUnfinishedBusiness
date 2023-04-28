@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Mountain",
   "encounterTable": "Definition:AridBadlandsEncounter:f8549634a71a0bf4899d0bd5f1787f20",
   "narrativeEventBasicLines": [
@@ -12,11 +13,12 @@
     "Definition:Encounter_Forest_LocationDB:e9890128da1ec5245a25c869d2b4e94a",
     "Definition:Encounter_Desert_LocationDB:13ffa145096dbad4ea277bd84ee3307c"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Volcanic:848ccefcd1a53a14b97fe42b43dde6c6",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_VolcanicBadlands_Title",
+    "description": "Biome/&Biome_VolcanicBadlands_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +33,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 5,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
