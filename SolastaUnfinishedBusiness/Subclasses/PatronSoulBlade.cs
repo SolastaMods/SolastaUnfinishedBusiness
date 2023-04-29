@@ -259,16 +259,19 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
             if (defender.HasAnyConditionOfType(_conditionHexDefender.Name))
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    myself.guid,
-                    _conditionHexAttacker,
+                myself.InflictCondition(
+                    _conditionHexAttacker.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
                     myself.guid,
-                    myself.CurrentFaction.Name);
-
-                myself.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    myself.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
             else
             {

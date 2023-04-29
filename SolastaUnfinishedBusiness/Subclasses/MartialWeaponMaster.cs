@@ -388,17 +388,19 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinition);
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetAttacker.Guid,
-                _conditionDefinition,
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                rulesetAttacker.Guid,
-                rulesetAttacker.CurrentFaction.Name);
-
-            rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

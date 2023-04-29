@@ -686,19 +686,21 @@ internal static class InvocationsBuilders
             }
         }
 
-        private static void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
+        private static void SetChainBuff(RulesetCharacter rulesetCharacter, BaseDefinition conditionDefinition)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                self.Guid,
-                buff,
+            rulesetCharacter.InflictCondition(
+                conditionDefinition.Name,
                 RuleDefinitions.DurationType.Minute,
                 1,
                 RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                self.Guid,
-                self.CurrentFaction.Name
-            );
-
-            self.AddConditionOfCategory(AttributeDefinitions.TagEffect, rulesetCondition, false);
+                AttributeDefinitions.TagEffect,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

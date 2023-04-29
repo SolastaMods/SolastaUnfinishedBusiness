@@ -622,16 +622,19 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     continue;
                 }
 
-                var newCondition = RulesetCondition.CreateActiveCondition(
-                    rulesetDefender.Guid,
-                    CustomConditionsContext.StopMovement,
+                rulesetDefender.InflictCondition(
+                    CustomConditionsContext.StopMovement.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    rulesetAttacker.Guid,
-                    rulesetAttacker.BaseFaction.Name);
-
-                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }

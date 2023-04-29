@@ -201,17 +201,19 @@ internal sealed class OathOfAncients : AbstractSubclass
                 return effect;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                target.Guid,
-                _conditionWardingAura,
+            target.InflictCondition(
+                _conditionWardingAura.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                target.Guid,
-                target.CurrentFaction.Name
-            );
-
-            target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                target.guid,
+                target.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             return effect;
         }

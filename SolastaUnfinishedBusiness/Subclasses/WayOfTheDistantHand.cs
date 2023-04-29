@@ -436,23 +436,21 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 yield break;
             }
 
-            var character = action.ActingCharacter?.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            if (character == null)
-            {
-                yield break;
-            }
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
-                condition,
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                string.Empty
-            );
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

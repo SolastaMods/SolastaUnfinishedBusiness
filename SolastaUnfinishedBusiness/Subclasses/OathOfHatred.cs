@@ -182,17 +182,21 @@ internal sealed class OathOfHatred : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDauntlessPursuerAfterAttack,
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                _conditionDauntlessPursuerAfterAttack.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name
-            );
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

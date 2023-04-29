@@ -691,26 +691,29 @@ internal static class OtherFeats
 
         public IEnumerator Execute(CharacterAction action)
         {
-            if (action is not CharacterActionDash or
+            if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
                 CharacterActionFlurryOfBlowsSwiftSteps or
-                CharacterActionFlurryOfBlowsUnendingStrikes)
+                CharacterActionFlurryOfBlowsUnendingStrikes))
             {
                 yield break;
             }
 
-            var attacker = action.ActingCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDefinition,
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

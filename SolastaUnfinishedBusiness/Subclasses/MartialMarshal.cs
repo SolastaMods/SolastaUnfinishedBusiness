@@ -630,18 +630,20 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             var level = Math.Min(gameBestiaryEntry.KnowledgeLevelDefinition.Level, 3);
-            var condition = GetDefinition<ConditionDefinition>($"{ConditionMarshalKnowledgeableDefenseACName}{level}");
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetMe.Guid,
-                condition,
-                condition.DurationType,
-                condition.DurationParameter,
-                condition.TurnOccurence,
-                rulesetMe.Guid,
-                rulesetMe.CurrentFaction.Name);
-
-            rulesetMe.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetMe.InflictCondition(
+                $"{ConditionMarshalKnowledgeableDefenseACName}{level}",
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetMe.guid,
+                rulesetMe.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

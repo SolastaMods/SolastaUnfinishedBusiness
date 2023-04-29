@@ -201,9 +201,11 @@ internal static partial class SpellBuilders
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                rulesetAttacker == null ||
                 rulesetDefender == null ||
                 rulesetDefender.IsDeadOrDying ||
                 rulesetDefender.CurrentHitPoints > 50)
@@ -212,16 +214,19 @@ internal static partial class SpellBuilders
             }
 
             //TODO: ideally we need to banish extra planar creatures forever (kill them?)
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _conditionDefinition,
+            rulesetDefender.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Minute,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -316,17 +321,19 @@ internal static partial class SpellBuilders
                 yield break;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _conditionSanctuaryBuff,
+            rulesetDefender.InflictCondition(
+                _conditionSanctuaryBuff.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                defender.Guid,
-                rulesetDefender.CurrentFaction.Name
-            );
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -365,22 +372,19 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _conditionSanctuaryBuff,
+            rulesetDefender?.InflictCondition(
+                _conditionSanctuaryBuff.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                defender.Guid,
-                rulesetDefender.CurrentFaction.Name
-            );
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

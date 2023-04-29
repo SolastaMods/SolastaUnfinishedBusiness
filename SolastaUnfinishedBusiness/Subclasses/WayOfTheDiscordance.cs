@@ -360,27 +360,31 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         }
 
         private static void ApplyCondition(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ConditionDefinition conditionDefinition)
+            IControllableCharacter attacker,
+            IControllableCharacter defender,
+            BaseDefinition conditionDefinition)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                conditionDefinition,
-                DurationType.Minute,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
+            var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
 
-            rulesetDefender.AddConditionOfCategory(TagEffect, rulesetCondition);
+            rulesetDefender.InflictCondition(
+                conditionDefinition.Name,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         // return the Monk level factoring in wildshape multiclass scenarios

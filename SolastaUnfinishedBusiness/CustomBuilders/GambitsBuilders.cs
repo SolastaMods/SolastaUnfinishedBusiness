@@ -841,17 +841,21 @@ internal static class GambitsBuilders
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var character = me.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = me.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                string.Empty);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var tag = melee ? "GambitRiposte" : "GambitReturnFire";
@@ -867,10 +871,10 @@ internal static class GambitsBuilders
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
-                character.UsePower(UsablePowersProvider.Get(pool, character));
+                rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
             }
 
-            character.RemoveCondition(rulesetCondition);
+            rulesetCharacter.RemoveAllConditionsOfCategory(condition.Name);
         }
     }
 
@@ -921,17 +925,21 @@ internal static class GambitsBuilders
         private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
             GameLocationBattleManager battleManager, GameLocationActionManager actionManager, ReactionRequest request)
         {
-            var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
-                condition,
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                string.Empty
-            );
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             yield break;
         }

@@ -112,20 +112,25 @@ internal static class TwoWeaponCombatFeats
                 return;
             }
 
-            var condition = attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var condition = rulesetAttacker.HasConditionOfType(_conditionDualFlurryApply.Name)
                 ? _conditionDualFlurryGrant
                 : _conditionDualFlurryApply;
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                condition,
+            rulesetAttacker.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

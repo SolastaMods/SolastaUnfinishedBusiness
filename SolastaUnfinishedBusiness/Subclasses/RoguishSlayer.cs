@@ -221,16 +221,19 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             if (defender.HasAnyConditionOfType(ConditionSurprised))
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    myself.guid,
-                    _conditionDefinition,
+                myself.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
                     myself.guid,
-                    myself.CurrentFaction.Name);
-
-                myself.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    myself.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
             else
             {
@@ -447,16 +450,19 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionChainOfExecutionBeneficial,
+            rulesetCharacter.InflictCondition(
+                _conditionChainOfExecutionBeneficial.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

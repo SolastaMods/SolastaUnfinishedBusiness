@@ -183,22 +183,24 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
-                var defenderRulesetCharacter = gameLocationCharacter.RulesetCharacter;
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
 
                 GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _featureDefinitionPower);
-                effectPower.ApplyEffectOnCharacter(defenderRulesetCharacter, true,
-                    gameLocationCharacter.LocationPosition);
+                effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
 
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    defenderRulesetCharacter.Guid,
-                    _conditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name);
-
-                defenderRulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }

@@ -161,11 +161,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
         internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
         internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");
-        
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionMarkedByHunter { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
-        internal static ConditionDefinition ConditionMonkMartialArtsUnarmedStrikeBonus { get; } = GetDefinition<ConditionDefinition>("ConditionMonkMartialArtsUnarmedStrikeBonus");
         internal static ConditionDefinition ConditionOnFire { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire");
         internal static ConditionDefinition ConditionOnFire1D4 { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire1D4");
         internal static ConditionDefinition ConditionPactChainImp { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainImp");

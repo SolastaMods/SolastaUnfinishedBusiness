@@ -269,16 +269,19 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             }
             else if (outcome != RollOutcome.CriticalFailure && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    rulesetAttacker.Guid,
-                    _conditionUnbridledFerocity,
+                rulesetAttacker.InflictCondition(
+                    _conditionUnbridledFerocity.Name,
                     _conditionUnbridledFerocity.DurationType,
                     _conditionUnbridledFerocity.DurationParameter,
                     _conditionUnbridledFerocity.turnOccurence,
-                    rulesetAttacker.Guid,
-                    rulesetAttacker.CurrentFaction.Name);
-
-                rulesetAttacker.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }

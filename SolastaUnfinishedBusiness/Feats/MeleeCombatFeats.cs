@@ -250,20 +250,28 @@ internal static class MeleeCombatFeats
                 .AddToDB())
             .AddToDB();
 
-        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
-            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
+        IEnumerator AddCondition(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationBattleManager manager,
+            GameLocationActionManager actionManager,
+            ReactionRequest request)
         {
-            var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                conditionDamage,
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                conditionDamage.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                character.Guid,
-                string.Empty);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             yield break;
         }
@@ -455,16 +463,19 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.Guid,
-                _conditionDefinition,
+            rulesetCharacter.InflictCondition(
+                _conditionDefinition.Name,
                 _conditionDefinition.durationType,
                 _conditionDefinition.durationParameter,
                 _conditionDefinition.turnOccurence,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
@@ -752,16 +763,19 @@ internal static class MeleeCombatFeats
 
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionDefinition,
+            rulesetCharacter.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -888,16 +902,19 @@ internal static class MeleeCombatFeats
 
             if (attackRollOutcome is RollOutcome.CriticalSuccess)
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    rulesetDefender.Guid,
-                    _criticalConditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _criticalConditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    rulesetAttacker.Guid,
-                    rulesetAttacker.CurrentFaction.Name);
-
-                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
 
             if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
@@ -1206,16 +1223,21 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDefinition,
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -1463,20 +1485,29 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            RulesetCondition rulesetCondition;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                return;
+            }
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    attacker.Guid,
-                    _conditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    attacker.Guid,
-                    attacker.RulesetCharacter.CurrentFaction.Name);
-
-                defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)
@@ -1484,16 +1515,19 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _criticalConditionDefinition,
+            rulesetDefender.InflictCondition(
+                _criticalConditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

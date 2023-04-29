@@ -381,17 +381,21 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var actingCharacter = action.ActingCharacter.RulesetCharacter;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
-            var condition = RulesetCondition.CreateActiveCondition(
-                actingCharacter.Guid,
-                ConditionDefinitions.ConditionDisengaging,
+            rulesetCharacter.InflictCondition(
+                ConditionDisengaging,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
-
-            actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

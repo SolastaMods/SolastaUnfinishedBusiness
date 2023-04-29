@@ -295,46 +295,55 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             if (!rulesetCharacter.HasAnyConditionOfType(_conditionGatheringStorm.Name))
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    rulesetCharacter.guid,
-                    _conditionGatheringStorm,
+                rulesetCharacter.InflictCondition(
+                    _conditionGatheringStorm.Name,
                     _conditionGatheringStorm.DurationType,
                     _conditionGatheringStorm.DurationParameter,
                     _conditionGatheringStorm.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
                     rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name);
-
-                rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
 
                 return;
             }
 
-            var rulesetConditionApplied = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.guid,
-                _conditionAppliedGatheringStorm,
+            rulesetCharacter.InflictCondition(
+                _conditionAppliedGatheringStorm.Name,
                 _conditionAppliedGatheringStorm.DurationType,
                 _conditionAppliedGatheringStorm.DurationParameter,
                 _conditionAppliedGatheringStorm.TurnOccurence,
+                AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetConditionApplied);
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            var condition = ConditionDefinitions.ConditionMonkMartialArtsUnarmedStrikeBonus;
             var rulesetCharacter = locationCharacter.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.guid,
-                condition,
+
+            rulesetCharacter.InflictCondition(
+                ConditionMonkMartialArtsUnarmedStrikeBonus,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -353,17 +362,20 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var conditionDisengaging = ConditionDefinitions.ConditionDisengaging;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.guid,
-                conditionDisengaging,
+
+            rulesetCharacter.InflictCondition(
+                ConditionDisengaging,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

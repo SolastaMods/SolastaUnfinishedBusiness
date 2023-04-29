@@ -933,18 +933,22 @@ public static class InnovationArtillerist
                 return;
             }
 
-            var character = locationCharacter.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                character.CurrentFaction.Name);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-            GameConsoleHelper.LogCharacterUsedPower(character, power);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

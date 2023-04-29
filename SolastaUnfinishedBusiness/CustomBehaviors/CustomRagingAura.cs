@@ -25,6 +25,26 @@ public class CustomRagingAura :
         _friendlyAura = friendlyAura;
     }
 
+    public IEnumerator Execute(CharacterAction action)
+    {
+        if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
+            characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
+            _friendlyAura)
+        {
+            AddCondition(action.ActingCharacter);
+        }
+
+        if (action is CharacterActionSpendPower characterActionSpendPowerUnfriendly &&
+            characterActionSpendPowerUnfriendly.activePower.PowerDefinition == _powerDefinition &&
+            _friendlyAura == false)
+        {
+            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                _conditionDefinition.Name);
+        }
+
+        yield break;
+    }
+
     public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
     {
         var battle = Gui.Battle;
@@ -91,26 +111,6 @@ public class CustomRagingAura :
     public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
         RemoveCondition(rulesetActor);
-    }
-
-    public IEnumerator Execute(CharacterAction action)
-    {
-        if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
-            characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
-            _friendlyAura)
-        {
-            AddCondition(action.ActingCharacter);
-        }
-
-        if (action is CharacterActionSpendPower characterActionSpendPowerUnfriendly &&
-            characterActionSpendPowerUnfriendly.activePower.PowerDefinition == _powerDefinition &&
-            _friendlyAura == false)
-        {
-            action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
-                _conditionDefinition.Name);
-        }
-
-        yield break;
     }
 
     private void RemoveCondition(ISerializable rulesetActor)
@@ -183,7 +183,7 @@ public class CustomRagingAura :
         }
 
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        var factionName = sourceLocationCharacter.RulesetCharacter.CurrentFaction.Name;
+        var sourceCharacter = sourceLocationCharacter.RulesetCharacter;
 
         if (_friendlyAura)
         {
@@ -194,17 +194,21 @@ public class CustomRagingAura :
                              !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2)))
             {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    targetLocationCharacter.Guid,
-                    _conditionDefinition,
+                var targetCharacter = targetLocationCharacter.RulesetCharacter;
+
+                targetCharacter.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
-                    sourceLocationCharacter.Guid,
-                    factionName);
-
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
-                    condition);
+                    AttributeDefinitions.TagCombat,
+                    sourceCharacter.guid,
+                    sourceCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
         else
@@ -217,17 +221,21 @@ public class CustomRagingAura :
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2) &&
                              sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory("ConditionRaging")))
             {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    targetLocationCharacter.Guid,
-                    _conditionDefinition,
+                var targetCharacter = targetLocationCharacter.RulesetCharacter;
+
+                targetCharacter.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfSourceTurn,
-                    sourceLocationCharacter.Guid,
-                    factionName);
-
-                targetLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect,
-                    condition);
+                    AttributeDefinitions.TagEffect,
+                    sourceCharacter.guid,
+                    sourceCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }
