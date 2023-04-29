@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -8,7 +9,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 // it also enforce the condition to any other aura participant as soon as the barb enters rage
 // finally it forces the condition to stop on barb turn start for any hero who had it but not in range anymore
 public class CustomRagingAura :
-    INotifyConditionRemoval, IOnAfterActionFeature, ICharacterTurnStartListener
+    INotifyConditionRemoval, IActionFinished, ICharacterTurnStartListener
 {
     private readonly ConditionDefinition _conditionDefinition;
     private readonly bool _friendlyAura;
@@ -92,7 +93,7 @@ public class CustomRagingAura :
         RemoveCondition(rulesetActor);
     }
 
-    public void OnAfterAction(CharacterAction action)
+    public IEnumerator Execute(CharacterAction action)
     {
         if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
             characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
@@ -108,6 +109,8 @@ public class CustomRagingAura :
             action.ActingCharacter.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                 _conditionDefinition.Name);
         }
+
+        yield break;
     }
 
     private void RemoveCondition(ISerializable rulesetActor)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -30,7 +31,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create($"MovementAffinity{Name}TempestSwiftness")
             .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(2)
-            .SetCustomSubFeatures(new OnAfterActionTempestSwiftness())
+            .SetCustomSubFeatures(new ActionFinishedTempestSwiftness())
             .AddToDB();
 
         // LEVEL 06
@@ -213,7 +214,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new OnAfterActionEyeOfTheStorm(
+            new ActionFinishedEyeOfTheStorm(
                 powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
@@ -341,14 +342,14 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Swiftness
     //
 
-    private sealed class OnAfterActionTempestSwiftness : IOnAfterActionFeature
+    private sealed class ActionFinishedTempestSwiftness : IActionFinished
     {
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -481,13 +482,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Eye of The Storm
     //
 
-    private sealed class OnAfterActionEyeOfTheStorm : IOnAfterActionFeature
+    private sealed class ActionFinishedEyeOfTheStorm : IActionFinished
     {
         private readonly ConditionDefinition _conditionEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStorm;
         private readonly FeatureDefinitionPower _powerEyeOfTheStormLeap;
 
-        public OnAfterActionEyeOfTheStorm(
+        public ActionFinishedEyeOfTheStorm(
             FeatureDefinitionPower powerEyeOfTheStorm,
             FeatureDefinitionPower powerEyeOfTheStormLeap,
             ConditionDefinition conditionEyeOfTheStorm)
@@ -497,19 +498,19 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _powerEyeOfTheStorm)
             {
-                return;
+                yield break;
             }
 
             var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (battleService == null)
             {
-                return;
+                yield break;
             }
 
             var attacker = action.ActingCharacter;

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -512,7 +513,7 @@ internal static class InvocationsBuilders
         var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AfterActionAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
+            .SetCustomSubFeatures(new AfterActionFinishedAbilitiesChain(conditionAbilitySprite, conditionAbilityImp,
                 conditionAbilityQuasit, conditionAbilityPseudo))
             .AddToDB();
 
@@ -593,7 +594,7 @@ internal static class InvocationsBuilders
         }
     }
 
-    private sealed class AfterActionAbilitiesChain : IOnAfterActionFeature
+    private sealed class AfterActionFinishedAbilitiesChain : IActionFinished
     {
         private readonly ConditionDefinition _conditionImpAbility;
 
@@ -602,7 +603,7 @@ internal static class InvocationsBuilders
         private readonly ConditionDefinition _conditionQuasitAbility;
         private readonly ConditionDefinition _conditionSpriteAbility;
 
-        internal AfterActionAbilitiesChain(ConditionDefinition conditionSpriteAbility,
+        internal AfterActionFinishedAbilitiesChain(ConditionDefinition conditionSpriteAbility,
             ConditionDefinition conditionImpAbility,
             ConditionDefinition conditionQuasitAbility,
             ConditionDefinition conditionPseudoAbility)
@@ -613,16 +614,16 @@ internal static class InvocationsBuilders
             _conditionPseudoAbility = conditionPseudoAbility;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {
-                return;
+                yield break;
             }
 
             if (action.ActingCharacter == null)
             {
-                return;
+                yield break;
             }
 
             var self = action.ActingCharacter;

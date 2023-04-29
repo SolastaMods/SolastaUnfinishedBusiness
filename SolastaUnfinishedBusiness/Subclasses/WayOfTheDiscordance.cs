@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -228,7 +229,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AfterAttackEffectDiscordance : IOnAfterActionFeature, IAfterAttackEffect
+    private sealed class AfterAttackEffectDiscordance : IActionFinished, IAfterAttackEffect
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
@@ -265,7 +266,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             ApplyCondition(attacker, defender, _conditionDiscordance);
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             var gameLocationAttacker = action.ActingCharacter;
             var rulesetAttacker = gameLocationAttacker.RulesetCharacter;
@@ -354,6 +355,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
                 ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
+
+            yield break;
         }
 
         private static void ApplyCondition(

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -659,7 +660,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new OnAfterActionFeatMobileDash(
+                        new ActionFinishedFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -679,22 +680,23 @@ internal static class OtherFeats
     }
 
 
-    private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
+    private sealed class ActionFinishedFeatMobileDash : IActionFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public OnAfterActionFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
-            if (action is not CharacterActionDash or CharacterActionFlurryOfBlowsSwiftSteps
-                or CharacterActionFlurryOfBlows or CharacterActionFlurryOfBlowsSwiftSteps
-                or CharacterActionFlurryOfBlowsUnendingStrikes)
+            if (action is not CharacterActionDash or
+                CharacterActionFlurryOfBlows or
+                CharacterActionFlurryOfBlowsSwiftSteps or
+                CharacterActionFlurryOfBlowsUnendingStrikes)
             {
-                return;
+                yield break;
             }
 
             var attacker = action.ActingCharacter;
@@ -744,12 +746,12 @@ internal static class OtherFeats
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .SetCustomSubFeatures(new CustomBehaviorFeatureFeatPoisonousSkin())
+            .SetCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatureFeatPoisonousSkin :
-        IAfterAttackEffect, ICustomConditionFeature, IOnAfterActionFeature
+    private class CustomBehaviorFeatPoisonousSkin :
+        IAfterAttackEffect, ICustomConditionFeature, IActionFinished
     {
         // handle standard attack scenario
         public void AfterOnAttackHit(
@@ -797,11 +799,11 @@ internal static class OtherFeats
         }
 
         // handle Shove scenario
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
-            if (!action.ActionDefinition.Name.Contains("Shove"))
+            if (action is not CharacterActionShove)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;

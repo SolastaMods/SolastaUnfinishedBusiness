@@ -381,7 +381,7 @@ internal static class Level20Context
             .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
-        magicAffinityArchDruid.SetCustomSubFeatures(new OnAfterActionFeatureArchDruid(magicAffinityArchDruid));
+        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
 
         if (!Main.IsDebugBuild)
         {
@@ -944,27 +944,27 @@ internal static class Level20Context
         return code;
     }
 
-    private sealed class OnAfterActionFeatureArchDruid : IOnAfterActionFeature
+    private sealed class ActionFinishedArchDruid : IActionFinished
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnAfterActionFeatureArchDruid(FeatureDefinition featureDefinition)
+        public ActionFinishedArchDruid(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter == null)
             {
-                return;
+                yield break;
             }
 
             var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
@@ -972,7 +972,7 @@ internal static class Level20Context
 
             if (powerDefinition != PowerDruidWildShape && powerDefinition != powerCircleOfTheNightWildShapeCombat)
             {
-                return;
+                yield break;
             }
 
             var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);

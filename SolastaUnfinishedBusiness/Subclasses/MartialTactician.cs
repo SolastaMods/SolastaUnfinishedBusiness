@@ -436,7 +436,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class TacticalSurge : IOnAfterActionFeature
+    private class TacticalSurge : IActionFinished
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinition feature;
@@ -450,11 +450,11 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionActionSurge)
             {
-                return;
+                yield break;
             }
 
             var character = action.ActingCharacter.RulesetCharacter;

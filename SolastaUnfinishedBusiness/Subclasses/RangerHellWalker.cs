@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -267,7 +268,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
     //
 
     private sealed class CustomBehaviorMarkOfTheDammed :
-        IIgnoreDamageAffinity, IOnAfterActionFeature, IFilterTargetingMagicEffect
+        IIgnoreDamageAffinity, IActionFinished, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -315,14 +316,14 @@ internal sealed class RangerHellWalker : AbstractSubclass
             return false;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             var battle = Gui.Battle;
 
             if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
             {
-                return;
+                yield break;
             }
 
             var gameLocationDefender = action.actionParams.targetCharacters[0];

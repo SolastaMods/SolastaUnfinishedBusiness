@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -419,7 +420,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 
-    private sealed class UpgradeFlurry : IOnAfterActionFeature
+    private sealed class UpgradeFlurry : IActionFinished
     {
         private readonly ConditionDefinition condition;
 
@@ -428,18 +429,18 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             this.condition = condition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionFlurryOfBlows)
             {
-                return;
+                yield break;
             }
 
             var character = action.ActingCharacter?.RulesetCharacter;
 
             if (character == null)
             {
-                return;
+                yield break;
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,

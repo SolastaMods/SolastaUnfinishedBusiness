@@ -139,14 +139,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
         powerForcefulStepFixed.SetCustomSubFeatures(
             new PowerUseValidityForcefulStepFixed(powerForcefulStepFixed),
-            new OnAfterActionFeatureForcefulStep(powerForcefulStepApply));
+            new ActionFinishedForcefulStep(powerForcefulStepApply));
 
         var powerForcefulStepPoints = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ForcefulStepPoints")
             .SetGuiPresentation($"Power{Name}ForcefulStep", Category.Feature, PowerMonkStepOfTheWindDash)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.SorceryPoints, 4)
             .SetEffectDescription(effectDescriptionForcefulStep)
-            .SetCustomSubFeatures(new OnAfterActionFeatureForcefulStep(powerForcefulStepApply))
+            .SetCustomSubFeatures(new ActionFinishedForcefulStep(powerForcefulStepApply))
             .AddToDB();
 
         powerForcefulStepPoints.SetCustomSubFeatures(
@@ -322,29 +322,29 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Forceful Step Apply
     //
 
-    private sealed class OnAfterActionFeatureForcefulStep : IOnAfterActionFeature
+    private sealed class ActionFinishedForcefulStep : IActionFinished
     {
         private readonly FeatureDefinitionPower _powerApply;
 
-        public OnAfterActionFeatureForcefulStep(FeatureDefinitionPower powerApply)
+        public ActionFinishedForcefulStep(FeatureDefinitionPower powerApply)
         {
             _powerApply = powerApply;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepFixed" &&
                  characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepPoints"))
             {
-                return;
+                yield break;
             }
 
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
             if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = action.ActingCharacter.RulesetCharacter;

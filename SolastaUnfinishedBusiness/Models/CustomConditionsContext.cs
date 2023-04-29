@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -108,7 +109,7 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IOnAfterActionFeature, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
@@ -131,18 +132,15 @@ internal static class CustomConditionsContext
             }
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
-            var actionDefinition = action.ActionDefinition;
             var actionParams = action.ActionParams;
             var hero = actingCharacter.RulesetCharacter;
 
-            if (!actionDefinition.Name.StartsWith("Attack")
-                && !actionDefinition.Name.StartsWith("Cast")
-                && !actionDefinition.Name.StartsWith("Power"))
+            if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
             {
-                return;
+                yield break;
             }
 
             var ruleEffect = actionParams.RulesetEffect;

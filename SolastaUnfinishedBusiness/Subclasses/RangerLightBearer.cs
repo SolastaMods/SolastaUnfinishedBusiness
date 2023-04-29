@@ -217,7 +217,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAngelicFormSprout.SetCustomSubFeatures(new OnAfterActionFeatureAngelicForm(powerAngelicFormSprout));
+        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -440,21 +440,21 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class OnAfterActionFeatureAngelicForm : IOnAfterActionFeature
+    private sealed class ActionFinishedAngelicForm : IActionFinished
     {
         private static FeatureDefinitionPower _featureDefinitionPower;
 
-        public OnAfterActionFeatureAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedAngelicForm(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
