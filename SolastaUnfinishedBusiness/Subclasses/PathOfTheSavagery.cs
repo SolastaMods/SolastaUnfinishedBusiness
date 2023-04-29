@@ -105,7 +105,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .Create($"Feature{Name}WrathAndFury")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AfterAttackEffectWrathAndFury(powerGrievousWound),
+                new AttackEffectAfterDamageWrathAndFury(powerGrievousWound),
                 new UpgradeWeaponDice(GeUpgradedDice, ValidatorsWeapon.AlwaysValid,
                     ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand))
             .AddToDB();
@@ -133,7 +133,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         var featureUnbridledFerocity = FeatureDefinitionBuilder
             .Create($"Feature{Name}UnbridledFerocity")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AfterAttackEffectUnbridledFerocity(conditionUnbridledFerocity))
+            .SetCustomSubFeatures(new AttackEffectAfterDamageUnbridledFerocity(conditionUnbridledFerocity))
             .AddToDB();
 
         // LEVEL 14
@@ -189,17 +189,17 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         return (diceNumber, upgradeDiceMap[dieType], upgradeDiceMap[versatileDieType]);
     }
 
-    private sealed class AfterAttackEffectWrathAndFury : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageWrathAndFury : IAttackEffectAfterDamage
     {
         private readonly FeatureDefinitionPower _powerGrievousWound;
 
-        public AfterAttackEffectWrathAndFury(
+        public AttackEffectAfterDamageWrathAndFury(
             FeatureDefinitionPower powerGrievousWound)
         {
             _powerGrievousWound = powerGrievousWound;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -238,16 +238,16 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
         }
     }
 
-    private sealed class AfterAttackEffectUnbridledFerocity : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageUnbridledFerocity : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionUnbridledFerocity;
 
-        public AfterAttackEffectUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
+        public AttackEffectAfterDamageUnbridledFerocity(ConditionDefinition conditionUnbridledFerocity)
         {
             _conditionUnbridledFerocity = conditionUnbridledFerocity;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

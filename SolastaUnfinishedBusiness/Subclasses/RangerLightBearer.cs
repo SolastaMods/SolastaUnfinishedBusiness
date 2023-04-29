@@ -304,7 +304,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IBeforeAttackEffect
+    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IAttackEffectBeforeDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -313,7 +313,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -471,7 +471,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMeOrAlly(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

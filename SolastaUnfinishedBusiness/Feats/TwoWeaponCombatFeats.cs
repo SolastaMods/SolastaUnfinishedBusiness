@@ -85,7 +85,7 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IAfterAttackEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
@@ -98,7 +98,7 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

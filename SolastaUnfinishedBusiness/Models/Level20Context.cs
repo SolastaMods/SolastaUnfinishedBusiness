@@ -605,7 +605,7 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureFoeSlayer.SetCustomSubFeatures(new ModifyAttackModeForWeaponRangerFoeSlayer(featureFoeSlayer));
+        featureFoeSlayer.SetCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
 
         if (!Main.IsDebugBuild)
         {
@@ -662,7 +662,8 @@ internal static class Level20Context
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.SetCustomSubFeatures(new AlterAttackOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+        powerRogueStrokeOfLuck.SetCustomSubFeatures(
+            new PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -1069,7 +1070,7 @@ internal static class Level20Context
 
     private sealed class PhysicalAttackInitiatedOnMeRogueElusive : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1094,11 +1095,11 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponRangerFoeSlayer : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer : IModifyWeaponAttackMode
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ModifyAttackModeForWeaponRangerFoeSlayer(FeatureDefinition featureDefinition)
+        public ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
@@ -1122,16 +1123,16 @@ internal static class Level20Context
         }
     }
 
-    private class AlterAttackOutcomeRogueStrokeOfLuck : IAlterAttackOutcome
+    private class PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck : IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
 
-        public AlterAttackOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        public PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
         {
             _power = power;
         }
 
-        public IEnumerator TryAlterAttackOutcome(
+        public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,

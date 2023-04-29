@@ -165,7 +165,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         return hero?.GetClassLevel(DruidClass) ?? 0;
     }
 
-    private sealed class CustomBehaviorConditionVerdancy : IModifyRecurrentMagicEffect, INotifyConditionRemoval
+    private sealed class CustomBehaviorConditionVerdancy : IModifyMagicEffectRecurrent, INotifyConditionRemoval
     {
         public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
         {

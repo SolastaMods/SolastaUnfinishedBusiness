@@ -1,8 +1,8 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IOnComputeAttackModifier
+public interface IAttackComputeModifier
 {
-    public void ComputeAttackModifier(
+    public void OnAttackComputeModifier(
         RulesetCharacter myself,
         RulesetCharacter defender,
         BattleDefinitions.AttackProximity attackProximity,

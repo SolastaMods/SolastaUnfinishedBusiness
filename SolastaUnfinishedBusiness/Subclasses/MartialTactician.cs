@@ -171,7 +171,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.SetCustomSubFeatures(new RefundPowerUseAttackEffectAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -184,7 +184,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeatureSet(BuildGambitPoolIncrease(2, "ImproviseStrategy"))
             .AddToDB();
 
-        feature.SetCustomSubFeatures(new RefundPowerUseAfterCrit(GambitsBuilders.GambitPool, feature));
+        feature.SetCustomSubFeatures(new RefundPowerUseAttackEffectAfterCrit(GambitsBuilders.GambitPool, feature));
 
         return feature;
     }
@@ -284,18 +284,18 @@ internal sealed class MartialTactician : AbstractSubclass
         feature.SetCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
     }
 
-    private class RefundPowerUseAfterCrit : IAfterAttackEffect
+    private class RefundPowerUseAttackEffectAfterCrit : IAttackEffectAfterDamage
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;
 
-        public RefundPowerUseAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
+        public RefundPowerUseAttackEffectAfterCrit(FeatureDefinitionPower power, FeatureDefinition feature)
         {
             this.power = power;
             this.feature = feature;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

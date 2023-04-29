@@ -72,7 +72,7 @@ public static class InnovationArmor
         var pool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorModeSelectorPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
+            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .AddToDB();
 

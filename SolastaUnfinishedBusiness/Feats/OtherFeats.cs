@@ -485,13 +485,13 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered
                 {
                     WeaponValidator = (mode, _, character) =>
-                        ModifyAttackModeForWeaponFeatAstralArms.ValidWeapon(character, mode)
+                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
                 },
-                new ModifyAttackModeForWeaponFeatAstralArms())
+                new ModifyWeaponAttackModeFeatAstralArms())
             .AddToDB();
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatAstralArms : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatAstralArms : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -751,10 +751,26 @@ internal static class OtherFeats
     }
 
     private class CustomBehaviorFeatPoisonousSkin :
-        IAfterAttackEffect, ICustomConditionFeature, IActionFinished
+        IAttackEffectAfterDamage, ICustomConditionFeature, IActionFinished
     {
+        // handle Shove scenario
+        public IEnumerator Execute(CharacterAction action)
+        {
+            if (action is not CharacterActionShove)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in action.actionParams.TargetCharacters)
+            {
+                ApplyPower(rulesetAttacker, target);
+            }
+        }
+
         // handle standard attack scenario
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -796,22 +812,6 @@ internal static class OtherFeats
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
-        }
-
-        // handle Shove scenario
-        public IEnumerator Execute(CharacterAction action)
-        {
-            if (action is not CharacterActionShove)
-            {
-                yield break;
-            }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            foreach (var target in action.actionParams.TargetCharacters)
-            {
-                ApplyPower(rulesetAttacker, target);
-            }
         }
 
         private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)

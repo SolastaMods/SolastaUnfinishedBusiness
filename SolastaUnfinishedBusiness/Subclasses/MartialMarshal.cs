@@ -86,7 +86,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new OnComputeAttackModifierMarshalKnowYourEnemy())
+            .SetCustomSubFeatures(new AttackComputeModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -501,9 +501,9 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class OnComputeAttackModifierMarshalKnowYourEnemy : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierMarshalKnowYourEnemy : IAttackComputeModifier
     {
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -600,7 +600,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

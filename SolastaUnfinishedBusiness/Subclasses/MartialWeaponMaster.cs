@@ -43,7 +43,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddToDB();
 
         featureSpecializationDisadvantage.SetCustomSubFeatures(
-            new OnComputeAttackModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
+            new AttackComputeModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
 
         var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
@@ -60,7 +60,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 .AddToDB();
 
             featureSpecialization.SetCustomSubFeatures(
-                new ModifyAttackModeForWeaponSpecialization(weaponTypeDefinition, featureSpecialization));
+                new ModifyWeaponAttackModeSpecialization(weaponTypeDefinition, featureSpecialization));
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}{Specialization}{weaponTypeName}")
@@ -210,7 +210,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     internal static IEnumerable<WeaponTypeDefinition> GetSpecializedWeaponTypes(RulesetActor rulesetCharacter)
     {
         return rulesetCharacter
-            .GetSubFeaturesByType<ModifyAttackModeForWeaponSpecialization>()
+            .GetSubFeaturesByType<ModifyWeaponAttackModeSpecialization>()
             .Select(x => x.WeaponTypeDefinition)
             .ToList();
     }
@@ -219,16 +219,16 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Specialization
     //
 
-    private sealed class OnComputeAttackModifierSpecializationDisadvantage : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierSpecializationDisadvantage : IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnComputeAttackModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
+        public AttackComputeModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -248,12 +248,12 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponSpecialization : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeSpecialization : IModifyWeaponAttackMode
     {
         private readonly FeatureDefinition _featureDefinition;
         public readonly WeaponTypeDefinition WeaponTypeDefinition;
 
-        public ModifyAttackModeForWeaponSpecialization(
+        public ModifyWeaponAttackModeSpecialization(
             WeaponTypeDefinition weaponTypeDefinition,
             FeatureDefinition featureDefinition)
         {
@@ -293,7 +293,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Focused Strikes
     //
 
-    private sealed class CustomBehaviorFocusedStrikes : IOnComputeAttackModifier
+    private sealed class CustomBehaviorFocusedStrikes : IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
@@ -302,7 +302,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,

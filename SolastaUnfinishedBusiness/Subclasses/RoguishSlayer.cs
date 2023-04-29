@@ -171,7 +171,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AfterAttackEffectFatalStrike())
+            .SetCustomSubFeatures(new AfterDamageFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -197,7 +197,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IOnComputeAttackModifier
+    private sealed class CustomBehaviorElimination : IAttackComputeModifier
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -208,7 +208,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -470,9 +470,9 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class AfterAttackEffectFatalStrike : IBeforeAttackEffect
+    private sealed class AfterDamageFatalStrike : IAttackEffectBeforeDamage
     {
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

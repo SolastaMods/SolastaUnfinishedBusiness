@@ -114,7 +114,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerDiscordance.SetCustomSubFeatures(
-            new AfterAttackEffectDiscordance(conditionDiscordance, powerDiscordanceDamage));
+            new AttackEffectAfterDamageDiscordance(conditionDiscordance, powerDiscordanceDamage));
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
@@ -229,41 +229,18 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AfterAttackEffectDiscordance : IActionFinished, IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageDiscordance : IActionFinished, IAttackEffectAfterDamage
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly FeatureDefinitionPower _powerDiscordanceDamage;
 
-        public AfterAttackEffectDiscordance(
+        public AttackEffectAfterDamageDiscordance(
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordanceDamage)
         {
             _conditionDiscordance = conditionDiscordance;
             _powerDiscordanceDamage = powerDiscordanceDamage;
-        }
-
-        // only add condition if monk weapon or unarmed
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
-                !item.WeaponDescription.IsMonkWeaponOrUnarmed())
-            {
-                return;
-            }
-
-            ApplyCondition(attacker, defender, _conditionDiscordance);
         }
 
         public IEnumerator Execute(CharacterAction action)
@@ -357,6 +334,29 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             yield break;
+        }
+
+        // only add condition if monk weapon or unarmed
+        public void OnAttackEffectAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
+                !item.WeaponDescription.IsMonkWeaponOrUnarmed())
+            {
+                return;
+            }
+
+            ApplyCondition(attacker, defender, _conditionDiscordance);
         }
 
         private static void ApplyCondition(

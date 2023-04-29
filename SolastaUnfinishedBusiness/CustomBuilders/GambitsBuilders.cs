@@ -95,7 +95,7 @@ internal static class GambitsBuilders
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerAfterAttack(spendDiePower);
+        var spendDieOnAttack = new SpendPowerAttackEffectAfterAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -505,8 +505,8 @@ internal static class GambitsBuilders
                         .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
                             .Create($"Feature{name}")
                             .SetGuiPresentationNoContent(true)
-                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.AlwaysValid),
-                                new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                            .SetCustomSubFeatures(new IncreaseMeleeWeaponAttackReach(1, ValidatorsWeapon.AlwaysValid),
+                                new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                             .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -739,16 +739,16 @@ internal static class GambitsBuilders
         }
     }
 
-    private class SpendPowerAfterAttack : IAfterAttackEffect
+    private class SpendPowerAttackEffectAfterAttack : IAttackEffectAfterDamage
     {
         private readonly FeatureDefinitionPower power;
 
-        public SpendPowerAfterAttack(FeatureDefinitionPower power)
+        public SpendPowerAttackEffectAfterAttack(FeatureDefinitionPower power)
         {
             this.power = power;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -964,7 +964,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Precise : IAlterAttackOutcome
+    private class Precise : IPhysicalAttackTryAlterOutcome
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
@@ -977,7 +977,7 @@ internal static class GambitsBuilders
             this.feature = feature;
         }
 
-        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
+        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1065,7 +1065,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Parry : IDefenderBeforeAttackHitConfirmed
+    private class Parry : IPhysicalAttackBeforeHitConfirmed
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1078,7 +1078,7 @@ internal static class GambitsBuilders
             this.feature = feature;
         }
 
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmed(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,

@@ -6,7 +6,8 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IPhysicalAttackFinished
 {
     [UsedImplicitly]
-    IEnumerator OnAttackFinished(GameLocationBattleManager battleManager,
+    IEnumerator OnAttackFinished(
+        GameLocationBattleManager battleManager,
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

@@ -47,7 +47,7 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
             .SetCustomSubFeatures(
-                new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
+                new CanUseAttribute(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
             .AddToDB();
     }
 

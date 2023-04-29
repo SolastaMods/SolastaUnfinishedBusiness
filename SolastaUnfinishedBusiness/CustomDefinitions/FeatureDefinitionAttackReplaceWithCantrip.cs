@@ -2,6 +2,6 @@
 
 namespace SolastaUnfinishedBusiness.CustomDefinitions;
 
-internal class FeatureDefinitionReplaceAttackWithCantrip : FeatureDefinition, IReplaceAttackWithCantrip
+internal class FeatureDefinitionAttackReplaceWithCantrip : FeatureDefinition, IAttackReplaceWithCantrip
 {
 }

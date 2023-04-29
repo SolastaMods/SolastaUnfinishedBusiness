@@ -35,7 +35,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     new RangedAttackInMeleeDisadvantageRemover(
                         (mode, _, character) => IsZenArrowAttack(mode, null, character),
                         ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
-                    new AddTagToWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
+                    new AddTagToWeaponWeaponAttack(ZenArrowTag, ValidatorsWeapon.AlwaysValid))
                 .AddToDB();
 
         // ZEN ARROW
@@ -180,7 +180,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .Create("FeatureWayOfTheDistantHandKiPoweredArrows")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AddTagToWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
+                new AddTagToWeaponWeaponAttack(TagsDefinitions.Magical, (mode, _, character) =>
                     IsZenArrowAttack(mode, null, character)))
             .AddToDB();
 

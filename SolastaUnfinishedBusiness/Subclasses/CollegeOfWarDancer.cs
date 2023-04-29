@@ -298,7 +298,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
+                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
             .AddToDB();
 
@@ -313,7 +313,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
+                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
             .AddToDB();
 
@@ -332,7 +332,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
                     {
                         if (spellEffect.slotLevel > 0 || spellEffect.SpellDefinition
-                                .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
+                                .HasSubFeatureOfType<IAttackAfterMagicEffect>())
                         {
                             if (spellEffect.slotLevel / 2 > momentum)
                             {
@@ -485,7 +485,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class WarDanceFlurryAttackModifier : IModifyAttackModeForWeapon
+    private sealed class WarDanceFlurryWeaponAttackModifier : IModifyWeaponAttackMode
     {
         private const int LightMomentumModifier = -2;
         private const int MomentumModifier = -3;

@@ -50,7 +50,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetCustomSubFeatures(
                 new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
-                new ModifyAttackModeForWeaponTypeQuarterstaff(validWeapon))
+                new ModifyWeaponAttackModeTypeQuarterstaff(validWeapon))
             .AddToDB();
 
         // LEVEL 09 - Swift as the Wind
@@ -142,7 +142,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         powerHeroicUncannyDodge.SetCustomSubFeatures(
-            new DefenderBeforeAttackHitConfirmedHeroicUncannyDodge(powerHeroicUncannyDodge));
+            new PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge(powerHeroicUncannyDodge));
 
         // MAIN
 
@@ -172,11 +172,11 @@ internal sealed class RoguishAcrobat : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyAttackModeForWeaponTypeQuarterstaff : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeTypeQuarterstaff : IModifyWeaponAttackMode
     {
         private readonly IsWeaponValidHandler _isWeaponValid;
 
-        public ModifyAttackModeForWeaponTypeQuarterstaff(IsWeaponValidHandler isWeaponValid)
+        public ModifyWeaponAttackModeTypeQuarterstaff(IsWeaponValidHandler isWeaponValid)
         {
             _isWeaponValid = isWeaponValid;
         }
@@ -193,16 +193,16 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         }
     }
 
-    private class DefenderBeforeAttackHitConfirmedHeroicUncannyDodge : IDefenderBeforeAttackHitConfirmed
+    private class PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge : IPhysicalAttackBeforeHitConfirmed
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public DefenderBeforeAttackHitConfirmedHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
+        public PhysicalAttackBeforeHitConfirmedHeroicUncannyDodge(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmed(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,

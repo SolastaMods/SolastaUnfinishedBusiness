@@ -36,7 +36,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var magicAffinitySpellShieldCombatMagicVigor = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldCombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ComputeAttackModifierMagicAffinityCombatMagicVigor())
+            .SetCustomSubFeatures(new ComputeModifierMagicAffinityCombatMagicVigor())
             .AddToDB();
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
@@ -87,7 +87,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 castSpellSpellShield)
             .AddFeaturesAtLevel(7,
                 PowerCasterFightingWarMagic,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 magicAffinitySpellShieldCombatMagicVigor)
             .AddFeaturesAtLevel(15,
@@ -105,19 +105,9 @@ internal sealed class MartialSpellShield : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor : IOnComputeAttackModifier, IIncreaseSpellDc
+    private sealed class ComputeModifierMagicAffinityCombatMagicVigor : IAttackComputeModifier, IIncreaseSpellDc
     {
-        public int GetSpellModifier(RulesetCharacter caster)
-        {
-            var strModifier =
-                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));
-            var dexModifier =
-                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Dexterity));
-
-            return Math.Max(strModifier, dexModifier);
-        }
-
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -136,6 +126,16 @@ internal sealed class MartialSpellShield : AbstractSubclass
             attackModifier.attackRollModifier += modifier;
             attackModifier.attackToHitTrends.Add(new TrendInfo(modifier, FeatureSourceType.ExplicitFeature,
                 "Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle", null));
+        }
+
+        public int GetSpellModifier(RulesetCharacter caster)
+        {
+            var strModifier =
+                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));
+            var dexModifier =
+                ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Dexterity));
+
+            return Math.Max(strModifier, dexModifier);
         }
     }
 }

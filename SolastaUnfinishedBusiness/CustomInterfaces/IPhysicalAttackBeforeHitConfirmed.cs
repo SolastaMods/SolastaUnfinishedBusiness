@@ -5,10 +5,10 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 //Can add similar interfaces in future for after hit confirmed and/or for attacker
-public interface IDefenderBeforeAttackHitConfirmed
+public interface IPhysicalAttackBeforeHitConfirmed
 {
     [UsedImplicitly]
-    IEnumerator DefenderBeforeAttackHitConfirmed(
+    IEnumerator OnAttackBeforeHitConfirmed(
         GameLocationBattleManager battle,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

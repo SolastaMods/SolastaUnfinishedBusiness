@@ -23,7 +23,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (!character.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
+        if (!character.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }
@@ -51,7 +51,7 @@ internal static class ReplaceAttackWithCantrip
 
         var rulesetCharacter = actionParams.actingCharacter.RulesetCharacter;
 
-        if (!rulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>())
+        if (!rulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>())
         {
             return;
         }

@@ -106,7 +106,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         powerTempestFury.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new PerformAttackAfterMagicEffectUseTempestFury(),
+            new AttackAfterMagicEffectTempestFury(),
             new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked),
             new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)));
 
@@ -249,7 +249,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Gathering Storm
     //
 
-    private sealed class CustomBehaviorGatheringStorm : ICharacterTurnStartListener, IAfterAttackEffect
+    private sealed class CustomBehaviorGatheringStorm : ICharacterTurnStartListener, IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionAppliedGatheringStorm;
         private readonly ConditionDefinition _conditionGatheringStorm;
@@ -262,7 +262,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             _conditionAppliedGatheringStorm = conditionAppliedGatheringStorm;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -371,15 +371,15 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     // Tempest Fury
     //
 
-    private sealed class PerformAttackAfterMagicEffectUseTempestFury : IPerformAttackAfterMagicEffectUse
+    private sealed class AttackAfterMagicEffectTempestFury : IAttackAfterMagicEffect
     {
-        public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; } =
+        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
             CanMeleeAttack;
 
-        public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
+        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
             DefaultAttackHandler;
 
-        public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; } =
+        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
             DefaultCanUseHandler;
 
         private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)

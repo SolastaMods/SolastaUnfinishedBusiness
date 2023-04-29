@@ -6,18 +6,18 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
+internal sealed class AttackAfterMagicEffect : IAttackAfterMagicEffect
 {
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse(1);
+    internal static readonly IAttackAfterMagicEffect MeleeAttack = new AttackAfterMagicEffect(1);
 
-    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttackCanTwin =
-        new PerformAttackAfterMagicEffectUse(2);
+    internal static readonly IAttackAfterMagicEffect MeleeAttackCanTwin =
+        new AttackAfterMagicEffect(2);
 
     private readonly int maxAttacks;
 
-    private PerformAttackAfterMagicEffectUse(int maxAttacks)
+    private AttackAfterMagicEffect(int maxAttacks)
     {
         this.maxAttacks = maxAttacks;
         CanAttack = CanMeleeAttack;
@@ -25,9 +25,9 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
         PerformAttackAfterUse = DefaultAttackHandler;
     }
 
-    public IPerformAttackAfterMagicEffectUse.CanUseHandler CanBeUsedToAttack { get; }
-    public IPerformAttackAfterMagicEffectUse.GetAttackAfterUseHandler PerformAttackAfterUse { get; }
-    public IPerformAttackAfterMagicEffectUse.CanAttackHandler CanAttack { get; }
+    public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; }
+    public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; }
+    public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; }
 
     private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
     {

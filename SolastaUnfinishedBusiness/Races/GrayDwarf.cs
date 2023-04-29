@@ -162,7 +162,7 @@ internal static class GrayDwarfSubraceBuilder
         return raceGrayDwarf;
     }
 
-    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyAttackModeForWeapon
+    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

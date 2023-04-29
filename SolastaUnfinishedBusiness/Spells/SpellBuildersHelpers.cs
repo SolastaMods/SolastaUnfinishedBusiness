@@ -184,7 +184,7 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class OnAttackHitEffectBanishingSmite : IAfterAttackEffect
+    private sealed class OnAttackHitEffectBanishingSmite : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -193,7 +193,7 @@ internal static partial class SpellBuilders
             _conditionDefinition = conditionDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -330,17 +330,17 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class SanctuaryBeforeAttackHitConfirmed : IDefenderBeforeAttackHitConfirmed
+    private sealed class SanctuaryBeforeHitConfirmed : IPhysicalAttackBeforeHitConfirmed
     {
         private readonly ConditionDefinition _conditionSanctuaryBuff;
 
-        internal SanctuaryBeforeAttackHitConfirmed(ConditionDefinition conditionSanctuaryBuff)
+        internal SanctuaryBeforeHitConfirmed(ConditionDefinition conditionSanctuaryBuff)
         {
             _conditionSanctuaryBuff = conditionSanctuaryBuff;
         }
 
 
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmed(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,

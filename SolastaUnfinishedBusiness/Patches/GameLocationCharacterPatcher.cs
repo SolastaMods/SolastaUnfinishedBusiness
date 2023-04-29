@@ -95,11 +95,12 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IBeforeAttackEffect>();
+            var features = character.GetSubFeaturesByType<IAttackEffectBeforeDamage>();
 
             foreach (var effect in features)
             {
-                effect.BeforeOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnAttackEffectBeforeDamage(__instance, target, outcome, actionParams, attackMode,
+                    attackModifier);
             }
 
             //PATCH: registers which weapon types were used so far on attacks
@@ -129,11 +130,11 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IAfterAttackEffect>();
+            var features = character.GetSubFeaturesByType<IAttackEffectAfterDamage>();
 
             foreach (var effect in features)
             {
-                effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnAttackEffectAfterDamage(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
         }
     }

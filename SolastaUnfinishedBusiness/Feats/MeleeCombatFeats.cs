@@ -209,7 +209,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(FeatureDefinitionBuilder
                 .Create($"Feature{NAME}Reach")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, validWeapon,
+                .SetCustomSubFeatures(new IncreaseMeleeWeaponAttackReach(1, validWeapon,
                     ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
                 .AddToDB())
             .AddToDB();
@@ -368,12 +368,12 @@ internal static class MeleeCombatFeats
 
     #region Helpers
 
-    private sealed class ModifyAttackModeForWeaponTypeFilter : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
     {
         private readonly string _sourceName;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public ModifyAttackModeForWeaponTypeFilter(string sourceName,
+        public ModifyWeaponAttackModeTypeFilter(string sourceName,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _sourceName = sourceName;
@@ -428,7 +428,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorAlwaysReady : IAfterAttackEffect, ICharacterTurnEndListener
+    private sealed class CustomBehaviorAlwaysReady : IAttackEffectAfterDamage, ICharacterTurnEndListener
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -439,7 +439,7 @@ internal static class MeleeCombatFeats
             _featureDefinition = featureDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -542,21 +542,21 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
-                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
-                new ModifyAttackModeForWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new AttackComputeModifierFeatBladeMastery(weaponTypes),
+                new ModifyWeaponAttackModeTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
 
-    private sealed class OnComputeAttackModifierFeatBladeMastery : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierFeatBladeMastery : IAttackComputeModifier
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public OnComputeAttackModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public AttackComputeModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -683,12 +683,12 @@ internal static class MeleeCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatCleavingAttack(featCleavingAttack));
+                new ModifyWeaponAttackModeFeatCleavingAttack(featCleavingAttack));
 
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraAttackFeatCleavingAttack : IAfterAttackEffect, ITargetReducedToZeroHp
+    private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, ITargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -697,7 +697,7 @@ internal static class MeleeCombatFeats
             _conditionDefinition = conditionDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -765,11 +765,11 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatCleavingAttack : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatCleavingAttack(FeatDefinition featDefinition)
+        public ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
         {
             _featDefinition = featDefinition;
         }
@@ -994,15 +994,15 @@ internal static class MeleeCombatFeats
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(fellHandedAdvantage, weaponTypes),
-                new ModifyAttackModeForWeaponTypeFilter(
+                new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
+                new ModifyWeaponAttackModeTypeFilter(
                     $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
 
         return feat;
     }
 
-    private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageFeatFellHanded : IAttackEffectAfterDamage
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1011,7 +1011,7 @@ internal static class MeleeCombatFeats
         private readonly DamageForm damage;
         private readonly FeatureDefinitionPower power;
 
-        public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
+        public AttackEffectAfterDamageFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             this.power = power;
@@ -1023,7 +1023,7 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1128,7 +1128,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new BeforeAttackEffectFeatPiercer(
+            new AttackEffectBeforeDamageFeatPiercer(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
@@ -1180,18 +1180,18 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class BeforeAttackEffectFeatPiercer : IBeforeAttackEffect
+    private sealed class AttackEffectBeforeDamageFeatPiercer : IAttackEffectBeforeDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal BeforeAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal AttackEffectBeforeDamageFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
         }
 
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1326,16 +1326,16 @@ internal static class MeleeCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatPowerAttack(featPowerAttack));
+                new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 
         return featPowerAttack;
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatPowerAttack(FeatDefinition featDefinition)
+        public ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition)
         {
             _featDefinition = featDefinition;
         }
@@ -1376,7 +1376,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatSlasher")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AfterAttackEffectFeatSlasher(
+            new AttackEffectAfterDamageFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
@@ -1432,13 +1432,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class AfterAttackEffectFeatSlasher : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageFeatSlasher : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly ConditionDefinition _criticalConditionDefinition;
         private readonly string _damageType;
 
-        internal AfterAttackEffectFeatSlasher(
+        internal AttackEffectAfterDamageFeatSlasher(
             ConditionDefinition conditionDefinition,
             ConditionDefinition criticalConditionDefinition,
             string damageType)
@@ -1448,7 +1448,7 @@ internal static class MeleeCombatFeats
             _damageType = damageType;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
