@@ -141,13 +141,14 @@ internal static class InventorInfusions
 
         foreach (var element in elements)
         {
+            var term = Gui.Localize($"Rules/&{element}Title");
+            var title = Gui.Format($"Feature/&AdditionalDamage{name}Title", term);
+            var description = Gui.Format($"Feature/&AdditionalDamage{name}Description", term);
+
             power = BuildInfuseItemPower(name + element, element, sprite, IsWeapon,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
-                    .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
-                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
-                            Gui.Localize($"Rules/&{element}Title")),
-                        ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
@@ -243,13 +244,14 @@ internal static class InventorInfusions
 
         foreach (var element in elements)
         {
+            var term = Gui.Localize($"Rules/&{element}Title");
+            var title = Gui.Format($"Feature/&AdditionalDamage{name}Title", term);
+            var description = Gui.Format($"Feature/&AdditionalDamage{name}Description", term);
+
             power = BuildInfuseItemPower(name + element, element, sprite, IsWeapon,
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
-                    .SetGuiPresentation($"Feature/&AdditionalDamage{name}Title",
-                        Gui.Format($"Feature/&AdditionalDamage{name}Description",
-                            Gui.Localize($"Rules/&{element}Title")),
-                        ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
                     .SetSpecificDamageType(element)

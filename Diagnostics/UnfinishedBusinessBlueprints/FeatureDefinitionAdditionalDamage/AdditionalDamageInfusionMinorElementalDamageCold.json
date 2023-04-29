@@ -149,7 +149,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageInfusionMinorElementalTitle",
+    "title": "Minor Elemental [Cold]",
     "description": "Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Cold damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
