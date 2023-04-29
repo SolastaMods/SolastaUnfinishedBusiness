@@ -11,11 +11,7 @@ internal static class RulesetItemExtensions
     {
         var list = new List<FeatureDefinition>();
 
-        //BUGFIX: this was causing 1.5 to abort with 1.4 mod. temporary until DLC releases
-        if (Main.Enabled)
-        {
-            item?.EnumerateFeaturesToBrowse<T>(list);
-        }
+        item?.EnumerateFeaturesToBrowse<T>(list);
 
         return list
             .OfType<T>()
@@ -25,16 +21,28 @@ internal static class RulesetItemExtensions
     [NotNull]
     internal static List<T> GetSubFeaturesByType<T>(this RulesetItem item) where T : class
     {
-        return FeaturesByType<FeatureDefinition>(item)
-            .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
-            .ToList();
+        //BUGFIX: check required for smooth mod update to game version 1.5.x
+        if (Main.Enabled)
+        {
+            return FeaturesByType<FeatureDefinition>(item)
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .ToList();
+        }
+
+        return new List<T>();
     }
 
     internal static bool HasSubFeatureOfType<T>(this RulesetItem item) where T : class
     {
-        return FeaturesByType<FeatureDefinition>(item)
-            .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
-            .FirstOrDefault() != null;
+        //BUGFIX: check required for smooth mod update to game version 1.5.x
+        if (Main.Enabled)
+        {
+            return FeaturesByType<FeatureDefinition>(item)
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .FirstOrDefault() != null;
+        }
+
+        return false;
     }
 
     internal static bool NeedsIdentification(this RulesetItem item)
