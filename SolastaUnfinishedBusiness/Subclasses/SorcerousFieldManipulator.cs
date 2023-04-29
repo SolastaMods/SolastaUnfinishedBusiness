@@ -60,7 +60,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyActionParamsDisplacement(), PushesFromEffectPoint.Marker)
+            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06
@@ -199,9 +199,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     // Displacement
     //
 
-    private sealed class ModifyActionParamsDisplacement : IModifyActionParams
+    private sealed class ActionInitiatedDisplacement : IActionInitiated
     {
-        public IEnumerator Modify(CharacterAction characterAction)
+        public IEnumerator Execute(CharacterAction characterAction)
         {
             var rulesetEffect = characterAction.ActionParams.RulesetEffect;
 

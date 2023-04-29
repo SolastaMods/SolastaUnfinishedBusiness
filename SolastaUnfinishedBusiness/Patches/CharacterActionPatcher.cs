@@ -84,11 +84,11 @@ public static class CharacterActionPatcher
 
             if (rulesetCharacter != null)
             {
-                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IModifyActionParams>();
+                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
 
                 foreach (var modifyActionParam in modifyActionParams)
                 {
-                    yield return modifyActionParam.Modify(__instance);
+                    yield return modifyActionParam.Execute(__instance);
                 }
             }
 
