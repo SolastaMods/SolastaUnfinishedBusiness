@@ -151,7 +151,7 @@ internal static class BootContext
             // Cache CE definitions for diagnostics and export
             DiagnosticsContext.CacheCeDefinitions();
 
-            // dump descriptions to mod folder
+            // Dump documentations to mod folder
             if (!Directory.Exists($"{Main.ModFolder}/Documentation"))
             {
                 Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
@@ -177,9 +177,13 @@ internal static class BootContext
             DumpOthers<SpellDefinition>("SolastaSpells",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
-                x => x.ContentPack == CeContentPackContext.CeContentPack);
+                x => x.ContentPack == CeContentPackContext.CeContentPack &&
+                     x is ItemDefinition item &&
+                     (item.IsArmor || item.IsWeapon));
             DumpOthers<ItemDefinition>("SolastaItems",
-                x => x.ContentPack != CeContentPackContext.CeContentPack);
+                x => x.ContentPack != CeContentPackContext.CeContentPack &&
+                     x is ItemDefinition item &&
+                     (item.IsArmor || item.IsWeapon));
             DumpOthers<MetamagicOptionDefinition>("UnfinishedBusinessMetamagic",
                 x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpOthers<MetamagicOptionDefinition>("SolastaMetamagic",
