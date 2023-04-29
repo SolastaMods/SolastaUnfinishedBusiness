@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.81:
+
+- fixed Druid's arch druid interaction with circle of the night
+- fixed Monk's specialized weapon to have the finesse tag
+- fixed Rogue's stroke of luck power usage once per short rest
+- fixed Roguish Raven's Deadly Aim damage dealt on reroll hit
+- fixed Sorcerous Field Manipulator's displacement on MP
+
 1.4.33.80:
 
 - added Battleaxe magical items and recipes
