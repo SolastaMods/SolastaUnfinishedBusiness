@@ -18,7 +18,7 @@ internal sealed class CollegeOfGuts : AbstractSubclass
                 MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(14,
                 PowerCasterFightingWarMagic)
             .AddToDB();

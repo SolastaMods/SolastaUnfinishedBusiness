@@ -535,7 +535,7 @@ internal static class CustomWeaponsContext
             .Create("FeatureProducedFlameThrower")
             .SetGuiPresentationNoContent()
             .SetCustomSubFeatures(
-                new ModifyProducedFlameDice(),
+                new ModifyWeaponProducedFlameDice(),
                 new AddThrowProducedFlameAttack()
             )
             .AddToDB(), false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden));
@@ -811,9 +811,9 @@ internal static class CustomWeaponsContext
     #endregion
 }
 
-internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
+internal sealed class ModifyWeaponProducedFlameDice : ModifyWeaponAttackModeBase
 {
-    internal ModifyProducedFlameDice() : base((_, weapon, _) =>
+    internal ModifyWeaponProducedFlameDice() : base((_, weapon, _) =>
         weapon != null && weapon.ItemDefinition == ItemDefinitions.ProducedFlame)
     {
     }

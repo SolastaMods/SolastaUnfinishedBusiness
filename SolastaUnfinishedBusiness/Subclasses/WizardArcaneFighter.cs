@@ -46,7 +46,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 PowerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 additionalActionArcaneFighter)
             .AddFeaturesAtLevel(14,

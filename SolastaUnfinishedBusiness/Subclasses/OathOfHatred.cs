@@ -117,7 +117,7 @@ internal sealed class OathOfHatred : AbstractSubclass
         var featureDauntlessPursuer = FeatureDefinitionBuilder
             .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new OnAttackEffectsDauntlessPursuer(conditionDauntlessPursuer))
+            .SetCustomSubFeatures(new OnDamagesDauntlessPursuer(conditionDauntlessPursuer))
             .AddToDB();
 
         //
@@ -155,16 +155,16 @@ internal sealed class OathOfHatred : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class OnAttackEffectsDauntlessPursuer : IAfterAttackEffect
+    private sealed class OnDamagesDauntlessPursuer : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;
 
-        internal OnAttackEffectsDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
+        internal OnDamagesDauntlessPursuer(ConditionDefinition conditionDauntlessPursuerAfterAttack)
         {
             _conditionDauntlessPursuerAfterAttack = conditionDauntlessPursuerAfterAttack;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -182,17 +182,21 @@ internal sealed class OathOfHatred : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDauntlessPursuerAfterAttack,
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                _conditionDauntlessPursuerAfterAttack.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name
-            );
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

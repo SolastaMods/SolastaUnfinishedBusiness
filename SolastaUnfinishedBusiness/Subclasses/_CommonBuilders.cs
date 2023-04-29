@@ -115,7 +115,7 @@ internal static class CommonBuilders
                 .Build())
         .AddToDB();
 
-    internal static readonly FeatureDefinitionReplaceAttackWithCantrip ReplaceAttackWithCantripCasterFighting =
+    internal static readonly FeatureDefinitionAttackReplaceWithCantrip AttackReplaceWithCantripCasterFighting =
         FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripCasterFighting")
             .SetGuiPresentation(Category.Feature)

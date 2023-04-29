@@ -23,7 +23,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddToDB();
 
         onComputeAttackModifierOpportunistQuickStrike.SetCustomSubFeatures(
-            new OnComputeAttackModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
+            new AttackComputeModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
 
         var savingThrowAffinityConditionOpportunistDebilitated = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOpportunistDebilitatingStrike")
@@ -137,16 +137,16 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     }
 #endif
 
-    private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierOpportunistQuickStrike : IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnComputeAttackModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
+        public AttackComputeModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,

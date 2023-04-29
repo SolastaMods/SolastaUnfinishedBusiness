@@ -1,10 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
-using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -26,9 +21,6 @@ internal static class Global
 
     // inspected hero on both location and pool
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
-
-    // active player character
-    // internal static GameLocationCharacter ActionCharacter { get; private set; }
 
     private static GameLocationCharacter ControlledLocationCharacter
     {
@@ -54,7 +46,7 @@ internal static class Global
                                                          ?? ControlledLocationCharacter?.RulesetCharacter;
 
     // current action from any character on the map
-    internal static CharacterAction CurrentAction { get; private set; }
+    internal static CharacterAction CurrentAction { get; set; }
 
     // last attack was a critical hit
     internal static bool CriticalHit { get; set; }
@@ -64,56 +56,5 @@ internal static class Global
 
     // keep a tab on last rolled dices
     internal static int FirstAttackRoll { get; set; }
-
     internal static int SecondAttackRoll { get; set; }
-
-    // restate globals on every new action
-    internal static void ActionStarted([NotNull] CharacterAction characterAction)
-    {
-        CurrentAction = characterAction;
-
-        // ActionCharacter = characterAction.ActingCharacter;
-
-        switch (characterAction)
-        {
-            case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
-                // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
-                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
-                characterAction.actionParams.BoolParameter5 = isShiftPressed;
-                break;
-
-            case CharacterActionReady:
-                CustomReactionsContext.ReadReadyActionPreferredCantrip(characterAction.actionParams);
-                break;
-
-            case CharacterActionSpendPower spendPower:
-                PowerBundle.SpendBundledPowerIfNeeded(spendPower);
-                break;
-        }
-    }
-
-    internal static void ActionFinished(CharacterAction action)
-    {
-        var actingCharacter = action.ActingCharacter;
-
-        foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
-        {
-            feature.OnAfterAction(action);
-        }
-
-        //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
-        if (action.ActionType == ActionDefinitions.ActionType.Main)
-        {
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            if (rulesetCharacter?.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge) == true)
-            {
-                action.ActingCharacter.UsedMainSpell = false;
-                action.ActingCharacter.UsedMainCantrip = false;
-            }
-        }
-
-        CurrentAction = null;
-    }
 }

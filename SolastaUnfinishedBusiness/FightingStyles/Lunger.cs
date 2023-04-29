@@ -21,7 +21,7 @@ internal sealed class Lunger : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("FeatureLunger")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new ModifyAttackModeForWeaponLunger())
+                .SetCustomSubFeatures(new ModifyWeaponAttackModeLunger())
                 .AddToDB())
         .AddToDB();
 
@@ -30,7 +30,7 @@ internal sealed class Lunger : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class ModifyAttackModeForWeaponLunger : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeLunger : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

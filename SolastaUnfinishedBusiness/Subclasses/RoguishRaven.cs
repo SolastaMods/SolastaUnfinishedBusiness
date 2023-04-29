@@ -35,7 +35,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("CombatAffinityRavenRangeAttack")
                     .SetGuiPresentation("FeatureSetRavenSharpShooter", Category.Feature)
                     .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
 
@@ -71,7 +71,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var featureRavenDeadlyAim = FeatureDefinitionBuilder
             .Create("FeatureRavenDeadlyAim")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AlterAttackOutcomeDeadlyAim(powerSteadyAim))
+            .SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeDeadlyAim(powerSteadyAim))
             .AddToDB();
 
         var featureSetRavenDeadlyAim = FeatureDefinitionFeatureSetBuilder
@@ -264,16 +264,16 @@ internal sealed class RoguishRaven : AbstractSubclass
         public CharacterClassDefinition Class { get; }
     }
 
-    private class AlterAttackOutcomeDeadlyAim : IAlterAttackOutcome
+    private class PhysicalAttackTryAlterOutcomeDeadlyAim : IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
 
-        public AlterAttackOutcomeDeadlyAim(FeatureDefinitionPower power)
+        public PhysicalAttackTryAlterOutcomeDeadlyAim(FeatureDefinitionPower power)
         {
             _power = power;
         }
 
-        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
+        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
@@ -318,11 +318,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                 false, // check this
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out _,
+                out var successDelta,
                 -1,
                 false);
 
             action.AttackRollOutcome = outcome;
+            action.AttackSuccessDelta = successDelta;
 
             GameConsoleHelper.LogCharacterUsedPower(character, _power);
         }

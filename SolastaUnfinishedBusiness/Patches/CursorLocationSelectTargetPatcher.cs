@@ -52,7 +52,7 @@ public static class CursorLocationSelectTargetPatcher
         {
             var actionParams = __instance.actionParams;
             var canBeUsedToAttack = actionParams?.RulesetEffect
-                ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
+                ?.SourceDefinition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>()?.CanBeUsedToAttack;
 
             if (canBeUsedToAttack == null || canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
                     out var failure))

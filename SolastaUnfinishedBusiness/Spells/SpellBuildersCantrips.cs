@@ -393,7 +393,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttack,
+                AttackAfterMagicEffect.MeleeAttack,
                 CustomSpellEffectLevel.ByCasterLevel,
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
@@ -463,7 +463,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttackCanTwin,
+                AttackAfterMagicEffect.MeleeAttackCanTwin,
                 new UpgradeRangeBasedOnWeaponReach())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()

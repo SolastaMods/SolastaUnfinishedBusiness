@@ -168,7 +168,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 featureSetBladeDancerDanceOfDefense)
             .AddFeaturesAtLevel(14,

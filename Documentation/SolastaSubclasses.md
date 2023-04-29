@@ -28,6 +28,13 @@ You gain advantage on your spellcasting checks when casting counterspell against
 Creatures under the effect of spell shield now also gain advantage on all saving throws against spells and magic effects. While the spell shield has 0 HP, it can't absorb damage but its magic remains.
 
 
+## Level 14
+
+* Expanded Spell Shield
+
+At level 14, you can create a spell shield around an extra ally. You can now cast spell shield around you and allies you can see within 12 cells of you.
+
+
 
 
 # Greenmage
@@ -51,6 +58,10 @@ Spells from the Green Magic list are considered wizard spells for you:
 	V	Contagion, Insect Plague
 
 	VI	Conjure Fey, Heroes Feast, Wall of Thorns
+
+	VII	Fire Storm, Regenerate, Resurrection
+
+	VIII	Earthquake, Sunburst, Thunderstorm
 
 * Smithing
 
@@ -77,7 +88,14 @@ Your arrow can transform into a vine on impact. The target must make a Strength 
 
 * Leaf Scales
 
-When an attacker that you can see damages you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+When an attacker that you can see damages you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you. Leaf Scales' damage reduction does not stack with damage being halved from a successful saving throw.
+
+
+## Level 14
+
+* Weakening Entangling Shot
+
+At level 14, when hit by Entangling Shot, the target has disadvantage on all saving throws until the end of your next turn.
 
 
 
@@ -110,6 +128,13 @@ You learn one additional spell each time you gain a level.
 You can add your Proficiency Bonus to the number of spells you can memorize. You also learn two additional cantrips from the Wizard's list.
 
 
+## Level 14
+
+* Arcane Professor
+
+At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slots. Additionally, you learn 4 cantrips from any classes. The chosen cantrips count as wizard spells for you.
+
+
 
 
 # Shock Arcanist
@@ -121,7 +146,7 @@ Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings h
 
 * Arcane Warfare
 
-When casting spells from the War list, they count as being cast at one slot level higher than the one you actually use: Burning Hands, Magic Missile, Thunderwave, Acid Arrow, Scorching Ray, Flaming Sphere, Fireball, Lightning Bolt, Ice Storm, Cone of Cold, Mind Twist, Disintegrate, Chain Lightning, Freezing Sphere.
+When casting spells from the War list, they count as being cast at one slot level higher than the one you actually use: Burning Hands, Magic Missile, Thunderwave, Acid Arrow, Scorching Ray, Flaming Sphere, Fireball, Lightning Bolt, Ice Storm, Cone of Cold, Mind Twist, Disintegrate, Chain Lightning, Freezing Sphere, Incendiary Cloud.
 
 
 ## Level 6
@@ -141,6 +166,14 @@ Starting at the 10th level, you can use your Bonus Action to trigger Arcane Shoc
 * Wizard Weapon Proficiencies
 
 Constitution
+
+
+## Level 14
+
+* Greater Arcane Shock
+
+Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Shock and make a CON saving throw DC 16 first, taking 7D6 psychic damage on a failure, or half of the damage on a success. Until the end of your turn, the spells you cast will have all the maximum possible damage dice roll values.
+You can use this feature once per long rest.
 
 
 
@@ -166,6 +199,13 @@ You can use an action to bolster an ally you can see within 6 cells for 1 minute
 * Thundering Voice
 
 Whenever you grant a Bardic Inspiration to an ally, the closest enemy within 12 cells must make a successful WIS saving throw or take thunder damage equal to 1d8 + your CHA modifier and have disadvantage on their next attack roll (half damage on save).
+
+
+## Level 14
+
+* At Road's End
+
+When an ally you can see within 12 cells is reduced to 0 hit points, you can use your reaction to make them fall to 1 hit point instead. You can use this feature once per short or long rest.
 
 
 
@@ -198,6 +238,17 @@ Song of Rest heals additional hit points equal to your charisma modifier. At the
 When giving a Bardic Inspiration die to an ally, they also roll a Song of Rest die to heal up to half their maximum health.
 
 
+## Level 14
+
+* Song of Hope
+
+Sing a song of hope to allies within 6 cells, granting them resistance to all damage, and advantage on all their saving throws until the start of your next turn.
+
+* Start a Song of Hope
+
+Starting on your next turn, as an action, you will be able to sing a song of hope to help allies within 6 cells, granting them resistance to all damage, and advantage on all their saving throws until the start of your next turn. If you take damage, you must make a CON saving throw (DC equal to half the damage with a minimum of 10) or Song of Hope will end.
+
+
 
 
 # College of Lore
@@ -221,6 +272,13 @@ As a bonus action, you can spend one use of Bardic Inspiration and target a crea
 * Additional Magical Secrets
 
 Choose two spells from any class and include them in your spell list.
+
+
+## Level 14
+
+* Peerless Skill
+
+You can now cast Bardic Inspiration on yourself.
 
 
 
@@ -248,6 +306,13 @@ When you make an Intimidation or Insight check, you can treat a roll of 9 or low
 As a reaction, after a creature you can see within 12 cells damages you, you can expend one of your Bardic Inspiration. On a failed intelligence saving throw, they take psychic damage equal to 2x your bardic inspiration die + charisma modifier and be stunned until the end of their next turn. The damage is halved on a successful saving throw.
 
 
+## Level 14
+
+* Manacalon Perfection
+
+Once per long rest, as a bonus action, grant yourself and an ally the benefits of a bardic inspiration die without spending one of its uses. It will always roll its maximum value.
+
+
 
 
 # Circle of Balance
@@ -271,7 +336,7 @@ In your list and always prepared:
 
 * Gift of Life
 
-Whenever you use a level 1 or higher spell to restore hit points to a creature, they also regain an additional number of hit points equal to your level at the start of your next turn.
+Whenever you use a level 1 or higher spell to restore hit points to a creature, they also regain an additional number of hit points equal to your level at the start of their next turn.
 
 
 ## Level 6
@@ -286,6 +351,14 @@ Your spells are more effective against creatures you already faced. You gain a b
 * Cold Embrace
 
 Whenever you damage an opponent with a spell, they are unable to heal any HP until the start of your next turn.
+
+
+## Level 14
+
+* Balance of Power
+
+When you reach level 14, you can use your bonus action to grant all allies within 12 cells advantage on attack rolls until the start of your next turn. You and your allies who are under the effect of Balance of Power can be attacked with advantage by all enemies until the start of your next turn.
+You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
 
 
 
@@ -332,6 +405,16 @@ Furthermore, each time you heal yourself, the healing trickles down to your kind
 As a reaction, the damage inflicted  to the druid or the kindred spirit can be shared equally among both.
 
 
+## Level 14
+
+* Spirit Rage
+
+When you reach level 14, you can use Spirit Rage on your kindred spirit as a bonus action. It becomes stronger for 1 minute and gains the following bonuses:
+ - AC and damage bonus equal to you proficiency;
+ - 2nd attack.
+You can use Spirit Rage a number of times equal to your proficiency bonus per long rest.
+
+
 
 
 # Circle of the Land
@@ -371,6 +454,13 @@ Moving through difficult terrain does not cost extra movement and you are immune
 You are immune to charm or fear effects caused by elementals or feys, as well as to poison and disease.
 
 
+## Level 14
+
+* Nature's Sanctuary
+
+When you reach level 14, whenever you deal damage to an enemy with a spell of level 1 or higher, they must make a STR saving throw or become restrained until the start of your next turn. After being affected once, they become immune to this effect.
+
+
 
 
 # Circle of Winds
@@ -399,6 +489,13 @@ You can use a bonus action to let Sheltering Breeze blow upon all allies within 
 Whenever you hit an enemy with an attack roll, the next attack roll against them before the end of your next turn has advantage.
 
 
+## Level 14
+
+* Unfettered
+
+Upon reaching level 14, you are constantly under the effect of Freedom of Movement and you gain +1 cell movement and a +3 bonus on initiative.
+
+
 
 
 # Champion
@@ -425,6 +522,13 @@ Add half of your proficiency bonus (round up) to any Strength, Dexterity, or Con
 * Additional Fighting Style
 
 Choose a new fighting style option.
+
+
+## Level 15
+
+* Superior Critical
+
+Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 
 
 
@@ -459,6 +563,13 @@ When you use the attack action, you can forego one of your attacks to grant an a
 Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Shout now also gain temporary hit points equal to your level for 1 minute.
 
 
+## Level 15
+
+* Lead by Example
+
+Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take additional damage (of the same damage type as the original damage taken) equal to your proficiency bonus. This extra damage can only trigger once per turn.
+
+
 
 
 # Mountaineer
@@ -491,6 +602,15 @@ As a bonus action, you can force a switch of positions with an enemy within mele
 Provided you wield a shield, you can shove an opponent as a bonus action.
 
 
+## Level 15
+
+* Pack Striker
+
+Starting at level 15, when you are using a shield, you have advantage on melee attack rolls against your target if another enemy of the target is within one cell of it, and if that enemy isn't incapacitated.
+If wielding a shield and targeting an enemy engaged with another creature that is not incapacitated.
+  This creature's attack rolls have advantage
+
+
 
 
 # Spellblade
@@ -521,6 +641,13 @@ You can use any melee weapon you are proficient with as a spellcasting focus for
 * Spell Tyrant
 
 Target a creature and move it one cell in any direction if it fails a STR save.
+
+
+## Level 15
+
+* Arcane Escape
+
+Whenever you cast a spell on your turn, your speed increases by 3 cells until the end of the current turn.
 
 
 
@@ -682,6 +809,14 @@ You can use an action to bring forth a fiendish stroke of luck. For the next min
 Starting at the 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.
 
 
+## Level 14
+
+* Hurl Through Hell
+
+When you hit a creature with an attack, you can banish it to the lower planes until the end of your next turn. The creature suffers 10d10 psychic damage upon returning from this horrific experience.
+You can use Hurl Through Hell once per long rest.
+
+
 
 
 # The Hive
@@ -725,6 +860,13 @@ Starting at the 6th level, you can cast Counterspell once per short rest as a fe
 Starting at the 10th level, whenever you take damage from a spell or magic effect, you can use your reaction to immediately gain a number of temporary hit points equal to 1d8 + CHA modifier. These temporary hit points last until the start of your next turn.
 
 
+## Level 14
+
+* Antimagic Chitin
+
+Starting at level 14, you have advantage on saving throws against spells and magic effects.
+
+
 
 
 # The Timekeeper
@@ -759,8 +901,8 @@ Starting at the 1st level, whenever you damage an opponent with a spell, they be
 
 * Time Shift
 
-Starting at the 6th level, when you are about to take damage, you can use your reaction to project your body forward a few seconds, negating any damage and effects. You are considered banished until the start of your next turn.
-After you use this feature, you can't use it again until you complete a long rest.
+Starting at the 6th level, after you take any damage, you can use your reaction to rewind back a few seconds, negating the damage taken but still taking any additional effects. You are considered banished until the start of your next turn.
+ After you use this feature, you can't use it again until you complete a long rest.
 
 
 ## Level 10
@@ -769,6 +911,14 @@ After you use this feature, you can't use it again until you complete a long res
 
 Starting at the 10th level, on your turn, you can use a bonus action to briefly accelerate an ally within 6 cells. They gain the effect of Haste until the start of your next turn; however, they do not suffer from lethargy when Accelerate ends.
  You can use this feature a number of times equal to your proficiency bonus per long rest.
+
+
+## Level 14
+
+* Time Warp
+
+Starting at the 14th level, on your turn, you can take one additional action on top of your regular action and a possible bonus action.
+  Once you use this feature, you must finish a long rest before you can use it again.
 
 
 
@@ -814,6 +964,13 @@ Starting at the 6th level, both your blood and your skin start changing color ev
 Starting at the 10th level, once per short rest, you can erupt and cause 1d4 per level of piercing damage, push away, and restrain all creatures surrounding you on a failed dexterity save.
 
 
+## Level 14
+
+* One with the Tree
+
+You gain a +2 AC bonus, and you are always considered under the effect of half-cover against ranged attacks. Your Piercing Branch now deals an additional 1d6 poison damage whenever it triggers.
+
+
 
 
 # Path of the Berserker
@@ -840,6 +997,13 @@ You can't be charmed or frightened while raging.
 * Intimidating Presence
 
 Frighten a creature until the end of your next turn if it fails a WIS check opposed by your CHA. 
+
+
+## Level 14
+
+* Retaliation
+
+Whenever an opponent attacks you from a nearby cell, you are granted an immediate melee attack against that opponent.
 
 
 
@@ -874,6 +1038,13 @@ You can use a bonus action to breathe a 3-cell cone of elemental damage equal to
 While raging, your melee weapon attacks deal an additional 1d8 elemental damage.
 
 
+## Level 14
+
+* Frightful Strike
+
+While raging, the first creature you hit with a melee attack each turn must make a Wisdom saving throw (DC 8 + proficiency bonus + STR modifier) or become frightened until the end of their turn.
+
+
 
 
 # Path of the Magebane
@@ -900,6 +1071,13 @@ While raging, Magebanes roll an additional weapon damage die when making a succe
 * Reject Magic
 
 Advantage on saving throws against spells
+
+
+## Level 14
+
+* Spell Crusher
+
+When raging, you can dispel a magical effect on a creature or object as an action, as if you were casting Dispel Magic with Constitution as the spellcasting ability. You can use this feature a number of times equal to your proficiency bonus. It is restored when you take a short rest.
 
 
 
@@ -930,6 +1108,13 @@ Your Constitution Saving Throw is used for any Saving Throw, if it's higher than
 While raging, you gain +1 to AC per hostile opponent that you can see within one cell of you, up to a maximum of +4.
 
 
+## Level 14
+
+* Last Stand
+
+You gain a bonus to your melee weapon damage roll equal to your proficiency.
+
+
 
 
 # Hunter
@@ -956,6 +1141,13 @@ Choose one of the following options: Escape the Horde, Multiattack Defense  or S
 * Multiattack
 
 Select one of the multiattack options: Volley or Whirlwind Attack
+
+
+## Level 15
+
+* Superior Hunter's Defense
+
+Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
 
 
 
@@ -994,6 +1186,13 @@ When you are within melee range of an enemy creature, you can use your bonus act
 If you are using a ranged weapon against an enemy, your bonus action can be used to make an additional ranged attack on the same target
 
 
+## Level 15
+
+* Extra Attack (2)
+
+At level 15, you can attack three times whenever you take the Attack action on your turn.
+
+
 
 
 # Shadow Tamer
@@ -1030,6 +1229,13 @@ Target a creature and attempt to pull it if it fails a STR contest.
 Whenever an opponent attacks your from a nearby cell, you are granted an immediate melee attack against that opponent.
 
 
+## Level 15
+
+* At Home in the Dark
+
+At level 15, you have proficiency with all saving throws while in dim light or darkness. If you are already proficient, you gain +1 on your rolls with the given proficiency.
+
+
 
 
 # Swift Blade
@@ -1062,6 +1268,13 @@ As a free action, you can enter a heightened state of battle focus. All your mel
 You can attack twice, rather than once, when you use the attack or shove actions.
 
 
+## Level 15
+
+* Uncatchable
+
+At level 15, you become extremely hard to pin down. Whenever you take any damage, you can use your reaction to become invisible until you attack, cast a spell, or at the end of your next turn (whichever comes first). You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+
+
 
 
 # Darkweaver
@@ -1089,6 +1302,13 @@ Climbing no longer costs you extra movement, and difficult climb surfaces are co
 * Poisonous
 
 When you hit with a melee weapon and deal at least 1 point of damage, your target must make a CON save DC 13 or they will be poisoned for one hour and take an additional 2d6 damage.
+
+
+## Level 13
+
+* Shadowy
+
+When you are in dim light or darkness outside of the enemy's line of sight, you can use your bonus action to become hidden and invisible until the end of your turn.
 
 
 
@@ -1120,6 +1340,13 @@ You gain proficiency with martial weapons, medium armor, and shields.
 When you hit an enemy with a sneak attack, they have disadvantage on attacks made against you until the start of your next turn.
 
 
+## Level 13
+
+* Dirty Fighting
+
+You can use a bonus action to catch a target within 1 cell of you off guard. They must make a CON saving throw (DC 8 + proficiency bonus + STR modifier) or become blinded and incapacitated until the end of your next turn. Once hit by Dirty Fighting, the same target cannot be affected again.
+
+
 
 
 # Shadowcaster
@@ -1145,6 +1372,13 @@ Cast wizard spells and cantrips from the divination, illusion, necromancy, and a
 If you are targeted by a damaging spell, whether it damages you or not, you can cast a cantrip in reaction on the caster.
 
 
+## Level 13
+
+* Shadow Casting
+
+You can use your Sneak Attack when you damage enemies with spells which require an attack roll as if you were using a finesse or a ranged weapon. All the other rules for Sneak Attack still apply to you.
+
+
 
 
 # Thief
@@ -1168,6 +1402,13 @@ Climbing no longer costs you extra movement, difficult climb surfaces are consid
 * Supreme Sneak
 
 You have advantage on DEX (Stealth) ability checks.
+
+
+## Level 13
+
+* Use Magic Device
+
+By level 13, you have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, ancestry, and level requirements on the use of magic items.
 
 
 
@@ -1207,6 +1448,13 @@ In your list and always prepared:
 Friendly creatures in the aura cannot be charmed while you are conscious.
 
 
+## Level 15
+
+* Purity of Spirit
+
+Starting at level 15, you are always under the effects of a protection from evil and good spell.
+
+
 
 
 # Oath of Judgement
@@ -1244,6 +1492,13 @@ In your list and always prepared:
 You constantly emanate a 2-cell-wide aura while not incapacitated. Allies (including yourself) within an aura add damage equal to your proficiency bonus.
 
 
+## Level 15
+
+* Retribution
+
+Starting at level 15, whenever an enemy within 6 cells deals damage to you, you can use your reaction to chastise them. They must make a Wisdom saving throw against you spellcasting ability, taking 2d8 + CHA mod psychic damage, or half on a success.
+
+
 
 
 # Oath of the Motherland
@@ -1279,6 +1534,13 @@ In your list and always prepared:
 * Volcanic Aura
 
 Friendly creatures in the aura gain fire resistance and +1 to AC.
+
+
+## Level 15
+
+* Heart of Lava
+
+Starting at level 15, you are immune to fire and your skin covers with stone scales when you are in danger, reducing slashing/bludgeoning/piercing damage that you take by 5.
 
 
 
@@ -1322,6 +1584,13 @@ In your list and always prepared:
 Friendly creatures in the aura gain superior darkvision and +2 perception.
 
 
+## Level 15
+
+* Sorak's Bane
+
+Starting at level 15, when you use a melee attack to strike an opponent who has either natural darkvision or natural shapeshifting, you can use your bonus action to deal an additional melee attack, adding your Charisma bonus to the damage dealt.
+
+
 
 
 # Child of the Rift
@@ -1362,6 +1631,13 @@ You can use your Bonus Action to spend 1 sorcery point to become harder to hit a
 * Offering to the Rift
 
 You can use your Bonus Action to sacrifice 5 Hit Points, in order to regain immediately one sorcery point. The sacrificed Hit Points are recovered after a Long Rest.
+
+
+## Level 14
+
+* Rift Walk
+
+At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied space you can see. Any enemy within 1 cell of your landing position takes force damage equal to your CHA modifier (minimum 1). You can use Riftwalk a number of times equal to your proficiency bonus per long rest.
 
 
 
@@ -1411,6 +1687,13 @@ You gain resistance to the damage type of your ancestor for an hour, at the cost
 When dealing spell damage that matches your draconic ancestry, you add your charisma modifier to the total (on the first target).
 
 
+## Level 14
+
+* Dragon Wings
+
+At level 14, you obtain the ability to sprout a pair of Dragon Wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
+
+
 
 
 # Haunted Soul
@@ -1448,6 +1731,13 @@ Spend 4 sorcery points to recharge your Vengeful Spirits power.
 * Vengeful Spirits
 
 You can use a bonus action to call forth the spirits inside you for up to 1 minute. You can target a 3x3-cell area that you can see within 18 cells. Any opponent that enters the area for the first time on a turn or start its turn there must make a charisma saving throw or take 2d6 + your charisma modifier in necrotic damage (half damage on a successful save). Each turn, you can use your bonus action to move that area by 6 cells. Once you use Vengeful Spirits, you can't use it again until you finish a long rest, unless you spend 4 sorcery points to use it again.
+
+
+## Level 14
+
+* Soul Drain
+
+At level 14, once per turn when you kill one or more creatures with a spell of level 1 or higher, you regain 1 sorcery point. Soul Drain does not work on creatures of CR 1/2 or lower.
 
 
 
@@ -1490,6 +1780,13 @@ Make a melee spell attack. On a successful hit, the target creature takes 1D10+y
 * Mana Tap
 
 When you finish a Short Rest, you can regain a number of Sorcery points equal to half your Sorcerer levels (rounded up). You must complete a long rest to use this ability again.
+
+
+## Level 14
+
+* Mana Balance
+
+At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point you spend.
 
 
 

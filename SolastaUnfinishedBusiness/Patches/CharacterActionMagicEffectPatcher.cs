@@ -84,7 +84,7 @@ public static class CharacterActionMagicEffectPatcher
             var definition = __instance.GetBaseDefinition();
 
             //PATCH: skip spell animation if this is "attack after cast" spell
-            if (definition.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
+            if (definition.HasSubFeatureOfType<IAttackAfterMagicEffect>())
             {
                 __instance.ActionParams.SkipAnimationsAndVFX = true;
             }
@@ -123,7 +123,7 @@ public static class CharacterActionMagicEffectPatcher
 
             //TODO: add possibility to get attack via feature
             //TODO: add possibility to process multiple attack features
-            var customFeature = definition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
+            var customFeature = definition.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>();
 
             CharacterActionAttack attackAction = null;
 

@@ -29,7 +29,7 @@ public static class SpellSelectionPanelPatcher
             //PATCH: supports `IReplaceAttackWithCantrip`
             var gameLocationCaster = caster.GameLocationCharacter;
 
-            if (gameLocationCaster.RulesetCharacter.HasSubFeatureOfType<IReplaceAttackWithCantrip>()
+            if (gameLocationCaster.RulesetCharacter.HasSubFeatureOfType<IAttackReplaceWithCantrip>()
                 && gameLocationCaster.UsedMainAttacks > 0 && actionType == ActionDefinitions.ActionType.Main)
             {
                 cantripOnly = true;

@@ -568,7 +568,7 @@ public static class RulesetActorPatcher
                 .ToList();
 
             foreach (var modifyRecurrentMagicEffect in rulesetCondition.ConditionDefinition
-                         .GetAllSubFeaturesOfType<IModifyRecurrentMagicEffect>())
+                         .GetAllSubFeaturesOfType<IModifyMagicEffectRecurrent>())
             {
                 foreach (var effectForm in newEffectForms)
                 {

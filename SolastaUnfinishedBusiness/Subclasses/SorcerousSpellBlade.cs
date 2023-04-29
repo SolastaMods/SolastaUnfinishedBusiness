@@ -178,7 +178,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                 featureSetManaShield)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(14,
                 additionalDamageWarSorcerer)
             .AddFeaturesAtLevel(18,

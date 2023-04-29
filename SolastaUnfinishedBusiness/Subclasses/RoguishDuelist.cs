@@ -72,7 +72,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
         var featureMasterDuelist = FeatureDefinitionBuilder
             .Create($"Feature{Name}{MasterDuelist}")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new AlterAttackOutcomeMasterDuelist(powerMasterDuelist))
+            .SetCustomSubFeatures(new PhysicalAttackTryAlterOutcomeMasterDuelist(powerMasterDuelist))
             .AddToDB();
 
         var featureSetMasterDuelist = FeatureDefinitionFeatureSetBuilder
@@ -100,16 +100,16 @@ internal sealed class RoguishDuelist : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class AlterAttackOutcomeMasterDuelist : IAlterAttackOutcome
+    private class PhysicalAttackTryAlterOutcomeMasterDuelist : IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
 
-        public AlterAttackOutcomeMasterDuelist(FeatureDefinitionPower power)
+        public PhysicalAttackTryAlterOutcomeMasterDuelist(FeatureDefinitionPower power)
         {
             _power = power;
         }
 
-        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
+        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;

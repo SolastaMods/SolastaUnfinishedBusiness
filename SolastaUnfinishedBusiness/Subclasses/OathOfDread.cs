@@ -232,16 +232,20 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(
-                rulesetDefender.Guid,
-                CustomConditionsContext.StopMovement,
+
+            rulesetAttacker.InflictCondition(
+                CustomConditionsContext.StopMovement.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                rulesetAttacker.Guid,
-                rulesetAttacker.BaseFaction.Name);
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Paladin);
             var totalDamage = classLevel / 2;

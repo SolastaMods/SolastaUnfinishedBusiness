@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -526,7 +527,7 @@ public static class InnovationArtillerist
 
     #region REFUND CANNON
 
-    private class CustomBehaviorRefundCannon : IPowerUseValidity, IOnAfterActionFeature
+    private class CustomBehaviorRefundCannon : IPowerUseValidity, IActionFinished
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
@@ -535,12 +536,12 @@ public static class InnovationArtillerist
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator Execute(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -557,7 +558,7 @@ public static class InnovationArtillerist
 
             if (spellRepertoire == null)
             {
-                return;
+                yield break;
             }
 
             var slotLevel = spellRepertoire.GetLowestAvailableSlotLevel();
@@ -932,18 +933,22 @@ public static class InnovationArtillerist
                 return;
             }
 
-            var character = locationCharacter.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                character.CurrentFaction.Name);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-            GameConsoleHelper.LogCharacterUsedPower(character, power);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

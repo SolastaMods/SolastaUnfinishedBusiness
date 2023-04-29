@@ -58,7 +58,7 @@ internal static class RangedCombatFeats
                     .SetCustomSubFeatures(
                         new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, isLongOrShortbow(mode, null, character))),
-                        new CanUseAttributeForWeapon(
+                        new CanUseAttribute(
                             AttributeDefinitions.Strength,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType)),
                         new AddExtraRangedAttack(
@@ -142,7 +142,7 @@ internal static class RangedCombatFeats
                     .Create($"CombatAffinity{Name}")
                     .SetGuiPresentation(Name, Category.Feat)
                     .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .SetCustomSubFeatures(new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
 
@@ -150,7 +150,7 @@ internal static class RangedCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatDeadeye(featDeadeye));
+                new ModifyWeaponAttackModeFeatDeadeye(featDeadeye));
 
         return featDeadeye;
     }
@@ -253,11 +253,11 @@ internal static class RangedCombatFeats
     // HELPERS
     //
 
-    private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatDeadeye : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatDeadeye(FeatDefinition featDefinition)
+        public ModifyWeaponAttackModeFeatDeadeye(FeatDefinition featDefinition)
         {
             _featDefinition = featDefinition;
         }
