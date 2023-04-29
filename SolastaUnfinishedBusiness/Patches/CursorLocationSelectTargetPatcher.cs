@@ -1,7 +1,9 @@
-﻿using HarmonyLib;
+﻿using System.Diagnostics.CodeAnalysis;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -9,6 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CursorLocationSelectTargetPatcher
 {
     [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsFilteringValid))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsFilteringValid_Patch
     {
@@ -66,14 +69,43 @@ public static class CursorLocationSelectTargetPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsValidMagicAttack))]
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.Activate))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class IsValidMagicAttack_Patch
+    public static class Activate_Patch
     {
         [UsedImplicitly]
-        public static void Postfix(ref bool __result)
+        public static void Prefix(params object[] parameters)
         {
-            __result = true;
+            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
+            if (parameters.Length > 0 &&
+                parameters[0] is CharacterActionParams
+                {
+                    RulesetEffect: RulesetEffectPower rulesetEffectPower
+                } characterActionParams &&
+                rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
+            {
+                // allows any target to be selected as well as automatically presents a better UI description
+                characterActionParams.RulesetEffect.EffectDescription.inviteOptionalAlly = false;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.Deactivate))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class Deactivate_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(CursorLocationSelectTarget __instance)
+        {
+            //PATCH: allows Sorcerous Field Manipulator displacement to select any character
+            if (__instance.actionParams is { RulesetEffect: RulesetEffectPower rulesetEffectPower } &&
+                rulesetEffectPower.PowerDefinition == PowerSorcerousFieldManipulatorDisplacement)
+            {
+                // brings back power effect to it's original definition
+                rulesetEffectPower.EffectDescription.inviteOptionalAlly = true;
+            }
         }
     }
 }
