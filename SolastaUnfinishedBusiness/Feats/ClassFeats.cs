@@ -255,7 +255,7 @@ internal static class ClassFeats
         // A towel is just about the most massively useful thing an interstellar hitchhiker can carry
         private const ulong TemporaryHitPointsGuid = 42424242;
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionRevertShape ||
                 action.ActingCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
@@ -374,7 +374,7 @@ internal static class ClassFeats
 
     private class ActionFinishedFeatCunningEscape : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.DashBonus)
             {
@@ -439,7 +439,7 @@ internal static class ClassFeats
 
     private sealed class ActionFinishedHardy : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
@@ -895,7 +895,7 @@ internal static class ClassFeats
 
     private sealed class ActionFinishedFeatSpiritualFluidity : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             switch (action)
             {
@@ -1103,7 +1103,7 @@ internal static class ClassFeats
 
     private sealed class ActionFinishedFeatSlayTheEnemies : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePowerSlayTheEnemies ||
                 !characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name.StartsWith(

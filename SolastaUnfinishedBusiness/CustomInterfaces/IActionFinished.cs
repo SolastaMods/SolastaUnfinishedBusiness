@@ -1,8 +1,10 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IActionFinished
 {
-    public IEnumerator Execute(CharacterAction action);
+    [UsedImplicitly]
+    public IEnumerator OnActionFinished(CharacterAction characterAction);
 }

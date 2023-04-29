@@ -954,7 +954,7 @@ internal static class Level20Context
             _featureDefinition = featureDefinition;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower)
             {

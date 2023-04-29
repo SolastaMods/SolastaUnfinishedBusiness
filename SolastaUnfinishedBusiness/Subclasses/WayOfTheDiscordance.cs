@@ -243,7 +243,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             _powerDiscordanceDamage = powerDiscordanceDamage;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             var gameLocationAttacker = action.ActingCharacter;
             var rulesetAttacker = gameLocationAttacker.RulesetCharacter;

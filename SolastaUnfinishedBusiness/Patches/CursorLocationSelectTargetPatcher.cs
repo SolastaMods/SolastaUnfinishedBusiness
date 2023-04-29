@@ -65,4 +65,15 @@ public static class CursorLocationSelectTargetPatcher
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsValidMagicAttack))]
+    [UsedImplicitly]
+    public static class IsValidMagicAttack_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(ref bool __result)
+        {
+            __result = true;
+        }
+    }
 }

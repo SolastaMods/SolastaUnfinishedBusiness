@@ -105,7 +105,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
     private sealed class AfterActionFinishedTakeThePain : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {

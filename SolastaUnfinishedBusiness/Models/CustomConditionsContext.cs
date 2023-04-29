@@ -114,7 +114,7 @@ internal static class CustomConditionsContext
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             var actingCharacter = action.ActingCharacter;
             var actionParams = action.ActionParams;

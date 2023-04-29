@@ -450,7 +450,7 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionActionSurge)
             {

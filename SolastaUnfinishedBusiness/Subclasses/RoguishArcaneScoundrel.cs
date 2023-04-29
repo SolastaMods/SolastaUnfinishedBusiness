@@ -168,7 +168,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionCastSpell characterActionCastSpell ||
                 characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||

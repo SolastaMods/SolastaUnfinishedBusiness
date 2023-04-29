@@ -201,7 +201,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     private sealed class ActionInitiatedDisplacement : IActionInitiated
     {
-        public IEnumerator Execute(CharacterAction characterAction)
+        public IEnumerator OnActionInitiated(CharacterAction characterAction)
         {
             var rulesetEffect = characterAction.ActionParams.RulesetEffect;
 
@@ -331,7 +331,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             _powerApply = powerApply;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 (characterActionUsePower.activePower.PowerDefinition.Name != $"Power{Name}ForcefulStepFixed" &&

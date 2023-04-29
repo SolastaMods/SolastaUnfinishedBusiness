@@ -387,7 +387,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower ||

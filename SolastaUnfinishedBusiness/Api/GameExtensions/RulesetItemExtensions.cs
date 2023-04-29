@@ -11,7 +11,11 @@ internal static class RulesetItemExtensions
     {
         var list = new List<FeatureDefinition>();
 
-        item?.EnumerateFeaturesToBrowse<T>(list);
+        //BUGFIX: this was causing 1.5 to abort with 1.4 mod. temporary until DLC releases
+        if (Main.Enabled)
+        {
+            item?.EnumerateFeaturesToBrowse<T>(list);
+        }
 
         return list
             .OfType<T>()

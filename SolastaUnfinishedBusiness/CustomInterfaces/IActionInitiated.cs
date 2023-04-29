@@ -6,5 +6,5 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IActionInitiated
 {
     [UsedImplicitly]
-    IEnumerator Execute(CharacterAction characterAction);
+    IEnumerator OnActionInitiated(CharacterAction characterAction);
 }

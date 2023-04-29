@@ -353,7 +353,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
     private sealed class ActionFinishedTempestSwiftness : IActionFinished
     {
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != PowerMonkFlurryOfBlows)
@@ -510,7 +510,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             _conditionEyeOfTheStorm = conditionEyeOfTheStorm;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _powerEyeOfTheStorm)

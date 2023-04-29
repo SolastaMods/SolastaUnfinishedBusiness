@@ -689,7 +689,7 @@ internal static class OtherFeats
             _conditionDefinition = conditionDefinition;
         }
 
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not (CharacterActionDash or
                 CharacterActionFlurryOfBlows or
@@ -757,7 +757,7 @@ internal static class OtherFeats
         IAttackEffectAfterDamage, ICustomConditionFeature, IActionFinished
     {
         // handle Shove scenario
-        public IEnumerator Execute(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionShove)
             {

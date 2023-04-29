@@ -25,7 +25,7 @@ public class CustomRagingAura :
         _friendlyAura = friendlyAura;
     }
 
-    public IEnumerator Execute(CharacterAction action)
+    public IEnumerator OnActionFinished(CharacterAction action)
     {
         if (action is CharacterActionSpendPower characterActionSpendPowerFriendly &&
             characterActionSpendPowerFriendly.activePower.PowerDefinition == _powerDefinition &&
