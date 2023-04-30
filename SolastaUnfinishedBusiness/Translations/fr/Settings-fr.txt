@@ -30,8 +30,8 @@ ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
 ModUi/&ArcaneShieldstaffOptions=Permet à <color=#D89555>Arcane Shieldstaff</color> d'être harmonisé par n'importe quelle classe
-ModUi/&BackgroundsAndRaces=Milieux et courses
 ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans</color>
+ModUi/&BackgroundsAndRaces=Milieux et courses
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
 ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
@@ -44,6 +44,7 @@ ModUi/&ChangeSleetStormToCube=Modifiez <color=#D89555>Sleet Storm</color> pour u
 ModUi/&Character=Personnage
 ModUi/&CharactersPool=Piscine de personnages
 ModUi/&Classes=<color=#F0DAA0>Cours</color>
+ModUi/&ClassesAndSubclasses=Classes et sous-classes
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour apprendre des recettes instantanément sur le groupe actif\n. Les articles ajoutés aux magasins peuvent nécessiter que la fête s'éloigne de l'emplacement et revienne
 ModUi/&Credits=Crédits
@@ -55,10 +56,11 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits liés à la classe fournis par ce mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableUpdateMessage=Désactiver les messages de mise à jour <i><color=#F0DAA0>[utilisateurs de la pilule bleue, c'est votre dernière chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte <color=#D89555>Warlock</color> lors de la sélection de sorts au lieu du panneau de personnage</i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
@@ -170,7 +172,6 @@ ModUi/&Patches=<color=#F0DAA0>Correctifs :</color>
 ModUi/&PrimedItems=Articles apprêtés
 ModUi/&Progression=<color=#F0DAA0>Progression :</color>
 ModUi/&Races=<color=#F0DAA0>Courses</color>
-ModUi/&ClassesAndSubclasses=Classes et sous-classes
 ModUi/&RecipeCost=<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm=Recettes en DM
 ModUi/&RelicForgeries=Contrefaçons de reliques

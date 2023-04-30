@@ -413,7 +413,7 @@ internal static class BootContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
-        if (shouldUpdate)
+        if (shouldUpdate && !Main.Settings.DisableUpdateMessage)
         {
             DisplayUpdateMessage();
         }
