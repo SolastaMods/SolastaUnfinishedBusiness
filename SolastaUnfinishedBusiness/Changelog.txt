@@ -1,10 +1,5 @@
-Open Mod UI > Tools and click History for full details:
+Open Mod UI > Tools and click History for full change details:
 
-- changed Way of the Tempest's gathering storm power behavior
-- fixed Druid's arch druid interaction with circle of the night
-- fixed Innovation Armorer interaction with elemental infusions
-- fixed Innovation Artillerist's arcane firearm, and force ballista
-- fixed Monk's specialized weapon to use dex modifier if better
-- fixed Rogue's stroke of luck usage to be once per short rest
-- fixed Roguish Raven's deadly aim damage dealt on reroll hits
+- RESPEC is required for any hero or save with the Fairy race
 - fixed Sorcerous Field Manipulator's displacement MP desyncs
+- other minor non breaking classes and subclasses fixes

@@ -2,14 +2,15 @@
 
 1.4.33.81:
 
-- changed Way of the Tempest's gathering storm power behavior
 - fixed Druid's arch druid interaction with circle of the night
+- fixed Fairy interaction with flexible races setting
 - fixed Innovation Armorer interaction with elemental infusions
 - fixed Innovation Artillerist's arcane firearm, and force ballista
 - fixed Monk's specialized weapon to use dex modifier if better
 - fixed Rogue's stroke of luck usage to be once per short rest
 - fixed Roguish Raven's deadly aim damage dealt on reroll hits
 - fixed Sorcerous Field Manipulator's displacement MP desyncs
+- fixed Way of the Tempest's gathering storm damage and logic
 
 1.4.33.80:
 
