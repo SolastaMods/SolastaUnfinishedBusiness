@@ -44,7 +44,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
             if (percentageCompleteTa2 == 0)
             {
-                exportTaLabel2 = "Export TA blueprints (modded)";
+                exportTaLabel2 = "Export Modded blueprints";
             }
             else
             {
@@ -85,18 +85,6 @@ namespace SolastaUnfinishedBusiness.Displays
                         BlueprintExporter.Cancel(DiagnosticsContext.Ce);
                     }
                 }, 200.Width());
-
-                UI.ActionButton(exportTaLabel2, () =>
-                {
-                    if (percentageCompleteTa2 == 0)
-                    {
-                        DiagnosticsContext.ExportTaDefinitionsAfterCeLoaded();
-                    }
-                    else
-                    {
-                        BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
-                    }
-                }, 200.Width());
             }
 
             using (UI.HorizontalScope())
@@ -106,6 +94,18 @@ namespace SolastaUnfinishedBusiness.Displays
                 UI.ActionButton("Create UB diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
                     200.Width());
             }
+
+            UI.ActionButton(exportTaLabel2, () =>
+            {
+                if (percentageCompleteTa2 == 0)
+                {
+                    DiagnosticsContext.ExportTaDefinitionsAfterCeLoaded();
+                }
+                else
+                {
+                    BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
+                }
+            }, 200.Width());
 
             UI.Label();
 
