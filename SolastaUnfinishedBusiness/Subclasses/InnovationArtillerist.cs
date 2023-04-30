@@ -329,7 +329,6 @@ public static class InnovationArtillerist
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
         var featureSetArcaneFirearm = FeatureDefinitionFeatureSetBuilder
