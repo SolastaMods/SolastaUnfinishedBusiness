@@ -5,7 +5,7 @@
 - changed Way of the Tempest's gathering storm power behavior
 - fixed Druid's arch druid interaction with circle of the night
 - fixed Innovation Armorer interaction with elemental infusions
-- fixed Innovation Artillerist's force ballista to use range hit
+- fixed Innovation Artillerist's arcane firearm, and force ballista
 - fixed Monk's specialized weapon to use dex modifier if better
 - fixed Rogue's stroke of luck usage to be once per short rest
 - fixed Roguish Raven's deadly aim damage dealt on reroll hits
