@@ -1,0 +1,63 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "type": "Battle",
+  "challengeRating": 9,
+  "locationOverride": "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
+  "locationBlacklist": [
+    "Definition:DLC1_Encounter_Bridge_LocationDB:65d167a73f6102a4e925e8cd4974792c",
+    "Definition:DLC1_Encounter_Swamp_Bridge_LocationDB:5d48578c0e1475f4b8516ee45c336adb",
+    "Definition:Encounter_Bridge_LocationDB:2e6db98596aa6a34682f5c1a3cb98a3f"
+  ],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
+      "number": 5,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Young_BlackDragon:ceca68773c0734140b668528d32559ff",
+      "number": 5,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
+      "creatureSex": "Male",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": false,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC_CR9_GiantLord_Title",
+    "description": "Encounter/&DLC_CR9_GiantLord_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "31788ea651d44534e9867fd743965cbc",
+  "contentPack": "LostValley",
+  "name": "TEMP_Huge_Test_Giant_x10"
+}
