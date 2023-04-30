@@ -61,22 +61,30 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        var toggle = Main.Settings.EnableBetaContent;
+        var toggle = Main.Settings.DisableUpdateMessage;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableUpdateMessage = toggle;
+        }
+
+        toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.EnablePcgRandom;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnablePcgRandom = toggle;
         }
 
         toggle = Main.Settings.EnableSaveByLocation;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSaveByLocation = toggle;
-        }
-
-        toggle = Main.Settings.EnablePcgRandom;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnablePcgRandom"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnablePcgRandom = toggle;
         }
 
         toggle = Main.Settings.EnableRespec;

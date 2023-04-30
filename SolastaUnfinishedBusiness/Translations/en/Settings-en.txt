@@ -30,8 +30,8 @@ ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
+ModUi/&BackgroundsAndRaces=Backgrounds & Races
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
@@ -44,6 +44,7 @@ ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
+ModUi/&ClassesAndSubclasses=Classes & Subclasses
 ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
@@ -55,10 +56,11 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any dama
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deities</color>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on class bound feats provided by this mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on feats provided by this mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableUpdateMessage=Disable update messages <i><color=#F0DAA0>[blue pill users, this is your last chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
@@ -170,7 +172,6 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
 ModUi/&Races=<color=#F0DAA0>Races</color>
-ModUi/&ClassesAndSubclasses=Classes & Subclasses
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&RelicForgeries=Relic Forgeries

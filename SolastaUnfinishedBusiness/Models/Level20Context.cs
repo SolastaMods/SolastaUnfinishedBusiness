@@ -17,6 +17,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -238,8 +239,10 @@ internal static class Level20Context
         var featureBardSuperiorInspiration = FeatureDefinitionBuilder
             .Create("FeatureBardSuperiorInspiration")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BattleStartedListenerBardSuperiorInspiration())
             .AddToDB();
+
+        featureBardSuperiorInspiration.SetCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
 
         if (!Main.IsDebugBuild)
         {
@@ -375,10 +378,10 @@ internal static class Level20Context
         var magicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArchDruid")
             .SetGuiPresentation(Category.Feature)
-            .SetHandsFullCastingModifiers(true, true, true, true)
+            .SetHandsFullCastingModifiers(true, true, true)
             .AddToDB();
 
-        magicAffinityArchDruid.SetCustomSubFeatures(new OnAfterActionFeatureArchDruid(magicAffinityArchDruid));
+        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
 
         if (!Main.IsDebugBuild)
         {
@@ -496,8 +499,10 @@ internal static class Level20Context
         var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
             .Create("BattleStartedListenerMonkPerfectSelf")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
             .AddToDB();
+
+        battleStartedListenerMonkPerfectSelf.SetCustomSubFeatures(
+            new BattleStartedListenerMonkPerfectSelf(battleStartedListenerMonkPerfectSelf));
 
         if (!Main.IsDebugBuild)
         {
@@ -600,7 +605,7 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureFoeSlayer.SetCustomSubFeatures(new ModifyAttackModeForWeaponRangerFoeSlayer(featureFoeSlayer));
+        featureFoeSlayer.SetCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
 
         if (!Main.IsDebugBuild)
         {
@@ -657,7 +662,8 @@ internal static class Level20Context
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerRogueStrokeOfLuck.SetCustomSubFeatures(new AlterAttackOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+        powerRogueStrokeOfLuck.SetCustomSubFeatures(
+            new PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -939,41 +945,46 @@ internal static class Level20Context
         return code;
     }
 
-    private sealed class OnAfterActionFeatureArchDruid : IOnAfterActionFeature
+    private sealed class ActionFinishedArchDruid : IActionFinished
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnAfterActionFeatureArchDruid(FeatureDefinition featureDefinition)
+        public ActionFinishedArchDruid(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower)
             {
-                return;
-            }
-
-            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
-
-            if (powerDefinition.Name != "PowerCircleOfTheNightWildShapeCombat" &&
-                powerDefinition.Name != "PowerDruidWildShape")
-            {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
 
             if (rulesetCharacter == null)
             {
-                return;
+                yield break;
             }
 
-            var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, action.ActingCharacter.RulesetCharacter);
+            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
+            var powerCircleOfTheNightWildShapeCombat = CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat;
+
+            if (powerDefinition != PowerDruidWildShape && powerDefinition != powerCircleOfTheNightWildShapeCombat)
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            usablePower.Recharge();
+
+            var usablePowerNight = UsablePowersProvider.Get(powerCircleOfTheNightWildShapeCombat, rulesetCharacter);
+
+            usablePowerNight.Recharge();
 
             GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
-            usablePower.RepayUse();
         }
     }
 
@@ -1030,6 +1041,13 @@ internal static class Level20Context
 
     private sealed class BattleStartedListenerMonkPerfectSelf : ICharacterBattleStartedListener
     {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public BattleStartedListenerMonkPerfectSelf(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -1046,13 +1064,13 @@ internal static class Level20Context
 
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
-            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
+            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
         }
     }
 
     private sealed class PhysicalAttackInitiatedOnMeRogueElusive : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -1077,11 +1095,11 @@ internal static class Level20Context
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponRangerFoeSlayer : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer : IModifyWeaponAttackMode
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public ModifyAttackModeForWeaponRangerFoeSlayer(FeatureDefinition featureDefinition)
+        public ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
@@ -1105,16 +1123,16 @@ internal static class Level20Context
         }
     }
 
-    private class AlterAttackOutcomeRogueStrokeOfLuck : IAlterAttackOutcome
+    private class PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck : IPhysicalAttackTryAlterOutcome
     {
         private readonly FeatureDefinitionPower _power;
 
-        public AlterAttackOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        public PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
         {
             _power = power;
         }
 
-        public IEnumerator TryAlterAttackOutcome(
+        public IEnumerator OnAttackTryAlterOutcome(
             GameLocationBattleManager battle,
             CharacterAction action,
             GameLocationCharacter me,
@@ -1123,7 +1141,7 @@ internal static class Level20Context
         {
             var rulesetCharacter = me.RulesetCharacter;
 
-            if (rulesetCharacter == null || rulesetCharacter.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(_power))
             {
                 yield break;
             }
@@ -1154,6 +1172,7 @@ internal static class Level20Context
 
             var delta = -action.AttackSuccessDelta;
 
+            rulesetCharacter.UsePower(UsablePowersProvider.Get(_power, rulesetCharacter));
             action.AttackRollOutcome = RollOutcome.Success;
             attackModifier.AttackRollModifier += delta;
             attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, _power.Name, _power));
@@ -1162,6 +1181,13 @@ internal static class Level20Context
 
     private sealed class BattleStartedListenerBardSuperiorInspiration : ICharacterBattleStartedListener
     {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -1178,7 +1204,7 @@ internal static class Level20Context
 
             character.usedBardicInspiration--;
             character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
-            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&BardBardicInspirationTitle");
+            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
         }
     }
 }

@@ -404,7 +404,7 @@ public static class RulesetCharacterPatcher
 
             var effect = PowerBundle.ModifySpellEffect(cantrip, __instance);
             var hasDamage = effect.HasFormOfType(EffectForm.EffectFormType.Damage);
-            var hasAttack = cantrip.HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>();
+            var hasAttack = cantrip.HasSubFeatureOfType<IAttackAfterMagicEffect>();
             var notGadgets = effect.TargetFilteringMethod != RuleDefinitions.TargetFilteringMethod.GadgetOnly;
             var componentsValid = __instance.AreSpellComponentsValid(cantrip);
 

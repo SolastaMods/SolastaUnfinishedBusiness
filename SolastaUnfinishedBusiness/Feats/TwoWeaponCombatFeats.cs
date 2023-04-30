@@ -85,7 +85,7 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IAfterAttackEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
@@ -98,7 +98,7 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -112,20 +112,25 @@ internal static class TwoWeaponCombatFeats
                 return;
             }
 
-            var condition = attacker.RulesetCharacter.HasConditionOfType(_conditionDualFlurryApply.Name)
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            var condition = rulesetAttacker.HasConditionOfType(_conditionDualFlurryApply.Name)
                 ? _conditionDualFlurryGrant
                 : _conditionDualFlurryApply;
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                condition,
+            rulesetAttacker.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

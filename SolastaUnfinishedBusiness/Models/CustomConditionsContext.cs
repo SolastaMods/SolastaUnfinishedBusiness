@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -108,10 +109,29 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IOnAfterActionFeature, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
+
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var hero = actingCharacter.RulesetCharacter;
+
+            if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
+            {
+                yield break;
+            }
+
+            var ruleEffect = actionParams.RulesetEffect;
+
+            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+            {
+                BecomeRevealed(hero);
+            }
+        }
 
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -128,28 +148,6 @@ internal static class CustomConditionsContext
             if (target is not RulesetCharacterMonster)
             {
                 target.RemoveAllConditionsOfCategory(CategoryHidden, false);
-            }
-        }
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            var actingCharacter = action.ActingCharacter;
-            var actionDefinition = action.ActionDefinition;
-            var actionParams = action.ActionParams;
-            var hero = actingCharacter.RulesetCharacter;
-
-            if (!actionDefinition.Name.StartsWith("Attack")
-                && !actionDefinition.Name.StartsWith("Cast")
-                && !actionDefinition.Name.StartsWith("Power"))
-            {
-                return;
-            }
-
-            var ruleEffect = actionParams.RulesetEffect;
-
-            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-            {
-                BecomeRevealed(hero);
             }
         }
 
@@ -204,30 +202,36 @@ internal static class CustomConditionsContext
 
         private static void BecomeRevealed(RulesetCharacter hero)
         {
-            hero.AddConditionOfCategory(CategoryRevealed,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    ConditionInvisibilityEveryRoundRevealed,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name
-                ));
+            hero.InflictCondition(
+                ConditionInvisibilityEveryRoundRevealed.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                CategoryRevealed,
+                hero.guid,
+                hero.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         private static void BecomeHidden(RulesetCharacter hero)
         {
-            hero.AddConditionOfCategory(CategoryHidden,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    ConditionInvisibilityEveryRoundHidden,
-                    DurationType.Permanent,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name),
-                false);
+            hero.InflictCondition(
+                ConditionInvisibilityEveryRoundHidden.Name,
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                CategoryHidden,
+                hero.guid,
+                hero.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

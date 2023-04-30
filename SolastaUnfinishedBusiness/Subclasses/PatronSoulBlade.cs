@@ -101,7 +101,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("FeatureSoulBladeHex")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new OnComputeAttackModifierHex(conditionHexAttacker, conditionHexDefender))
+                new AttackComputeModifierHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
@@ -230,12 +230,12 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    private sealed class OnComputeAttackModifierHex : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierHex : IAttackComputeModifier
     {
         private readonly ConditionDefinition _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public OnComputeAttackModifierHex(
+        public AttackComputeModifierHex(
             ConditionDefinition conditionHexAttacker,
             ConditionDefinition conditionHexDefender)
         {
@@ -243,7 +243,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             _conditionHexDefender = conditionHexDefender;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -259,16 +259,19 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
             if (defender.HasAnyConditionOfType(_conditionHexDefender.Name))
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    myself.guid,
-                    _conditionHexAttacker,
+                myself.InflictCondition(
+                    _conditionHexAttacker.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
                     myself.guid,
-                    myself.CurrentFaction.Name);
-
-                myself.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    myself.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
             else
             {

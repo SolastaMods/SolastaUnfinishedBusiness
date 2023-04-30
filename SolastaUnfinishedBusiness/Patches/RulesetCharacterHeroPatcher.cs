@@ -331,13 +331,13 @@ public static class RulesetCharacterHeroPatcher
             RulesetItem weapon)
         {
             //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
 
             var mods = modifiers;
 
             if (__result.sourceObject is RulesetItem item)
             {
-                mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+                mods = item.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
                 mods.AddRange(modifiers);
             }
 
@@ -372,7 +372,7 @@ public static class RulesetCharacterHeroPatcher
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
 
             foreach (var attackMode in __instance.AttackModes)
             {
@@ -380,7 +380,7 @@ public static class RulesetCharacterHeroPatcher
 
                 if (attackMode.sourceObject is RulesetItem item)
                 {
-                    mods = item.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+                    mods = item.GetSubFeaturesByType<IModifyWeaponAttackMode>();
                     mods.AddRange(modifiers);
                 }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -484,13 +485,13 @@ internal static class OtherFeats
                 new CanMakeAoOOnReachEntered
                 {
                     WeaponValidator = (mode, _, character) =>
-                        ModifyAttackModeForWeaponFeatAstralArms.ValidWeapon(character, mode)
+                        ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
                 },
-                new ModifyAttackModeForWeaponFeatAstralArms())
+                new ModifyWeaponAttackModeFeatAstralArms())
             .AddToDB();
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatAstralArms : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatAstralArms : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -659,7 +660,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new AooImmunityFeatMobile(),
-                        new OnAfterActionFeatMobileDash(
+                        new ActionFinishedFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
@@ -679,36 +680,40 @@ internal static class OtherFeats
     }
 
 
-    private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
+    private sealed class ActionFinishedFeatMobileDash : IActionFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public OnAfterActionFeatMobileDash(ConditionDefinition conditionDefinition)
+        public ActionFinishedFeatMobileDash(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
-            if (action is not CharacterActionDash or CharacterActionFlurryOfBlowsSwiftSteps
-                or CharacterActionFlurryOfBlows or CharacterActionFlurryOfBlowsSwiftSteps
-                or CharacterActionFlurryOfBlowsUnendingStrikes)
+            if (action is not (CharacterActionDash or
+                CharacterActionFlurryOfBlows or
+                CharacterActionFlurryOfBlowsSwiftSteps or
+                CharacterActionFlurryOfBlowsUnendingStrikes))
             {
-                return;
+                yield break;
             }
 
-            var attacker = action.ActingCharacter;
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDefinition,
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -744,15 +749,31 @@ internal static class OtherFeats
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .SetCustomSubFeatures(new CustomBehaviorFeatureFeatPoisonousSkin())
+            .SetCustomSubFeatures(new CustomBehaviorFeatPoisonousSkin())
             .AddToDB();
     }
 
-    private class CustomBehaviorFeatureFeatPoisonousSkin :
-        IAfterAttackEffect, ICustomConditionFeature, IOnAfterActionFeature
+    private class CustomBehaviorFeatPoisonousSkin :
+        IAttackEffectAfterDamage, ICustomConditionFeature, IActionFinished
     {
+        // handle Shove scenario
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            if (action is not CharacterActionShove)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in action.actionParams.TargetCharacters)
+            {
+                ApplyPower(rulesetAttacker, target);
+            }
+        }
+
         // handle standard attack scenario
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -794,22 +815,6 @@ internal static class OtherFeats
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
-        }
-
-        // handle Shove scenario
-        public void OnAfterAction(CharacterAction action)
-        {
-            if (!action.ActionDefinition.Name.Contains("Shove"))
-            {
-                return;
-            }
-
-            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
-
-            foreach (var target in action.actionParams.TargetCharacters)
-            {
-                ApplyPower(rulesetAttacker, target);
-            }
         }
 
         private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)

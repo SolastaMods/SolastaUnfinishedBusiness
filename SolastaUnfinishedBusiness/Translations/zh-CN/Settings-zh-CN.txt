@@ -13,7 +13,6 @@ ModUi/&Advanced=<color=#F0DAA0>高级：</color><b><i><color=#C04040E0>[需要�
 ModUi/&AdvancedHelp=.<b><color=#C04040E0>注意：</color></b>这些设置将要求玩家安装此模组
 ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
 ModUi/&AllItemInDm=DM中的所有项目
-ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业穿<color=#D89555>森林之甲</color>或<color=#D89555>光明使者之衣</color>
 ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在列表之中
@@ -27,6 +26,7 @@ ModUi/&AllowMoreRealStateOnRestPanel=允许在休息面板上显示更多真实�
 ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件<i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>闪电链</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有起源标记和纹身
+ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=按<color=#1E81B0>ALT</color>键只高亮队伍视野中的可用物品<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=将食物配给的重量减少到2磅
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任何职业调和
@@ -60,6 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=禁用此mod提供的职业专长的�
 ModUi/&DisableRacePrerequisitesOnModFeats=禁用此mod提供的专长的种族前提条件
 ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>强化黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[蓝色药丸用户，这是你最后的机会]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
@@ -99,13 +100,13 @@ ModUi/&EnablePcgRandom=启用更好的随机数算法<i><color=#F0DAA0>[https://
 ModUi/&EnableRejoinParty=启用<color=#1E81B0>CTRL-SHIFT-(R)</color>重新加入所选英雄或领导者周围的队伍（如果未选择）<i><color=#F0DAA0>[适用于5人或6人的队伍]</color></i>
 ModUi/&EnableRelearnSpells=<i>+可以选择其他职业已经学过的咒语或法术</i>
 ModUi/&EnableRespec=在休息操作后启用洗点
+ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在地城编辑器上启用素材排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击次数、暴击失败次数等]</color></i>
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池的切换来设置默认的游戏和测试队伍
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>元素召唤</color>和<color=#D89555>精类召唤</color>的升环
-ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA0>[而不是独占选择]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
 ModUi/&Encounters=遭遇
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b>允许英雄的功能在<color=#D89555>荒野形态</color> 形态下使用
@@ -128,8 +129,8 @@ ModUi/&FormationResetAllSets=重置全部
 ModUi/&FormationResetThisSet=重置这个
 ModUi/&FormationSelected=已选择编队集{0}
 ModUi/&FullyControlConjurations=完全控制魔法造物<i><color=#F0DAA0>[动物、元素等]</color></i>
-ModUi/&GameUi=游戏界面
 ModUi/&Gameplay=玩法
+ModUi/&GameUi=游戏界面
 ModUi/&General=<color=#F0DAA0>通用：</color>
 ModUi/&GeneralMenu=通用
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
@@ -185,7 +186,6 @@ ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Fo
 ModUi/&RestockHelp=.覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要7个游戏日才能补货
 ModUi/&RestockTowerOfKnowledge=补货知识之塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=规则
-ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
 ModUi/&SelectAll=全选
 ModUi/&SelectSuggested=选择建议
@@ -205,6 +205,7 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制
 ModUi/&ShowDescriptions=显示说明
 ModUi/&SpellLevelFilter=<b><i><color=white>法术等级过滤器</color><color=#F0DAA0>[-1 显示全部]</color></i></b>
 ModUi/&SpellsMenu=法术
+ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=格罗姆的商店出售所有非魔法服装<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=格罗姆的商店出售所有非魔法乐器<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店将<color=#D89555>奥术法杖</color>、<color=#D89555>德鲁伊项链</color>、<color=#D89555>法杖</color>和<color=#D89555>棍棒</color>设置为焦点项目

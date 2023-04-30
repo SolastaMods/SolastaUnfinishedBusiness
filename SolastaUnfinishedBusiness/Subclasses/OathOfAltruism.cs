@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -79,7 +80,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
                         RuleDefinitions.TargetType.Individuals)
                     .Build())
-            .SetCustomSubFeatures(new AfterActionTakeThePain())
+            .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -102,18 +103,18 @@ internal sealed class OathOfAltruism : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class AfterActionTakeThePain : IOnAfterActionFeature
+    private sealed class AfterActionFinishedTakeThePain : IActionFinished
     {
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action.ActionType != ActionDefinitions.ActionType.Bonus)
             {
-                return;
+                yield break;
             }
 
             if (action.ActingCharacter == null)
             {
-                return;
+                yield break;
             }
 
             var self = action.ActingCharacter;
@@ -121,7 +122,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 !characterActionUsePower.activePower.PowerDefinition.Name.StartsWith($"Power{Name}TakeThePain"))
             {
-                return;
+                yield break;
             }
 
             foreach (var character in action.ActionParams.targetCharacters)

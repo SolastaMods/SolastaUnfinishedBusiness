@@ -1293,9 +1293,7 @@ Starting at 3rd level, your base movement speed is increased by 10 feet. Wheneve
 
 * Gathering Storm
 
-Starting at 6th level, you gain the following benefits:
-• Whenever you successfully land two consecutive monk weapon or unarmed attacks, you gain Storm Surge, allowing you to make the next attack with advantage.
-• You can use your bonus action to make one unarmed attack without taking the Attack action.
+Starting at 6th level, whenever you successfully land two consecutive monk weapon attacks or unarmed strikes, the third one is made with advantage, and if it hits, up to three creatures within 10 feet of you, prioritizing those closest to you, receive your martial arts die as lightning damage.
 
 
 ## Level 11
@@ -1309,7 +1307,7 @@ Starting at 11th level, after using your attack action, you can pay 2 ki to use 
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 3d10 thunder damage and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 3d10 lightning damage and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 
@@ -1963,7 +1961,7 @@ Gain advantage on Survival checks to increase knowledge of creatures as well as 
 
 * Improved Disabling Strike
 
-Your Disabling Strike now applies to all weapon attacks you make, and reduces the creature's AC by 2 in addition to hindering it.
+Your Disabling Strike now applies to all weapon attacks you make, and reduces the creature's AC by 2 in addition to hindering it. Additionally, the benefits of your Executioner fighting style now extend to creatures affected by the hindered condition.
 
 
 ## Level 15

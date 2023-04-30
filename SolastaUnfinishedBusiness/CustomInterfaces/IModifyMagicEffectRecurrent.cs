@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IModifyRecurrentMagicEffect
+public interface IModifyMagicEffectRecurrent
 {
     public void ModifyEffect(
         RulesetCondition rulesetCondition,

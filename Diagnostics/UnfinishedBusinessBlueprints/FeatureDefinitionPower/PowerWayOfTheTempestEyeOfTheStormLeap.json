@@ -83,7 +83,7 @@
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
-          "damageType": "DamageThunder",
+          "damageType": "DamageLightning",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
           "hitPointsFloor": 0,

@@ -145,7 +145,7 @@ Add another damage die to critical hits.
 
 ## Level 15
 
-* Rage
+* Persistent Rage
 
 For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
 
@@ -162,6 +162,10 @@ Increase your rage damage by +1
 
 
 ## Level 17
+
+* Additional Rage Use
+
+You can rage one additional time per long rest.
 
 * Additional Rage Use
 
@@ -254,7 +258,7 @@ During a short rest, each ally rolls an additional hit die when spending hit die
 
 * Bard Colleges
 
-At the 3rd level, you delve into the advanced techniques of a bard college of your choice, which grants you features at the 3rd level and again at the 6th level.
+At level 3, you delve into the advanced techniques of a bard college of your choice, which grants you features at level 3, and again at levels 6 and 14.
 
 * Bard Expertise
 
@@ -356,6 +360,13 @@ Choose two spells from any class and include them in your spell list.
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 20
+
+* Superior Inspiration
+
+when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 
 
 
@@ -619,6 +630,13 @@ You can cast many of your druid spells in any shape you assume using Wild Shape.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
+## Level 20
+
+* Arch Druid
+
+You can use your Wildshape an unlimited number of times. Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wildshape.
+
+
 
 
 # Fighter
@@ -803,7 +821,7 @@ Despite their name, not all monks live a contemplative, religious life. However,
 
 * Martial Arts
 
-You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels (d6 at the 5th level, d8 at the 11th level). You can use dexterity instead of strength for the attack and damage rolls of your unarmed strikes and monk weapons.
+You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon while not wearing any armor or shield. This die changes as you gain monk levels (d6 at the 5th level, d8 at the 11th level). You can use dexterity instead of strength for the attack and damage rolls of your unarmed strikes and monk weapons.
 
 * Martial Arts - Bonus Unarmed Strike
 
@@ -858,7 +876,7 @@ You can spend 1 Ki point to take the Disengage or Dash action as a bonus action 
 
 * Unarmored Movement
 
-Starting at the 2nd level, your speed increases by 2 cells while you're not wearing armor or wielding a shield. This bonus becomes 3 cells at level 6, 4 cells at level 10).
+Starting at level 2, your speed increases by 2 cells while you're not wearing armor or wielding a shield. This bonus becomes 3 cells at level 6, 4 cells at level 10, and 5 cells at level 14).
 
 
 ## Level 3
@@ -1327,6 +1345,13 @@ You gain preternatural senses that help you fight creatures you can't see. When 
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
+## Level 20
+
+* Foe Slayer
+
+You become an unparalleled hunter of your enemies. All your attacks deal additional damage equal to your Wisdom modifier.
+
+
 
 
 # Rogue
@@ -1480,6 +1505,17 @@ Select 1 additional feats for your character.
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
+
+* Elusive
+
+You are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
+
+
+## Level 20
+
+* Stroke of Luck
+
+You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit.
 
 
 
@@ -1742,15 +1778,18 @@ Choose one spell of the specified level from the warlock spell list as this arca
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
+## Level 17
+
+* Mystic Arcanum (9th Level)
+
+Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
+
+
 ## Level 18
 
 * 1 Bonus Feats
 
 Select 1 additional feats for your character.
-
-* Mystic Arcanum (9th Level)
-
-Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
 ## Level 19
@@ -1850,6 +1889,10 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
+* Ability Score Choice
+
+Choose between increasing your ability scores or gaining a bonus feat.
+
 
 ## Level 18
 
@@ -1857,12 +1900,23 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Select 1 additional feats for your character.
 
+* Spell Mastery
+
+You have achieved such mastery over certain spells that you can cast them at will. The first two 1st and 2nd-level wizard spells that you prepare can be cast at their lowest level without expending a spell slot. If you want to cast either spell at a higher level, you must expend a spell slot as normal. 
+
 
 ## Level 19
 
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
+
+
+## Level 20
+
+* Signature Spells
+
+You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
 
 
 

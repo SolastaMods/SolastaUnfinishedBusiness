@@ -23,7 +23,7 @@ internal static class CreditsDisplay
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
-            "Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor"),
+            "Innovation Armor, Innovation Grenadier, Innovation Weapon, Inventor, Multiclass"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),

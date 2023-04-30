@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -154,7 +155,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyMagicEffectCounterSpell : IOnAfterActionFeature
+    private sealed class ModifyMagicEffectCounterSpell : IActionFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -167,13 +168,13 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionCastSpell characterActionCastSpell ||
                 characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
                 !characterActionCastSpell.ActionParams.TargetAction.Countered)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -182,22 +183,24 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
-                var defenderRulesetCharacter = gameLocationCharacter.RulesetCharacter;
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
 
                 GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _featureDefinitionPower);
-                effectPower.ApplyEffectOnCharacter(defenderRulesetCharacter, true,
-                    gameLocationCharacter.LocationPosition);
+                effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
 
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    defenderRulesetCharacter.Guid,
-                    _conditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.EndOfTurn,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name);
-
-                defenderRulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }

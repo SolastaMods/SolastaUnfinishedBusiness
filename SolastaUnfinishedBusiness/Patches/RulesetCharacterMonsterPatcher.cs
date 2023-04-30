@@ -153,7 +153,7 @@ public static class RulesetCharacterMonsterPatcher
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
 
             foreach (var attackMode in __instance.AttackModes)
             {

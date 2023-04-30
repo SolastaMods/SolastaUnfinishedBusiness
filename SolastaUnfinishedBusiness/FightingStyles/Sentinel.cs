@@ -33,7 +33,7 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFeatSentinel : IAfterAttackEffect
+    private sealed class OnAttackHitEffectFeatSentinel : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
@@ -42,7 +42,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -65,17 +65,27 @@ internal sealed class Sentinel : AbstractFightingStyle
                 return;
             }
 
-            var character = defender.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            character?.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                RulesetCondition.CreateActiveCondition(character.Guid,
-                    _conditionSentinelStopMovement,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    attacker.Guid,
-                    string.Empty
-                ));
+            if (rulesetAttacker == null || rulesetDefender == null)
+            {
+                return;
+            }
+
+            rulesetDefender.InflictCondition(
+                _conditionSentinelStopMovement.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

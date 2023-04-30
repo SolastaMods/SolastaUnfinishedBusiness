@@ -5,13 +5,13 @@ using SolastaUnfinishedBusiness.CustomValidators;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
+internal class CanUseAttribute : IModifyWeaponAttackAttribute
 {
     private readonly IsCharacterValidHandler[] _validators;
     private readonly string attribute;
     private readonly IsWeaponValidHandler isWeaponValid;
 
-    internal CanUseAttributeForWeapon(
+    internal CanUseAttribute(
         string attribute,
         IsWeaponValidHandler isWeaponValid = null,
         params IsCharacterValidHandler[] validators)
@@ -98,12 +98,12 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
     }
 }
 
-internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
+internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
 {
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly IsCharacterValidHandler[] validators;
 
-    protected ModifyAttackModeForWeaponBase(
+    protected ModifyWeaponAttackModeBase(
         IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
     {
@@ -132,7 +132,7 @@ internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeap
         RulesetItem weapon);
 }
 
-internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
+internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 {
     private readonly GetWeaponDiceHandler getWeaponDice;
 
@@ -185,11 +185,11 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
             DamageForm damageForm);
 }
 
-internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
+internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
 {
     private readonly string tag;
 
-    internal AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
+    internal AddTagToWeaponWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         this.tag = tag;
@@ -219,9 +219,9 @@ internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 //     }
 // }
 
-internal sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
+internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeBase
 {
-    internal BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid,
+    internal BumpWeaponWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators)
         : base(isWeaponValid, validators)
     {
@@ -234,11 +234,11 @@ internal sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
     }
 }
 
-internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
+internal sealed class IncreaseMeleeWeaponAttackReach : ModifyWeaponAttackModeBase
 {
     private readonly int _bonus;
 
-    internal IncreaseMeleeAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
+    internal IncreaseMeleeWeaponAttackReach(int bonus, IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         _bonus = bonus;

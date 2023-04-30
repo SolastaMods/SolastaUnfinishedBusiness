@@ -657,27 +657,31 @@ internal sealed class RangerWildMaster : AbstractSubclass
             this.power = power;
         }
 
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterTurnEnded(GameLocationCharacter gameLocationCharacter)
         {
-            var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
+            var status = gameLocationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 
             if (status != ActionStatus.Available)
             {
                 return;
             }
 
-            var character = locationCharacter.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                locationCharacter.Guid,
-                character.CurrentFaction.Name);
-
-            GameConsoleHelper.LogCharacterUsedPower(character, power);
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

@@ -3,8 +3,8 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IModifyActionParams
+public interface IActionInitiated
 {
     [UsedImplicitly]
-    IEnumerator Modify(CharacterAction characterAction);
+    IEnumerator OnActionInitiated(CharacterAction characterAction);
 }

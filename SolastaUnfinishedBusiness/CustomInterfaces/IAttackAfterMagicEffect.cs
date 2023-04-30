@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IPerformAttackAfterMagicEffectUse
+public interface IAttackAfterMagicEffect
 {
     public delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 

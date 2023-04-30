@@ -6,7 +6,7 @@
   "features": [
     "Definition:CombatAffinityThunderGauntletDistract:04d5a49c-802c-5f48-97ca-4d42b9e6b4c6"
   ],
-  "allowMultipleInstances": true,
+  "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
@@ -86,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,

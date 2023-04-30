@@ -28,7 +28,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .Create($"Feature{Name}VoraciousFury")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AfterAttackEffectVoraciousFury(),
+                new AttackEffectAfterDamageVoraciousFury(),
                 new CustomAdditionalDamageVoraciousFury(
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create($"AdditionalDamage{Name}VoraciousFury")
@@ -101,7 +101,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .AddToDB();
 
         featureCorruptedBlood.SetCustomSubFeatures(
-            new AfterAttackEffectCorruptedBlood(conditionCorruptedBlood, powerCorruptedBlood));
+            new AttackEffectAfterDamageCorruptedBlood(conditionCorruptedBlood, powerCorruptedBlood));
 
         // MAIN
 
@@ -137,12 +137,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // Corrupted Blood
     //
 
-    private class AfterAttackEffectCorruptedBlood : IAfterAttackEffect
+    private class AttackEffectAfterDamageCorruptedBlood : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public AfterAttackEffectCorruptedBlood(
+        public AttackEffectAfterDamageCorruptedBlood(
             ConditionDefinition conditionDefinition,
             FeatureDefinitionPower featureDefinitionPower)
         {
@@ -150,7 +150,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -311,11 +311,11 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         }
     }
 
-    private sealed class AfterAttackEffectVoraciousFury : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageVoraciousFury : IAttackEffectAfterDamage
     {
         private const string SpecialFeatureName = $"AdditionalHealing{Name}VoraciousFury";
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

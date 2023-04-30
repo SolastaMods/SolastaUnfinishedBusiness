@@ -36,8 +36,6 @@ internal static class FlexibleRacesContext
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceKobold", AttributeChoiceThree },
-        { "RaceGnome", AttributeChoiceThree },
-        { "RaceTiefling", AttributeChoiceThree },
         { "RaceFairy", AttributeChoiceThree }
     };
 
@@ -64,23 +62,12 @@ internal static class FlexibleRacesContext
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
             }
         },
-        {
-            "RaceGnome",
-            new List<string>
-            {
-                "AttributeModifierGnomeAbilityScoreIncrease", "AttributeModifierForestGnomeAbilityScoreIncrease"
-            }
-        },
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
         { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
-        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScore" } },
-        { "RaceTiefling", new List<string> { "AttributeModifierTieflingCharismaAbilityScoreIncrease" } },
-        { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
-        { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },
-        { "RaceTieflingZariel", new List<string> { "AttributeModifierTieflingStrengthAbilityScoreIncrease" } }
+        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

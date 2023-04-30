@@ -229,28 +229,6 @@ internal static class CraftingContext
         LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
 
-#if DEBUG
-    internal static string GenerateItemsDescription()
-    {
-        var outString = new StringBuilder();
-
-        foreach (var key in RecipeBooks.Keys)
-        {
-            outString.Append("\n[*][b]");
-            outString.Append(RecipeTitles[key]);
-            outString.Append("[/b]: ");
-
-            var uniqueEntries = RecipeBooks[key]
-                .Select(rb => rb.DocumentDescription.RecipeDefinition.FormatTitle())
-                .Distinct();
-
-            outString.Append(string.Join(", ", uniqueEntries));
-        }
-
-        return outString.ToString();
-    }
-#endif
-
     internal sealed class ItemCollection
     {
         internal List<ItemDefinition> BaseWeapons;

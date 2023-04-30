@@ -30,8 +30,8 @@ ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione di cibo a 2 libbre
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
-ModUi/&BackgroundsAndRaces=Sfondi e gare
 ModUi/&Backgrounds=<color=#F0DAA0>Sfondi</color>
+ModUi/&BackgroundsAndRaces=Sfondi e gare
 ModUi/&Basic=<color=#F0DAA0> Base:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Infliggi Maledizione</color> non richiede concentrazione se lanciato con uno slot incantesimo L5+
@@ -44,6 +44,7 @@ ModUi/&ChangeSleetStormToCube=Cambia <color=#D89555>Tempesta di nevischio</color
 ModUi/&Character=Carattere
 ModUi/&CharactersPool=Pool di personaggi
 ModUi/&Classes=<color=#F0DAA0>Classi</color>
+ModUi/&ClassesAndSubclasses=Classi e sottoclassi
 ModUi/&Crafting=<color=#F0DAA0>Creazione:</color>
 ModUi/&CraftingHelp=. Premi il pulsante per imparare le ricette all'istante sulla festa attiva\n. Gli articoli aggiunti ai negozi potrebbero richiedere che il gruppo si allontani dal luogo e ritorni
 ModUi/&Credits=Crediti
@@ -55,10 +56,11 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il t
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinità</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
-ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Superior Sense Dark Vision</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableUpdateMessage=Disabilita i messaggi di aggiornamento <i><color=#F0DAA0>[utenti della pillola blu, questa è la tua ultima possibilità]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
@@ -170,7 +172,6 @@ ModUi/&Patches=<color=#F0DAA0> Patch:</color>
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
 ModUi/&Races=<color=#F0DAA0>Gare</color>
-ModUi/&ClassesAndSubclasses=Classi e sottoclassi
 ModUi/&RecipeCost=<color=white>Costo della ricetta</color>
 ModUi/&RecipesInDm=Ricette in DM
 ModUi/&RelicForgeries=Falsi di reliquie

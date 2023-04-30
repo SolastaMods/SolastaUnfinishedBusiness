@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
-internal static class  InventoryManagementContext
+internal static class InventoryManagementContext
 {
     private static readonly List<string> SortCategories = new()
     {

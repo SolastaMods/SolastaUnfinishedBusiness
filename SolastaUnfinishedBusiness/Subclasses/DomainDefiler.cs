@@ -62,7 +62,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new DeathMagicModifyMagic(effectInsidiousDeathMagic),
-                new OnAttackEffectInsidiousMagic(conditionInsidiousDeathMagic))
+                new OnDamageInsidiousMagic(conditionInsidiousDeathMagic))
             .AddToDB();
 
         //
@@ -397,16 +397,16 @@ internal sealed class DomainDefiler : AbstractSubclass
         }
     }
 
-    private sealed class OnAttackEffectInsidiousMagic : IAfterAttackEffect
+    private sealed class OnDamageInsidiousMagic : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionInsidiousDeathMagic;
 
-        internal OnAttackEffectInsidiousMagic(ConditionDefinition conditionInsidiousDeathMagic)
+        internal OnDamageInsidiousMagic(ConditionDefinition conditionInsidiousDeathMagic)
         {
             _conditionInsidiousDeathMagic = conditionInsidiousDeathMagic;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

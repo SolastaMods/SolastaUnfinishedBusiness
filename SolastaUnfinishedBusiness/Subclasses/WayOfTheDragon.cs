@@ -562,19 +562,21 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             }
         }
 
-        private static void ApplyReactiveHideDebuff(RulesetCharacter attacker, ConditionDefinition debuff)
+        private static void ApplyReactiveHideDebuff(RulesetCharacter rulesetCharacter, BaseDefinition debuff)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.Guid,
-                debuff,
+            rulesetCharacter.InflictCondition(
+                debuff.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                attacker.Guid,
-                attacker.CurrentFaction.Name
-            );
-
-            attacker.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }
