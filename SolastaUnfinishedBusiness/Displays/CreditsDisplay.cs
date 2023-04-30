@@ -92,7 +92,7 @@ internal static class CreditsDisplay
                 using (UI.HorizontalScope())
                 {
                     UI.Label(author.Orange(), UI.Width((float)150));
-                    UI.Label(content, UI.Width((float)600));
+                    UI.Label(content, UI.Width((float)550));
                 }
             }
         }
