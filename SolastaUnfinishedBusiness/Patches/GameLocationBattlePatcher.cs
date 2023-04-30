@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -55,4 +56,25 @@ public static class GameLocationBattlePatcher
             }
         }
     }
+
+#if false
+    // testing if possible for a hero to have more than one turn in a round for Thief 17th
+
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.RollInitiative))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RollInitiative_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(IEnumerator values, GameLocationBattle __instance)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+            
+            __instance.initiativeSortedContenders.Add(__instance.playerContenders[0]);
+        }
+    }
+#endif
 }
