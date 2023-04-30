@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetFairyAbilityScoreTitle",
-    "description": "Feature/&FeatureSetFairyAbilityScoreDescription",
+    "title": "Feature/&FeatureSetFairyAbilityScoreIncreaseTitle",
+    "description": "Feature/&FeatureSetFairyAbilityScoreIncreaseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "077d5868-a04a-5516-a251-74532dda5691",
+  "guid": "ede8915e-ee24-56ad-8735-59186ff05ea3",
   "contentPack": 9999,
-  "name": "FeatureSetFairyAbilityScore"
+  "name": "FeatureSetFairyAbilityScoreIncrease"
 }

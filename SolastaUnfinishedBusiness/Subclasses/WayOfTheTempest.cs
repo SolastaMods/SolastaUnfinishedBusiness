@@ -126,8 +126,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         powerTempestFury.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
             new AttackAfterMagicEffectTempestFury(),
-            new ValidatorsPowerUse(ValidatorsCharacter.HasAttacked),
-            new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)));
+            new ValidatorsPowerUse(
+                ValidatorsCharacter.HasAttacked,
+                ValidatorsCharacter.HasAvailableBonusAction,
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)));
 
         // LEVEL 17
 

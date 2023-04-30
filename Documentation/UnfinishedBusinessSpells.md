@@ -2,18 +2,6 @@
 
 Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 ft of you. On a hit, the target takes 1d8 acid damage and has armor class lowered by 1 for 1 round (not stacking).
 
-# Acid Damage
-
-The creature takes 3d8 Acid Damage damage.
-
-# Acid Damage
-
-The creature takes 5 Acid Damage per spell level.
-
-# Acid Elemental Weapon
-
-Imbue a non-magical weapon with acid damage.
-
 # Air Blast
 
 Fire a blast of focused air at your target.
@@ -43,41 +31,13 @@ You send a jolt of green energy toward the target momentarily disorientating the
 
 You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
 
-# Cold Damage
-
-The creature takes 3d8 Cold Damage damage.
-
-# Cold Damage
-
-The creature takes 5 Cold Damage per spell level.
-
-# Cold Elemental Weapon
-
-Imbue a non-magical weapon with cold damage.
-
 # Color Burst
 
 Burst a luminous cube that briefly blinds anyone within 10 ft. 8d10 is how many hit points of creatures this spell can affect.
 
-# Conjure Elemental [Invisible Stalker]
-
-Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
-
-# Conjure Minor Elementals
-
-Conjure elemental creatures under your command, which are dismissed when the spell ends or is broken.
-
 # Crusader's Mantle
 
 Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
-
-# Detect Evil and Good
-
-Detect nearby creatures of evil or good nature.
-
-# Dispel Evil and Good
-
-Celestial, elementals, feys, fiends, and undead have disadvantage on attacks against you. This spell also allows you to cancel hostile enchantments or dismiss extraplanar creatures hit by your attacks once.
 
 # Earth Tremor
 
@@ -96,53 +56,17 @@ You sap the vitality of one creature you can see in range. The target must succe
 Your next hit ensnares your target in vines - it receives 1d6 piercing damage each turn and can roll STR saving thrown at the end of each turn to stop this effect
 <b>Higher Levels:</b> for each slot level above 1st, your attack deals additional 1d6 piercing damage.
 
-# Faerie Fire
-
-Highlight creatures to give advantage to anyone attacking them.
-
 # Far Step
 
 You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
-
-# Fire Damage
-
-The creature takes 3d8 Fire Damage damage.
-
-# Fire Damage
-
-The creature takes 5 Fire Damage per spell level.
-
-# Fire Elemental Weapon
-
-Imbue a non-magical weapon with fire damage.
 
 # Foresight
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
-# Freedom of Movement
-
-Grants immunity to movement restrictions, as well as being paralyzed or restrained.
-
-# Haste
-
-Make an ally faster and more agile, and grant them an additional action for a limited time.
-
 # Illuminating Sphere
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
-
-# Lightning Damage
-
-The creature takes 3d8 Lightning Damage damage.
-
-# Lightning Damage
-
-The creature takes 5 Lightning Damage per spell level.
-
-# Lightning Elemental Weapon
-
-Imbue a non-magical weapon with lightning damage.
 
 # Mantle of Thorns
 
@@ -175,33 +99,13 @@ If you have 3 duplicates, you must roll a 6 or higher to change the attack's tar
 A duplicate's armor class is equal to 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
 
-# Moon Beam
-
-Conjures a vertical column of moonlight which causes radiant damage. Shapechangers have disadvantage on the save.
-
 # Mule
 
 The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 
-# None
-
-
-
-# Pass Without Trace
-
-Make yourself and up to 5 allies stealthier for one hour.
-
 # Petal Storm
 
 Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 ft in any direction.
-
-# Poison Damage
-
-The creature takes 3d8 Poison Damage damage.
-
-# Poison Damage
-
-The creature takes 5 Poison Damage per spell level.
 
 # Power Word Heal
 
@@ -225,25 +129,10 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
 
-# Raise Ghoul
-
-Summons <b>Ghoul</b>:
-A ravenous undead creature, constantly searching for flesh to eat.
-
 # Raise Skeletal Enforcer
 
 Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.
-
-# Raise Skeletal Enforcer
-
-Summons <b>Skeletal Enforcer</b>:
-A powerful undead creature armed with an axe and a shield.
-
-# Raise Skeletal Knight
-
-Summons <b>Skeletal Knight</b>:
-A powerful undead creature, created by raising a dead knight.
 
 # Raise Skeletal Knight
 
@@ -255,24 +144,9 @@ A powerful undead creature, created by raising a dead knight.
 Summons <b>Skeletal Marksman</b>:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
 
-# Raise Skeletal Marksman
-
-Summons <b>Skeletal Marksman</b>:
-A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
-
 # Raise Skeleton
 
 Summons <b>Skeleton</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
-
-# Raise Skeleton
-
-Summons <b>Skeleton</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
-
-# Raise Skeleton Archer
-
-Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 
 # Raise Skeleton Archer
@@ -285,25 +159,10 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 Summons <b>Spectral Avenger</b>:
 A powerful, ethereal undead creature.
 
-# Raise Spectral Avenger
-
-Summons <b>Spectral Avenger</b>:
-A powerful, ethereal undead creature.
-
 # Raise Wight
 
 Summons <b>Wight</b>:
 A Wight
-
-# Raise Wight
-
-Summons <b>Wight</b>:
-A Wight
-
-# Raise Wight Lord
-
-Summons <b>Wight Lord</b>:
-A powerful wight, trained to withstand the light of day.
 
 # Raise Wight Lord
 
@@ -337,17 +196,9 @@ You weave together threads of shadow to create a sword of solidified gloom in yo
 
 You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
 
-# Shield of Faith
-
-Increase an ally's AC by 2 for a limited time.
-
 # Skin of Retribution
 
 Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
-
-# Slow
-
-Slows and impairs the actions of up to 6 creatures.
 
 # Sonic Boom
 
@@ -364,18 +215,6 @@ You call forth spirits of the dead, which flit around you for the spell's durati
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 ft of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
-
-# Spirit Shroud (Cold)
-
-Deal bonus cold damage.
-
-# Spirit Shroud (Necrotic)
-
-Deal bonus necrotic damage.
-
-# Spirit Shroud (Radiant)
-
-Deal bonus radiant damage.
 
 # Staggering Smite
 
@@ -394,18 +233,6 @@ You create a momentary circle of spectral blades that sweep around you. All othe
 
 You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 ft closer to you.
 
-# Thunder Damage
-
-The creature takes 3d8 Thunder Damage damage.
-
-# Thunder Damage
-
-The creature takes 5 Thunder Damage per spell level.
-
-# Thunder Elemental Weapon
-
-Imbue a non-magical weapon with thunder damage.
-
 # Thunderous Smite
 
 On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 ft away from you and knocked prone.
@@ -413,10 +240,6 @@ On your next hit your weapon rings with thunder and the attack deals an extra 2d
 # Time Stop
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-
-# Warding Bond
-
-Creates a bond with the target, who gains +1 AC, +1 to saving throws and resistance to all damage, but you share all damage it receives. Lasts for one hour.
 
 # Web
 

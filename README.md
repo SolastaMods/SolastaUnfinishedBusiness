@@ -4,7 +4,18 @@ This is a [collection of work](https://github.com/SolastaMods/SolastaUnfinishedB
 
 # How to install
 
-Download the first ZIP file from latest releases [here](https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases) and follow the installation guide [here](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Install).
+Download the first ZIP file from [releases](https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases) and follow the [installation guide](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Install).
+
+# How to report issues
+
+*  The versions of Solasta and this mod.
+*  A list of other mods you have installed [you shouldn't have any].
+*  A short description of the bug.
+*  A step-by-step procedure to reproduce it.
+*  The save, character and log files.
+
+**HINT:** Check the folder *C:\Users\**YOUR_USER_NAME**\AppData\LocalLow\Tactical Adventures\Solasta* for the info we need.
+
 # How to contribute
 
 Do you have a mod you want to see included here? We are happy to take new contributions! The best way to get involved is to:

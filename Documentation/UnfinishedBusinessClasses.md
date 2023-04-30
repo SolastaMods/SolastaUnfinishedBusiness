@@ -40,6 +40,10 @@ Can cast spells from the Inventor Spells list. You can use item that bears your 
 
 ## Level 2
 
+* 1 Bonus Feats
+
+Select 1 additional feats for your character.
+
 * Infusions
 
 You've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items. Learn 4 infusion of your choice. Whenever you gain a level in this class, you can replace one of the inventor infusions you learned with a new one.
@@ -95,6 +99,10 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
+* 1 Bonus Feats
+
+Select 1 additional feats for your character.
+
 * Infusion Limit Increase
 
 You can have 1 more item infused at a time.
@@ -149,6 +157,10 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
+
+* 1 Bonus Feats
+
+Select 1 additional feats for your character.
 
 * Infusion Limit Increase
 
