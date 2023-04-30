@@ -154,6 +154,7 @@ internal static class InventorInfusions
                     .SetSpecificDamageType(element)
                     .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 3)
                     .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());
 
             power.GuiPresentation.Title = $"Rules/&{element}Title";
@@ -254,6 +255,7 @@ internal static class InventorInfusions
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
                     .SetSpecificDamageType(element)
+                    .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());
 
             power.GuiPresentation.Title = $"Rules/&{element}Title";
