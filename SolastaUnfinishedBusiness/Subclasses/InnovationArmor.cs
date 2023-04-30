@@ -224,7 +224,7 @@ public static class InnovationArmor
         return !character.HasConditionOfType(InfiltratorMarkerName);
     }
 
-    private static bool IsBuiltInWeapon(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    internal static bool IsBuiltInWeapon(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
         var item = mode?.sourceDefinition as ItemDefinition;
 

@@ -3,11 +3,11 @@
 1.4.33.81:
 
 - fixed Druid's arch druid interaction with circle of the night
+- fixed Innovation Armorer's to trigger elemental infusions on gauntlet or launcher
 - fixed Monk's specialized weapon to have the finesse tag
 - fixed Rogue's stroke of luck power usage once per short rest
 - fixed Roguish Raven's Deadly Aim damage dealt on reroll hit
 - fixed Sorcerous Field Manipulator's displacement on MP
-- tested mod update with game version 1.5.37 beta and this v81
 
 1.4.33.80:
 
