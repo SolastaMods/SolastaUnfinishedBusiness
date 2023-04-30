@@ -27,6 +27,17 @@ internal static class SpellsDisplay
 
         UI.Label();
 
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Spells docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessSpells.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Spells docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaSpells.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+
         var intValue = SpellLevelFilter;
         if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, ShowAll, 9, ShowAll))
         {

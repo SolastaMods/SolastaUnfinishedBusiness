@@ -161,6 +161,8 @@ internal static class BootContext
             DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
+            DumpRaces("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpRaces("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<FeatDefinition>("UnfinishedBusinessFeats",
                 x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpOthers<FeatDefinition>("SolastaFeats", x => x.ContentPack != CeContentPackContext.CeContentPack);
@@ -296,6 +298,44 @@ internal static class BootContext
         sw.WriteLine(outString.ToString());
     }
 
+    private static void DumpRaces(string groupName, Func<BaseDefinition, bool> filter)
+    {
+        var outString = new StringBuilder();
+
+        foreach (var race in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                     .Where(x => filter(x))
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            outString.Append($"# {race.FormatTitle()}\n\n");
+            outString.Append(race.FormatDescription());
+            outString.Append("\n\n");
+
+            var level = 0;
+
+            foreach (var featureUnlockByLevel in race.FeatureUnlocks
+                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                         .OrderBy(x => x.level))
+            {
+                if (level != featureUnlockByLevel.level)
+                {
+                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    level = featureUnlockByLevel.level;
+                }
+
+                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"{description}\n\n");
+            }
+
+            outString.Append("\n\n\n");
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Races.md");
+        sw.WriteLine(outString.ToString());
+    }
+
     private static void DumpOthers<T>(string groupName, Func<BaseDefinition, bool> filter) where T : BaseDefinition
     {
         var outString = new StringBuilder();
@@ -373,7 +413,7 @@ internal static class BootContext
     {
         LatestVersion = GetLatestVersion(out var shouldUpdate);
 
-        if (shouldUpdate)
+        if (shouldUpdate && !Main.Settings.DisableUpdateMessage)
         {
             DisplayUpdateMessage();
         }

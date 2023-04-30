@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -27,7 +28,8 @@ internal static class BackgroundsAndRacesDisplay
             RacesContext.Races,
             Main.Settings.RaceEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: RacesHeader);
         Main.Settings.DisplayRacesToggle = displayToggle;
         Main.Settings.RaceSliderPosition = sliderPos;
 
@@ -44,6 +46,20 @@ internal static class BackgroundsAndRacesDisplay
         Main.Settings.DisplayDeitiesToggle = displayToggle;
         Main.Settings.DeitySliderPosition = sliderPos;
 #endif
+
+        UI.Label();
+    }
+
+    private static void RacesHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Races docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessRaces.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Races docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaRaces.md"), UI.Width((float)200));
+        }
 
         UI.Label();
     }

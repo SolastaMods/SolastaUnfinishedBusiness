@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityWayOfTheTempestGatheringStorm:b1766f66-6b8a-5a99-8646-f2db0df46020"
+    "Definition:CombatAffinityWayOfTheTempestAppliedGatheringStorm:6fe6edc7-f30b-5a8c-9cc2-b3c3c1219127"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

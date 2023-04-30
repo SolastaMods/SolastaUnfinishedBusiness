@@ -105,6 +105,12 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder InviteOptionalAlly()
+    {
+        effect.inviteOptionalAlly = true;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetEffectAdvancement(
         EffectIncrementMethod effectIncrementMethod,
         int incrementMultiplier = 1,

@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -194,7 +195,10 @@ internal static class CharacterContext
                 .Create($"FeatureMonkWeaponSpecialization{weaponTypeName}")
                 .SetGuiPresentationNoContent(true)
                 .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
-                .SetCustomSubFeatures(new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
+                .SetCustomSubFeatures(
+                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
+                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)),
+                    new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
 
             // ensure we get dice upgrade on these

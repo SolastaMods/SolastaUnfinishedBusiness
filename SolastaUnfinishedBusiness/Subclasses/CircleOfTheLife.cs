@@ -182,8 +182,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife) &&
-                !removedFrom.HasAnyConditionOfType(ConditionVerdancy))
+            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
             {
                 removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                     ConditionRevitalizingBoon);
@@ -236,8 +235,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife) &&
-                !removedFrom.HasAnyConditionOfType(ConditionVerdancy))
+            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
             {
                 removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                     ConditionRevitalizingBoon);

@@ -1,9 +1,10 @@
 Open Mod UI > Tools and click History for full details:
 
-- added Battleaxe magical items and recipes
-- added Bard's superior inspiration at 20th
-- added Druid's arch druid at 20th
-- added Ranger's foe slayer at 20th
-- added Rogue's elusive at 18th and stroke of luck at 20th
-- added Wizard's spell mastery at 18th and signature spells at 20th
-- fixed power bundles submenu rendering
+- changed Way of the Tempest's gathering storm power behavior
+- fixed Druid's arch druid interaction with circle of the night
+- fixed Innovation Armorer interaction with elemental infusions
+- fixed Innovation Artillerist's force ballista to use range hit
+- fixed Monk's specialized weapon to use dex modifier if better
+- fixed Rogue's stroke of luck usage to be once per short rest
+- fixed Roguish Raven's deadly aim damage dealt on reroll hits
+- fixed Sorcerous Field Manipulator's displacement MP desyncs

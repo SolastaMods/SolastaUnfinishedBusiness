@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
@@ -626,6 +627,35 @@ internal static class GameLocationBattleManagerTweaks
         instance.triggeredAdditionalDamageTags.Clear();
         attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
             instance.featuresToBrowseReaction);
+
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Supports for extra damage from elemental infusions on armorer
+         */
+
+        if (InnovationArmor.IsBuiltInWeapon(attackMode, null, null))
+        {
+            var torsoSlot =
+                attacker.RulesetCharacter.CharacterInventory.InventorySlotsByType[
+                    DatabaseHelper.SlotTypeDefinitions.TorsoSlot.Name];
+
+            if (torsoSlot is { Count: > 0 })
+            {
+                var additionalDamages = torsoSlot[0].EquipedItem.DynamicItemProperties
+                    .Select(x => x.FeatureDefinition)
+                    .OfType<IAdditionalDamageProvider>()
+                    .OfType<FeatureDefinition>();
+
+                instance.featuresToBrowseReaction.AddRange(additionalDamages);
+            }
+        }
+
+        /*
+         * Supports for extra damage from elemental infusions on armorer
+         * [CE] EDIT END
+         * ######################################
+         */
 
         // Add item properties?
         if (attacker.RulesetCharacter.CharacterInventory != null)

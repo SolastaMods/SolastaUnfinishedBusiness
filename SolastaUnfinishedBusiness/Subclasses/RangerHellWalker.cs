@@ -281,6 +281,35 @@ internal sealed class RangerHellWalker : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
+            var gameLocationDefender = action.actionParams.targetCharacters[0];
+
+            // remove this condition from all other enemies
+            foreach (var gameLocationCharacter in battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
+                         .Where(x => x != gameLocationDefender))
+            {
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+                var rulesetCondition = rulesetDefender.AllConditions
+                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+                if (rulesetCondition != null)
+                {
+                    rulesetDefender.RemoveCondition(rulesetCondition);
+                }
+            }
+        }
+
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
         {
             if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
@@ -314,35 +343,6 @@ internal sealed class RangerHellWalker : AbstractSubclass
             }
 
             return false;
-        }
-
-        public IEnumerator Execute(CharacterAction action)
-        {
-            var battle = Gui.Battle;
-
-            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
-                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
-            {
-                yield break;
-            }
-
-            var gameLocationDefender = action.actionParams.targetCharacters[0];
-
-            // remove this condition from all other enemies
-            foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .ToList()
-                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
-                         .Where(x => x != gameLocationDefender))
-            {
-                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
-                var rulesetCondition = rulesetDefender.AllConditions
-                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
-                {
-                    rulesetDefender.RemoveCondition(rulesetCondition);
-                }
-            }
         }
     }
 }

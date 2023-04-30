@@ -88,7 +88,7 @@ public static class CharacterActionPatcher
 
                 foreach (var modifyActionParam in modifyActionParams)
                 {
-                    yield return modifyActionParam.Execute(__instance);
+                    yield return modifyActionParam.OnActionInitiated(__instance);
                 }
             }
 
@@ -114,7 +114,7 @@ public static class CharacterActionPatcher
 
             foreach (var onAfterAction in onAfterActions)
             {
-                yield return onAfterAction.Execute(__instance);
+                yield return onAfterAction.OnActionFinished(__instance);
             }
 
             //PATCH: support for character action tracking

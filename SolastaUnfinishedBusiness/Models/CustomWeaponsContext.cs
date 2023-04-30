@@ -571,8 +571,8 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(CONDITION_NAME)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+                .SetPossessive()
                 .SetConditionType(ConditionType.Detrimental)
-                .AllowMultipleInstances()
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
