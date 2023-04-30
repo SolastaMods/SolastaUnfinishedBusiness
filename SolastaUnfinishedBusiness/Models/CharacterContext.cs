@@ -196,7 +196,8 @@ internal static class CharacterContext
                 .SetGuiPresentationNoContent(true)
                 .SetProficiencies(ProficiencyType.Weapon, weaponTypeName)
                 .SetCustomSubFeatures(
-                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)),
+                    new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important,
+                        ValidatorsWeapon.IsOfWeaponType(weaponTypeDefinition)),
                     new MonkWeaponSpecialization { WeaponType = weaponTypeDefinition })
                 .AddToDB();
 

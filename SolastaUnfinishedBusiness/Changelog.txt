@@ -5,5 +5,5 @@ Open Mod UI > Tools and click History for full details:
 - fixed Innovation Artillerist's force ballista to use range hit
 - fixed Monk's specialized weapon to use dex modifier if better
 - fixed Rogue's stroke of luck usage to be once per short rest
-- fixed Roguish Raven's Deadly Aim damage dealt on reroll hits
+- fixed Roguish Raven's deadly aim damage dealt on reroll hits
 - fixed Sorcerous Field Manipulator's displacement MP desyncs
