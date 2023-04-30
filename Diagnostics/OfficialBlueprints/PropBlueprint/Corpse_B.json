@@ -4,9 +4,9 @@
   "groundLowPlacement": false,
   "groundHighPlacement": true,
   "wallPlacement": false,
-  "openingPlacement": false,
-  "openingLowPlacement": false,
-  "openingHighPlacement": false,
+  "openingPlacement": true,
+  "openingLowPlacement": true,
+  "openingHighPlacement": true,
   "propPlacement": true,
   "lightSources": [],
   "category": "Obstacle",
@@ -130,6 +130,26 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "56b8a3998f0c388418d47e3e7f16125a",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "c76d14779208d5741a6ee0c64797a69a",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfOutdoor",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "30bc7f1b2685a894db018f1e9efb636a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

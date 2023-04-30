@@ -232,8 +232,8 @@
     "description": "Equipment/&ScrollSunburstDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8ad5fe3c9f53bf646b77c22d8f5b99c7",
-      "m_SubObjectName": "Scroll_PLACEHOLDER",
+      "m_AssetGUID": "0438d5f034198bb4b937377d5cb0fcc0",
+      "m_SubObjectName": "Scroll_Sunburst",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

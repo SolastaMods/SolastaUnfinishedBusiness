@@ -132,7 +132,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Male:1b84d9fb2540a344fbd6a2e99d0a5ef9",
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Female:47828f46bb6950e4a98b20cd5c651baa"
@@ -237,8 +237,8 @@
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9d8508fc5d27bce47a138ec0fd1c4e76",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Archer_1",
+      "m_AssetGUID": "9850c406bec0f8b469066523804993b9",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Male",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

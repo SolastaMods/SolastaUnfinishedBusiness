@@ -207,13 +207,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_ElvenSettlements_Clue01:a83e4e41f871aef4f826f25397961f3c",
-      "suspect": "Definition:DLC3_Elven_Suspect_04_Guard:7e01a68eaed40194d83ef77d32780d0b"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

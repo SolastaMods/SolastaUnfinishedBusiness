@@ -3,8 +3,8 @@
   "editorOnly": false,
   "isPremade": false,
   "premadeFilename": "",
-  "firstName": "Race/&HalfElfFemaleName4Title",
-  "surName": "Race/&HalfElfSurName2Title",
+  "firstName": "Race/&TieflingFemaleName7Title",
+  "surName": "Race/&TieflingNickname7Title",
   "abilityScores": [
     8,
     13,
@@ -17,20 +17,20 @@
   "mainRace": "Definition:Tiefling:5a0f67df27e0274438f46e6eb59448cb",
   "subRace": null,
   "originMorphotype": "Origin_NonHuman",
-  "skinMorphotype": "FaceAndSkin_09",
+  "skinMorphotype": "FaceAndSkin_36",
   "musculatureMorphotypeValue": 60.0,
   "ageMorphotypeValue": 0.0,
-  "tailLengthMorphotypeValue": 100.0,
+  "tailLengthMorphotypeValue": 41.1,
   "faceShapeMorphotype": "FaceShape_A",
-  "hairShapeMorphotype": "HairShape_None",
-  "hairColorMorphotype": "HairColor_33",
+  "hairShapeMorphotype": "HairShape_O",
+  "hairColorMorphotype": "HairColorBlack",
   "beardShapeMorphotype": "",
-  "eyeColorMorphotype": "EyeColorGolden",
+  "eyeColorMorphotype": "EyeColor_017",
   "eyeMorphotype": "Eye_Default",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_10",
   "scarsMorphotype": "Scars_12",
-  "hornsMorphotype": "Horns_None",
+  "hornsMorphotype": "Horns_F",
   "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Warlock:b493e1ccc3740f04da1b025bdcf39916",
   "subClass": "Definition:PatronFiend:6f4a40075c00bd04e9d0b8b013caed2d",
@@ -45,7 +45,7 @@
   "equipment": [
     "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
     "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134",
-    "Definition:Leather:3eb1973bc4b1dac46b8814ab902e523a",
+    "Definition:Warlock_Armor:899d2c68ed186cc4382856a2ca3ed611",
     "Definition:EntertainerPack:955a82bd013a3e04a98e6735c808d8df"
   ],
   "startingMoney": [
@@ -112,8 +112,8 @@
     "description": "",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "08ec2590d1026034b96a9175f1b18dd8",
-      "m_SubObjectName": "Level1_Warlock_Iela_Olfborn",
+      "m_AssetGUID": "dd49b289dee19d446971f4a218456edd",
+      "m_SubObjectName": "Level1_Warlock_Liera",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

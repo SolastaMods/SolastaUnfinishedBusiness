@@ -12,7 +12,7 @@
   "faceShapeMorphotype": "FaceShape_NPC_Priest_of_Arun",
   "hairShapeMorphotype": "HairShape_E",
   "hairColorMorphotype": "HairColor_13",
-  "beardShapeMorphotype": "BeardShape_I",
+  "beardShapeMorphotype": "BeardShape_F",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_021",
   "bodyDecorationMorphotype": "BodyDecoration_None",
@@ -20,37 +20,37 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "Dwarven_Plate",
+  "armorDefinition": "ChainShirt",
   "helmetDefinition": "",
-  "tabardDefinition": "ClothesTabard",
+  "tabardDefinition": "ClothesTabardDLC3_WhiteCity",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.219607845,
-    "g": 0.596078455,
-    "b": 0.254901975,
-    "a": 0.0
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.360784322,
-    "g": 0.772549033,
-    "b": 0.380392164,
-    "a": 0.0
+    "r": 0.7176471,
+    "g": 0.7176471,
+    "b": 0.6117647,
+    "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.435294122,
-    "g": 0.113725491,
-    "b": 0.101960786,
-    "a": 0.0
+    "r": 0.980392158,
+    "g": 0.7960785,
+    "b": 0.6784314,
+    "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
-    "a": 0.0
+    "r": 1.0,
+    "g": 0.913725555,
+    "b": 0.8431373,
+    "a": 1.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,

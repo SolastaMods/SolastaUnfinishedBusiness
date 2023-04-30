@@ -5,22 +5,22 @@
   "sex": "Female",
   "originMorphotype": "Origin_HO",
   "skinMorphotype": "FaceAndSkin_04",
-  "musculatureMorphotypeValue": 0.0,
+  "musculatureMorphotypeValue": 50.0568848,
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_HO_A",
   "hairShapeMorphotype": "HairShape_None",
-  "hairColorMorphotype": "HairColorBlond",
+  "hairColorMorphotype": "HairColor_21",
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
-  "eyeColorMorphotype": "EyeColorInfiltrator",
+  "eyeColorMorphotype": "EyeColor_016",
   "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesWizard",
+  "armorDefinition": "Enchanted_HideArmor_Of_The_Vagrant",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
@@ -29,28 +29,28 @@
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_Raider_Shaman_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b3ff3f7cbae85334c955c51a06e84cbd",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Shaman_2",
+      "m_AssetGUID": "295b0164cdfc5f04faf21e8cfc3a5892",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Raider_Shaman_2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

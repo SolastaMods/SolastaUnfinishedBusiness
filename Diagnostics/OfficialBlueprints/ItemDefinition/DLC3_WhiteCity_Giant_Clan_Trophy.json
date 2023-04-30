@@ -198,8 +198,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Equipment/&WhiteCity_Giant_Clan_Identified_TrophyTitle",
-    "unidentifiedDescription": "Equipment/&WhiteCity_Giant_Clan_Identified_TrophyDescription",
+    "unidentifiedTitle": "Equipment/&WhiteCity_Giant_Clan_TrophyTitle",
+    "unidentifiedDescription": "Equipment/&WhiteCity_Giant_Clan_TrophyDescription",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -230,8 +230,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&WhiteCity_Giant_Clan_TrophyTitle",
-    "description": "Equipment/&WhiteCity_Giant_Clan_TrophyDescription",
+    "title": "Equipment/&WhiteCity_Giant_Clan_Identified_TrophyTitle",
+    "description": "Equipment/&WhiteCity_Giant_Clan_Identified_TrophyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e9d5aebfd7e403f42b5c7350f60ff1ab",

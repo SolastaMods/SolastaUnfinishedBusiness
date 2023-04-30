@@ -149,7 +149,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Einareum_Merchant_Ingredients:5cd994364b1ace1459c2e3a164856d88"
     ],
@@ -218,7 +218,7 @@
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
-    "needMerchantPortrait": false,
+    "needMerchantPortrait": true,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -253,8 +253,8 @@
     "description": "NPC/&DLC3_NPC_Einareum_Merchant_Ingredients_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "17eefd4e4e7ffaf43a7e421103252a55",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_Einareum_Merchant_Ingredients",
+      "m_AssetGUID": "bc1102c19b4d61d40b17f83700da77c3",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Einareum_Merchant_Ingredients",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -198,8 +198,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Equipment/&NecklaceOfGrounding_Unidentified_Title",
-    "unidentifiedDescription": "Equipment/&NecklaceOfGrounding_Unidentified_Description",
+    "unidentifiedTitle": "Equipment/&BeltOfGiantHillStrength_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&PenitentBelt_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

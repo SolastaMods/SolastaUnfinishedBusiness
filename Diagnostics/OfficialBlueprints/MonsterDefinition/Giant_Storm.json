@@ -121,7 +121,8 @@
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:PowerStormGiantLightningBolt:94f06fd0ed4d60e4d981de2079c351f5",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -285,6 +286,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "771dc5dcddcf7a24f827ef94fff5335f",
-  "contentPack": "PalaceOfIce",
+  "contentPack": "LostValley",
   "name": "Giant_Storm"
 }

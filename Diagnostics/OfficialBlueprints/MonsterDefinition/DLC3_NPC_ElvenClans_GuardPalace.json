@@ -168,7 +168,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_ElvenClans_GuardCaptain:31c3e3fe7c88dbc469f02be625b30947"
+      "Definition:NPC_Presentation_DLC3_ElvenClans_GuardCaptain_Palace:ba323d58268986b4ea814f4254719ff4"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

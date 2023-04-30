@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 6,
+  "maxSpellLevel": 7,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -58,6 +58,13 @@
       "spells": [
         "Definition:BladeBarrierWallRing:d2283110490a1aa489cd31d8683790fe",
         "Definition:FreezingSphere:981aa235259bf274da28bd3e913902ad"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:GravitySlam:265ad14a4c626d840bb1fb3be0ec4706"
       ]
     }
   ],

@@ -22,12 +22,12 @@
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:CastMagic_Incubus_Drain:a24ff8df7f489bd428dde4d0d600a611",
         "weight": 3.0,
-        "cooldown": 0,
+        "cooldown": 2,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Ranged:d970b74017c1802469af710393c6e2a7",
+        "decision": "Definition:Move_Ranged_Incubus:8304745fe9eb539499e06db44d0e37a6",
         "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false

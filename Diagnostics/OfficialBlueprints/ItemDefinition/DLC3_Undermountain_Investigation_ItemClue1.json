@@ -206,13 +206,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_Undermountain_Clue1:4a287aa2b81e4524c911922109017ad9",
-      "suspect": "Definition:DLC3_Berghild_StrongSpine:4e1aef4754994264fad6d9ba8af4ab26"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

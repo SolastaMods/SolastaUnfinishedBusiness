@@ -19,8 +19,8 @@
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2"
+      "amount": 4,
+      "itemDefinition": "Definition:Ingredient_Bulette_Teeth:fb61e9237f5768d41825f7485ce400dc"
     }
   ],
   "spellDefinition": null,

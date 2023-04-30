@@ -9,7 +9,7 @@
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_NPC_Stig",
+  "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_B",
   "hairColorMorphotype": "HairColor_31",
   "beardShapeMorphotype": "BeardShape_A",

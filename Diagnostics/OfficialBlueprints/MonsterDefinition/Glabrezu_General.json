@@ -153,7 +153,8 @@
     "Definition:PowerGlabrezuGeneralShadowEscape_at_will:97735a30e774a304ca3f3781cf5a0116",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -253,18 +254,20 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Glabrezu_Green:e1d7c3cdc2b8ad74dac5462d42b52061"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2de42dc23aa2a1b478cf66606e21c0b3",
+      "m_AssetGUID": "37eddd4aa248b9e428152548948de8f8",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 1.3,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2de42dc23aa2a1b478cf66606e21c0b3",
+      "m_AssetGUID": "37eddd4aa248b9e428152548948de8f8",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

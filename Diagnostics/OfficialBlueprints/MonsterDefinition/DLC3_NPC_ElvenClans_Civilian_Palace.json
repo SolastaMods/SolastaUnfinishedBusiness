@@ -172,7 +172,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_ElvenClans_Civilian_Male_01:8ead2b537056af249b463f03a44da202"
+      "Definition:NPC_Presentation_DLC3_ElvenClans_Greybear_Palace:9c2d0de66ca024e4b8ad718bd59bb593"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

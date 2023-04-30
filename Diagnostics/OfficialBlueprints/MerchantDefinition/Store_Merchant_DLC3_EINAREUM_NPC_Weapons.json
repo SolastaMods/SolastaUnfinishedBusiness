@@ -69,6 +69,20 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
+      "itemDefinition": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e",
+      "stackCount": 1,
+      "initialAmount": 10,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Brotherhood"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
       "itemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
       "stackCount": 1,
       "initialAmount": 4,
@@ -107,6 +121,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Bolt_Alchemy_Corrosive:e8c098a009ec5d846b56f72bf3296b26",
+      "stackCount": 10,
+      "initialAmount": 20,
+      "minAmount": 0,
+      "maxAmount": 20,
+      "reassortAmount": 0,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Brotherhood"
     },
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
@@ -153,7 +181,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Arrow_Alchemy_Flash:c769e3a280bc9394683cc42acfb5969b",
+      "itemDefinition": "Definition:Bolt_Alchemy_Flaming:9f92f7d9a5880bc41922322e498f96fd",
       "stackCount": 10,
       "initialAmount": 20,
       "minAmount": 0,
@@ -167,7 +195,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Bolt_Alchemy_Flaming:9f92f7d9a5880bc41922322e498f96fd",
+      "itemDefinition": "Definition:Arrow_Alchemy_Flash:c769e3a280bc9394683cc42acfb5969b",
       "stackCount": 10,
       "initialAmount": 20,
       "minAmount": 0,
@@ -280,20 +308,6 @@
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
       "itemDefinition": "Definition:Dagger+1:10998149ce70f0849a5853659eee4467",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 1,
-      "requiredFaction": "",
-      "factionStatus": "Alliance"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
-      "itemDefinition": "Definition:ElvenThinblade+1:09bb019a164529746b55c444c590d3d9",
       "stackCount": 1,
       "initialAmount": 1,
       "minAmount": 0,
@@ -545,20 +559,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Handaxe:cc2d5d4cf149d5e40b13533e43dc193e",
-      "stackCount": 1,
-      "initialAmount": 10,
-      "minAmount": 0,
-      "maxAmount": 10,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 1,
-      "requiredFaction": "",
-      "factionStatus": "Brotherhood"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:Chainmail+1:bbccde2bca56be94e80f60e992eeca73",
       "stackCount": 1,
       "initialAmount": 1,
@@ -685,11 +685,11 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Bolt_Alchemy_Corrosive:e8c098a009ec5d846b56f72bf3296b26",
-      "stackCount": 10,
-      "initialAmount": 20,
+      "itemDefinition": "Definition:WandOfWarMage+1:266c967a46f118d46b59671497d62bc6",
+      "stackCount": 1,
+      "initialAmount": 1,
       "minAmount": 0,
-      "maxAmount": 20,
+      "maxAmount": 1,
       "reassortAmount": 0,
       "reassortRateType": "Day",
       "reassortRateValue": 1,
@@ -700,12 +700,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Title",
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Description",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "90b1d56a83c824047bb2a4a610c7b28b",
-      "m_SubObjectName": "DLC3_NPC_Einareum_Weapons_Merchant_Photo",
+      "m_AssetGUID": "f9d93de87fbd56d479919a3cfd1a4e59",
+      "m_SubObjectName": "DLC3_NPC_Einareum_Merchant_Weapons_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

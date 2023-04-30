@@ -6,21 +6,14 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_Teleport_Aggressive:5908cf5285daf2b4495d2ef88b607cf3",
+        "decision": "Definition:CastMagic_Teleport_Reposition_RangeCaster:c8ced643fa911944c968d672fa5d9cba",
         "weight": 6.0,
         "cooldown": 0,
         "dynamicCooldown": false
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
-        "weight": 4.0,
-        "cooldown": 0,
-        "dynamicCooldown": false
-      },
-      {
-        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:Move_Aggressive:9e365323e03739e4ab849327563a6679",
+        "decision": "Definition:Move_Ranged:d970b74017c1802469af710393c6e2a7",
         "weight": 2.0,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -28,6 +21,13 @@
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
         "weight": 1.5,
         "cooldown": 0,
         "dynamicCooldown": false
@@ -65,7 +65,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "TacticalAdventuresContentHidden",
-  "guid": "52a6ea1b69009ce48937a9bcfaee8eef",
+  "guid": "24d4c5a8149be14498ca21295913161a",
   "contentPack": "BaseGame",
   "name": "SessrothCombatDecisionsPhase2"
 }

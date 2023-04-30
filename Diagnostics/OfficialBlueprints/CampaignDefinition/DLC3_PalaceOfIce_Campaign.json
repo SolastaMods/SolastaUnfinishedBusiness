@@ -177,7 +177,7 @@
     "name": "Campaign_DLC3_PalaceOfIce_RenderSettingsSceneProfile"
   },
   "introMovieDefinition": null,
-  "conclusionMovieDefinition": null,
+  "conclusionMovieDefinition": "Definition:ConclusionDLC3:f45529ddc324a524ab4a282783f76296",
   "introductionCaptions": [],
   "initialPartyPosition": "DLC3_Introduction_LocationDB",
   "insideLocation": "DLC3_Introduction_LocationDB",
@@ -1731,6 +1731,54 @@
       "boolValue": false,
       "intValue": 0,
       "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Raghnild",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Son_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Captain_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Civil_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Telema_Invalid",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_GilmarSaved_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
     }
   ],
   "knownRecipes": [
@@ -1866,10 +1914,10 @@
     "Definition:RecipePoison_Arrows_Alchemy_Flash:33aabde2d28a5e8488aaed2c09aa387a",
     "Definition:RecipePoison_Bolts_Alchemy_Corrosive:74c3af902d25b6e4d8987d939076b0fd",
     "Definition:RecipePoison_Bolts_Alchemy_Flaming:4e4cca6ee227ae64386ac76cb97f6411",
-    "Definition:RecipePoison_Bolts_Alchemy_Flash:319cd956b66b2634c873b2eb0f06682f"
+    "Definition:RecipePoison_Bolts_Alchemy_Flash:319cd956b66b2634c873b2eb0f06682f",
+    "Definition:RecipePotionOfHeroism:f46491584a3b6f04cb2297aa5d7dcf3e"
   ],
   "startingQuests": [
-    "Definition:DLC3_Campaign_Scenario:7467e99432c824e42af33f8c553cf070",
     "Definition:DLC3_Campaign_Scenario:7467e99432c824e42af33f8c553cf070"
   ],
   "journalStart": "Campaign/&DLC3_Journal_Start",
@@ -3523,7 +3571,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Campaign/&DLC3_Title",
-    "description": "CampaCampaign/&DLC3_Description_Alternateign/&DLC3_Description_Alternate",
+    "description": "Campaign/&DLC3_Description_Alternate",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f2c95e72cbf3be14596b5cf6bb0a533a",

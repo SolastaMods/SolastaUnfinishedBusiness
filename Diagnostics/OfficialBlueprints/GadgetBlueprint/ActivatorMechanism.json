@@ -98,7 +98,7 @@
   "prefabsByEnvironment": [
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "LavaCaves",
+      "environment": "",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "4397db7d6ed9f0f4c97be932e4400af2",

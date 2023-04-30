@@ -129,7 +129,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -140,8 +140,8 @@
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "0b2d0b8d4da1fb44cb93e6f329fe7dae",
-    "m_SubObjectName": "Orc_Shaman",
+    "m_AssetGUID": "55311b0137060414f95eb510b3c120ea",
+    "m_SubObjectName": "Bestiary_MountainDruid_DLC3",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {

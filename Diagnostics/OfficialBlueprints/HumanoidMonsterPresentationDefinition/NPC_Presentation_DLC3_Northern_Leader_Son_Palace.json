@@ -9,7 +9,7 @@
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_NPC_RolfStrongHeart",
+  "faceShapeMorphotype": "FaceShape_A",
   "hairShapeMorphotype": "HairShape_Q",
   "hairColorMorphotype": "HairColor_15",
   "beardShapeMorphotype": "BeardShape_D",
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_NorthernClans_Leader_Son_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "13e8986c2d297b24c8688df4d5dc501c",
-      "m_SubObjectName": "NPC_Presentation_DLC3_Northern_Leader_Son",
+      "m_AssetGUID": "c1f427a9771f5504b8943444daea9f05",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Northern_Leader_Son_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

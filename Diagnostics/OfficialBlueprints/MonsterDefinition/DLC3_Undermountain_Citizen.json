@@ -108,14 +108,14 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man02:918a7e79c2fb9e143a830d4a8decc5a7",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:c7ccddfb41cd53e4cb943c11192cf913",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:6de08600e7a64fc4daabefe8d3323c0d",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman01:31623838bdb785a499717a27b96ba77e",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman02:86721dfef65adfb42af204aa7bd3c7ca",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman01:464f9b60327a41444aeddfe76ea5ffb6",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman02:cb0630e5726d4644ca273dd6a2b303bc"
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:177c690b8df9fc640b88d1f70f9825b2",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man02:44345a929dbbb254fa1cfb892f493605",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:4cb963fa2741c374cbc935509a21aaf8",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:debdbcfd669ae5c44b45fbeb5fa1d5db",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:debdbcfd669ae5c44b45fbeb5fa1d5db",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Nobleman02:24c1095872adff44c877688a62068f7a",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman01:310337c0c16492044be728137e7c94c7",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman02:839b1259f3fd56244920ad7812304b86"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

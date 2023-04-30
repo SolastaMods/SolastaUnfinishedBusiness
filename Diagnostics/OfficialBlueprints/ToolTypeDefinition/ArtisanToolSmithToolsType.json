@@ -3,6 +3,8 @@
   "hasParentCategory": true,
   "toolCategory": "ArtisanToolsCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [
     "ArtisanToolSmithToolsType"
   ],

@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_ElvenSettlements_Clue08_Useless_3_Pendant:6d31c6ee4bca10c419512cba95dee2c1",
-      "suspect": "Definition:DLC3_Elven_Suspect_03_Civilian:1636810bc476840498e30f3ada5167fa"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

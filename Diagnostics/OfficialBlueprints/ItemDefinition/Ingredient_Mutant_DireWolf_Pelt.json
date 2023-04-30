@@ -16,7 +16,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    5,
+    300,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,

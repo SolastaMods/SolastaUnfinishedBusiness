@@ -139,10 +139,10 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain:2a41fe1569be03a4488fbdc384747d36",
-      "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain 1:457183de283c19a4f9b65be3a42323ff",
-      "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain 2:c8a866cf6025233469ec506df312ea0d",
-      "Definition:NPC_Presentation_DLC1_NPC_Complex_Guard_Captain 3:d3e770ef57b048241811fab44c55672a"
+      "Definition:DLC3_NPC_Presentation_CultistBrute1:a427daf9531104e46bba74bb0f0a2669",
+      "Definition:DLC3_NPC_Presentation_CultistBrute2:ce3ad2a6d2a8a6946901c8349d11da59",
+      "Definition:DLC3_NPC_Presentation_CultistBrute3:21301401c3dfa6c46a36404609960ece",
+      "Definition:DLC3_NPC_Presentation_CultistBrute4:bfe9788d9f8aa4345b4d4da4cc23084b"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

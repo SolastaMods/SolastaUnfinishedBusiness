@@ -6,7 +6,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Title",
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Description",
     "description": "CharacterInteraction/&NpcInteractionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

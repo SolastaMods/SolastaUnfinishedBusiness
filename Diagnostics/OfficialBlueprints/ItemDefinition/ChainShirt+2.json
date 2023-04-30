@@ -222,7 +222,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Chainshirt+2_Title",
-    "description": "Equipment/&DLC3_Chainshirt+3_Description",
+    "description": "Equipment/&DLC3_Chainshirt+2_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "dd1819b82eaceb14aba0248d38ac1b87",

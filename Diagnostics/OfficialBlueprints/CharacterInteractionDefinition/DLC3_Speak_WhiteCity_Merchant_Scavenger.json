@@ -10,8 +10,8 @@
     "description": "CharacterInteraction/&NpcInteractionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d5ee752eff7bcef4184e44fa3e1ac08e",
-      "m_SubObjectName": "MerchantScavengers",
+      "m_AssetGUID": "5e61bc74c549a2749854b4611dba79e6",
+      "m_SubObjectName": "MerchantGear",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -128,7 +128,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_Undermountain_KaraWiseHead:7a45aeb86fbc6794093cd019bb066c9e"
+      "Definition:NPC_Presentation_DLC3_Undermountain_KaraWiseHead_Palace:df22f1fdee152ea4f9da51345c8b5d41"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -230,8 +230,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "07158aad6bc660e43ae7c415f2426500",
-      "m_SubObjectName": "NPC_Presentation_DLC3_Undermountain_KaraWiseHead",
+      "m_AssetGUID": "764ba03860f100546a6dfd82df968437",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Undermountain_KaraWiseHead_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

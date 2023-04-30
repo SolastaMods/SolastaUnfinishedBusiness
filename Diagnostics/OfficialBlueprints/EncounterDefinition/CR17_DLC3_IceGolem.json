@@ -4,7 +4,9 @@
   "type": "Battle",
   "challengeRating": 17,
   "locationOverride": null,
-  "locationBlacklist": [],
+  "locationBlacklist": [
+    "Definition:DLC3_Encounter_FrozenAqueduct_LocationDB:dacbc3cfd212f844c900ccdcc0b2abee"
+  ],
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",

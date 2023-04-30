@@ -232,8 +232,8 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": true,
-  "uniqueNameId": "GallivanSuspect01",
+  "isUnique": false,
+  "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -259,6 +259,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "8138d6c6ce01bb140b1f3e8d9869df57",
-  "contentPack": "LostValley",
+  "contentPack": "PalaceOfIce",
   "name": "DLC3_Gallivan_Suspect01"
 }

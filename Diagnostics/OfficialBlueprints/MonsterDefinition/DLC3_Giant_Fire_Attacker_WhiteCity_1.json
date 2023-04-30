@@ -10,17 +10,17 @@
   "alignment": "ChaoticGood",
   "armorClass": 16,
   "armor": "ScaleMail",
-  "hitDice": 20,
+  "hitDice": 13,
   "hitDiceType": "D12",
-  "hitPointsBonus": 100,
-  "standardHitPoints": 230,
+  "hitPointsBonus": 8,
+  "standardHitPoints": 162,
   "abilityScores": [
-    29,
+    25,
+    9,
+    23,
+    10,
     14,
-    20,
-    16,
-    18,
-    18
+    13
   ],
   "savingThrowScores": [
     {
@@ -30,40 +30,25 @@
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 14
+      "abilityScoreName": "Dexterity",
+      "bonus": 3
     },
     {
       "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
       "abilityScoreName": "Charisma",
-      "bonus": 9
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 9
+      "bonus": 5
     }
   ],
   "skillScores": [
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Athletics",
-      "bonus": 14
+      "bonus": 11
     },
     {
       "$type": "MonsterSkillProficiency, Assembly-CSharp",
       "skillName": "Perception",
-      "bonus": 9
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Arcana",
-      "bonus": 8
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "History",
-      "bonus": 8
+      "bonus": 6
     }
   ],
   "legendaryCreature": false,
@@ -130,28 +115,26 @@
   ],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 45.0,
-  "challengeRating": 13.0,
+  "challengeRating": 9.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:DLC3_Giant_Fire_Attacker_WhiteCity_1_loot_drop:11b6c097f16246c4aa2ab3014f81759c",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
-    "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Giant_Storm_Sword:6c307c0442cc16644ac9c9cab5eaaef1"
+      "monsterAttackDefinition": "Definition:Attack_Giant_Fire_Sword:5eb530ece9f3bd74d877d0bd8c7c65c4"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Giant_Storm_Rock:6bed2ac8a6da71f46a8a2bfa846a40bd"
+      "monsterAttackDefinition": "Definition:Attack_Giant_Fire_Rock:e6d866afb0afde542865a39a4dd18614"
     }
   ],
   "sneakStance": "Stealth",

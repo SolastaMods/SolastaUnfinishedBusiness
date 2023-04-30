@@ -6,21 +6,18 @@
   "stealingPenalty": 10,
   "attackingPenalty": 10,
   "killingPenalty": 20,
-  "prominentMembers": [
-    "Definition:Ceiwad_Silverflower:d1303b4a8da9f3348ae3213356193d1a",
-    "Definition:Captain_Verissa_Ironshell:5eec1cee7cb14294b8477168c77e48d7"
-  ],
+  "prominentMembers": [],
   "smallSpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
     "m_AssetGUID": "e82067991d466364392b596bc29ade31",
-    "m_SubObjectName": "PrincipalityFlagSmall",
+    "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "failsQuestOnLowRelation": false,
   "questFailThreshold": -70,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Faction/&PrincipalityTitle",
     "description": "Faction/&PrincipalityDescription",
     "spriteReference": {

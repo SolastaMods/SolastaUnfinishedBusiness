@@ -3,6 +3,8 @@
   "hasParentCategory": false,
   "toolCategory": "ArtisanToolCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [
     "PoisonersKitType",
     "Medecine",

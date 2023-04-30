@@ -4,79 +4,32 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],
-  "defaultFaction": "DLC3_Faction_NorthernClan",
+  "defaultFaction": "DLC3_Faction_UndermountainClan",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulGood",
-  "armorClass": 20,
+  "armorClass": 10,
   "armor": "Plate",
-  "hitDice": 10,
+  "hitDice": 2,
   "hitDiceType": "D8",
-  "hitPointsBonus": 40,
-  "standardHitPoints": 93,
+  "hitPointsBonus": 0,
+  "standardHitPoints": 15,
   "abilityScores": [
-    14,
-    11,
-    18,
     10,
-    20,
+    10,
+    10,
+    10,
+    10,
     10
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Constitution",
-      "bonus": 6
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Strength",
-      "bonus": 2
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Wisdom",
-      "bonus": 9
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Charisma",
-      "bonus": 4
-    }
-  ],
-  "skillScores": [
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Stealth",
-      "bonus": 0
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Athletics",
-      "bonus": 2
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Perception",
-      "bonus": 5
-    }
-  ],
+  "savingThrowScores": [],
+  "skillScores": [],
   "legendaryCreature": false,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:ClericCombatDecisions:d5ceea03da8e7be4c86e2c1e37dda354",
+  "defaultBattleDecisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -103,25 +56,19 @@
   "languages": [
     "Language_Common",
     "Language_Dwarvish",
-    "Language_Terran",
-    "Language_Giant"
+    "Language_Elvish"
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 6.0,
-  "challengeRating": 4.0,
+  "challengeRating": 0.0,
   "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:SavingThrowAffinityDwarvenPlate:92fa98ccbf88dc5489188b4cb692cb36",
-    "Definition:AbilityCheckAffinityDwarfSnowCamouflage:4155a5a3ace202b4da7c4e71b71c0857",
-    "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
-    "Definition:CastSpell_DLC3_Vigdis:cf833df47f362f947b1311458f89dd49",
-    "Definition:PowerDomainBattleHeraldOfBattle:efe7d4d84e723ed47bdbf24c27f64966"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "attackIterations": [],
   "sneakStance": "Stealth",
@@ -154,9 +101,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Merchant_General:519e17799fd6be541b1ac4254c2a0e26"
+      "Definition:NPC_Presentation_DLC3_WhiteCity_Merchant_Western:1da1df188ef4ef640bcab644e8e99a38"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -249,17 +196,17 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": true,
-  "uniqueNameId": "DLC3_NPC_SouthernClans_Merchant_General",
+  "isUnique": false,
+  "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_General_Title",
-    "description": "NPC/&DLC3_NPC_NorthernClans_Merchant_General_Description",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_CentralClans_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Merchant_WesternClans_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f18ac0b5c95a92c48868be7d6fd093ee",
-      "m_SubObjectName": "CustomPortrait_DLC3_NorthernClans_Merchant_General",
+      "m_AssetGUID": "7e1e727160c605c4cbac8c50d792705f",
+      "m_SubObjectName": "NPC_Presentation_DLC3_WhiteCity_Merchant_Western",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

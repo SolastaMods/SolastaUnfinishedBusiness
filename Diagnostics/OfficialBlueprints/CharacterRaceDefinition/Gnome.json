@@ -54,7 +54,7 @@
     "Language_Orc"
   ],
   "audioSwitches": [],
-  "audioRaceRTPCValue": 2.0,
+  "audioRaceRTPCValue": 5.0,
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
     "bodyAssetPrefix": "Halfling",

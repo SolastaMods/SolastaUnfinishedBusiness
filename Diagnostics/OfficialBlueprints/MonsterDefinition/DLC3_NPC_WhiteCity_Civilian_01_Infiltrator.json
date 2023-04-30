@@ -236,8 +236,8 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": true,
-  "uniqueNameId": "DLC3_NPC_WhiteCity_Civilian_01",
+  "isUnique": false,
+  "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

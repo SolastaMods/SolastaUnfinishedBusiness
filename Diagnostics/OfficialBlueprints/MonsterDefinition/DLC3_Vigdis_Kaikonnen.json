@@ -297,8 +297,8 @@
     "description": "NPC/&NPC_DLC3_Vigdis_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9c6723ede06568f4597ac0045a53337c",
-      "m_SubObjectName": "CustomPortrait_DLC3_VigdisKaikonnen",
+      "m_AssetGUID": "bacd86396f36c2e4d8eb4fcf13e05bed",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Vigdis",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

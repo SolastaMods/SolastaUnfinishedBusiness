@@ -140,18 +140,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834",
-      "Definition:NPC_Presentation_Generic_Citizen_Human_Commoner_man01:405263572cf379b4e9fa1156b278bac9",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:c7ccddfb41cd53e4cb943c11192cf913",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:6de08600e7a64fc4daabefe8d3323c0d",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman01:31623838bdb785a499717a27b96ba77e",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Nobleman02:86721dfef65adfb42af204aa7bd3c7ca",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman01:464f9b60327a41444aeddfe76ea5ffb6",
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman02:cb0630e5726d4644ca273dd6a2b303bc",
-      "Definition:NPC_Presentation_Generic_Citizen_Elf_Commoner_man01:6570c4fcd73d1b24d9c3f4e4de81fb79",
-      "Definition:NPC_Presentation_Generic_Citizen_Elf_Commoner_woman01:e8726693c48020e40834ed42758570c0",
-      "Definition:NPC_Presentation_Generic_Citizen_Halfling_Commoner_man02:a92e5e6b77ff70b4b87d55a3da966904",
-      "Definition:NPC_Presentation_Generic_Citizen_Halfling_Noblewoman01:055ff960966caa749acc22b1aa23ff03"
+      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

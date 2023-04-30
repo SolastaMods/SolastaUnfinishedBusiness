@@ -182,13 +182,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_GarradsCastle_Clue9_Useless_Ribbon:6ae32dd4be40a3341aef08e9b16ae384",
-      "suspect": "Definition:DLC3_GarradSoldier0C:0817473e58c9ebe458cfa1ee1dc98366"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

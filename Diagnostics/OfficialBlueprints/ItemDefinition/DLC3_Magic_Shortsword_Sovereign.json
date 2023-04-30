@@ -61,7 +61,7 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "ShortswordType",
+    "weaponType": "DaggerType",
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
@@ -116,6 +116,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,

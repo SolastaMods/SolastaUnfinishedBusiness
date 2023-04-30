@@ -108,7 +108,8 @@
     "Definition:PowerIncubusDemonicInfluence:60f8b289fa22ade4b9d045379baa06fe",
     "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -152,10 +153,8 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": true,
-    "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Incubus:7d28be6c433077140bdd2989c19127d9"
-    ],
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
     "customShaderReference": {
@@ -204,18 +203,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.66,
+    "femaleModelScale": 0.74,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

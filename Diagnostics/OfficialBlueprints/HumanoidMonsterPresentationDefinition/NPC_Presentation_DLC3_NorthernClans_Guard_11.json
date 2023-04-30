@@ -20,9 +20,9 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ChainMail",
+  "armorDefinition": "ChainShirt+1",
   "helmetDefinition": "",
-  "tabardDefinition": "ClothesTabard",
+  "tabardDefinition": "ClothesTabardDLC3_WhiteCity",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -32,6 +32,16 @@
       "itemDefinition": "Definition:Ingredient_Enchant_Heartstone:c7e4bf02a2980cc40b824c07c82abe2b",
       "treasureTableDefinition": null,
       "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_Legendary_HeavyCrossbow_Driller:a3015b481f789124b90cb1e074510776",
+      "treasureTableDefinition": null,
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

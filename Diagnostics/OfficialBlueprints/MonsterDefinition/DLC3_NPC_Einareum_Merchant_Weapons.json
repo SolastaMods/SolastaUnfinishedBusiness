@@ -149,7 +149,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Einareum_Merchant_Weapons:89d0eab582ef0d44988334e16bb19700"
     ],
@@ -218,7 +218,7 @@
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
-    "needMerchantPortrait": false,
+    "needMerchantPortrait": true,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -253,8 +253,8 @@
     "description": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "44b239a5669d63a4ca90175302e1de46",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_Einareum_Merchant_Weapons",
+      "m_AssetGUID": "864329f0e8eded647a84b892d8337707",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Einareum_Merchant_Weapons",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

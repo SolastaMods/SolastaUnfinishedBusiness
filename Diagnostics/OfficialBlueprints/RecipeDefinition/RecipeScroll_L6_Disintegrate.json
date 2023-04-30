@@ -9,23 +9,18 @@
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 3,
-      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Moonflower:11b9d6eabd26bbd46a5c027c009fa2fa"
+      "itemDefinition": "Definition:Ingredient_Enchant_TearOfTirmar:0bc1f451ed2b00642b6027dc212fddd4"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 2,
-      "itemDefinition": "Definition:Ingredient_Serpentinite:6704bce3d2425b24ebe65ce9c668748a"
+      "itemDefinition": "Definition:Ingredient_Enchant_SwampOpal:ae4b9f7455cfe3c42add07fe46334d16"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b"
     }
   ],
   "spellDefinition": "Definition:Disintegrate:d57e7732a47d3fa4791776a5b99733a1",

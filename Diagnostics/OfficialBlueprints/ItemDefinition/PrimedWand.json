@@ -29,12 +29,13 @@
   ],
   "itemTags": [
     "Gold",
-    "Wood"
+    "Wood",
+    "Ingredient"
   ],
   "activeTags": [],
   "inactiveTags": [],
   "magical": false,
-  "requiresAttunement": true,
+  "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
@@ -193,7 +194,7 @@
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [
-      "Definition:ItemFlagIngredient_Enchant:8570e61c9f23cac42b10dd679ca9475e"
+      "Definition:ItemFlagPrimed:5ad24d01133943542b4b992e0b4ce985"
     ],
     "serializedVersion": 1
   },

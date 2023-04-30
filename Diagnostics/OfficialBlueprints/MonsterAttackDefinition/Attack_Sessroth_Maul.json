@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -387,10 +388,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Greataxe",
-        "id": 1673468280,
-        "guid": "EBA8E76F-E0FF-4634-AD86-DFD537C0E784",
-        "name": "EBA8E76F-E0FF-4634-AD86-DFD537C0E784"
+        "objectName": "Sessroth_Maul",
+        "id": 2344901016,
+        "guid": "5BBA9D07-B719-43FA-855A-B23BA93A2BC7",
+        "name": "5BBA9D07-B719-43FA-855A-B23BA93A2BC7"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

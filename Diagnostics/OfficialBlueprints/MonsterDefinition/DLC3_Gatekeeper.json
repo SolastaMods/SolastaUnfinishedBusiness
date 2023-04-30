@@ -130,7 +130,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_GateKeeper:00916613bccda3640840404c545143be"
+      "Definition:NPC_Presentation_DLC3_HumanClansCaporal_Palace:ae1e0f4b6089c55488ebc1760d6584a4"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

@@ -138,7 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_01:83a4b82143014844a9fc5d1083cc3785",
       "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_02:28a1afa60d9110646a869a210b52e38e",
@@ -147,16 +147,7 @@
       "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_05:0891441402b8cda46ac29c1f4d8edaae",
       "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_06:8797c8e9ab82fc94483432cf7468d54f",
       "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_07:b9564992e59e50f4bb9dcaa4345c4a2e",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_08:9331e791aee0fa244ad2190714e22b6a",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_09:8f6dd7d3a5f775541bb225b2e2ed7892",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_10:7e2f6cf61a9b2ac46ac8a49c14e159aa",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_11:f8207d7063a0b2b408a1df9fc39fcd8f",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_12:4f4d61916dac79546aea23cbd2db814d",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_13:13f754c1441bff447af0a0c3c2881cf7",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_14:2d1911904970f114db7c6b68d369a29a",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_15:1c2324aa0e0e81f499d6538d64f9b6a3",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_16:74272e5d6e9a6594b93f5b07e6150c05",
-      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_17:493a685d782a3e4478342a2992a121d8"
+      "Definition:NPC_Presentation_DLC3_NorthernClans_Guard_08:9331e791aee0fa244ad2190714e22b6a"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -258,8 +249,8 @@
     "description": "NPC/&DLC3_NPC_NorthernClans_Guard_City_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aa9e3714dd2fefe45a5a02502ca693be",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_WhiteCity_Guard",
+      "m_AssetGUID": "29b38b051790c504999455b508f01ece",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NorthernClans_Guard_01",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

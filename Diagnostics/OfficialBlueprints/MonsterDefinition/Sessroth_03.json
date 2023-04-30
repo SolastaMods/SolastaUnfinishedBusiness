@@ -10,10 +10,10 @@
   "alignment": "ChaoticEvil",
   "armorClass": 21,
   "armor": "",
-  "hitDice": 12,
+  "hitDice": 21,
   "hitDiceType": "D10",
-  "hitPointsBonus": 94,
-  "standardHitPoints": 160,
+  "hitPointsBonus": 189,
+  "standardHitPoints": 305,
   "abilityScores": [
     27,
     20,
@@ -57,57 +57,11 @@
     }
   ],
   "legendaryCreature": true,
-  "maxLegendaryResistances": 3,
-  "maxLegendaryActionPoints": 3,
+  "maxLegendaryResistances": 1,
+  "maxLegendaryActionPoints": 0,
   "differentActionEachTurn": false,
-  "legendaryActionOptions": [
-    {
-      "$type": "LegendaryActionDescription, Assembly-CSharp",
-      "cost": 1,
-      "subaction": "Power",
-      "monsterAttackDefinition": null,
-      "featureDefinitionPower": "Definition:PowerSessrothFireball:f64d843c33b05914bbf8eebf2fd16f21",
-      "spellDefinition": "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
-      "magicAttackBonus": 0,
-      "saveDC": 0,
-      "magicAbilityBonus": 0,
-      "canMove": false,
-      "moveMode": null,
-      "noOpportunityAttack": false,
-      "decisionPackage": "Definition:LegendarySessrothFireball:b861ae7f1a2df8148bd7ebc0905d272b"
-    },
-    {
-      "$type": "LegendaryActionDescription, Assembly-CSharp",
-      "cost": 1,
-      "subaction": "MonsterAttack",
-      "monsterAttackDefinition": "Definition:Attack_Sessroth_Maul:5008cd15f9ded544db629e251b7bd4f6",
-      "featureDefinitionPower": "Definition:PowerSessrothBreath:87ed729c1671d1148b037e4685b161ec",
-      "spellDefinition": null,
-      "magicAttackBonus": 0,
-      "saveDC": 0,
-      "magicAbilityBonus": 0,
-      "canMove": true,
-      "moveMode": "Definition:MoveModeFly16:165853cd55c2ecc4887f7ee483cd1d0a",
-      "noOpportunityAttack": false,
-      "decisionPackage": "Definition:LegendarySessrothMaul:8e10a7944322dd1498697b486c3ffcb9"
-    },
-    {
-      "$type": "LegendaryActionDescription, Assembly-CSharp",
-      "cost": 1,
-      "subaction": "Power",
-      "monsterAttackDefinition": null,
-      "featureDefinitionPower": "Definition:PowerSessrothTeleport:4816f4ef0617d01498a4f44ac6a6c680",
-      "spellDefinition": "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
-      "magicAttackBonus": 0,
-      "saveDC": 0,
-      "magicAbilityBonus": 0,
-      "canMove": false,
-      "moveMode": null,
-      "noOpportunityAttack": false,
-      "decisionPackage": "Definition:LegendarySessrothTeleportDefensive:3e1ccba212839a44194c87997a5ecd01"
-    }
-  ],
-  "defaultBattleDecisionPackage": "Definition:SessrothCombatDecisions:24d4c5a8149be14498ca21295913161a",
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:SessrothCombatDecisionsPhase3:a215b0917b07de24b9baaac187c3684d",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -149,10 +103,37 @@
           "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
           "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
         },
-        "objectName": "NPC_M_Marduk",
-        "id": 1415357433,
-        "guid": "C8441847-79EA-4077-B4C2-67427379E4F0",
-        "name": "C8441847-79EA-4077-B4C2-67427379E4F0"
+        "objectName": "NPC_M_Sessroth",
+        "id": 418222226,
+        "guid": "44AE1F5B-5375-4293-9D31-7E145E59DC82",
+        "name": "44AE1F5B-5375-4293-9D31-7E145E59DC82"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Armor",
+          "id": 71308029,
+          "guid": "FC976271-2B39-44EB-B359-06F67CBF04CC",
+          "name": "FC976271-2B39-44EB-B359-06F67CBF04CC"
+        },
+        "objectName": "StuddedLeather",
+        "id": 1936444897,
+        "guid": "4023BEB3-D52B-4E2F-9556-0B561795EF7B",
+        "name": "4023BEB3-D52B-4E2F-9556-0B561795EF7B"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
@@ -167,7 +148,7 @@
     }
   ],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 79.0,
   "challengeRating": 21.0,
   "noExperienceGain": true,
   "droppedLootDefinition": "Definition:Sessroth_loot_drop:f9470a2043826564ba1ae5f3ace9d75d",
@@ -196,17 +177,18 @@
     "Definition:ConditionAffinityMindControlledImmunity:2f69cc55a85055743810ccf48cdd55df",
     "Definition:ConditionAffinityBanishedByMazeImmunity:f192158f25f78554eb6ecea34ffcd2bd",
     "Definition:ConditionAffinityBanishedImmunity:0b99134d7c3aa244e9934683dd1722ff",
-    "Definition:PowerSessrothTeleport:4816f4ef0617d01498a4f44ac6a6c680"
+    "Definition:PowerSessrothTeleport:4816f4ef0617d01498a4f44ac6a6c680",
+    "Definition:PowerSessrothFireballRechargable:9b7ad432df70cc14096f29a4521cdb69"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 3,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Sessroth_Maul:5008cd15f9ded544db629e251b7bd4f6"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 3,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_Sessroth_Javelin:e1fe7b87ef20e0e4f914507357eec8fa"
     }
   ],
@@ -276,7 +258,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "dde935bad777d074baa37bb518f5e6ee",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -294,14 +276,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.656,
+    "maleModelScale": 1.0,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "2f713c2d20990c94a835e0d71daae378",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.656,
+    "femaleModelScale": 1.0,
     "wieldedItemsScale": 2.5,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

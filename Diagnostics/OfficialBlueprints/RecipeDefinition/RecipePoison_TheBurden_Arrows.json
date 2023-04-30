@@ -29,6 +29,11 @@
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_CrimsonSpiderVenomGland:afa4c79a504102f4580a5a64eceb4b32"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 5,
       "itemDefinition": "Definition:Arrow:0b2e8c437ac65034b8055735aa5da873"
     }

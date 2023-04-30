@@ -6,12 +6,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Title",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_SouthernClans_Description",
     "description": "CharacterInteraction/&NpcInteractionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5e61bc74c549a2749854b4611dba79e6",
-      "m_SubObjectName": "MerchantGear",
+      "m_AssetGUID": "4c72ed46ed4091d4994c43189bd733e7",
+      "m_SubObjectName": "MerchantWeapon",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -90,9 +90,7 @@
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-    "Definition:ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern:b167a3e7068de17408d30d8f85daeed5",
-    "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
-    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
+    "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
     "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
     "Definition:PowerFighterSecondWind_DLC1_5:762521b6cc2309e4dbf6ffc20ef70b3b"
   ],
@@ -138,7 +136,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Duelist_Male:30f7709d565512048ba895dfa3a7b463",
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Duelist_Female:0ee54f8a4fe88b943aff933be0879b55"
@@ -234,8 +232,8 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": false,
-  "uniqueNameId": "",
+  "isUnique": true,
+  "uniqueNameId": "PerlevinnDuelist1",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -243,8 +241,8 @@
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Duelist_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "53e914f6e998d5c41b63a06453ff8286",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Warrior_1",
+      "m_AssetGUID": "d0597b0fc4c0263439fd6f46aae0a36e",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Duelist_Female",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

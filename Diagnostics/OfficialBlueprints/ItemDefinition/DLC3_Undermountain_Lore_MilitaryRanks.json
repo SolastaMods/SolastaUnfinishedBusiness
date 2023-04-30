@@ -227,8 +227,8 @@
     "description": "Equipment/&DLC3_Undermountain_Lore_MilitaryRanks_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0ff584fe52e20374fb95480fc66a904d",
-      "m_SubObjectName": "Book0",
+      "m_AssetGUID": "6ab0711344ead9e428d7f59f94d48cfe",
+      "m_SubObjectName": "Book5",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

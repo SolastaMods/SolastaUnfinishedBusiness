@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_ElvenSettlements_Clue09_Useless_5_Prayerbook:a6ff83266d34a5848a8ebc13f166cfd4",
-      "suspect": "Definition:DLC3_Elven_Suspect_05_Guard_Traitor:d77ce015a5794fe4e92716d136e41129"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

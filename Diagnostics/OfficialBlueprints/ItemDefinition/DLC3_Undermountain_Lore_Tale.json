@@ -56,6 +56,17 @@
     "contentFragments": [
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Header",
+        "text": "Equipment/&DLC3_Undermountain_Lore_Tale_Title",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&DLC3_Undermountain_Lore_Tale_Content01",
         "spriteReference": {

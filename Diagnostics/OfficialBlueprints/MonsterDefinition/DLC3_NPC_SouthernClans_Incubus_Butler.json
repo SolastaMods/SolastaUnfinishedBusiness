@@ -179,7 +179,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_SouthernClans_Incubus_Butler:8e77d8abda176f547b0bd48e49f342a5"
+      "Definition:NPC_Presentation_DLC3_SouthernClans_Butler:597461a67dad5e44f9cd7a05df4f3fcb"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -229,18 +229,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.74,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_AssetGUID": "bc4dbcdbbb29c2e46826357b7d7db3c7",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.66,
+    "femaleModelScale": 0.74,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
@@ -281,8 +281,8 @@
     "description": "NPC/&DLC3_NPC_SouthernClans_Incubus_Butler_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "aad874a1172c074428787cbeb9a0d7f5",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Incubus_Butler",
+      "m_AssetGUID": "23cb5f5a1e613f547bad73b24ba405d1",
+      "m_SubObjectName": "NPC_Presentation_Incubus",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

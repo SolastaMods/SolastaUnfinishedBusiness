@@ -67,7 +67,7 @@
   "languages": [],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 11.0,
+  "audioRaceRTPCValue": 78.0,
   "challengeRating": 4.0,
   "noExperienceGain": false,
   "droppedLootDefinition": null,
@@ -81,7 +81,8 @@
     "Definition:MovementAffinityNoVault:0b6455d36a68ae84f864f99a3b2c3a34",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -173,7 +174,7 @@
     },
     "hasPrefabVariants": true,
     "monsterPresentationDefinitions": [
-      "Definition:Tundra_Tiger_White:fb58f50ecfb946f4a84b471021f8ec9c"
+      "Definition:TundraTiger_White:fb58f50ecfb946f4a84b471021f8ec9c"
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

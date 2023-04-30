@@ -2,9 +2,9 @@
   "$type": "BanterEventDefinition, Assembly-CSharp",
   "eventTrigger": "TriggerBlizzardHeavy",
   "searchKey": "Trigger_Blizzard_Heavy",
-  "eventProbability": 1.0,
+  "eventProbability": 0.25,
   "selfProbability": 1.0,
-  "playbackDelay": 0.0,
+  "playbackDelay": 1.0,
   "canUseWhileCautious": true,
   "eventVariants": [
     {

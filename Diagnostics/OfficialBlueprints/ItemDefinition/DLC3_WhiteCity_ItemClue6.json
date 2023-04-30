@@ -208,13 +208,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_WhiteCity_Clue6:5d8c0005f8415f54a98c9e2f05df6171",
-      "suspect": "Definition:DLC3_WhiteCity_Suspect_06:7d8f45b61975ecc4f99844f20ecd30fa"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

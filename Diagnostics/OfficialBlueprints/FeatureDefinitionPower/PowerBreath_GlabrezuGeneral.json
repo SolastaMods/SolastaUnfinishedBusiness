@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 18,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -331,6 +332,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -359,8 +361,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDragonBreath_Acid_Title",
-    "description": "Feature/&PowerDragonBreath_Acid_Description",
+    "title": "Feature/&PowerPeaksTerrorBreathCold_Title",
+    "description": "Feature/&GlabrezuBreathCold_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "cad1a69fd7e99d44ea3366b73f1cc5c7",

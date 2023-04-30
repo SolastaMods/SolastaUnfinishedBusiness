@@ -6,7 +6,7 @@
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
-  "sizeDefinition": "Definition:DragonSize:b051c53e1c238714d855fd6f175ad7b5",
+  "sizeDefinition": "Definition:Huge:5b85854ce261190429aabf462c72ea0d",
   "alignment": "ChaoticEvil",
   "armorClass": 19,
   "armor": "",

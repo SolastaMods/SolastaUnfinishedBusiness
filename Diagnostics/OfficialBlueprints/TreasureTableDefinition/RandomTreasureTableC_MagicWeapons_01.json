@@ -4,38 +4,20 @@
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
+      "odds": 7,
       "itemDefinition": "Definition:Dagger+1:10998149ce70f0849a5853659eee4467",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
-      "itemDefinition": "Definition:Shortbow+1:c52a97903379e0e44b08d3373d8e972d",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
-      "itemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
+      "odds": 7,
       "itemDefinition": "Definition:Shortsword+1:3ac23b0b74ed4134e95ed5960ca32567",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 8,
-      "itemDefinition": "Definition:Javelin+1:d7c29d60c61bf9141902e53f9149c6a5",
-      "amount": 3
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
       "odds": 6,
-      "itemDefinition": "Definition:Handaxe+1:d9db32041dd4e25419695d267636e3e0",
+      "itemDefinition": "Definition:Shortbow+1:c52a97903379e0e44b08d3373d8e972d",
       "amount": 1
     },
     {
@@ -47,7 +29,7 @@
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
-      "itemDefinition": "Definition:Greatsword+1:625562662a9dfed498a5409a3be8f149",
+      "itemDefinition": "Definition:Longsword+1:b666bb2f12d1f15439fa61f3cfd9cc31",
       "amount": 1
     },
     {
@@ -60,6 +42,18 @@
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
       "itemDefinition": "Definition:Quarterstaff+1:a5d5caa1f56066e49970b83429c11e94",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:LightCrossbow+1:ef98241fbd8386f4e836a5639ad69067",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Greatsword+1:625562662a9dfed498a5409a3be8f149",
       "amount": 1
     },
     {
@@ -94,20 +88,14 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 2,
+      "odds": 3,
       "itemDefinition": "Definition:Maul+1:f23ce5573eb58154d846365ca68df002",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 2,
-      "itemDefinition": "Definition:HeavyCrossbow+1:af56508cb78de574daf0671fb6c820d4",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
       "odds": 3,
-      "itemDefinition": "Definition:LightCrossbow+1:ef98241fbd8386f4e836a5639ad69067",
+      "itemDefinition": "Definition:HeavyCrossbow+1:af56508cb78de574daf0671fb6c820d4",
       "amount": 1
     },
     {
@@ -118,8 +106,8 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
-      "itemDefinition": "Definition:Enchanted_Dagger_EldritchWounds:1b6adcaeebb8ad34db2a78538b107108",
+      "odds": 3,
+      "itemDefinition": "Definition:ElvenThinblade+1:09bb019a164529746b55c444c590d3d9",
       "amount": 1
     },
     {
@@ -127,6 +115,18 @@
       "odds": 3,
       "itemDefinition": "Definition:MonkGauntlet+1:ada62b8f68d16b446b76c4761f7e584f",
       "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Handaxe+1:d9db32041dd4e25419695d267636e3e0",
+      "amount": 3
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Javelin+1:d7c29d60c61bf9141902e53f9149c6a5",
+      "amount": 3
     }
   ],
   "guiPresentation": {

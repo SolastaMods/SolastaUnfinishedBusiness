@@ -79,14 +79,14 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_man01:51e87a3c2795c0e498ecc3b8c461da14",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_man02:fbd8d03e4ecf89b42ad6d8b1acf5228f",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_man03:fbc96ff3b3fc4e34f9c912f96ea36955",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_man04:cd67f0e14965cfa4bbcba13bc3532fe9",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:5bd01756995957c45a9d3bb7fa8f3d86",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:dea42bcbc9c49454a803b04e23c0c846",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_woman03:04136352bba9ab441946acbe7dff891a",
-      "Definition:NPC_DLC1_Presentation_Generic_Citizen_Dwarf_Commoner_woman04:b41e9c647b0a3314485d34042dd821b1"
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:177c690b8df9fc640b88d1f70f9825b2",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man02:44345a929dbbb254fa1cfb892f493605",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman01:4cb963fa2741c374cbc935509a21aaf8",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Commoner_woman02:debdbcfd669ae5c44b45fbeb5fa1d5db",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Nobleman01:9ae76f3d1f3197c44b0a67cb15204d15",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Nobleman02:24c1095872adff44c877688a62068f7a",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman01:310337c0c16492044be728137e7c94c7",
+      "Definition:DLC3_NPC_Presentation_Generic_Citizen_Dwarf_Noblewoman02:839b1259f3fd56244920ad7812304b86"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

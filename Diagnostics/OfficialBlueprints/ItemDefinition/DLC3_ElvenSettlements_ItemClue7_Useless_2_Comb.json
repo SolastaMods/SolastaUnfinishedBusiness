@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_ElvenSettlements_Clue07_Useless_2_Comb:7d5ca3524c37c1349881dffb8b6ffeb2",
-      "suspect": "Definition:DLC3_Elven_Suspect_02_ShopOwner:1cfc898bfcf2abb4892aef96bf8a20ec"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

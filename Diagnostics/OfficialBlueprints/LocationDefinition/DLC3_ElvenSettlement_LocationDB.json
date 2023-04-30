@@ -109,8 +109,8 @@
       "noonColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.9528302,
-        "g": 0.6975909,
-        "b": 0.579788148,
+        "g": 0.6673236,
+        "b": 0.5393379,
         "a": 1.0
       },
       "sunriseColor": {
@@ -132,9 +132,9 @@
       "sunTilt": 0.01,
       "moonLightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.2956123,
-        "g": 0.492145777,
-        "b": 0.6886792,
+        "r": 0.113608047,
+        "g": 0.379615635,
+        "b": 0.6509434,
         "a": 1.0
       },
       "moonLightFadeOffset": 0.1,
@@ -142,19 +142,19 @@
       "moonLightFadeDuration": 0.25,
       "moonSpeedFactor": 1.0,
       "moonBaseAngle": 0.0,
-      "globalMoonIntensity": 0.63,
+      "globalMoonIntensity": 1.19,
       "ambientSunriseColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.6313726,
-        "g": 0.7843138,
-        "b": 0.9607844,
+        "r": 0.39248845,
+        "g": 0.516865432,
+        "b": 0.6603774,
         "a": 1.0
       },
       "ambientNoonColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.423529416,
-        "g": 0.5560839,
-        "b": 0.745098054,
+        "r": 0.587397635,
+        "g": 0.6372158,
+        "b": 0.7075472,
         "a": 1.0
       },
       "ambientSunsetColor": {
@@ -166,9 +166,9 @@
       },
       "ambientNightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.345098048,
-        "g": 0.384313762,
-        "b": 0.623529434,
+        "r": 0.291562855,
+        "g": 0.356856823,
+        "b": 0.6792453,
         "a": 1.0
       },
       "ambientFadeDuration": 1.0,
@@ -189,7 +189,7 @@
   },
   "challengeRating": 1,
   "focusWhenRevealed": false,
-  "startsWithScavengerCamp": false,
+  "startsWithScavengerCamp": true,
   "ignoredByScavengers": false,
   "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
@@ -198,9 +198,11 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": true,
   "forceNoEncounterPrespawn": false,
-  "disableTerrainShadows": false,
+  "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

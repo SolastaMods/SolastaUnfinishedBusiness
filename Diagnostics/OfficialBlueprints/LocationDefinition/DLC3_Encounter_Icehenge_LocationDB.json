@@ -86,7 +86,7 @@
       "useDensity": true,
       "density": 0.05,
       "useScattering": true,
-      "scattering": 0.0,
+      "scattering": 0.5,
       "useAmbientLighting": true,
       "ambientLightingStrength": 1.0,
       "useColor": false,
@@ -144,9 +144,9 @@
       "sunTilt": 22.45,
       "moonLightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.2981488,
-        "g": 0.3548861,
-        "b": 0.4716981,
+        "r": 0.315726221,
+        "g": 0.3803622,
+        "b": 0.5188679,
         "a": 1.0
       },
       "moonLightFadeOffset": 4.79,
@@ -178,9 +178,9 @@
       },
       "ambientNightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.1440459,
-        "g": 0.301590055,
-        "b": 0.3679245,
+        "r": 0.0990121141,
+        "g": 0.19503808,
+        "b": 0.235849082,
         "a": 1.0
       },
       "ambientFadeDuration": 1.0,
@@ -210,9 +210,11 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
-  "disableTerrainShadows": false,
+  "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -209,7 +209,9 @@
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": true,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

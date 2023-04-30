@@ -6,7 +6,7 @@
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "decision": "Definition:MeleeAttack_TouchOfDarkness:a0d8506ef31e40b4c9aac417ebbb865d",
         "weight": 2.0,
         "cooldown": 2,
         "dynamicCooldown": true

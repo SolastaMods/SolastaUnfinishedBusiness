@@ -52,6 +52,26 @@
       "itemDefinition": "Definition:Enchanted_Dagger_Souldrinker:2e3184ae9e9fba3478d72d7fbf6a5f5b",
       "treasureTableDefinition": "Definition:RandomTreasureTableF_Mundane_Gear:80a88ba5af49ea54d865c8bd7280b524",
       "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Enchanted_Dagger_Souldrinker:2e3184ae9e9fba3478d72d7fbf6a5f5b",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableS_ConsumablesPoisonsPotions:c42997535d56de64e8512740dfc5d46f",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 5,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Enchanted_Dagger_Souldrinker:2e3184ae9e9fba3478d72d7fbf6a5f5b",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableS_ConsumablesPoisonsPotions:c42997535d56de64e8512740dfc5d46f",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

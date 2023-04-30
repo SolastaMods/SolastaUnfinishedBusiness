@@ -3,6 +3,8 @@
   "hasParentCategory": false,
   "toolCategory": "ThievesToolCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [
     "Arcana",
     "Medecine",

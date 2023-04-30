@@ -131,8 +131,15 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
-    "useCustomMaterials": false,
-    "customMaterials": [],
+    "useCustomMaterials": true,
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "fbd89d2da705def4cad5c340614225b3",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -165,7 +172,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "4015406f411f38b42baa4df0dffb6d12",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

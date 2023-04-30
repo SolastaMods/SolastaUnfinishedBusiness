@@ -3,14 +3,14 @@
   "dungeonMakerPresence": true,
   "type": "Battle",
   "challengeRating": 12,
-  "locationOverride": "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c",
+  "locationOverride": null,
   "locationBlacklist": [],
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Spider_Queen:5626a4511d68a3945b9c5d330b9b472c",
-      "number": 1,
-      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "monsterDefinition": "Definition:CrimsonSpider:256560997418f9c49b616fb041299801",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Random",
       "presentationDefinitionIndex": 0,
       "randomHumanoidPresentation": true,
@@ -19,8 +19,19 @@
     },
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Spiderlings:5b2fa574bb65dbf42a265d449ce103c5",
-      "number": 9,
+      "monsterDefinition": "Definition:CrimsonSpiderling:5664811e895cb564a8b469e9e2ea4a5f",
+      "number": 6,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:PhaseSpider:abe3adaf7f6a0754681828af21eca0ee",
+      "number": 2,
       "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
       "creatureSex": "Random",
       "presentationDefinitionIndex": 0,
@@ -32,8 +43,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Encounter/&DLC3_CR12_Spiders_Title",
-    "description": "Encounter/&DLC3_CR12_Spiders_Description",
+    "title": "Encounter/&CR20_CrimsonSpiders_x4_Title",
+    "description": "Encounter/&CR20_CrimsonSpiders_x4_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

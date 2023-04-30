@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_Undermountain_Clue5:b68471f252ee2794b978edfea8b0ea64",
-      "suspect": "Definition:DLC3_Undermountain_Investigation_Guard05:767328a24aa9a744da36714d15eeefbb"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

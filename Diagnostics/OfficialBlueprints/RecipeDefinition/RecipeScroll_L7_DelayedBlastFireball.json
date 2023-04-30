@@ -9,28 +9,18 @@
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 3,
-      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163"
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Heartstone:c7e4bf02a2980cc40b824c07c82abe2b"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Dragonrose:e6aefc7519b006e489091c77fbca530c"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 2,
-      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b"
+      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 3,
-      "itemDefinition": "Definition:Ingredient_Acid:bd7e07506aad3a244807052e95004020"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 5,
-      "itemDefinition": "Definition:Ingredient_AbyssMoss:b066ff3c236988e4a9520cf44b555395"
+      "itemDefinition": "Definition:Ingredient_Badlands_Ape_Pelt:b62aebbc0094753489c9dfb54b43d89f"
     }
   ],
   "spellDefinition": "Definition:DelayedBlastFireball:2a6be6d6587508546a64e174134a37eb",

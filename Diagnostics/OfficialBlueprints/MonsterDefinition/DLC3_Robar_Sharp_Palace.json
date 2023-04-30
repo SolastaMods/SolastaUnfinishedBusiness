@@ -157,9 +157,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_Robar:dadb04b1444adc943afdcd1ffe83b053"
+      "Definition:NPC_Presentation_DLC3_Robar_Palace:07a78888125ac654c8b770d9ba7bae12"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -261,8 +261,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c0072011d904935439bbcc0631075f51",
-      "m_SubObjectName": "CustomPortrait_DLC3_Robar",
+      "m_AssetGUID": "5d870fce868490a44ad96ab26dd8c4e8",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Robar_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

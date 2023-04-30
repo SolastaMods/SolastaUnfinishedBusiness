@@ -232,8 +232,8 @@
     "description": "Equipment/&ScrollConjureCelestialDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8ad5fe3c9f53bf646b77c22d8f5b99c7",
-      "m_SubObjectName": "Scroll_PLACEHOLDER",
+      "m_AssetGUID": "fb7f14a30d6dfb3429d17f08b0088675",
+      "m_SubObjectName": "Scroll_ConjureCelestial",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

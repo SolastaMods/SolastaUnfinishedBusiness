@@ -56,19 +56,8 @@
     "contentFragments": [
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
-        "type": "Body",
+        "type": "Header",
         "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Title",
-        "spriteReference": {
-          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-          "m_AssetGUID": "",
-          "m_SubObjectName": "",
-          "m_SubObjectType": ""
-        }
-      },
-      {
-        "$type": "ContentFragmentDescription, Assembly-CSharp",
-        "type": "Body",
-        "text": "Equipment/&DLC3_ElvenSettlements_Lore_TEquipment/&DLC3_ElvenSettlements_Lore_Dragons_DescriptionheSchism_Content02",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -89,8 +78,52 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Content04",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Content02",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Annotation",
+        "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Content03",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Content04",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Content04",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -245,12 +278,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&DLC3_ElvenSettlements_Lore_TheSchism_Title",
-    "description": "Equipment/&DLC3_ElvenSettlements_Lore_TheSchism_Description",
+    "title": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Title",
+    "description": "Equipment/&DLC3_ElvenSettlements_Lore_Dragons_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6ab0711344ead9e428d7f59f94d48cfe",
-      "m_SubObjectName": "Book5",
+      "m_AssetGUID": "f5658c15359f363449e2afec3a325954",
+      "m_SubObjectName": "BG_Notebook",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

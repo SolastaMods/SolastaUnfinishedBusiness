@@ -48,6 +48,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -106,7 +107,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionActingCunningly",
-          "conditionDefinition": "Definition:ConditionChilled:fff1fdd70a2b7464ca19605fb9b19694",
+          "conditionDefinition": "Definition:ConditionChilledInsteadOfFrozen:70c6ea5b41b961349a57c4029728313f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -344,6 +345,7 @@
       }
     }
   },
+  "priority": 2,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -174,8 +174,8 @@
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": false,
-    "needMerchantPortrait": false,
+    "canGeneratePortrait": true,
+    "needMerchantPortrait": true,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",

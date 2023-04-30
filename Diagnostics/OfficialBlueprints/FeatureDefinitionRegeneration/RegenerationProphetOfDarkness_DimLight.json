@@ -6,6 +6,7 @@
   "tickType": "Round",
   "tickNumber": 1,
   "preventingDamages": [],
+  "isActiveWhenDown": false,
   "particlePrefab": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "015a223c82c795b41b5704704bad873f",

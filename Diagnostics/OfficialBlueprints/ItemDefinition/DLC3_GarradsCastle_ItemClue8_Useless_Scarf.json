@@ -182,13 +182,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_GarradsCastle_Clue9_Useless_Scarf:2019b6816a8f605458e2d29bc5022f2e",
-      "suspect": "Definition:DLC3_GarradSoldier0D:d601a2b721ff168459e2b8f023bad874"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -4,20 +4,20 @@
   "subRaceDefinition": "Definition:ElfSylvan:1b0e27feb0a8d6944b907d5afaf28e0a",
   "sex": "Male",
   "originMorphotype": "Origin_NonHuman",
-  "skinMorphotype": "FaceAndSkin_30",
+  "skinMorphotype": "FaceAndSkin_05",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
   "faceShapeMorphotype": "FaceShape_A",
-  "hairShapeMorphotype": "HairShape_M",
-  "hairColorMorphotype": "HairColorSandyBrown",
+  "hairShapeMorphotype": "HairShape_U",
+  "hairColorMorphotype": "HairColor_41",
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColorLavender",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
-  "scarsMorphotype": "Scars_09",
+  "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
   "armorDefinition": "ClothesNoble",
@@ -27,22 +27,22 @@
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0352883525,
-    "g": 0.0848871246,
-    "b": 0.122641481,
+    "g": 0.0848870948,
+    "b": 0.122641452,
     "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.4009433,
+    "r": 0.400943279,
     "g": 0.6943464,
     "b": 1.0,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0929156,
-    "g": 0.226415068,
-    "b": 0.107091375,
+    "r": 0.09291559,
+    "g": 0.226415038,
+    "b": 0.107091345,
     "a": 1.0
   },
   "fourthColor": {
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_Elven_ShopOwner_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7570b41a9adad9e44afafd128d0b121d",
-      "m_SubObjectName": "NPC_Presentation_DLC3_ElfShopOwner",
+      "m_AssetGUID": "92fc9dc6580d3694a98edb015ac8d744",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Elven_Suspect_02_ShopOwner",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

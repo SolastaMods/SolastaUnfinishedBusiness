@@ -16,11 +16,11 @@
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColorInfiltrator",
   "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_SorcererHauntedSoul_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesWizard",
+  "armorDefinition": "StuddedLeather_plus_one",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
@@ -29,28 +29,28 @@
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_Raider_Archer_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9d8508fc5d27bce47a138ec0fd1c4e76",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Archer_1",
+      "m_AssetGUID": "8f5f3f5317b4b3741acf7ff95e2835d7",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Raider_Archer_1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

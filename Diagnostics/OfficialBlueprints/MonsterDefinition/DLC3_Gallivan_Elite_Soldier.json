@@ -95,12 +95,12 @@
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Dominion_Soldier_Morningstar:04dfcab50239461479eb9739ad597677"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
+      "number": 2,
       "monsterAttackDefinition": "Definition:Attack_DLC1_Dominion_Soldier_Dagger:3a553ccbea7b84540ad9cb61b3285404"
     }
   ],
@@ -229,7 +229,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": true,
+  "groupAttacks": false,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {

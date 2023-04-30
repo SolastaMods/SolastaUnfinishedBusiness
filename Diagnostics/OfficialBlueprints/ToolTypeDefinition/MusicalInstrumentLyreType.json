@@ -3,6 +3,8 @@
   "hasParentCategory": true,
   "toolCategory": "MusicalInstrumentCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [],
   "hideWhenNoTool": false,
   "guiPresentation": {

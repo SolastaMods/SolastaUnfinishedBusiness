@@ -238,8 +238,8 @@
     "description": "Equipment/&DLC3_WhiteCity_Lore_GuideCity_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6ab0711344ead9e428d7f59f94d48cfe",
-      "m_SubObjectName": "Book5",
+      "m_AssetGUID": "56db87945da16d440addd5a571e74ae8",
+      "m_SubObjectName": "DLC1_Greenbook",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_Gallivan_Clue4:e7ada07b33dcfa645886ccf19f165039",
-      "suspect": "Definition:DLC3_Gallivan_Suspect04:7c57b4efc79596f469bbe1dae9562ad4"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -212,7 +206,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "2f043732d400bb54283e69176212bd5b",
+  "guid": "786dda8d300955b4da7fcab1d458a2c2",
   "contentPack": "PalaceOfIce",
   "name": "DLC3_Gallivan_Item_Clue4"
 }

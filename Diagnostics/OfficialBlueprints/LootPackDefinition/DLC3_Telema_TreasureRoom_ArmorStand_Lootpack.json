@@ -10,7 +10,7 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD_Wondrous_Items:f19949114c65b1144a7b798bd4521d1f",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableG_WondrousItems:a0fc7001a79eecd4295e50414f57c965",
       "autoIdentify": false
     },
     {
@@ -20,7 +20,7 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD2_Armors_02:19ffb9438e75a4244bd91fcdb9b10b6d",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableF_ArmorsMagic:827f4d8259148ed4d853834769f6fe98",
       "autoIdentify": false
     },
     {
@@ -30,7 +30,7 @@
       "additiveModifier": 0,
       "itemMode": "TreasureTable",
       "itemDefinition": "Definition:Primed Shortsword:1ebe57945830a054d81b17695baff2e6",
-      "treasureTableDefinition": "Definition:RandomTreasureTableD1_Weapons_02:17f5f9ba537d3fa4c95652c1616fc27f",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableD_WeaponsMagic:68cf14104f4a0ec43b9fa7e81764fd5a",
       "autoIdentify": false
     }
   ],

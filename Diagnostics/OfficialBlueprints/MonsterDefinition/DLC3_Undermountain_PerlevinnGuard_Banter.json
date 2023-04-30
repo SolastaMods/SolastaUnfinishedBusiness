@@ -138,7 +138,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_Undermountain_PernnelevinGuard_Female_01:04a7f9f8591c4a64cbe23ad7ec1b0d7e",
       "Definition:NPC_Presentation_DLC3_Undermountain_PernnelevinGuard_Female_02:26e3ef42ae29f47409dcac3d1324d352",

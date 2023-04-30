@@ -67,7 +67,18 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
-        "type": "Body",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_Einareum_Lore_TheCrownOfTheMagister_Content02",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Annotation",
         "text": "Equipment/&DLC3_Einareum_Lore_TheCrownOfTheMagister_Content02",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

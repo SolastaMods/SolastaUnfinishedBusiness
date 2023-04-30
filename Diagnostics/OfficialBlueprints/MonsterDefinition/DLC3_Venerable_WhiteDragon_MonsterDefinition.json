@@ -139,7 +139,8 @@
     "Definition:PowerDragonBreath_Cold:6c2a4d59651fc9a4281fd253bc85a5bd",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -171,8 +172,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:WhiteDragon_MonsterDefinition:3472c3a577b48e64c8e2896ef1811b88",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
@@ -299,8 +300,8 @@
     "description": "Monster/&DLC3_Venerable_WhiteDragon_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c85ca5be441a6c54eaaddd4cb69912de",
-      "m_SubObjectName": "Bestiary_Venerable_WhiteDragon_DLC3",
+      "m_AssetGUID": "b962f5af82e4af046822250a051f10ae",
+      "m_SubObjectName": "CustomPortrait_WhiteDragon",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

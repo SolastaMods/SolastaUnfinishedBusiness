@@ -222,7 +222,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -264,7 +264,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MonsterPower_HezrouStench_ConditionImmunity_Title",
+    "title": "Feature/&MonsterPower_GhastStench_ConditionImmunity_Title",
     "description": "Feature/&MonsterPower_HezrouStench_ConditionImmunity_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

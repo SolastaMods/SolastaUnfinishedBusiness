@@ -67,6 +67,17 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content03",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content02",
         "spriteReference": {
@@ -78,6 +89,17 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content03",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Annotation",
         "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content03",
         "spriteReference": {
@@ -90,7 +112,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content03",
+        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content04",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -101,7 +123,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Annotation",
-        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content03",
+        "text": "Equipment/&DLC3_Einareum_Lore_SurvivingTheGreatWhite_Content05",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",

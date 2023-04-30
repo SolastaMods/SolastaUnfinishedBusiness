@@ -48,6 +48,13 @@
       },
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Dragon_AggressiveLongRangeFallback:29cfcf0d26dabe040b510640fdc9bb9b",
+        "weight": 0.1,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Emote_Angry:49a443454bcd2674d892c5880bd3f43c",
         "weight": 0.05,
         "cooldown": 1,

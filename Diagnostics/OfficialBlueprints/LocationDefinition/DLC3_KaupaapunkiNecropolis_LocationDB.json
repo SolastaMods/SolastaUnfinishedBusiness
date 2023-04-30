@@ -145,30 +145,30 @@
       "globalMoonIntensity": 0.8,
       "ambientSunriseColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "r": 0.807404757,
+        "g": 0.8918604,
+        "b": 0.9056604,
         "a": 1.0
       },
       "ambientNoonColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "r": 0.721965134,
+        "g": 0.830085754,
+        "b": 0.9056604,
         "a": 1.0
       },
       "ambientSunsetColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "r": 0.8679245,
+        "g": 0.8223644,
+        "b": 0.790138841,
         "a": 1.0
       },
       "ambientNightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "r": 0.50284797,
+        "g": 0.754689157,
+        "b": 0.9433962,
         "a": 1.0
       },
       "ambientFadeDuration": 1.0,
@@ -198,9 +198,11 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
-  "disableTerrainShadows": false,
+  "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

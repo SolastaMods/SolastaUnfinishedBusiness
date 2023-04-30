@@ -77,7 +77,8 @@
     "Definition:PowerPeaksAbominationrBreath_Cold:0112c771121842242b8b07f2d763175d",
     "Definition:PowerPeaksAbominationLeap:66b1b1dcd668c5d49ac9e3068909dd2b",
     "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -121,7 +122,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -167,9 +168,9 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
+    "hasPrefabVariants": true,
     "monsterPresentationDefinitions": [
-      "Definition:PeaksTerror_D:4c3b1aee6061aa94899364315687facf"
+      "Definition:PeaksTerror_C:919c74828a702ea4cb41f5209293083d"
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

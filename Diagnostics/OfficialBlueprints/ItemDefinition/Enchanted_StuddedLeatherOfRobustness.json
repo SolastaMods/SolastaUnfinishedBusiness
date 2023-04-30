@@ -196,7 +196,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "LeatherStudded_Red",
-    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "ignoreCustomArmorMaterialOnCommonClothes": true,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,

@@ -12,8 +12,8 @@
   "armor": "",
   "hitDice": 18,
   "hitDiceType": "D8",
-  "hitPointsBonus": 18,
-  "standardHitPoints": 99,
+  "hitPointsBonus": 14,
+  "standardHitPoints": 95,
   "abilityScores": [
     10,
     14,
@@ -242,8 +242,8 @@
     "description": "Monster/&DLC3_MasterArcanist_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
+      "m_AssetGUID": "2e3e65b52de40894d911e8fe47c053e6",
+      "m_SubObjectName": "NPC_Presentation_SRD_Archmage_DLC3F",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

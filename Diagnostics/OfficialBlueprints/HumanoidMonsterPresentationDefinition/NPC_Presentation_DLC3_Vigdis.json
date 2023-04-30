@@ -9,8 +9,8 @@
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_A",
-  "hairShapeMorphotype": "HairShape_C",
+  "faceShapeMorphotype": "FaceShape_NPC_Vigdis",
+  "hairShapeMorphotype": "HairShape_None",
   "hairColorMorphotype": "HairColor_31",
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
@@ -20,36 +20,36 @@
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "Dwarven_Plate",
+  "armorDefinition": "ScaleMailCleric_Vigdis",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 0.372641474,
-    "b": 0.372641474,
+    "r": 0.1764706,
+    "g": 0.1764706,
+    "b": 0.1764706,
     "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.8443396,
-    "g": 0.971698,
-    "b": 1.0,
+    "r": 0.1764706,
+    "g": 0.1764706,
+    "b": 0.1764706,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7640174,
-    "g": 0.7640174,
-    "b": 0.9150943,
+    "r": 0.1764706,
+    "g": 0.1764706,
+    "b": 0.1764706,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 1.0,
-    "b": 1.0,
+    "r": 0.227451,
+    "g": 0.227451,
+    "b": 0.227451,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -62,8 +62,8 @@
     "description": "NPC/&NPC_DLC3_Vigdis_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9c6723ede06568f4597ac0045a53337c",
-      "m_SubObjectName": "CustomPortrait_DLC3_VigdisKaikonnen",
+      "m_AssetGUID": "bacd86396f36c2e4d8eb4fcf13e05bed",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Vigdis",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

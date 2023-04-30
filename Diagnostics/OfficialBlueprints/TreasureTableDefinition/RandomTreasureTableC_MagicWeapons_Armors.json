@@ -4,38 +4,32 @@
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 14,
+      "odds": 9,
       "itemDefinition": "Definition:HideArmor_plus_one:446598b467a412b42a78b1ab2a083551",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 14,
-      "itemDefinition": "Definition:StuddedLeather_plus_one:f18a5174f27723942b56813e96762510",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 14,
-      "itemDefinition": "Definition:Shield+1:e2e3b47343efdf645979617d2a692864",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 14,
+      "odds": 9,
       "itemDefinition": "Definition:LeatherArmor+1:12dbe40621f03d4409d59a514b1189dd",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 12,
-      "itemDefinition": "Definition:ScaleMail+1:c82d600fa7f58e0448d2c9237f45901b",
+      "odds": 9,
+      "itemDefinition": "Definition:ChainShirt+1:5aa84bf040600be419a2cde1c72c2dc6",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
+      "odds": 9,
       "itemDefinition": "Definition:Breastplate+1:b6764b18b00ef9b43891ecc781243574",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:ScaleMail+1:c82d600fa7f58e0448d2c9237f45901b",
       "amount": 1
     },
     {
@@ -46,7 +40,19 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 8,
+      "odds": 9,
+      "itemDefinition": "Definition:Shield+1:e2e3b47343efdf645979617d2a692864",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:StuddedLeather_plus_one:f18a5174f27723942b56813e96762510",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
       "itemDefinition": "Definition:HalfPlate+1:04465d122ec83904fbf030c8fb8abfda",
       "amount": 1
     },

@@ -105,6 +105,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -481,7 +482,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "e2e3b62f1d704e347b26e12d32c5bd61",
+      "m_AssetGUID": "01ba7a9e9b3663b4eb804a37c07c4038",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

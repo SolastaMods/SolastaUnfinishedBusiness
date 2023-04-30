@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "merchantCategory": "Weapon",
   "weight": 2.0,
   "slotTypes": [
@@ -107,6 +107,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -512,8 +513,8 @@
     "description": "Equipment/&Enchanted_WeaponOfSharpness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8c5f5781cde790a4ab2aa025c04fb453",
-      "m_SubObjectName": "Handaxe+2",
+      "m_AssetGUID": "73b69d237ae2e9c4b8dc1d051f8a948c",
+      "m_SubObjectName": "Handaxe+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

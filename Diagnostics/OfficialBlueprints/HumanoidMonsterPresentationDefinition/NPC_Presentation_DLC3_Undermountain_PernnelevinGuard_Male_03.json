@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "62af6d3dbc8259e439eb204234e245f4",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Male_03",
+      "m_AssetGUID": "9d66b4c5ee36f5a4da43d3889366dcff",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Undermountain_PernnelevinGuard_Male_03",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -78,6 +78,17 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content03",
         "spriteReference": {
@@ -100,8 +111,41 @@
       },
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "NewPage",
+        "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
         "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content05",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Body",
+        "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content06",
+        "spriteReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": "",
+          "m_SubObjectType": ""
+        }
+      },
+      {
+        "$type": "ContentFragmentDescription, Assembly-CSharp",
+        "type": "Annotation",
+        "text": "Equipment/&DLC3_WhiteCity_Lore_SnowAlliance_Content07",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",

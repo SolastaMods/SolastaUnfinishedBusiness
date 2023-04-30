@@ -232,8 +232,8 @@
     "description": "Equipment/&ScrollPrismaticSprayDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8ad5fe3c9f53bf646b77c22d8f5b99c7",
-      "m_SubObjectName": "Scroll_PLACEHOLDER",
+      "m_AssetGUID": "6c330b81f10a73146933e6db1c7540c6",
+      "m_SubObjectName": "Scroll_PrismaticSpray",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -271,8 +271,8 @@
     "description": "Equipment/&DLC3_Einareum_Lore_SnowAlliance_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7da742db1031be54c93858fb11e36312",
-      "m_SubObjectName": "Book6",
+      "m_AssetGUID": "2d4bf6181076115459cb6ecd49bd73d0",
+      "m_SubObjectName": "DLC_Equipment_Complex_Indoor_Book",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

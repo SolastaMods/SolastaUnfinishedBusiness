@@ -108,10 +108,37 @@
           "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
           "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
         },
-        "objectName": "NPC_M_Marduk",
-        "id": 1415357433,
-        "guid": "C8441847-79EA-4077-B4C2-67427379E4F0",
-        "name": "C8441847-79EA-4077-B4C2-67427379E4F0"
+        "objectName": "NPC_M_Sessroth",
+        "id": 418222226,
+        "guid": "44AE1F5B-5375-4293-9D31-7E145E59DC82",
+        "name": "44AE1F5B-5375-4293-9D31-7E145E59DC82"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Armor",
+          "id": 71308029,
+          "guid": "FC976271-2B39-44EB-B359-06F67CBF04CC",
+          "name": "FC976271-2B39-44EB-B359-06F67CBF04CC"
+        },
+        "objectName": "StuddedLeather",
+        "id": 1936444897,
+        "guid": "4023BEB3-D52B-4E2F-9556-0B561795EF7B",
+        "name": "4023BEB3-D52B-4E2F-9556-0B561795EF7B"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
@@ -126,7 +153,7 @@
     }
   ],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 79.0,
   "challengeRating": 21.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Sessroth_loot_drop2:cb65b6a19a7ff0f4eb173cc261195552",
@@ -149,18 +176,7 @@
     "Definition:PowerSessrothBreath:87ed729c1671d1148b037e4685b161ec",
     "Definition:Regeneration_Sessroth:af1c404109f7b66489f45b59d8dc4e0a"
   ],
-  "attackIterations": [
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Sessroth_Maul:5008cd15f9ded544db629e251b7bd4f6"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 2,
-      "monsterAttackDefinition": "Definition:Attack_Sessroth_Javelin:e1fe7b87ef20e0e4f914507357eec8fa"
-    }
-  ],
+  "attackIterations": [],
   "sneakStance": "Stealth",
   "patrolStance": "Walk",
   "interceptStance": "Run",
@@ -245,17 +261,17 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.656,
+    "maleModelScale": 1.0,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "2f713c2d20990c94a835e0d71daae378",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.656,
+    "femaleModelScale": 1.0,
     "wieldedItemsScale": 1.0,
-    "hideWieldedItemsWhenPassive": false,
-    "hideDuringCutscene": false,
+    "hideWieldedItemsWhenPassive": true,
+    "hideDuringCutscene": true,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,
     "needMerchantPortrait": false,

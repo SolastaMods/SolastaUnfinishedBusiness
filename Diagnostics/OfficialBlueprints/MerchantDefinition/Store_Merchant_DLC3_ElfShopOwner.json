@@ -1124,8 +1124,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6f8b00464af82de449ee8d0135f31264",
-      "m_SubObjectName": "DLC3_Store_Lena",
+      "m_AssetGUID": "ed4ecaaab9fad8b438797a424d141e3f",
+      "m_SubObjectName": "DLC3_Elven_Suspect_02_ShopOwner_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

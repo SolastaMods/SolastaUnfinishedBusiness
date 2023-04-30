@@ -182,7 +182,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Gilmar_Goldentongue:5814d4dccde60314d97480d3de29298f"
+      "Definition:NPC_Presentation_Gilmar_Goldentongue_Palace:70c79de3bef2be642a39cd6fc1525115"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -284,8 +284,8 @@
     "description": "NPC/&NPC_DLC3_Gilmar_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f9bb5263c30efd84cae691717bf3d3f0",
-      "m_SubObjectName": "NPC_Presentation_Gilmar_Goldentongue",
+      "m_AssetGUID": "e56cda027c8b45f47bc252e382777afb",
+      "m_SubObjectName": "NPC_Presentation_Gilmar_Goldentongue_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

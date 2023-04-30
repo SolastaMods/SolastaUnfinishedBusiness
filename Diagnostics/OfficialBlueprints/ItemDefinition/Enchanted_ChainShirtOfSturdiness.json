@@ -195,7 +195,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ChainShirtlvl1",
-    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "ignoreCustomArmorMaterialOnCommonClothes": true,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -222,7 +222,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ChainshirtOfSturdiness_Title",
-    "description": "Equipment/&DLC3_Chainshirt+3_Description",
+    "description": "Equipment/&GenericCraftedArmor+3_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "459ec3cf97e47dc4f836a8a9c0574739",

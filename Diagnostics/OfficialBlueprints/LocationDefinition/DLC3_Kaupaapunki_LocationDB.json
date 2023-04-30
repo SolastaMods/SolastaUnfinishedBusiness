@@ -111,16 +111,16 @@
       "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
       "noonColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 1.0,
-        "g": 0.8893443,
-        "b": 0.75,
+        "r": 0.7390531,
+        "g": 0.8451225,
+        "b": 0.9056604,
         "a": 1.0
       },
       "sunriseColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
         "r": 0.8867924,
-        "g": 0.451614559,
-        "b": 0.0794766545,
+        "g": 0.80972445,
+        "b": 0.6316305,
         "a": 1.0
       },
       "sunsetColor": {
@@ -130,7 +130,7 @@
         "b": 0.1745283,
         "a": 1.0
       },
-      "globalSunIntensity": 1.53,
+      "globalSunIntensity": 1.6,
       "sunDirection": 404.6,
       "sunTilt": 44.84,
       "moonLightColor": {
@@ -145,38 +145,38 @@
       "moonLightFadeDuration": 0.25,
       "moonSpeedFactor": 0.2,
       "moonBaseAngle": 20.0,
-      "globalMoonIntensity": 1.2,
+      "globalMoonIntensity": 1.75,
       "ambientSunriseColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.7028302,
-        "g": 0.807713747,
-        "b": 1.0,
+        "r": 0.7242346,
+        "g": 0.826317251,
+        "b": 0.8773585,
         "a": 1.0
       },
       "ambientNoonColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.6832948,
-        "g": 0.703927338,
-        "b": 0.7830189,
+        "r": 0.9056604,
+        "g": 0.864593267,
+        "b": 0.756141,
         "a": 1.0
       },
       "ambientSunsetColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.485982537,
-        "g": 0.5238584,
-        "b": 0.6320754,
+        "r": 0.8679245,
+        "g": 0.8223644,
+        "b": 0.790138841,
         "a": 1.0
       },
       "ambientNightColor": {
         "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-        "r": 0.374466,
-        "g": 0.423340529,
-        "b": 0.5188679,
+        "r": 0.50284797,
+        "g": 0.754689157,
+        "b": 0.9433962,
         "a": 1.0
       },
       "ambientFadeDuration": 1.0,
       "dayAtmosphereThickness": 1.88,
-      "nightAtmosphereThickness": 1.08,
+      "nightAtmosphereThickness": 4.03,
       "name": "DLC3_Kaupaapunki_Weather_DayCycleProfile"
     },
     "name": "DLC3_Kaupaapunki_Rendersettings"
@@ -192,7 +192,7 @@
   },
   "challengeRating": 1,
   "focusWhenRevealed": true,
-  "startsWithScavengerCamp": false,
+  "startsWithScavengerCamp": true,
   "ignoredByScavengers": false,
   "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
@@ -201,9 +201,11 @@
   "hasPriorityForTeleporter": false,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
-  "disableTerrainShadows": false,
+  "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

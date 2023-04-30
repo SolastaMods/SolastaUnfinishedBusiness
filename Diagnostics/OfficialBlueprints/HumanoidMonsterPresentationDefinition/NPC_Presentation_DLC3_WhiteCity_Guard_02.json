@@ -22,7 +22,7 @@
   "tailMorphotype": "Tail_None",
   "armorDefinition": "Dwarven_Plate",
   "helmetDefinition": "",
-  "tabardDefinition": "ClothesTabard",
+  "tabardDefinition": "ClothesTabardDLC3_WhiteCity",
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",

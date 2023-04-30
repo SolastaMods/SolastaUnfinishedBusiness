@@ -112,6 +112,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -554,7 +555,7 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "scaleFactorWhileWielded": 1.0,
+    "scaleFactorWhileWielded": 1.35,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",

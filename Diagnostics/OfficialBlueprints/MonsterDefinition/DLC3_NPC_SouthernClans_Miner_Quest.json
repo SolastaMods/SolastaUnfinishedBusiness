@@ -218,8 +218,8 @@
     "description": "NPC/&DLC3_NPC_SouthernClans_Miner_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "71d3c836f2364b14387509948fe312a0",
-      "m_SubObjectName": "CustomPortrait_DLC3_SouthernClans_Miner",
+      "m_AssetGUID": "b54c75ecef0d50b4c8b9fcb9be3aa0ac",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Miner_04",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

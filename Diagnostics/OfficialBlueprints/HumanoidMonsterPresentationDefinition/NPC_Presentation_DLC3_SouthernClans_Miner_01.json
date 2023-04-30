@@ -12,12 +12,12 @@
   "faceShapeMorphotype": "FaceShape_NPC_Priest_of_Arun",
   "hairShapeMorphotype": "HairShape_N",
   "hairColorMorphotype": "HairColor_13",
-  "beardShapeMorphotype": "BeardShape_E",
+  "beardShapeMorphotype": "BeardShape_B",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_003",
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_10",
-  "scarsMorphotype": "Scars_12",
+  "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
   "armorDefinition": "Leather",
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_SouthernClans_Miner_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "77c0daf3512150748a810996e4c33539",
-      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Miner_01",
+      "m_AssetGUID": "b54c75ecef0d50b4c8b9fcb9be3aa0ac",
+      "m_SubObjectName": "NPC_Presentation_DLC3_SouthernClans_Miner_04",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

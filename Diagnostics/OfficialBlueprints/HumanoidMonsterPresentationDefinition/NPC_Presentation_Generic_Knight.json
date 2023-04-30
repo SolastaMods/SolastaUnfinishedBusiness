@@ -62,8 +62,8 @@
     "description": "Monster/&Knight_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cc56b92bb2d3ee941803b6f921a0cbe5",
-      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Knight_DLC3",
+      "m_AssetGUID": "d2500552a92164747b586c95db19de3f",
+      "m_SubObjectName": "NPC_Presentation_Generic_Knight",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

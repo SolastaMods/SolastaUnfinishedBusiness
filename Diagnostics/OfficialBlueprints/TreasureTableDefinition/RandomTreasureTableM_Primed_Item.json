@@ -4,7 +4,7 @@
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
+      "odds": 8,
       "itemDefinition": "Definition:Primed Battleaxe:f97fdb4e5c2b1f043bc1f465e8a0b4a0",
       "amount": 1
     },
@@ -17,42 +17,48 @@
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
-      "itemDefinition": "Definition:Primed Greataxe:533cb019e7b95e04eb6612feb99d9fb0",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
-      "itemDefinition": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
-      "itemDefinition": "Definition:Primed Longbow:839150e1152e05b419f3af108aa9fcd7",
+      "itemDefinition": "Definition:Primed Gauntlet:51acb92856627d6409c7da52009bdb2d",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 10,
+      "itemDefinition": "Definition:Primed Greataxe:533cb019e7b95e04eb6612feb99d9fb0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed Longbow:839150e1152e05b419f3af108aa9fcd7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
       "itemDefinition": "Definition:Primed Mace:ec264d1ff88a6454bb25187ee2e77a54",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 8,
       "itemDefinition": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 8,
       "itemDefinition": "Definition:Primed Rapier:94ee848dc03df8f48a7e2dbe41bc419e",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 8,
       "itemDefinition": "Definition:Primed Scimitar:f905b0c4355525d44a49c9af95b3ba76",
       "amount": 1
     },
@@ -70,19 +76,67 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Primed_Handaxe:aa632c96ee8568742989383ac9c5780f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Primed_Javelin:0c359f123e79a9449a6c4aef0124201a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Primed_LightCrossbow:e5c25c691d4b13e479dc84f3833edc6f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
       "odds": 10,
       "itemDefinition": "Definition:Primed_Longsword:fedb8a0303ddee5418483cd9eaa8fb3f",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 8,
+      "itemDefinition": "Definition:Primed_Maul:5042ab5ffb17bc84cb37cca3bbfd107d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed_Quarterstaff:6df3f1589e4164b489c28b0f50c1ae9d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed_Spear:8037e153bcdba5b438868c0e86b2628a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Primed_Warhammer:e492559642e89ae43a31931a27ff2ce1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
       "itemDefinition": "Definition:Primed Breastplate:1f94fb24c81d1c5449ef6aedeacbea84",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 10,
       "itemDefinition": "Definition:Primed ChainMail:520c9799bbf64c04ab98408d8e14ff32",
       "amount": 1
     },
@@ -94,7 +148,7 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 3,
+      "odds": 5,
       "itemDefinition": "Definition:Primed HalfPlate:d118f62359ad9fe45a127151a35a9a0f",
       "amount": 1
     },
@@ -107,13 +161,19 @@
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 5,
+      "itemDefinition": "Definition:Primed Plate:52acc8997c4a38f438d2b87af0ec6872",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
       "itemDefinition": "Definition:Primed ScaleMail:0e6f613ab318293469a43b8310e5021a",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 1,
-      "itemDefinition": "Definition:Primed Plate:52acc8997c4a38f438d2b87af0ec6872",
+      "odds": 10,
+      "itemDefinition": "Definition:Primed Shield:305cd075cb8e6564d9d7d35455a0fe2f",
       "amount": 1
     },
     {
@@ -124,38 +184,32 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 3,
-      "itemDefinition": "Definition:Primed_Maul:5042ab5ffb17bc84cb37cca3bbfd107d",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 4,
-      "itemDefinition": "Definition:Primed_Spear:8037e153bcdba5b438868c0e86b2628a",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
-      "itemDefinition": "Definition:Primed_Warhammer:e492559642e89ae43a31931a27ff2ce1",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 4,
-      "itemDefinition": "Definition:Primed_LightCrossbow:e5c25c691d4b13e479dc84f3833edc6f",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 3,
-      "itemDefinition": "Definition:Primed_HeavyCrossbow:388c95a2bb017954a87c2085695a9092",
+      "odds": 2,
+      "itemDefinition": "Definition:Primed_LeatherDruid:7cb9c20796c527243b1d5f4d01090124",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
       "odds": 10,
-      "itemDefinition": "Definition:Primed Gauntlet:51acb92856627d6409c7da52009bdb2d",
+      "itemDefinition": "Definition:Primed_StuddedLeather:ebfd5336909706d40885f64f8a22aa87",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:PrimedWand:ee80029f12ca82b4b8da1bf97994681c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:PrimedScepter:c6b12f54a9190a249ae7ea49c18fbc5a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:PrimedRing:50e54915f8a5a3341ac5d7b6f7fbbb5c",
       "amount": 1
     }
   ],

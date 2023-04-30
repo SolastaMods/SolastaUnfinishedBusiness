@@ -22,56 +22,14 @@
     16,
     13
   ],
-  "savingThrowScores": [
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Dexterity",
-      "bonus": 5
-    },
-    {
-      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
-      "abilityScoreName": "Intelligence",
-      "bonus": 4
-    }
-  ],
-  "skillScores": [
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Acrobatics",
-      "bonus": 5
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Athletics",
-      "bonus": 4
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "SleightOfHand",
-      "bonus": 4
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Perception",
-      "bonus": 5
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Persuasion",
-      "bonus": 6
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Intimidation",
-      "bonus": 3
-    }
-  ],
+  "savingThrowScores": [],
+  "skillScores": [],
   "legendaryCreature": false,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:CasterCombatDecisions:a8306539d792bbd408f6a6151b5b443a",
+  "defaultBattleDecisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -97,14 +55,13 @@
   },
   "languages": [
     "Language_Common",
-    "Language_Elvish",
     "Language_Dwarvish"
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 3.0,
   "challengeRating": 0.5,
-  "noExperienceGain": false,
+  "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
@@ -113,18 +70,7 @@
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
-  "attackIterations": [
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Galar_Shortbow:232daba204c1355428a20e42a4609491"
-    },
-    {
-      "$type": "MonsterAttackIteration, Assembly-CSharp",
-      "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_Galar_Rapier:0e14101adabb8e74da977c36316eddb4"
-    }
-  ],
+  "attackIterations": [],
   "sneakStance": "Stealth",
   "patrolStance": "SlowWalk",
   "interceptStance": "Run",
@@ -155,9 +101,9 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_Generic_Citizen_Dwarf_Commoner_man01:92083098c12c12c4998f563721a0c834"
+      "Definition:DLC3_Dwarf_Refugee_1_Presentation:7936bc7a9938ea345b336478c0bd8f19"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -250,17 +196,17 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": true,
-  "uniqueNameId": "Dwarf_Refugee_1",
+  "isUnique": false,
+  "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "!PH! Gilmar",
-    "description": "!PH! Gilmar",
+    "title": "NPC/&DLC3_NPC_NorthernClans_Refugee_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Refugee_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
+      "m_AssetGUID": "bbb9f13e084ca054f8e7f2d83f7bf823",
+      "m_SubObjectName": "DLC3_Dwarf_Refugee_1_Presentation",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

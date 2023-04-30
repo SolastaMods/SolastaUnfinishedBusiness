@@ -15,7 +15,7 @@
   "beardShapeMorphotype": "",
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColor_006",
-  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
@@ -26,30 +26,30 @@
   "showHelmet": false,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
+    "r": 0.8573113,
+    "g": 1.0,
+    "b": 0.8443396,
     "a": 1.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.8392157,
+    "r": 0.8066038,
+    "g": 1.0,
+    "b": 0.8574975,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.8392157,
+    "r": 1.0,
+    "g": 0.870021,
+    "b": 0.8537736,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 1.0,
+    "r": 1.0,
+    "g": 0.769153833,
+    "b": 0.5990566,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_Raider_Warrior_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94510a9ad9b399d45aee6e8bf33fcdd1",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Warrior_2",
+      "m_AssetGUID": "1495ba154c6b9934bb82709911aa6413",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Raider_Warrior_2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

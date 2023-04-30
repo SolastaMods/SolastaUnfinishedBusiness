@@ -12,6 +12,26 @@
       "itemDefinition": "Definition:DLC3_Telema_HectorsDiary:3fdb256c8db881547aea988e40585923",
       "treasureTableDefinition": null,
       "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 2,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_Telema_HectorsDiary:3fdb256c8db881547aea988e40585923",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableS_ConsumablesPoisonsPotions:c42997535d56de64e8512740dfc5d46f",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_Telema_HectorsDiary:3fdb256c8db881547aea988e40585923",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableJ_IngredientsEnchanted:db7704563f17ef048bc70a25e96ba663",
+      "autoIdentify": false
     }
   ],
   "lootMagnitudeMode": "Individual",

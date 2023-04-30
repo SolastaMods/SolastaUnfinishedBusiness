@@ -7,7 +7,7 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
       "spells": [
-        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
         "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
         "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf",
         "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",

@@ -120,7 +120,8 @@
     "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
     "Definition:PowerStormGiantLightningBolt:94f06fd0ed4d60e4d981de2079c351f5",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -259,8 +260,8 @@
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
   "groupAttacks": false,
-  "isUnique": false,
-  "uniqueNameId": "",
+  "isUnique": true,
+  "uniqueNameId": "Giant_Storm_Citizen_WhiteCity_Hjalmar",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -268,8 +269,8 @@
     "description": "Monster/&StormGiant_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9863b6b219fa0134585ab6eca2ef51d1",
-      "m_SubObjectName": "CustomPortrait_Giant_Storm",
+      "m_AssetGUID": "0a4fba36e24bd924dadabbfffa084717",
+      "m_SubObjectName": "CustomPortrait_Giant_Storm_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

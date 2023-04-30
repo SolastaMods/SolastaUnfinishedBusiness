@@ -165,7 +165,8 @@
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
     "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -217,7 +218,14 @@
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
-    "customMaterials": [],
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e8371939ed22a8540a6f7b0801cbf216",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -264,18 +272,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "9625d458785b03d42a70d1be595b3284",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.0,
+    "maleModelScale": 1.2,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "9625d458785b03d42a70d1be595b3284",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.656,
+    "femaleModelScale": 1.2,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

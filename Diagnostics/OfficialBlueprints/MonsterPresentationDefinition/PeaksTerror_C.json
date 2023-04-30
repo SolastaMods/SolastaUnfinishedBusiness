@@ -7,7 +7,7 @@
     "m_SubObjectType": ""
   },
   "sex": "Male",
-  "modelScale": 0.6,
+  "modelScale": 1.0,
   "useCustomMaterials": true,
   "customMaterials": [
     {

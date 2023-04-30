@@ -125,20 +125,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Battleaxe+1:0fe8f3cf78829934bb69ffcff7719f99",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 1,
-      "reassortRateType": "Day",
-      "reassortRateValue": 7,
-      "requiredFaction": "",
-      "factionStatus": "Alliance"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:Breastplate+1:b6764b18b00ef9b43891ecc781243574",
       "stackCount": 1,
       "initialAmount": 1,

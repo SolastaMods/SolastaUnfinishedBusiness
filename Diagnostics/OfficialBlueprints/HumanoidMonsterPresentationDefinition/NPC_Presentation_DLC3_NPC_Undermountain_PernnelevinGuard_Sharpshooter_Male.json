@@ -4,53 +4,53 @@
   "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
   "sex": "Male",
   "originMorphotype": "Origin_NonHuman",
-  "skinMorphotype": "FaceAndSkin_04",
+  "skinMorphotype": "FaceAndSkin_05",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
-  "tailLengthMorphotypeValue": 100.0,
+  "tailLengthMorphotypeValue": 0.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_B",
-  "hairShapeMorphotype": "HairShape_None",
-  "hairColorMorphotype": "HairColorBlond",
-  "beardShapeMorphotype": "BeardShape_B",
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_V",
+  "hairColorMorphotype": "HairColor_43",
+  "beardShapeMorphotype": "BeardShape_F",
   "eyeMorphotype": "Eye_Default",
-  "eyeColorMorphotype": "EyeColorInfiltrator",
-  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesWizard",
+  "armorDefinition": "StuddedLeather",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
+    "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
+    "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.784313738,
-    "g": 0.784313738,
-    "b": 0.196078435,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "601d34f0468b3014ba00c0ef363a33a1",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Shapshooter_Male",
+      "m_AssetGUID": "9850c406bec0f8b469066523804993b9",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Sharpshooter_Male",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

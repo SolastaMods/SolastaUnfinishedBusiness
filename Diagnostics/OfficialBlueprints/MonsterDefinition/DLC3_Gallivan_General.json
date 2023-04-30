@@ -109,7 +109,7 @@
   "audioRaceRTPCValue": 6.0,
   "challengeRating": 5.0,
   "noExperienceGain": true,
-  "droppedLootDefinition": null,
+  "droppedLootDefinition": "Definition:DLC3_GeneralGallivan_Loot_Drop:2042b31e640344342a6dc505efbcf54f",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
@@ -125,7 +125,7 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 3,
-      "monsterAttackDefinition": "Definition:Attack_DLC3_Garrad_Longsword:9a55c63c68ec5fe46a2a5e393a95456f"
+      "monsterAttackDefinition": "Definition:Attack_DLC3_GeneralGallivan_Greataxe:be1590de0d76fcc40ba63008d0ff411e"
     },
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",

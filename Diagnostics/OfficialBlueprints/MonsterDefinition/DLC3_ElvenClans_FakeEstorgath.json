@@ -7,7 +7,7 @@
     "Shapechanger",
     "NonDetection"
   ],
-  "defaultFaction": "DLC3_Faction_ElvenClan_Impostors",
+  "defaultFaction": "NeutralMonsters",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "LawfulNeutral",

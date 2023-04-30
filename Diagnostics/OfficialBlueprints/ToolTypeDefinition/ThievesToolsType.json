@@ -3,6 +3,8 @@
   "hasParentCategory": false,
   "toolCategory": "ThievesToolCategory",
   "mainAbilityScore": "Dexterity",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [],
   "hideWhenNoTool": false,
   "guiPresentation": {

@@ -33,23 +33,23 @@
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.7169812,
-    "g": 0.7169812,
-    "b": 0.6121395,
+    "r": 0.6226415,
+    "g": 0.375244439,
+    "b": 0.07929868,
     "a": 1.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.410377353,
-    "g": 0.48061958,
-    "b": 0.5471698,
+    "r": 0.6132076,
+    "g": 0.176441789,
+    "b": 0.297798276,
     "a": 1.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 0.913522,
-    "b": 0.8443396,
+    "r": 0.8679245,
+    "g": 0.8679245,
+    "b": 0.8679245,
     "a": 1.0
   },
   "overrideWieldedItems": false,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "44b239a5669d63a4ca90175302e1de46",
-      "m_SubObjectName": "CustomPortrait_DLC3_NPC_Einareum_Merchant_Weapons",
+      "m_AssetGUID": "864329f0e8eded647a84b892d8337707",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Einareum_Merchant_Weapons",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

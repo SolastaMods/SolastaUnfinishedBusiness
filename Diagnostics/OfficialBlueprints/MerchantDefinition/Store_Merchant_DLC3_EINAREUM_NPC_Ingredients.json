@@ -699,7 +699,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Primed Battleaxe:f97fdb4e5c2b1f043bc1f465e8a0b4a0",
+      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa",
       "stackCount": 1,
       "initialAmount": 1,
       "minAmount": 0,
@@ -713,7 +713,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa",
+      "itemDefinition": "Definition:Primed Battleaxe:f97fdb4e5c2b1f043bc1f465e8a0b4a0",
       "stackCount": 1,
       "initialAmount": 1,
       "minAmount": 0,
@@ -1427,20 +1427,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:Ingredient_PrimordialDragonstone:a3a9d0179e8d8a940a9d05987c000cfa",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 5,
-      "requiredFaction": "",
-      "factionStatus": "Brotherhood"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:Ingredient_QueenDryadBark:8609f35110dabd14d8bfe49f26b2d3e0",
       "stackCount": 1,
       "initialAmount": 1,
@@ -1497,34 +1483,6 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:CraftingManual_DLC2.5_Item_RestorativeOintment:2e685b93a8e898040a2939e061c640b1",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 5,
-      "requiredFaction": "",
-      "factionStatus": "Brotherhood"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
-      "itemDefinition": "Definition:CraftingManualPotionOfHeroism:249f2ec792ed843428669e46ce32fafa",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 5,
-      "requiredFaction": "",
-      "factionStatus": "Brotherhood"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
       "itemDefinition": "Definition:Ingredient_Enchant_PrimordialCrystal:5273cd5f02392004c952d7b7bd6257db",
       "stackCount": 1,
       "initialAmount": 5,
@@ -1540,12 +1498,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Ingredients_Title",
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Ingredients_Description",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "179d951cb637312438df2bbed9add38e",
-      "m_SubObjectName": "DLC3_NPC_Einareum_Ingredients_Merchant_Photo",
+      "m_AssetGUID": "120b8e12eb1098d469973f018c074f37",
+      "m_SubObjectName": "DLC3_NPC_Einareum_Merchant_Ingredients_MerchantPhoto",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

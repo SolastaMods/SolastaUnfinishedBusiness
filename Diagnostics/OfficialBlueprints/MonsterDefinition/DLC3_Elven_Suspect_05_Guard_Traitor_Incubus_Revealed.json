@@ -109,7 +109,8 @@
     "Definition:PowerIncubus_Drain:80cb221b036d0e54389b0558191e6424",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
     "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
-    "Definition:DieRollModifierCaerLemMonsterInitiativeFirst:1bbe0e6e42b118340aba030655b3057d"
+    "Definition:DieRollModifierCaerLemMonsterInitiativeFirst:1bbe0e6e42b118340aba030655b3057d",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {

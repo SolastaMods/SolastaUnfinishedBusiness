@@ -10,7 +10,8 @@
     "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6",
     "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
     "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
-    "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c"
+    "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c",
+    "Definition:DLC3_Encounter_FrozenAqueduct_LocationDB:dacbc3cfd212f844c900ccdcc0b2abee"
   ],
   "monsterOccurences": [
     {

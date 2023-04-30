@@ -151,7 +151,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_DragonbornIntermediate:4d38684e099c8de46a9d04cfa574ccc8"
+      "Definition:NPC_Presentation_DLC3_DragonbornIntermediate_Palace:6bc6866ed5c42c64b9bcad52a8b7147a"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],
@@ -253,8 +253,8 @@
     "description": "NPC/&DLC3_NPC_Kallista_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "662119a1c10f4c6458615e2dc84a5b60",
-      "m_SubObjectName": "NPC_Presentation_DLC3_DragonbornIntermediate",
+      "m_AssetGUID": "7caa1ef462428b241a2fb9d58922ee33",
+      "m_SubObjectName": "NPC_Presentation_DLC3_DragonbornIntermediate_Palace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

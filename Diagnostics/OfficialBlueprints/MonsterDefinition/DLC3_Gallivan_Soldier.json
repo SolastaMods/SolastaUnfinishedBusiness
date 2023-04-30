@@ -213,14 +213,14 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": true,
+  "groupAttacks": false,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_NPC_GallivanHoplite_Title",
-    "description": "Feature/&NoContentTitle",
+    "title": "NPC/&DLC3_NPC_GallivanTrooper_Title",
+    "description": "NPC/&DLC3_NPC_GallivanTrooper_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bb0011f69c1074d42927fe1f9849141f",

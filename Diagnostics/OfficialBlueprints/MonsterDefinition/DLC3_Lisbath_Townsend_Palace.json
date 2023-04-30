@@ -170,7 +170,7 @@
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
-      "Definition:NPC_Presentation_DLC3_Lisbath:d4bb05a51bcb81644bc6e15895de204f"
+      "Definition:NPC_Presentation_DLC3_Lisbath_Palace:b8123825f15eaef41ab72321516f0b6d"
     ],
     "useCustomMaterials": false,
     "customMaterials": [],

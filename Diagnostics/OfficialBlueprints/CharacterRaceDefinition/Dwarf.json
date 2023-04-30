@@ -165,7 +165,8 @@
       "FaceShape_NPC_KaraWiseHead",
       "FaceShape_NPC_Grimhild",
       "FaceShape_NPC_Ragnhild",
-      "FaceShape_NPC_Daisy"
+      "FaceShape_NPC_Daisy",
+      "FaceShape_NPC_Vigdis"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",

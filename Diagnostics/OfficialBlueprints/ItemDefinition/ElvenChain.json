@@ -52,7 +52,7 @@
     "armorClassValue": 16,
     "isBaseArmorClass": true,
     "maxDexterityBonus": 0,
-    "requiresMinimalStrength": true,
+    "requiresMinimalStrength": false,
     "minimalStrength": 11
   },
   "isWeapon": false,

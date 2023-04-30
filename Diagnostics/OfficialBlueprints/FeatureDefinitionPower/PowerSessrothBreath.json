@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 21,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -116,7 +117,7 @@
     "speedType": "Instant",
     "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": true,
-    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.02,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
@@ -291,7 +292,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -304,6 +305,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

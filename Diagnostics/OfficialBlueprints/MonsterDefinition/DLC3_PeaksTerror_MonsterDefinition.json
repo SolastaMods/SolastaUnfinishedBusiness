@@ -76,7 +76,8 @@
     "Definition:AbilityCheckAffinityKeenSmell:ad58749fe3130524781820bdc7f034df",
     "Definition:PowerPeaksTerrorBreath_Cold:19e6b5f89fd8b6549854f2f9c9d0e62c",
     "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -168,8 +169,8 @@
     },
     "hasPrefabVariants": true,
     "monsterPresentationDefinitions": [
+      "Definition:PeaksTerror_A:a21a73249b046fa4997aa4e20d44a5fc",
       "Definition:PeaksTerror_B:ec49a4af65e06b8429cd17eaf2c5f53a",
-      "Definition:PeaksTerror_C:919c74828a702ea4cb41f5209293083d",
       "Definition:PeaksTerror_D:4c3b1aee6061aa94899364315687facf"
     ],
     "malePrefabReference": {

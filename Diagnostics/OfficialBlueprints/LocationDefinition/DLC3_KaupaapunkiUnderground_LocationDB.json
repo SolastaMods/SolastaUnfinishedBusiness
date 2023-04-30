@@ -198,8 +198,9 @@
   "hasPriorityForTeleporter": true,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,
-  "disableTerrainShadows": false,
+  "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
   "entranceIdxToSpriteReferenceMappings": [
     {
       "$type": "LocationDefinitions+EntranceIdxToSpriteReferenceMapping, Assembly-CSharp",
@@ -212,6 +213,7 @@
       }
     }
   ],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -4,7 +4,7 @@
   "subRaceDefinition": null,
   "sex": "Male",
   "originMorphotype": "Origin_CA",
-  "skinMorphotype": "FaceAndSkin_04",
+  "skinMorphotype": "FaceAndSkinCopperish",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
   "tailLengthMorphotypeValue": 100.0,
@@ -16,11 +16,11 @@
   "eyeMorphotype": "Eye_Default",
   "eyeColorMorphotype": "EyeColorInfiltrator",
   "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_SorcererHauntedSoul_00",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesWizard",
+  "armorDefinition": "Warlock_Armor",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
@@ -29,28 +29,28 @@
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
-    "b": 0.8392157,
-    "a": 1.0
+    "b": 0.0,
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -62,8 +62,8 @@
     "description": "NPC/&DLC3_NPC_Raider_Arcanist_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5976b61841182934fb31c4467acb6e02",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Arcanist_1",
+      "m_AssetGUID": "6dd42409bc49c2b43b6661357772878c",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Raider_Arcanist_1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

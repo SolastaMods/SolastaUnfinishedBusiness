@@ -6,14 +6,14 @@
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
-  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",
   "alignment": "NeutralEvil",
   "armorClass": 22,
   "armor": "Plate",
   "hitDice": 15,
   "hitDiceType": "D8",
   "hitPointsBonus": 75,
-  "standardHitPoints": 142,
+  "standardHitPoints": 222,
   "abilityScores": [
     18,
     18,
@@ -71,12 +71,58 @@
       "bonus": 9
     }
   ],
-  "legendaryCreature": false,
+  "legendaryCreature": true,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
-  "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:SorakShikkathAndBossCombatDecisions:fa50cb96e9d0976438525838d2278c9a",
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:PowerSorakDoomLaughter_DLC3_SorrTarr_Avatar:05d3108e3bb7eff4fa0388aceac09975",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendarySorakAoE_Debuff:51b6057aa6e5e5e4bbe22ebfb325ff45"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": null,
+      "featureDefinitionPower": "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": null,
+      "noOpportunityAttack": false,
+      "decisionPackage": "Definition:LegendaryAvatarSorrTarAoE_WordOfDarkness:f6c44f4566a984a4b8170db55d57b6d9"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Sorr-Tarr_Avatar_Shrieker:bf59607f2d9bd964cabc21755e62d893",
+      "featureDefinitionPower": "Definition:PowerSorakDoomLaughter_DLC3_SorrTarr_Avatar:05d3108e3bb7eff4fa0388aceac09975",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryAvatarSorrTarAttack:a2d6efcb0173ca44fb9446b12463a672"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:SorakAvatarOfSorrTarCombatDecisions:7ea6773586cfdea4dbb89be49416282f",
   "threatEvaluatorDefinition": {
     "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
     "threatEvaluator": {
@@ -105,7 +151,7 @@
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 6.0,
+  "audioRaceRTPCValue": 15.0,
   "challengeRating": 18.0,
   "noExperienceGain": false,
   "droppedLootDefinition": null,
@@ -119,11 +165,9 @@
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
-    "Definition:DamageAffinityRadiantVulnerability:01bd31ce63af3f345aa7413f584359b6",
     "Definition:PowerSorakShadowEscape_at_will:941ea12a9e8e765479d0b7a57555afe4",
-    "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
     "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
-    "Definition:PowerSorakDoomLaughter_DLC3_SorrTarr_Avatar:05d3108e3bb7eff4fa0388aceac09975"
+    "Definition:PowerTsharNecroticBlast:fb449eba2977b024bbcc3c571c0a2347"
   ],
   "attackIterations": [
     {
@@ -203,7 +247,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2be282a4842dfe74fb589294ac8d04ee",
+      "m_AssetGUID": "3470dd54495310d44abc4c38158bc51b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -221,14 +265,14 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.656,
+    "maleModelScale": 1.0,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "6dfac0c706b1d834e9bb39084360fc3c",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.656,
+    "femaleModelScale": 1.0,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

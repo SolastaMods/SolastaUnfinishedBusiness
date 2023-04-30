@@ -4,53 +4,53 @@
   "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
   "sex": "Male",
   "originMorphotype": "Origin_NonHuman",
-  "skinMorphotype": "FaceAndSkin_04",
+  "skinMorphotype": "FaceAndSkin_30",
   "musculatureMorphotypeValue": 0.0,
   "ageMorphotypeValue": 0.0,
-  "tailLengthMorphotypeValue": 100.0,
+  "tailLengthMorphotypeValue": 0.0,
   "modelScale": 1.0,
-  "faceShapeMorphotype": "FaceShape_F",
-  "hairShapeMorphotype": "HairShape_F",
-  "hairColorMorphotype": "HairColorBlond",
-  "beardShapeMorphotype": "BeardShape_F",
+  "faceShapeMorphotype": "FaceShape_NPC_Priest_of_Arun",
+  "hairShapeMorphotype": "HairShape_V",
+  "hairColorMorphotype": "HairColor_15",
+  "beardShapeMorphotype": "BeardShape_A",
   "eyeMorphotype": "Eye_Default",
-  "eyeColorMorphotype": "EyeColorInfiltrator",
-  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
-  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_12",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_06",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_01",
   "scarsMorphotype": "Scars_None",
   "hornsMorphotype": "Horns_None",
   "tailMorphotype": "Tail_None",
-  "armorDefinition": "ClothesWizard",
+  "armorDefinition": "SorcererArmor",
   "helmetDefinition": "",
   "tabardDefinition": "",
   "showHelmet": true,
   "firstColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
+    "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
+    "r": 0.0,
     "g": 0.0,
     "b": 0.0,
-    "a": 1.0
+    "a": 0.0
   },
   "fourthColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.784313738,
-    "g": 0.784313738,
-    "b": 0.196078435,
-    "a": 1.0
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
   },
   "overrideWieldedItems": false,
   "itemDefinitionMainHand": null,
@@ -58,7 +58,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "NPC/&DLC3_Undermountain_PerlevinnGuard_Spellmaster",
+    "title": "NPC/&DLC3_Undermountain_PerlevinnGuard_Spellmaster_Title",
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Spellmaster_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

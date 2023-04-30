@@ -127,7 +127,7 @@
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
-    "useHumanoidMonsterPresentationName": false,
+    "useHumanoidMonsterPresentationName": true,
     "humanoidMonsterPresentationDefinitions": [
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Spellmaster_Male:e1d61bfbe246c8b49a2bce603d3aef5a",
       "Definition:NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Spellmaster_Female:40c8d615f10cf724ebcb9c0fe0dc7d82"
@@ -232,8 +232,8 @@
     "description": "NPC/&DLC3_Undermountain_PerlevinnGuard_Spellmaster_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "578e9ce3343360a48a73c462467721dd",
-      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Raider_Sorcerer_1",
+      "m_AssetGUID": "5144e14789a3870469228fe0095603e2",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_Undermountain_PernnelevinGuard_Spellmaster_Male",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

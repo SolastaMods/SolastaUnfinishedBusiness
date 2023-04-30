@@ -56,8 +56,8 @@
     "contentFragments": [
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
-        "type": "Annotation",
-        "text": "Equipment/&DLC3_ElvenSetEquipment/&DLC3_Gallivan_Lore_ThreeCenturyPact_Content01tlements_Lore_Dragons_Title",
+        "type": "Body",
+        "text": "Equipment/&DLC3_Gallivan_Lore_ThreeCenturyPact_Content01",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -68,7 +68,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Equipment/&DLC3_Gallivan_Lore_ThreeCenturyPact_Content01",
+        "text": "Equipment/&DLC3_Gallivan_Lore_ThreeCenturyPact_Content02",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -111,7 +111,7 @@
       }
     ],
     "script": "Narrative",
-    "language": "Language_Draconic",
+    "language": "Language_Common",
     "loreType": "None",
     "recipeDefinition": null,
     "locationDefinition": null,
@@ -260,8 +260,8 @@
     "description": "Equipment/&DLC3_Gallivan_Lore_ThreeCenturyPact_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "573c2afaad82cf147b292575053e593c",
-      "m_SubObjectName": "WarFoundry",
+      "m_AssetGUID": "87be799bd4df67a4a92b0cf05dee5764",
+      "m_SubObjectName": "Book4",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

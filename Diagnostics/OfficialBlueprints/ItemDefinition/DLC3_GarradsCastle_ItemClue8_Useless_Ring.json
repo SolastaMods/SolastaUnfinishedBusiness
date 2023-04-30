@@ -182,13 +182,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_GarradsCastle_Clue8_Useless_Ring:ce72394de4414b84b953836a0e7b5153",
-      "suspect": "Definition:DLC3_GarradSoldier03:f546cdacbdb31df4fa0411fd35cc14d9"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

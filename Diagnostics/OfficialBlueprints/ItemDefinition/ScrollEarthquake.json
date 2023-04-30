@@ -232,8 +232,8 @@
     "description": "Equipment/&ScrollEarthquakeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8ad5fe3c9f53bf646b77c22d8f5b99c7",
-      "m_SubObjectName": "Scroll_PLACEHOLDER",
+      "m_AssetGUID": "fc36a981ac380ca4ab7462e67c8f91e9",
+      "m_SubObjectName": "Scroll_Earthquake",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -78,13 +78,14 @@
     "Definition:MoveModeMove10:998d8b8df7417a940829ff6548ba5ca7",
     "Definition:AbilityCheckAffinityKeenHearing:4e042e049873e27469a28b7c8e9e1d72",
     "Definition:AbilityCheckAffinityKeenSmell:ad58749fe3130524781820bdc7f034df",
-    "Definition:DamageAffinityDiscipleColdImmunity:c069176f70e12d341badecad57fdd3eb",
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
     "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
     "Definition:PowerWinterWolfBreath:9759b82db47c72849bda8cd6c764ff95",
     "Definition:MovementAffinityNoVault:0b6455d36a68ae84f864f99a3b2c3a34",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
-    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980"
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {

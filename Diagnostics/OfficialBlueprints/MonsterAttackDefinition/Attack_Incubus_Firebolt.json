@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 12,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -352,10 +353,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Arrow",
-        "id": 1197258740,
-        "guid": "16D12B07-E820-4410-8D59-3AC4529445B7",
-        "name": "16D12B07-E820-4410-8D59-3AC4529445B7"
+        "objectName": "Spell",
+        "id": 523506649,
+        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
+        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

@@ -104,6 +104,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -480,11 +481,11 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "07ca6728a8030a64c9e01d339dc49d64",
+      "m_AssetGUID": "778e0c68964a67041bc450f114dbb1b6",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "scaleFactorWhileWielded": 1.0,
+    "scaleFactorWhileWielded": 1.2,
     "useArmorAddressableName": false,
     "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",

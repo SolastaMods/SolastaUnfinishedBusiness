@@ -181,13 +181,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_ElvenSettlements_Clue06_Useless_1_Bracelet:e82d2f9f270f85e44a53de8d7626bb04",
-      "suspect": "Definition:DLC3_Elven_Suspect_01_InnOwner:c40348d7a3b622447b0e63cb23f0aad7"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

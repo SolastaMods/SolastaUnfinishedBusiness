@@ -114,7 +114,8 @@
     "Definition:PowerHezrouStench_Small:4e76859ccf2831b4fbc28955880c16a8",
     "Definition:PowerHezrouPoisonBolt:0f4e39d744cb27348b7825aa3ca0d408",
     "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
-    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -161,7 +162,14 @@
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
-    "customMaterials": [],
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "21064f156e8741a4a8d6d7a5fae53417",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -208,14 +216,14 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "d19f37c3880d97e4da1aaffdf7f2bb55",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.55,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "d19f37c3880d97e4da1aaffdf7f2bb55",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

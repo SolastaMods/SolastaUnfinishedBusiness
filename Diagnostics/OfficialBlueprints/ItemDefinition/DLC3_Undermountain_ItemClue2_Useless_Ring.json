@@ -182,13 +182,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clueSuspectPairs": [
-    {
-      "$type": "ClueSuspectPairDescription, Assembly-CSharp",
-      "clue": "Definition:DLC3_Undermountain_Clue2_Useless_Ring:2c42a5d1f8f0b8e4bb1f4d517f74ce44",
-      "suspect": "Definition:DLC3_Undermountain_Investigation_Guard02:d88c8bd05e2e41d478515328063cbf94"
-    }
-  ],
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
