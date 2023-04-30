@@ -1,20 +1,34 @@
 {
-  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
-  "useControllerAbilityChecks": false,
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
   "affinityGroups": [
     {
-      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Constitution",
-      "proficiencyName": "",
-      "affinity": "None",
-      "abilityCheckGroupOperation": "AddDie",
-      "abilityCheckModifierDiceNumber": 4,
-      "abilityCheckModifierDieType": "D1",
-      "abilityCheckContext": "None",
-      "lightingContext": "Irrelevant"
+      "affinity": "Advantage",
+      "savingThrowModifierType": "AddDice",
+      "savingThrowModifierDiceNumber": 0,
+      "savingThrowModifierDieType": "D1",
+      "restrictedForms": [],
+      "restrictedSchools": [
+        "SchoolAbjuration",
+        "SchoolConjuration",
+        "SchoolDivination",
+        "SchoolEnchantment",
+        "SchoolEvocation",
+        "SchoolIllusion",
+        "SchoolNecromancy",
+        "SchoolTransmutation"
+      ],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
     }
   ],
-  "substractBardicDieRoll": false,
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
