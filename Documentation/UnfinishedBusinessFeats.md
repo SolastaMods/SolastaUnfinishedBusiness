@@ -1,8 +1,3 @@
-# Aegis Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
-
 # Aegis Touched [Cha]
 
 Increase your Charisma attribute by 1, to a maximum of 20.
@@ -18,18 +13,9 @@ You gain the ability to cast the shield of faith, protect vs evil & good, and pr
 Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the shield of faith, protect vs evil & good, and protection from poison spells once per long rest and you can cast these spells with your spell slots.
 
-# Alchemist
-
-Initiate Alchemist, Master Alchemist
-
 # Always Ready
 
 You automatically ready a melee or unarmed attack at the end of your turn if you took the attack action and missed any melee or unarmed attack hit.
-
-# Apothecary
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 
 # Apothecary [Cha]
 
@@ -60,18 +46,10 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 
 You gain a +2 bonus to attack rolls with ranged weapons.
 
-# Armor
-
-Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra
-
 # Astral Reach
 
 Increase your Wisdom by 1, to a maximum of 20.
 When you make an unarmed strike on your turn, your reach for it is 10 ft. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.
-
-# Awaken the Beast
-
-Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
 
 # Awaken the Beast [Cha]
 
@@ -101,10 +79,6 @@ Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild 
 
 You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your armor class until the start of your next turn. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
 
-# Blessed Soul
-
-Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
-
 # Blessed Soul [Cleric]
 
 Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
@@ -117,10 +91,6 @@ Your use of divine magic has left a spiritual mark on your soul, allowing you to
 
 You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 
-# Body Resilience
-
-Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough
-
 # Bow Mastery
 
 Your expert training with bows grants you these benefits:
@@ -131,11 +101,6 @@ Your expert training with bows grants you these benefits:
 # Call for Charge
 
 You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
-
-# Celestial Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 
 # Celestial Touched [Cha]
 
@@ -162,69 +127,15 @@ While you are not wearing any armor or shield, your armor class is equal to 10 +
 Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
 
-# Class Bound
-
-Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Expand the Hunt, Hardy, Natural Fluidity, Poison Expert, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity
-
 # Cleaving Attack
 
 You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
 • On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
 • Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 
-# Combat: Agility
-
-Cunning Escape, Dragon Wings, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle 
-
-# Combat: Defense
-
-Always Ready, Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade , Unarmored Expert
-
-# Combat: Melee
-
-Always Ready, Blade Mastery, Cleaving Attack, Crusher, Daunting Push, Defensive Duelist, Distracting Gambit, Elemental Touch, Fell Handed, Longsword Finesse, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack
-
-# Combat: Ranged
-
-Bow Mastery, Deadeye, Discretion of the Coedymwarth, Piercer, Ranged Expert, Steady Aim, Take Aim, Uncanny Accuracy
-
-# Combat: Spell
-
-Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster
-
-# Combat: Support
-
-Call for Charge, Hardy, Healer, Inspiring Leader, Mender
-
-# Combat: Two-Handed
-
-Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword
-
-# Combat: Two-Weapon
-
-Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade 
-
-# Combat: Unarmored
-
-Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert
-
-# Creed of the Gods
-
-Increase one of your attributes by 1, to a maximum of 20.
-Proficiency in saves of chosen attribute, if not already proficient; +1 otherwise.
-
 # Crippling
 
 Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their armor class by 1 for 2 turns.
-
-# Critical Virtuoso
-
-You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.
-
-# Crusher
-
-Increase your Strength or Constitution by 1, to a maximum of 20.
-When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 
 # Crusher [Con]
 
@@ -272,10 +183,6 @@ When you are wielding a melee weapon in one hand and no other weapons, you gain 
 
 You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
 
-# Elemental Adept
-
-When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.
-
 # Elemental Adept [Acid]
 
 Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
@@ -299,10 +206,6 @@ Poison damage type spells you cast ignore target's resistance to damage. In addi
 # Elemental Adept [Thunder]
 
 Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
-
-# Elemental Master
-
-When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore immunity to damage of the chosen type. In addition, when you roll attack for a spell you cast that deals damage of that type, you can reroll any 1s.
 
 # Elemental Master [Acid]
 
@@ -328,14 +231,6 @@ Poison damage type spells you cast ignore target's immunity to damage. In additi
 
 Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
 
-# Elemental Touch
-
-The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.
-
-# Elven Accuracy
-
-You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-
 # Elven Precision [Cha]
 
 You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
@@ -352,10 +247,6 @@ You have uncanny aim with attacks that rely on precision rather than brute force
 
 You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 
-# Enchanter
-
-Initiate Enchanter, Master Enchanter
-
 # Executioner
 
 You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
@@ -363,10 +254,6 @@ You add your proficiency bonus to damage against creatures that are blinded, fri
 # Expand the Hunt
 
 Increase your Wisdom score by 1, to a maximum of 20. You can choose one additional favored enemy, language and terrain type.
-
-# Fade Away
-
-You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
 
 # Fade Away [Dex]
 
@@ -382,12 +269,6 @@ You master the handaxe, battleaxe, greataxe, warhammer and maul. You gain the fo
 • A +1 bonus to attack rolls you make with the weapon.
 • Whenever you have advantage on a melee attack roll and hit, you knock the target prone if the lower of the two d20 rolls would also hit the target.
 • Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier if higher of the two d20 rolls would hit the target.
-
-# Fey Teleportation
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You can use misty step once per short rest, and you can cast this spell with your spell slots.
-You gain proficiency in Tirmarian.
 
 # Fey Teleportation [Cha]
 
@@ -407,15 +288,6 @@ Increase your Wisdom by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
 
-# Fighting Style Adept
-
-Learn a new Fighting Style.
-
-# Flame Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.
-
 # Flame Touched [Cha]
 
 Increase your Charisma attribute by 1, to a maximum of 20.
@@ -431,10 +303,6 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 
-# General Adept
-
-Eldritch Adept, Fighting Style Adept, Infusion Adept, Metamagic Adept, Tactician Adept
-
 # Great Weapon Fighting
 
 When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
@@ -442,10 +310,6 @@ When you roll a 1 or 2 on a damage die for an attack you make with a melee weapo
 # Hand-and-a-Half
 
 You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
-
-# Hardy
-
-Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your class level temporary hit points.
 
 # Hardy [Con]
 
@@ -475,11 +339,6 @@ You have studied the art of infusing magic into mundane objects to create tempor
 
 You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
 
-# Iridescent Touched
-
-IIncrease one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the color spray, faerie fire and color burst spells once per long rest and you can cast these spells with your spell slots.
-
 # Iridescent Touched [Cha]
 
 Increase your Charisma attribute by 1, to a maximum of 20.
@@ -506,10 +365,6 @@ You are descended from a master of the longsword, and some of that mastery has p
 
 While wielding only one melee weapon without the heavy tag, that weapon's range increases to 10 ft.
 
-# Magic Initiate
-
-Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
-
 # Magic Initiate [Bard]
 
 You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
@@ -533,11 +388,6 @@ You learn two cantrips of your choice from the Warlock spell list. In addition, 
 # Magic Initiate [Wizard]
 
 You learn two cantrips of your choice from the Wizard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
-
-# Medium Armor
-
-Increase your Strength or Dexterity by 1, to a maximum of 20.
-You gain proficiency with medium armor and shields.
 
 # Medium Armor [Dex]
 
@@ -569,11 +419,6 @@ You have learned some of the ways of the monk. You gain Ki points equals to your
 
 You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
 
-# Peregrination Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the long strider, expeditious retreat, and spider climb spells once per long rest and you can cast these spells with your spell slots.
-
 # Peregrination Touched [Cha]
 
 Increase your Charisma attribute by 1, to a maximum of 20.
@@ -593,11 +438,6 @@ You gain the ability to cast the long strider, expeditious retreat, and spider c
 
 You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 
-# Piercer
-
-Increase your Strength or Dexterity by 1, to a maximum of 20.
-When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
-
 # Piercer [Dex]
 
 You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
@@ -605,11 +445,6 @@ You have achieved a penetrating precision in combat. Increase your Dexterity by 
 # Piercer [Str]
 
 You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
-
-# Plane Magic
-
-You are touched by some other plane and can cast some spells associated with that plane.
-One of your mental attributes is raised by 1 to a maximum of 20.
 
 # Poison Expert
 
@@ -627,10 +462,6 @@ Any creature that grapples you or otherwise comes into direct contact with your 
 Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
-
-# Potent Spellcaster
-
-You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.
 
 # Potent Spellcaster [Bard]
 
@@ -660,15 +491,6 @@ You can add your spellcaster attribute modifier to the damage you deal with any 
 
 You have learned to trade accuracy to land deadlier blows. When attacking unarmed or with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 
-# Precision Focused
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used proficiency bonus times per long rest.
-
-# Primal Rage
-
-Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
-
 # Primal Rage [Con]
 
 Increase your Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
@@ -685,10 +507,6 @@ When a creature you can see attacks a target other than you that is within one c
 
 Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 
-# Race Bound
-
-Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword, Squat Nimbleness
-
 # Ranged Expert
 
 Your expert training with ranged weapons grants you these benefits:
@@ -698,13 +516,6 @@ Your expert training with ranged weapons grants you these benefits:
 # Reckless Attack
 
 Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
-
-# Revenant Great Sword
-
-You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
-• Increase your Dexterity or Strength score by 1, to a maximum of 20.
-• While you are holding a great sword, you gain a +1 bonus to armor class.
-•Great sword has the finesse property when you wield it.
 
 # Revenant Great Sword [Dex]
 
@@ -740,11 +551,6 @@ You have mastered techniques to take advantage of every drop in any enemy's guar
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
 • You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
 
-# Shadow Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-
 # Shadow Touched [Cha]
 
 Increase your Charisma attribute by 1, to a maximum of 20.
@@ -763,15 +569,6 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 # Shield Expert
 
 You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
-
-# Skills
-
-Arcane Appraiser, Healer, Manipulator, Pickpocket
-
-# Slasher
-
-Increase your Strength or Dexterity by 1, to a maximum of 20.
-When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 
 # Slasher [Dex]
 
@@ -792,10 +589,6 @@ Though the spear is a simple weapon to learn, it rewards you for the time you ha
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 ft for the rest of your turn.
 
-# Spell Sniper
-
-You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
-
 # Spell Sniper [Druid]
 
 You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
@@ -815,10 +608,6 @@ You learn two cantrips of your choice from the Wizard spell list. When you cast 
 # Spiritual Fluidity
 
 You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
-
-# Squat Nimbleness
-
-You are uncommonly nimble for your race. Increase your Strength or Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 ft. You gain proficiency or expertise in the Athletics or Acrobatics skill.
 
 # Squat Nimbleness [Dex]
 
@@ -842,11 +631,6 @@ You have martial training that allows you to perform special combat maneuvers:
 • You learn two maneuvers of your choice from the Tactician subclass. If the maneuver requires a saving throw, the DC is equal to 8 + your proficiency bonus + your Intelligence modifier.
 • You gain 2 superiority die. The type is a d4, and it doesn't increase, if you are not a Tactician. This die is used to fuel your maneuvers. It is expended when you use it, and is regained when you finish a short or long rest.
 
-# Telekinetic
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 ft in a direction of your choosing.
-
 # Telekinetic [Cha]
 
 Increase your Charisma by 1, to a maximum of 20.
@@ -862,10 +646,6 @@ As a bonus action during combat, you can telekinetically move one creature you c
 Increase your Wisdom by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 ft of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 ft in a direction of your choosing.
 
-# Tools
-
-Alchemist, Apothecary, Enchanter, Lock Breaker, Scriber, Toxicologist
-
 # Torchbearer
 
 You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
@@ -873,11 +653,6 @@ You are skilled in the use of a torch in battle. Once per turn, as a bonus actio
 # Tough
 
 Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
-
-# Toxicologist
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 
 # Toxicologist [Cha]
 
@@ -897,16 +672,6 @@ You gain proficiency with poisoner's kit and Medicine, or expertise if already p
 # Two Weapon Fighting
 
 When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
-
-# Unarmored Expert
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.
-
-# Verdant Touched
-
-Increase one of your mental attributes by 1, to a maximum of 20.
-You gain the ability to cast the barkskin, entangle, and goodberry spells once per long rest and you can cast these spells with your spell slots.
 
 # Verdant Touched [Cha]
 

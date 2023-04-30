@@ -11,7 +11,6 @@ using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using UnityModManagerNet;
@@ -163,19 +162,18 @@ internal static class BootContext
             DumpSubclasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpRaces("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpRaces("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
-            DumpOthers<FeatDefinition>("UnfinishedBusinessFeats",
-                x => x.ContentPack == CeContentPackContext.CeContentPack);
+            DumpOthers<FeatDefinition>("UnfinishedBusinessFeats", x => FeatsContext.Feats.Contains(x));
             DumpOthers<FeatDefinition>("SolastaFeats", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<FightingStyleDefinition>("UnfinishedBusinessFightingStyles",
-                x => x.ContentPack == CeContentPackContext.CeContentPack);
+                x => FightingStyleContext.FightingStyles.Contains(x));
             DumpOthers<FightingStyleDefinition>("SolastaFightingStyles",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<InvocationDefinition>("UnfinishedBusinessInvocations",
-                x => x.ContentPack == CeContentPackContext.CeContentPack && x is not InvocationDefinitionCustom);
+                x => InvocationsContext.Invocations.Contains(x));
             DumpOthers<InvocationDefinition>("SolastaInvocations",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<SpellDefinition>("UnfinishedBusinessSpells",
-                x => x.ContentPack == CeContentPackContext.CeContentPack && !x.Name.StartsWith("SpellPower"));
+                x => x.ContentPack == CeContentPackContext.CeContentPack && SpellsContext.Spells.Contains(x));
             DumpOthers<SpellDefinition>("SolastaSpells",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpOthers<ItemDefinition>("UnfinishedBusinessItems",
@@ -187,7 +185,7 @@ internal static class BootContext
                      x is ItemDefinition item &&
                      (item.IsArmor || item.IsWeapon));
             DumpOthers<MetamagicOptionDefinition>("UnfinishedBusinessMetamagic",
-                x => x.ContentPack == CeContentPackContext.CeContentPack);
+                x => MetamagicContext.Metamagic.Contains(x));
             DumpOthers<MetamagicOptionDefinition>("SolastaMetamagic",
                 x => x.ContentPack != CeContentPackContext.CeContentPack);
 
