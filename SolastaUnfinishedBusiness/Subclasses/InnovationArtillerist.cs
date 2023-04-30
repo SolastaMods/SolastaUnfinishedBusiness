@@ -85,7 +85,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder

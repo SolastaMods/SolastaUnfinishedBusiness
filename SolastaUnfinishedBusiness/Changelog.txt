@@ -1,8 +1,9 @@
 Open Mod UI > Tools and click History for full details:
 
 - fixed Druid's arch druid interaction with circle of the night
-- fixed Innovation Armorer's to trigger elemental infusions on gauntlet or launcher
-- fixed Monk's specialized weapon to have the finesse tag
-- fixed Rogue's stroke of luck power usage once per short rest
-- fixed Roguish Raven's Deadly Aim damage dealt on reroll hit
-- fixed Sorcerous Field Manipulator's displacement on MP
+- fixed Innovation Armorer interaction with elemental infusions
+- fixed Innovation Artillerist's force ballista to use range hit
+- fixed Monk's specialized weapon to use dex modifier if better
+- fixed Rogue's stroke of luck usage to be once per short rest
+- fixed Roguish Raven's Deadly Aim damage dealt on reroll hits
+- fixed Sorcerous Field Manipulator's displacement MP desyncs
