@@ -269,7 +269,7 @@ internal static class LevelUpContext
             {
                 case FeatureDefinitionAutoPreparedSpells
                 {
-                    AutoPreparedSpellsGroups: { }
+                    AutoPreparedSpellsGroups: not null
                 } featureDefinitionAutoPreparedSpells:
                     allowedAutoPreparedSpells.AddRange(
                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
@@ -311,13 +311,13 @@ internal static class LevelUpContext
                         featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
                     break;
 
-                case FeatureDefinitionBonusCantrips { BonusCantrips: { } } featureDefinitionBonusCantrips:
+                case FeatureDefinitionBonusCantrips { BonusCantrips: not null } featureDefinitionBonusCantrips:
                     allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
                     break;
 
                 case FeatureDefinitionAutoPreparedSpells
                 {
-                    AutoPreparedSpellsGroups: { }
+                    AutoPreparedSpellsGroups: not null
                 } featureDefinitionAutoPreparedSpells:
                     allowedSpells.AddRange(
                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
