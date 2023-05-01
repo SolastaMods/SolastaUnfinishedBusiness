@@ -1,0 +1,126 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "",
+  "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [
+    "Definition:AdditionalDamageTraditionLightRadiantStrikesShine:f290e5e5e51e58a4982a23e1ef58c0ed"
+  ],
+  "triggerCondition": "TargetHasCondition",
+  "requiredProperty": "None",
+  "attackModeOnly": false,
+  "attackOnly": false,
+  "requiredTargetCondition": "Definition:ConditionLuminousKi:af0a53f2cd83c114fb99aba99c9d129a",
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
+  "damageValueDetermination": "Die",
+  "flatBonus": 0,
+  "damageDieType": "D6",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "Specific",
+  "specificDamageType": "DamageRadiant",
+  "ancestryTypeForDamageType": "Sorcerer",
+  "damageAdvancement": "None",
+  "diceByRankTable": [],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "c403157f4552068439eefad683faff34",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3c4f70ef-3a56-5436-b35a-3228d9e5fdaa",
+  "contentPack": 9999,
+  "name": "AdditionalDamageTraditionLightRadiantStrikesLuminousKiD6"
+}

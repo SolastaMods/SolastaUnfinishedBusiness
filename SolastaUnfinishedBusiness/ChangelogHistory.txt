@@ -2,8 +2,8 @@
 
 1.4.33.82:
 
-- added Martial Spellblade feature at 18th
-- added Way of Freedom feature at 17th
+- added vanilla Fighter subclasses features at 18th
+- added vanilla Monk subclasses features at 17th
 - fixed Patron Moonlit preventing saves from loading
 - fixed Wizard Bladedancer granting con ability check
 
