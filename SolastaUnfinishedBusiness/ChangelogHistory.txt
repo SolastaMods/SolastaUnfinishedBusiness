@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.82:
+
+- added vanilla Fighter subclasses features at 18th
+- added vanilla Monk subclasses features at 17th
+- fixed Patron Moonlit preventing saves from loading
+- fixed Wizard Bladedancer granting con ability check
+
 1.4.33.81:
 
 - fixed Druid's arch druid interaction with circle of the night
