@@ -20,7 +20,6 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -39,7 +38,7 @@ internal static class Level20Context
     internal const int ModMaxLevel = 20;
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
-    internal static readonly int GameMaxLevel = Main.IsDebugBuild ? 16 : 12;
+    internal static readonly int GameMaxLevel = 16;
 
     internal static void Load()
     {
@@ -74,18 +73,18 @@ internal static class Level20Context
         // these are currently the hard-coded levels on below methods
         var methods = new[]
         {
-            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
-            typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
-            typeof(InvocationSubPanel).GetMethod("SetState"), // 12
-            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 12
-            typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12
-            typeof(RulesetEntity).GetMethod("SerializeElements"), // 12
-            typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"), // 12
-            typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit") // 12
+            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding),
+            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
+            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
+            typeof(InvocationSubPanel).GetMethod("SetState"),
+            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
+            typeof(RulesetEntity).GetMethod("SerializeElements"),
+            typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"),
+            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"),
+            typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"),
+            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit")
         };
 
         foreach (var method in methods)
@@ -253,7 +252,6 @@ internal static class Level20Context
             new(powerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
-            // TODO 18: Martial Archetype
             new(AttributeModifierFighterExtraAttack, 20)
         });
     }
@@ -368,7 +366,6 @@ internal static class Level20Context
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Sacred Oath Feature
         );
 
         EnumerateSlotsPerLevel(
