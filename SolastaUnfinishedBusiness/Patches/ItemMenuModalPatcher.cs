@@ -48,7 +48,7 @@ public static class ItemMenuModalPatcher
             GuiEquipmentItem guiEquipmentItem)
         {
             if (guiEquipmentItem.EquipementItem is not RulesetItemDevice rulesetItemDevice ||
-                rulesetItemDevice.UsableFunctions[0] is not { })
+                rulesetItemDevice.UsableFunctions[0] is null)
             {
                 return rulesetCharacterHero.SpellRepertoires;
             }
