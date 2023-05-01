@@ -439,9 +439,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         // Was there already a subclass?
         gainedSubclass = null;
 
-        if (currentHero.ClassesAndSubclasses.ContainsKey(gainedClass))
+        if (currentHero.ClassesAndSubclasses.TryGetValue(gainedClass, out var subclass))
         {
-            gainedSubclass = currentHero.ClassesAndSubclasses[gainedClass];
+            gainedSubclass = subclass;
         }
     }
 
