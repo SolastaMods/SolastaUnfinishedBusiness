@@ -13,6 +13,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoP
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -164,6 +165,43 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         TraditionLight.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPurityOfLife, 17));
+
+        var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
+            .SetGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
+            .AddToDB();
+
+        var conditionTraditionSurvivalPhysicalPerfection = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTraditionSurvivalUnbreakableBody,
+                "ConditionTraditionSurvivalPhysicalPerfection")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
+
+        var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
+            .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
+            .SetOrUpdateGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(PowerTraditionSurvivalUnbreakableBody)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionTraditionSurvivalPhysicalPerfection,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
+            .SetCustomSubFeatures(new ModifyMagicEffectPhysicalPerfection())
+            .AddToDB();
+
+        var featureSetTraditionSurvivalPhysicalPerfection = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTraditionSurvivalPhysicalPerfection")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(damageAffinityTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfection)
+            .AddToDB();
+
+        TraditionSurvival.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(featureSetTraditionSurvivalPhysicalPerfection, 17));
     }
 
     private static void PaladinLoad()
@@ -276,6 +314,41 @@ internal static class Level20SubclassesContext
             var totalHealing = 5 + constitutionModifier;
 
             rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
+        }
+    }
+
+    private sealed class ModifyMagicEffectPhysicalPerfection : IModifyMagicEffectRecurrent
+    {
+        public void ModifyEffect(
+            RulesetCondition rulesetCondition,
+            EffectForm effectForm,
+            RulesetActor rulesetActor)
+        {
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            if (effectForm.FormType != EffectForm.EffectFormType.Healing)
+            {
+                return;
+            }
+
+            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (monkLevel < 17)
+            {
+                return;
+            }
+
+            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
+            {
+                return;
+            }
+
+            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectForm.HealingForm.bonusHealing = pb;
         }
     }
 }
