@@ -67,8 +67,35 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.SummonerIsNextToBeast =>
                 IsConsciousSummonerNextToBeast(GameLocationCharacter.GetFromActor(contextParams.source)),
 
+            ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
+                NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
+
             _ => def
         };
+    }
+
+    private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(
+        RulesetImplementationDefinitions.SituationalContextParams contextParams)
+    {
+        var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
+        var situationalContext = contextParams.situationalContext;
+
+        contextParams.situationalContext = SituationalContext.ConsciousAllyNextToTarget;
+
+        var isValid = rulesetImplementationService.IsSituationalContextValid(contextParams);
+
+        if (isValid)
+        {
+            contextParams.situationalContext = situationalContext;
+
+            return true;
+        }
+
+        contextParams.situationalContext = SituationalContext.NextToWallWithShieldAndMaxMediumArmor;
+        isValid = rulesetImplementationService.IsSituationalContextValid(contextParams);
+        contextParams.situationalContext = situationalContext;
+
+        return isValid;
     }
 
     private static bool IsConsciousSummonerNextToBeast(GameLocationCharacter beast)

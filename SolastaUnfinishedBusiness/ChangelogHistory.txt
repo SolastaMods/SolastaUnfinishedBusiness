@@ -2,7 +2,7 @@
 
 1.4.33.82:
 
-- added Champion, Commander, and Spellblade fighter features at 18th
+- added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th
 - added Freedom, Light, and Survival monk features at 17th
 - fixed Patron Moonlit, and Way of the Silhouette preventing loading
 - fixed Wizard Bladedancer granting con ability check instead of saving

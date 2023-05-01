@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -122,6 +123,18 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerMartialCommanderPeerlessCommander, 18));
+
+        var attributeModifierMartialMountaineerPositionOfStrength = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierMartialMountaineerPositionOfStrength")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+            .SetSituationalContext(
+                ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget)
+            .SetCustomSubFeatures(new CustomCodePositionOfStrength())
+            .AddToDB();
+
+        MartialMountaineer.SetCustomSubFeatures(
+            new FeatureUnlockByLevel(attributeModifierMartialMountaineerPositionOfStrength, 18));
 
         MartialSpellblade.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttackReplaceWithCantripCasterFighting, 18));
     }
@@ -349,6 +362,22 @@ internal static class Level20SubclassesContext
             var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             effectForm.HealingForm.bonusHealing = pb;
+        }
+    }
+
+    private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AttributeModifierMartialMountainerTunnelFighter);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // empty
         }
     }
 }

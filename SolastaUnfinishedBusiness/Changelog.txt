@@ -1,6 +1,6 @@
 Open Mod UI > Tools and click History for full change details:
 
-- added Champion, Commander, and Spellblade Fighter features at 18th
+- added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th
 - added Freedom, Light, and Survival monk features at 17th
 - fixed Patron Moonlit, and Way of the Silhouette preventing loading
 - fixed Wizard Bladedancer granting con ability check instead of saving
