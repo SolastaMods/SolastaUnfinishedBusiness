@@ -233,7 +233,7 @@ internal sealed class OathOfDread : AbstractSubclass
 
             var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
 
-            rulesetAttacker.InflictCondition(
+            rulesetDefender.InflictCondition(
                 CustomConditionsContext.StopMovement.Name,
                 DurationType.Round,
                 1,
