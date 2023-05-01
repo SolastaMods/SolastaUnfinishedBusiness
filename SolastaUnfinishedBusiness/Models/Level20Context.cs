@@ -43,8 +43,6 @@ internal static class Level20Context
 
     internal static void Load()
     {
-        InitExperienceThresholdsTable();
-
         BarbarianLoad();
         BardLoad();
         ClericLoad();
@@ -60,86 +58,10 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
 
-        //
-        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
-        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
-        //
+        Level20SubclassesContext.Load();
 
-        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition);
-
-        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition);
-
-        var racesFeatures = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition);
-
-        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
-        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
-        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
-
-        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
-        {
-            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
-
-            if (spellListDefinition == null)
-            {
-                continue;
-            }
-
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < 10)
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
-
-        foreach (var castSpellDefinition in castSpellDefinitions)
-        {
-            while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownCantrips.Add(0);
-            }
-
-            while (castSpellDefinition.KnownSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ReplacedSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.ReplacedSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.ScribedSpells.Add(0);
-            }
-
-            var spellListDefinition = castSpellDefinition.SpellListDefinition;
-
-            if (spellListDefinition == null)
-            {
-                continue;
-            }
-
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < 10)
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
+        InitExperienceThresholdsTable();
+        InitMagicAffinitiesAndCastSpells();
     }
 
     internal static void LateLoad()
@@ -153,7 +75,6 @@ internal static class Level20Context
         var methods = new[]
         {
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 12
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
@@ -180,15 +101,29 @@ internal static class Level20Context
         }
     }
 
-    private static void InitExperienceThresholdsTable()
+    [NotNull]
+    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
-        var len = ExperienceThresholds.Length;
-        var experience = new int[len + 1];
+        var code = new List<CodeInstruction>(instructions);
 
-        Array.Copy(ExperienceThresholds, experience, len);
-        experience[len] = experience[len - 1];
+        if (!Main.Settings.EnableLevel20)
+        {
+            return code;
+        }
 
-        ExperienceThresholds = experience;
+        var result = code
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel);
+
+        if (result.Count > 0)
+        {
+            result.ForEach(x => x.operand = ModMaxLevel);
+        }
+        else
+        {
+            Main.Error("Level20Transpiler");
+        }
+
+        return code;
     }
 
     private static void BarbarianLoad()
@@ -275,47 +210,6 @@ internal static class Level20Context
             CastSpellCleric.SlotsPerLevels);
 
         SpellListCleric.maxSpellLevel = 9;
-
-        // Divine Intervention
-
-        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionCleric)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionWizard)
-            .AddToDB();
-
-        DomainBattle.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
-        DomainElementalCold.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainElementalFire.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainElementalLighting.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainLaw.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
-        DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainMischief.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainOblivion.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainSun.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
     }
 
     private static void DruidLoad()
@@ -434,7 +328,6 @@ internal static class Level20Context
 
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 17: Monastic Tradition Feature
             new(powerMonkEmptyBody, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(battleStartedListenerMonkPerfectSelf, 20)
@@ -540,7 +433,6 @@ internal static class Level20Context
 
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 17: Roguish Archetype
             new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
         });
     }
@@ -588,7 +480,6 @@ internal static class Level20Context
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(PointPoolSorcererAdditionalMetamagic, 17),
-            // TODO 18: Sorcerous Origin
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerSorcerousRestoration, 20)
         });
@@ -637,6 +528,158 @@ internal static class Level20Context
 
         SpellListWarlock.maxSpellLevel = 9;
     }
+
+    private static void WizardLoad()
+    {
+        var spellMastery = BuildWizardSpellMastery();
+        var signatureSpells = BuildWizardSignatureSpells();
+
+        Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+        {
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(spellMastery, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(signatureSpells, 20)
+        });
+
+        EnumerateSlotsPerLevel(
+            CasterProgression.Full,
+            CastSpellWizard.SlotsPerLevels);
+
+        EnumerateKnownSpells(
+            6,
+            CasterProgression.Full,
+            CastSpellWizard.KnownSpells);
+
+        SpellListWizard.maxSpellLevel = 9;
+    }
+
+    private static void MartialSpellBladeLoad()
+    {
+        EnumerateSlotsPerLevel(
+            CasterProgression.OneThird,
+            CastSpellMartialSpellBlade.SlotsPerLevels);
+
+        EnumerateKnownSpells(
+            3,
+            CasterProgression.OneThird,
+            CastSpellMartialSpellBlade.KnownSpells);
+
+        EnumerateReplacedSpells(
+            4, 1, CastSpellMartialSpellBlade.ReplacedSpells);
+    }
+
+    private static void RoguishShadowcasterLoad()
+    {
+        EnumerateSlotsPerLevel(
+            CasterProgression.OneThird,
+            CastSpellShadowcaster.SlotsPerLevels);
+
+        EnumerateKnownSpells(
+            3,
+            CasterProgression.OneThird,
+            CastSpellShadowcaster.KnownSpells);
+
+        EnumerateReplacedSpells(
+            4, 1, CastSpellShadowcaster.ReplacedSpells);
+    }
+
+    private static void InitExperienceThresholdsTable()
+    {
+        var len = ExperienceThresholds.Length;
+        var experience = new int[len + 1];
+
+        Array.Copy(ExperienceThresholds, experience, len);
+        experience[len] = experience[len - 1];
+
+        ExperienceThresholds = experience;
+    }
+
+    private static void InitMagicAffinitiesAndCastSpells()
+    {
+        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
+        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
+
+        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var racesFeatures = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
+        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
+        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
+
+        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
+        {
+            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+
+        foreach (var castSpellDefinition in castSpellDefinitions)
+        {
+            while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownCantrips.Add(0);
+            }
+
+            while (castSpellDefinition.KnownSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ReplacedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ReplacedSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ScribedSpells.Add(0);
+            }
+
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
+        }
+    }
+
+    //
+    // HELPERS
+    //
 
     private static FeatureDefinition BuildWizardSpellMastery()
     {
@@ -720,87 +763,6 @@ internal static class Level20Context
             .AddToDB();
 
         return invocationPoolWizardSignatureSpells;
-    }
-
-    private static void WizardLoad()
-    {
-        var spellMastery = BuildWizardSpellMastery();
-        var signatureSpells = BuildWizardSignatureSpells();
-
-        Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-        {
-            new(FeatureSetAbilityScoreChoice, 16),
-            new(spellMastery, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
-            new(signatureSpells, 20)
-        });
-
-        EnumerateSlotsPerLevel(
-            CasterProgression.Full,
-            CastSpellWizard.SlotsPerLevels);
-
-        EnumerateKnownSpells(
-            6,
-            CasterProgression.Full,
-            CastSpellWizard.KnownSpells);
-
-        SpellListWizard.maxSpellLevel = 9;
-    }
-
-    private static void MartialSpellBladeLoad()
-    {
-        EnumerateSlotsPerLevel(
-            CasterProgression.OneThird,
-            CastSpellMartialSpellBlade.SlotsPerLevels);
-
-        EnumerateKnownSpells(
-            3,
-            CasterProgression.OneThird,
-            CastSpellMartialSpellBlade.KnownSpells);
-
-        EnumerateReplacedSpells(
-            4, 1, CastSpellMartialSpellBlade.ReplacedSpells);
-    }
-
-    private static void RoguishShadowcasterLoad()
-    {
-        EnumerateSlotsPerLevel(
-            CasterProgression.OneThird,
-            CastSpellShadowcaster.SlotsPerLevels);
-
-        EnumerateKnownSpells(
-            3,
-            CasterProgression.OneThird,
-            CastSpellShadowcaster.KnownSpells);
-
-        EnumerateReplacedSpells(
-            4, 1, CastSpellShadowcaster.ReplacedSpells);
-    }
-
-    [NotNull]
-    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-    {
-        var code = new List<CodeInstruction>(instructions);
-
-        if (!Main.Settings.EnableLevel20)
-        {
-            return code;
-        }
-
-        var result = code
-            .FindAll(x =>
-                x.opcode == OpCodes.Ldc_I4_S && (Convert.ToInt32(x.operand) == 12 || Convert.ToInt32(x.operand) == 16));
-
-        if (result.Count > 0)
-        {
-            result.ForEach(x => x.operand = ModMaxLevel);
-        }
-        else
-        {
-            Main.Error("Level20Transpiler");
-        }
-
-        return code;
     }
 
     private sealed class ActionFinishedArchDruid : IActionFinished
