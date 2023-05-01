@@ -1,0 +1,155 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "SneakAttack",
+  "limitedUsage": "OncePerTurn",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
+  "triggerCondition": "AdvantageOrNearbyAlly",
+  "requiredProperty": "None",
+  "attackModeOnly": false,
+  "attackOnly": false,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
+  "damageValueDetermination": "Die",
+  "flatBonus": 0,
+  "damageDieType": "D6",
+  "damageDiceNumber": 6,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "DamageCold",
+  "ancestryTypeForDamageType": "Sorcerer",
+  "damageAdvancement": "None",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 3
+    }
+  ],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Constitution",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 15,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "HalfDamage",
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RogueSneakAttackTitle",
+    "description": "Feature/&RogueSneakAttackDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "9d66a04ad3bfb7440bde745dd3c55e89",
+  "contentPack": "BaseGame",
+  "name": "AdditionalDamage_DLC3_SneakAttack_Misouk"
+}

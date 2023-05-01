@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBardTraditionVerbalOnslaught:aa174f8ff72bfe241936d4d00820f79a",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerBardTraditionManacalonsPerfection:090813cdac14aea47a1b511af1490b18",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

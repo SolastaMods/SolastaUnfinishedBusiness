@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_Dragonborn",
+  "skinMorphotype": "FaceAndSkin_Dragonborn_04",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 0.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_D",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorSilver",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Dragonborn",
+  "eyeColorMorphotype": "EyeColor_010",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_B",
+  "tailMorphotype": "Tail_A",
+  "armorDefinition": "ClothesCommon_POI",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.30480662,
+    "g": 0.320754677,
+    "b": 0.222410083,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6792453,
+    "g": 0.5961503,
+    "b": 0.118547507,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.05166427,
+    "g": 0.405660361,
+    "b": 0.09827418,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_WhiteCity_Innkeeper_Title",
+    "description": "NPC/&DLC3_NPC_WhiteCity_Innkeeper_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "61489c6e67a8ef647adfb6b1b108c6d0",
+      "m_SubObjectName": "NPC_Presentation_DLC3_NPC_WhiteCity_Innkeeper",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "328e6e5b4a3868746813460abb41627c",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_NPC_WhiteCity_Innkeeper"
+}

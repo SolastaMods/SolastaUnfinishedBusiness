@@ -18,7 +18,7 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D8",
-  "damageDiceNumber": 1,
+  "damageDiceNumber": 2,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageRadiant",
   "ancestryTypeForDamageType": "Sorcerer",
@@ -93,7 +93,7 @@
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
-  "computeDescription": false,
+  "computeDescription": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

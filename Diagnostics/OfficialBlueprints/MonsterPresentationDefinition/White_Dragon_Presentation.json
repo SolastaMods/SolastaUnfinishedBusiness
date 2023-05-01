@@ -12,7 +12,7 @@
   "customMaterials": [
     {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6dd13fcd91f23924e91e7dbbc19d732c",
+      "m_AssetGUID": "57db3f2ee45358c4ea0bc8112cdc4714",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     }

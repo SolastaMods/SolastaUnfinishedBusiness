@@ -3,7 +3,7 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 16,
+  "toHitBonus": 15,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": 5,
@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -125,11 +126,11 @@
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 4,
+          "diceNumber": 2,
           "dieType": "D8",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
-          "bonusDamage": 8,
+          "bonusDamage": 0,
           "damageType": "DamageFire",
           "ancestryType": "Sorcerer",
           "healFromInflictedDamage": "Never",
@@ -217,7 +218,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "14a1aea41a337e241b5d1688785f781d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -341,13 +342,15 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "projectile": "Arrow",
+  "projectile": "Javelin_Ammunition_DLC3_Sessroth",
   "projectileBone": "Prop1",
-  "itemDefinitionMainHand": "Definition:Orc_Javelin:8a01c56f02e23ce469fa13f59f6e94ed",
+  "itemDefinitionMainHand": "Definition:Orc_Javelin_DLC3_Sessroth:395e9782ed065974eb0d61bc56b63573",
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -385,10 +388,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Javelin",
-        "id": 2188934034,
-        "guid": "379426AD-AC3E-477A-BE0C-8188B303C32D",
-        "name": "379426AD-AC3E-477A-BE0C-8188B303C32D"
+        "objectName": "Sessroth_Javelin",
+        "id": 491814414,
+        "guid": "3D5021E4-D758-4379-B11B-8B34F340EB20",
+        "name": "3D5021E4-D758-4379-B11B-8B34F340EB20"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

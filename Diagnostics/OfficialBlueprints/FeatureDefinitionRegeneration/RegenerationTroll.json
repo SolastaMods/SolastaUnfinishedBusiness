@@ -9,6 +9,7 @@
     "DamageAcid",
     "DamageFire"
   ],
+  "isActiveWhenDown": false,
   "particlePrefab": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "f0d2a21e8abd2904e864344466211740",

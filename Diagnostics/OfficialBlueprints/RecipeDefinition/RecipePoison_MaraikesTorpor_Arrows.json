@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Arrow_Poisoned_MaraikesTorpor:4a5456b2cbe5441448b00d7f5435dbb5",
   "stackCount": 5,
-  "craftingHours": 24,
-  "craftingDC": 15,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
   "creatureTags": [],
@@ -35,7 +35,7 @@
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:OrcCombatDecisions:5e478ad7e5464ed4c90395176a4fb1e6",
+  "defaultBattleDecisionPackage": "Definition:DefaultMeleeBeastCombatDecisions:fae777d0212f18d4189c57c8ba45a0e7",
   "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],
@@ -55,7 +55,10 @@
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
     "Definition:ConditionAffinityCalmEmotionCharmedImmunity:7f9cfd9f309debf4988ec184b56b7faf",
     "Definition:ConditionAffinityCalmEmotionFrightenedImmunity:f2c70d3f302356c45bf9859205ff16ce",
-    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005"
+    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -82,7 +85,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -145,8 +148,10 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:M_Polar_Bear:e6dfc6abd472417458dcd79ad8acf6d9"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",

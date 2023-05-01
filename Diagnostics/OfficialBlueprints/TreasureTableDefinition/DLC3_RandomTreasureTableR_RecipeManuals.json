@@ -1,0 +1,693 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 50,
+      "itemDefinition": "Definition:CraftingManual_BasicPoison_Arrows:8f9a0ecb82073974c96f4c74b2ee1317",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 50,
+      "itemDefinition": "Definition:CraftingManual_BasicPoison_Bolts:1a69693e281fe544692fa5ad94267b42",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 50,
+      "itemDefinition": "Definition:CraftingManualBasicPoison:91e80fbd5f8088f4b9ddc13290f4c0cb",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArivadsKiss:d3e8e3009558aa2489cefc8d529057ce",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArivadsKiss_Bolts:61f5a59c6474d144c9ba8b072e34742e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArivadsKissArrows:7c25579debc798e45a2fc46066d5c684",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_BrimstoneFang:e57bc581694f8c144a36fa079939cb5e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_BrimstoneFang_Arrows:fc81d5cc7be07a64bb180c7e5bd8c40c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_BrimstoneFang_Bolts:b482e74fc1765044c87cd16bdee985b6",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DarkStab:efc0af1b30bf8064ebfa8d9641f639f3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DarkStab_Arrows:0eae3f1482130e8499a489829ea67255",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DarkStab_Bolts:2bb702bebfbb0f749a672c14f37b654f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DeepPain:f17d6b41cc9dde04ba777a65d8c242ca",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DeepPain_Arrows:443509c26209db0409a76b3b8de8ec80",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManual_Poison_DeepPain_Bolts:d15dbffe33b67174d9c9ffc08c1c1137",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArunsLight:c6ae8629657ac0a49a7b8dd355d183de",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArunsLight_Arrows:5d340293431dab44cb50ce20606644d9",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_ArunsLight_Bolts:1eae830c0a051d04cb45c7619357e787",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_MaraikesTorpor:da9038b1a882b954cb7120712c8743b0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_MaraikesTorpor_Arrows:4f547ac1cc08ef14ebc3e11c5e540e70",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_MaraikesTorpor_Bolts:f686e37d960510c47a94d423917a806c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheBurden:8dfa15e7274d5724e95ea1e5df52f96b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheBurden_Arrows:3efaaf47fbcbb7640acaf5670f47a10f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheBurden_Bolts:b8a00ed4a2b116f4b9c7f962603a8a0c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheLongNight:f0c69b350d552b64b91c3c9d10409ab1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheLongNight_Bolts:9c234122799a7584a849917e5c7daf87",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_Poison_TheLongNight_Arrows:520b6db6c4088034484fd58e0ae0716a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_TigerFang:a451bd7aab13d81478704d27a26fcb38",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_TigerFang_Arrows:81ee5eb265d0fa04db912ea857ad8a9b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManual_Poison_TigerFang_Bolts:c6580e699ccb20f4185ceea71497c079",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManualPotionOfGreaterHealing:a31ae8afa0d48a5448115c293bdaab25",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:CraftingManualPotionOfGreaterHealing:a31ae8afa0d48a5448115c293bdaab25",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManualPotionOfHealing:31c1b0ec52018ee408dd3afe0029683b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManualPotionOfSuperiorHealing:cd736c02439fb374e8ee323574d0e231",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:CraftingManualRemedy:a4bf9acfadc336147ad3caad1cf1a7cd",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_BattleAxe_of_Acuteness:0acf50bc5c1cb2a438e7652aab5fb38c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_BattleAxe_of_Sharpness:3e04c754ac02bce47a12c55def50a05f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_BattleAxe_Punisher:714c46132d04dc34dbab72421b51af4c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Breastplate_Of_Deflection:9e3a135838e3bf74d8ba25cefae7ddf0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Breastplate_Of_Sturdiness:a3f25f3bd69b69a4bad89014d7cd49e7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_Frostburn:d00ecec4c56e84a40920fc421a97cf3e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_Of_Acuteness:a065c27c5f8fec647ae4157ae3160541",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_Of_Sharpness:34e78abd479d48447b470e7a65d83252",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_Souldrinker:13a5b88ec3e9ef94d9f23464f7a3493f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_EmpressGarb:27a97f91f88a9234c991ff284cde4fe4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Greataxe_Of_Sharpness:211a965407a183c409271e25fe21e18b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Greataxe_Stormblade:c1046d0310169bd4e85f5d6b66aea16d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Greatsword_Doomblade:c321698223bdc254bb5882bf854ebb72",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Greatsword_Lightbringer:9925baa9a729fc44a97357d809f9a86d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Greatsword_Of_Acuteness:b8f3d7622a6d30645b33d04c2f17fb29",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Halfplate_Of_Robustness:f1102500de78b6c419f246ec1ee47eb8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Halfplate_Of_Sturdiness:78d431da62d103a4a994dab4332906ae",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Leather_Armor_Of_FlameDancing:4dc87bbc54aadef4a859ac87e43ac748",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Leather_Armor_Of_Robustness:34b90cd11bab0a644833f50327b9f1fe",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Leather_Armor_Of_Sturdiness:89ac517ce51867c4a9c0d56ae1a03b53",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Leather_Armor_Of_Survival:3eb97cea06d15a34f95e10a96ecf1e8c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longbow_Lightbringer:ae66bbfd024f020479d1ec09eadf69ea",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longbow_Of_Accuracy:898fc69c93107a240ae44c06eff5f9dd",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longbow_Stormbow:97a7552ad186c26428fb16b20f98588c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longsword_Dragonblade:4008db3597998724ba3edd8e184a50ab",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longsword_Frostburn:92be8edd0c7c3414cac196c0da0e7436",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longsword_Stormblade:afa8e0bb0db746a4a8c9e40587325b91",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longsword_Warden:0e43455e6461f104da9e9f1359e68f92",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Longsword_of_Acuteness:f1c3cb748e7a9b047adcba3dc99712a2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Mace_Of_Acuteness:0f697e17ea322e74cbb342e227c48b0f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Mace_Of_Smashing:92767c44f56d8b942bc056b61b1d9ba5",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Morningstar_Bearclaw:0d03547bab1db8d419962e04643c8a11",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Morningstar_Of_Power:796051a825daf69419e42006af27c391",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Plate_Of_Robustness:91e246732a232e149a66d1303ad2ad52",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Plate_Of_Sturdiness:a0cedf0ba966b024f8f4472548659f34",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Rapier_BlackAdder:44e86195d5bf9984c9be341edb9faadc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Rapier_Doomblade:d2464972d63c4b94ca327c8d9b098227",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Rapier_of_Acuteness:80b6a14056a6f2146961491dd9869ea9",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Scale_Of_IceDancing:427edf1b83ef6444c9893c853561aa1e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Scale_Of_Sturdiness:a14f84e634e8c0f4ba39934227f42e4a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Scimitar_of_Acuteness:3e95d4db31b9116418cf12e813a488fe",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortbow_Medusa:ff347c322f647714a813f57f0208b567",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortbow_Of_Accuracy:cf26cc74eddb5ee478bb7927bc7227f0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortbow_Of_Sharpshooting:5d55f7b9dbd4294419d977237aeaaa88",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortsword_Lightbringer:4c11c4f01fe361e4ba44e7a82dbe0814",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortsword_Of_Acuteness:d41dfdd7e51196a418d401325f339682",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortsword_Of_Sharpness:b974dfa15e3867d4db9a25bfc30740f9",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Shortsword_Whiteburn:c00937edd04c7bd42a6c1357ef2638f0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfWallOfFire:e626340d1a32a1749afba427916b3fcf",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfStoneSkin:deb48a7a30d5b994ab11ccbd1bfd3e58",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfIceStorm:8d68fcf9239552e4eba69033525bbebe",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfGreaterInvisibility:7828806f4efd622408268ce363daaf13",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfConjureMinorElemental:57002b63c0a71e648870f8b6df0ef295",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfBlight:7a4d813a050439448ad3fbc23b4613fa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfBlackTentacles:7c0cf232968ff244bbd659ed82146555",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfFireball:fa525c2457de85447a0185884db14bfc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfRevivify:a5fb0f8bed567ff4183f5b26b4c43b4c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfTongues:43e4993a79354a848a6b9139ba05b3b1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfCounterSpell:5fc756b96a029ea418829b728350cda3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfFear:65026b171aa6c0c4499a0f326eab0153",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManualScrollOfHypnoticPattern:b9adc28da29a4054e82bdfcadbd0880f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Arrow_Alchemy_Corrosive:e95eb550001865d48af02485df97237d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Arrow_Alchemy_Flaming:9e6e74a5615a0ee4c87faba61e8002dd",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Arrow_Alchemy_Flash:c769e3a280bc9394683cc42acfb5969b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Bolt_Alchemy_Corrosive:e8c098a009ec5d846b56f72bf3296b26",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Bolt_Alchemy_Flaming:9f92f7d9a5880bc41922322e498f96fd",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 30,
+      "itemDefinition": "Definition:Bolt_Alchemy_Flash:e7b4d298edc34fd46a4209a5ac3e53fc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_RapierOfHarmony:273a8678b734bde479f70c377a6680d2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_EldritchWounds:081970c911c936445bee945da1b2579e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_GauntletOfAcuteness:399e4a1116d2d74409a87ddaecf27e25",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_GauntletOfSharpness:24f0ef2e6a7ffa74090b0859585c107f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_WandOfWarMage+1:e960fcffb655ff941b3a5a71cb83f93b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_WandOfWarMage+2:909e72b02909c6e4597af137312a96d2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Enchant_ScimitarOfSpeed:e560b3dc6cd4d7a488cc04e8600d261e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:CraftingManual_DLC2.5_Item_RestorativeOintment:2e685b93a8e898040a2939e061c640b1",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "26e4726cc77796541b46ee2155bd59cd",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableR_RecipeManuals"
+}

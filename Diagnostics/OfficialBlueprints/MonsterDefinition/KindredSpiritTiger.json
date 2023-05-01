@@ -3,17 +3,19 @@
   "dungeonMakerPresence": "None",
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
-  "creatureTags": [],
+  "creatureTags": [
+    "KindredSpirit"
+  ],
   "defaultFaction": "Party",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "alignment": "Neutral",
-  "armorClass": 11,
+  "armorClass": 8,
   "armor": "",
   "hitDice": 2,
   "hitDiceType": "D8",
   "hitPointsBonus": 2,
-  "standardHitPoints": 9,
+  "standardHitPoints": 10,
   "abilityScores": [
     15,
     12,
@@ -147,18 +149,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "7caaeda951610464e9007ab91633de89",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.655,
+    "maleModelScale": 0.5,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "7caaeda951610464e9007ab91633de89",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.655,
+    "femaleModelScale": 0.5,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": true,

@@ -1,0 +1,58 @@
+{
+  "$type": "CampaignMapDefinition, Assembly-CSharp",
+  "largeBackgroundImage": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "3411751e3b158d74eb5fa369588e4a95",
+    "m_SubObjectName": "CampaignMapsDM_COTM_Large",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4b1b3e7f02497854e96e48bc7e9adcf9",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "graphicsCampaignMapReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b2b6b821326295e4db1b55bc0da0d011",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "graphicsCampaignMapBounds": {
+    "$type": "UnityEngine.Bounds, UnityEngine.CoreModule"
+  },
+  "decalTextureReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "b45a0d7d3a28bf94fb3e7a93c6099ddd",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Campaign/&CrownOfTheMagisterTitle",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e2428253e454e3446965cfd6a2381563",
+      "m_SubObjectName": "CampaignMapsDM_COTM_Small",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f834b90f5128c32439f2e18b8a315475",
+  "contentPack": "BaseGame",
+  "name": "CrownOfTheMagisterDM"
+}

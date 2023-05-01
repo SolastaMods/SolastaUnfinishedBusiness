@@ -10,8 +10,9 @@
     "Definition:MovementAffinity_PalaceOfIce_LairEffect:7977a531adc3fdd418bbe847664072b8"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -288,6 +289,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "99717f894d469d546b1df65151233d88",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "ConditionPalaceOfIce_LairEffect"
 }

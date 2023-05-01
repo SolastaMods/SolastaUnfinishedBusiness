@@ -13,7 +13,7 @@
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": false,
+  "requiresConcentration": true,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -61,6 +61,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,

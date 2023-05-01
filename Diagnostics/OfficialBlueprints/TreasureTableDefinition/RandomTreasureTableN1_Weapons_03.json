@@ -1,0 +1,129 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:Dagger+3:6c8a7ded423f5a34a82e57e2a43a7f88",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:Shortsword+3:310087fc1b795ad43b9fb8d2320aadf8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:Mace+3:716e896ca87d59548966ee94178c9070",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:Rapier+3:7cf17864a6600034b9857a730e070ffc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:Shortbow+3:4f7e72cbe1a0c1040afc82b501d4e4bf",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:Longsword+3:43254114e287a77479ca6f5b016b2c3e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:LightCrossbow+3:10acf151957ba814da92ae806ae1d114",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:HeavyCrossbow+3:28f47bab760aa144298b35594459bb09",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Warhammer+3:fab67395c8fc04342b8eadf1dd65df27",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Longbow+3:99a863e4621096944b87c4adfa019306",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Battleaxe+3:28e55cbdec21cf847a4168985000401a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Greataxe+3:5f524da241f79e64cbcc5acc2dffb129",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Morningstar+3:6007bd74f3d034d4097997e74689acf3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Quarterstaff+3:10a837fba2b22cc469c02b9ca1e2806c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Spear+3:ea0bfba3ca5a8e54b882fe7a1f4dddc2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Maul+3:4088bdfb940b60f4a93702a013237f37",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TreasureTable/&Wondrous_ItemsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4a277d2984158f64e9e1d2858183f4bf",
+  "contentPack": "BaseGame",
+  "name": "RandomTreasureTableN1_Weapons_03"
+}

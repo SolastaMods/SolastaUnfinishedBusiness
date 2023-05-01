@@ -47,7 +47,7 @@
     },
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "WoodLand",
+      "environment": "Town",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "74c1a6c81da0549429203a376d9d7322",

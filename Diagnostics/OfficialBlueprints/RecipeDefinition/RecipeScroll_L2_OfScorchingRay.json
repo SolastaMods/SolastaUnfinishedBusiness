@@ -1,8 +1,9 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScrollScorchingRay:654b42178137da54a8d1a4b18406dd4f",
   "stackCount": 1,
-  "craftingHours": 16,
+  "craftingHours": 3,
   "craftingDC": 14,
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [

@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    600,
+    5000,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
@@ -192,6 +192,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -200,8 +201,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -227,6 +227,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "3fd19abbd4f2d1d42a0090219d3ab22d",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "CloakOfTheDandy"
 }

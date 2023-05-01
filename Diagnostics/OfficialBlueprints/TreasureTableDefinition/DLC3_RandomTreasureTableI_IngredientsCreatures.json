@@ -1,0 +1,159 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_Badlands_Ape_Pelt:b62aebbc0094753489c9dfb54b43d89f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BadlandsBear_Meat:351b189bee3dd4b44bc38a12bd09c0bf",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BadlandsBear_Pelt:df0116b530a7fbe4e8e3decb5217e2bf",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BadlandsDryadBark:0cc0947ba966aec469142dbeade6c78f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_BadlandsSpiderVenomGland:8fc51d73ff06c6f4baec8ee9a1c4acb7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BrimstoneViperPoisonGland:e8a3fe9dafdb018488a800baac4304f7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BrimstoneViperScales:9c0c994974528ee4c8a0c3d55ebb26fb",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_BrownBear_Pelt:dbb8ae86d0956db4ca14307e3fc39c06",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_Bulette_Teeth:fb61e9237f5768d41825f7485ce400dc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_CrimsonSpiderVenomGland:afa4c79a504102f4580a5a64eceb4b32",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_DeepSpiderVenomGland:714d148bc6e7d9342a373164062b9649",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_DireWolf_Pelt:b11fb659733a86d4389b6fab47e5c90f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Ingredient_Giant_Ape_Pelt:83fafd91bac449541991e1007a139ad5",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_GiantBeetleElytron:8a0bfadddf8efa34bbc4cc89008ac922",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_PolarBear_Pelt:bbf55d6e32d450c4b981094f9993e936",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Ingredient_SpiderQueenVenomGland:7e42c28bc4d8f7244b3e39934cdcded3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_Projectile_Parts:1d2354616922cfd4484960a2ab0affc1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_TigerDrake_Fang:d3b5eb0276e961f468e3c82e7f05a88e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_TigerDrakeScales:49fd70fbcc08ffe4eb11cfbb9f082b2e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_TrollsTongue:7b8b0c2236b27b64b90ca1239713f6f6",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_WinterWolf_Pelt:eed26070415bb6741b59372bd43d85f7",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fdd2b91ca338fee4aa7e8757568db33a",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableI_IngredientsCreatures"
+}

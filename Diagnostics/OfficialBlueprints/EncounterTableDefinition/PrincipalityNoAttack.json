@@ -1,5 +1,6 @@
 {
   "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "encounterOccurences": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -3,11 +3,14 @@
   "hasParentCategory": false,
   "toolCategory": "ArtisanToolCategory",
   "mainAbilityScore": "Intelligence",
+  "personalityFlag": true,
+  "personalityAdditiveBase": 10,
   "requiredProficiencyOptions": [
     "PoisonersKitType",
     "Medecine",
     "Nature"
   ],
+  "hideWhenNoTool": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

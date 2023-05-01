@@ -10,8 +10,8 @@
     "description": "CharacterInteraction/&SuspectInterrogation",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "18dd20901b45b844cbe300cb4362d136",
-      "m_SubObjectName": "Suspect",
+      "m_AssetGUID": "9025671c6f599f147ab188bec2748ae8",
+      "m_SubObjectName": "Merchant_Speak",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

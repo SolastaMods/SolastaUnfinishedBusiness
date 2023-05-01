@@ -196,13 +196,13 @@
                 },
                 "stringParameter": "",
                 "floatParameter": 40.0,
-                "intParameter": 2,
+                "intParameter": 6,
                 "byteParameter": 0,
                 "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "FavorLongRangeEnemyProximityAtPosition"
+              "name": "FavorLongRangeEnemyGroupProximityAtPosition"
             },
             "weight": 1.0
           },

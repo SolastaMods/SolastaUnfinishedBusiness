@@ -1470,7 +1470,7 @@ public static class RulesetCharacterPatcher
     }
 
     //PATCH: allow FeatureDefinitionRegeneration to be validated with IsCharacterValidHandler
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindBestRegenerationFeature))]
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeActiveRegenerationFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FindBestRegenerationFeature_Patch

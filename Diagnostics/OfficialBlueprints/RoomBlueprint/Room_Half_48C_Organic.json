@@ -142,7 +142,7 @@
     2,
     6,
     6,
-    2,
+    10,
     6,
     6,
     6,
@@ -169,8 +169,8 @@
     1,
     1,
     1,
-    2,
-    2,
+    10,
+    10,
     6,
     1,
     1,
@@ -976,7 +976,7 @@
     1,
     1,
     6,
-    2,
+    10,
     1,
     1,
     1,
@@ -1025,7 +1025,7 @@
     1,
     6,
     6,
-    2,
+    10,
     1,
     1,
     1,
@@ -1070,10 +1070,10 @@
     1,
     1,
     1,
-    2,
+    10,
     6,
     6,
-    2,
+    10,
     1,
     1,
     1,
@@ -5801,6 +5801,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "8b66b5845041d824a97e55e1dacfe5a6",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "66c8590905b830147818b9b5d5c18a58",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }
