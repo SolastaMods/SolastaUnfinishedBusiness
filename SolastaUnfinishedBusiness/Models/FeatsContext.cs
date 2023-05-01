@@ -71,21 +71,13 @@ internal static class FeatsContext
 
     private static void LoadFeat([NotNull] FeatDefinition featDefinition)
     {
-        if (!Feats.Contains(featDefinition))
-        {
-            Feats.Add(featDefinition);
-        }
-
+        Feats.Add(featDefinition);
         UpdateFeatsVisibility(featDefinition);
     }
 
     private static void LoadFeatGroup([NotNull] FeatDefinition featDefinition)
     {
-        if (!FeatGroups.Contains(featDefinition))
-        {
-            FeatGroups.Add(featDefinition);
-        }
-
+        FeatGroups.Add(featDefinition);
         UpdateFeatGroupsVisibility(featDefinition);
     }
 
@@ -256,6 +248,7 @@ internal static class FeatsContext
             }
 
             rect = table.GetComponent<RectTransform>();
+            // ReSharper disable once PossibleLossOfFraction
             rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ((j / Columns) + 1) * (Height + Spacing));
         }
 
