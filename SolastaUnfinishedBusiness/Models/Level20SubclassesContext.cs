@@ -4,6 +4,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -65,10 +67,13 @@ internal static class Level20SubclassesContext
 
     private static void FighterLoad()
     {
+        MartialSpellblade.FeatureUnlocks.Add(
+            new FeatureUnlockByLevel(AttackReplaceWithCantripCasterFighting, 18));
     }
 
     private static void MonkLoad()
     {
+        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierMonkExtraAttack, 17));
     }
 
     private static void PaladinLoad()
