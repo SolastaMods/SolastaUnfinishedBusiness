@@ -14,7 +14,7 @@ internal static partial class ReflectionCache
 
     private static void EnqueueCache(object obj)
     {
-        while (Cache.Count is >= SizeLimit and > 0)
+        while (Cache.Count >= SizeLimit)
         {
             Cache.Dequeue();
         }
