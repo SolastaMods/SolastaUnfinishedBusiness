@@ -72,7 +72,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de históric
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
-ModUi/&EnableBarbarianFightingStyle=Habilite a escolha <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2 <i><color=#F0DAA0>[Combate Cego, Aleijado, Carrasco, Grande Arma, Impiedoso, Pugilista, Dois Luta com Arma, Sentinela, Rope it up]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Habilite a escolha <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela principal > Personagens

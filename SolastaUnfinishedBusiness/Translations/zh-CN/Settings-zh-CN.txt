@@ -72,7 +72,7 @@ ModUi/&EnableAdditionalBackstoryDisplay=在背景检查中启用额外的背景�
 ModUi/&EnableAdditionalIconsOnLevelMap=在关卡地图上为营地、出口和传送器启用额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+向地城编辑器添加新物品</i>
 ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属性选择/+1技能]</color></i>
-ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b><i><color=#F0DAA0>[盲斗、致残、刽子手、伟大的武器、无情、拳击手、双武器战斗，哨兵，绳索戏法]</color></i>
+ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=单击鼠标右键启用取消操作
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
