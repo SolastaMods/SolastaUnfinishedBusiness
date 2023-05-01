@@ -1,5 +1,6 @@
 Open Mod UI > Tools and click History for full change details:
 
-- RESPEC is required for any hero or save with the Fairy race
-- fixed Sorcerous Field Manipulator's displacement MP desyncs
-- other minor non breaking classes and subclasses fixes
+- added Martial Spellblade feature at 18th
+- added Way of Freedom feature at 17th
+- fixed Patron Moonlit preventing saves from loading
+- fixed Wizard Bladedancer granting con ability check
