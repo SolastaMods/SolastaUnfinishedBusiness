@@ -1,2 +1,4 @@
+ActionTraditionOpenHandQuiveringPalm	Title='Feat/&FeatureSetTraditionOpenHandQuiveringPalmTitle'.
+ActionTraditionOpenHandQuiveringPalm	Description='Feat/&FeatureSetTraditionOpenHandQuiveringPalmDescription'.
 WildShapeWaterElemental	Title='Monster/&IceElemental_Title'.
 WildShapeWaterElemental	Description='Monster/&IceElemental_Description'.

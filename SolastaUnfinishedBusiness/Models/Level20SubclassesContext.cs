@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -89,6 +90,7 @@ internal static class Level20SubclassesContext
         var conditionPeerlessCommander = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRousingShout, "ConditionMartialCommanderPeerlessCommander")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetPossessive()
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
@@ -109,19 +111,24 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         var powerMartialCommanderPeerlessCommander = FeatureDefinitionPowerBuilder
-            .Create(PowerMartialCommanderRousingShout, "PowerMartialCommanderPeerlessCommander")
+            .Create(PowerMartialCommanderInvigoratingShout, "PowerMartialCommanderPeerlessCommander")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(PowerMartialCommanderRousingShout)
+                    .Create(PowerMartialCommanderInvigoratingShout)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionPeerlessCommander,
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionPeerlessCommander, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                            .SetTempHpForm(0, DieType.D8)
                             .Build())
                     .Build())
-            .SetOverriddenPower(PowerMartialCommanderRousingShout)
+            .SetOverriddenPower(PowerMartialCommanderInvigoratingShout)
             .AddToDB();
 
         MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerMartialCommanderPeerlessCommander, 18));
@@ -143,7 +150,13 @@ internal static class Level20SubclassesContext
 
     private static void MonkLoad()
     {
-        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttributeModifierMonkExtraAttack, 17));
+        var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierTraditionLightPurityOfLight")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
+            .AddToDB();
+
+        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionLightPurityOfLight, 17));
 
         var powerTraditionLightPurityOfLight = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionLightLuminousKi, "PowerTraditionLightPurityOfLight")
@@ -154,12 +167,14 @@ internal static class Level20SubclassesContext
         var additionalDamageTraditionLightRadiantStrikesLuminousKiD6 = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageTraditionLightRadiantStrikesLuminousKi,
                 "AdditionalDamageTraditionLightRadiantStrikesLuminousKiD6")
+            .SetNotificationTag("RadiantStrikes")
             .SetDamageDice(DieType.D6, 1)
             .AddToDB();
 
         var additionalDamageTraditionLightRadiantStrikesShineD6 = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageTraditionLightRadiantStrikesShine,
                 "AdditionalDamageTraditionLightRadiantStrikesShineD6")
+            .SetNotificationTag("RadiantStrikes")
             .SetDamageDice(DieType.D6, 1)
             .AddToDB();
 
@@ -393,8 +408,7 @@ internal static class Level20SubclassesContext
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
                 featureDefinitions.RemoveAll(x =>
-                    x == AdditionalDamageTraditionLightRadiantStrikesLuminousKi ||
-                    x == AdditionalDamageTraditionLightRadiantStrikesShine);
+                    x == FeatureDefinitionFeatureSets.FeatureSetTraditionLightRadiantStrikes);
             }
         }
 
@@ -474,6 +488,8 @@ internal static class Level20SubclassesContext
             var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
             var totalHealing = 5 + constitutionModifier;
 
+            EffectHelpers.StartVisualEffect(
+                locationCharacter, locationCharacter, Heal, EffectHelpers.EffectType.Effect);
             rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
         }
     }
@@ -513,7 +529,7 @@ internal static class Level20SubclassesContext
 
             var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            effectForm.HealingForm.bonusHealing = pb;
+            effectForm.HealingForm.bonusHealing += pb;
         }
     }
 
