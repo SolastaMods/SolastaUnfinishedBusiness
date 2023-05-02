@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -97,7 +98,7 @@ internal static class Level20SubclassesContext
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
                     .SetGuiPresentation("ConditionMartialCommanderPeerlessCommander", Category.Condition)
-                    .SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity.Advantage, true,
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution,
@@ -146,20 +147,20 @@ internal static class Level20SubclassesContext
 
         var powerTraditionLightPurityOfLight = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionLightLuminousKi, "PowerTraditionLightPurityOfLight")
-            .SetUsesFixed(RuleDefinitions.ActivationTime.OnAttackHitAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetOverriddenPower(PowerTraditionLightLuminousKi)
             .AddToDB();
 
         var additionalDamageTraditionLightRadiantStrikesLuminousKiD6 = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageTraditionLightRadiantStrikesLuminousKi,
                 "AdditionalDamageTraditionLightRadiantStrikesLuminousKiD6")
-            .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+            .SetDamageDice(DieType.D6, 1)
             .AddToDB();
 
         var additionalDamageTraditionLightRadiantStrikesShineD6 = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageTraditionLightRadiantStrikesShine,
                 "AdditionalDamageTraditionLightRadiantStrikesShineD6")
-            .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+            .SetDamageDice(DieType.D6, 1)
             .AddToDB();
 
         var featureTraditionLightPurityOfLife = FeatureDefinitionBuilder
@@ -263,6 +264,60 @@ internal static class Level20SubclassesContext
 
         RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
 
+        var conditionRoguishShadowcasterShadowForm = ConditionDefinitionBuilder
+            .Create("ConditionRoguishShadowcasterShadowForm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+            .SetPossessive()
+            .CopyParticleReferences(ConditionDefinitions.ConditionInvisibleGreater)
+            .AddFeatures(
+                FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement,
+                FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
+                DamageAffinityAcidResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityThunderResistance,
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceBludgeoning")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageType(DamageTypeBludgeoning)
+                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                    .AddToDB(),
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistancePiercing")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageType(DamageTypePiercing)
+                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                    .AddToDB(),
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create("DamageAffinityRoguishShadowcasterShadowFormResistanceSlashing")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDamageType(DamageTypeSlashing)
+                    .SetDamageAffinityType(DamageAffinityType.Resistance)
+                    .AddToDB())
+            .AddToDB();
+
+        var powerRoguishShadowcasterShadowForm = FeatureDefinitionPowerBuilder
+            .Create("PowerRoguishShadowcasterShadowForm")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionRoguishShadowcasterShadowForm, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        RoguishShadowCaster.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerRoguishShadowcasterShadowForm, 17));
+
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
             .SetGuiPresentation(Category.Feature)
@@ -303,10 +358,10 @@ internal static class Level20SubclassesContext
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackerAttackMode,
-            RuleDefinitions.RollOutcome attackRollOutcome,
+            RollOutcome attackRollOutcome,
             int damageAmount)
         {
-            if (attackRollOutcome is RuleDefinitions.RollOutcome.Failure or RuleDefinitions.RollOutcome.CriticalFailure)
+            if (attackRollOutcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 yield break;
             }
@@ -437,21 +492,6 @@ internal static class Level20SubclassesContext
 
     private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
     {
-        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
-        {
-            var initiative = locationCharacter.LastInitiative - 10;
-            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
-            var positionCharacter = initiativeSortedContenders.First(x => x.LastInitiative < initiative);
-            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
-
-            if (positionCharacterIndex >= 0)
-            {
-                initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
-            }
-
-            yield break;
-        }
-
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var battle = Gui.Battle;
@@ -467,6 +507,21 @@ internal static class Level20SubclassesContext
             {
                 battle.InitiativeSortedContenders.RemoveAt(index);
             }
+        }
+
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        {
+            var initiative = locationCharacter.LastInitiative - 10;
+            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
+            var positionCharacter = initiativeSortedContenders.First(x => x.LastInitiative < initiative);
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+
+            if (positionCharacterIndex >= 0)
+            {
+                initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+            }
+
+            yield break;
         }
     }
 

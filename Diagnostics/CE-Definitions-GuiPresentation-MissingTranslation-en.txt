@@ -1,6 +1,2 @@
-ConditionRoguishDarkweaverDarkAssault	Title='Condition/&ConditionRoguishDarkweaverDarkAssaultTitle'.
-ConditionRoguishDarkweaverDarkAssault	Description='Condition/&ConditionRoguishDarkweaverDarkAssaultDescription'.
-FeatureRoguishDarkweaverDarkAssault	Title='Feature/&FeatureRoguishDarkweaverDarkAssaultTitle'.
-FeatureRoguishDarkweaverDarkAssault	Description='Feature/&FeatureRoguishDarkweaverDarkAssaultDescription'.
 WildShapeWaterElemental	Title='Monster/&IceElemental_Title'.
 WildShapeWaterElemental	Description='Monster/&IceElemental_Description'.
