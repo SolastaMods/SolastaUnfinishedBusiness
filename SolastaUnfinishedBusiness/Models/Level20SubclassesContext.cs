@@ -457,6 +457,7 @@ internal static class Level20SubclassesContext
 
             foreach (var ally in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
+                                     x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                                      gameLocationBattleService.IsWithinXCells(attacker, x, 2)))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
