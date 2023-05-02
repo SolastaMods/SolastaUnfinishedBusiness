@@ -1,5 +1,10 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Armor",
+  "proficiencies": [
+    "ShieldCategory"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
