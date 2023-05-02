@@ -181,6 +181,57 @@ internal static class Level20SubclassesContext
 
         TraditionLight.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPurityOfLife, 17));
 
+        var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
+            .Create("ConditionTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .AddToDB();
+
+        var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
+            .Create("PowerTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Day)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionTraditionOpenHandQuiveringPalm,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create("ActionTraditionOpenHandQuiveringPalm")
+            .SetOrUpdateGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feat)
+            .SetActionId(ExtraActionId.QuiveringPalm)
+            .SetActionType(ActionDefinitions.ActionType.NoCost)
+            .SetActionScope(ActionDefinitions.ActionScope.Battle)
+            .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
+            .RequiresAuthorization()
+            .AddToDB();
+
+        var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalm)
+            .AddToDB();
+
+        var featureSetTraditionOpenHandQuiveringPalm = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerTraditionOpenHandQuiveringPalm, actionAffinityTraditionOpenHandQuiveringPalm)
+            .AddToDB();
+
+        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 17));
+
         var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)

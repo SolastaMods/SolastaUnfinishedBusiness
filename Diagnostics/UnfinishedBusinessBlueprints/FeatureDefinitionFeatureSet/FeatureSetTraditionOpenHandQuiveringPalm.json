@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerTraditionOpenHandQuiveringPalm:9b1f88b1-bace-5a9a-ba01-4c833533f515",
+    "Definition:ActionAffinityTraditionOpenHandQuiveringPalm:8960d481-00d8-56c4-8a46-89da6fc7f5ba"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmTitle",
+    "description": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a9ec5960-aa15-581d-bf38-1a2b1d2d0fe5",
+  "contentPack": 9999,
+  "name": "FeatureSetTraditionOpenHandQuiveringPalm"
+}
