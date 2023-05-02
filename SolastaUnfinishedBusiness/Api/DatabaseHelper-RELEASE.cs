@@ -91,6 +91,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
+        internal static CharacterSubclassDefinition RoguishThief { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishThief");
         internal static CharacterSubclassDefinition SorcerousChildRift { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousChildRift");
         internal static CharacterSubclassDefinition SorcerousDraconicBloodline { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousDraconicBloodline");
         internal static CharacterSubclassDefinition SorcerousHauntedSoul { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousHauntedSoul");
@@ -166,6 +167,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionLevitate { get; } = GetDefinition<ConditionDefinition>("ConditionLevitate");
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
         internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
+        internal static ConditionDefinition ConditionLuminousKi { get; } = GetDefinition<ConditionDefinition>("ConditionLuminousKi");
         internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionMarkedByHunter { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");

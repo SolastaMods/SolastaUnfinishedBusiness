@@ -74,14 +74,15 @@ public static class GameLocationBattlePatcher
                 yield return values.Current;
             }
 
-            foreach (var listener in __instance.InitiativeSortedContenders
+            foreach (var (character, features) in __instance.InitiativeSortedContenders
                          .ToList()
-                         .Select(gameLocationCharacter => gameLocationCharacter.RulesetCharacter)
-                         .Select(character => character
-                             .GetSubFeaturesByType<ICharacterInitiativeEndListener>())
-                         .SelectMany(listeners => listeners))
+                         .Select(character =>
+                             (character, character.RulesetCharacter.GetSubFeaturesByType<IInitiativeEndListener>())))
             {
-                yield return listener.OnInitiativeEnd(__instance);
+                foreach (var feature in features)
+                {
+                    yield return feature.OnInitiativeEnded(character);
+                }
             }
         }
     }

@@ -79,7 +79,7 @@ internal static class Level20SubclassesContext
         var featureMartialChampionSurvivor = FeatureDefinitionBuilder
             .Create("FeatureMartialChampionSurvivor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CharacterTurnStartListenerMartialChampionSurvivor())
+            .SetCustomSubFeatures(new CharacterTurnStartListenerSurvivor())
             .AddToDB();
 
         MartialChampion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureMartialChampionSurvivor, 18));
@@ -234,6 +234,13 @@ internal static class Level20SubclassesContext
 
     private static void RogueLoad()
     {
+        var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
+            .Create("FeatureRoguishThiefThiefReflexes")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new InitiativeEndListenerThiefReflexes())
+            .AddToDB();
+
+        RoguishThief.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishThiefThiefReflexes, 17));
     }
 
     private static void SorcererLoad()
@@ -241,7 +248,7 @@ internal static class Level20SubclassesContext
     }
 
     //
-    // Helpers
+    // Purity of Light
     //
 
     private sealed class CustomBehaviorPurityOfLight : IFeatureDefinitionCustomCode, IPhysicalAttackFinished
@@ -282,7 +289,9 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            if (!rulesetDefender.HasAnyConditionOfType("ConditionLuminousKi", "ConditionShine"))
+            if (!rulesetDefender.HasAnyConditionOfType(
+                    ConditionDefinitions.ConditionLuminousKi.Name,
+                    ConditionDefinitions.ConditionShine.Name))
             {
                 yield break;
             }
@@ -306,7 +315,11 @@ internal static class Level20SubclassesContext
         }
     }
 
-    private sealed class CharacterTurnStartListenerMartialChampionSurvivor : ICharacterTurnStartListener
+    //
+    // Survivor
+    //
+
+    private sealed class CharacterTurnStartListenerSurvivor : ICharacterTurnStartListener
     {
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
@@ -329,6 +342,10 @@ internal static class Level20SubclassesContext
             rulesetCharacter.ReceiveHealing(totalHealing, true, rulesetCharacter.Guid);
         }
     }
+
+    //
+    // Physical Perfection
+    //
 
     private sealed class ModifyMagicEffectPhysicalPerfection : IModifyMagicEffectRecurrent
     {
@@ -365,6 +382,10 @@ internal static class Level20SubclassesContext
         }
     }
 
+    //
+    // Position of Strength
+    //
+
     private sealed class CustomCodePositionOfStrength : IFeatureDefinitionCustomCode
     {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
@@ -378,6 +399,45 @@ internal static class Level20SubclassesContext
         public void RemoveFeature(RulesetCharacterHero hero, string tag)
         {
             // empty
+        }
+    }
+
+    //
+    // Thief's Reflexes
+    //
+
+    private sealed class InitiativeEndListenerThiefReflexes : IInitiativeEndListener, ICharacterTurnEndListener
+    {
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        {
+            var initiative = locationCharacter.LastInitiative - 10;
+            var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
+            var positionCharacter = initiativeSortedContenders.First(x => x.LastInitiative < initiative);
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+
+            if (positionCharacterIndex >= 0)
+            {
+                initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+            }
+
+            yield break;
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle.CurrentRound > 1)
+            {
+                return;
+            }
+
+            var index = battle.InitiativeSortedContenders.FindIndex(0, 2, x => x == locationCharacter);
+
+            if (battle.activeContenderIndex == index)
+            {
+                battle.InitiativeSortedContenders.RemoveAt(index);
+            }
         }
     }
 }

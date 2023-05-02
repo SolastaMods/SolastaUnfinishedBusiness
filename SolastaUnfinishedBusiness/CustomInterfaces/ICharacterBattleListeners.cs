@@ -14,9 +14,9 @@ public interface ICharacterTurnEndListener
     void OnCharacterTurnEnded(GameLocationCharacter locationCharacter);
 }
 
-public interface ICharacterInitiativeEndListener
+public interface IInitiativeEndListener
 {
-    IEnumerator OnInitiativeEnd(GameLocationBattle gameLocationBattle);
+    IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter);
 }
 
 public interface ICharacterBattleStartedListener
