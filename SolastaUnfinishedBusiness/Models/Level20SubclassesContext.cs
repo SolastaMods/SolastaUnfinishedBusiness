@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -234,6 +235,34 @@ internal static class Level20SubclassesContext
 
     private static void RogueLoad()
     {
+        var attributeModifierRoguishDarkweaverDarkAssault = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierRoguishDarkweaverDarkAssault")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
+            .AddToDB();
+
+        var movementAffinityRoguishDarkweaverDarkAssault = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinityRoguishDarkweaverDarkAssault")
+            .SetGuiPresentationNoContent(true)
+            .SetBaseSpeedAdditiveModifier(3)
+            .AddToDB();
+
+        var conditionRoguishDarkweaverDarkAssault = ConditionDefinitionBuilder
+            .Create("ConditionRoguishDarkweaverDarkAssault")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAided)
+            .SetPossessive()
+            .SetSpecialDuration()
+            .AddFeatures(attributeModifierRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
+            .AddToDB();
+
+        var featureSetRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
+            .Create("FeatureRoguishDarkweaverDarkAssault")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new CharacterTurnEndListenerDarkAssault(conditionRoguishDarkweaverDarkAssault))
+            .AddToDB();
+
+        RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
+
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
             .SetGuiPresentation(Category.Feature)
@@ -437,6 +466,43 @@ internal static class Level20SubclassesContext
             if (battle.activeContenderIndex == index)
             {
                 battle.InitiativeSortedContenders.RemoveAt(index);
+            }
+        }
+    }
+
+    //
+    // Dark Assault
+    //
+
+    private sealed class CharacterTurnEndListenerDarkAssault : ICharacterTurnEndListener
+    {
+        private readonly ConditionDefinition _conditionDarkAssault;
+
+        public CharacterTurnEndListenerDarkAssault(ConditionDefinition conditionDarkAssault)
+        {
+            _conditionDarkAssault = conditionDarkAssault;
+        }
+
+        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        {
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
+            {
+                rulesetCharacter.InflictCondition(
+                    _conditionDarkAssault.Name,
+                    _conditionDarkAssault.DurationType,
+                    _conditionDarkAssault.DurationParameter,
+                    _conditionDarkAssault.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
     }
