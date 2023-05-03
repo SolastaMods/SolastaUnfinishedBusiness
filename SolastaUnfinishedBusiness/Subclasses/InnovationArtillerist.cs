@@ -47,7 +47,6 @@ public static class InnovationArtillerist
 
         var eldritchCannonSprite = Sprites.GetSprite(EldritchCannon, Resources.PowerEldritchCannon, 256, 128);
 
-
         // Cannon Powers
 
         var powerFlamethrower = FeatureDefinitionPowerBuilder
@@ -98,6 +97,7 @@ public static class InnovationArtillerist
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(new ModifyMagicAttackForceBallista())
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -126,7 +126,7 @@ public static class InnovationArtillerist
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonFlamethrower)
-            .SetActionType(ActionType.Bonus)
+            .SetActionType(ActionType.Main)
             .SetActivatedPower(powerFlamethrower)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
@@ -137,7 +137,7 @@ public static class InnovationArtillerist
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonForceBallista)
-            .SetActionType(ActionType.Bonus)
+            .SetActionType(ActionType.Main)
             .SetActivatedPower(powerForceBallista)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
@@ -148,7 +148,7 @@ public static class InnovationArtillerist
             .OverrideClassName("UsePower")
             .RequiresAuthorization()
             .SetActionId(ExtraActionId.CannonProtector)
-            .SetActionType(ActionType.Bonus)
+            .SetActionType(ActionType.Main)
             .SetActivatedPower(powerProtector)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
@@ -754,6 +754,7 @@ public static class InnovationArtillerist
                     .SetHasMonsterPortraitBackground(true)
                     .SetCanGeneratePortrait(true)
                     .Build())
+            .SetStandardHitPoints(1)
             .SetHeight(2)
             .NoExperienceGain()
             .SetArmorClass(18)
@@ -783,6 +784,37 @@ public static class InnovationArtillerist
         monster.guiPresentation.description = GuiPresentationBuilder.EmptyString;
 
         return monster;
+    }
+
+    private sealed class ModifyMagicAttackForceBallista : IModifyMagicAttack
+    {
+        public void ModifyMagicAttack(CharacterActionMagicEffect characterActionMagicEffect)
+        {
+            var rulesetCharacter = characterActionMagicEffect.ActingCharacter.RulesetCharacter;
+            var rulesetCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>
+                x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature);
+
+            if (rulesetCondition != null &&
+                RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var rulesetCaster))
+            {
+                rulesetCharacter = rulesetCaster;
+            }
+
+            if (characterActionMagicEffect.ActionParams.ActionModifiers.Count <= 0)
+            {
+                return;
+            }
+
+            var actionModifier = characterActionMagicEffect.ActionParams.actionModifiers[0];
+            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var intelligence = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var intelligenceModifier = AttributeDefinitions.ComputeAbilityScoreModifier(intelligence);
+            var attackModifier = pb + intelligenceModifier;
+
+            actionModifier.attackRollModifier += attackModifier;
+            actionModifier.attackToHitTrends.Add(
+                new TrendInfo(attackModifier, FeatureSourceType.Power, "Screen/&SpellAttackBonusTitle", null));
+        }
     }
 
     #endregion
