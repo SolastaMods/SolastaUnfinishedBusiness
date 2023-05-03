@@ -241,7 +241,7 @@ internal static class Level20SubclassesContext
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitMartialArts, RechargeRate.KiPoints, 3)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -340,7 +340,7 @@ internal static class Level20SubclassesContext
     {
         var attributeModifierRoguishDarkweaverDarkAssault = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierRoguishDarkweaverDarkAssault")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, "Feature/&FighterExtraAttackDescription")
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
@@ -368,9 +368,9 @@ internal static class Level20SubclassesContext
 
         var conditionRoguishShadowcasterShadowForm = ConditionDefinitionBuilder
             .Create("ConditionRoguishShadowcasterShadowForm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShielded)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionChildOfDarkness_DimLight)
             .SetPossessive()
-            .CopyParticleReferences(ConditionDefinitions.ConditionInvisibleGreater)
+            .CopyParticleReferences(ConditionDefinitions.ConditionMalediction)
             .AddFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement,
                 FeatureDefinitionCombatAffinitys.CombatAffinityDisengaging,
@@ -404,12 +404,13 @@ internal static class Level20SubclassesContext
 
         var powerRoguishShadowcasterShadowForm = FeatureDefinitionPowerBuilder
             .Create("PowerRoguishShadowcasterShadowForm")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetGuiPresentation(Category.Feature, Darkvision)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetParticleEffectParameters(Malediction)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -605,27 +606,37 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            var index = battle.InitiativeSortedContenders.FindIndex(0, 2, x => x == locationCharacter);
+            var index = battle.InitiativeSortedContenders.FindLastIndex(x => x.Guid == locationCharacter.Guid);
 
-            if (battle.activeContenderIndex == index)
+            if (battle.activeContenderIndex != index)
             {
-                battle.InitiativeSortedContenders.RemoveAt(index);
+                return;
             }
+
+            battle.InitiativeSortedContenders.RemoveAt(index);
+
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Remove, false, false);
         }
 
         public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
         {
             var initiative = locationCharacter.LastInitiative - 10;
             var initiativeSortedContenders = Gui.Battle.InitiativeSortedContenders;
-            var positionCharacter = initiativeSortedContenders.First(x => x.LastInitiative < initiative);
-            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+            var positionCharacter = initiativeSortedContenders.FirstOrDefault(x => x.LastInitiative < initiative);
 
-            if (positionCharacterIndex >= 0)
+            if (positionCharacter == null)
             {
-                initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
+                initiativeSortedContenders.Add(locationCharacter);
+
+                yield break;
             }
 
-            yield break;
+            var positionCharacterIndex = initiativeSortedContenders.IndexOf(positionCharacter);
+
+            initiativeSortedContenders.Insert(positionCharacterIndex, locationCharacter);
         }
     }
 
@@ -646,23 +657,27 @@ internal static class Level20SubclassesContext
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
+            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
+                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
             {
-                rulesetCharacter.InflictCondition(
-                    _conditionDarkAssault.Name,
-                    _conditionDarkAssault.DurationType,
-                    _conditionDarkAssault.DurationParameter,
-                    _conditionDarkAssault.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.Guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
+                return;
             }
+
+            EffectHelpers.StartVisualEffect(
+                locationCharacter, locationCharacter, PowerShadowcasterShadowDodge, EffectHelpers.EffectType.Caster);
+            rulesetCharacter.InflictCondition(
+                _conditionDarkAssault.Name,
+                _conditionDarkAssault.DurationType,
+                _conditionDarkAssault.DurationParameter,
+                _conditionDarkAssault.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
