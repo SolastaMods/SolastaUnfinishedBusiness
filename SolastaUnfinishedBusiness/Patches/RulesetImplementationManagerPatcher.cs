@@ -374,7 +374,7 @@ public static class RulesetImplementationManagerPatcher
                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
                     {
                         if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                            bearer is { CharacterInventory: { } })
+                            bearer is { CharacterInventory: not null })
                         {
                             bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
                                 bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
@@ -671,6 +671,59 @@ public static class RulesetImplementationManagerPatcher
         public static void Prefix(RulesetActor target, ref string savingThrowAbility)
         {
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
+        }
+
+        //PATCH: supports ISavingThrowAfterRoll interface
+        [UsedImplicitly]
+        public static void Postfix(
+            RulesetCharacter caster,
+            RuleDefinitions.Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            RuleDefinitions.FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RuleDefinitions.RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            //PATCH: react to failed saving throw
+            foreach (var savingThrowAfterRoll in target.GetSubFeaturesByType<ISavingThrowAfterRoll>())
+            {
+                savingThrowAfterRoll.OnSavingThrowAfterRoll(
+                    caster,
+                    sourceSide,
+                    target,
+                    actionModifier,
+                    hasHitVisual,
+                    hasSavingThrow,
+                    savingThrowAbility,
+                    saveDC,
+                    disableSavingThrowOnAllies,
+                    advantageForEnemies,
+                    ignoreCover,
+                    featureSourceType,
+                    effectForms,
+                    savingThrowAffinitiesBySense,
+                    savingThrowAffinitiesByFamily,
+                    sourceName,
+                    sourceDefinition,
+                    schoolOfMagic,
+                    metamagicOption,
+                    ref saveOutcome,
+                    ref saveOutcomeDelta);
+            }
         }
     }
 }
