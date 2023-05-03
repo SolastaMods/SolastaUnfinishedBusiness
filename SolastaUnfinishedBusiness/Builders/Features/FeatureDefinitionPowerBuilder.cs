@@ -91,6 +91,17 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetAutoActivationPowerTag(
+        string autoActivationPowerTag,
+        SenseMode.Type autoActivationRequiredTargetSenseType = SenseMode.Type.None,
+        string autoActivationRequiredTargetCreatureTag = "None")
+    {
+        Definition.autoActivationPowerTag = autoActivationPowerTag;
+        Definition.autoActivationRequiredTargetSenseType = autoActivationRequiredTargetSenseType;
+        Definition.autoActivationRequiredTargetCreatureTag = autoActivationRequiredTargetCreatureTag;
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetShowCasting(bool casting)
     {
         Definition.showCasting = casting;
