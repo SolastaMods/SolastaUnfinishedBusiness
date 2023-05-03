@@ -13,6 +13,36 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class NewAdventurePanelPatcher
 {
+    private static void AssignDefaultHeroes(NewAdventurePanel __instance)
+    {
+        var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+            __instance.characterSessionPlatesTable.childCount);
+
+        __instance.RecreateSession();
+
+        for (var i = 0; i < max; i++)
+        {
+            var characterPlateSession =
+                __instance.characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
+
+            if (!characterPlateSession.gameObject.activeSelf)
+            {
+                continue;
+            }
+
+            var name = Main.Settings.DefaultPartyHeroes[i];
+            var isBuiltIn = ToolsContext.IsBuiltIn(name);
+            var filename =
+                Path.Combine(
+                    !isBuiltIn
+                        ? TacticalAdventuresApplication.GameCharactersDirectory
+                        : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
+
+            __instance.selectedSlot = i;
+            __instance.CharacterSelected(filename);
+        }
+    }
+
     //PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
     [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -79,32 +109,25 @@ public static class NewAdventurePanelPatcher
                 return;
             }
 
-            var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
-                __instance.characterSessionPlatesTable.childCount);
+            AssignDefaultHeroes(__instance);
+        }
+    }
 
-            __instance.RecreateSession();
-
-            for (var i = 0; i < max; i++)
+    //PATCH: clear flag that prevents hero auto assignment under MP (DEFAULT_PARTY)
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.SelectCampaignAndRecreateSession))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SelectCampaignAndRecreateSession_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(NewAdventurePanel __instance)
+        {
+            if (Global.IsMultiplayer || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
             {
-                var characterPlateSession =
-                    __instance.characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
-
-                if (!characterPlateSession.gameObject.activeSelf)
-                {
-                    continue;
-                }
-
-                var name = Main.Settings.DefaultPartyHeroes[i];
-                var isBuiltIn = ToolsContext.IsBuiltIn(name);
-                var filename =
-                    Path.Combine(
-                        !isBuiltIn
-                            ? TacticalAdventuresApplication.GameCharactersDirectory
-                            : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
-
-                __instance.selectedSlot = i;
-                __instance.CharacterSelected(filename);
+                return;
             }
+
+            AssignDefaultHeroes(__instance);
         }
     }
 
@@ -114,7 +137,6 @@ public static class NewAdventurePanelPatcher
     [UsedImplicitly]
     public static class OnEndHide_Patch
     {
-        // ReSharper disable once UnusedMember.Global
         [UsedImplicitly]
         public static void Prefix()
         {
