@@ -200,7 +200,7 @@ internal enum ExtraActionId
     CombatRageStart = 9021,
     CastSpellMasteryMain = 9022,
     CastSignatureSpellsMain = 9023,
-    QuiveringPalm = 9024
+    QuiveringPalmToggle = 9024
 }
 
 #if false

@@ -12,10 +12,10 @@
   "iterativeTargeting": false,
   "canTriggerBattle": false,
   "parameter": "TogglePower",
-  "formType": "Small",
+  "formType": "Large",
   "overrideGuiActionType": false,
   "overridenGuiActionType": "Main",
-  "focusCameraOnAction": true,
+  "focusCameraOnAction": false,
   "addedConditionName": "",
   "removedConditionName": "",
   "preventsSerialization": false,
@@ -29,18 +29,31 @@
   "targetType": "Sphere",
   "targetParameter": 1,
   "matchingCondition": "",
-  "particlePrefab": null,
-  "soundEvent": null,
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatureSetTraditionOpenHandQuiveringPalmTitle",
-    "description": "Feat/&FeatureSetTraditionOpenHandQuiveringPalmDescription",
+    "title": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmTitle",
+    "description": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "c96c94289a0d7a849b86cab1efff714f",
+      "m_SubObjectName": "StunnningStrikeToggle",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -55,7 +68,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6a3a2e43-7bbc-5581-8187-88a643a788fe",
+  "guid": "3ff38f3d-0a13-59ef-8278-4d80e5fd1611",
   "contentPack": 9999,
-  "name": "ActionTraditionOpenHandQuiveringPalm"
+  "name": "TraditionOpenHandQuiveringPalmToggle"
 }

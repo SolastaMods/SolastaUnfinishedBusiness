@@ -36,7 +36,8 @@ public static class GuiCharacterActionPatcher
         {
             if (__instance.actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
                 __instance.actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
-                __instance.actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)
+                __instance.actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle &&
+                __instance.actionId != (ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
             {
                 return true;
             }

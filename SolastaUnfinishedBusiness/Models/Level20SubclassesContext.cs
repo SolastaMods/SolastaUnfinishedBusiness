@@ -1,23 +1,27 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -196,23 +200,53 @@ internal static class Level20SubclassesContext
 
         TraditionLight.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPurityOfLife, 17));
 
+        var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
+            .Create("PowerTraditionOpenHandQuiveringPalmTrigger")
+            .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature,
+                Sprites.GetSprite("PowerQuiveringPalm", Resources.PowerQuiveringPalm, 256, 128))
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
+                    .SetParticleEffectParameters(DreadfulOmen)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeNecrotic, 10, DieType.D10)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerTraditionOpenHandQuiveringPalmTrigger.SetCustomSubFeatures(
+            new FilterTargetingMagicEffectQuiveringPalm(powerTraditionOpenHandQuiveringPalmTrigger));
+
         var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
             .Create("ConditionTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("SavingThrowAfterRollQuiveringPalm")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
+                    .AddToDB())
             .AddToDB();
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.OnAttackHitMartialArts, RechargeRate.KiPoints, 3)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Day)
+                    .SetDurationData(DurationType.Day, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -223,11 +257,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         _ = ActionDefinitionBuilder
-            .Create("ActionTraditionOpenHandQuiveringPalm")
-            .SetOrUpdateGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feat)
-            .SetActionId(ExtraActionId.QuiveringPalm)
+            .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
+            .SetOrUpdateGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
+            .SetActionId(ExtraActionId.QuiveringPalmToggle)
             .SetActionType(ActionDefinitions.ActionType.NoCost)
-            .SetActionScope(ActionDefinitions.ActionScope.Battle)
             .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
             .RequiresAuthorization()
             .AddToDB();
@@ -236,13 +269,16 @@ internal static class Level20SubclassesContext
             .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
             .SetAllowedActionTypes()
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalm)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
             .AddToDB();
 
         var featureSetTraditionOpenHandQuiveringPalm = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerTraditionOpenHandQuiveringPalm, actionAffinityTraditionOpenHandQuiveringPalm)
+            .AddFeatureSet(
+                powerTraditionOpenHandQuiveringPalmTrigger,
+                powerTraditionOpenHandQuiveringPalm,
+                actionAffinityTraditionOpenHandQuiveringPalm)
             .AddToDB();
 
         TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 17));
@@ -627,6 +663,85 @@ internal static class Level20SubclassesContext
                     0,
                     0);
             }
+        }
+    }
+
+    //
+    // Quivering Palm
+    //
+
+    private sealed class FilterTargetingMagicEffectQuiveringPalm : IFilterTargetingMagicEffect
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public FilterTargetingMagicEffectQuiveringPalm(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _featureDefinitionPower)
+            {
+                return true;
+            }
+
+            if (target.RulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = target.RulesetCharacter.HasConditionOfType("ConditionTraditionOpenHandQuiveringPalm");
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveQuiveringPalmCondition");
+            }
+
+            return isValid;
+        }
+    }
+
+    private sealed class SavingThrowAfterRollQuiveringPalm : ISavingThrowAfterRoll
+    {
+        public void OnSavingThrowAfterRoll(
+            RulesetCharacter caster,
+            Side sourceSide,
+            RulesetActor target,
+            ActionModifier actionModifier,
+            bool hasHitVisual,
+            bool hasSavingThrow,
+            string savingThrowAbility,
+            int saveDC,
+            bool disableSavingThrowOnAllies,
+            bool advantageForEnemies,
+            bool ignoreCover,
+            FeatureSourceType featureSourceType,
+            List<EffectForm> effectForms,
+            List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+            List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+            string sourceName,
+            BaseDefinition sourceDefinition,
+            string schoolOfMagic,
+            MetamagicOptionDefinition metamagicOption,
+            ref RollOutcome saveOutcome,
+            ref int saveOutcomeDelta)
+        {
+            if (target is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
+            {
+                return;
+            }
+
+            var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints;
+
+            effectForms.Clear();
+            target.SustainDamage(totalDamage, DamageTypeForce, false, caster.Guid, null, out _);
         }
     }
 }

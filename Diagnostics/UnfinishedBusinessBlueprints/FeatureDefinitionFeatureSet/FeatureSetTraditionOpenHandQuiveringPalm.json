@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerTraditionOpenHandQuiveringPalmTrigger:f4ceee0a-4db3-50b3-80aa-e29c92073219",
     "Definition:PowerTraditionOpenHandQuiveringPalm:9b1f88b1-bace-5a9a-ba01-4c833533f515",
     "Definition:ActionAffinityTraditionOpenHandQuiveringPalm:8960d481-00d8-56c4-8a46-89da6fc7f5ba"
   ],
