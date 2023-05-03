@@ -9,9 +9,9 @@
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&FighterExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

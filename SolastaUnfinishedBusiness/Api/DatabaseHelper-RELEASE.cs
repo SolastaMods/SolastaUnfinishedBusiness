@@ -170,6 +170,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
         internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
         internal static ConditionDefinition ConditionLuminousKi { get; } = GetDefinition<ConditionDefinition>("ConditionLuminousKi");
+        internal static ConditionDefinition ConditionMagicallyArmored { get; } = GetDefinition<ConditionDefinition>("ConditionMagicallyArmored");
         internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionMarkedByHunter { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
@@ -191,6 +192,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionRaging { get; } = GetDefinition<ConditionDefinition>("ConditionRaging");
         internal static ConditionDefinition ConditionRestrained { get; } = GetDefinition<ConditionDefinition>("ConditionRestrained");
         internal static ConditionDefinition ConditionRestrainedByEntangle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle");
+        internal static ConditionDefinition ConditionRestrictedInsideMagicCircle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrictedInsideMagicCircle");
         internal static ConditionDefinition ConditionRevealedByDetectGoodOrEvil { get; } = GetDefinition<ConditionDefinition>("ConditionRevealedByDetectGoodOrEvil");
         internal static ConditionDefinition ConditionRousingShout { get; } = GetDefinition<ConditionDefinition>("ConditionRousingShout");
         internal static ConditionDefinition ConditionSeeInvisibility { get; } = GetDefinition<ConditionDefinition>("ConditionSeeInvisibility");
@@ -201,6 +203,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } = GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
         internal static ConditionDefinition ConditionSpiritGuardians { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
         internal static ConditionDefinition ConditionSpiritGuardiansSelf { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardiansSelf");
+        internal static ConditionDefinition ConditionStealthy { get; } = GetDefinition<ConditionDefinition>("ConditionStealthy");
         internal static ConditionDefinition ConditionStoneResilience { get; } = GetDefinition<ConditionDefinition>("ConditionStoneResilience");
         internal static ConditionDefinition ConditionStunned { get; } = GetDefinition<ConditionDefinition>("ConditionStunned");
         internal static ConditionDefinition ConditionStunned_MonkStunningStrike { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MonkStunningStrike");

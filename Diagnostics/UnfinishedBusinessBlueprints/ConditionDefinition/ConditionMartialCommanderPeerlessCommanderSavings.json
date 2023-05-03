@@ -4,19 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityPsychicResistance:6bcf228fbe370f34fa7cf0d8420998eb",
-    "Definition:DamageAffinityRoguishShadowcasterShadowFormResistanceBludgeoning:a6a4a93c-5710-58ea-83c3-00841488d618",
-    "Definition:DamageAffinityRoguishShadowcasterShadowFormResistancePiercing:fb30e833-0a99-5192-bb41-f04608b6302c",
-    "Definition:DamageAffinityRoguishShadowcasterShadowFormResistanceSlashing:6f06e76b-9016-50cc-b34b-86d054275779",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02",
-    "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
+    "Definition:SavingThrowAffinityMartialCommanderPeerlessCommander:dcd49c7c-bc39-57df-a8e9-fcce11317373"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -28,7 +16,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "SavingThrow"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -52,27 +42,22 @@
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "21b24f77d8d5a1548bd56c8e5a41e596",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "5e0c09929253f31419d4e56161b7dda8",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -145,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRoguishShadowcasterShadowFormTitle",
-    "description": "Condition/&ConditionRoguishShadowcasterShadowFormDescription",
+    "title": "Condition/&ConditionMartialCommanderPeerlessCommanderSavingsTitle",
+    "description": "Condition/&ConditionMartialCommanderPeerlessCommanderSavingsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "528c4c4294a392f4ea92355a38238b31",
-      "m_SubObjectName": "ConditionChildOfDarkness",
+      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
+      "m_SubObjectName": "ConditionMageArmor",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -166,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3640ef6d-0de7-5ef5-9f0b-8add3a2389a6",
+  "guid": "25d6b1fa-4948-5f8f-bf6c-4b711ec9bb6e",
   "contentPack": 9999,
-  "name": "ConditionRoguishShadowcasterShadowForm"
+  "name": "ConditionMartialCommanderPeerlessCommanderSavings"
 }

@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "MeleeHit",
+    "rangeType": "Self",
     "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Day",
-    "durationParameter": 1,
+    "durationType": "Instantaneous",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -114,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "f540d0a67ac604c479c483b5b0e5c3bb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -247,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1f4269faf93934946b0baf061776d756",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -259,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "710595d3d2670d4418a2769ab48a6b07",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -289,10 +289,10 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnAttackHitMartialArts",
+  "activationTime": "OnAttackHitMeleeAuto",
   "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "",
-  "autoActivationPowerTag": "",
+  "autoActivationRequiredTargetCreatureTag": "None",
+  "autoActivationPowerTag": "9024",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",

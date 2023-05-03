@@ -4,8 +4,10 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -91,26 +93,35 @@ internal static class Level20SubclassesContext
 
         MartialChampion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureMartialChampionSurvivor, 18));
 
-        var conditionPeerlessCommander = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRousingShout, "ConditionMartialCommanderPeerlessCommander")
-            .SetOrUpdateGuiPresentation(Category.Condition)
+        var conditionMartialCommanderPeerlessCommanderSavings = ConditionDefinitionBuilder
+            .Create("ConditionMartialCommanderPeerlessCommanderSavings")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMagicallyArmored)
             .SetPossessive()
             .AddFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommander", Category.Condition)
-                    .SetBaseSpeedAdditiveModifier(2)
-                    .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("SavingThrowAffinityMartialCommanderPeerlessCommander")
-                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommander", Category.Condition)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, true,
+                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderSavings", Category.Condition)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution,
                         AttributeDefinitions.Intelligence,
                         AttributeDefinitions.Wisdom,
                         AttributeDefinitions.Charisma)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
+
+        var conditionMartialCommanderPeerlessCommanderMovement = ConditionDefinitionBuilder
+            .Create("ConditionMartialCommanderPeerlessCommanderMovement")
+            .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .AddFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityMartialCommanderPeerlessCommander")
+                    .SetGuiPresentation("ConditionMartialCommanderPeerlessCommanderMovement", Category.Condition)
+                    .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .AddToDB();
 
@@ -124,7 +135,18 @@ internal static class Level20SubclassesContext
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionPeerlessCommander, ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(ConditionDefinitions.ConditionRousingShout,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMartialCommanderPeerlessCommanderSavings,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMartialCommanderPeerlessCommanderMovement,
+                                ConditionForm.ConditionOperation.Add)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -146,7 +168,7 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(new CustomCodePositionOfStrength())
             .AddToDB();
 
-        MartialMountaineer.SetCustomSubFeatures(
+        MartialMountaineer.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(attributeModifierMartialMountaineerPositionOfStrength, 18));
 
         MartialSpellblade.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttackReplaceWithCantripCasterFighting, 18));
@@ -226,10 +248,12 @@ internal static class Level20SubclassesContext
 
         var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
             .Create("ConditionTraditionOpenHandQuiveringPalm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
             .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Day, 1)
             .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("SavingThrowAfterRollQuiveringPalm")
@@ -241,12 +265,14 @@ internal static class Level20SubclassesContext
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitAuto, RechargeRate.KiPoints, 3)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3)
+            .SetAutoActivationPowerTag("9024") // 
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.Day, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -254,13 +280,13 @@ internal static class Level20SubclassesContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
-            .SetOrUpdateGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
-            .SetActionType(ActionDefinitions.ActionType.NoCost)
             .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
             .RequiresAuthorization()
             .AddToDB();
@@ -281,7 +307,7 @@ internal static class Level20SubclassesContext
                 actionAffinityTraditionOpenHandQuiveringPalm)
             .AddToDB();
 
-        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 17));
+        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 3));
 
         var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
@@ -352,7 +378,7 @@ internal static class Level20SubclassesContext
 
         var conditionRoguishDarkweaverDarkAssault = ConditionDefinitionBuilder
             .Create("ConditionRoguishDarkweaverDarkAssault")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAided)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStealthy)
             .SetPossessive()
             .SetSpecialDuration()
             .AddFeatures(attributeModifierRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
@@ -495,7 +521,7 @@ internal static class Level20SubclassesContext
             foreach (var ally in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 2)))
+                                     gameLocationBattleService.IsWithinXCells(attacker, x, 3)))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -748,15 +774,21 @@ internal static class Level20SubclassesContext
                 return;
             }
 
+            rulesetCharacter.RemoveAllConditionsOfCategory("ConditionTraditionOpenHandQuiveringPalm");
+
             if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 return;
             }
 
-            var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints;
+            var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints - 1;
 
-            effectForms.Clear();
             target.SustainDamage(totalDamage, DamageTypeForce, false, caster.Guid, null, out _);
+            effectForms.SetRange(
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build());
         }
     }
 }

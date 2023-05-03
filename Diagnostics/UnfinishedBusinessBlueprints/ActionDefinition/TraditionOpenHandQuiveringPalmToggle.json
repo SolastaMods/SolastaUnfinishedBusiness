@@ -47,8 +47,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmTitle",
-    "description": "Feature/&FeatureSetTraditionOpenHandQuiveringPalmDescription",
+    "title": "Action/&TraditionOpenHandQuiveringPalmToggleTitle",
+    "description": "Action/&TraditionOpenHandQuiveringPalmToggleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c96c94289a0d7a849b86cab1efff714f",

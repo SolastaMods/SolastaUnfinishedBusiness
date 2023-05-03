@@ -133,8 +133,8 @@
     "description": "Condition/&ConditionRoguishDarkweaverDarkAssaultDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c3bcadf3e2fb72f4d9ec64797a47d92f",
-      "m_SubObjectName": "ConditionPositiveTemporaryHitpoints",
+      "m_AssetGUID": "01b9d4c2adfaad041be3e85c1cf6b9c1",
+      "m_SubObjectName": "ConditionStealthy",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
