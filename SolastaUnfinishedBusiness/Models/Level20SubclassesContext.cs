@@ -381,7 +381,7 @@ internal static class Level20SubclassesContext
                 actionAffinityTraditionOpenHandQuiveringPalm)
             .AddToDB();
 
-        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 3));
+        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 17));
 
         //
         // Survival
