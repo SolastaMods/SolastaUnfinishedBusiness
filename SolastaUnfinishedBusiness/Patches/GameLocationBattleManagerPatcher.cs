@@ -751,17 +751,28 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: Support for `ITargetReducedToZeroHP` feature
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>();
 
-            foreach (var extraEvents in features
+            //PATCH: Support for `ITargetReducedToZeroHP` feature
+            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
                          .Select(x =>
                              x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
+                                 activeEffect)))
+            {
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
+            }
+
+            //PATCH: Support for `ISourceReducedToZeroHP` feature
+            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<ISourceReducedToZeroHp>()
+                         .Select(x =>
+                             x.HandleSourceReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))
             {
                 while (extraEvents.MoveNext())
