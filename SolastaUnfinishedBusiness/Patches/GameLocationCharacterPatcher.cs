@@ -318,4 +318,26 @@ public static class GameLocationCharacterPatcher
                 new CodeInstruction(OpCodes.Call, method));
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.IsActionOnGoing))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsActionOnGoing_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
+        {
+            if (actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
+            {
+                return true;
+            }
+
+            __result = __instance.RulesetCharacter.IsToggleEnabled(actionId);
+
+            return false;
+        }
+    }
 }

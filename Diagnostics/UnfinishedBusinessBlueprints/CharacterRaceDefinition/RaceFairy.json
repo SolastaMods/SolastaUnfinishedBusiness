@@ -10,12 +10,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:FeatureSetFairyAbilityScoreIncrease:ede8915e-ee24-56ad-8735-59186ff05ea3",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetFairyAbilityScoreIncrease:ede8915e-ee24-56ad-8735-59186ff05ea3",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
       "level": 1
     },
     {

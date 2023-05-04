@@ -3,23 +3,19 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:CombatAffinityRousingShout:ac23119748402f24abb24423179d3932",
-    "Definition:MovementAffinityMartialCommanderPeerlessCommander:6db0d47c-5d4e-5a9c-9bf8-afcf02389d17",
-    "Definition:SavingThrowAffinityMartialCommanderPeerlessCommander:dcd49c7c-bc39-57df-a8e9-fcce11317373"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "Attacks"
+    "BattleEnd"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -28,8 +24,40 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Healing",
+      "addBonusMode": "Proficiency",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 0,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": true,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "StartOfTurn",
+      "healingForm": {
+        "$type": "HealingForm, Assembly-CSharp",
+        "healingComputation": "Dice",
+        "diceNumber": 0,
+        "dieType": "D1",
+        "bonusHealing": 0,
+        "variablePool": false,
+        "healingCap": "MaximumHitPoints"
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
+  ],
+  "cancellingConditions": [
+    "Definition:ConditionUnconscious:2d543b2740ecddd4a977d8a706a8a2c9",
+    "Definition:ConditionDying:81b9b336561369544b3c0151033efa34",
+    "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -43,7 +71,7 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "76fc741b0ad29c84b8cf9b61be4bc7f7",
+    "m_AssetGUID": "12ac73b65d9ab1a44a59fc7c2d12245d",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -55,7 +83,7 @@
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "d0bdd78b87a65e04ca4489a20e0429d6",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -225,7 +253,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -267,12 +295,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionMartialCommanderPeerlessCommanderTitle",
-    "description": "Condition/&ConditionMartialCommanderPeerlessCommanderDescription",
+    "title": "Condition/&ConditionTraditionSurvivalPhysicalPerfectionTitle",
+    "description": "Condition/&ConditionTraditionSurvivalPhysicalPerfectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
+      "m_AssetGUID": "961d4c9603807bf4f8ba968cb3663220",
+      "m_SubObjectName": "ConditionRegenerate",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -288,7 +316,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5e081628-cabc-5f7a-b2b9-e74b6a511f60",
+  "guid": "8ea61016-4655-5566-8ab4-0091c411dac3",
   "contentPack": 9999,
-  "name": "ConditionMartialCommanderPeerlessCommander"
+  "name": "ConditionTraditionSurvivalPhysicalPerfection"
 }

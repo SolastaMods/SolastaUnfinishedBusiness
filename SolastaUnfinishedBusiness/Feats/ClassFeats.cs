@@ -311,7 +311,7 @@ internal static class ClassFeats
                 FeatureDefinitionProficiencyBuilder
                     .Create($"Proficiency{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
+                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
             .AddToDB();

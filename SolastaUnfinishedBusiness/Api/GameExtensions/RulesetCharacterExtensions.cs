@@ -474,24 +474,21 @@ internal static class RulesetCharacterExtensions
     {
         var toggleName = actionId.ToString();
 
-        return !rulesetCharacter.ToggledPowersOn.Contains(toggleName);
+        return rulesetCharacter.ToggledPowersOn.Contains(toggleName);
     }
 
     internal static void DisableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
     {
         var toggleName = actionId.ToString();
 
-        if (!rulesetCharacter.ToggledPowersOn.Contains(toggleName))
-        {
-            rulesetCharacter.ToggledPowersOn.Add(toggleName);
-        }
+        rulesetCharacter.ToggledPowersOn.Remove(toggleName);
     }
 
     internal static void EnableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
     {
         var toggleName = actionId.ToString();
 
-        rulesetCharacter.ToggledPowersOn.Remove(toggleName);
+        rulesetCharacter.ToggledPowersOn.Add(toggleName);
     }
 
     internal static RulesetAttackMode TryRefreshAttackMode(

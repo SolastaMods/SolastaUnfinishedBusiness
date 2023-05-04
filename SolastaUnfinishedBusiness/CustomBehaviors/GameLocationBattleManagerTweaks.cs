@@ -838,6 +838,7 @@ internal static class GameLocationBattleManagerTweaks
 
                         // This is used to only offer smites on critical hits
                         if (!criticalHit &&
+                            Main.Settings.AddPaladinSmiteToggle &&
                             !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;
