@@ -197,7 +197,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IAttackComputeModifier
+    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiated, IAttackComputeModifier
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -215,37 +215,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            //
-            // allow critical hit if defender is surprised
-            //
-
-            if (defender.HasAnyConditionOfType(ConditionSurprised))
-            {
-                myself.InflictCondition(
-                    _conditionDefinition.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
-                    myself.guid,
-                    myself.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
-            else
-            {
-                var rulesetCondition =
-                    myself.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
-                {
-                    myself.RemoveConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-                }
-            }
-
             //
             // Allow advantage if first round and higher initiative order vs defender
             //
@@ -278,6 +247,44 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+        }
+
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            //
+            // allow critical hit if defender is surprised
+            //
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetAttacker == null)
+            {
+                yield break;
+            }
+            
+            if (rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
+            {
+                rulesetAttacker.InflictCondition(
+                    _conditionDefinition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 

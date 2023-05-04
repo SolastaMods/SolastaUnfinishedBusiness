@@ -55,7 +55,7 @@ internal class RopeItUp : AbstractFightingStyle
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            if (attackerAttackMode?.thrown != true)
+            if (attackModifier.Proximity == AttackProximity.Melee)
             {
                 yield break;
             }
