@@ -2,9 +2,9 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "Additive",
-  "modifierValue": 2,
+  "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": 1010,
+  "situationalContext": "None",
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "800f6a45-75ca-5d09-962c-6e6a1811dc85",
+  "guid": "d38007b4-6ac4-55c3-880e-a1368de693ae",
   "contentPack": 9999,
-  "name": "AttributeModifierMartialMountaineerPositionOfStrength"
+  "name": "AttributeModifierMartialMountaineerPositionOfStrengthAura"
 }

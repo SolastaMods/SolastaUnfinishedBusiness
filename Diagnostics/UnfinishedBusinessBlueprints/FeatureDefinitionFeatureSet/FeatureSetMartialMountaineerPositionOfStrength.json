@@ -1,12 +1,16 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": 1010,
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AttributeModifierMartialMountaineerPositionOfStrength:800f6a45-75ca-5d09-962c-6e6a1811dc85",
+    "Definition:PowerMartialMountaineerPositionOfStrengthAura:0ab82189-458d-5ab6-bbfd-befbddc19598"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "800f6a45-75ca-5d09-962c-6e6a1811dc85",
+  "guid": "f10ecf68-2063-58b7-bd28-3e51edd23f32",
   "contentPack": 9999,
-  "name": "AttributeModifierMartialMountaineerPositionOfStrength"
+  "name": "FeatureSetMartialMountaineerPositionOfStrength"
 }

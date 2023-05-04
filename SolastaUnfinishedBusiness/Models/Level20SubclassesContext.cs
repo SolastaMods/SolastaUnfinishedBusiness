@@ -85,6 +85,10 @@ internal static class Level20SubclassesContext
 
     private static void FighterLoad()
     {
+        //
+        // Champion
+        //
+
         var featureMartialChampionSurvivor = FeatureDefinitionBuilder
             .Create("FeatureMartialChampionSurvivor")
             .SetGuiPresentation(Category.Feature)
@@ -92,6 +96,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         MartialChampion.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureMartialChampionSurvivor, 18));
+
+        //
+        // Commander
+        //
 
         var conditionMartialCommanderPeerlessCommanderSavings = ConditionDefinitionBuilder
             .Create("ConditionMartialCommanderPeerlessCommanderSavings")
@@ -159,23 +167,76 @@ internal static class Level20SubclassesContext
 
         MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerMartialCommanderPeerlessCommander, 18));
 
+        //
+        // Mountaineer
+        //
+
         var attributeModifierMartialMountaineerPositionOfStrength = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierMartialMountaineerPositionOfStrength")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 3)
+            .SetGuiPresentation("FeatureSetMartialMountaineerPositionOfStrength", Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
             .SetSituationalContext(
                 ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget)
             .SetCustomSubFeatures(new CustomCodePositionOfStrength())
             .AddToDB();
 
+        var attributeModifierMartialMountaineerPositionOfStrengthAura = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierMartialMountaineerPositionOfStrengthAura")
+            .SetGuiPresentation("FeatureSetMartialMountaineerPositionOfStrength", Category.Feature)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+            .AddToDB();
+
+        var conditionMartialMountaineerPositionOfStrengthAura = ConditionDefinitionBuilder
+            .Create("ConditionMartialMountaineerPositionOfStrengthAura")
+            .SetGuiPresentation("FeatureSetMartialMountaineerPositionOfStrength", Category.Feature)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(attributeModifierMartialMountaineerPositionOfStrengthAura)
+            .AddToDB();
+
+        var powerMartialMountaineerPositionOfStrengthAura = FeatureDefinitionPowerBuilder
+            .Create("PowerMartialMountaineerPositionOfStrengthAura")
+            .SetGuiPresentation("FeatureSetMartialMountaineerPositionOfStrength", Category.Feature)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                    .SetDurationData(DurationType.Permanent)
+                    .SetRecurrentEffect(
+                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnTurnEnd)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionMartialMountaineerPositionOfStrengthAura,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var featureSetMartialMountaineerPositionOfStrength = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMartialMountaineerPositionOfStrength")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                attributeModifierMartialMountaineerPositionOfStrength,
+                powerMartialMountaineerPositionOfStrengthAura)
+            .AddToDB();
+
         MartialMountaineer.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(attributeModifierMartialMountaineerPositionOfStrength, 18));
+            new FeatureUnlockByLevel(featureSetMartialMountaineerPositionOfStrength, 18));
+
+        //
+        // Spellblade
+        //
 
         MartialSpellblade.FeatureUnlocks.Add(new FeatureUnlockByLevel(AttackReplaceWithCantripCasterFighting, 18));
     }
 
     private static void MonkLoad()
     {
+        //
+        // Freedom
+        //
+
         var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTraditionLightPurityOfLight")
             .SetGuiPresentationNoContent(true)
@@ -183,6 +244,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionLightPurityOfLight, 17));
+
+        //
+        // Light
+        //
 
         var powerTraditionLightPurityOfLight = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionLightLuminousKi, "PowerTraditionLightPurityOfLight")
@@ -221,6 +286,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         TraditionLight.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPurityOfLife, 17));
+
+        //
+        // Open Hand
+        //
 
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalmTrigger")
@@ -309,6 +378,10 @@ internal static class Level20SubclassesContext
 
         TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 3));
 
+        //
+        // Survival
+        //
+
         var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
@@ -364,6 +437,10 @@ internal static class Level20SubclassesContext
 
     private static void RogueLoad()
     {
+        //
+        // Darkweaver
+        //
+
         var attributeModifierRoguishDarkweaverDarkAssault = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, "Feature/&FighterExtraAttackDescription")
@@ -391,6 +468,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
+
+        //
+        // Shadowcaster
+        //
 
         var conditionRoguishShadowcasterShadowForm = ConditionDefinitionBuilder
             .Create("ConditionRoguishShadowcasterShadowForm")
@@ -446,6 +527,10 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         RoguishShadowCaster.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerRoguishShadowcasterShadowForm, 17));
+
+        //
+        // Thief
+        //
 
         var featureRoguishThiefThiefReflexes = FeatureDefinitionBuilder
             .Create("FeatureRoguishThiefThiefReflexes")
