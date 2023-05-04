@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:DamageAffinityTraditionSurvivalPhysicalPerfection:d079ea1e-42c6-5aa2-b745-844c1960dc98",
+    "Definition:PowerTraditionSurvivalPhysicalPerfectionHeal:4ae6b4ee-26bc-58d6-801f-00fb8337b7d9",
     "Definition:PowerTraditionSurvivalPhysicalPerfection:12013063-7606-507c-99ab-3fa7b9d43be5"
   ],
   "mode": "Union",

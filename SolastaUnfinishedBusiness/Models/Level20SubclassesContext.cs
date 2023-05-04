@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -387,15 +388,37 @@ internal static class Level20SubclassesContext
         // Survival
         //
 
-        var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
-            .SetGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
-            .AddToDB();
-
         var conditionTraditionSurvivalPhysicalPerfection = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTraditionSurvivalUnbreakableBody,
                 "ConditionTraditionSurvivalPhysicalPerfection")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetBonusMode(AddBonusMode.DoubleProficiency)
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .Build())
+            .AddToDB();
+
+        var powerTraditionSurvivalPhysicalPerfectionHeal = FeatureDefinitionPowerBuilder
+            .Create("PowerTraditionSurvivalPhysicalPerfectionHeal")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                10,
+                                DieType.D1, 0, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
@@ -412,13 +435,14 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
-            .SetCustomSubFeatures(new ModifyMagicEffectPhysicalPerfection())
+            .SetCustomSubFeatures(
+                new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfectionHeal))
             .AddToDB();
 
         var featureSetTraditionSurvivalPhysicalPerfection = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(damageAffinityTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfection)
+            .AddFeatureSet(powerTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfectionHeal)
             .AddToDB();
 
         TraditionSurvival.FeatureUnlocks.Add(
@@ -652,38 +676,54 @@ internal static class Level20SubclassesContext
     // Physical Perfection
     //
 
-    private sealed class ModifyMagicEffectPhysicalPerfection : IModifyMagicEffectRecurrent
+    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
     {
-        public void ModifyEffect(
-            RulesetCondition rulesetCondition,
-            EffectForm effectForm,
-            RulesetActor rulesetActor)
+        private readonly FeatureDefinitionPower _powerSharedPool;
+
+        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerSharedPool)
         {
-            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            _powerSharedPool = powerSharedPool;
+        }
+
+        public IEnumerator HandleSourceReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter source,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!source.RulesetCharacter.CanUsePower(_powerSharedPool))
             {
-                return;
+                yield break;
             }
 
-            if (effectForm.FormType != EffectForm.EffectFormType.Healing)
+            source.RulesetCharacter.StabilizeTo1HitPoint();
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
             {
-                return;
+                yield break;
             }
 
-            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
 
-            if (monkLevel < 17)
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
             {
-                return;
+                yield break;
             }
 
-            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
-            {
-                return;
-            }
+            var effectPower = new RulesetEffectPower(source.RulesetCharacter,
+                UsablePowersProvider.Get(_powerSharedPool, source.RulesetCharacter));
 
-            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-
-            effectForm.HealingForm.bonusHealing += pb;
+            source.RulesetCharacter.ForceKiPointConsumption(1);
+            effectPower.ApplyEffectOnCharacter(source.RulesetCharacter, true, source.LocationPosition);
         }
     }
 
