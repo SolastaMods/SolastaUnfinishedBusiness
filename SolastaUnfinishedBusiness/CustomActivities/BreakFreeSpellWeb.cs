@@ -21,7 +21,7 @@ public class BreakFreeSpellWeb : ActivityBase
         out ActionDefinitions.Id bonusId)
     {
         bonusId = ActionDefinitions.Id.NoAction;
-        mainId = ActionDefinitions.Id.AlwaysAvailable;
+        mainId = ActionDefinitions.Id.BreakFree;
     }
 
     public override IEnumerator ExecuteImpl(
@@ -72,14 +72,15 @@ public class BreakFreeSpellWeb : ActivityBase
                 AttributeDefinitions.Strength, string.Empty, checkDC, RuleDefinitions.AdvantageType.None, actionMod,
                 false, -1, out var outcome, out _, true);
 
-            var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
-
-            breakFreeExecuted?.Invoke(rulesetCharacter, outcome == RuleDefinitions.RollOutcome.Success);
-
             if (outcome == RuleDefinitions.RollOutcome.Success)
             {
                 rulesetCharacter.RemoveCondition(restrainingCondition);
             }
+
+            var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
+
+            breakFreeExecuted?.Invoke(rulesetCharacter, outcome == RuleDefinitions.RollOutcome.Success);
+            gameLocationCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
         }
 
         yield return null;
