@@ -817,7 +817,7 @@ At level 11, when you are about to be hit by an attack or single target spell, y
 
 * Quivering Palm
 
-Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes prone until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
 
 
 
