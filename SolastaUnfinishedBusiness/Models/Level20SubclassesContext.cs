@@ -335,7 +335,7 @@ internal static class Level20SubclassesContext
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3)
-            .SetAutoActivationPowerTag("9024") // 
+            .SetAutoActivationPowerTag("9024") // this is the action ID for Quivering Palm
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -349,8 +349,13 @@ internal static class Level20SubclassesContext
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(ForcePowerUseInSpendPowerAction.Marker)
             .AddToDB();
+
+        powerTraditionOpenHandQuiveringPalm.SetCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
+            new ActionFinishedQuiveringPalm(
+                powerTraditionOpenHandQuiveringPalm,
+                conditionTraditionOpenHandQuiveringPalm));
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
@@ -376,7 +381,7 @@ internal static class Level20SubclassesContext
                 actionAffinityTraditionOpenHandQuiveringPalm)
             .AddToDB();
 
-        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 3));
+        TraditionOpenHand.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetTraditionOpenHandQuiveringPalm, 17));
 
         //
         // Survival
@@ -874,6 +879,50 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
                     .Build());
+        }
+    }
+
+    private sealed class ActionFinishedQuiveringPalm : IActionFinished
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public ActionFinishedQuiveringPalm(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
+            var gameLocationDefender = action.actionParams.targetCharacters[0];
+
+            // remove this condition from all other enemies
+            foreach (var gameLocationCharacter in battle.EnemyContenders
+                         .ToList()
+                         .Where(x =>
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                             x != gameLocationDefender))
+            {
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+                var rulesetCondition = rulesetDefender.AllConditions
+                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+                if (rulesetCondition != null)
+                {
+                    rulesetDefender.RemoveCondition(rulesetCondition);
+                }
+            }
         }
     }
 }
