@@ -878,8 +878,8 @@ internal static class Level20SubclassesContext
 
     private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IActionFinished
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
         public CustomBehaviorQuiveringPalmTrigger(
             FeatureDefinitionPower featureDefinitionPower,
@@ -887,6 +887,24 @@ internal static class Level20SubclassesContext
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
+        }
+
+
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rulesetCondition = rulesetDefender?.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -910,30 +928,6 @@ internal static class Level20SubclassesContext
             }
 
             return isValid;
-        }
-
-
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction.ActionParams.TargetCharacters.Count == 0)
-            {
-                yield break;
-            }
-
-            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
-
-            if (rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            var rulesetCondition = rulesetDefender.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-            if (rulesetCondition != null)
-            {
-                rulesetDefender.RemoveCondition(rulesetCondition);
-            }
         }
     }
 

@@ -154,7 +154,7 @@ public static class InnovationArtillerist
             .AddToDB();
 
         // Actions Tiny Cannon
-        
+
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}{Flamethrower}Tiny")
             .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature, powerFlamethrower)
@@ -187,7 +187,7 @@ public static class InnovationArtillerist
             .SetActivatedPower(powerProtector)
             .SetFormType(ActionFormType.Large)
             .AddToDB();
-        
+
         #endregion
 
         #region LEVEL 03
@@ -651,7 +651,7 @@ public static class InnovationArtillerist
             .AddToDB();
 
     // Action Affinities Medium Cannon
-    
+
     private static readonly FeatureDefinitionActionAffinity ActionAffinityFlamethrower =
         FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}{Flamethrower}")
@@ -698,7 +698,7 @@ public static class InnovationArtillerist
         .AddToDB();
 
     // Action Affinity Tiny Cannon
-    
+
     private static readonly FeatureDefinitionActionAffinity ActionAffinityFlamethrowerTiny =
         FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}{Flamethrower}Tiny")
@@ -743,7 +743,7 @@ public static class InnovationArtillerist
         .SetSpecialDuration(DurationType.Hour, 1)
         .SetFeatures(ActionAffinityProtectorTiny)
         .AddToDB();
-    
+
     #endregion
 
     #region SMALL CANNON POWER

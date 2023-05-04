@@ -268,7 +268,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             {
                 yield break;
             }
-            
+
             if (rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
                 rulesetAttacker.InflictCondition(

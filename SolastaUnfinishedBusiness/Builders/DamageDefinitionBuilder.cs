@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using TA.AI;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
