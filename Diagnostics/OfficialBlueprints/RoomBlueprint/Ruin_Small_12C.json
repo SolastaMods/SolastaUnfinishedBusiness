@@ -42,9 +42,9 @@
     1,
     1,
     2,
-    6,
-    6,
-    6,
+    2,
+    2,
+    2,
     1,
     1,
     2,
@@ -82,7 +82,7 @@
     1,
     1,
     1,
-    6,
+    10,
     6,
     1,
     1,
@@ -94,8 +94,8 @@
     1,
     1,
     1,
-    6,
-    6,
+    10,
+    10,
     1,
     1,
     1,
@@ -107,7 +107,7 @@
     2,
     1,
     1,
-    6,
+    10,
     1,
     1,
     1,
@@ -761,6 +761,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "375d21546a91f624cbf71f991b0ba7a8",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "892a0732d4da67f4fa306f54c6c6b531",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

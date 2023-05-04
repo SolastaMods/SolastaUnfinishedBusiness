@@ -1,0 +1,286 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 18,
+  "maximalAge": 500,
+  "baseHeight": 42,
+  "baseWeight": 40,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityGnomeCunning:ed8900da5032eca4d8e98a00e3208dfc",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGnomeAbilityScoreIncreaseInt:606b6b189e20fb944b5a17fa15c98139",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyGnomeStaticLanguages:ea3e00dfdf6a13342aa514a212a0ed14",
+      "level": 1
+    }
+  ],
+  "subRaces": [
+    "Definition:GnomeRock:3f7461eb3501a6648876f182db33f8bd",
+    "Definition:GnomeShadow:b7442825f83a42047a3c8f43122340fd"
+  ],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [
+    "Language_Common",
+    "Language_Gnomish",
+    "Language_Halfling",
+    "Language_Elvish",
+    "Language_Dwarvish",
+    "Language_Orc"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 5.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Halfling",
+    "armorAssetPrefix": "Halfling",
+    "helmetAssetPrefix": "Gnome",
+    "faceShapeAssetPrefix": "Gnome",
+    "hairShapeAssetPrefix": "Gnome",
+    "beardShapeAssetPrefix": "Gnome",
+    "hornsTailAssetPrefix": "",
+    "maleNameOptions": [
+      "Race/&GnomeMaleName1Title",
+      "Race/&GnomeMaleName2Title",
+      "Race/&GnomeMaleName3Title",
+      "Race/&GnomeMaleName4Title",
+      "Race/&GnomeMaleName5Title",
+      "Race/&GnomeMaleName6Title",
+      "Race/&GnomeMaleName7Title",
+      "Race/&GnomeMaleName8Title",
+      "Race/&GnomeMaleName9Title",
+      "Race/&GnomeMaleName10Title",
+      "Race/&GnomeMaleName11Title",
+      "Race/&GnomeMaleName12Title",
+      "Race/&GnomeMaleName13Title",
+      "Race/&GnomeMaleName14Title",
+      "Race/&GnomeMaleName15Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&GnomeFemaleName1Title",
+      "Race/&GnomeFemaleName2Title",
+      "Race/&GnomeFemaleName3Title",
+      "Race/&GnomeFemaleName4Title",
+      "Race/&GnomeFemaleName5Title",
+      "Race/&GnomeFemaleName6Title",
+      "Race/&GnomeFemaleName7Title",
+      "Race/&GnomeFemaleName8Title",
+      "Race/&GnomeFemaleName9Title",
+      "Race/&GnomeFemaleName10Title",
+      "Race/&GnomeFemaleName11Title",
+      "Race/&GnomeFemaleName12Title",
+      "Race/&GnomeFemaleName13Title",
+      "Race/&GnomeFemaleName14Title",
+      "Race/&GnomeFemaleName15Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&GnomeSurNameTitle",
+    "surNameOptions": [
+      "Race/&GnomeNickname1Title",
+      "Race/&GnomeNickname2Title",
+      "Race/&GnomeNickname3Title",
+      "Race/&GnomeNickname4Title",
+      "Race/&GnomeNickname5Title",
+      "Race/&GnomeNickname6Title",
+      "Race/&GnomeNickname7Title",
+      "Race/&GnomeNickname8Title",
+      "Race/&GnomeNickname9Title",
+      "Race/&GnomeNickname10Title"
+    ],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "BodyDecoration",
+      "EyeColor",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "Scars",
+      "BodyDecorationColor",
+      "HairColor",
+      "HairShape",
+      "Age"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_None",
+      "HairShape_A",
+      "HairShape_AA",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_None",
+      "HairShape_A",
+      "HairShape_AA",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_C",
+      "BeardShape_D",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P"
+    ],
+    "showHelmet": false,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 2
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 0
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.7,
+    "raceAnimationTag": "Gnome"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&GnomeTitle",
+    "description": "Race/&GnomeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f20362af69caa0b42a801a011524aa05",
+      "m_SubObjectName": "RockGnome",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "682d426d5aa652c41aa07364d32c9ad8",
+  "contentPack": "PalaceOfIce",
+  "name": "Gnome"
+}

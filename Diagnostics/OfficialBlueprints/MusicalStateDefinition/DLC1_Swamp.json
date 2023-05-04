@@ -44,7 +44,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Music/&WizardsTowerTitle",
+    "title": "Music/&SwampTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -60,12 +60,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 1,
+    "sortOrder": 22,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "7e7c8e7eecfc4fa4c99f6fbeabc51b59",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "DLC1_Swamp"
 }

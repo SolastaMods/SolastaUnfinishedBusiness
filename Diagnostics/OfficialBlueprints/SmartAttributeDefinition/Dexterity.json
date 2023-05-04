@@ -4,6 +4,7 @@
     "ArmorClass",
     "Initiative"
   ],
+  "autoRefresh": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

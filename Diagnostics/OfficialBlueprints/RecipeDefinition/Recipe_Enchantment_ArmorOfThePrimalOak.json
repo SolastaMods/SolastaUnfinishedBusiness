@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Enchanted_Druid_Armor_Of_The_Primal_Oak:ade371c226a745a408339cf929f89c68",
   "stackCount": 1,
-  "craftingHours": 65,
-  "craftingDC": 15,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -48,6 +49,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "86352c5a647bbc3478bf4d6bd5715a24",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Recipe_Enchantment_ArmorOfThePrimalOak"
 }

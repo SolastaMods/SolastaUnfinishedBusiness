@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3250,
+    10045,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": false,
+  "requiresAttunement": true,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
@@ -204,6 +204,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "LeatherStudded_Black",
+    "ignoreCustomArmorMaterialOnCommonClothes": true,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -225,17 +226,16 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&SuddedOfSurvival_Title",
-    "description": "Equipment/&Armor_StuddedLeatherDescription",
+    "description": "Equipment/&Enchanted_LeatherArmor_Of_Survival_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0a06a45d66c35ff49a1ce452de147610",
-      "m_SubObjectName": "DLC1_StuddedArmor+1_Male",
+      "m_SubObjectName": "DLC1_StuddedArmor+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

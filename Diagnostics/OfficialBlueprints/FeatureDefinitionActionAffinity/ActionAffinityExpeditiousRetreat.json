@@ -23,8 +23,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ActionAffinityExpeditiousRetreatTitle",
-    "description": "Feature/&ActionAffinityExpeditiousRetreatDescription",
+    "title": "Rules/&ConditionExpeditiousRetreatTitle",
+    "description": "Rules/&ConditionExpeditiousRetreatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

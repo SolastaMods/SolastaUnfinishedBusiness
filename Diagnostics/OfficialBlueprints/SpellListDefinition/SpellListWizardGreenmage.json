@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 6,
+  "maxSpellLevel": 8,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -68,6 +68,24 @@
         "Definition:ConjureFey:83cdb7051d75bfe4c9a09008b28b1a91",
         "Definition:HeroesFeast:2df9af96f1ce6ee4aa3d1b9ecdb67b1f",
         "Definition:WallOfThorns:1ce3e76ff87b4d84ab97b8d2b8357c75"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a",
+        "Definition:Regenerate:11ce287bdf5b59d46bc8a992186ed349",
+        "Definition:Resurrection:f796a243f664c73409cca137f137f5f3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e"
       ]
     }
   ],

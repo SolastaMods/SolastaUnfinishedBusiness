@@ -106,7 +106,7 @@
     "boolParameter": false,
     "boolSecParameter": false,
     "floatParameter": 0.0,
-    "enumParameter": 42
+    "enumParameter": 44
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

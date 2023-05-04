@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1500,
+    2465,
     0,
     0,
     0
@@ -35,7 +35,7 @@
   "requiresAttunement": false,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -46,7 +46,9 @@
     "reachRange": 1,
     "closeRange": 5,
     "maxRange": 5,
-    "weaponTags": [],
+    "weaponTags": [
+      "Versatile"
+    ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
       "rangeType": "Self",
@@ -94,6 +96,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -124,9 +127,9 @@
           "saveOccurence": "StartOfTurn",
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
-            "versatile": false,
+            "versatile": true,
             "diceNumber": 1,
-            "dieType": "D10",
+            "dieType": "D8",
             "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D10",
             "bonusDamage": 0,
@@ -517,6 +520,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -525,8 +529,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

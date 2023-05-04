@@ -1,0 +1,37 @@
+{
+  "$type": "EnvironmentDefinition, Assembly-CSharp",
+  "outdoor": true,
+  "sceneReferenceOverride": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "49eda919f71298b4a95c591160e3525b",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Environment/&SnowyForestTitle",
+    "description": "Environment/&SnowyForestDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "896d53b33ff932b41abcf26841a6e2ac",
+      "m_SubObjectName": "EnvironmentSnowyForest",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 6,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4c37abcd32e068e4eaebf11d68c003c9",
+  "contentPack": "PalaceOfIce",
+  "name": "SnowyForest"
+}

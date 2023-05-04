@@ -1,0 +1,45 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 10,
+  "attackingPenalty": 0,
+  "killingPenalty": 5,
+  "prominentMembers": [],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "05aaa475acc4ed844ad2d10bd2c24995",
+    "m_SubObjectName": "DLC3_Faction_Flag_UndermountainClansSmall",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Faction/&DLC3_UndermountainClan_Title",
+    "description": "Faction/&DLC3_UndermountainClan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "5d690216c2a858b42b4bca98e7f520b6",
+      "m_SubObjectName": "DLC3_Faction_Flag_UndermountainClans",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "331bd2ea7a2faec43b8dd61703b3f76b",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_UndermountainClan_Ettiven"
+}

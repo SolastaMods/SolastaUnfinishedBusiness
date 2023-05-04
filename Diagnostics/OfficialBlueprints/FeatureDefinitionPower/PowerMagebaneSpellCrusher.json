@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -323,6 +324,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "RangerHunterStandAgainstTheTide",
+  "damageTypes": [],
   "reactionName": "SpellCrusher",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -351,12 +353,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerMagebaneSpellCrusherTitle",
+    "description": "Feature/&PowerMagebaneSpellCrusherDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
+      "m_AssetGUID": "9e485c8f4d6e0304b9f0a22fd49c73f5",
+      "m_SubObjectName": "SpellCrusher",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

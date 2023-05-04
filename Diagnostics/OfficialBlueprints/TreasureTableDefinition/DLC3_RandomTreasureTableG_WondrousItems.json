@@ -1,0 +1,471 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Backpack_Bag_Of_Holding:54f669dd16ccccd49b9e272f0de207ce",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:AmuletOfHealth:9e078ea9c920ae345bb2f1651a8c63fb",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:AmuletOfPureSouls:131eafc5871777d43be3487dc641b148",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:ArcaneShieldstaff:d3672c0c7d38f854fa55233f39b4c27b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BeltOfDwarvenKind:4a19f3a11c406c34388be5b64a98ba0e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:BeltOfGiantHillStrength:fa8187390fa44c445a93a7fcd8a13087",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:BeltOfRegeneration:88eb831b644a43b4ca1c7fe344179197",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BeltOfTheBarbarianKing:cde5eb47fd16be0469f1dc9f5d68dc2f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BootsLevitation:3a2ac0f9a2c3d434d84dfba88d1f0599",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:BootsOfElvenKind:c199d046ce1a3c047bdc3ef8ba37b1df",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BootsOfFireWalking:0f49500c229e13149aabb6bb6b231ac1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:BootsOfFirstStrike:ef53cae866ecfe646965484c68875aaa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:BootsOfStridingAndSpringing:bf4f59bf7c019e4418abc9ad152554bb",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BootsOfTheSteadyFighter:3e0d38a32b6154b4fa00fb9384dadf78",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BootsOfTheWinterland:9fbe7fabdd30bdf4aa1575faad11256a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BootsWinged:4b292e5e2fb1e3947942dec23f3cfb2b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bracers_Of_Archery:ff1a6086be4ee804b922cb6418c96cef",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Bracers_Of_Defense:3acacf2a7d9302242b33de2b70baa5ac",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Bracers_Of_Storms:2c65e9de4f50c864780e5c87ae6b3d37",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Bracers_Of_StunningStrike:b43a625a3b5fe4f498a5756618ab0c0a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:BracersOfSparkles:357f4d75b20973140a51856b8163d14c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:BroochOfShielding:6ff04fc0f970e724dbcecbe73c965641",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:ChimeOfOpening:51cb6dc3bd9131f48ab0191557b73c59",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:CircletOfBlasting:93e1557ae41483b419a16bf6c9c2f08c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:CloakOfArachnida:02a83d86a8afc68489b9a04f2bd485b7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:CloakOfElvenkind:b92ab0211a8e8594a85b52d7abaa05f1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:CloakOfProtection:6e294008b7bef06419834fbbba188b8f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:CloakOfTheAncientKing:5633d1280d098b14c93e2c14e2c0b64f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:CloakOfTheDandy:3fd19abbd4f2d1d42a0090219d3ab22d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:CloakOfUbiquity:3df70ea368fa5fd4d9d34c49c3ee601d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:DwarvenWarDrums:d23b9ed52419d604f855f5ddee638600",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:EndlessQuiver:bfaf8284a5eb39546867582e0a180c04",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:FluteOfRespite:e59c364d36281434b94e7b4cce6690ce",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:GauntletsOfOgrePower:0dd547fef0b32a84690f5a3d52d371bd",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:GemOfSeeing:ecfe9a823c1f93b40ad9246d83f92f70",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:GlovesOfMissileSnaring:48e7d3bc52b6b744987ee26d0107f558",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:HeadbandOfIntellect:a6c0768bc63a0594eb27092429949f5e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:HelmOfComprehendingLanguages:1aded96fb777fe74bbeddda213dd3bc2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:HornOfBlasting:c78c577570a72964e8ecb4668b6e5d22",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:NecklaceOfFireballs:2532888b20611b3489a4bc5ce3873bff",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:PendantOfTheHealer:91b1b9d828c6904449dc61505d3f9659",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:PenitentBelt:86163b5b43f3a2e4795f67259a0cce8d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:PeriaptOfProofAgainstPoison:35987d701982a9e489860dad739a4eed",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:PeriaptOfTheMasterEnchanter:d666948e1ef633144a0d089a7c53bdfa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:PipesOfHaunting:8a003329450dd824fb3b3788389c31d8",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:RingDarkvision:fc4039e5726aaec4eae60b774c327ce7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:RingDetectInvisible:2d1635ce30ec18043b71e8d6e77ad8bf",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:RingFeatherFalling:f50ad35d23fe20948a31a82c9aa724af",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:RingOfColdResistance:6cda8f7b8aa44014c99d34c79ccce9e1",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:RingOfFireResistance:66dbfd87ba28fa34a828a225eb29a19c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:RingOfLanguages:419b27d2ddc93524f88f3e94176e4021",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:RingOfNecroticResistance:b1774858b44d79842942cf96ea3bd5be",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:RingOfPoisonResistance:595d93ba45ae672469317bf4f8417317",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:RingOfTheAmbassador:bcc9cc1ec14ac1046bca09843bb92be7",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:RingOfTheLightbringers:c225782501eb8514e963a3149158d568",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:RingProtection+1:4a51b5654f7506d48818645f3024d4ea",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:RingRegeneration:d2f0888d99622f04e82531172328e7b2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:SlippersOfSpiderClimbing:63ae1df35f54dfa49bfca2709b23abd4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfFire:e1b08f5199cc7bd4ea614e42b7aec067",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfHealing:040870100e615394fb6795c61214de3b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:StaffOfMetis:c0a62e0a94537c54389734733bb0d734",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:StaffOfSwarmingInsects:d0222a200f3f05a40a8ebbbb3a9e7bed",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:StoneOfGoodLuck:415887c8ed389cc4e85b86a56377b147",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:TheAmendment:62a69ff62ddd16a46aa6c67454418f4f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:WandFear:c0423f6606b2ff440b2e095b7e7d17fc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:WandMagicMissile:7617927d5593fac4982b711a9b9643ec",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:WandOfBlight:36b4da9e904ddd4428eb45a62a3af4f4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:WandOfLightningBolts:ed39d2c184af32e448f0cf956d2af68b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:WandOfMagicDetection:27d00c51252f27c499205e1c6a27fda0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:WandOfThorns:31bb2bfefa6be1f41b0b2d03f7b63e80",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:WandOfWinter:8504a802e95f0bd4180644ef703b7569",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a0fc7001a79eecd4295e50414f57c965",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableG_WondrousItems"
+}

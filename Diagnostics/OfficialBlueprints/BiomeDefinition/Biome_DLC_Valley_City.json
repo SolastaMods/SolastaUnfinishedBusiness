@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Forest",
   "encounterTable": "Definition:DLC1_EncounterTableFull:7f0d2ac20b75e4143829ba379f6be73e",
   "narrativeEventBasicLines": [
@@ -38,11 +39,12 @@
     "Definition:DLC1_Encounter_Jungle_Road_LocationDB:d805c113000390f4c8b4a12603068534",
     "Definition:DLC1_Encounter_Stonehenge_LocationDB:6f36ad76bfa3d764a8e1e80ebe274845"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Arid:6eddf3e63a9ee4d428fb00d69c257edc",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_DLC1_Full_Title",
+    "description": "Biome/&Biome_DLC1_Full_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -63,6 +65,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "613aad43b73624c499d99ebe3c736150",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "Biome_DLC_Valley_City"
 }

@@ -1,0 +1,132 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 18,
+  "maximalAge": 500,
+  "baseHeight": 42,
+  "baseWeight": 40,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierGnomeShadowAbilityScoreIncreaseDex:9cd25e09b1b8b55448675f05ea018a17",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetGnomeRockTinker:2487a51a800e67942a78a6fc2e189e22",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyGnomeRockArtificersLore:7d282cbbaf257504089ab87cbb301c3d",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 5.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "",
+    "armorAssetPrefix": "",
+    "helmetAssetPrefix": "",
+    "faceShapeAssetPrefix": "",
+    "hairShapeAssetPrefix": "",
+    "beardShapeAssetPrefix": "",
+    "hornsTailAssetPrefix": "",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": false,
+    "surNameTitle": "",
+    "surNameOptions": [],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars"
+    ],
+    "needBeard": true,
+    "defaultMusculature": 0,
+    "originOptions": [],
+    "maleFaceShapeOptions": [],
+    "femaleFaceShapeOptions": [],
+    "maleHairShapeOptions": [],
+    "femaleHairShapeOptions": [],
+    "maleHornsOptions": [],
+    "femaleHornsOptions": [],
+    "maleTailOptions": [],
+    "femaleTailOptions": [],
+    "maleBeardShapeOptions": [],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "equipmentLayoutPath": "",
+    "maleVoiceDefinition": "MAL2",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.7,
+    "raceAnimationTag": "Gnome"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&GnomeRockTitle",
+    "description": "Race/&GnomeRockDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f20362af69caa0b42a801a011524aa05",
+      "m_SubObjectName": "RockGnome",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "3f7461eb3501a6648876f182db33f8bd",
+  "contentPack": "PalaceOfIce",
+  "name": "GnomeRock"
+}

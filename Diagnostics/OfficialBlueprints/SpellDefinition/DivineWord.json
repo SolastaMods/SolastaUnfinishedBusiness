@@ -1,0 +1,591 @@
+{
+  "$type": "SpellDefinition, Assembly-CSharp",
+  "spellsBundle": false,
+  "subspellsList": [],
+  "implemented": true,
+  "schoolOfMagic": "SchoolEvocation",
+  "spellLevel": 7,
+  "ritual": false,
+  "uniqueInstance": false,
+  "castingTime": "BonusAction",
+  "reactionContext": "None",
+  "ritualCastingTime": "Action",
+  "requiresConcentration": false,
+  "effectDescription": {
+    "$type": "EffectDescription, Assembly-CSharp",
+    "rangeType": "Distance",
+    "rangeParameter": 6,
+    "halfDamageOnAMiss": false,
+    "hitAffinitiesByTargetTag": [],
+    "targetType": "InLineOfSightWithinDistance",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 6,
+    "targetParameter2": 2,
+    "emissiveBorder": "None",
+    "emissiveParameter": 1,
+    "requiresTargetProximity": false,
+    "targetProximityDistance": 6,
+    "targetExcludeCaster": false,
+    "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
+    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringTag": "No",
+    "requiresVisibilityForPosition": true,
+    "inviteOptionalAlly": false,
+    "slotTypes": [],
+    "recurrentEffect": "No",
+    "retargetAfterDeath": false,
+    "retargetActionType": "Bonus",
+    "poolFilterDiceNumber": 5,
+    "poolFilterDieType": "D8",
+    "trapRangeType": "Triggerer",
+    "targetConditionName": "",
+    "targetConditionAsset": null,
+    "targetSide": "Enemy",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
+    "hasSavingThrow": true,
+    "disableSavingThrowOnAllies": false,
+    "savingThrowAbility": "Charisma",
+    "ignoreCover": false,
+    "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": false,
+    "hasShoveRoll": false,
+    "createdByCharacter": true,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
+    "savingThrowAffinitiesBySense": [],
+    "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
+    "advantageForEnemies": false,
+    "canBeDispersed": false,
+    "hasVelocity": false,
+    "velocityCellsPerRound": 2,
+    "velocityType": "AwayFromSourceOriginalPosition",
+    "restrictedCreatureFamilies": [],
+    "immuneCreatureFamilies": [],
+    "restrictedCharacterSizes": [],
+    "hasLimitedEffectPool": false,
+    "effectPoolAmount": 60,
+    "effectApplication": "Filtered",
+    "effectFormFilters": [
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 6,
+        "criteria": "CharacterFamily",
+        "minHitPoints": 0,
+        "maxHitPoints": 0,
+        "characterFamily": "Celestial"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 6,
+        "criteria": "CharacterFamily",
+        "minHitPoints": 0,
+        "maxHitPoints": 0,
+        "characterFamily": "Elemental"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 6,
+        "criteria": "CharacterFamily",
+        "minHitPoints": 0,
+        "maxHitPoints": 0,
+        "characterFamily": "Fey"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 6,
+        "criteria": "CharacterFamily",
+        "minHitPoints": 0,
+        "maxHitPoints": 0,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 6,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 0,
+        "maxHitPoints": 20,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 5,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 21,
+        "maxHitPoints": 30,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 4,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 21,
+        "maxHitPoints": 30,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 3,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 21,
+        "maxHitPoints": 30,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 2,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 31,
+        "maxHitPoints": 40,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 1,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 31,
+        "maxHitPoints": 40,
+        "characterFamily": "Fiend"
+      },
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 0,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 41,
+        "maxHitPoints": 50,
+        "characterFamily": "Fiend"
+      }
+    ],
+    "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionDeafened1minute:a5abd527c006b344c9fb33ed467c7e7a",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionDeafened10minutes:82f6abbe3cea35649a07e4cbc2dd2e4c",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 1
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionBlinded10minutes:2c0626af1e543e640be3777fd14ebf7c",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 2
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionBlinded1hour:425387853dc83f54e94c898a971df3dc",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 3
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionDeafened1hour:3730cd2fcbf02434dba7e75c4b541067",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 4
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionStunned1hour:3f5d5810c02129f47806d57e0c702a6c",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 5
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Kill",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "killForm": {
+          "$type": "KillForm, Assembly-CSharp",
+          "killCondition": "Always",
+          "challengeRating": 0.0,
+          "hitPoints": 0
+        },
+        "hasFilterId": true,
+        "filterId": 6
+      }
+    ],
+    "specialFormsDescription": "Spell/&DivineWordEffectFormsDescription",
+    "effectAdvancement": {
+      "$type": "EffectAdvancement, Assembly-CSharp",
+      "effectIncrementMethod": "None",
+      "incrementMultiplier": 1,
+      "additionalTargetsPerIncrement": 0,
+      "additionalSubtargetsPerIncrement": 0,
+      "additionalDicePerIncrement": 0,
+      "additionalSpellLevelPerIncrement": 0,
+      "additionalSummonsPerIncrement": 0,
+      "additionalHPPerIncrement": 0,
+      "additionalTempHPPerIncrement": 0,
+      "additionalTargetCellsPerIncrement": 0,
+      "additionalItemBonus": 0,
+      "additionalWeaponDie": 0,
+      "alteredDuration": "None"
+    },
+    "speedType": "Instant",
+    "speedParameter": 10.0,
+    "offsetImpactTimeBasedOnDistance": false,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
+    "effectParticleParameters": {
+      "$type": "EffectParticleParameters, Assembly-CSharp",
+      "casterParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "d9205f8f1e02e0b4d9da830c3f90dd69",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "casterSelfParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "casterQuickSpellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "targetParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "effectParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "7230127d1e8fdd24a9b959d470b6fdba",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "effectSubTargetParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "zoneParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "impactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0fc35269a6de48c4997c66cfcce8512a",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceParticlePerIndex": "",
+      "emissiveBorderCellStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderCellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderCellEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "forceApplyZoneParticle": false,
+      "applyEmissionColorOnWeapons": false,
+      "emissionColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "emissionColorFadeInDuration": 0.0,
+      "emissionColorFadeOutDuration": 0.0
+    },
+    "effectAIParameters": {
+      "$type": "EffectAIParameters, Assembly-CSharp",
+      "aoeScoreMultiplier": 1.0,
+      "cooldownForCaster": 0,
+      "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
+      "dynamicCooldown": false
+    },
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
+  },
+  "aiParameters": {
+    "$type": "SpellAIParameters, Assembly-CSharp",
+    "learnPriority": "Low",
+    "preparePriority": "Low"
+  },
+  "concentrationAction": "None",
+  "verboseComponent": true,
+  "somaticComponent": false,
+  "materialComponentType": "None",
+  "specificMaterialComponentTag": "Metal",
+  "specificMaterialComponentCostGp": 250,
+  "specificMaterialComponentConsumed": false,
+  "terminateOnItemUnequip": false,
+  "displayConditionDuration": false,
+  "vocalSpellSemeType": "Debuff",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&DivineWordTitle",
+    "description": "Spell/&DivineWordDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "524eed691811e1c42b5835f48363ccf7",
+      "m_SubObjectName": "DivineWord",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c9f85f76897179c4baabdc7c45f1930d",
+  "contentPack": "BaseGame",
+  "name": "DivineWord"
+}

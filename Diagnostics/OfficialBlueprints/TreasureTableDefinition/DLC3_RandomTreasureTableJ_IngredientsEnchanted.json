@@ -1,0 +1,189 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Of_Solasta:f139a17731fb4a94b9405e1869606d86",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Cloud_Diamond:0628b557ed40b7c448824b81c07a93bc",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Crystal_Of_Winter:349532dfea26d5a42b43427baab99160",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Diamond_Of_Elai:9257ab496a5d1394890a9b142eb89397",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Doom_Gem:be248d03cbf6a8b4c9fee004c058e9f6",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_HeartOfWinter:2e95ee97d8e92f848b35c8a1676f26f0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Heartstone:c7e4bf02a2980cc40b824c07c82abe2b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_Enchant_LifeStone:fe44147b00fe32445bdc2bb69579a39b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_Medusa_Coral:938f014028419994d8f33964bcb6d9fa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_MithralStone:e0d9029154ac2a14c89ad240597b4ac0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_Enchant_Oil_Of_Acuteness:ad0a6236d6ce53344b534dd9c1cdcc00",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_Enchant_PrimordialCrystal:5273cd5f02392004c952d7b7bd6257db",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_PurpleAmber:5e85e553c21339546b360ac82961dfab",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_Enchant_RiverEmerald:7858849b8df8d5d438f06743ab205622",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 3,
+      "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Fire:0d3bff297f3e0264ebad85cd3bdfaf65",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Ice:75fae984d7b2a05419c5681b5c4a7415",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Ice_Minor:1dfa744ba030c744c92e60d6d9576dfa",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Slavestone:b9c2c46851e33f04184235fed2db6dc3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Soul_Gem:21ac94fc3ec649b4ba9b6a8bc46b4c77",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:Ingredient_Enchant_SpiderQueen_Venom:d4837cc6a3c181142b498c3011ae5e8b",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Ingredient_Enchant_SwampOpal:ae4b9f7455cfe3c42add07fe46334d16",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:Ingredient_Enchant_TearOfTirmar:0bc1f451ed2b00642b6027dc212fddd4",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:Ingredient_Enchant_TrollHeart:81af6b3ca1292564a8e9138572b44b81",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_VolcanicTear:279bb9c8318c7e346b427dda57204283",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "db7704563f17ef048bc70a25e96ba663",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableJ_IngredientsEnchanted"
+}

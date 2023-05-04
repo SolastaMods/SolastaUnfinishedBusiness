@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dragonborn:863fd0fc96274bb42874b6d16fd7622b",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_Dragonborn",
+  "skinMorphotype": "FaceAndSkin_Dragonborn_25",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_None",
+  "hairColorMorphotype": "HairColorCopper",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Dragonborn",
+  "eyeColorMorphotype": "EyeColorLavender",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_A",
+  "tailMorphotype": "Tail_A",
+  "armorDefinition": "ClothesCommon_Valley",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6226415,
+    "g": 0.375244439,
+    "b": 0.07929868,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6132076,
+    "g": 0.176441789,
+    "b": 0.297798276,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8679245,
+    "g": 0.8679245,
+    "b": 0.8679245,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Title",
+    "description": "NPC/&DLC3_NPC_Einareum_Merchant_Weapons_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "864329f0e8eded647a84b892d8337707",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Einareum_Merchant_Weapons",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "89d0eab582ef0d44988334e16bb19700",
+  "contentPack": "LostValley",
+  "name": "NPC_Presentation_DLC3_Einareum_Merchant_Weapons"
+}

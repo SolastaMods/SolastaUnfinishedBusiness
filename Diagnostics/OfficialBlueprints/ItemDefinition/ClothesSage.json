@@ -186,6 +186,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -195,6 +196,8 @@
       "Shape",
       "Shape",
       "Nothing",
+      "Armor",
+      "Armor",
       "Armor",
       "Armor",
       "Armor",
@@ -211,13 +214,14 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -225,8 +229,8 @@
     "description": "Equipment/&Armor_Scholar_ClothesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b4557cb8b7113be459d1cd9bd14769c6",
-      "m_SubObjectName": "ScholarOutfit_male",
+      "m_AssetGUID": "6841e33714055cc42b85ec408f6a0ad6",
+      "m_SubObjectName": "ScholarOutfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

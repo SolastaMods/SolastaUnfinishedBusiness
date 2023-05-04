@@ -1,0 +1,66 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_WhiteCity_FrozenQuest_Document_Lore_Dwarf_Note:19345732fd55aa44c8a021d4edb82acf",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableB_Scrolls:eb6c3228584269248b75d03ca8d5cbff",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:DLC3_WhiteCity_FrozenQuest_Document_Lore_Dwarf_Note:19345732fd55aa44c8a021d4edb82acf",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableR_RecipeManuals:26e4726cc77796541b46ee2155bd59cd",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_WhiteCity_Lore_SnowAllianceHistory:44be872e71fd8984ba395850da5ef1ff",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableR_RecipeManuals:26e4726cc77796541b46ee2155bd59cd",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "4a78b4f560221fd478037370bca01271",
+  "contentPack": "PrimalCalling",
+  "name": "DLC3_WhiteCity_Lootpack_Library_GormHouse_A"
+}

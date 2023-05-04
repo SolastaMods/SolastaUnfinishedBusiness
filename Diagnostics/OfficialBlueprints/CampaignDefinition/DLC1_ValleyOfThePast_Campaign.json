@@ -8,6 +8,7 @@
   "minStartLevel": 1,
   "maxStartLevel": 1,
   "maxLevelImport": 12,
+  "forceLevelUpTo": 0,
   "levelCap": 12,
   "predefinedParty": [],
   "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
@@ -18,13 +19,19 @@
   "sceneFilePath": "",
   "sceneReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "88b64f1a795ce7941898b276c51d4c10",
+    "m_AssetGUID": "4b1b3e7f02497854e96e48bc7e9adcf9",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "graphicsCampaignMapReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "67400e7f708ee774da45bbfc23c8c366",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "nodesAndSegmentsPrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "afee2b34f44826342995bd3057574e2c",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -3357,11 +3364,12 @@
     ],
     "name": "DLC1_Location"
   },
-  "namedPlacesPath": "",
+  "namedPlacesPath": "Campaign/DLC1_Valley_NamedPlaces",
   "recommendedCampaign": null,
   "recommendedSceneNameStartsWith": "",
   "variablesToImport": [],
   "questStatusToImport": [],
+  "warningText": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

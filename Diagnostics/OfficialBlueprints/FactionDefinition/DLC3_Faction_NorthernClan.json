@@ -1,0 +1,45 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 10,
+  "attackingPenalty": 0,
+  "killingPenalty": 5,
+  "prominentMembers": [],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "f5b140330ddaae649a89a1c9f03bb4b0",
+    "m_SubObjectName": "DLC3_Faction_Flag_NorthernClansSmall",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&DLC3_NorthernClan_Title",
+    "description": "Faction/&DLC3_NorthernClan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "df3e1416616192b44ba5e237969b90fa",
+      "m_SubObjectName": "DLC3_Faction_Flag_NorthernClans",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "33ee8529d6d65ea4382c634d1218b1e8",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_NorthernClan"
+}

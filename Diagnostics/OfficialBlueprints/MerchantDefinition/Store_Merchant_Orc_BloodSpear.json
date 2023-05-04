@@ -51,6 +51,20 @@
       "reassortRateValue": 1,
       "requiredFaction": "",
       "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:CraftingManual_Enchant_Leather_Armor_Of_FlameDancing:4dc87bbc54aadef4a859ac87e43ac748",
+      "stackCount": 1,
+      "initialAmount": 1,
+      "minAmount": 0,
+      "maxAmount": 1,
+      "reassortAmount": 0,
+      "reassortRateType": "Hour",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
     }
   ],
   "guiPresentation": {

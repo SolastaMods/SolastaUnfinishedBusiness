@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBerserkerIntimidatingPresence:9bf7234f42f0eb74c883e33bbf3fda40",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityRetaliation:ec64ca6a83b04e947a2a3fb85a22ddc9",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [

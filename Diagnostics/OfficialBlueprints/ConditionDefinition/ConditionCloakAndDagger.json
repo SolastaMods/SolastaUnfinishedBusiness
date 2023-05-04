@@ -7,8 +7,9 @@
     "Definition:AttributeModifierConditionCloakAndDagger:ad9e2453c55c71744a6c93669bc391a7"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

@@ -1,0 +1,117 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Arrow_Alchemy_Corrosive:e95eb550001865d48af02485df97237d",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Arrow_Alchemy_Flaming:9e6e74a5615a0ee4c87faba61e8002dd",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Arrow_Alchemy_Flash:c769e3a280bc9394683cc42acfb5969b",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Arrow_Poisoned_BasicPoison:e03479fbbed75684ebaa44106f2f7d56",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Arrow_Poisoned_BrimstoneFang:0132e52e865e7d8429837b6fb036848b",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_TheBurden:7bf97a36e4b9eea40abe4438b2f3c0e7",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Arrow_Poisoned_TheLongNight:d6c320ad6360ab2418c267b5221a3321",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bolt_Alchemy_Corrosive:e8c098a009ec5d846b56f72bf3296b26",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bolt_Alchemy_Flaming:9f92f7d9a5880bc41922322e498f96fd",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bolt_Alchemy_Flash:e7b4d298edc34fd46a4209a5ac3e53fc",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Bolt_Poisoned_BasicPoison:c7138bdb36b24ee43b06f266cd016574",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bolt_Poisoned_DarkStab:ed557b722bd525b45960239c6e9a4b7a",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Bolt_Poisoned_DeepPain:45f248f85f4a6e4479273cf5fb18b2a8",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Bolt_Poisoned_MaraikesTorpor:b40b4e6079d474148bcc48120094863a",
+      "amount": 10
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b6d143456fdf20741aaf001598e6ec5d",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableL_AmmosPoison"
+}

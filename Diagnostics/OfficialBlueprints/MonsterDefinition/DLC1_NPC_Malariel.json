@@ -245,7 +245,7 @@
     "description": "NPC/&NPC_Orenetis_Malariel",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "71ff97a80bef7114aadc452a0754be32",
+      "m_AssetGUID": "ea3165953a9f8b04c9e870a0bdf6e717",
       "m_SubObjectName": "CustomPortrait_DLC1_Malariel_Brogarad",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },

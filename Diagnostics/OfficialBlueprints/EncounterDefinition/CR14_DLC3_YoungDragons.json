@@ -1,0 +1,65 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 14,
+  "locationOverride": null,
+  "locationBlacklist": [
+    "Definition:DLC3_Encounter_Bridge_LocationDB:f47b81abfe1f999419aa2529f700dc6a",
+    "Definition:DLC3_Encounter_Canyon_LocationDB:56f8620f7dfe96b46aeb0b307a0eb2a5",
+    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6",
+    "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
+    "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321"
+  ],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Young_BlackDragon:ceca68773c0734140b668528d32559ff",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Young_GreenDragon:7a956a769d6f9724e9fad49cd62dff3f",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR14_YoungDragons_Title",
+    "description": "Encounter/&DLC3_CR11_FeralDragons_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1e2b38ed5e73f804f908138d86a315eb",
+  "contentPack": "PalaceOfIce",
+  "name": "CR14_DLC3_YoungDragons"
+}

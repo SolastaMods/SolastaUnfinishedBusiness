@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "ShortRest",
   "condition": "HasAttunableItem",
+  "requiresMissingClassSpellSlots": false,
   "functor": "AttuneItem",
   "stringParameter": "",
   "checkConsciousness": true,

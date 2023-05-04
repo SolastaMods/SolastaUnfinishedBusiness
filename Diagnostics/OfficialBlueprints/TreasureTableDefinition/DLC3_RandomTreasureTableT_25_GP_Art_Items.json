@@ -1,0 +1,99 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_BronzeStatuette:af02ae2a4b9317b459d2db55c1335c0f",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_EngraveBoneDice:28a34361e0d67b74a9ecdb523215d9a5",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldBracelet:b5eb965df15a17e4fb9fb75ae0069c44",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_GoldLocket:fbf29c0c18c788d4b8a662ae9377ec79",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_Mirror:3bb92fecf1ea7e24983e745cb2af446a",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilkScarf:59d02f829c147b54ea6f4f525d3cd031",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverBrooch:b0ae9ad3c2268434da513d75bf340628",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverChalice:a9707c20b22715a489559045256ab383",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_SilverComb:28d8a4421d21c8648949ef1ec438b620",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Art_Item_25_GP_VelvetMask:dc6b48e28ceb98f48b3a9225a3fcc61d",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:25_Gold_Coins:57b8e86bd908b874f9857ec43b0af42f",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TreasureTable/&25_GP_Art_ItemsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ecedcda1289592b49b93fa0bdd54800d",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableT_25_GP_Art_Items"
+}

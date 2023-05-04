@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -169,7 +170,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8eb043f1c9020924e9ed58a2a7761f49",
+        "m_AssetGUID": "102b87bd581072a49a6355c1f967d9c9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -217,7 +218,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "fdd58114e20e52f449068f6de39ccfd9",
+        "m_AssetGUID": "279028630f22e114bb2d98fd6e89b180",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -348,6 +349,8 @@
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -385,10 +388,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Sorak_Abomination",
-        "id": 3811376871,
-        "guid": "B142BF73-9B6F-49D2-AE79-9142B39F2C39",
-        "name": "B142BF73-9B6F-49D2-AE79-9142B39F2C39"
+        "objectName": "Claw_Sorak_Fiery",
+        "id": 3703377347,
+        "guid": "A8F8C5FA-F711-4836-B09B-A68E3C6D8935",
+        "name": "A8F8C5FA-F711-4836-B09B-A68E3C6D8935"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {
