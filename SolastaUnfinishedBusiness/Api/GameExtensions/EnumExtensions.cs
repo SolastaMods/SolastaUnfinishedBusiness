@@ -200,7 +200,10 @@ internal enum ExtraActionId
     CombatRageStart = 9021,
     CastSpellMasteryMain = 9022,
     CastSignatureSpellsMain = 9023,
-    QuiveringPalmToggle = 9024
+    QuiveringPalmToggle = 9024,
+    CannonFlamethrowerBonus = 9025,
+    CannonForceBallistaBonus = 9026,
+    CannonProtectorBonus = 9027
 }
 
 #if false

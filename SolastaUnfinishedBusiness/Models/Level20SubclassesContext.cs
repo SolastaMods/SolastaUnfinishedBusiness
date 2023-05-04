@@ -124,7 +124,7 @@ internal static class Level20SubclassesContext
             .Create("ConditionMartialCommanderPeerlessCommanderMovement")
             .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
@@ -165,7 +165,14 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerMartialCommanderInvigoratingShout)
             .AddToDB();
 
-        MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerMartialCommanderPeerlessCommander, 18));
+        var featureSetPeerlessCommander = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMartialCommanderPeerlessCommander")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerMartialCommanderPeerlessCommander)
+            .AddToDB();
+
+
+        MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPeerlessCommander, 18));
 
         //
         // Mountaineer
@@ -202,8 +209,7 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Permanent)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnTurnEnd)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnTurnEnd)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -291,6 +297,22 @@ internal static class Level20SubclassesContext
         // Open Hand
         //
 
+        var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
+            .Create("ConditionTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Day, 1)
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("SavingThrowAfterRollQuiveringPalm")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
+                    .AddToDB())
+            .AddToDB();
+
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalmTrigger")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature,
@@ -313,23 +335,9 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionOpenHandQuiveringPalmTrigger.SetCustomSubFeatures(
-            new FilterTargetingMagicEffectQuiveringPalm(powerTraditionOpenHandQuiveringPalmTrigger));
-
-        var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
-            .Create("ConditionTraditionOpenHandQuiveringPalm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Day, 1)
-            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
-            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("SavingThrowAfterRollQuiveringPalm")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
-                    .AddToDB())
-            .AddToDB();
+            new CustomBehaviorQuiveringPalmTrigger(
+                powerTraditionOpenHandQuiveringPalmTrigger,
+                conditionTraditionOpenHandQuiveringPalm));
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
@@ -365,6 +373,11 @@ internal static class Level20SubclassesContext
             .RequiresAuthorization()
             .AddToDB();
 
+        _ = DamageDefinitionBuilder
+            .Create("DamagePure")
+            .SetGuiPresentation(Category.Rules)
+            .AddToDB();
+
         var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature)
@@ -387,15 +400,38 @@ internal static class Level20SubclassesContext
         // Survival
         //
 
-        var damageAffinityTraditionSurvivalPhysicalPerfection = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityHalfOrcRelentlessEndurance, "DamageAffinityTraditionSurvivalPhysicalPerfection")
-            .SetGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
-            .AddToDB();
-
         var conditionTraditionSurvivalPhysicalPerfection = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTraditionSurvivalUnbreakableBody,
                 "ConditionTraditionSurvivalPhysicalPerfection")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetRecurrentEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetBonusMode(AddBonusMode.Proficiency)
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
+                    .Build())
+            .SetCustomSubFeatures(new ModifyMagicEffectRecurrentPhysicalPerfection())
+            .AddToDB();
+
+        var powerTraditionSurvivalPhysicalPerfectionHeal = FeatureDefinitionPowerBuilder
+            .Create("PowerTraditionSurvivalPhysicalPerfectionHeal")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(
+                                HealingComputation.Dice,
+                                10,
+                                DieType.D1, 0, false,
+                                HealingCap.MaximumHitPoints)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
@@ -412,13 +448,14 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
-            .SetCustomSubFeatures(new ModifyMagicEffectPhysicalPerfection())
+            .SetCustomSubFeatures(
+                new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfectionHeal))
             .AddToDB();
 
         var featureSetTraditionSurvivalPhysicalPerfection = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetTraditionSurvivalPhysicalPerfection")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(damageAffinityTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfection)
+            .AddFeatureSet(powerTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfectionHeal)
             .AddToDB();
 
         TraditionSurvival.FeatureUnlocks.Add(
@@ -652,19 +689,11 @@ internal static class Level20SubclassesContext
     // Physical Perfection
     //
 
-    private sealed class ModifyMagicEffectPhysicalPerfection : IModifyMagicEffectRecurrent
+    private sealed class ModifyMagicEffectRecurrentPhysicalPerfection : IModifyMagicEffectRecurrent
     {
-        public void ModifyEffect(
-            RulesetCondition rulesetCondition,
-            EffectForm effectForm,
-            RulesetActor rulesetActor)
+        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
         {
             if (rulesetActor is not RulesetCharacter rulesetCharacter)
-            {
-                return;
-            }
-
-            if (effectForm.FormType != EffectForm.EffectFormType.Healing)
             {
                 return;
             }
@@ -676,14 +705,60 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
-            {
-                return;
-            }
-
             var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
-            effectForm.HealingForm.bonusHealing += pb;
+            effectForm.HealingForm.bonusHealing = pb;
+        }
+    }
+
+    private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
+    {
+        private readonly FeatureDefinitionPower _powerSharedPool;
+
+        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerSharedPool)
+        {
+            _powerSharedPool = powerSharedPool;
+        }
+
+        public IEnumerator HandleSourceReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter source,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!source.RulesetCharacter.CanUsePower(_powerSharedPool))
+            {
+                yield break;
+            }
+
+            source.RulesetCharacter.StabilizeTo1HitPoint();
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(source, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("PhysicalPerfection", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var effectPower = new RulesetEffectPower(source.RulesetCharacter,
+                UsablePowersProvider.Get(_powerSharedPool, source.RulesetCharacter));
+
+            source.RulesetCharacter.ForceKiPointConsumption(1);
+            effectPower.ApplyEffectOnCharacter(source.RulesetCharacter, true, source.LocationPosition);
         }
     }
 
@@ -801,13 +876,35 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class FilterTargetingMagicEffectQuiveringPalm : IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IActionFinished
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public FilterTargetingMagicEffectQuiveringPalm(FeatureDefinitionPower featureDefinitionPower)
+        public CustomBehaviorQuiveringPalmTrigger(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
+        }
+
+
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
+            var rulesetCondition = rulesetDefender?.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -873,11 +970,12 @@ internal static class Level20SubclassesContext
 
             var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints - 1;
 
-            target.SustainDamage(totalDamage, DamageTypeForce, false, caster.Guid, null, out _);
+            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
             effectForms.SetRange(
                 EffectFormBuilder
                     .Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
+                        ConditionForm.ConditionOperation.Add)
                     .Build());
         }
     }

@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInnovationArtilleristProtector",
-          "conditionDefinition": "Definition:ConditionInnovationArtilleristProtector:feb3066e-878d-53b1-98ac-42a314c61303",
+          "conditionDefinitionName": "ConditionInnovationArtilleristProtectorTiny",
+          "conditionDefinition": "Definition:ConditionInnovationArtilleristProtectorTiny:fe6a64c9-7f1d-5b99-bf8e-d006587cbb66",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

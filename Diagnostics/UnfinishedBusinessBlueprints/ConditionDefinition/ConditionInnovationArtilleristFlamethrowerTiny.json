@@ -4,18 +4,18 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:MovementAffinityMartialCommanderPeerlessCommander:6db0d47c-5d4e-5a9c-9bf8-afcf02389d17"
+    "Definition:ActionAffinityInnovationArtilleristFlamethrowerTiny:04a22078-4f03-5669-bf34-fb9188751216"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Round",
+  "durationType": "Hour",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfSourceTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionMartialCommanderPeerlessCommanderMovementTitle",
-    "description": "Condition/&ConditionMartialCommanderPeerlessCommanderMovementDescription",
+    "title": "Feature/&PowerInnovationArtilleristFlamethrowerTitle",
+    "description": "Feature/&PowerInnovationArtilleristFlamethrowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "330874c01be3cf6408fc2d0a8e697c0a",
-      "m_SubObjectName": "ConditionPositiveMovement",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "358fe5a3-70d4-5d76-a80f-6957147c344c",
+  "guid": "145ada90-6990-5182-b60b-5c10a807001d",
   "contentPack": 9999,
-  "name": "ConditionMartialCommanderPeerlessCommanderMovement"
+  "name": "ConditionInnovationArtilleristFlamethrowerTiny"
 }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
-using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -114,7 +112,7 @@ internal static class CustomSituationalContext
         var boxInt = new BoxInt(minExtent + character.LocationPosition, maxExtent + character.LocationPosition);
         var gridAccessor = GridAccessor.Default;
 
-        foreach (int3 position in boxInt.EnumerateAllPositionsWithin())
+        foreach (var position in boxInt.EnumerateAllPositionsWithin())
         {
             if (!gridAccessor.Occupants_TryGet(position, out var locationCharacterList))
             {
@@ -122,7 +120,7 @@ internal static class CustomSituationalContext
             }
 
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (GameLocationCharacter locationCharacter in locationCharacterList)
+            foreach (var locationCharacter in locationCharacterList)
             {
                 if (locationCharacter.RulesetCharacter == null ||
                     locationCharacter == character ||

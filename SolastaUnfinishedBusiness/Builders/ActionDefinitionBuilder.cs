@@ -48,7 +48,10 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return this;
     }
 
-    internal ActionDefinitionBuilder SetActivatedPower(FeatureDefinitionPower power, ActionDefinitions.ActionParameter parameter = ActionDefinitions.ActionParameter.ActivatePower, bool usePowerTooltip = true)
+    internal ActionDefinitionBuilder SetActivatedPower(
+        FeatureDefinitionPower power,
+        ActionDefinitions.ActionParameter parameter = ActionDefinitions.ActionParameter.ActivatePower,
+        bool usePowerTooltip = true)
     {
         Definition.activatedPower = power;
         Definition.displayPowerTooltip = usePowerTooltip;

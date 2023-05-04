@@ -798,10 +798,6 @@ Starting when you choose this tradition at the 3rd level, you can manipulate you
  * It must make a strength saving throw. If it fails, you can push it up to 3 cells away from you.
  * It can't take reactions until the end of your next turn.
 
-* Quivering Palm
-
-Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes prone until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
-
 
 ## Level 6
 
@@ -815,6 +811,13 @@ At the 6th level, you gain the ability to heal yourself. As an action, you can r
 * Tranquility
 
 At level 11, when you are about to be hit by an attack or single target spell, you can spend one Ki point to gain the benefits of the spell Shield.
+
+
+## Level 17
+
+* Quivering Palm
+
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes prone until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
 
 
 

@@ -6,6 +6,7 @@ CharacterRaceDefinition
 CharacterSubclassDefinition
 ConditionDefinition
 ContentPackDefinition
+DamageDefinition
 EffectProxyDefinition
 FeatDefinition
 FeatureDefinition
