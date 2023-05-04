@@ -11,3 +11,5 @@ Feature/&Ranger_Vanish_Description=Ab Level 14 kannst du die Aktion „Verstecke
 Feature/&Ranger_Vanish_Title=Verschwinden
 Feature/&RogueBlindsenseDescription=Sie sind sich der Position jeder versteckten oder unsichtbaren Kreatur innerhalb von 10 Fuß von Ihnen bewusst.
 Feature/&RogueBlindsenseTitle=Blindsinn
+Feature/&RogueSlipperyMindDescription=Sie haben eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
+Feature/&RogueSlipperyMindTitle=Schlüpfriger Geist

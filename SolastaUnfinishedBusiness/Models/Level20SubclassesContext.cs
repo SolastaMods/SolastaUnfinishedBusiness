@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -125,7 +124,7 @@ internal static class Level20SubclassesContext
             .Create("ConditionMartialCommanderPeerlessCommanderMovement")
             .SetOrUpdateGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFreedomOfMovement)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create("MovementAffinityMartialCommanderPeerlessCommander")
@@ -166,7 +165,14 @@ internal static class Level20SubclassesContext
             .SetOverriddenPower(PowerMartialCommanderInvigoratingShout)
             .AddToDB();
 
-        MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerMartialCommanderPeerlessCommander, 18));
+        var featureSetPeerlessCommander = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetMartialCommanderPeerlessCommander")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerMartialCommanderPeerlessCommander)
+            .AddToDB();
+
+
+        MartialCommander.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetPeerlessCommander, 18));
 
         //
         // Mountaineer
@@ -203,8 +209,7 @@ internal static class Level20SubclassesContext
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
                     .SetDurationData(DurationType.Permanent)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnTurnEnd)
+                    .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnTurnEnd)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -395,9 +400,10 @@ internal static class Level20SubclassesContext
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetBonusMode(AddBonusMode.DoubleProficiency)
+                    .SetBonusMode(AddBonusMode.Proficiency)
                     .SetHealingForm(HealingComputation.Dice, 0, DieType.D1, 0, false, HealingCap.MaximumHitPoints)
                     .Build())
+            .SetCustomSubFeatures(new ModifyMagicEffectRecurrentPhysicalPerfection())
             .AddToDB();
 
         var powerTraditionSurvivalPhysicalPerfectionHeal = FeatureDefinitionPowerBuilder
@@ -675,6 +681,28 @@ internal static class Level20SubclassesContext
     //
     // Physical Perfection
     //
+
+    private sealed class ModifyMagicEffectRecurrentPhysicalPerfection : IModifyMagicEffectRecurrent
+    {
+        public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
+        {
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
+            var monkLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
+
+            if (monkLevel < 17)
+            {
+                return;
+            }
+
+            var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            effectForm.HealingForm.bonusHealing = pb;
+        }
+    }
 
     private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
     {

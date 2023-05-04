@@ -11,3 +11,5 @@ Feature/&Ranger_Vanish_Description=Starting at level 14, you can use the Hide ac
 Feature/&Ranger_Vanish_Title=Vanish
 Feature/&RogueBlindsenseDescription=You are aware of the location of any hidden or invisible creature within 10 ft of you.
 Feature/&RogueBlindsenseTitle=Blindsense
+Feature/&RogueSlipperyMindDescription=You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
+Feature/&RogueSlipperyMindTitle=Slippery Mind

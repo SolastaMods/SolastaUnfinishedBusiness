@@ -28,7 +28,7 @@
     {
       "$type": "EffectForm, Assembly-CSharp",
       "formType": "Healing",
-      "addBonusMode": "DoubleProficiency",
+      "addBonusMode": "Proficiency",
       "applyLevel": "No",
       "levelType": "ClassLevel",
       "levelMultiplier": 1,

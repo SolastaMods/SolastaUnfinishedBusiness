@@ -11,3 +11,5 @@ Feature/&Ranger_Vanish_Description=À partir du niveau 14, vous pouvez utiliser 
 Feature/&Ranger_Vanish_Title=Disparaître
 Feature/&RogueBlindsenseDescription=Vous êtes conscient de l'emplacement de toute créature cachée ou invisible à moins de 3 mètres de vous.
 Feature/&RogueBlindsenseTitle=Sens aveugle
+Feature/&RogueSlipperyMindDescription=Vous avez acquis une plus grande force mentale. Vous maîtrisez les jets de sauvegarde de Sagesse.
+Feature/&RogueSlipperyMindTitle=Esprit glissant
