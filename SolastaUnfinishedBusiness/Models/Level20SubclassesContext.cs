@@ -297,6 +297,22 @@ internal static class Level20SubclassesContext
         // Open Hand
         //
 
+        var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
+            .Create("ConditionTraditionOpenHandQuiveringPalm")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
+            .SetPossessive()
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Day, 1)
+            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
+            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("SavingThrowAfterRollQuiveringPalm")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
+                    .AddToDB())
+            .AddToDB();
+
         var powerTraditionOpenHandQuiveringPalmTrigger = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalmTrigger")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature,
@@ -319,23 +335,9 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerTraditionOpenHandQuiveringPalmTrigger.SetCustomSubFeatures(
-            new FilterTargetingMagicEffectQuiveringPalm(powerTraditionOpenHandQuiveringPalmTrigger));
-
-        var conditionTraditionOpenHandQuiveringPalm = ConditionDefinitionBuilder
-            .Create("ConditionTraditionOpenHandQuiveringPalm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrictedInsideMagicCircle)
-            .SetPossessive()
-            .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Day, 1)
-            .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
-            .CopyParticleReferences(ConditionDefinitions.ConditionBaned)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("SavingThrowAfterRollQuiveringPalm")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new SavingThrowAfterRollQuiveringPalm())
-                    .AddToDB())
-            .AddToDB();
+            new CustomBehaviorQuiveringPalmTrigger(
+                powerTraditionOpenHandQuiveringPalmTrigger,
+                conditionTraditionOpenHandQuiveringPalm));
 
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
@@ -369,6 +371,11 @@ internal static class Level20SubclassesContext
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
             .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
             .RequiresAuthorization()
+            .AddToDB();
+
+        _ = DamageDefinitionBuilder
+            .Create("DamagePure")
+            .SetGuiPresentation(Category.Rules)
             .AddToDB();
 
         var actionAffinityTraditionOpenHandQuiveringPalm = FeatureDefinitionActionAffinityBuilder
@@ -869,13 +876,17 @@ internal static class Level20SubclassesContext
     // Quivering Palm
     //
 
-    private sealed class FilterTargetingMagicEffectQuiveringPalm : IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorQuiveringPalmTrigger : IFilterTargetingMagicEffect, IActionFinished
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly ConditionDefinition _conditionDefinition;
 
-        public FilterTargetingMagicEffectQuiveringPalm(FeatureDefinitionPower featureDefinitionPower)
+        public CustomBehaviorQuiveringPalmTrigger(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
@@ -899,6 +910,30 @@ internal static class Level20SubclassesContext
             }
 
             return isValid;
+        }
+
+
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction.ActionParams.TargetCharacters.Count == 0)
+            {
+                yield break;
+            }
+
+            var rulesetDefender = characterAction.ActionParams.TargetCharacters[0].RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
+            var rulesetCondition = rulesetDefender.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
         }
     }
 
@@ -941,11 +976,12 @@ internal static class Level20SubclassesContext
 
             var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints - 1;
 
-            target.SustainDamage(totalDamage, DamageTypeForce, false, caster.Guid, null, out _);
+            target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
             effectForms.SetRange(
                 EffectFormBuilder
                     .Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .SetConditionForm(ConditionDefinitions.ConditionStunned_MonkStunningStrike,
+                        ConditionForm.ConditionOperation.Add)
                     .Build());
         }
     }

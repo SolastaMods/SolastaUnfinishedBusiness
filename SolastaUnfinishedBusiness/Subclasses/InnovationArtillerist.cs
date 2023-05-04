@@ -118,7 +118,7 @@ public static class InnovationArtillerist
                     .Build())
             .AddToDB();
 
-        // Actions
+        // Actions Medium Cannon
 
         _ = ActionDefinitionBuilder
             .Create($"Action{Name}{Flamethrower}")
@@ -153,6 +153,41 @@ public static class InnovationArtillerist
             .SetFormType(ActionFormType.Large)
             .AddToDB();
 
+        // Actions Tiny Cannon
+        
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Name}{Flamethrower}Tiny")
+            .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature, powerFlamethrower)
+            .OverrideClassName("UsePower")
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CannonFlamethrowerBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActivatedPower(powerFlamethrower)
+            .SetFormType(ActionFormType.Large)
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Name}{ForceBallista}Tiny")
+            .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature, powerForceBallista)
+            .OverrideClassName("UsePower")
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CannonForceBallistaBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActivatedPower(powerForceBallista)
+            .SetFormType(ActionFormType.Large)
+            .AddToDB();
+
+        _ = ActionDefinitionBuilder
+            .Create($"Action{Name}{Protector}Tiny")
+            .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature, powerProtector)
+            .OverrideClassName("UsePower")
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.CannonProtectorBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActivatedPower(powerProtector)
+            .SetFormType(ActionFormType.Large)
+            .AddToDB();
+        
         #endregion
 
         #region LEVEL 03
@@ -615,6 +650,8 @@ public static class InnovationArtillerist
             .SetMode(MoveMode.Walk, 3)
             .AddToDB();
 
+    // Action Affinities Medium Cannon
+    
     private static readonly FeatureDefinitionActionAffinity ActionAffinityFlamethrower =
         FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}{Flamethrower}")
@@ -660,6 +697,53 @@ public static class InnovationArtillerist
         .SetFeatures(ActionAffinityProtector)
         .AddToDB();
 
+    // Action Affinity Tiny Cannon
+    
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityFlamethrowerTiny =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{Flamethrower}Tiny")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonFlamethrowerBonus)
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionFlamethrowerTiny = ConditionDefinitionBuilder
+        .Create($"Condition{Name}{Flamethrower}Tiny")
+        .SetGuiPresentation($"Power{Name}{Flamethrower}", Category.Feature)
+        .SetPossessive()
+        .SetSpecialDuration(DurationType.Hour, 1)
+        .SetFeatures(ActionAffinityFlamethrowerTiny)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityForceBallistaTiny =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{ForceBallista}Tiny")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonForceBallistaBonus)
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionForceBallistaTiny = ConditionDefinitionBuilder
+        .Create($"Condition{Name}{ForceBallista}Tiny")
+        .SetGuiPresentation($"Power{Name}{ForceBallista}", Category.Feature)
+        .SetPossessive()
+        .SetSpecialDuration(DurationType.Hour, 1)
+        .SetFeatures(ActionAffinityForceBallistaTiny)
+        .AddToDB();
+
+    private static readonly FeatureDefinitionActionAffinity ActionAffinityProtectorTiny =
+        FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}{Protector}Tiny")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((Id)ExtraActionId.CannonProtectorBonus)
+            .AddToDB();
+
+    private static readonly ConditionDefinition ConditionProtectorTiny = ConditionDefinitionBuilder
+        .Create($"Condition{Name}{Protector}Tiny")
+        .SetGuiPresentation($"Power{Name}{Protector}", Category.Feature)
+        .SetPossessive()
+        .SetSpecialDuration(DurationType.Hour, 1)
+        .SetFeatures(ActionAffinityProtectorTiny)
+        .AddToDB();
+    
     #endregion
 
     #region SMALL CANNON POWER
@@ -823,17 +907,17 @@ public static class InnovationArtillerist
 
     private static FeatureDefinitionPower BuildTinyFlamethrowerPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
-        return BuildTinyEldritchCannonPower(Flamethrower, sharedPoolPower, level, ConditionFlamethrower);
+        return BuildTinyEldritchCannonPower(Flamethrower, sharedPoolPower, level, ConditionFlamethrowerTiny);
     }
 
     private static FeatureDefinitionPower BuildTinyForceBallistaPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
-        return BuildTinyEldritchCannonPower(ForceBallista, sharedPoolPower, level, ConditionForceBallista);
+        return BuildTinyEldritchCannonPower(ForceBallista, sharedPoolPower, level, ConditionForceBallistaTiny);
     }
 
     private static FeatureDefinitionPower BuildTinyProtectorPower(FeatureDefinitionPower sharedPoolPower, int level)
     {
-        return BuildTinyEldritchCannonPower(Protector, sharedPoolPower, level, ConditionProtector);
+        return BuildTinyEldritchCannonPower(Protector, sharedPoolPower, level, ConditionProtectorTiny);
     }
 
     private static FeatureDefinitionPower BuildTinyEldritchCannonPower(
