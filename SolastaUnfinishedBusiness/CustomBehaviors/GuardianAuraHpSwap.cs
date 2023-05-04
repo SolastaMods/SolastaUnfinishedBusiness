@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -129,6 +130,20 @@ internal static class GuardianAuraHpSwap
 
         if (damage != null)
         {
+            RulesetActor.InflictDamage(
+                damageAmount,
+                damage,
+                damage.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = unit.RulesetCharacter },
+                unit.RulesetCharacter,
+                false,
+                attacker.Guid,
+                false,
+                new List<string>(),
+                new RollInfo(RuleDefinitions.DieType.D1, new List<int>(), damageAmount),
+                true,
+                out _);
+
             unit.RulesetCharacter.SustainDamage(
                 damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
         }

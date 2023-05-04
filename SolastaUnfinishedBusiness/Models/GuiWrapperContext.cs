@@ -32,27 +32,23 @@ internal static class GuiWrapperContext
 
     internal static void RecacheFeats()
     {
-        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
-
-        if (guiWrapperService is not { })
+        if (ServiceRepository.GetService<IGuiWrapperService>() is not GuiWrapperManager guiWrapperManager)
         {
             return;
         }
 
-        guiWrapperService.featDefinitionsMap.Clear();
-        guiWrapperService.LoadFeatDefinitions();
+        guiWrapperManager.featDefinitionsMap.Clear();
+        guiWrapperManager.LoadFeatDefinitions();
     }
 
     internal static void RecacheInvocations()
     {
-        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
-
-        if (guiWrapperService is not { })
+        if (ServiceRepository.GetService<IGuiWrapperService>() is not GuiWrapperManager guiWrapperManager)
         {
             return;
         }
 
-        guiWrapperService.invocationDefinitionsMap.Clear();
-        guiWrapperService.LoadInvocationDefinitions();
+        guiWrapperManager.invocationDefinitionsMap.Clear();
+        guiWrapperManager.LoadInvocationDefinitions();
     }
 }

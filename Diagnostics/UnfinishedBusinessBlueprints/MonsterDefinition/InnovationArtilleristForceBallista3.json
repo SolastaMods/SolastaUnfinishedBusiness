@@ -15,7 +15,7 @@
   "hitDice": 1,
   "hitDiceType": "D8",
   "hitPointsBonus": 5,
-  "standardHitPoints": 32,
+  "standardHitPoints": 1,
   "abilityScores": [
     10,
     10,

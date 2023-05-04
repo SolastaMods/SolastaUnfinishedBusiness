@@ -37,7 +37,7 @@ public static class GameLocationManagerPatcher
 
             var sessionService = ServiceRepository.GetService<ISessionService>();
 
-            if (sessionService is { Session: { } })
+            if (sessionService is { Session: not null })
             {
                 // Record which campaign/location the latest load game belongs to
                 var selectedCampaignService = SaveByLocationContext.ServiceRepositoryEx

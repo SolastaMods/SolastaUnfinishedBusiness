@@ -26,7 +26,8 @@ public enum Category
     Spell,
     Subclass,
     Tooltip,
-    UI
+    UI,
+    Rules
 }
 
 internal static class Sorting

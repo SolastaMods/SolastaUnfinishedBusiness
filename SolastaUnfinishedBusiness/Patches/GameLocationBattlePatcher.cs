@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -56,9 +60,7 @@ public static class GameLocationBattlePatcher
         }
     }
 
-#if false
-    // testing if possible for a hero to have more than one turn in a round for Thief 17th
-
+    //PATCH: mainly supports Thief level 17th through ICharacterInitiativeEndListener interface
     [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.RollInitiative))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -71,9 +73,17 @@ public static class GameLocationBattlePatcher
             {
                 yield return values.Current;
             }
-            
-            __instance.initiativeSortedContenders.Add(__instance.playerContenders[0]);
+
+            foreach (var (character, features) in __instance.InitiativeSortedContenders
+                         .ToList()
+                         .Select(character =>
+                             (character, character.RulesetCharacter.GetSubFeaturesByType<IInitiativeEndListener>())))
+            {
+                foreach (var feature in features)
+                {
+                    yield return feature.OnInitiativeEnded(character);
+                }
+            }
         }
     }
-#endif
 }

@@ -139,7 +139,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
         var savingThrowAffinityUnmatchedExperience = FeatureDefinitionSavingThrowAffinityBuilder
             .Create($"SavingThrowAffinity{Name}UnmatchedExperience")
             .SetGuiPresentation(Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, true, AttributeDefinitions.Wisdom)
+            .SetAffinities(CharacterSavingThrowAffinity.ProficiencyBonusOrPlus1, false, AttributeDefinitions.Wisdom)
             .AddToDB();
 
         //

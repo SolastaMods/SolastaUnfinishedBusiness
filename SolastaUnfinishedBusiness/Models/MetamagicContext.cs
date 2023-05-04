@@ -31,11 +31,7 @@ internal static class MetamagicContext
 
     private static void LoadMetamagic([NotNull] MetamagicOptionDefinition metamagicDefinition)
     {
-        if (!Metamagic.Contains(metamagicDefinition))
-        {
-            Metamagic.Add(metamagicDefinition);
-        }
-
+        Metamagic.Add(metamagicDefinition);
         UpdateMetamagicVisibility(metamagicDefinition);
     }
 

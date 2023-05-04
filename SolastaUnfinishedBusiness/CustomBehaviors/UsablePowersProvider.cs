@@ -25,9 +25,9 @@ internal static class UsablePowersProvider
             return result;
         }
 
-        if (UsablePowers.ContainsKey(power))
+        if (UsablePowers.TryGetValue(power, out var usablePower))
         {
-            result = UsablePowers[power];
+            result = usablePower;
         }
         else
         {

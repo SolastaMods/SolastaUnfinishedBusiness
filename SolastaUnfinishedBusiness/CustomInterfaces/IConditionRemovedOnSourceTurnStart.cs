@@ -39,7 +39,7 @@ public static class ConditionRemovedOnSourceTurnStartPatch
         }
 
         foreach (var contender in battleService.Battle.AllContenders
-                     .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: { } }))
+                     .Where(x => x is { destroying: false, destroyedBody: false, RulesetActor: not null }))
         {
             var conditionsToRemove = new List<RulesetCondition>();
 

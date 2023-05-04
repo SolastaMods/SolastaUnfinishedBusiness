@@ -169,7 +169,7 @@ As an action, you can give yourself a flying speed equal to your walking speed. 
 
 * Languages
 
-Common, any other language
+Common, Elvish
 
 * Move
 

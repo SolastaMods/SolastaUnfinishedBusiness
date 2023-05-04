@@ -21,10 +21,6 @@ internal static class CustomConditionsContext
 
     internal static ConditionDefinition StopMovement;
 
-    private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
-
-    private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
-
     internal static void Load()
     {
         StopMovement = ConditionDefinitionBuilder
@@ -35,38 +31,8 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
-        InvisibilityEveryRound = BuildInvisibilityEveryRound();
-
-        LightSensitivity = BuildLightSensitivity();
-
-        Distracted = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .AddToDB();
-    }
-
-    private static ConditionDefinition BuildInvisibilityEveryRound()
-    {
-        ConditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
-            .Create("ConditionInvisibilityEveryRoundRevealed")
-            .SetGuiPresentationNoContent()
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        ConditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
-            .SetCancellingConditions(ConditionInvisibilityEveryRoundRevealed)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(
-                ConditionInterruption.Attacks,
-                ConditionInterruption.CastSpell,
-                ConditionInterruption.UsePower)
-            .AddToDB();
-
-        var conditionInvisibilityEveryRound = ConditionDefinitionBuilder
-            .Create("ConditionInvisibilityEveryRound")
-            .SetGuiPresentationNoContent()
+        InvisibilityEveryRound = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRound")
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionBuilder
@@ -76,7 +42,14 @@ internal static class CustomConditionsContext
                 .AddToDB())
             .AddToDB();
 
-        return conditionInvisibilityEveryRound;
+        InvisibilityEveryRound.SpecialInterruptions.Clear();
+
+        LightSensitivity = BuildLightSensitivity();
+
+        Distracted = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
     }
 
     private static ConditionDefinition BuildLightSensitivity()
@@ -109,45 +82,23 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinished
     {
-        private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
-        private const string CategoryHidden = "InvisibilityEveryRoundHidden";
-
         public IEnumerator OnActionFinished(CharacterAction action)
         {
-            var actingCharacter = action.ActingCharacter;
-            var actionParams = action.ActionParams;
-            var hero = actingCharacter.RulesetCharacter;
-
             if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
             {
                 yield break;
             }
 
-            var ruleEffect = actionParams.RulesetEffect;
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actionParams = action.ActionParams;
 
-            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+            var rulesetEffect = actionParams.RulesetEffect;
+
+            if (rulesetEffect == null || !IsAllowedEffect(rulesetEffect.EffectDescription))
             {
-                BecomeRevealed(hero);
-            }
-        }
-
-
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            if (target is not RulesetCharacterMonster &&
-                !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
-            {
-                BecomeHidden(target);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            if (target is not RulesetCharacterMonster)
-            {
-                target.RemoveAllConditionsOfCategory(CategoryHidden, false);
+                rulesetCharacter.RemoveAllConditionsOfCategory("ConditionInvisibilityEveryRound");
             }
         }
 
@@ -198,40 +149,6 @@ internal static class CustomConditionsContext
             }
 
             return true;
-        }
-
-        private static void BecomeRevealed(RulesetCharacter hero)
-        {
-            hero.InflictCondition(
-                ConditionInvisibilityEveryRoundRevealed.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                CategoryRevealed,
-                hero.guid,
-                hero.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-
-        private static void BecomeHidden(RulesetCharacter hero)
-        {
-            hero.InflictCondition(
-                ConditionInvisibilityEveryRoundHidden.Name,
-                DurationType.Permanent,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                CategoryHidden,
-                hero.guid,
-                hero.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
         }
     }
 }

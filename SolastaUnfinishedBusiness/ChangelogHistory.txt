@@ -1,5 +1,17 @@
 ﻿CHANGES:
 
+1.4.33.82:
+
+- added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th
+- added Darkweaver, Shadowcaster, and Thief rogue features at 17th
+- added Freedom, Light, Open Hand, and Survival monk features at 17th
+- fixed Innovation Artillerist cannon hit points, and ballista attack bonus
+- fixed Oath of Dread applying aura of domination condition to self
+- fixed Patron Moonlit, and Way of the Silhouette preventing game load
+- fixed Poisoned feat not granting poisoner's kit tools or expertise
+- fixed Rope it Up feat granting +1 to hit and damage with throw weapon on melee
+- fixed Wizard Bladedancer granting con ability check instead of saving
+
 1.4.33.81:
 
 - fixed Druid's arch druid interaction with circle of the night

@@ -35,11 +35,7 @@ internal static class ClassesContext
 
     private static void LoadClass([NotNull] CharacterClassDefinition characterClassDefinition)
     {
-        if (!Classes.Contains(characterClassDefinition))
-        {
-            Classes.Add(characterClassDefinition);
-        }
-
+        Classes.Add(characterClassDefinition);
         UpdateClassVisibility(characterClassDefinition);
     }
 

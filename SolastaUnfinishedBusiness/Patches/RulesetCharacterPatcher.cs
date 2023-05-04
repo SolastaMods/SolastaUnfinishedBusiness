@@ -1247,7 +1247,8 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref int __result)
         {
-            if (!__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            if (Main.Settings.AddMonkKiPointsToggle &&
+                !__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
             {
                 __result = 0;
             }

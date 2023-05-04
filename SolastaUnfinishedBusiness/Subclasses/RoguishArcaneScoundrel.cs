@@ -66,7 +66,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
                     .SetGuiPresentation($"Condition{Name}{DistractingAmbush}", Category.Condition)
-                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, true,
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution,

@@ -1,23 +1,21 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionInvisibleBase:43a1ea887bf8f2f45ab1b32144a70bbf",
+  "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
+  "specialDuration": false,
   "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "Attacks",
-    "CastSpell",
-    "UsePower"
+    "BattleEnd"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -26,9 +24,39 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Healing",
+      "addBonusMode": "Proficiency",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 1,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": false,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn",
+      "healingForm": {
+        "$type": "HealingForm, Assembly-CSharp",
+        "healingComputation": "Dice",
+        "diceNumber": 0,
+        "dieType": "D1",
+        "bonusHealing": 0,
+        "variablePool": false,
+        "healingCap": "MaximumHitPoints"
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
+  ],
   "cancellingConditions": [
-    "Definition:ConditionInvisibilityEveryRoundRevealed:9afa6b40-97b5-55bb-a1bb-540b1ed808b3"
+    "Definition:ConditionUnconscious:2d543b2740ecddd4a977d8a706a8a2c9",
+    "Definition:ConditionDying:81b9b336561369544b3c0151033efa34",
+    "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -43,7 +71,7 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "12ac73b65d9ab1a44a59fc7c2d12245d",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -55,7 +83,7 @@
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
+    "m_AssetGUID": "d0bdd78b87a65e04ca4489a20e0429d6",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -67,7 +95,7 @@
   },
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "bedb8e2e49c7ac34491fc0f1f49e7a1d",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -223,9 +251,9 @@
     "b": 0.0,
     "a": 0.0
   },
-  "timeToWaitBeforeApplyingShader": 0.6,
-  "timeToWaitBeforeRemovingShader": 0.6,
-  "possessive": false,
+  "timeToWaitBeforeApplyingShader": 0.5,
+  "timeToWaitBeforeRemovingShader": 0.5,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -267,12 +295,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionInvisibleTitle",
-    "description": "Rules/&ConditionInvisibleDescription",
+    "title": "Condition/&ConditionTraditionSurvivalPhysicalPerfectionTitle",
+    "description": "Condition/&ConditionTraditionSurvivalPhysicalPerfectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "47cb18b1e2efaae4e960ff364c16736d",
-      "m_SubObjectName": "ConditionInvisible",
+      "m_AssetGUID": "961d4c9603807bf4f8ba968cb3663220",
+      "m_SubObjectName": "ConditionRegenerate",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -288,7 +316,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f7094006-33e0-5e31-a5c8-b6f3d825eba7",
+  "guid": "8ea61016-4655-5566-8ab4-0091c411dac3",
   "contentPack": 9999,
-  "name": "ConditionInvisibilityEveryRoundHidden"
+  "name": "ConditionTraditionSurvivalPhysicalPerfection"
 }
