@@ -16,10 +16,10 @@ internal class ShieldExpert : AbstractFightingStyle
         .Create(ShieldExpertName)
         .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("ShieldExpert", Resources.ShieldExpert, 256))
         .SetFeatures(
-            FeatureDefinitionProficiencyBuilder
+            FeatureDefinitionBuilder
                 .Create("AddExtraAttackShieldExpert")
                 .SetGuiPresentationNoContent(true)
-                .SetProficiencies(RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.ShieldCategory)
+                //.SetProficiencies(RuleDefinitions.ProficiencyType.Armor, EquipmentDefinitions.ShieldCategory)
                 .SetCustomSubFeatures(new AddBonusShieldAttack())
                 .AddToDB(),
             FeatureDefinitionActionAffinityBuilder

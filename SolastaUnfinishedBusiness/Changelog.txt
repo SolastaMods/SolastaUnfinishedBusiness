@@ -3,8 +3,8 @@ Open Mod UI > Tools and click History for full change details:
 - added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th
 - added Darkweaver, Shadowcaster, and Thief rogue features at 17th
 - added Freedom, Light, Open Hand, and Survival monk features at 17th
-- added shield proficiency to shield expert feat and fighting style
-- fixed Innovation Artillerist wrong cannon hit points and ballista attack bonus
+- fixed Innovation Artillerist wrong cannon hit points, and ballista attack bonus
 - fixed Oath of Dread applying aura of domination condition to self
 - fixed Patron Moonlit, and Way of the Silhouette preventing game loading
+- fixed Poisoned feat not granting poisoner's kit tools or expertise
 - fixed Wizard Bladedancer granting con ability check instead of saving
