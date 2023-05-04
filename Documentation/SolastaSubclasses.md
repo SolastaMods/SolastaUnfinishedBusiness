@@ -531,6 +531,13 @@ Choose a new fighting style option.
 Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 
 
+## Level 18
+
+* Survivor
+
+You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
+
+
 
 
 # Commander
@@ -568,6 +575,13 @@ Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Sh
 * Lead by Example
 
 Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take additional damage (of the same damage type as the original damage taken) equal to your proficiency bonus. This extra damage can only trigger once per turn.
+
+
+## Level 18
+
+* Peerless Commander
+
+Starting at 18th level, any ally affected by Rousing Shout also gains advantage on their next saving throw and 10 additional feet of movement until the start of your next turn.
 
 
 
@@ -611,6 +625,13 @@ If wielding a shield and targeting an enemy engaged with another creature that i
   This creature's attack rolls have advantage
 
 
+## Level 18
+
+* Position of Strength
+
+Starting at 18th level, your Tunnel Fighter feature also provides its benefits when within 5 feet of any ally (no diagonals). You have a permanent aura that grants +1 AC to you and all allies within 5 ft.
+
+
 
 
 # Spellblade
@@ -648,6 +669,13 @@ Target a creature and move it one cell in any direction if it fails a STR save.
 * Arcane Escape
 
 Whenever you cast a spell on your turn, your speed increases by 3 cells until the end of the current turn.
+
+
+## Level 18
+
+* Cantrip Attack
+
+You can replace one of your attacks with a cantrip.
 
 
 
@@ -707,6 +735,16 @@ Starting at the 6th level, any time you strike a target affected by Shine or Lum
 Starting at the 11th level, as a bonus action, you can spend 2 Ki points to generate a blinding burst of light. All creatures within 3 cells of you must roll a CON saving throw or take 3d6 radiant damage, and become blinded until the end of your next turn (half damage on success).
 
 
+## Level 17
+
+* Purity of Light
+
+Starting at 17th level, you gain the following benefits:
+• All your monk weapon attacks and unarmed attacks now apply Luminous Ki.
+• Your Radiant Strikes now deal 1d6 radiant damage.
+• When you hit a creature affected by Luminous Ki, all conscious allies within 20 feet of that creature restore 2 hit points, with monk receiving twice that amount.
+
+
 
 
 # Way of Survival
@@ -735,6 +773,15 @@ Starting at the 6th level, whenever you take damage from any source, you heal a 
 Starting at the 11th level, you now add your CON modifier to the damage rolls of your unarmed strikes and monk weapons.
 
 
+## Level 17
+
+* Physical Perfection
+
+Starting at 17th level, you gain the following benefits:
+• While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
+• When you are reduced to 0 hit points, you are instead set to 1 hit point. You can use this feature once per long rest.
+
+
 
 
 # Way of the Open Hand
@@ -750,6 +797,10 @@ Starting when you choose this tradition at the 3rd level, you can manipulate you
  * It must succeed on a dexterity saving throw or be knocked prone.
  * It must make a strength saving throw. If it fails, you can push it up to 3 cells away from you.
  * It can't take reactions until the end of your next turn.
+
+* Quivering Palm
+
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes prone until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
 
 
 ## Level 6
@@ -1311,6 +1362,13 @@ When you hit with a melee weapon and deal at least 1 point of damage, your targe
 When you are in dim light or darkness outside of the enemy's line of sight, you can use your bonus action to become hidden and invisible until the end of your turn.
 
 
+## Level 17
+
+* Dark Assault
+
+Starting at 17th level, when you end your turn in dim light or darkness, you gain an extra attack with your Attack action and additional 15 feet of movement during your next turn.
+
+
 
 
 # Hoodlum
@@ -1379,6 +1437,16 @@ If you are targeted by a damaging spell, whether it damages you or not, you can 
 You can use your Sneak Attack when you damage enemies with spells which require an attack roll as if you were using a finesse or a ranged weapon. All the other rules for Sneak Attack still apply to you.
 
 
+## Level 17
+
+* Shadow Form
+
+At 17th level, you can use your bonus action to magically transform yourself into a shadowy form for one minute. While in this form, you gain the following benefits:
+• You have resistance to all damage types except radiant.
+• You are immune to difficult terrains.
+• You don't provoke opportunity attacks.
+
+
 
 
 # Thief
@@ -1411,6 +1479,13 @@ You have advantage on DEX (Stealth) ability checks.
 By level 13, you have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, ancestry, and level requirements on the use of magic items.
 
 
+## Level 17
+
+* Thief's Reflexes
+
+Starting at 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
+
+
 
 
 # Oath of Devotion
@@ -1438,7 +1513,7 @@ In your list and always prepared:
 
 	III	Dispel Magic, Revivify
 
-	IV	Guardian of Faith, Freedom of Movement
+	IV	Guardian of Faith, Freedom of Movement, Guardian of Faith, Freedom of Movement
 
 
 ## Level 7
@@ -1482,7 +1557,7 @@ In your list and always prepared:
 
 	III	Hypnotic Pattern, Haste
 
-	IV	Banishment, Blight
+	IV	Banishment, Blight, Banishment, Blight
 
 
 ## Level 7
@@ -1526,7 +1601,7 @@ In your list and always prepared:
 
 	III	Fireball, Dispel Magic
 
-	IV	Wall of Fire, Fire Shield
+	IV	Wall of Fire, Fire Shield, Wall of Fire, Fire Shield
 
 
 ## Level 7
@@ -1574,7 +1649,7 @@ In your list and always prepared:
 
 	III	Daylight, Slow
 
-	IV	Dreadful Omen, Phantasmal Killer
+	IV	Dreadful Omen, Phantasmal Killer, Dreadful Omen, Phantasmal Killer
 
 
 ## Level 7
