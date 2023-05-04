@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -77,41 +80,83 @@ internal static class CustomSituationalContext
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(
         RulesetImplementationDefinitions.SituationalContextParams contextParams)
     {
-        var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-        var situationalContext = contextParams.situationalContext;
-
-        contextParams.situationalContext = SituationalContext.ConsciousAllyNextToTarget;
-
-        var isValid = rulesetImplementationService.IsSituationalContextValid(contextParams);
-
-        if (isValid)
+        if (!contextParams.source.IsWearingShield())
         {
-            contextParams.situationalContext = situationalContext;
-
-            return true;
+            return false;
         }
 
-        contextParams.situationalContext = SituationalContext.NextToWallWithShieldAndMaxMediumArmor;
-        isValid = rulesetImplementationService.IsSituationalContextValid(contextParams);
-        contextParams.situationalContext = situationalContext;
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(contextParams.source);
 
-        return isValid;
+        if (gameLocationCharacter == null)
+        {
+            return false;
+        }
+
+        var gameLocationPositioningService = ServiceRepository.GetService<IGameLocationPositioningService>();
+
+        return HasVisibleCharactersOfSideNextToCharacter(gameLocationCharacter) ||
+               gameLocationPositioningService.IsNextToWall(gameLocationCharacter.LocationPosition);
+    }
+
+    private static bool HasVisibleCharactersOfSideNextToCharacter(GameLocationCharacter character)
+    {
+        var battleSizeParameters = character.BattleSizeParameters;
+        var minExtent = battleSizeParameters.minExtent;
+        var maxExtent = battleSizeParameters.maxExtent;
+
+        minExtent.x -= 1;
+        minExtent.y -= 1;
+        minExtent.z -= 1;
+        maxExtent.x += 1;
+        maxExtent.y += 1;
+        maxExtent.z += 1;
+
+        var boxInt = new BoxInt(minExtent + character.LocationPosition, maxExtent + character.LocationPosition);
+        var gridAccessor = GridAccessor.Default;
+
+        foreach (int3 position in boxInt.EnumerateAllPositionsWithin())
+        {
+            if (!gridAccessor.Occupants_TryGet(position, out var locationCharacterList))
+            {
+                continue;
+            }
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (GameLocationCharacter locationCharacter in locationCharacterList)
+            {
+                if (locationCharacter.RulesetCharacter == null ||
+                    locationCharacter == character ||
+                    locationCharacter.Side != Side.Ally ||
+                    locationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious ||
+                    locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated))
+                {
+                    continue;
+                }
+
+                var deltaX = Math.Abs(locationCharacter.LocationPosition.x - character.LocationPosition.x);
+                var deltaY = Math.Abs(locationCharacter.LocationPosition.y - character.LocationPosition.y);
+                var deltaZ = Math.Abs(locationCharacter.LocationPosition.z - character.LocationPosition.z);
+                var deltas = deltaX + deltaY + deltaZ;
+
+                return deltas == 1;
+            }
+        }
+
+        return false;
     }
 
     private static bool IsConsciousSummonerNextToBeast(GameLocationCharacter beast)
     {
-        const int NUM = 1;
-
         var battleSizeParameters = beast.BattleSizeParameters;
         var minExtent = battleSizeParameters.minExtent;
         var maxExtent = battleSizeParameters.maxExtent;
 
-        minExtent.x -= NUM;
-        minExtent.y -= NUM;
-        minExtent.z -= NUM;
-        maxExtent.x += NUM;
-        maxExtent.y += NUM;
-        maxExtent.z += NUM;
+        minExtent.x -= 1;
+        minExtent.y -= 1;
+        minExtent.z -= 1;
+        maxExtent.x += 1;
+        maxExtent.y += 1;
+        maxExtent.z += 1;
 
         var boxInt = new BoxInt(minExtent + beast.LocationPosition, maxExtent + beast.LocationPosition);
         var gridAccessor = GridAccessor.Default;
@@ -124,11 +169,10 @@ internal static class CustomSituationalContext
                 continue;
             }
 
-            if (locationCharacters.Any(
-                    locationCharacter =>
-                        locationCharacter == summoner &&
-                        !locationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
-                        !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated)))
+            if (locationCharacters.Any(locationCharacter =>
+                    locationCharacter == summoner &&
+                    !locationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                    !locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated)))
             {
                 return true;
             }
