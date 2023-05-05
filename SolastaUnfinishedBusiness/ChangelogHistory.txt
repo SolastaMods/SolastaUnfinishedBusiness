@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.83:
+
+- fixed Splint Armor missing its armor definition form
+- fixed Web spell rolling strength checks until success
+- fixed Way of Freedom hiding level 17 on level up UI
+
 1.4.33.82:
 
 - added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th

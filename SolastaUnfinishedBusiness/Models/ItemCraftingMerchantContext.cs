@@ -32,6 +32,7 @@ internal static class ItemCraftingMerchantContext
     internal static void Load()
     {
         // sort of same sequence as Mod UI
+        FixMissingArmorDefinitionOnSplintArmor();
         CraftingContext.Load();
         PickPocketContext.Load();
         LoadCustomIcons();
@@ -46,6 +47,20 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
+    }
+
+    //BUGFIX: vanilla is missing an armor definition on splint armors
+    private static void FixMissingArmorDefinitionOnSplintArmor()
+    {
+        SplintArmor.armorDefinition = new ArmorDescription
+        {
+            armorClassValue = 17,
+            armorType = "SplintArmorType",
+            isBaseArmorClass = true,
+            minimalStrength = 15,
+            requiresMinimalStrength = true
+        };
+        SplintArmor.isArmor = true;
     }
 
     private static void LoadCustomIcons()

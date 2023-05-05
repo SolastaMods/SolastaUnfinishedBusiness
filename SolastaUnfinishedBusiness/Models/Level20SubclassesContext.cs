@@ -245,7 +245,7 @@ internal static class Level20SubclassesContext
 
         var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTraditionLightPurityOfLight")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
