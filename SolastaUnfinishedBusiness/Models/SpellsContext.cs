@@ -217,6 +217,7 @@ internal static class SpellsContext
         RegisterSpell(BuildCausticZap(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);

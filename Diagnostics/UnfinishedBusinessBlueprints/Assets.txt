@@ -5390,6 +5390,7 @@ InnovationWeaponSteelDefender	MonsterDefinition	MonsterDefinition	19fbf91b-460d-
 MarshalEternalComrade	MonsterDefinition	MonsterDefinition	62bcd3b3-0d54-5fe4-9578-1cea388159a9
 MonsterHezrou	MonsterDefinition	MonsterDefinition	a95a4030-3485-537c-af79-84d7622c48e1
 MonsterMarilith	MonsterDefinition	MonsterDefinition	7588deb1-8e00-51d9-b993-c70eaa4cc2ec
+OwlFamiliar	MonsterDefinition	MonsterDefinition	92e9e549-346e-504c-bfc8-236e8d40b7b5
 RisenGhost	MonsterDefinition	MonsterDefinition	2010e4e5-b428-5679-b39d-6f6e7f48b724
 RisenGhoul	MonsterDefinition	MonsterDefinition	3a9531c7-6138-565a-9b1c-edd8a767694d
 RisenSkeleton	MonsterDefinition	MonsterDefinition	924c88ff-d5e9-54ef-9af2-1ac16935a8a4
@@ -8094,6 +8095,7 @@ ElementalWeaponDamageThunder	SpellDefinition	SpellDefinition	286c3937-6260-5e91-
 EnduringSting	SpellDefinition	SpellDefinition	2c6213d1-b9cd-5488-86cf-237326e79bbf
 EnsnaringStrike	SpellDefinition	SpellDefinition	3793748b-7d90-5c0e-bb05-4fedc284e7f1
 FarStep	SpellDefinition	SpellDefinition	1adf1412-2248-5b36-805b-5076ef23ea04
+FindFamiliar	SpellDefinition	SpellDefinition	bb9f406d-0011-5248-9df9-aed0cba95948
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 GiftOfTheHunter	SpellDefinition	SpellDefinition	27583e9b-9f86-5822-93eb-ad03499c60e3
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf

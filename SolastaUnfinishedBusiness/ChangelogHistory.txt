@@ -2,6 +2,7 @@
 
 1.4.33.83:
 
+- added Find Familiar spell suggested to Wizards
 - added Roguish Hoodlum's brutal assault at level 17th
 - fixed Splint Armor missing its armor definition form
 - fixed Web spell rolling strength check until success

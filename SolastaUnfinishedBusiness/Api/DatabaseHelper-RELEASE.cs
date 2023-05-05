@@ -71,6 +71,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSizeDefinition Large { get; } = GetDefinition<CharacterSizeDefinition>("Large");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
+        internal static CharacterSizeDefinition Tiny { get; } = GetDefinition<CharacterSizeDefinition>("Tiny");
     }
     internal static class CharacterSubclassDefinitions
     {
@@ -447,6 +448,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityDisengaging { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityDisengaging");
         internal static FeatureDefinitionCombatAffinity CombatAffinityEagerForBattle { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEagerForBattle");
         internal static FeatureDefinitionCombatAffinity CombatAffinityEnfeebled { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEnfeebled");
+        internal static FeatureDefinitionCombatAffinity CombatAffinityFlyby { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFlyby");
         internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");
         internal static FeatureDefinitionCombatAffinity CombatAffinityParalyzedAdvantage { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityParalyzedAdvantage");
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
@@ -557,20 +559,23 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionLevitate { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionLevitate");
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionRestrained");
         internal static FeatureDefinitionMovementAffinity MovementAffinityFreedomOfMovement { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFreedomOfMovement");
+        internal static FeatureDefinitionMovementAffinity MovementAffinityNoClimb { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoClimb");
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoSpecialMoves { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoSpecialMoves");
         internal static FeatureDefinitionMovementAffinity MovementAffinitySixLeaguesBoots { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySixLeaguesBoots");
         internal static FeatureDefinitionMovementAffinity MovementAffinitySpiderClimb { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySpiderClimb");
     }
     internal static class FeatureDefinitionMoveModes
     {
-        internal static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10");
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
         internal static FeatureDefinitionMoveMode MoveModeFly8 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly8");
-        internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
+        internal static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10");
+        internal static FeatureDefinitionMoveMode MoveModeFly12 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly12");
+        internal static FeatureDefinitionMoveMode MoveModeMove2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove2");
         internal static FeatureDefinitionMoveMode MoveModeMove5 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove5");
         internal static FeatureDefinitionMoveMode MoveModeMove6 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove6");
         internal static FeatureDefinitionMoveMode MoveModeMove7 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove7");
         internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
+        internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
     }
     internal static class FeatureDefinitionPointPools
     {
@@ -1103,6 +1108,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } = GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
         internal static MonsterDefinition CrimsonSpider { get; } = GetDefinition<MonsterDefinition>("CrimsonSpider");
         internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
+        internal static MonsterDefinition Eagle_Matriarch { get; } = GetDefinition<MonsterDefinition>("Eagle_Matriarch");
         internal static MonsterDefinition Earth_Elemental { get; } = GetDefinition<MonsterDefinition>("Earth_Elemental");
         internal static MonsterDefinition Emperor_Laethar { get; } = GetDefinition<MonsterDefinition>("Emperor_Laethar");
         internal static MonsterDefinition FeyBear { get; } = GetDefinition<MonsterDefinition>("FeyBear");
@@ -1441,6 +1447,7 @@ internal static partial class DatabaseHelper
     internal static class DecisionPackageDefinitions
     {
         internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } = GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
+        internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } = GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
         internal static DecisionPackageDefinition IdleGuard_Default { get; } = GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
     internal static class ToolTypeDefinitions
