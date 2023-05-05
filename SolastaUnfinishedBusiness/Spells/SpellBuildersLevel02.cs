@@ -271,6 +271,8 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
+        conditionRestrainedBySpellWeb.specialInterruptions.Clear();
+
         var spell = SpellDefinitionBuilder
             .Create("SpellWeb")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
@@ -282,7 +284,8 @@ internal static partial class SpellBuilders
                 .Create(Grease)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                 .SetDurationData(DurationType.Hour, 1)
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,

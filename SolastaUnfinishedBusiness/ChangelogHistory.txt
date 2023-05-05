@@ -2,7 +2,7 @@
 
 1.4.33.83:
 
-- fixed Splint Armors missing their armor definition form
+- fixed Splint Armor missing its armor definition form
 - fixed Web spell rolling strength checks until success
 - fixed Way of Freedom hiding level 17 on level up UI
 
