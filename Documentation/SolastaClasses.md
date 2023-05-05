@@ -1483,7 +1483,7 @@ You are aware of the location of any hidden or invisible creature within 2 cells
 
 * Slippery Mind
 
-You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16
