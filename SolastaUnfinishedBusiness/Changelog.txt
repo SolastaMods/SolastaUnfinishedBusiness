@@ -1,5 +1,6 @@
 Open Mod UI > Tools and click History for full change details:
 
+- added Roguish Hoodlum's brutal assault at level 17th
 - fixed Splint Armor missing its armor definition form
-- fixed Web spell rolling strength checks until success
-- fixed Way of Freedom hiding level 17 on level up UI
+- fixed Web spell rolling strength check until success
+- fixed Way of Freedom hiding level 17 on level up GUI

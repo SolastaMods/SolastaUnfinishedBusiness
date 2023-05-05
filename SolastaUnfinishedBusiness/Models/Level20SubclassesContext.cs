@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -512,6 +513,26 @@ internal static class Level20SubclassesContext
         RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
 
         //
+        // Hoodlum
+        //
+
+        PowerRoguishHoodlumDirtyFighting.SetCustomSubFeatures(new AttackAfterMagicEffectBrutalAssault());
+
+        var featureRoguishHoodlumBrutalAssault = FeatureDefinitionBuilder
+            .Create("FeatureRoguishHoodlumBrutalAssault")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                new CustomAdditionalDamageBrutalAssault(FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageRoguishHoodlumBrutalAssault")
+                    .SetGuiPresentation("FeatureRoguishHoodlumBrutalAssault", Category.Feature)
+                    .SetNotificationTag("BrutalAssault")
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                    .AddToDB()))
+            .AddToDB();
+
+        RoguishHoodlum.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishHoodlumBrutalAssault, 17));
+
+        //
         // Shadowcaster
         //
 
@@ -1021,6 +1042,160 @@ internal static class Level20SubclassesContext
                     rulesetDefender.RemoveCondition(rulesetCondition);
                 }
             }
+        }
+    }
+
+    //
+    // Brutal Assault
+    //
+
+    private sealed class AttackAfterMagicEffectBrutalAssault : IAttackAfterMagicEffect
+    {
+        public IAttackAfterMagicEffect.CanAttackHandler CanAttack { get; } =
+            CanMeleeAttack;
+
+        public IAttackAfterMagicEffect.GetAttackAfterUseHandler PerformAttackAfterUse { get; } =
+            DefaultAttackHandler;
+
+        public IAttackAfterMagicEffect.CanUseHandler CanBeUsedToAttack { get; } =
+            DefaultCanUseHandler;
+
+        private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
+        {
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (battleService == null)
+            {
+                return false;
+            }
+
+            var attackModifier = new ActionModifier();
+            var evalParams = new BattleDefinitions.AttackEvaluationParams();
+
+            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
+                target.LocationPosition, attackModifier);
+
+            return battleService.CanAttack(evalParams);
+        }
+
+        [NotNull]
+        private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+        {
+            var attacks = new List<CharacterActionParams>();
+            var actionParams = effect?.ActionParams;
+
+            if (actionParams == null)
+            {
+                return attacks;
+            }
+
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (battleService == null)
+            {
+                return attacks;
+            }
+
+            var caster = actionParams.ActingCharacter;
+            var targets = actionParams.TargetCharacters
+                .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                            x.RulesetCharacter.HasAnyConditionOfType("ConditionHitByDirtyFighting"))
+                .ToList();
+
+            if (caster == null || targets.Empty())
+            {
+                return attacks;
+            }
+
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+
+            if (attackMode == null)
+            {
+                return attacks;
+            }
+
+            //get copy to be sure we don't break existing mode
+            var rulesetAttackModeCopy = RulesetAttackMode.AttackModesPool.Get();
+
+            rulesetAttackModeCopy.Copy(attackMode);
+
+            attackMode = rulesetAttackModeCopy;
+
+            //set action type to be same as the one used for the magic effect
+            attackMode.ActionType = effect.ActionType;
+
+            var attackModifier = new ActionModifier();
+
+            foreach (var target in targets
+                         .Where(t => CanMeleeAttack(caster, t)))
+            {
+                var attackActionParams =
+                    new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
+
+                attackActionParams.TargetCharacters.Add(target);
+                attackActionParams.ActionModifiers.Add(attackModifier);
+                attacks.Add(attackActionParams);
+            }
+
+            return attacks;
+        }
+
+        private static bool DefaultCanUseHandler(
+            [NotNull] CursorLocationSelectTarget targeting,
+            GameLocationCharacter caster,
+            GameLocationCharacter target, [NotNull] out string failure)
+        {
+            failure = string.Empty;
+
+            return true;
+        }
+    }
+
+    private sealed class CustomAdditionalDamageBrutalAssault : CustomAdditionalDamage
+    {
+        public CustomAdditionalDamageBrutalAssault(IAdditionalDamageProvider provider) : base(provider)
+        {
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (attackMode == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            {
+                return false;
+            }
+
+            return rulesetDefender.HasAnyConditionOfType(
+                ConditionBlinded,
+                ConditionFrightened,
+                ConditionRestrained,
+                ConditionIncapacitated,
+                ConditionParalyzed,
+                ConditionPoisoned,
+                ConditionProne,
+                ConditionStunned);
         }
     }
 }
