@@ -1,0 +1,47 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "RetinueTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
+    "Definition:AutoPreparedSpellsFeatRetinueTouched:e04586c9-c87b-577f-aaa2-c98cc53c1714",
+    "Definition:CastSpellRetinueTouchedCharisma:c2286130-ffe0-5fd7-9692-c6318133f28a",
+    "Definition:GrantInvocationsRetinueTouchedCharisma:fc8a25e5-5e6d-549b-bed9-eddda4fddfa1"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatRetinueTouchedChaTitle",
+    "description": "Feat/&FeatRetinueTouchedChaDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "43ae41f9-7a64-53a1-b7bc-5ecaecd3408d",
+  "contentPack": 9999,
+  "name": "FeatRetinueTouchedCha"
+}
