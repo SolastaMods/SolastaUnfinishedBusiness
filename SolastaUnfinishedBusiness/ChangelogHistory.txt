@@ -2,9 +2,12 @@
 
 1.4.33.83:
 
+- added Find Familiar spell suggested to Wizards
+- added Retinue Touched feats [bless, heroism, enhance ability]
+- added Roguish Hoodlum's brutal assault at level 17th
 - fixed Splint Armor missing its armor definition form
-- fixed Web spell rolling strength checks until success
-- fixed Way of Freedom hiding level 17 on level up UI
+- fixed Web spell rolling strength check until success
+- fixed Way of Freedom hiding level 17 on level up GUI
 
 1.4.33.82:
 

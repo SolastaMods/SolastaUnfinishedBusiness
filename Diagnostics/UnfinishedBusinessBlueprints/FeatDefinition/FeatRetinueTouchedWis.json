@@ -1,0 +1,47 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "RetinueTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
+    "Definition:AutoPreparedSpellsFeatRetinueTouched:e04586c9-c87b-577f-aaa2-c98cc53c1714",
+    "Definition:CastSpellRetinueTouchedWisdom:fe39b6ee-adce-5362-a035-3d650463c65a",
+    "Definition:GrantInvocationsRetinueTouchedWisdom:8ecaa3c0-ce33-5c2f-a271-d1311b746929"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatRetinueTouchedWisTitle",
+    "description": "Feat/&FeatRetinueTouchedWisDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ec222b4d-37f3-5a42-ba9d-6599a142be6e",
+  "contentPack": 9999,
+  "name": "FeatRetinueTouchedWis"
+}
