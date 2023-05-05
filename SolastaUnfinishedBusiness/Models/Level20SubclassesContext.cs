@@ -1062,7 +1062,7 @@ internal static class Level20SubclassesContext
 
         private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
         {
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
@@ -1114,7 +1114,7 @@ internal static class Level20SubclassesContext
                 return attacks;
             }
 
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
