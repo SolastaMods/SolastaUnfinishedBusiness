@@ -468,13 +468,17 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityExhaustionImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityExhaustionImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedFearImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedFearImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityGrappledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGrappledImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHalflingBrave { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHalflingBrave");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityMindControlledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindControlledImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityMindDominatedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindDominatedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityParalyzedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityParalyzedmmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPetrifiedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPetrifiedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPoisonImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityProneImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProneImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityProtectedFromEvilCharmImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProtectedFromEvilCharmImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
     }
     internal static class FeatureDefinitionDamageAffinitys

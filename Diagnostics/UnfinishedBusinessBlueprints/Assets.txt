@@ -410,6 +410,7 @@ ConditionBladeDancerDanceOfVictory	ConditionDefinition	ConditionDefinition	a8c93
 ConditionBladeWard	ConditionDefinition	ConditionDefinition	8d3d76d9-b5f0-5d86-9b8e-a06f55ce639d
 ConditionBlindingSmite	ConditionDefinition	ConditionDefinition	2c93801f-485a-5dde-b448-a94fadf31253
 ConditionBlindingSmiteEnemy	ConditionDefinition	ConditionDefinition	f4dd3787-cbde-5773-a7ae-d599891dd1fd
+ConditionBrainBulwark	ConditionDefinition	ConditionDefinition	99bec5f8-34c8-5de6-b05b-d9892740e21e
 ConditionCasterFightingWarMagic	ConditionDefinition	ConditionDefinition	7673ca94-a0c8-5086-9d9e-cf632937cff6
 ConditionCircleOfTheLifeRevitalizingBoon	ConditionDefinition	ConditionDefinition	7e837e9a-13e5-55ed-9834-ebc94dc4c224
 ConditionCircleOfTheLifeSeedOfLife	ConditionDefinition	ConditionDefinition	e6b17203-4e90-5814-ba0e-473467e38615
@@ -8077,6 +8078,7 @@ AtWillWardingBond	SpellDefinition	SpellDefinition	f9cf5a06-1274-5606-8762-f726ee
 BanishingSmite	SpellDefinition	SpellDefinition	ee3bc0bd-17a3-5c6f-ab87-978f4e86e3ab
 BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
 BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008e7
+BrainBulwark	SpellDefinition	SpellDefinition	e40588cd-4b6d-5be0-b31e-5a7c7b148869
 BreakerAndBanisher	SpellDefinition	SpellDefinition	471a96f8-d46e-5317-9be7-cc6f520ee0c9
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
 CausticZap	SpellDefinition	SpellDefinition	029019d2-e72a-5b45-806f-c42e1953d7ab
