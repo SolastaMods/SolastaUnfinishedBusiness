@@ -187,11 +187,38 @@ public static class RulesetActorPatcher
         }
     }
 
-#if false
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingInterruption))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ProcessConditionsMatchingInterruption_Patch
     {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var oldMethod = typeof(RulesetActor).GetMethod(nameof(RulesetActor.RemoveCondition));
+
+            var newMethod = new Action<
+                RulesetActor,
+                RulesetCondition,
+                bool,
+                bool
+            >(RemoveCondition).Method;
+
+            return instructions.ReplaceCalls(oldMethod, "RulesetActor.ProcessConditionsMatchingInterruption",
+                new CodeInstruction(OpCodes.Call, newMethod));
+        }
+
+        private static void RemoveCondition(RulesetActor actor, RulesetCondition rulesetCondition, bool refresh,
+            bool showGraphics)
+        {
+            if (AddMarkerToCondition.HasMarker(rulesetCondition, MarkAsRemoveAfterAttacked.MARK))
+            {
+                return;
+            }
+
+            actor.RemoveCondition(rulesetCondition, refresh, showGraphics);
+        }
+
+#if false
         [UsedImplicitly] public static void Prefix(RulesetActor __instance,
             RuleDefinitions.ConditionInterruption interruption,
             int amount)
@@ -202,8 +229,8 @@ public static class RulesetActorPatcher
                 handler(__instance, interruption, amount);
             }
         }
-    }
 #endif
+    }
 
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ModulateSustainedDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

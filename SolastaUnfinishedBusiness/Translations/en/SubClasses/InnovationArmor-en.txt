@@ -1,3 +1,7 @@
+Condition/&ConditionInventorArmorerInfiltratorDamageDescription=Next attack against this creature has advantage and deals extra 1d6 lightning damage on hit.
+Condition/&ConditionInventorArmorerInfiltratorDamageTitle=Glimmer: Vulnerable
+Condition/&ConditionInventorArmorerInfiltratorGlimmerDescription=Sheds dim light in 5ft radius and has disadvantage when attacking Armorer that caused this effect.
+Condition/&ConditionInventorArmorerInfiltratorGlimmerTitle=Glimmer: Distracted
 Condition/&ConditionInnovationArmorGuardianModeDescription=Gain <b>Thunder Gauntlet</b> (1d8 Thunder damage) weapon if you have free hand and <b>Defensive Field</b> bonus action to gain temporary HP equal to Inventor level.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Guardian
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Gain <b>Lightning Launcher</b> ranged attack (1d6 Lightning damage, first attack in round deals 2d6).
@@ -8,6 +12,8 @@ Feature/&AttributeModifierInnovationArmorExtraAttackDescription=You can attack t
 Feature/&AttributeModifierInnovationArmorExtraAttackTitle=Extra Attack
 Feature/&AutoPreparedSpellsInnovationArmorDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArmorTitle=Armorer Spells
+Feature/&FeatureSetInventorArmorerPerfectedArmorDescription=You improve your armor modes:\n<b>• Guardian</b>: TODO: add proper description\n<b>• Infiltrator</b>: Creatures attacked by your Lightning Launcher glimmer with magical light until the end of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
+Feature/&FeatureSetInventorArmorerPerfectedArmorTitle=Perfected Armor
 Feature/&FeatureSetInnovationArmorArmoredUpDescription=You gain proficiency with heavy armor and ignore Strength requirements of armor.
 Feature/&FeatureSetInnovationArmorArmoredUpTitle=Armored Up
 Feature/&FeatureSetInnovationArmorModesDescription=Once per short rest you can select one of 2 armor modes:\n<b>• Guardian</b>: Gain <b>Thunder Gauntlet</b> weapon if you have free hand and <b>Defensive Field</b> bonus action to gain temporary HP equal to Inventor level, triggers each round for 1 minute.\n<b>• Infiltrator</b>: Gain <b>Lightning Launcher</b> ranged attack, 5ft movement speed bonus and advantage on Dexterity (Stealth) checks.

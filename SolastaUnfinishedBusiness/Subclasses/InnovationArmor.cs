@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -28,6 +31,7 @@ public static class InnovationArmor
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddFeaturesAtLevel(9, BuildArmorModification())
+            .AddFeaturesAtLevel(15, BuildPerfectedArmor())
             .AddToDB();
     }
 
@@ -204,6 +208,63 @@ public static class InnovationArmor
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildPerfectedArmor()
+    {
+        var infiltrator = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageInventorArmorerPerfectedArmorInfiltrator")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new RestrictedContextValidator(((_, _, _, item, _, _, _) => (
+                OperationType.Set,
+                item.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name))))
+            .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
+            .AddLightSourceForm(new LightSourceForm
+            {
+                brightRange = 0,
+                dimAdditionalRange = 1,
+                lightSourceType = LightSourceType.Basic,
+                color = new Color(0.9f, 0.78f, 0.62f),
+                graphicsPrefabReference = DatabaseHelper.FeatureDefinitionAdditionalDamages
+                    .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+            })
+            .AddCondition(ConditionDefinitionBuilder
+                .Create("ConditionInventorArmorerInfiltratorGlimmer")
+                .SetGuiPresentation(Category.Condition, DatabaseHelper.ConditionDefinitions.ConditionDazzled)
+                .Detrimental()
+                .SetPossessive()
+                .AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
+                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
+                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                    .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+                    .AddToDB())
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .AddToDB())
+            .AddCondition(ConditionDefinitionBuilder
+                .Create("ConditionInventorArmorerInfiltratorDamage")
+                .SetGuiPresentation(Category.Condition, DatabaseHelper.ConditionDefinitions.ConditionBranded)
+                .Detrimental()
+                .SetPossessive()
+                .AllowMultipleInstances()
+                .SetCustomSubFeatures(MarkAsRemoveAfterAttacked.Instance)
+                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
+                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityInventorArmorerInfiltratorDamage")
+                    .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                .AddToDB())
+            .AddToDB();
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInventorArmorerPerfectedArmor")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                infiltrator
+            )
+            .AddToDB();
+    }
+
     private static bool InGuardianMode(RulesetCharacter character)
     {
         return character.HasConditionOfType(GuardianMarkerName);
@@ -319,7 +380,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            var modes = new List<RulesetAttackMode> { attackMode };
+            var modes = new List<RulesetAttackMode> {attackMode};
 
             var main = hero.GetMainWeapon();
             var off = hero.GetOffhandWeapon();
@@ -411,7 +472,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 

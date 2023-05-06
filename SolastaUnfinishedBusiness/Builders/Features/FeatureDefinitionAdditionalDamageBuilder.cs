@@ -98,6 +98,14 @@ internal class FeatureDefinitionAdditionalDamageBuilder
             new ConditionOperationDescription { operation = operation, conditionDefinition = condition });
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder AddCondition(ConditionDefinition condition)
+    {
+        return AddConditionOperation(new ConditionOperationDescription
+        {
+            operation = ConditionOperationDescription.ConditionOperation.Add, conditionDefinition = condition
+        });
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
         ConditionDefinition requiredCondition,
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
@@ -166,6 +174,13 @@ internal class FeatureDefinitionAdditionalDamageBuilder
 
     internal FeatureDefinitionAdditionalDamageBuilder SetLightSourceForm(LightSourceForm form)
     {
+        Definition.lightSourceForm = form;
+        return this;
+    }
+    
+    internal FeatureDefinitionAdditionalDamageBuilder AddLightSourceForm(LightSourceForm form)
+    {
+        Definition.addLightSource = true;
         Definition.lightSourceForm = form;
         return this;
     }
