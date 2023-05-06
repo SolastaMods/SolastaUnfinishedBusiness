@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": 1001,
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierRoguishDuelistSureFootedTitle",
-    "description": "Feature/&AttributeModifierRoguishDuelistSureFootedDescription",
+    "title": "Feature/&FeatureRoguishDuelistReflexiveParryTitle",
+    "description": "Feature/&FeatureRoguishDuelistReflexiveParryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "909eb80e-64aa-55b2-8460-778554872e7f",
+  "guid": "ed0a2154-bded-5736-a308-bc20337e160f",
   "contentPack": 9999,
-  "name": "AttributeModifierRoguishDuelistSureFooted"
+  "name": "FeatureRoguishDuelistReflexiveParry"
 }
