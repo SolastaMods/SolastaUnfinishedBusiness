@@ -28,11 +28,7 @@ internal static class BackgroundsContext
     [UsedImplicitly]
     internal static void LoadBackground([NotNull] CharacterBackgroundDefinition characterBackgroundDefinition)
     {
-        if (!Backgrounds.Contains(characterBackgroundDefinition))
-        {
-            Backgrounds.Add(characterBackgroundDefinition);
-        }
-
+        Backgrounds.Add(characterBackgroundDefinition);
         UpdateBackgroundVisibility(characterBackgroundDefinition);
     }
 

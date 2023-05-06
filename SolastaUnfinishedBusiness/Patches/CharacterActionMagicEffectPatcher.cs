@@ -82,29 +82,39 @@ public static class CharacterActionMagicEffectPatcher
         public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
             var definition = __instance.GetBaseDefinition();
+            var actingCharacter = __instance.ActingCharacter;
+            var actionParams = __instance.ActionParams;
+
+            //PATCH: allow modify magic attacks from spells or powers cast from non heroes
+            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicAttack>();
+
+            foreach (var feature in attackModifiers)
+            {
+                feature.ModifyMagicAttack(__instance);
+            }
 
             //PATCH: skip spell animation if this is "attack after cast" spell
             if (definition.HasSubFeatureOfType<IAttackAfterMagicEffect>())
             {
-                __instance.ActionParams.SkipAnimationsAndVFX = true;
+                actionParams.SkipAnimationsAndVFX = true;
             }
 
             //PATCH: support for Altruistic metamagic - add caster as first target if necessary
-            var effect = __instance.ActionParams.RulesetEffect;
+            var effect = actionParams.RulesetEffect;
             var baseEffectDescription = (effect.SourceDefinition as IMagicEffect)?.EffectDescription;
             var effectDescription = effect.EffectDescription;
-            var targets = __instance.ActionParams.TargetCharacters;
+            var targets = actionParams.TargetCharacters;
 
             if (!effectDescription.InviteOptionalAlly
                 || baseEffectDescription?.TargetType != RuleDefinitions.TargetType.Self
                 || targets.Count <= 0
-                || targets[0] == __instance.ActingCharacter)
+                || targets[0] == actingCharacter)
             {
                 return;
             }
 
-            targets.Insert(0, __instance.ActingCharacter);
-            __instance.ActionParams.ActionModifiers.Insert(0, __instance.ActionParams.ActionModifiers[0]);
+            targets.Insert(0, actingCharacter);
+            actionParams.ActionModifiers.Insert(0, actionParams.ActionModifiers[0]);
         }
 
         [UsedImplicitly]

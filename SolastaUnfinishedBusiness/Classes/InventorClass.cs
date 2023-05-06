@@ -285,10 +285,6 @@ internal static class InventorClass
 
             #endregion
 
-            #region Level 05
-
-            #endregion
-
             #region Level 06
 
             .AddFeaturesAtLevel(6, learn2Infusion, BuildInfusionPoolIncrease(), BuildToolExpertise())
@@ -306,10 +302,6 @@ internal static class InventorClass
             .AddFeaturesAtLevel(8,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
-
-            #endregion
-
-            #region Level 09
 
             #endregion
 
@@ -335,17 +327,9 @@ internal static class InventorClass
 
             #endregion
 
-            #region Level 13
-
-            #endregion
-
             #region Level 14
 
             .AddFeaturesAtLevel(14, learn2Infusion, BuildInfusionPoolIncrease(), BuildMagicItemSavant())
-
-            #endregion
-
-            #region Level 15
 
             #endregion
 
@@ -354,10 +338,6 @@ internal static class InventorClass
             .AddFeaturesAtLevel(16,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             )
-
-            #endregion
-
-            #region Level 17
 
             #endregion
 
@@ -372,10 +352,6 @@ internal static class InventorClass
             .AddFeaturesAtLevel(19,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice
             );
-
-        #endregion
-
-        #region Level 20
 
         #endregion
 

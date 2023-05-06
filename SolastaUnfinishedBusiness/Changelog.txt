@@ -1,5 +1,8 @@
 Open Mod UI > Tools and click History for full change details:
 
-- RESPEC is required for any hero or save with the Fairy race
-- fixed Sorcerous Field Manipulator's displacement MP desyncs
-- other minor non breaking classes and subclasses fixes
+- added Find Familiar spell suggested to Wizards
+- added Retinue Touched feats [bless, heroism, enhance ability]
+- added Roguish Hoodlum's brutal assault at level 17th
+- fixed Splint Armor missing its armor definition form
+- fixed Web spell rolling strength check until success
+- fixed Way of Freedom hiding level 17 on level up GUI

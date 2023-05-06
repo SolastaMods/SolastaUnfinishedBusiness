@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -230,7 +231,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    private sealed class AttackComputeModifierHex : IAttackComputeModifier
+    private sealed class AttackComputeModifierHex : IPhysicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
@@ -243,45 +244,37 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             _conditionHexDefender = conditionHexDefender;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
-            var battle = Gui.Battle;
+            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (battle == null)
+            if (rulesetDefender == null || rulesetAttacker == null)
             {
-                return;
+                yield break;
             }
 
-            if (defender.HasAnyConditionOfType(_conditionHexDefender.Name))
+            if (rulesetDefender.HasAnyConditionOfType(_conditionHexDefender.Name))
             {
-                myself.InflictCondition(
+                rulesetAttacker.InflictCondition(
                     _conditionHexAttacker.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagCombat,
-                    myself.guid,
-                    myself.CurrentFaction.Name,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
                     1,
                     null,
                     0,
                     0,
                     0);
-            }
-            else
-            {
-                var rulesetCondition =
-                    myself.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionHexAttacker);
-
-                if (rulesetCondition != null)
-                {
-                    myself.RemoveConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-                }
             }
         }
     }

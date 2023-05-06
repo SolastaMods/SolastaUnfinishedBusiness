@@ -145,11 +145,7 @@ internal static class SubclassesContext
             return;
         }
 
-        if (!Subclasses.Contains(subclass))
-        {
-            Subclasses.Add(subclass);
-        }
-
+        Subclasses.Add(subclass);
         UpdateSubclassVisibility(subclass);
     }
 

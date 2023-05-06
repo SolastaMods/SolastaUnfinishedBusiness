@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -243,6 +244,79 @@ internal static partial class SpellBuilders
                 .Build())
             .SetRequiresConcentration(true)
             .AddToDB();
+
+        return spell;
+    }
+
+    internal const string OwlFamiliar = "OwlFamiliar";
+
+    internal static SpellDefinition BuildFindFamiliar()
+    {
+        var familiarMonster = MonsterDefinitionBuilder
+            .Create(MonsterDefinitions.Eagle_Matriarch, OwlFamiliar)
+            .SetOrUpdateGuiPresentation(Category.Monster)
+            .SetFeatures(
+                FeatureDefinitionSenses.SenseNormalVision,
+                FeatureDefinitionSenses.SenseDarkvision24,
+                FeatureDefinitionMoveModes.MoveModeMove2,
+                FeatureDefinitionMoveModes.MoveModeFly12,
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(MonsterDefinitions.Eagle_Matriarch.MonsterPresentation)
+                    .SetPhantom()
+                    .SetModelScale(0.5f)
+                    .SetHasMonsterPortraitBackground(true)
+                    .SetCanGeneratePortrait(true)
+                    .Build())
+            .ClearAttackIterations()
+            .SetSkillScores((SkillDefinitions.Perception, 3), (SkillDefinitions.Stealth, 3))
+            .SetArmorClass(11)
+            .SetAbilityScores(3, 13, 8, 2, 12, 7)
+            .SetHitDice(DieType.D4, 1)
+            .SetStandardHitPoints(5)
+            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
+            .SetAlignment("Neutral")
+            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetChallengeRating(0)
+            .SetDroppedLootDefinition(null)
+            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+            .SetFullyControlledWhenAllied(true)
+            .SetDefaultFaction(FactionDefinitions.Party)
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
+            .SetGuiPresentation(Category.Spell, AnimalFriendship)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSomaticComponent(true)
+            .SetVerboseComponent(true)
+            .SetSpellLevel(1)
+            .SetUniqueInstance()
+            .SetCastingTime(ActivationTime.Hours1)
+            .SetRitualCasting(ActivationTime.Hours1)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Permanent)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 2, TargetType.Position)
+                    .SetParticleEffectParameters(ConjureAnimalsOneBeast)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetSummonCreatureForm(1, familiarMonster.Name)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
 
         return spell;
     }

@@ -56,7 +56,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution")
                     .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition)
-                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, true, AttributeDefinitions.Constitution)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
                     .AddToDB())
             .AddToDB();
 

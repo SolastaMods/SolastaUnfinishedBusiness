@@ -11,16 +11,7 @@
       "savingThrowModifierDiceNumber": 0,
       "savingThrowModifierDieType": "D1",
       "restrictedForms": [],
-      "restrictedSchools": [
-        "SchoolAbjuration",
-        "SchoolConjuration",
-        "SchoolDivination",
-        "SchoolEnchantment",
-        "SchoolEvocation",
-        "SchoolIllusion",
-        "SchoolNecromancy",
-        "SchoolTransmutation"
-      ],
+      "restrictedSchools": [],
       "restrictedSpells": [],
       "restrictedPowers": [],
       "savingThrowContext": "None"

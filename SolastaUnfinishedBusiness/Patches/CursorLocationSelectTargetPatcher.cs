@@ -1,8 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Spells;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Subclasses.SorcerousFieldManipulator;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -21,7 +24,58 @@ public static class CursorLocationSelectTargetPatcher
             GameLocationCharacter target,
             ref bool __result)
         {
-            //TODO: replace with IFilterTargetingMagicEffect
+            if (!__result)
+            {
+                //PATCH: supports IFilterTargetingMagicEffect
+                foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
+                             .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
+                {
+                    __result = filterTargetingMagicEffect.IsValid(__instance, target);
+
+                    if (__result)
+                    {
+                        return;
+                    }
+                }
+            }
+
+            //PATCH: supports Find Familiar specific case for any caster as spell can be granted to other classes
+            if (__instance.actionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell &&
+                rulesetEffectSpell.EffectDescription.RangeType is
+                    RuleDefinitions.RangeType.Touch or RuleDefinitions.RangeType.MeleeHit)
+            {
+                var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
+                var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+                if (rulesetCharacter != null && gameLocationBattleService is { IsBattleInProgress: true })
+                {
+                    var familiar = gameLocationBattleService.Battle.PlayerContenders
+                        .FirstOrDefault(x =>
+                            x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster &&
+                            rulesetCharacterMonster.MonsterDefinition.Name == SpellBuilders.OwlFamiliar &&
+                            rulesetCharacterMonster.AllConditions.Exists(y =>
+                                y.ConditionDefinition == ConditionDefinitions.ConditionConjuredCreature &&
+                                y.SourceGuid == rulesetCharacter.Guid));
+
+                    var canAttack = familiar != null && gameLocationBattleService.IsWithin1Cell(familiar, target);
+
+                    if (canAttack)
+                    {
+                        var effectDescription = new EffectDescription();
+
+                        effectDescription.Copy(__instance.effectDescription);
+                        effectDescription.rangeType = RuleDefinitions.RangeType.RangeHit;
+                        effectDescription.rangeParameter = 24;
+
+                        __instance.effectDescription = effectDescription;
+                    }
+                    else
+                    {
+                        __instance.effectDescription = __instance.ActionParams.RulesetEffect.EffectDescription;
+                    }
+                }
+            }
+
             //PATCH: support for target spell filtering based on custom spell filters
             // used for melee cantrips to limit targets to weapon attack range
             if (!__result)
@@ -30,23 +84,6 @@ public static class CursorLocationSelectTargetPatcher
             }
 
             __result = IsFilteringValidMeleeCantrip(__instance, target);
-
-            //PATCH: supports IFilterTargetingMagicEffect
-            if (!__result)
-            {
-                return;
-            }
-
-            foreach (var filterTargetingMagicEffect in __instance.actionParams.actingCharacter.RulesetCharacter
-                         .GetSubFeaturesByType<IFilterTargetingMagicEffect>())
-            {
-                __result = filterTargetingMagicEffect.IsValid(__instance, target);
-
-                if (!__result)
-                {
-                    return;
-                }
-            }
         }
 
         private static bool IsFilteringValidMeleeCantrip(

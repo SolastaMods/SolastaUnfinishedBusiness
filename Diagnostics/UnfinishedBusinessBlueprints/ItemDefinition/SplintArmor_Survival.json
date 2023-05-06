@@ -61,7 +61,16 @@
       "knowledgeAffinity": "InactiveAndHidden"
     }
   ],
-  "isArmor": false,
+  "isArmor": true,
+  "armorDefinition": {
+    "$type": "ArmorDescription, Assembly-CSharp",
+    "armorType": "SplintArmorType",
+    "armorClassValue": 17,
+    "isBaseArmorClass": true,
+    "maxDexterityBonus": 2,
+    "requiresMinimalStrength": true,
+    "minimalStrength": 15
+  },
   "isWeapon": false,
   "isAmmunition": false,
   "isUsableDevice": false,

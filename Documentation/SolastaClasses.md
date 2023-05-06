@@ -147,7 +147,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
+You have advantage on strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, if you choose to end it or if 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
 
 
 ## Level 16
@@ -974,14 +974,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Tongue of the Sun and Moon
 
-Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
 ## Level 14
 
 * Diamond Soul
 
-Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
+Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
 
 
 ## Level 15
@@ -1159,7 +1159,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Cleansing Touch
 
-Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
 ## Level 16
@@ -1317,7 +1317,7 @@ Gain advantage on ability checks towards this creature type, and additional dama
 
 * Vanish
 
-Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
+Starting at level 14, you can use the Hide action as a bonus action on your turn.
 
 
 ## Level 16
@@ -1476,14 +1476,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Blindsense
 
-You are aware of the location of any hidden or invisible creature within 10 ft of you.
+You are aware of the location of any hidden or invisible creature within 2 cells of you.
 
 
 ## Level 15
 
 * Slippery Mind
 
-You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16

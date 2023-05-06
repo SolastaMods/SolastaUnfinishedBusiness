@@ -22,7 +22,8 @@ internal enum ExtraSituationalContext
     HasLongswordInHands = 1006,
     HasGreatswordInHands = 1007,
     IsNotInBrightLight = 1008,
-    IsRagingAndDualWielding = 1009
+    IsRagingAndDualWielding = 1009,
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010
 }
 
 #if false
@@ -198,7 +199,11 @@ internal enum ExtraActionId
     CannonProtector = 9020,
     CombatRageStart = 9021,
     CastSpellMasteryMain = 9022,
-    CastSignatureSpellsMain = 9023
+    CastSignatureSpellsMain = 9023,
+    QuiveringPalmToggle = 9024,
+    CannonFlamethrowerBonus = 9025,
+    CannonForceBallistaBonus = 9026,
+    CannonProtectorBonus = 9027
 }
 
 #if false

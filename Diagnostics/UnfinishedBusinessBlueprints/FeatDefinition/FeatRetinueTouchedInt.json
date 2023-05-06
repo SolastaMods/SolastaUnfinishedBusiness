@@ -1,0 +1,47 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "RetinueTouched",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:AutoPreparedSpellsFeatRetinueTouched:e04586c9-c87b-577f-aaa2-c98cc53c1714",
+    "Definition:CastSpellRetinueTouchedIntelligence:d1fc6627-2330-51d4-a438-01de6d39eb3d",
+    "Definition:GrantInvocationsRetinueTouchedIntelligence:55f3f0e5-f0bc-5ca7-8815-0a180b19d2f2"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatRetinueTouchedIntTitle",
+    "description": "Feat/&FeatRetinueTouchedIntDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "65992cc4-5314-571e-b12c-aab1e2bcf652",
+  "contentPack": 9999,
+  "name": "FeatRetinueTouchedInt"
+}

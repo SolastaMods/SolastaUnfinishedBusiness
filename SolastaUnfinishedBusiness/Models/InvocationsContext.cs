@@ -67,11 +67,7 @@ internal static class InvocationsContext
 
     private static void LoadInvocation([NotNull] InvocationDefinition invocationDefinition)
     {
-        if (!Invocations.Contains(invocationDefinition))
-        {
-            Invocations.Add(invocationDefinition);
-        }
-
+        Invocations.Add(invocationDefinition);
         UpdateInvocationVisibility(invocationDefinition);
     }
 
