@@ -4,5 +4,5 @@ Feat/&FeatMediumArmorDexDescription=将你的敏捷度提高1，最高20。\n你
 Feat/&FeatMediumArmorDexTitle=中甲掌控 [敏捷]
 Feat/&FeatMediumArmorStrDescription=将你的力量提高1，最高20。\n你可以熟练使用中型盔甲和盾牌。
 Feat/&FeatMediumArmorStrTitle=中甲掌控 [力量]
-Feedback/&HeavyArmorMasterFormat=重甲大师！
+Feedback/&HeavyArmorMasterFormat=重甲大师
 Feedback/&HeavyArmorMasterLine=重甲大师减少目标伤害！
