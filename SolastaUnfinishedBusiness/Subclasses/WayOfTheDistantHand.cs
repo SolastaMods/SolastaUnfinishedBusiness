@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -45,8 +47,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(
-                new RestrictReactionAttackMode((mode, _, _) =>
-                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+                new RestrictReactionAttackMode((mode, character, _) =>
+                    mode != null &&
+                    mode.AttackTags.Contains(ZenArrowTag) &&
+                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -188,11 +193,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 11
         //
 
-        //TODO: this needs to be rewritten
         var wayOfDistantHandsZenArcherStunningArrows = FeatureDefinitionBuilder
             .Create("FeatureWayOfTheDistantHandZenArcherStunningArrows")
             .SetGuiPresentation(Category.Feature)
-            //.SetCustomSubFeatures(new ZenArcherStunningArrows())
             .AddToDB();
 
         // UPGRADE ZEN ARROW
@@ -203,8 +206,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(
-                new RestrictReactionAttackMode((mode, _, _) =>
-                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+                new RestrictReactionAttackMode((mode, character, _) =>
+                    mode != null &&
+                    mode.AttackTags.Contains(ZenArrowTag) &&
+                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -337,6 +343,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
+                GameUiContext.ActionAffinityMonkKiPointsToggle,
                 featureWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
             .AddFeaturesAtLevel(6,
