@@ -452,7 +452,7 @@ internal static class CasterFeats
 
         #endregion
 
-                #region Retinue Touched
+        #region Retinue Touched
 
         const string RETINUE = "RetinueTouched";
 
@@ -498,7 +498,7 @@ internal static class CasterFeats
         feats.AddRange(groupFeats);
 
         #endregion
-        
+
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 

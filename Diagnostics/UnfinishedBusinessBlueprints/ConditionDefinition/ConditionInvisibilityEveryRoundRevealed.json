@@ -3,19 +3,17 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:FeatureInvisibilityEveryRound:bf67a74c-489f-5f20-b471-5c29cbaadef6"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8f1fecc4-ea18-53c2-8cef-63c365b2b5ad",
+  "guid": "9afa6b40-97b5-55bb-a1bb-540b1ed808b3",
   "contentPack": 9999,
-  "name": "ConditionInvisibilityEveryRound"
+  "name": "ConditionInvisibilityEveryRoundRevealed"
 }
