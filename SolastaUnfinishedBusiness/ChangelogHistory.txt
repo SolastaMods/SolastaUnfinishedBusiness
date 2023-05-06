@@ -2,10 +2,16 @@
 
 1.4.33.84:
 
-- added Brain Bulwark 4th level spell
-- fixed a null exception with some spells cast off combat
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+
+- added Brain Bulwark 4th level spell by [Demonic Duck]
+- fixed a null exception with touch spells cast off combat
+- fixed Eldritch Smite only triggering on critical
 - fixed Patron Moonlit not loosing invisibility after attack
-- fixed Patron Soulblade hex logic to use a different trigger
+- fixed Patron Soulblade hex logic to correctly behave on MP
+- fixed Way of Silhouette not loosing invisibility after attack
+- changed Monk Ki Points toggle to Distant Hand Technique toggle
+- changed Monk subclasses so only Distant Hand gets above toggle
 
 1.4.33.83:
 
