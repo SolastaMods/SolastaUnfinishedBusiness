@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.84:
+
+- added Brain Bulwark 4th level spell
+- fixed a null exception with some spells cast off combat
+- fixed Patron Moonlit not loosing invisibility after attack
+- fixed Patron Soulblade hex logic to use a different trigger
+
 1.4.33.83:
 
 - added Find Familiar spell suggested to Wizards
