@@ -252,11 +252,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            if (!__instance.IsBattleInProgress)
-            {
-                yield break;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
