@@ -197,9 +197,9 @@ ModUi/&SettingsLoad=. Carica un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
 ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Pulsante Mostra che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi a forma selvaggia, evocazioni, seguaci NPC, ecc. ]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Pulsante Mostra che apre le informazioni sui mostri controllati <i><color=#F0DAA0>[druidi a forma selvaggia, evocazioni, seguaci NPC, ecc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti usi di <color=#D89555>Incanalare Divinità</color> ha un eroe sul proprio ritratto, in modo simile ai punti stregoneria
-ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario <i><color=#F0DAA0>[Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>

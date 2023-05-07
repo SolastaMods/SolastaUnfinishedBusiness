@@ -197,9 +197,9 @@ ModUi/&SettingsLoad=. Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc. ]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos <color=#D89555>Channel Divinity</color> usa um herói em seu retrato, semelhante a pontos de feitiçaria
-ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário. Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
