@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -205,11 +206,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
                     .SetGuiPresentation($"Item{NAME}", Category.Item)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
                     .AddToDB())
             .AddToDB();
 
