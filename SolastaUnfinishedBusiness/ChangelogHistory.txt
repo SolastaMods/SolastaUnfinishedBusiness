@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.85:
+
+- allowed gambits to use highest of str, dex or int on saving difficult ability
+
 1.4.33.84:
 
 - RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
