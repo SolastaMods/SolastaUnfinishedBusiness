@@ -414,30 +414,16 @@ internal static class Level20SubclassesContext
             .SetCustomSubFeatures(new ModifyMagicEffectRecurrentPhysicalPerfection())
             .AddToDB();
 
-        var powerTraditionSurvivalPhysicalPerfectionHeal = FeatureDefinitionPowerBuilder
-            .Create("PowerTraditionSurvivalPhysicalPerfectionHeal")
+        var conditionTraditionSurvivalPhysicalPerfectionUsedHeal = ConditionDefinitionBuilder
+            .Create("ConditionTraditionSurvivalPhysicalPerfectionUsedHeal")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(
-                                HealingComputation.Dice,
-                                10,
-                                DieType.D1, 0, false,
-                                HealingCap.MaximumHitPoints)
-                            .Build())
-                    .Build())
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerTraditionSurvivalPhysicalPerfection = FeatureDefinitionPowerBuilder
             .Create(PowerTraditionSurvivalUnbreakableBody, "PowerTraditionSurvivalPhysicalPerfection")
-            .SetOrUpdateGuiPresentation("FeatureSetTraditionSurvivalPhysicalPerfection", Category.Feature)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerTraditionSurvivalUnbreakableBody)
@@ -450,17 +436,11 @@ internal static class Level20SubclassesContext
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
             .SetCustomSubFeatures(
-                new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfectionHeal))
-            .AddToDB();
-
-        var featureSetTraditionSurvivalPhysicalPerfection = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetTraditionSurvivalPhysicalPerfection")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerTraditionSurvivalPhysicalPerfection, powerTraditionSurvivalPhysicalPerfectionHeal)
+                new SourceReducedToZeroHpPhysicalPerfection(conditionTraditionSurvivalPhysicalPerfectionUsedHeal))
             .AddToDB();
 
         TraditionSurvival.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(featureSetTraditionSurvivalPhysicalPerfection, 17));
+            new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
     }
 
     private static void PaladinLoad()
@@ -739,11 +719,11 @@ internal static class Level20SubclassesContext
 
     private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
     {
-        private readonly FeatureDefinitionPower _powerSharedPool;
+        private readonly ConditionDefinition _conditionTraditionSurvivalPhysicalPerfectionUsedHeal;
 
-        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerSharedPool)
+        public SourceReducedToZeroHpPhysicalPerfection(ConditionDefinition conditionDefinition)
         {
-            _powerSharedPool = powerSharedPool;
+            _conditionTraditionSurvivalPhysicalPerfectionUsedHeal = conditionDefinition;
         }
 
         public IEnumerator HandleSourceReducedToZeroHp(
@@ -752,14 +732,17 @@ internal static class Level20SubclassesContext
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!source.RulesetCharacter.CanUsePower(_powerSharedPool))
+            var rulesetCharacter = source.RulesetCharacter;
+
+            if (rulesetCharacter == null)
             {
                 yield break;
             }
 
-            source.RulesetCharacter.StabilizeTo1HitPoint();
-            source.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                ConditionProne);
+            if (rulesetCharacter.HasAnyConditionOfType(_conditionTraditionSurvivalPhysicalPerfectionUsedHeal.Name))
+            {
+                yield break;
+            }
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -782,11 +765,22 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
-            var effectPower = new RulesetEffectPower(source.RulesetCharacter,
-                UsablePowersProvider.Get(_powerSharedPool, source.RulesetCharacter));
-
-            source.RulesetCharacter.ForceKiPointConsumption(1);
-            effectPower.ApplyEffectOnCharacter(source.RulesetCharacter, true, source.LocationPosition);
+            rulesetCharacter.ForceKiPointConsumption(1);
+            rulesetCharacter.StabilizeAndGainHitPoints(10);
+            rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, ConditionProne);
+            rulesetCharacter.InflictCondition(
+                _conditionTraditionSurvivalPhysicalPerfectionUsedHeal.Name,
+                _conditionTraditionSurvivalPhysicalPerfectionUsedHeal.DurationType,
+                _conditionTraditionSurvivalPhysicalPerfectionUsedHeal.DurationParameter,
+                _conditionTraditionSurvivalPhysicalPerfectionUsedHeal.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
