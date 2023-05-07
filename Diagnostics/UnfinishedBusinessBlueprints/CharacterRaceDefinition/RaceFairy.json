@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetFairyAbilityScore:077d5868-a04a-5516-a251-74532dda5691",
+      "featureDefinition": "Definition:FeatureSetFairyAbilityScoreIncrease:ede8915e-ee24-56ad-8735-59186ff05ea3",
       "level": 1
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetFairyLanguages:b52c757c-db73-5fd9-ac00-cadfec4e8150",
+      "featureDefinition": "Definition:ProficiencyFairyLanguages:2825f30c-1e01-563c-93aa-c7d6934df362",
       "level": 1
     },
     {

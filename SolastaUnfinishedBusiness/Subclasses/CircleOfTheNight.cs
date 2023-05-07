@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -26,7 +27,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         // 2nd level
 
-        var combatWildshape = BuildWildShapePower();
+        PowerCircleOfTheNightWildShapeCombat = BuildWildShapePower();
 
         // remove regular WS action
 
@@ -115,7 +116,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("CircleOfTheNight", Resources.CircleOfTheNight, 256))
             .AddFeaturesAtLevel(2,
-                combatWildshape,
+                PowerCircleOfTheNightWildShapeCombat,
                 actionAffinityWildshape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
@@ -129,6 +130,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 powerCircleOfTheNightWildShapeMasterfulHealing)
             .AddToDB();
     }
+
+    internal static FeatureDefinitionPower PowerCircleOfTheNightWildShapeCombat { get; private set; }
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -178,7 +181,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        power.SetCustomSubFeatures(new OnAfterActionWildShape(power));
+        power.SetCustomSubFeatures(new ActionFinishedWildShape(power));
 
         ActionDefinitionBuilder
             .Create(baseAction, "CombatWildShape")
@@ -375,22 +378,22 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return effectDescription;
     }
 
-    private sealed class OnAfterActionWildShape : IOnAfterActionFeature
+    private sealed class ActionFinishedWildShape : IActionFinished
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public OnAfterActionWildShape(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedWildShape(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower ||
                 !action.ActionParams.TargetSubstitute.CreatureTags.Contains(Name))
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;

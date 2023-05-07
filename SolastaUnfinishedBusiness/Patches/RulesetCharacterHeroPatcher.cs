@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -146,7 +147,12 @@ public static class RulesetCharacterHeroPatcher
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result, RulesetInvocation invocation)
         {
             //PATCH: make sure we can't cast hidden invocations, so they will be hidden
-            if (invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(__instance, definition));
+
+            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
             {
                 __result = false;
 
@@ -325,13 +331,13 @@ public static class RulesetCharacterHeroPatcher
             RulesetItem weapon)
         {
             //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
 
             var mods = modifiers;
 
             if (__result.sourceObject is RulesetItem item)
             {
-                mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+                mods = item.GetSubFeaturesByType<IModifyWeaponAttackAttribute>();
                 mods.AddRange(modifiers);
             }
 
@@ -366,7 +372,7 @@ public static class RulesetCharacterHeroPatcher
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
 
             //PATCH: Allows changing damage and other stats of an attack mode
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+            var modifiers = __instance.GetSubFeaturesByType<IModifyWeaponAttackMode>();
 
             foreach (var attackMode in __instance.AttackModes)
             {
@@ -374,7 +380,7 @@ public static class RulesetCharacterHeroPatcher
 
                 if (attackMode.sourceObject is RulesetItem item)
                 {
-                    mods = item.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+                    mods = item.GetSubFeaturesByType<IModifyWeaponAttackMode>();
                     mods.AddRange(modifiers);
                 }
 
@@ -402,6 +408,32 @@ public static class RulesetCharacterHeroPatcher
     [UsedImplicitly]
     public static class UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel_Patch
     {
+        private static int TryGetAttributeValue(
+            RulesetEntity __instance,
+            string attribute,
+            RulesetCharacterHero rulesetCharacterHero)
+        {
+            var monkLevels = rulesetCharacterHero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Monk);
+
+            return monkLevels;
+        }
+
+        //PATCH: Monks should use class level on damage dice
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var tryGetAttributeValueMethod = typeof(RulesetEntity).GetMethod("TryGetAttributeValue");
+
+            var myTryGetAttributeValueMethod =
+                new Func<RulesetEntity, string, RulesetCharacterHero, int>(TryGetAttributeValue).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceCalls(tryGetAttributeValueMethod,
+                "RulesetCharacterHero.UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myTryGetAttributeValueMethod));
+        }
+
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance,
             RulesetAttackMode attackMode,

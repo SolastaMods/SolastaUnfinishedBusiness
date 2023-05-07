@@ -1,4 +1,3 @@
-
 Feature/&PowerHandwrapsOfPullingDescription=As a bonus action, you can pull a creature within 15 ft closer to you.
 Feature/&PowerHandwrapsOfPullingTitle=Reel In
 Feedback/&ExtraDamageDescription=Extra damage from Lighting Spear.
@@ -23,6 +22,16 @@ Item/&BarbarianClothes_Sturdiness_Description=This enchanted armor was created u
 Item/&BarbarianClothes_Sturdiness_Title=Barbarian Clothes of Sturdiness
 Item/&BarbarianClothes_Survival_Description=This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Item/&BarbarianClothes_Survival_Title=Barbarian Clothes of Survival
+Item/&Battleaxe_Acuteness_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
+Item/&Battleaxe_Acuteness_Title=Battleaxe of Acuteness
+Item/&Battleaxe_Bearclaw_Description=This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.
+Item/&Battleaxe_Bearclaw_Title=Bearclaw Battleaxe
+Item/&Battleaxe_Lightbringer_Description=This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
+Item/&Battleaxe_Lightbringer_Title=Lightbringer Battleaxe
+Item/&Battleaxe_Power_Description=This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Battleaxe to give champions of the Iron Legions the Strength their elven bodies didn't provide.
+Item/&Battleaxe_Power_Title=Battleaxe of Power
+Item/&Battleaxe_Punisher_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
+Item/&Battleaxe_Punisher_Title=Punisher Battleaxe
 Item/&Breastplate_Deflection_Description=This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Item/&Breastplate_Deflection_Title=Breastplate of Deflection
 Item/&Breastplate_FlameDancing_Description=This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.

@@ -1,5 +1,3 @@
-
-=VIDE
 Feature/&PowerHandwrapsOfPullingDescription=Par une action bonus, vous pouvez rapprocher de vous une créature située dans un rayon de 4,50 mètres.
 Feature/&PowerHandwrapsOfPullingTitle=Ramener
 Feedback/&ExtraDamageDescription=Dégâts supplémentaires de Lightning Spear.
@@ -24,6 +22,16 @@ Item/&BarbarianClothes_Sturdiness_Description=Cette armure enchantée a été cr
 Item/&BarbarianClothes_Sturdiness_Title=Vêtements barbares de robustesse
 Item/&BarbarianClothes_Survival_Description=Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur.
 Item/&BarbarianClothes_Survival_Title=Vêtements barbares de survie
+Item/&Battleaxe_Acuteness_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith de l'Arcaneum.
+Item/&Battleaxe_Acuteness_Title=Hache de guerre d'acuité
+Item/&Battleaxe_Bearclaw_Description=Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Les pointes acérées de la griffe de l'ours déchiquettent l'armure pour infliger des dégâts supplémentaires. La première arme de ce type a été conçue par Ildurial Stronghand.
+Item/&Battleaxe_Bearclaw_Title=Hache de guerre Bearclaw
+Item/&Battleaxe_Lightbringer_Description=Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Colthannin. Il a été conçu par Elgador Keenspirit, Magesmith of the Arcaneum pour soutenir le combat contre les créatures mort-vivantes.
+Item/&Battleaxe_Lightbringer_Title=Hache de guerre du porteur de lumière
+Item/&Battleaxe_Power_Description=Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Certaines créatures ne respectent que les forces physiques. Les arcanistes de Manacalon ont créé cette hache de guerre pour donner aux champions des Légions de Fer la force que leur corps elfique ne leur offrait pas.
+Item/&Battleaxe_Power_Title=Hache de combat de puissance
+Item/&Battleaxe_Punisher_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. La combinaison du meilleur métal et de Slavestone a donné à cette hache un pouvoir de perçage incroyable.
+Item/&Battleaxe_Punisher_Title=Hache de guerre punisseuse
 Item/&Breastplate_Deflection_Description=Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur.
 Item/&Breastplate_Deflection_Title=Cuirasse de déviation
 Item/&Breastplate_FlameDancing_Description=Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur.

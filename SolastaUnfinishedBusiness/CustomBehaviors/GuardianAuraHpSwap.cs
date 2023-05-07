@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -70,7 +71,9 @@ internal static class GuardianAuraHpSwap
         RulesetEffect rulesetEffect,
         int damageAmount)
     {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender ||
+        if (!attacker.IsOppositeSide(unit.Side) ||
+            defender.Side != unit.Side ||
+            unit == defender ||
             !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false) ||
             !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
         {
@@ -127,6 +130,20 @@ internal static class GuardianAuraHpSwap
 
         if (damage != null)
         {
+            RulesetActor.InflictDamage(
+                damageAmount,
+                damage,
+                damage.DamageType,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = unit.RulesetCharacter },
+                unit.RulesetCharacter,
+                false,
+                attacker.Guid,
+                false,
+                new List<string>(),
+                new RollInfo(RuleDefinitions.DieType.D1, new List<int>(), damageAmount),
+                true,
+                out _);
+
             unit.RulesetCharacter.SustainDamage(
                 damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
         }

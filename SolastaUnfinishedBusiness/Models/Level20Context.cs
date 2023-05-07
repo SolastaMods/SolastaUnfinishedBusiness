@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -6,16 +7,19 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
@@ -27,7 +31,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProfi
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -35,17 +38,13 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class Level20Context
 {
     internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
-
     internal const int ModMaxLevel = 20;
-
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
     internal static readonly int GameMaxLevel = Main.IsDebugBuild ? 16 : 12;
 
     internal static void Load()
     {
-        InitExperienceThresholdsTable();
-
         BarbarianLoad();
         BardLoad();
         ClericLoad();
@@ -61,82 +60,10 @@ internal static class Level20Context
         MartialSpellBladeLoad();
         RoguishShadowcasterLoad();
 
-        //
-        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
-        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
-        //
+        Level20SubclassesContext.Load();
 
-        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition);
-
-        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
-            .SelectMany(a => a.FeatureUnlocks)
-            .Select(b => b.FeatureDefinition);
-
-        var allFeatures = classesFeatures.Concat(subclassesFeatures).ToList();
-        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
-        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
-
-        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
-        {
-            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
-
-            if (spellListDefinition == null)
-            {
-                continue;
-            }
-
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < 10)
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
-
-        foreach (var castSpellDefinition in castSpellDefinitions)
-        {
-            while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownCantrips.Add(0);
-            }
-
-            while (castSpellDefinition.KnownSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.KnownSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ReplacedSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.ReplacedSpells.Add(0);
-            }
-
-            while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
-            {
-                castSpellDefinition.ScribedSpells.Add(0);
-            }
-
-            var spellListDefinition = castSpellDefinition.SpellListDefinition;
-
-            if (spellListDefinition == null)
-            {
-                continue;
-            }
-
-            var spellsByLevel = spellListDefinition.SpellsByLevel;
-
-            while (spellsByLevel.Count < 10)
-            {
-                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                {
-                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                });
-            }
-        }
+        InitExperienceThresholdsTable();
+        InitMagicAffinitiesAndCastSpells();
     }
 
     internal static void LateLoad()
@@ -150,7 +77,6 @@ internal static class Level20Context
         var methods = new[]
         {
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            // typeof(CharacterBuildingManager).GetMethod("CreateCharacterFromTemplate"), // 12
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
             typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
@@ -177,15 +103,29 @@ internal static class Level20Context
         }
     }
 
-    private static void InitExperienceThresholdsTable()
+    [NotNull]
+    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
     {
-        var len = ExperienceThresholds.Length;
-        var experience = new int[len + 1];
+        var code = new List<CodeInstruction>(instructions);
 
-        Array.Copy(ExperienceThresholds, experience, len);
-        experience[len] = experience[len - 1];
+        if (!Main.Settings.EnableLevel20)
+        {
+            return code;
+        }
 
-        ExperienceThresholds = experience;
+        var result = code
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel);
+
+        if (result.Count > 0)
+        {
+            result.ForEach(x => x.operand = ModMaxLevel);
+        }
+        else
+        {
+            Main.Error("Level20Transpiler");
+        }
+
+        return code;
     }
 
     private static void BarbarianLoad()
@@ -229,6 +169,14 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
+        var featureBardSuperiorInspiration = FeatureDefinitionBuilder
+            .Create("FeatureBardSuperiorInspiration")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureBardSuperiorInspiration.SetCustomSubFeatures(
+            new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
+
         if (!Main.IsDebugBuild)
         {
             Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -241,8 +189,9 @@ internal static class Level20Context
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Bard Superior Inspiration
+            new(pointPoolBardMagicalSecrets18, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(featureBardSuperiorInspiration, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -301,47 +250,6 @@ internal static class Level20Context
 
         SpellListCleric.maxSpellLevel = 9;
 
-        // Divine Intervention
-
-        var powerClericDivineInterventionImprovementCleric = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionCleric, "PowerClericDivineInterventionImprovementCleric")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionCleric)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementPaladin = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionPaladin, "PowerClericDivineInterventionImprovementPaladin")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionPaladin)
-            .AddToDB();
-
-        var powerClericDivineInterventionImprovementWizard = FeatureDefinitionPowerBuilder
-            .Create(PowerClericDivineInterventionWizard, "PowerClericDivineInterventionImprovementWizard")
-            .SetHasCastingFailure(false)
-            .SetOverriddenPower(PowerClericDivineInterventionWizard)
-            .AddToDB();
-
-        DomainBattle.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
-        DomainElementalCold.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainElementalFire.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainElementalLighting.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainInsight.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainLaw.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementPaladin, 20));
-        DomainLife.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainMischief.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-        DomainOblivion.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
-        DomainSun.FeatureUnlocks.Add(
-            new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
-
         if (!Main.IsDebugBuild)
         {
             SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
@@ -353,12 +261,19 @@ internal static class Level20Context
 
     private static void DruidLoad()
     {
-        // only a placeholder to display the feature name
-        // this is solved on CanCastSpells patch
-        var druidBeastSpells = FeatureDefinitionBuilder
+        // only a placeholder to display the feature name as this is solved on CanCastSpells patch
+        var featureDruidBeastSpells = FeatureDefinitionBuilder
             .Create("FeatureDruidBeastSpells")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+        var magicAffinityArchDruid = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityArchDruid")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, true, true)
+            .AddToDB();
+
+        magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
 
         if (!Main.IsDebugBuild)
         {
@@ -367,8 +282,7 @@ internal static class Level20Context
 
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(druidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Druid Arch Druid
+            new(featureDruidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19), new(magicAffinityArchDruid, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -409,6 +323,7 @@ internal static class Level20Context
             new(powerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
+            // TODO 18: Martial Archetype
             new(AttributeModifierFighterExtraAttack, 20)
         });
     }
@@ -476,8 +391,10 @@ internal static class Level20Context
         var battleStartedListenerMonkPerfectSelf = FeatureDefinitionBuilder
             .Create("BattleStartedListenerMonkPerfectSelf")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
             .AddToDB();
+
+        battleStartedListenerMonkPerfectSelf.SetCustomSubFeatures(
+            new BattleStartedListenerMonkPerfectSelf(battleStartedListenerMonkPerfectSelf));
 
         if (!Main.IsDebugBuild)
         {
@@ -535,22 +452,6 @@ internal static class Level20Context
                 new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16)
             );
-
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfDevotion
-                .AutoPreparedSpellsGroups.Add(
-                    BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
-
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfJugement
-                .AutoPreparedSpellsGroups.Add(
-                    BuildSpellGroup(13, Banishment, Blight));
-
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfMotherland
-                .AutoPreparedSpellsGroups.Add(
-                    BuildSpellGroup(13, WallOfFire, FireShield));
-
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups
-                .Add(
-                    BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
         }
 
         Paladin.FeatureUnlocks.AddRange(
@@ -575,6 +476,13 @@ internal static class Level20Context
             .SetSense(SenseMode.Type.DetectInvisibility, 6)
             .AddToDB();
 
+        var featureFoeSlayer = FeatureDefinitionBuilder
+            .Create("FeatureRangerFoeSlayer")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureFoeSlayer.SetCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
+
         if (!Main.IsDebugBuild)
         {
             Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
@@ -587,8 +495,7 @@ internal static class Level20Context
 
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Ranger Foe Slayer
+            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19), new(featureFoeSlayer, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -618,11 +525,25 @@ internal static class Level20Context
             });
         }
 
+        var featureRogueElusive = FeatureDefinitionBuilder
+            .Create("FeatureRogueElusive")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeRogueElusive())
+            .AddToDB();
+
+        var powerRogueStrokeOfLuck = FeatureDefinitionPowerBuilder
+            .Create("PowerRogueStrokeOfLuck")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .AddToDB();
+
+        powerRogueStrokeOfLuck.SetCustomSubFeatures(
+            new PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(powerRogueStrokeOfLuck));
+
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 18: Rogue Elusive
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Rogue Stroke of Luck
+            new(featureRogueElusive, 19), new(FeatureSetAbilityScoreChoice, 19), new(powerRogueStrokeOfLuck, 20)
         });
     }
 
@@ -721,7 +642,7 @@ internal static class Level20Context
 
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolWarlockMysticArcanum9, 18),
+            new(pointPoolWarlockMysticArcanum9, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerWarlockEldritchMaster, 20)
         });
@@ -736,12 +657,15 @@ internal static class Level20Context
 
     private static void WizardLoad()
     {
+        var spellMastery = BuildWizardSpellMastery();
+        var signatureSpells = BuildWizardSignatureSpells();
+
         Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(FeatureSetAbilityScoreChoice, 16),
-            // TODO 18: Spell Mastery
-            new(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Signature Spells
+            new(spellMastery, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
+            new(signatureSpells, 20)
         });
 
         EnumerateSlotsPerLevel(
@@ -786,29 +710,228 @@ internal static class Level20Context
             4, 1, CastSpellShadowcaster.ReplacedSpells);
     }
 
-    [NotNull]
-    private static IEnumerable<CodeInstruction> Level20Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+    private static void InitExperienceThresholdsTable()
     {
-        var code = new List<CodeInstruction>(instructions);
+        var len = ExperienceThresholds.Length;
+        var experience = new int[len + 1];
 
-        if (!Main.Settings.EnableLevel20)
+        Array.Copy(ExperienceThresholds, experience, len);
+        experience[len] = experience[len - 1];
+
+        ExperienceThresholds = experience;
+    }
+
+    private static void InitMagicAffinitiesAndCastSpells()
+    {
+        // required to avoid issues on how game calculates caster / spell levels and some trace error messages
+        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
+
+        var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var subclassesFeatures = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var racesFeatures = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+            .SelectMany(a => a.FeatureUnlocks)
+            .Select(b => b.FeatureDefinition);
+
+        var allFeatures = classesFeatures.Concat(subclassesFeatures).Concat(racesFeatures).ToList();
+        var castSpellDefinitions = allFeatures.OfType<FeatureDefinitionCastSpell>();
+        var magicAffinityDefinitions = allFeatures.OfType<FeatureDefinitionMagicAffinity>();
+
+        foreach (var magicAffinityDefinition in magicAffinityDefinitions)
         {
-            return code;
+            var spellListDefinition = magicAffinityDefinition.ExtendedSpellList;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
         }
 
-        var result = code
-            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel);
-
-        if (result.Count > 0)
+        foreach (var castSpellDefinition in castSpellDefinitions)
         {
-            result.ForEach(x => x.operand = ModMaxLevel);
+            while (castSpellDefinition.KnownCantrips.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownCantrips.Add(0);
+            }
+
+            while (castSpellDefinition.KnownSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.KnownSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ReplacedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ReplacedSpells.Add(0);
+            }
+
+            while (castSpellDefinition.ScribedSpells.Count < ModMaxLevel + 1)
+            {
+                castSpellDefinition.ScribedSpells.Add(0);
+            }
+
+            var spellListDefinition = castSpellDefinition.SpellListDefinition;
+
+            if (spellListDefinition == null)
+            {
+                continue;
+            }
+
+            var spellsByLevel = spellListDefinition.SpellsByLevel;
+
+            while (spellsByLevel.Count < 10)
+            {
+                spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+                {
+                    Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
+                });
+            }
         }
-        else
+    }
+
+    //
+    // HELPERS
+    //
+
+    private static FeatureDefinition BuildWizardSpellMastery()
+    {
+        const string SPELL_MASTERY = "SpellMastery";
+
+        static IsInvocationValidHandler IsValid()
         {
-            Main.Error("Level20Transpiler");
+            return (character, invocation) =>
+            {
+                var spellRepertoire = character.GetClassSpellRepertoire(Wizard);
+
+                if (spellRepertoire == null)
+                {
+                    return false;
+                }
+
+                // get the first 2 non reaction prepared spells of 1st or 2nd level
+                var preparedSpells = spellRepertoire.PreparedSpells
+                    .Where(x => x.SpellLevel is 1 or 2 && x.ActivationTime != ActivationTime.Reaction)
+                    .Take(2);
+
+                return preparedSpells.Contains(invocation.GrantedSpell);
+            };
         }
 
-        return code;
+        // any non reaction spell of 1st or 2nd level
+        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
+            .Where(x => x.level is 1 or 2)
+            .SelectMany(x => x.Spells)
+            .Where(x => x.ActivationTime != ActivationTime.Reaction);
+
+        var invocations = allPossibleSpells
+            .Select(spell =>
+                CustomInvocationDefinitionBuilder
+                    .Create($"CustomInvocation{SPELL_MASTERY}{spell.Name}")
+                    .SetGuiPresentation(spell.GuiPresentation)
+                    .SetPoolType(InvocationPoolTypeCustom.Pools.SpellMastery)
+                    .SetGrantedSpell(spell)
+                    .SetRequirements(3)
+                    .SetCustomSubFeatures(
+                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name),
+                        IsValid())
+                    .AddToDB());
+
+        var grantInvocationsSpellMastery = FeatureDefinitionGrantInvocationsBuilder
+            .Create($"GrantInvocations{SPELL_MASTERY}")
+            .SetGuiPresentation(Category.Feature)
+            .SetInvocations(invocations)
+            .AddToDB();
+
+        return grantInvocationsSpellMastery;
+    }
+
+    private static FeatureDefinition BuildWizardSignatureSpells()
+    {
+        const string SIGNATURE_SPELLS = "SignatureSpells";
+
+        // any non reaction spell of 3rd level
+        var allPossibleSpells = SpellListAllSpells.SpellsByLevel
+            .Where(x => x.level is 3)
+            .SelectMany(x => x.Spells)
+            .Where(x => x.ActivationTime != ActivationTime.Reaction)
+            .ToList();
+
+        allPossibleSpells
+            .ForEach(spell =>
+                CustomInvocationDefinitionBuilder
+                    .Create($"CustomInvocation{SIGNATURE_SPELLS}{spell.name}")
+                    .SetGuiPresentation(spell.GuiPresentation)
+                    .SetPoolType(InvocationPoolTypeCustom.Pools.SignatureSpells)
+                    .SetGrantedSpell(spell)
+                    .SetCustomSubFeatures(
+                        InvocationShortRestRecharge.Marker,
+                        ValidateRepertoireForAutoprepared.HasSpellCastingFeature(CastSpellWizard.Name))
+                    .AddToDB());
+
+        var invocationPoolWizardSignatureSpells = CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolWizardSignatureSpells")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.SignatureSpells, 2)
+            .AddToDB();
+
+        return invocationPoolWizardSignatureSpells;
+    }
+
+    private sealed class ActionFinishedArchDruid : IActionFinished
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ActionFinishedArchDruid(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter == null)
+            {
+                yield break;
+            }
+
+            var powerDefinition = characterActionUsePower.activePower.PowerDefinition;
+            var powerCircleOfTheNightWildShapeCombat = CircleOfTheNight.PowerCircleOfTheNightWildShapeCombat;
+
+            if (powerDefinition != PowerDruidWildShape && powerDefinition != powerCircleOfTheNightWildShapeCombat)
+            {
+                yield break;
+            }
+
+            var usablePower = UsablePowersProvider.Get(PowerDruidWildShape, rulesetCharacter);
+
+            usablePower.Recharge();
+
+            var usablePowerNight = UsablePowersProvider.Get(powerCircleOfTheNightWildShapeCombat, rulesetCharacter);
+
+            usablePowerNight.Recharge();
+
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+        }
     }
 
     private sealed class ChangeAbilityCheckBarbarianIndomitableMight : IChangeAbilityCheck
@@ -864,6 +987,13 @@ internal static class Level20Context
 
     private sealed class BattleStartedListenerMonkPerfectSelf : ICharacterBattleStartedListener
     {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public BattleStartedListenerMonkPerfectSelf(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var character = locationCharacter.RulesetCharacter;
@@ -880,7 +1010,147 @@ internal static class Level20Context
 
             character.ForceKiPointConsumption(-4);
             character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
-            GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
+            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
+        }
+    }
+
+    private sealed class PhysicalAttackInitiatedOnMeRogueElusive : IPhysicalAttackInitiatedOnMe
+    {
+        public IEnumerator OnAttackInitiatedOnMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetDefender == null)
+            {
+                yield break;
+            }
+
+            if (rulesetDefender.HasAnyConditionOfType(ConditionIncapacitated))
+            {
+                yield break;
+            }
+
+            attackModifier.attackAdvantageTrends.Clear();
+            attackModifier.ignoreAdvantage = true;
+        }
+    }
+
+    private sealed class ModifyWeaponAttackModeRangerFoeSlayer : IModifyWeaponAttackMode
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public ModifyWeaponAttackModeRangerFoeSlayer(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            var damage = attackMode?.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            var wisdom = character.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var wisdomModifier = AttributeDefinitions.ComputeAbilityScoreModifier(wisdom);
+
+            damage.BonusDamage += wisdomModifier;
+            damage.DamageBonusTrends.Add(new TrendInfo(wisdomModifier, FeatureSourceType.CharacterFeature,
+                _featureDefinition.Name,
+                _featureDefinition));
+        }
+    }
+
+    private class PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck : IPhysicalAttackTryAlterOutcome
+    {
+        private readonly FeatureDefinitionPower _power;
+
+        public PhysicalAttackTryAlterOutcomeRogueStrokeOfLuck(FeatureDefinitionPower power)
+        {
+            _power = power;
+        }
+
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            var rulesetCharacter = me.RulesetCharacter;
+
+            if (rulesetCharacter == null || !rulesetCharacter.CanUsePower(_power))
+            {
+                yield break;
+            }
+
+            var gameLocationActionManager =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (gameLocationActionManager == null)
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = "Reaction/&CustomReactionRogueStrokeOfLuckReactDescription"
+            };
+            var previousReactionCount = gameLocationActionManager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("RogueStrokeOfLuck", reactionParams);
+
+            gameLocationActionManager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, gameLocationActionManager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            var delta = -action.AttackSuccessDelta;
+
+            rulesetCharacter.UsePower(UsablePowersProvider.Get(_power, rulesetCharacter));
+            action.AttackRollOutcome = RollOutcome.Success;
+            attackModifier.AttackRollModifier += delta;
+            attackModifier.AttacktoHitTrends.Add(new TrendInfo(delta, FeatureSourceType.Power, _power.Name, _power));
+        }
+    }
+
+    private sealed class BattleStartedListenerBardSuperiorInspiration : ICharacterBattleStartedListener
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public BattleStartedListenerBardSuperiorInspiration(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            var character = locationCharacter.RulesetCharacter;
+
+            if (character == null)
+            {
+                return;
+            }
+
+            if (character.RemainingBardicInspirations != 0)
+            {
+                return;
+            }
+
+            character.usedBardicInspiration--;
+            character.BardicInspirationAltered?.Invoke(character, character.RemainingBardicInspirations);
+            GameConsoleHelper.LogCharacterUsedFeature(character, _featureDefinition);
         }
     }
 }

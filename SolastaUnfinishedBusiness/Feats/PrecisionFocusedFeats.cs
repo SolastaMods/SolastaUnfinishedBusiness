@@ -21,7 +21,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierArcanePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence))
+            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence))
             .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
@@ -59,7 +59,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierCharismaticPrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Charisma))
+            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Charisma))
             .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
@@ -97,7 +97,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierWisePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Wisdom))
+            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Wisdom))
             .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();

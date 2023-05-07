@@ -163,19 +163,20 @@ internal static class EncountersSpawnContext
             }
         }
 
-        foreach (var gameLocationCharacter in EncounterCharacters.Select(character =>
-                     gameLocationCharacterService.CreateCharacter(
-                         PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
-                         new GameLocationBehaviourPackage
-                         {
-                             BattleStartBehavior =
-                                 GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                             DecisionPackageDefinition = IdleGuard_Default,
-                             EncounterId = EncounterId++,
-                             FormationDefinition = EncounterCharacters.Count > 1
-                                 ? DatabaseHelper.FormationDefinitions.Squad4
-                                 : DatabaseHelper.FormationDefinitions.SingleCreature
-                         })))
+        foreach (var gameLocationCharacter in EncounterCharacters
+                     .Select(character =>
+                         gameLocationCharacterService.CreateCharacter(
+                             PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
+                             new GameLocationBehaviourPackage
+                             {
+                                 BattleStartBehavior =
+                                     GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
+                                 DecisionPackageDefinition = IdleGuard_Default,
+                                 EncounterId = EncounterId++,
+                                 FormationDefinition = EncounterCharacters.Count > 1
+                                     ? DatabaseHelper.FormationDefinitions.Squad4
+                                     : DatabaseHelper.FormationDefinitions.SingleCreature
+                             })))
         {
             gameLocationCharacter.CollectExistingLightSources(true);
             gameLocationCharacter.RefreshActionPerformances();

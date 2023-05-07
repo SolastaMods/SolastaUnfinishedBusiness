@@ -37,12 +37,10 @@ internal static class FairyRaceBuilder
         var rulesetCondition = character.AllConditions.FirstOrDefault(x =>
             x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
 
-        if (rulesetCondition == null)
+        if (rulesetCondition != null)
         {
-            return;
+            character.RemoveCondition(rulesetCondition);
         }
-
-        character.RemoveCondition(rulesetCondition);
     }
 
     [NotNull]
@@ -75,20 +73,8 @@ internal static class FairyRaceBuilder
 
         var proficiencyFairyLanguages = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Languages")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.Language, "Language_Common")
-            .AddToDB();
-
-        var pointPoolFairyLanguages = FeatureDefinitionPointPoolBuilder
-            .Create($"PointPool{Name}Languages")
-            .SetGuiPresentationNoContent(true)
-            .SetPool(HeroDefinitions.PointsPoolType.AbilityScore, 1)
-            .AddToDB();
-
-        var featureSetFairyLanguages = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Languages")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(proficiencyFairyLanguages, pointPoolFairyLanguages)
+            .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Elvish")
             .AddToDB();
 
         // Ability Scores
@@ -109,8 +95,8 @@ internal static class FairyRaceBuilder
                 AttributeDefinitions.Charisma)
             .AddToDB();
 
-        var featureSetFairyAbilityScore = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}AbilityScore")
+        var featureSetFairyAbilityScoreIncrease = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(attributeModifierAbilityScore, pointPoolAbilityScore)
             .AddToDB();
@@ -125,7 +111,7 @@ internal static class FairyRaceBuilder
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Permanent)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -176,8 +162,8 @@ internal static class FairyRaceBuilder
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 castSpellFairy,
-                featureSetFairyLanguages,
-                featureSetFairyAbilityScore,
+                proficiencyFairyLanguages,
+                featureSetFairyAbilityScoreIncrease,
                 featureSetFairyFlight,
                 MoveModeMove6,
                 SenseNormalVision,

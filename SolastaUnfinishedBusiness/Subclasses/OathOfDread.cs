@@ -31,7 +31,7 @@ internal sealed class OathOfDread : AbstractSubclass
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
-            .SetGuiPresentation("Subclass/&OathOfDreadTitle", "Feature/&DomainSpellsDescription")
+            .SetGuiPresentation(Name, Category.Subclass, "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Bane, ShieldOfFaith),
@@ -44,31 +44,33 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Mark of Submission
 
+        const string MARK_OF_SUBMISSION = "MarkOfTheSubmission";
+
         var conditionMarkOfTheSubmission = ConditionDefinitionBuilder
-            .Create($"Condition{Name}MarkOfTheSubmission")
+            .Create($"Condition{Name}{MARK_OF_SUBMISSION}")
             .SetGuiPresentation(Category.Condition, ConditionMarkedByBrandingSmite)
             .SetConditionType(ConditionType.Detrimental)
-            .SetConditionParticleReference(ConditionMarkedByBrandingSmite.conditionParticleReference)
             .SetPossessive()
             .AddToDB();
 
         var combatAffinityMarkOfTheSubmission = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}MarkOfTheSubmission")
-            .SetGuiPresentation($"Condition{Name}MarkOfTheSubmission", Category.Condition)
+            .Create($"CombatAffinity{Name}{MARK_OF_SUBMISSION}")
+            .SetGuiPresentation($"Condition{Name}{MARK_OF_SUBMISSION}", Category.Condition)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .SetSituationalContext(SituationalContext.TargetHasCondition, conditionMarkOfTheSubmission)
             .AddToDB();
 
         var powerMarkOfTheSubmission = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}MarkOfTheSubmission")
-            .SetGuiPresentation($"FeatureSet{Name}MarkOfTheSubmission", Category.Feature,
-                Sprites.GetSprite("PowerMarkOfTheSubmission", Resources.PowerMarkOfTheSubmission, 256, 128))
+            .Create($"Power{Name}{MARK_OF_SUBMISSION}")
+            .SetGuiPresentation($"FeatureSet{Name}{MARK_OF_SUBMISSION}", Category.Feature,
+                Sprites.GetSprite(MARK_OF_SUBMISSION, Resources.PowerMarkOfTheSubmission, 256, 128))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.Individuals)
+                    .SetParticleEffectParameters(BestowCurseOnAttackRoll)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -80,17 +82,19 @@ internal sealed class OathOfDread : AbstractSubclass
             .AddToDB();
 
         var featureSetMarkOfTheSubmission = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}MarkOfTheSubmission")
+            .Create($"FeatureSet{Name}{MARK_OF_SUBMISSION}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(combatAffinityMarkOfTheSubmission, powerMarkOfTheSubmission)
             .AddToDB();
 
         // Dreadful Presence
 
+        const string DREADFUL_PRESENCE = "DreadfulPresence";
+
         var powerDreadfulPresence = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}DreadfulPresence")
+            .Create($"Power{Name}{DREADFUL_PRESENCE}")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerDreadfulPresence", Resources.PowerDreadfulPresence, 256, 128))
+                Sprites.GetSprite(DREADFUL_PRESENCE, Resources.PowerDreadfulPresence, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -115,13 +119,15 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Aura of Domination
 
+        const string AURA_DOMINATION = "AuraOfDomination";
+
         var featureAuraOfDomination = FeatureDefinitionBuilder
-            .Create($"Feature{Name}AuraOfDomination")
+            .Create($"Feature{Name}{AURA_DOMINATION}")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         var conditionAuraOfDomination = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AuraOfDomination")
+            .Create($"Condition{Name}{AURA_DOMINATION}")
             .SetGuiPresentation(Category.Condition, ConditionBaned)
             .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -135,9 +141,9 @@ internal sealed class OathOfDread : AbstractSubclass
             new CharacterTurnStartListenerAuraOfDomination(conditionAuraOfDomination));
 
         var powerAuraOfDomination = FeatureDefinitionPowerBuilder
-            .Create(PowerPaladinAuraOfProtection, $"Power{Name}AuraOfDomination")
+            .Create(PowerPaladinAuraOfProtection, $"Power{Name}{AURA_DOMINATION}")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerAuraOfDomination", Resources.PowerAuraOfDomination, 256, 128))
+                Sprites.GetSprite(AURA_DOMINATION, Resources.PowerAuraOfDomination, 256, 128))
             .AddToDB();
 
         // keep it simple and ensure it'll follow any changes from Aura of Protection
@@ -152,9 +158,10 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Harrowing Crusade
 
-        // name has a deeper dependency with the reaction so not tagging with {name} on purpose
+        const string HARROWING_CRUSADE = "HarrowingCrusade";
+
         var featureHarrowingCrusade = FeatureDefinitionBuilder
-            .Create("FeatureHarrowingCrusade")
+            .Create($"Feature{Name}{HARROWING_CRUSADE}")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new ReactToAttackOnMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
@@ -216,6 +223,7 @@ internal sealed class OathOfDread : AbstractSubclass
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
+                .ToList()
                 .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
 
             if (locationCharacterAttacker == null)
@@ -224,16 +232,20 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(
-                rulesetDefender.Guid,
-                CustomConditionsContext.StopMovement,
+
+            rulesetDefender.InflictCondition(
+                CustomConditionsContext.StopMovement.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                rulesetAttacker.Guid,
-                rulesetAttacker.BaseFaction.Name);
-
-            rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Paladin);
             var totalDamage = classLevel / 2;

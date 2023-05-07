@@ -20,7 +20,7 @@ internal class RopeItUp : AbstractFightingStyle
         .SetGuiPresentation(Name, Category.FightingStyle)
         .SetCustomSubFeatures(
             ReturningWeapon.Instance,
-            new ModifyAttackModeForWeaponRopeItUp())
+            new ModifyWeaponAttackModeRopeItUp())
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
@@ -34,7 +34,7 @@ internal class RopeItUp : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class ModifyAttackModeForWeaponRopeItUp : IModifyAttackModeForWeapon, IPhysicalAttackInitiated
+    private sealed class ModifyWeaponAttackModeRopeItUp : IModifyWeaponAttackMode, IPhysicalAttackInitiated
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -55,7 +55,7 @@ internal class RopeItUp : AbstractFightingStyle
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
-            if (attackerAttackMode?.thrown != true)
+            if (attackModifier.Proximity == AttackProximity.Melee)
             {
                 yield break;
             }

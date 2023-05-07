@@ -10,3 +10,5 @@ Spell/&FarStepDescription=Sie teleportieren bis zu 60 Fuß zu einem unbesetzten 
 Spell/&FarStepTitle=Weiter Schritt
 Spell/&MantleOfThornsDescription=Umgeben Sie sich mit einer Aura aus Dornen. Diejenigen, die anfangen oder hindurchgehen, erleiden 2W8 Stichschaden. Dieser Schaden skaliert auf höheren Stufen um 1W8 pro Slot.
 Spell/&MantleOfThornsTitle=Dornenmantel
+Spell/&SonicBoomDescription=Eine kleine Kugel in der gleichen Farbe wie der verwendete Ballon erscheint an einem von Ihnen ausgewählten Punkt innerhalb der Reichweite und dehnt sich dann mit einem lauten Knall zu einer Explosion aus. Jede Kreatur in einem Radius von 30 Fuß muss einen Kraftrettungswurf machen. Ein Ziel wird bis zu 9 m von der Mitte weggedrängt und erleidet 6W8 Donnerschaden bei einem gescheiterten Rettungswurf oder halb so viel Schaden und keine Bewegung bei einem erfolgreichen Rettungswurf.
+Spell/&SonicBoomTitle=Überschallknall

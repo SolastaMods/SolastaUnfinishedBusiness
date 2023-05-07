@@ -8,8 +8,10 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
+        internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
     }
     internal static class CharacterBackgroundDefinitions
     {
@@ -70,6 +72,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSizeDefinition Large { get; } = GetDefinition<CharacterSizeDefinition>("Large");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
+        internal static CharacterSizeDefinition Tiny { get; } = GetDefinition<CharacterSizeDefinition>("Tiny");
     }
     internal static class CharacterSubclassDefinitions
     {
@@ -84,15 +87,24 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainMischief { get; } = GetDefinition<CharacterSubclassDefinition>("DomainMischief");
         internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
         internal static CharacterSubclassDefinition DomainSun { get; } = GetDefinition<CharacterSubclassDefinition>("DomainSun");
+        internal static CharacterSubclassDefinition MartialChampion { get; } = GetDefinition<CharacterSubclassDefinition>("MartialChampion");
+        internal static CharacterSubclassDefinition MartialCommander { get; } = GetDefinition<CharacterSubclassDefinition>("MartialCommander");
+        internal static CharacterSubclassDefinition MartialMountaineer { get; } = GetDefinition<CharacterSubclassDefinition>("MartialMountaineer");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
         internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
+        internal static CharacterSubclassDefinition RoguishDarkweaver { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
+        internal static CharacterSubclassDefinition RoguishHoodlum { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishHoodlum");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
+        internal static CharacterSubclassDefinition RoguishThief { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishThief");
         internal static CharacterSubclassDefinition SorcerousChildRift { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousChildRift");
         internal static CharacterSubclassDefinition SorcerousDraconicBloodline { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousDraconicBloodline");
         internal static CharacterSubclassDefinition SorcerousHauntedSoul { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousHauntedSoul");
         internal static CharacterSubclassDefinition SorcerousManaPainter { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousManaPainter");
+        internal static CharacterSubclassDefinition TraditionFreedom { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionFreedom");
         internal static CharacterSubclassDefinition TraditionLight { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionLight");
+        internal static CharacterSubclassDefinition TraditionOpenHand { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand");
+        internal static CharacterSubclassDefinition TraditionSurvival { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionSurvival");
     }
     internal static class ConditionDefinitions
     {
@@ -159,8 +171,13 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionKindredSpiritBondSavingThrows { get; } = GetDefinition<ConditionDefinition>("ConditionKindredSpiritBondSavingThrows");
         internal static ConditionDefinition ConditionLevitate { get; } = GetDefinition<ConditionDefinition>("ConditionLevitate");
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
+        internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
+        internal static ConditionDefinition ConditionLuminousKi { get; } = GetDefinition<ConditionDefinition>("ConditionLuminousKi");
+        internal static ConditionDefinition ConditionMagicallyArmored { get; } = GetDefinition<ConditionDefinition>("ConditionMagicallyArmored");
+        internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionMarkedByHunter { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByHunter");
+        internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
         internal static ConditionDefinition ConditionOnFire { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire");
         internal static ConditionDefinition ConditionOnFire1D4 { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire1D4");
         internal static ConditionDefinition ConditionPactChainImp { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainImp");
@@ -178,7 +195,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionRaging { get; } = GetDefinition<ConditionDefinition>("ConditionRaging");
         internal static ConditionDefinition ConditionRestrained { get; } = GetDefinition<ConditionDefinition>("ConditionRestrained");
         internal static ConditionDefinition ConditionRestrainedByEntangle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle");
+        internal static ConditionDefinition ConditionRestrictedInsideMagicCircle { get; } = GetDefinition<ConditionDefinition>("ConditionRestrictedInsideMagicCircle");
         internal static ConditionDefinition ConditionRevealedByDetectGoodOrEvil { get; } = GetDefinition<ConditionDefinition>("ConditionRevealedByDetectGoodOrEvil");
+        internal static ConditionDefinition ConditionRousingShout { get; } = GetDefinition<ConditionDefinition>("ConditionRousingShout");
         internal static ConditionDefinition ConditionSeeInvisibility { get; } = GetDefinition<ConditionDefinition>("ConditionSeeInvisibility");
         internal static ConditionDefinition ConditionShielded { get; } = GetDefinition<ConditionDefinition>("ConditionShielded");
         internal static ConditionDefinition ConditionShine { get; } = GetDefinition<ConditionDefinition>("ConditionShine");
@@ -187,6 +206,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionSorcererChildRiftDeflection { get; } = GetDefinition<ConditionDefinition>("ConditionSorcererChildRiftDeflection");
         internal static ConditionDefinition ConditionSpiritGuardians { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardians");
         internal static ConditionDefinition ConditionSpiritGuardiansSelf { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardiansSelf");
+        internal static ConditionDefinition ConditionStealthy { get; } = GetDefinition<ConditionDefinition>("ConditionStealthy");
         internal static ConditionDefinition ConditionStoneResilience { get; } = GetDefinition<ConditionDefinition>("ConditionStoneResilience");
         internal static ConditionDefinition ConditionStunned { get; } = GetDefinition<ConditionDefinition>("ConditionStunned");
         internal static ConditionDefinition ConditionStunned_MonkStunningStrike { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MonkStunningStrike");
@@ -194,6 +214,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionStunnedConjuredDeath { get; } = GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath");
         internal static ConditionDefinition ConditionSunbeam { get; } = GetDefinition<ConditionDefinition>("ConditionSunbeam");
         internal static ConditionDefinition ConditionSurprised { get; } = GetDefinition<ConditionDefinition>("ConditionSurprised");
+        internal static ConditionDefinition ConditionTraditionSurvivalUnbreakableBody { get; } = GetDefinition<ConditionDefinition>("ConditionTraditionSurvivalUnbreakableBody");
         internal static ConditionDefinition ConditionTrueStrike { get; } = GetDefinition<ConditionDefinition>("ConditionTrueStrike");
         internal static ConditionDefinition ConditionTurned { get; } = GetDefinition<ConditionDefinition>("ConditionTurned");
         internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
@@ -310,6 +331,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");
         internal static FeatureDefinitionActionAffinity ActionAffinityTraditionGreenMageLeafScales { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionGreenMageLeafScales");
+        internal static FeatureDefinitionActionAffinity ActionAffinityUncannyDodge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityUncannyDodge");
     }
     internal static class FeatureDefinitionAdditionalActions
     {
@@ -321,6 +343,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageDivineFavor { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDivineFavor");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageHalfOrcSavageAttacks { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHalfOrcSavageAttacks");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
@@ -340,6 +363,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyPlant { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyPlant");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyUndead { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyUndead");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionLightRadiantStrikesLuminousKi { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesLuminousKi");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionLightRadiantStrikesShine { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionLightRadiantStrikesShine");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionShockArcanistArcaneFury { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionShockArcanistArcaneFury");
     }
     internal static class FeatureDefinitionAttackModifiers
@@ -379,6 +404,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierHumanAbilityScoreIncrease { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHumanAbilityScoreIncrease");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierMartialMountainerTunnelFighter { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialMountainerTunnelFighter");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMonkUnarmoredDefense { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkUnarmoredDefense");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
@@ -423,6 +449,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityDisengaging { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityDisengaging");
         internal static FeatureDefinitionCombatAffinity CombatAffinityEagerForBattle { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEagerForBattle");
         internal static FeatureDefinitionCombatAffinity CombatAffinityEnfeebled { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityEnfeebled");
+        internal static FeatureDefinitionCombatAffinity CombatAffinityFlyby { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityFlyby");
         internal static FeatureDefinitionCombatAffinity CombatAffinityPackTactics { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPackTactics");
         internal static FeatureDefinitionCombatAffinity CombatAffinityParalyzedAdvantage { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityParalyzedAdvantage");
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
@@ -442,9 +469,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityExhaustionImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityExhaustionImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedFearImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedFearImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityGrappledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGrappledImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHalflingBrave { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHalflingBrave");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityHinderedByFrostImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityHinderedByFrostImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityMindControlledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindControlledImmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityMindDominatedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityMindDominatedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityParalyzedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityParalyzedmmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPetrifiedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPetrifiedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPoisonImmunity");
@@ -502,6 +532,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
         internal static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
+        internal static FeatureDefinitionFeatureSet FeatureSetTraditionLightRadiantStrikes { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionLightRadiantStrikes");
         internal static FeatureDefinitionFeatureSet TerrainTypeAffinityRangerNaturalExplorerChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("TerrainTypeAffinityRangerNaturalExplorerChoice");
     }
     internal static class FeatureDefinitionFightingStyleChoices
@@ -532,19 +563,23 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionLevitate { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionLevitate");
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionRestrained");
         internal static FeatureDefinitionMovementAffinity MovementAffinityFreedomOfMovement { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFreedomOfMovement");
+        internal static FeatureDefinitionMovementAffinity MovementAffinityNoClimb { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoClimb");
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoSpecialMoves { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoSpecialMoves");
         internal static FeatureDefinitionMovementAffinity MovementAffinitySixLeaguesBoots { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySixLeaguesBoots");
         internal static FeatureDefinitionMovementAffinity MovementAffinitySpiderClimb { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySpiderClimb");
     }
     internal static class FeatureDefinitionMoveModes
     {
-        internal static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10");
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
-        internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
+        internal static FeatureDefinitionMoveMode MoveModeFly8 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly8");
+        internal static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10");
+        internal static FeatureDefinitionMoveMode MoveModeFly12 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly12");
+        internal static FeatureDefinitionMoveMode MoveModeMove2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove2");
         internal static FeatureDefinitionMoveMode MoveModeMove5 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove5");
         internal static FeatureDefinitionMoveMode MoveModeMove6 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove6");
         internal static FeatureDefinitionMoveMode MoveModeMove7 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove7");
         internal static FeatureDefinitionMoveMode MoveModeMove8 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove8");
+        internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
     }
     internal static class FeatureDefinitionPointPools
     {
@@ -611,7 +646,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } = GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
         internal static FeatureDefinitionPower PowerSorcererManaPainterTap { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterTap");
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
+        internal static FeatureDefinitionPower PowerMelekTeleport { get; } = GetDefinition<FeatureDefinitionPower>("PowerMelekTeleport");
+        internal static FeatureDefinitionPower PowerMonkFlurryOfBlows { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkFlurryOfBlows");
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
+        internal static FeatureDefinitionPower PowerMonkStepOfTheWindDash { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkStepOfTheWindDash");
         internal static FeatureDefinitionPower PowerMonkStunningStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkStunningStrike");
         internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
@@ -627,14 +665,18 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
+        internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } = GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
         internal static FeatureDefinitionPower PowerShadowTamerRopeGrapple { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowTamerRopeGrapple");
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
         internal static FeatureDefinitionPower PowerSorcererChildRiftDeflection { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftDeflection");
         internal static FeatureDefinitionPower PowerSorcererHauntedSoulSpiritVisage { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererHauntedSoulSpiritVisage");
         internal static FeatureDefinitionPower PowerSorcererManaPainterDrain { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterDrain");
+        internal static FeatureDefinitionPower PowerSpellBladeSpellTyrant { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpellBladeSpellTyrant");
         internal static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud");
         internal static FeatureDefinitionPower PowerTraditionCourtMageSpellShield { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionCourtMageSpellShield");
+        internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
+        internal static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody");
         internal static FeatureDefinitionPower PowerWightLord_CircleOfDeath { get; } = GetDefinition<FeatureDefinitionPower>("PowerWightLord_CircleOfDeath");
         internal static FeatureDefinitionPower PowerWindShelteringBreeze { get; } = GetDefinition<FeatureDefinitionPower>("PowerWindShelteringBreeze");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
@@ -1070,6 +1112,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } = GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
         internal static MonsterDefinition CrimsonSpider { get; } = GetDefinition<MonsterDefinition>("CrimsonSpider");
         internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
+        internal static MonsterDefinition Eagle_Matriarch { get; } = GetDefinition<MonsterDefinition>("Eagle_Matriarch");
         internal static MonsterDefinition Earth_Elemental { get; } = GetDefinition<MonsterDefinition>("Earth_Elemental");
         internal static MonsterDefinition Emperor_Laethar { get; } = GetDefinition<MonsterDefinition>("Emperor_Laethar");
         internal static MonsterDefinition FeyBear { get; } = GetDefinition<MonsterDefinition>("FeyBear");
@@ -1228,6 +1271,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Barkskin { get; } = GetDefinition<SpellDefinition>("Barkskin");
         internal static SpellDefinition BeaconOfHope { get; } = GetDefinition<SpellDefinition>("BeaconOfHope");
         internal static SpellDefinition BestowCurse { get; } = GetDefinition<SpellDefinition>("BestowCurse");
+        internal static SpellDefinition BestowCurseOnAttackRoll { get; } = GetDefinition<SpellDefinition>("BestowCurseOnAttackRoll");
         internal static SpellDefinition BlackTentacles { get; } = GetDefinition<SpellDefinition>("BlackTentacles");
         internal static SpellDefinition BladeBarrier { get; } = GetDefinition<SpellDefinition>("BladeBarrier");
         internal static SpellDefinition Bless { get; } = GetDefinition<SpellDefinition>("Bless");
@@ -1331,6 +1375,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition MageArmor { get; } = GetDefinition<SpellDefinition>("MageArmor");
         internal static SpellDefinition MagicMissile { get; } = GetDefinition<SpellDefinition>("MagicMissile");
         internal static SpellDefinition MagicWeapon { get; } = GetDefinition<SpellDefinition>("MagicWeapon");
+        internal static SpellDefinition Malediction { get; } = GetDefinition<SpellDefinition>("Malediction");
         internal static SpellDefinition MassCureWounds { get; } = GetDefinition<SpellDefinition>("MassCureWounds");
         internal static SpellDefinition MassHealingWord { get; } = GetDefinition<SpellDefinition>("MassHealingWord");
         internal static SpellDefinition MindTwist { get; } = GetDefinition<SpellDefinition>("MindTwist");
@@ -1406,6 +1451,7 @@ internal static partial class DatabaseHelper
     internal static class DecisionPackageDefinitions
     {
         internal static DecisionPackageDefinition DefaultMeleeWithBackupRangeDecisions { get; } = GetDefinition<DecisionPackageDefinition>("DefaultMeleeWithBackupRangeDecisions");
+        internal static DecisionPackageDefinition DefaultSupportCasterWithBackupAttacksDecisions { get; } = GetDefinition<DecisionPackageDefinition>("DefaultSupportCasterWithBackupAttacksDecisions");
         internal static DecisionPackageDefinition IdleGuard_Default { get; } = GetDefinition<DecisionPackageDefinition>("IdleGuard_Default");
     }
     internal static class ToolTypeDefinitions

@@ -477,7 +477,7 @@ internal static class TranslatorContext
 
             userCampaign.Description = Translate(userCampaign.Description, languageCode);
             userCampaign.TechnicalInfo = UbTranslationTag + Translate(userCampaign.TechnicalInfo, languageCode);
-            
+
             // magicSkySword : Translate location first, so that the translated cache of the location function can be used later
             // USER LOCATIONS
             foreach (var userLocation in userCampaign.UserLocations)
@@ -512,7 +512,8 @@ internal static class TranslatorContext
                                 {
                                     destination.DisplayedTitle = Translate(destination.DisplayedTitle, languageCode);
                                     // magicSkySword : the location name is actually the location id, so we must let it equal to the location id
-                                    destination.UserLocationName = Translate(destination.UserLocationName, languageCode);
+                                    destination.UserLocationName =
+                                        Translate(destination.UserLocationName, languageCode);
                                 }
 
                                 break;
@@ -520,7 +521,7 @@ internal static class TranslatorContext
                     }
                 }
             }
-            
+
             // USER DIALOGS
             foreach (var dialog in userCampaign.UserDialogs)
             {
@@ -539,12 +540,11 @@ internal static class TranslatorContext
 
                     foreach (var functor in userDialogState.functors)
                     {
-                        switch (functor.type)
+                        functor.stringParameter = functor.type switch
                         {
-                            case "SetLocationStatus":
-                                functor.stringParameter = Translate(functor.stringParameter, languageCode);
-                                break;
-                        }
+                            "SetLocationStatus" => Translate(functor.stringParameter, languageCode),
+                            _ => functor.stringParameter
+                        };
                     }
                 }
             }
@@ -567,6 +567,7 @@ internal static class TranslatorContext
             }
 
             // USER QUESTS
+            //YiTaiV : Fixed an issue where some translation modules for triggered tasks were not recognized
             foreach (var quest in userCampaign.UserQuests)
             {
                 quest.Title = Translate(quest.Title, languageCode);
@@ -577,21 +578,33 @@ internal static class TranslatorContext
                     userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
                     userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
 
+                    foreach (var outStart in userQuestStep.onStartFunctors)
+                    {
+                        yield return Update();
+
+
+                        if (outStart.type == "SetLocationStatus")
+                        {
+                            outStart.stringParameter = Translate(outStart.stringParameter, languageCode);
+                        }
+                    }
+
                     foreach (var outcome in userQuestStep.OutcomesTable)
                     {
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
+                        outcome.validatorDescription.stringParameter =
+                            Translate(outcome.validatorDescription.stringParameter, languageCode);
 
-                        foreach (var completeFunctor in outcome.OnCompleteFunctors)
+                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                        switch (outcome.validatorDescription.type)
                         {
-                            switch (completeFunctor.type)
-                            {
-                                case "SetLocationStatus":
-                                    completeFunctor.stringParameter =
-                                        Translate(completeFunctor.stringParameter, languageCode);
-                                    break;
-                            }
+                            case QuestDefinitions.QuestValidatorType.EnterLocation:
+                            case QuestDefinitions.QuestValidatorType.LeaveLocation:
+                                outcome.validatorDescription.stringParameter =
+                                    Translate(outcome.validatorDescription.stringParameter, languageCode);
+                                break;
                         }
                     }
                 }

@@ -40,6 +40,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition StaggeringSmite = BuildStaggeringSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static readonly SpellDefinition ThunderousSmite = BuildThunderousSmite();
+    internal static readonly SpellDefinition Web = BuildWeb();
     internal static readonly SpellDefinition Wrack = BuildWrack();
     internal static readonly SpellDefinition WrathfulSmite = BuildWrathfulSmite();
 
@@ -213,8 +214,10 @@ internal static class SpellsContext
         RegisterSpell(Wrack, 0, SpellListCleric);
 
         // 1st level
+        RegisterSpell(BuildCausticZap(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
@@ -230,7 +233,7 @@ internal static class SpellsContext
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(MirrorImage, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
-        RegisterSpell(BuildWeb(), 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
+        RegisterSpell(Web, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
 
         // 3rd level
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
@@ -240,12 +243,15 @@ internal static class SpellsContext
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 4th level
+        RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+            spellListInventorClass);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
         //5th level
         RegisterSpell(BanishingSmite, 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
+        RegisterSpell(BuildSonicBoom(), 0, SpellListSorcerer, SpellListWizard);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

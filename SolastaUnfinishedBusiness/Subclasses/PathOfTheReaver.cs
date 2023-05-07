@@ -28,7 +28,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .Create($"Feature{Name}VoraciousFury")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AfterAttackEffectVoraciousFury(),
+                new AttackEffectAfterDamageVoraciousFury(),
                 new CustomAdditionalDamageVoraciousFury(
                     FeatureDefinitionAdditionalDamageBuilder
                         .Create($"AdditionalDamage{Name}VoraciousFury")
@@ -37,6 +37,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                         .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+                        .SetImpactParticleReference(ConditionDefinitions
+                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
                         .SetDamageDice(DieType.D1, 2)
                         .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
                         .SetSpecificDamageType(DamageTypeNecrotic)
@@ -99,7 +101,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .AddToDB();
 
         featureCorruptedBlood.SetCustomSubFeatures(
-            new AfterAttackEffectCorruptedBlood(conditionCorruptedBlood, powerCorruptedBlood));
+            new AttackEffectAfterDamageCorruptedBlood(conditionCorruptedBlood, powerCorruptedBlood));
 
         // MAIN
 
@@ -135,12 +137,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     // Corrupted Blood
     //
 
-    private class AfterAttackEffectCorruptedBlood : IAfterAttackEffect
+    private class AttackEffectAfterDamageCorruptedBlood : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public AfterAttackEffectCorruptedBlood(
+        public AttackEffectAfterDamageCorruptedBlood(
             ConditionDefinition conditionDefinition,
             FeatureDefinitionPower featureDefinitionPower)
         {
@@ -148,7 +150,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -161,18 +163,20 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
-            var condition = attacker.RulesetCharacter.AllConditions
-                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (condition == null)
+            if (rulesetAttacker == null ||
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
+            var condition = rulesetAttacker.AllConditions
+                .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition && x.SourceGuid == defender.Guid);
 
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (condition == null)
             {
                 return;
             }
@@ -184,7 +188,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
             };
 
-            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch);
+            EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.VampiricTouch,
+                EffectHelpers.EffectType.Effect);
             GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
             RulesetActor.InflictDamage(
                 totalDamage,
@@ -271,6 +276,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+            EffectHelpers.StartVisualEffect(attacker, attacker, SpellDefinitions.Heal, EffectHelpers.EffectType.Effect);
             rulesetAttacker.ReceiveHealing(totalHealing, true, rulesetAttacker.Guid);
         }
     }
@@ -305,11 +311,11 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         }
     }
 
-    private sealed class AfterAttackEffectVoraciousFury : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageVoraciousFury : IAttackEffectAfterDamage
     {
         private const string SpecialFeatureName = $"AdditionalHealing{Name}VoraciousFury";
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -330,7 +336,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
-            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
 
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var multiplier = outcome is RollOutcome.Success ? 1 : 2;

@@ -452,6 +452,53 @@ internal static class CasterFeats
 
         #endregion
 
+        #region Retinue Touched
+
+        const string RETINUE = "RetinueTouched";
+
+        spells = BuildSpellGroup(0, Bless, Heroism, EnhanceAbility);
+
+        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsFeatRetinueTouched")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
+            .SetPreparedSpellGroups(spells)
+            .SetSpellcastingClass(null)
+            .SetAutoTag(RETINUE)
+            .AddToDB();
+
+        groupFeats.SetRange(
+            // peregrination touched int
+            FeatDefinitionBuilder
+                .Create("FeatRetinueTouchedInt")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, RETINUE, AttributeDefinitions.Intelligence))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(RETINUE)
+                .AddToDB(),
+            // peregrination touched wis
+            FeatDefinitionBuilder
+                .Create("FeatRetinueTouchedWis")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, RETINUE, AttributeDefinitions.Wisdom))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(RETINUE)
+                .AddToDB(),
+            // peregrination touched cha
+            FeatDefinitionBuilder
+                .Create("FeatRetinueTouchedCha")
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, RETINUE, AttributeDefinitions.Charisma))
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatFamily(RETINUE)
+                .AddToDB()
+        );
+
+        groups.Add(GroupFeats.MakeGroup("FeatGroupRetinueTouched", RETINUE, groupFeats));
+        feats.AddRange(groupFeats);
+
+        #endregion
+
         GroupFeats.MakeGroup("FeatGroupPlaneTouchedMagic", null, groups);
     }
 
@@ -527,7 +574,7 @@ internal static class CasterFeats
                     .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
-                .SetParticleEffectParameters(PowerWizardArcaneRecovery)
+                .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                 .Build())
             .AddToDB();
 

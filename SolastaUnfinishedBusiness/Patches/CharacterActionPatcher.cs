@@ -3,7 +3,12 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
+using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -50,20 +55,70 @@ public static class CharacterActionPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterAction __instance)
         {
-            Global.ActionStarted(__instance);
+            //PATCH: support for character action tracking
+            Global.CurrentAction = __instance;
+
+            switch (__instance)
+            {
+                case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
+                    //PATCH: Hold the state of the SHIFT key on bool 5 to determine which slot to use on MC Warlock
+                    var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+                    __instance.actionParams.BoolParameter5 = isShiftPressed;
+                    break;
+
+                case CharacterActionReady:
+                    CustomReactionsContext.ReadReadyActionPreferredCantrip(__instance.actionParams);
+                    break;
+
+                case CharacterActionSpendPower spendPower:
+                    PowerBundle.SpendBundledPowerIfNeeded(spendPower);
+                    break;
+            }
         }
 
         [UsedImplicitly]
         public static IEnumerator Postfix(IEnumerator values, CharacterAction __instance)
         {
-            //PATCH: support for character action tracking
+            var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+
+            if (rulesetCharacter != null)
+            {
+                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
+
+                foreach (var modifyActionParam in modifyActionParams)
+                {
+                    yield return modifyActionParam.OnActionInitiated(__instance);
+                }
+            }
 
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            Global.ActionFinished(__instance);
+            if (rulesetCharacter == null)
+            {
+                yield break;
+            }
+
+            //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
+            if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
+            {
+                __instance.ActingCharacter.UsedMainSpell = false;
+                __instance.ActingCharacter.UsedMainCantrip = false;
+            }
+
+            var onAfterActions = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
+
+            foreach (var onAfterAction in onAfterActions)
+            {
+                yield return onAfterAction.OnActionFinished(__instance);
+            }
+
+            //PATCH: support for character action tracking
+            Global.CurrentAction = null;
         }
     }
 }

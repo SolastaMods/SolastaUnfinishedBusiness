@@ -7,6 +7,8 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -30,7 +32,7 @@ internal static partial class SpellBuilders
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation(NAME, Category.Spell)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
                         AttributeDefinitions.Strength,
                         AttributeDefinitions.Dexterity,
@@ -90,6 +92,48 @@ internal static partial class SpellBuilders
                     .SetConditionForm(conditionStaggeringSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    internal static SpellDefinition BuildBrainBulwark()
+    {
+        const string NAME = "BrainBulwark";
+
+        var conditionBrainBulwark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionBlessed)
+            .SetPossessive()
+            .SetFeatures(
+                DamageAffinityPsychicResistance,
+                ConditionAffinityFrightenedImmunity,
+                ConditionAffinityFrightenedFearImmunity,
+                ConditionAffinityMindControlledImmunity,
+                ConditionAffinityMindDominatedImmunity)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BrainBulwark, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(4)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTargetsPerIncrement: 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionBrainBulwark, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         return spell;

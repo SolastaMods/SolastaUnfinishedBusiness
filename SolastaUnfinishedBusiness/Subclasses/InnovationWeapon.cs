@@ -47,7 +47,7 @@ public static class InnovationWeapon
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
             .SetCustomSubFeatures(
-                new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
+                new CanUseAttribute(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsMagical))
             .AddToDB();
     }
 
@@ -548,18 +548,22 @@ public static class InnovationWeapon
                 return;
             }
 
-            var character = locationCharacter.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, power);
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                locationCharacter.Guid,
-                character.CurrentFaction.Name);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
-            GameConsoleHelper.LogCharacterUsedPower(character, power);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

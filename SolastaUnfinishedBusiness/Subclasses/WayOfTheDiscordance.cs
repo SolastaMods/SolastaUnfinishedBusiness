@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -11,7 +13,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static AttributeDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -28,6 +30,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .SetPossessive()
         .SetConditionType(ConditionType.Detrimental)
         .SetSpecialDuration(DurationType.Minute, 1)
+        .CopyParticleReferences(ConditionDefinitions.ConditionMalediction)
         .AddFeatures(
             FeatureDefinitionSavingThrowAffinityBuilder
                 .Create($"SavingThrowAffinity{Name}ProfoundTurmoil")
@@ -47,6 +50,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialDuration(DurationType.Permanent)
+        .CopyParticleReferences(ConditionDefinitions.ConditionMalediction)
         .SetSpecialInterruptions(ConditionInterruption.BattleEnd)
         .AddToDB();
 
@@ -93,7 +97,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(SpellDefinitions.Bane)
+                    .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -110,7 +114,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .AddToDB();
 
         powerDiscordance.SetCustomSubFeatures(
-            new AfterAttackEffectDiscordance(conditionDiscordance, powerDiscordanceDamage));
+            new AttackEffectAfterDamageDiscordance(conditionDiscordance, powerDiscordanceDamage));
 
         var powerBurstOfDisharmonyPool = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BurstOfDisharmony")
@@ -138,7 +142,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                         .Create()
                         .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Cube, 3, 3)
                         .SetDurationData(DurationType.Minute, 1)
-                        .SetParticleEffectParameters(SpellDefinitions.DreadfulOmen)
+                        .SetParticleEffectParameters(DreadfulOmen)
                         .SetSavingThrowData(
                             false,
                             Constitution,
@@ -208,28 +212,30 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
     private static void ApplyProfoundTurmoil(IControllableCharacter attacker, GameLocationCharacter defender)
     {
-        var rulesetDefender = defender?.RulesetCharacter;
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var rulesetDefender = defender.RulesetCharacter;
 
-        if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name))
+        if (rulesetDefender.IsDeadOrDying ||
+            rulesetDefender.HasAnyConditionOfType(ConditionProfoundTurmoilMark.Name) ||
+            rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Monk) < 17)
         {
             return;
         }
 
-        var rulesetAttacker = attacker.RulesetCharacter;
         var rulesetPower = UsablePowersProvider.Get(PowerProfoundTurmoil, rulesetAttacker);
         var effectPower = new RulesetEffectPower(rulesetAttacker, rulesetPower);
 
-        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+        effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
     }
 
     // apply the logic to add discordance and profound turmoil conditions and to determine if it's time to explode
-    private sealed class AfterAttackEffectDiscordance : IOnAfterActionFeature, IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageDiscordance : IActionFinished, IAttackEffectAfterDamage
     {
         private const int DiscordanceLimit = 3;
         private readonly ConditionDefinition _conditionDiscordance;
         private readonly FeatureDefinitionPower _powerDiscordanceDamage;
 
-        public AfterAttackEffectDiscordance(
+        public AttackEffectAfterDamageDiscordance(
             ConditionDefinition conditionDiscordance,
             FeatureDefinitionPower powerDiscordanceDamage)
         {
@@ -237,30 +243,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             _powerDiscordanceDamage = powerDiscordanceDamage;
         }
 
-        // only add condition if monk weapon or unarmed
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
-                !item.WeaponDescription.IsMonkWeaponOrUnarmed())
-            {
-                return;
-            }
-
-            ApplyCondition(attacker, defender, _conditionDiscordance);
-        }
-
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             var gameLocationAttacker = action.ActingCharacter;
             var rulesetAttacker = gameLocationAttacker.RulesetCharacter;
@@ -311,6 +294,11 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
+                if (rulesetDefender == null)
+                {
+                    continue;
+                }
+
                 // remove conditions up to the limit to also support Schism scenario
                 rulesetDefender.AllConditions
                     .FindAll(x => x.ConditionDefinition == _conditionDiscordance)
@@ -330,34 +318,73 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     continue;
                 }
 
-                damageForm.BonusDamage = rulesetAttacker.TryGetAttributeValue(ProficiencyBonus) / 2;
+                damageForm.BonusDamage = ComputeAbilityScoreModifier(rulesetAttacker.TryGetAttributeValue(Wisdom));
                 damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
                     .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 
                 effectPower.EffectDescription.effectParticleParameters.targetParticleReference =
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
+                EffectHelpers.StartVisualEffect(
+                    gameLocationAttacker, gameLocationDefender, Malediction,
+                    EffectHelpers.EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
 
                 ApplyProfoundTurmoil(gameLocationAttacker, gameLocationDefender);
             }
+
+            yield break;
+        }
+
+        // only add condition if monk weapon or unarmed
+        public void OnAttackEffectAfterDamage(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            if (attackMode is not { SourceDefinition: ItemDefinition item } ||
+                !item.WeaponDescription.IsMonkWeaponOrUnarmed())
+            {
+                return;
+            }
+
+            ApplyCondition(attacker, defender, _conditionDiscordance);
         }
 
         private static void ApplyCondition(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ConditionDefinition conditionDefinition)
+            IControllableCharacter attacker,
+            IControllableCharacter defender,
+            BaseDefinition conditionDefinition)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                conditionDefinition,
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+
+            rulesetDefender.InflictCondition(
+                conditionDefinition.Name,
                 DurationType.Minute,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            defender.RulesetCharacter.AddConditionOfCategory(TagEffect, rulesetCondition);
+                TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         // return the Monk level factoring in wildshape multiclass scenarios

@@ -285,16 +285,19 @@ public class MirrorImageLogic
         {
             for (var i = 0; i < 3; i++)
             {
-                var condition = RulesetCondition.CreateActiveCondition(
-                    target.Guid,
-                    Condition,
+                target.InflictCondition(
+                    Condition.Name,
                     RuleDefinitions.DurationType.Minute,
                     1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                    target.Guid,
-                    target.CurrentFaction.Name);
-
-                target.AddConditionOfCategory(AttributeDefinitions.TagEffect, condition);
+                    AttributeDefinitions.TagEffect,
+                    target.guid,
+                    target.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
         }
 

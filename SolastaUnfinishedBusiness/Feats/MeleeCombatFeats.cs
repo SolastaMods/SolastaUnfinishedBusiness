@@ -209,7 +209,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(FeatureDefinitionBuilder
                 .Create($"Feature{NAME}Reach")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, validWeapon,
+                .SetCustomSubFeatures(new IncreaseMeleeWeaponAttackReach(1, validWeapon,
                     ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
                 .AddToDB())
             .AddToDB();
@@ -250,20 +250,28 @@ internal static class MeleeCombatFeats
                 .AddToDB())
             .AddToDB();
 
-        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
-            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
+        IEnumerator AddCondition(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            GameLocationBattleManager manager,
+            GameLocationActionManager actionManager,
+            ReactionRequest request)
         {
-            var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                conditionDamage,
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                conditionDamage.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                character.Guid,
-                string.Empty);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             yield break;
         }
@@ -368,12 +376,12 @@ internal static class MeleeCombatFeats
 
     #region Helpers
 
-    private sealed class ModifyAttackModeForWeaponTypeFilter : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
     {
         private readonly string _sourceName;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public ModifyAttackModeForWeaponTypeFilter(string sourceName,
+        public ModifyWeaponAttackModeTypeFilter(string sourceName,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _sourceName = sourceName;
@@ -410,28 +418,36 @@ internal static class MeleeCombatFeats
             .Create("ConditionAlwaysReady")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Permanent)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        var featureAlwaysReady = FeatureDefinitionBuilder
+            .Create("FeatureAlwaysReady")
+            .SetGuiPresentation("FeatAlwaysReady", Category.Feat)
+            .AddToDB();
+
+        featureAlwaysReady.SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady,
+            featureAlwaysReady));
+
+        return FeatDefinitionBuilder
             .Create("FeatAlwaysReady")
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new CustomBehaviorAlwaysReady(conditionAlwaysReady))
-            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddFeatures(featureAlwaysReady)
             .AddToDB();
     }
 
-    private sealed class CustomBehaviorAlwaysReady : IAfterAttackEffect, ICharacterTurnEndListener
+    private sealed class CustomBehaviorAlwaysReady : IAttackEffectAfterDamage, ICharacterTurnEndListener
     {
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _featureDefinition;
 
-        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition)
+        public CustomBehaviorAlwaysReady(ConditionDefinition conditionDefinition, FeatureDefinition featureDefinition)
         {
             _conditionDefinition = conditionDefinition;
+            _featureDefinition = featureDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -447,34 +463,38 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.Guid,
-                _conditionDefinition,
+            rulesetCharacter.InflictCondition(
+                _conditionDefinition.Name,
                 _conditionDefinition.durationType,
                 _conditionDefinition.durationParameter,
                 _conditionDefinition.turnOccurence,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionDefinition.Name) ||
+                rulesetCharacter.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
-
-            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
 
             var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.Ready)
             {
                 readyActionType = ActionDefinitions.ReadyActionType.Melee
             };
 
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
             ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
         }
     }
@@ -533,21 +553,21 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
-                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
-                new ModifyAttackModeForWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new AttackComputeModifierFeatBladeMastery(weaponTypes),
+                new ModifyWeaponAttackModeTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
 
-    private sealed class OnComputeAttackModifierFeatBladeMastery : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierFeatBladeMastery : IAttackComputeModifier
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public OnComputeAttackModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public AttackComputeModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -674,12 +694,12 @@ internal static class MeleeCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatCleavingAttack(featCleavingAttack));
+                new ModifyWeaponAttackModeFeatCleavingAttack(featCleavingAttack));
 
         return featCleavingAttack;
     }
 
-    private sealed class AddExtraAttackFeatCleavingAttack : IAfterAttackEffect, ITargetReducedToZeroHp
+    private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, ITargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -688,7 +708,7 @@ internal static class MeleeCombatFeats
             _conditionDefinition = conditionDefinition;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -743,24 +763,27 @@ internal static class MeleeCombatFeats
 
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionDefinition,
+            rulesetCharacter.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatCleavingAttack : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatCleavingAttack : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatCleavingAttack(FeatDefinition featDefinition)
+        public ModifyWeaponAttackModeFeatCleavingAttack(FeatDefinition featDefinition)
         {
             _featDefinition = featDefinition;
         }
@@ -869,7 +892,8 @@ internal static class MeleeCombatFeats
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDyingOrUnconscious)
             {
                 yield break;
             }
@@ -878,16 +902,19 @@ internal static class MeleeCombatFeats
 
             if (attackRollOutcome is RollOutcome.CriticalSuccess)
             {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    rulesetDefender.Guid,
-                    _criticalConditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _criticalConditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    rulesetAttacker.Guid,
-                    rulesetAttacker.CurrentFaction.Name);
-
-                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
 
             if (attackRollOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
@@ -954,7 +981,7 @@ internal static class MeleeCombatFeats
                 out _,
                 out _);
 
-            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+            attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
         }
     }
 
@@ -984,15 +1011,15 @@ internal static class MeleeCombatFeats
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(fellHandedAdvantage, weaponTypes),
-                new ModifyAttackModeForWeaponTypeFilter(
+                new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
+                new ModifyWeaponAttackModeTypeFilter(
                     $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
 
         return feat;
     }
 
-    private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageFeatFellHanded : IAttackEffectAfterDamage
     {
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
@@ -1001,7 +1028,7 @@ internal static class MeleeCombatFeats
         private readonly DamageForm damage;
         private readonly FeatureDefinitionPower power;
 
-        public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
+        public AttackEffectAfterDamageFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             this.power = power;
@@ -1013,7 +1040,7 @@ internal static class MeleeCombatFeats
             };
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1118,7 +1145,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new BeforeAttackEffectFeatPiercer(
+            new AttackEffectBeforeDamageFeatPiercer(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
@@ -1170,18 +1197,18 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class BeforeAttackEffectFeatPiercer : IBeforeAttackEffect
+    private sealed class AttackEffectBeforeDamageFeatPiercer : IAttackEffectBeforeDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal BeforeAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal AttackEffectBeforeDamageFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
         }
 
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1196,16 +1223,21 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
-                _conditionDefinition,
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -1316,16 +1348,16 @@ internal static class MeleeCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatPowerAttack(featPowerAttack));
+                new ModifyWeaponAttackModeFeatPowerAttack(featPowerAttack));
 
         return featPowerAttack;
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
+    private sealed class ModifyWeaponAttackModeFeatPowerAttack : IModifyWeaponAttackMode
     {
         private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatPowerAttack(FeatDefinition featDefinition)
+        public ModifyWeaponAttackModeFeatPowerAttack(FeatDefinition featDefinition)
         {
             _featDefinition = featDefinition;
         }
@@ -1366,7 +1398,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatSlasher")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AfterAttackEffectFeatSlasher(
+            new AttackEffectAfterDamageFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
@@ -1422,13 +1454,13 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class AfterAttackEffectFeatSlasher : IAfterAttackEffect
+    private sealed class AttackEffectAfterDamageFeatSlasher : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly ConditionDefinition _criticalConditionDefinition;
         private readonly string _damageType;
 
-        internal AfterAttackEffectFeatSlasher(
+        internal AttackEffectAfterDamageFeatSlasher(
             ConditionDefinition conditionDefinition,
             ConditionDefinition criticalConditionDefinition,
             string damageType)
@@ -1438,7 +1470,7 @@ internal static class MeleeCombatFeats
             _damageType = damageType;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -1453,20 +1485,29 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            RulesetCondition rulesetCondition;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                return;
+            }
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    attacker.Guid,
-                    _conditionDefinition,
+                rulesetDefender.InflictCondition(
+                    _conditionDefinition.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.EndOfTurn,
-                    attacker.Guid,
-                    attacker.RulesetCharacter.CurrentFaction.Name);
-
-                defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)
@@ -1474,16 +1515,19 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            rulesetCondition = RulesetCondition.CreateActiveCondition(
-                defender.Guid,
-                _criticalConditionDefinition,
+            rulesetDefender.InflictCondition(
+                _criticalConditionDefinition.Name,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-
-            defender.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 

@@ -112,7 +112,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .AddToDB();
 
         powerWayOfSilhouetteShadowySanctuary.SetCustomSubFeatures(
-            new DefenderBeforeAttackHitConfirmedShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
+            new PhysicalAttackBeforeHitConfirmedShadowySanctuary(powerWayOfSilhouetteShadowySanctuary));
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
@@ -140,16 +140,16 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private class DefenderBeforeAttackHitConfirmedShadowySanctuary : IDefenderBeforeAttackHitConfirmed
+    private class PhysicalAttackBeforeHitConfirmedShadowySanctuary : IPhysicalAttackBeforeHitConfirmed
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public DefenderBeforeAttackHitConfirmedShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
+        public PhysicalAttackBeforeHitConfirmedShadowySanctuary(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmed(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,

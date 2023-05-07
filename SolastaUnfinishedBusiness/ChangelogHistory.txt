@@ -1,5 +1,102 @@
 ﻿CHANGES:
 
+1.4.33.85:
+
+- allowed gambits to use highest of str, dex or int on saving difficult ability
+
+1.4.33.84:
+
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+
+- added Brain Bulwark 4th level spell by [Demonic Duck]
+- fixed a null exception with touch spells cast off combat
+- fixed Eldritch Smite only triggering on critical hits
+- fixed Patron Moonlit not loosing invisibility after attack
+- fixed Patron Soulblade hex logic to correctly behave on MP
+- fixed Way of Silhouette not loosing invisibility after attack
+- fixed Weapon Master's momentum interaction with action surge
+- changed Monk Ki Points toggle to Distant Hand Technique toggle
+- changed Monk subclasses so only Distant Hand gets above toggle
+
+1.4.33.83:
+
+- added Find Familiar spell suggested to Wizards
+- added Retinue Touched feats [bless, heroism, enhance ability]
+- added Roguish Hoodlum's brutal assault at level 17th
+- fixed Splint Armor missing its armor definition form
+- fixed Web spell rolling strength check until success
+- fixed Way of Freedom hiding level 17 on level up GUI
+
+1.4.33.82:
+
+- added Champion, Commander, Mountaineer, and Spellblade fighter features at 18th
+- added Darkweaver, Shadowcaster, and Thief rogue features at 17th
+- added Freedom, Light, Open Hand, and Survival monk features at 17th
+- fixed Innovation Artillerist cannon hit points, and ballista attack bonus
+- fixed Oath of Dread applying aura of domination condition to self
+- fixed Patron Moonlit, and Way of the Silhouette preventing game load
+- fixed Poisoned feat not granting poisoner's kit tools or expertise
+- fixed Rope it Up feat granting +1 to hit and damage with throw weapon on melee
+- fixed Wizard Bladedancer granting con ability check instead of saving
+
+1.4.33.81:
+
+- fixed Druid's arch druid interaction with circle of the night
+- fixed Fairy interaction with flexible races setting
+- fixed Innovation Armorer interaction with elemental infusions
+- fixed Innovation Artillerist's arcane firearm, and force ballista
+- fixed Monk's specialized weapon to use dex modifier if better
+- fixed Rogue's stroke of luck usage to be once per short rest
+- fixed Roguish Raven's deadly aim damage dealt on reroll hits
+- fixed Sorcerous Field Manipulator's displacement MP desyncs
+- fixed Way of the Tempest's gathering storm damage and logic
+
+1.4.33.80:
+
+- added Battleaxe magical items and recipes
+- added Bard's superior inspiration at 20th
+- added Druid's arch druid at 20th
+- added Ranger's foe slayer at 20th
+- added Rogue's elusive at 18th and stroke of luck at 20th
+- added Wizard's spell mastery at 18th and signature spells at 20th
+- changed Caustic Zap sprite
+- changed Fairy's flight duration to permanent
+- fixed power bundles submenu rendering
+- fixed Inventor's quick wit rolled value on log
+- fixed Ranger Survivalist minor issues
+- improved Sorcerous Field Manipulator's displacement logic
+
+1.4.33.79:
+
+- added Ranger Survivalist subclass
+- changed Caustic Zap progression to one additional enemy per slot level
+- changed Powerful metamagic cost to 1 fixed point
+- changed RESPEC to copy over adventure stats from older hero
+- changed Roguish Arcane Scoundrel's gambit to bonus action
+- changed power bundles sub menu to render on top of other UI elements
+- rebuilt Sorcerous Field Manipulator subclass - RESPEC IS REQUIRED
+- removed shape form / summons attacks swap action as causing MP desyncs
+
+1.4.33.78:
+
+- fixed Always Ready, and Rope it Up feats not triggering
+- fixed Monk unarmed dice type to scale up with class level
+- fixed Resonating Strike cantrip damage dice progression
+- improved SFX on Blade Ward spell, and Telekinesis feats
+- improved SFX on Oath of Dread, Roguish Slayer, and Way of Discordance
+- improved the UI so now only gameplay settings must be in sync on MP
+
+1.4.33.77:
+
+- added a better random number generator option under Gameplay > Tools [https://www.pcg-random.org/]
+- added Caustic Zap spell at 1st, and Sonic Boom at 5th
+- added Focused, Powerful, and Widened spell metamagic
+- added Path of the Spirit's honed animal aspect at 14th
+- added Way of the Tempest subclass designed by [HiddenHax]
+- fixed Domain Defiler's insidious death magic
+- fixed Path of Reaver's corrupted blood
+- fixed Web spell break free DC calculation
+
 1.4.33.76:
 
 - added Aegis Touched feats

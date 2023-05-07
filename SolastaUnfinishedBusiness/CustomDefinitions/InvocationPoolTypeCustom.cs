@@ -84,7 +84,7 @@ internal class InvocationPoolTypeCustom
         AssetReferenceSprite sprite = null,
         string requireClassLevel = null,
         bool hidden = false,
-        string panelTitle = null, 
+        string panelTitle = null,
         Id main = Id.CastInvocation,
         Id bonus = (Id)ExtraActionId.CastInvocationBonus,
         Id noCost = (Id)ExtraActionId.CastInvocationNoCost)
@@ -181,27 +181,35 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom KindredSpiritChoice =
             Register("KindredSpiritChoice", hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
+            Register("MartialWeaponMaster", hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
+            Register("MonkWeaponSpecialization", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
-            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle");
+            Register("RangerTerrainTypeAffinity", panelTitle: "Feature/&RangerNaturalExplorerTitle", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
-            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle");
+            Register("RangerPreferredEnemy", panelTitle: "Feature/&RangerFavoredEnemyTitle", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", requireClassLevel: InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
+
+        internal static readonly InvocationPoolTypeCustom SpellMastery =
+            Register("SpellMastery",
+                main: (Id)ExtraActionId.CastSpellMasteryMain);
+
+        internal static readonly InvocationPoolTypeCustom SignatureSpells =
+            Register("SignatureSpells", requireClassLevel: CharacterClassDefinitions.Wizard.Name,
+                main: (Id)ExtraActionId.CastSignatureSpellsMain);
 
         internal static readonly InvocationPoolTypeCustom Gambit =
             Register("Gambit", requireClassLevel: MartialTactician.Name,
                 main: (Id)ExtraActionId.TacticianGambitMain,
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
-
-        internal static readonly InvocationPoolTypeCustom MartialWeaponMasterWeaponSpecialization =
-            Register("MartialWeaponMaster", hidden: true);
-
-        internal static readonly InvocationPoolTypeCustom MonkWeaponSpecialization =
-            Register("MonkWeaponSpecialization", hidden: true);
 
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic", hidden: true,

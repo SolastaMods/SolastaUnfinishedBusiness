@@ -14,7 +14,6 @@ internal static class SpellsDisplay
     internal static void DisplaySpells()
     {
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
         UI.Label();
 
         var toggle = Main.Settings.AllowAssigningOfficialSpells;
@@ -24,6 +23,17 @@ internal static class SpellsDisplay
         {
             Main.Settings.AllowAssigningOfficialSpells = toggle;
             SpellsContext.SwitchAllowAssigningOfficialSpells();
+        }
+
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Spells docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessSpells.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Spells docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaSpells.md"), UI.Width((float)200));
         }
 
         UI.Label();

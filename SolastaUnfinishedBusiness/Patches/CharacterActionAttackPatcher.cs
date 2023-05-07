@@ -102,7 +102,7 @@ public static class CharacterActionAttackPatcher
 
                 if (allyFeatures == null)
                 {
-                    yield break;
+                    continue;
                 }
 
                 foreach (var feature in allyFeatures)

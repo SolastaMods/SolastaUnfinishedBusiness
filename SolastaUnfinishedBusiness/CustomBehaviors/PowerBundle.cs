@@ -20,6 +20,8 @@ internal static class PowerBundle
 
     private static readonly Dictionary<ulong, Dictionary<string, EffectDescription>> SpellEffectCache = new();
 
+    private static Transform _parent;
+
     internal static void RechargeLinkedPowers(
         [NotNull] RulesetCharacter character,
         RuleDefinitions.RestType restType)
@@ -576,6 +578,10 @@ internal static class PowerBundle
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var transform = subpowerSelectionModal.transform;
+
+        _parent = transform.parent;
+        transform.parent = box.transform.parent.parent;
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (power, _) =>
         {
@@ -622,6 +628,10 @@ internal static class PowerBundle
         }
 
         var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var transform = subpowerSelectionModal.transform;
+
+        _parent = transform.parent;
+        transform.parent = box.transform.parent.parent;
 
         subpowerSelectionModal.Bind(bundle.SubPowers, box.activator, (_, i) =>
         {
@@ -645,14 +655,20 @@ internal static class PowerBundle
      */
     internal static void CloseSubPowerSelectionModal(bool instant)
     {
-        var screen = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+        var subpowerSelectionModal = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
 
-        if (screen == null)
+        if (subpowerSelectionModal == null)
         {
             return;
         }
 
-        screen.Hide(instant);
+        // required to support the after rest action menu that doesn't keep state
+        if (_parent != null)
+        {
+            subpowerSelectionModal.transform.parent = _parent;
+        }
+
+        subpowerSelectionModal.Hide(instant);
     }
 
     //TODO: decide if we need this, or can re-use native method of rest bundle powers
@@ -689,6 +705,7 @@ internal static class PowerBundle
             instance.button.interactable = false;
 
             var power = rulesetPower.powerDefinition.Name;
+
             ServiceRepository.GetService<IGameRestingService>().ExecuteAsync(ExecuteAsync(instance, power), power);
         }, instance.RectTransform);
 

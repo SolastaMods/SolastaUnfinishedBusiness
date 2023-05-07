@@ -1,10 +1,8 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Rassen die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
-ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -31,8 +29,8 @@ ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
-ModUi/&BackgroundsAndDeities=Hintergründe & Gottheiten
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
+ModUi/&BackgroundsAndRaces=Hintergründe & Rennen
 ModUi/&Basic=<color=#F0DAA0>Basis:</color>
 ModUi/&Bestiary=Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberplatz gewirkt wird
@@ -45,6 +43,7 @@ ModUi/&ChangeSleetStormToCube=Ändern Sie <color=#D89555>Schneeregen</color>, um
 ModUi/&Character=Charakter
 ModUi/&CharactersPool=Zeichenpool
 ModUi/&Classes=<color=#F0DAA0>Klassen</color>
+ModUi/&ClassesAndSubclasses=Klassen & Unterklassen
 ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Party zu lernen\n. Artikel, die den Geschäften hinzugefügt werden, erfordern möglicherweise, dass die Gruppe den Ort verlässt und zurückkommt
 ModUi/&Credits=Kredite
@@ -56,10 +55,11 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfe
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
-ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden
+ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableUpdateMessage=Deaktivieren Sie Update-Meldungen <i><color=#F0DAA0>[Benutzer der blauen Pille, dies ist Ihre letzte Chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
@@ -71,13 +71,13 @@ ModUi/&EnableAdditionalBackstoryDisplay=Aktivieren Sie die zusätzliche Anzeige 
 ModUi/&EnableAdditionalIconsOnLevelMap=Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Füge neue Gegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA0>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
-ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2 <i><color=#F0DAA0>[Blinder Kampf, Verkrüppelung, Henker, Zweikampfwaffe, Gnadenlos, Faustkämpfer, Zwei Waffenkampf, Wächter, Anseilen]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Zeichenprüfung“ auf dem Hauptbildschirm > Zeichen
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
-ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkelloses Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
@@ -95,6 +95,7 @@ ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkons
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf Klassenstufe 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgeneratoralgorithmus <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i>
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
@@ -170,7 +171,6 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Geprimte Gegenstände
 ModUi/&Progression=<color=#F0DAA0>Fortschritt:</color>
 ModUi/&Races=<color=#F0DAA0>Rennen</color>
-ModUi/&RacesClassesSubclasses=Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost=<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm=Rezepte in DM
 ModUi/&RelicForgeries=Reliquienfälschungen
@@ -197,12 +197,11 @@ ModUi/&SettingsLoad=. Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Schaltfläche anzeigen, die Informationen über kontrollierte Monster öffnet <i><color=#F0DAA0>[wildförmige Druiden, Beschwörungen, NPC-Anhänger usw. ]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Schaltfläche anzeigen, die Informationen über kontrollierte Monster öffnet <i><color=#F0DAA0>[wildförmige Druiden, Beschwörungen, NPC-Anhänger usw.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Göttlichkeit kanalisieren</color> ein Held auf seinem Porträt verwendet, ähnlich wie Zauberpunkte
-ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an. Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt
+ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an <i><color=#F0DAA0>[Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
-ModUi/&SpellInstructions=. Du kannst jeden Zauber einzeln jeder Zauberliste zuordnen oder einfach das vorgeschlagene Set auswählen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>

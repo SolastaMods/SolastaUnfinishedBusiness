@@ -49,7 +49,7 @@ public class CustomInvocationSubPanel : MonoBehaviour
             {
                 return new List<string>();
             }
-            
+
             var customInvocations = DatabaseRepository.GetDatabase<InvocationDefinition>()
                 .OfType<InvocationDefinitionCustom>()
                 .Select(i => i.Name);

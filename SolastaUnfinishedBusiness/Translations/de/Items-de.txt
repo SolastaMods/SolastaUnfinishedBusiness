@@ -1,5 +1,3 @@
-
-=LEER
 Feature/&PowerHandwrapsOfPullingDescription=Als Bonusaktion kannst du eine Kreatur innerhalb von 4,5 m näher an dich heranziehen.
 Feature/&PowerHandwrapsOfPullingTitle=Rollen Sie ein
 Feedback/&ExtraDamageDescription=Zusätzlicher Schaden durch Blitzspeer.
@@ -24,6 +22,16 @@ Item/&BarbarianClothes_Sturdiness_Description=Diese verzauberte Rüstung wurde m
 Item/&BarbarianClothes_Sturdiness_Title=Barbarenkleidung der Robustheit
 Item/&BarbarianClothes_Survival_Description=Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
 Item/&BarbarianClothes_Survival_Title=Barbarenkleidung des Überlebens
+Item/&Battleaxe_Acuteness_Description=Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
+Item/&Battleaxe_Acuteness_Title=Streitaxt der Schärfe
+Item/&Battleaxe_Bearclaw_Description=Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Die scharfen Stacheln der Bärenklaue zerfetzen die Rüstung, um zusätzlichen Schaden zu verursachen. Die erste Waffe dieser Art wurde von Ildurial Stronghand entworfen.
+Item/&Battleaxe_Bearclaw_Title=Bärenklauen-Streitaxt
+Item/&Battleaxe_Lightbringer_Description=Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
+Item/&Battleaxe_Lightbringer_Title=Streitaxt des Lichtbringers
+Item/&Battleaxe_Power_Description=Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon haben diese Streitaxt erschaffen, um Champions der Iron Legions die Stärke zu verleihen, die ihre Elfenkörper nicht bieten.
+Item/&Battleaxe_Power_Title=Streitaxt der Macht
+Item/&Battleaxe_Punisher_Description=Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
+Item/&Battleaxe_Punisher_Title=Punisher-Streitaxt
 Item/&Breastplate_Deflection_Description=Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
 Item/&Breastplate_Deflection_Title=Brustplatte der Ablenkung
 Item/&Breastplate_FlameDancing_Description=Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.

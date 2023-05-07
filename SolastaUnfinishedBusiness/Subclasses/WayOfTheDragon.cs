@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -522,59 +523,164 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             {
                 case null:
                     yield break;
-                case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed.Name):
-                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeAcid, false, me.Guid, null,
+                case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed):
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypeAcid, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                    };
+
+                    RulesetActor.InflictDamage(
+                        damageInt,
+                        damageForm,
+                        DamageTypeAcid,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                        rulesetAttacker,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        new List<string>(),
+                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        true,
                         out _);
+
                     yield break;
+                }
                 case DamageTypeAcid:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionAcidArrowed);
                     yield break;
-                case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked.Name):
-                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeLightning, false, me.Guid, null,
+                case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked):
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypeLightning,
+                        DieType = DieType.D1,
+                        DiceNumber = 0,
+                        BonusDamage = damageInt
+                    };
+
+                    RulesetActor.InflictDamage(
+                        damageInt,
+                        damageForm,
+                        DamageTypeLightning,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                        rulesetAttacker,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        new List<string>(),
+                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        true,
                         out _);
+
                     yield break;
+                }
                 case DamageTypeLightning:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionShocked);
                     yield break;
-                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfType(ConditionOnFire.Name):
-                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeFire, false, me.Guid, null,
+                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfType(ConditionOnFire):
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                    };
+
+                    RulesetActor.InflictDamage(
+                        damageInt,
+                        damageForm,
+                        DamageTypeFire,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                        rulesetAttacker,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        new List<string>(),
+                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        true,
                         out _);
+
                     yield break;
+                }
                 case DamageTypeFire:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
                 case DamageTypePoison
-                    when attacker.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionPoisoned.Name):
-                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypePoison, false, me.Guid, null,
+                    when attacker.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionPoisoned):
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                    };
+
+                    RulesetActor.InflictDamage(
+                        damageInt,
+                        damageForm,
+                        DamageTypePoison,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                        rulesetAttacker,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        new List<string>(),
+                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        true,
                         out _);
+
                     yield break;
+                }
                 case DamageTypePoison:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter,
                         ConditionDefinitions.ConditionPoisoned);
                     yield break;
-                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost.Name):
-                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeCold, false, me.Guid, null,
+                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost):
+                {
+                    var rulesetAttacker = attacker.RulesetCharacter;
+                    var damageForm = new DamageForm
+                    {
+                        DamageType = DamageTypeCold, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
+                    };
+
+                    RulesetActor.InflictDamage(
+                        damageInt,
+                        damageForm,
+                        DamageTypeCold,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                        rulesetAttacker,
+                        false,
+                        rulesetAttacker.Guid,
+                        false,
+                        new List<string>(),
+                        new RollInfo(DieType.D1, new List<int>(), damageInt),
+                        true,
                         out _);
+
                     yield break;
+                }
                 case DamageTypeCold:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionHindered_By_Frost);
                     yield break;
             }
         }
 
-        private static void ApplyReactiveHideDebuff(RulesetCharacter attacker, ConditionDefinition debuff)
+        private static void ApplyReactiveHideDebuff(RulesetCharacter rulesetCharacter, BaseDefinition debuff)
         {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.Guid,
-                debuff,
+            rulesetCharacter.InflictCondition(
+                debuff.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                attacker.Guid,
-                attacker.CurrentFaction.Name
-            );
-
-            attacker.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

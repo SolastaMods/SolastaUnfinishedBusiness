@@ -1,0 +1,15 @@
+Action/&PersistentRageStartDescription=For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
+Feature/&FeatureSetMonkDiamondSoulDescription=Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
+Feature/&FeatureSetMonkDiamondSoulTitle=Diamond Soul
+Feature/&FeatureSetMonkTongueSunMoonDescription=Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Feature/&FeatureSetMonkTongueSunMoonTitle=Tongue of the Sun and Moon
+Feature/&IndomitableResistanceAddDescription=You can use Indomitable resistance one additional time between long rests.
+Feature/&IndomitableResistanceAddTitle=Indomitable (advanced)
+Feature/&PowerPaladinCleansingTouchDescription=Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Feature/&PowerPaladinCleansingTouchTitle=Cleansing Touch
+Feature/&Ranger_Vanish_Description=Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
+Feature/&Ranger_Vanish_Title=Vanish
+Feature/&RogueBlindsenseDescription=You are aware of the location of any hidden or invisible creature within 10 ft of you.
+Feature/&RogueBlindsenseTitle=Blindsense
+Feature/&RogueSlipperyMindDescription=You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
+Feature/&RogueSlipperyMindTitle=Slippery Mind

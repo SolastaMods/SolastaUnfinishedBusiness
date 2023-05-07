@@ -97,7 +97,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1,  TurnOccurenceType.EndOfSourceTurn)
+                    .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(HealingWord)
                     .SetEffectForms(
@@ -165,7 +165,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         return hero?.GetClassLevel(DruidClass) ?? 0;
     }
 
-    private sealed class CustomBehaviorConditionVerdancy : IModifyRecurrentMagicEffect, INotifyConditionRemoval
+    private sealed class CustomBehaviorConditionVerdancy : IModifyMagicEffectRecurrent, INotifyConditionRemoval
     {
         public void ModifyEffect(RulesetCondition rulesetCondition, EffectForm effectForm, RulesetActor rulesetActor)
         {
@@ -182,8 +182,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife) &&
-                !removedFrom.HasAnyConditionOfType(ConditionVerdancy))
+            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
             {
                 removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                     ConditionRevitalizingBoon);
@@ -236,8 +235,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
     {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife) &&
-                !removedFrom.HasAnyConditionOfType(ConditionVerdancy))
+            if (!removedFrom.HasAnyConditionOfType(ConditionSeedOfLife, ConditionVerdancy))
             {
                 removedFrom.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                     ConditionRevitalizingBoon);

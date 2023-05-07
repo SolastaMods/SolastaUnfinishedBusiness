@@ -36,7 +36,7 @@ internal sealed class Pugilist : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
     };
 
-    private sealed class AdditionalUnarmedDice : IModifyAttackModeForWeapon
+    private sealed class AdditionalUnarmedDice : IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {

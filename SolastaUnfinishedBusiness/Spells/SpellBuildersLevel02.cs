@@ -15,6 +15,8 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Color Burst
+
     internal static SpellDefinition BuildColorBurst()
     {
         const string NAME = "ColorBurst";
@@ -26,13 +28,15 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
         return spell;
     }
+
+    #endregion
 
     #region Mirror Image
 
@@ -271,6 +275,8 @@ internal static partial class SpellBuilders
             .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
+        conditionRestrainedBySpellWeb.specialInterruptions.Clear();
+
         var spell = SpellDefinitionBuilder
             .Create("SpellWeb")
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellWeb", Resources.Web, 128))
@@ -282,7 +288,8 @@ internal static partial class SpellBuilders
                 .Create(Grease)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                 .SetDurationData(DurationType.Hour, 1)
-                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,

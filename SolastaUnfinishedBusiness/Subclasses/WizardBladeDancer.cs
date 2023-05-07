@@ -50,15 +50,13 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create(FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityIslandHalflingAcrobatics,
                         "AbilityCheckAffinityBladeDancerBladeDanceAcrobatics")
+                    .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition)
                     .AddToDB(),
-                FeatureDefinitionAbilityCheckAffinityBuilder
+                // keep name for compatibility reasons
+                FeatureDefinitionSavingThrowAffinityBuilder
                     .Create("AbilityCheckAffinityBladeDancerBladeDanceConstitution")
-                    .SetGuiPresentationNoContent(true)
-                    .BuildAndSetAffinityGroups(
-                        CharacterAbilityCheckAffinity.None,
-                        DieType.D1,
-                        4,
-                        (AttributeDefinitions.Constitution, string.Empty))
+                    .SetGuiPresentation("ConditionBladeDancerBladeDance", Category.Condition)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Constitution)
                     .AddToDB())
             .AddToDB();
 
@@ -167,7 +165,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                ReplaceAttackWithCantripCasterFighting)
+                AttackReplaceWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 featureSetBladeDancerDanceOfDefense)
             .AddFeaturesAtLevel(14,

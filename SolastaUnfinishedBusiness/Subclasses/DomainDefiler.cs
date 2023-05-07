@@ -46,6 +46,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
+            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
             .SetSpecialDuration(DurationType.Round, 5)
@@ -61,7 +62,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new DeathMagicModifyMagic(effectInsidiousDeathMagic),
-                new OnAttackEffectInsidiousMagic(conditionInsidiousDeathMagic))
+                new OnDamageInsidiousMagic(conditionInsidiousDeathMagic))
             .AddToDB();
 
         //
@@ -371,29 +372,41 @@ internal sealed class DomainDefiler : AbstractSubclass
             EffectDescription effect,
             RulesetCharacter caster)
         {
-            var damage = effect.FindFirstDamageForm();
-
-            if (damage is not { DamageType: DamageTypeNecrotic })
+            if (!effect.EffectForms.Any(x =>
+                    x.FormType == EffectForm.EffectFormType.Damage && x.DamageForm.DamageType == DamageTypeNecrotic))
             {
                 return effect;
             }
 
+            var hero = caster as RulesetCharacterHero ??
+                       caster.OriginalFormCharacter as RulesetCharacterHero;
+
+            if (hero == null)
+            {
+                return effect;
+            }
+
+
+            var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric) / 2;
+
+            effect.durationType = DurationType.Round;
+            effect.durationParameter = levels;
             effect.effectForms.Add(_effectInsidiousDeathMagic);
 
             return effect;
         }
     }
 
-    private sealed class OnAttackEffectInsidiousMagic : IAfterAttackEffect
+    private sealed class OnDamageInsidiousMagic : IAttackEffectAfterDamage
     {
         private readonly ConditionDefinition _conditionInsidiousDeathMagic;
 
-        internal OnAttackEffectInsidiousMagic(ConditionDefinition conditionInsidiousDeathMagic)
+        internal OnDamageInsidiousMagic(ConditionDefinition conditionInsidiousDeathMagic)
         {
             _conditionInsidiousDeathMagic = conditionInsidiousDeathMagic;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -419,7 +432,14 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return;
             }
 
-            var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric);
+            var target = defender.RulesetCharacter;
+
+            if (target == null)
+            {
+                return;
+            }
+
+            var levels = hero.GetClassLevel(CharacterClassDefinitions.Cleric) / 2;
 
             foreach (var rulesetCondition in attackMode.EffectDescription.effectForms
                          .Where(x => x.DamageForm.DamageType == DamageTypeNecrotic)
@@ -432,7 +452,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                              attacker.Guid,
                              attacker.RulesetCharacter.CurrentFaction.Name)))
             {
-                attacker.RulesetCharacter?.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
         }
     }

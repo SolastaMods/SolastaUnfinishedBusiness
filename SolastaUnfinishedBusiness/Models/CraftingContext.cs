@@ -5,9 +5,6 @@ using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-#if DEBUG
-using System.Text;
-#endif
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -26,6 +23,7 @@ internal static class CraftingContext
         { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
         { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
         { "Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle") },
+        { "Battleaxe", Gui.Localize("Equipment/&BattleaxeTypeTitle") },
         { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
         { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
         { "Club", Gui.Localize("Equipment/&ClubTypeTitle") },
@@ -77,16 +75,17 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddPrimingRecipes();
         ItemRecipeGenerationHelper.AddIngredientEnchanting();
         ItemRecipeGenerationHelper.AddFactionItems();
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(CrossbowData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(BashingWeaponsData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(SpearData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);
-        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(BattleAxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(CrossbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatAxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatSwordData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(SpearData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ThrowingWeaponData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ArmorAndShieldData.Items, true);
 
         foreach (var key in RecipeBooks.Keys)
@@ -226,28 +225,6 @@ internal static class CraftingContext
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
-
-#if DEBUG
-    internal static string GenerateItemsDescription()
-    {
-        var outString = new StringBuilder();
-
-        foreach (var key in RecipeBooks.Keys)
-        {
-            outString.Append("\n[*][b]");
-            outString.Append(RecipeTitles[key]);
-            outString.Append("[/b]: ");
-
-            var uniqueEntries = RecipeBooks[key]
-                .Select(rb => rb.DocumentDescription.RecipeDefinition.FormatTitle())
-                .Distinct();
-
-            outString.Append(string.Join(", ", uniqueEntries));
-        }
-
-        return outString.ToString();
-    }
-#endif
 
     internal sealed class ItemCollection
     {

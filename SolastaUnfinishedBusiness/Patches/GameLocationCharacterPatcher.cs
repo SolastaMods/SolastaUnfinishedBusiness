@@ -95,12 +95,16 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IBeforeAttackEffect>();
+            var features = character.GetSubFeaturesByType<IAttackEffectBeforeDamage>();
 
             foreach (var effect in features)
             {
-                effect.BeforeOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnAttackEffectBeforeDamage(__instance, target, outcome, actionParams, attackMode,
+                    attackModifier);
             }
+
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 
@@ -126,15 +130,12 @@ public static class GameLocationCharacterPatcher
                 return;
             }
 
-            var features = character.GetSubFeaturesByType<IAfterAttackEffect>();
+            var features = character.GetSubFeaturesByType<IAttackEffectAfterDamage>();
 
             foreach (var effect in features)
             {
-                effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
+                effect.OnAttackEffectAfterDamage(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
-
-            //PATCH: registers which weapon types were used so far on attacks
-            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 
@@ -313,6 +314,28 @@ public static class GameLocationCharacterPatcher
                 "GameLocationCharacter.GetActionAvailableIterations",
                 new CodeInstruction(OpCodes.Ldarg_2),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.IsActionOnGoing))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsActionOnGoing_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(GameLocationCharacter __instance, ref bool __result, ActionDefinitions.Id actionId)
+        {
+            if (actionId != (ActionDefinitions.Id)ExtraActionId.FeatCrusherToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle &&
+                actionId != (ActionDefinitions.Id)ExtraActionId.QuiveringPalmToggle)
+            {
+                return true;
+            }
+
+            __result = __instance.RulesetCharacter.IsToggleEnabled(actionId);
+
+            return false;
         }
     }
 }

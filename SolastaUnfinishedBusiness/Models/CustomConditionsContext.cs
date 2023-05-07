@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -82,7 +83,7 @@ internal static class CustomConditionsContext
     {
         var abilityCheckAffinityLightSensitivity = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create("AbilityCheckAffinityLightSensitivity")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(CombatAffinitySensitiveToLight.GuiPresentation)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage, DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
@@ -108,10 +109,29 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IOnAfterActionFeature, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
+
+        public IEnumerator OnActionFinished(CharacterAction action)
+        {
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var hero = actingCharacter.RulesetCharacter;
+
+            if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
+            {
+                yield break;
+            }
+
+            var ruleEffect = actionParams.RulesetEffect;
+
+            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+            {
+                BecomeRevealed(hero);
+            }
+        }
 
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -128,28 +148,6 @@ internal static class CustomConditionsContext
             if (target is not RulesetCharacterMonster)
             {
                 target.RemoveAllConditionsOfCategory(CategoryHidden, false);
-            }
-        }
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            var actingCharacter = action.ActingCharacter;
-            var actionDefinition = action.ActionDefinition;
-            var actionParams = action.ActionParams;
-            var hero = actingCharacter.RulesetCharacter;
-
-            if (!actionDefinition.Name.StartsWith("Attack")
-                && !actionDefinition.Name.StartsWith("Cast")
-                && !actionDefinition.Name.StartsWith("Power"))
-            {
-                return;
-            }
-
-            var ruleEffect = actionParams.RulesetEffect;
-
-            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-            {
-                BecomeRevealed(hero);
             }
         }
 

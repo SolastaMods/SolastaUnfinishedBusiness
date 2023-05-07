@@ -72,7 +72,7 @@ public static class InnovationArmor
         var pool = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorModeSelectorPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
+            .SetCustomSubFeatures(new CanUseAttribute(AttributeDefinitions.Intelligence, IsBuiltInWeapon))
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .AddToDB();
 
@@ -103,7 +103,7 @@ public static class InnovationArmor
                     .AddToDB(),
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create("AbilityCheckAffinityInnovationArmorInfiltratorMode")
-                    .SetGuiPresentationNoContent()
+                    .SetGuiPresentation(InfiltratorMarkerName, Category.Condition)
                     .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage,
                         abilityProficiencyPairs: (AttributeDefinitions.Dexterity, SkillDefinitions.Stealth))
                     .AddToDB()
@@ -224,7 +224,7 @@ public static class InnovationArmor
         return !character.HasConditionOfType(InfiltratorMarkerName);
     }
 
-    private static bool IsBuiltInWeapon(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    internal static bool IsBuiltInWeapon(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
         var item = mode?.sourceDefinition as ItemDefinition;
 

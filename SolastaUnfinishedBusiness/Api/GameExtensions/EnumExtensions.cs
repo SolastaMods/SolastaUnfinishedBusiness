@@ -22,7 +22,9 @@ internal enum ExtraSituationalContext
     HasLongswordInHands = 1006,
     HasGreatswordInHands = 1007,
     IsNotInBrightLight = 1008,
-    IsRagingAndDualWielding = 1009
+    IsRagingAndDualWielding = 1009,
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
+    TargetIsNotInBrightLight = 1011,
 }
 
 #if false
@@ -123,7 +125,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
     TargetWithin10Ft = 9000,
-    TargetIsDuelingWithYou = 9002
+    TargetIsDuelingWithYou = 9002,
+    SourceHasCondition = 9003
 }
 
 public enum ExtraConditionInterruption
@@ -188,13 +191,20 @@ internal enum ExtraActionId
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
-    MonsterSwapAttackToggle = 9015,
+
+    // MonsterSwapAttackToggle = 9015,
     CombatWildShape = 9016,
     FeatCrusherToggle = 9017,
     CannonFlamethrower = 9018,
     CannonForceBallista = 9019,
     CannonProtector = 9020,
-    CombatRageStart = 9021
+    CombatRageStart = 9021,
+    CastSpellMasteryMain = 9022,
+    CastSignatureSpellsMain = 9023,
+    QuiveringPalmToggle = 9024,
+    CannonFlamethrowerBonus = 9025,
+    CannonForceBallistaBonus = 9026,
+    CannonProtectorBonus = 9027
 }
 
 #if false

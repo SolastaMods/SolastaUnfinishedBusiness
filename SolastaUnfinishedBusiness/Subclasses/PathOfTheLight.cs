@@ -83,11 +83,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAddLightSource(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                Operation = ConditionOperationDescription.ConditionOperation.Add,
-                ConditionDefinition = conditionPathOfTheLightIlluminated
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    Operation = ConditionOperationDescription.ConditionOperation.Add,
+                    ConditionDefinition = conditionPathOfTheLightIlluminated
+                })
             .SetLightSourceForm(lightSourceForm)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetCustomSubFeatures(new BarbarianHolder())
@@ -95,11 +96,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         foreach (var invisibleCondition in InvisibleConditions)
         {
-            additionalDamagePathOfTheLightIlluminatingStrike.ConditionOperations.Add(new ConditionOperationDescription
-            {
-                Operation = ConditionOperationDescription.ConditionOperation.Remove,
-                ConditionDefinition = invisibleCondition
-            });
+            additionalDamagePathOfTheLightIlluminatingStrike.ConditionOperations.Add(
+                new ConditionOperationDescription
+                {
+                    Operation = ConditionOperationDescription.ConditionOperation.Remove,
+                    ConditionDefinition = invisibleCondition
+                });
         }
 
         var featureSetPathOfTheLightIlluminatingStrike = FeatureDefinitionFeatureSetBuilder

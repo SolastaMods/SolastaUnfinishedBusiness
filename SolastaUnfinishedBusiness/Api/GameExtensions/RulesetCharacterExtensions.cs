@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -25,6 +26,22 @@ internal static class RulesetCharacterExtensions
         return false;
     }
 #endif
+
+    internal static int GetSubclassLevel(
+        this RulesetCharacter character, CharacterClassDefinition klass, string subclass)
+    {
+        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+
+        // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
+        if (hero == null ||
+            (hero.ClassesAndSubclasses.TryGetValue(klass, out var characterSubclassDefinition) &&
+             characterSubclassDefinition.Name != subclass))
+        {
+            return 1;
+        }
+
+        return hero.GetClassLevel(klass);
+    }
 
     internal static RulesetItem GetMainWeapon(this RulesetCharacter hero)
     {
@@ -322,10 +339,12 @@ internal static class RulesetCharacterExtensions
 
         foreach (var invocation in instance.Invocations)
         {
-            bool isValid;
-            var definition = invocation.invocationDefinition;
+            var definition = invocation.InvocationDefinition;
+            var isValid = definition
+                .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
+                .All(v => v(instance, definition));
 
-            if (definition.HasSubFeatureOfType<Hidden>())
+            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
             {
                 continue;
             }
@@ -455,24 +474,21 @@ internal static class RulesetCharacterExtensions
     {
         var toggleName = actionId.ToString();
 
-        return !rulesetCharacter.ToggledPowersOn.Contains(toggleName);
+        return rulesetCharacter.ToggledPowersOn.Contains(toggleName);
     }
 
     internal static void DisableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
     {
         var toggleName = actionId.ToString();
 
-        if (!rulesetCharacter.ToggledPowersOn.Contains(toggleName))
-        {
-            rulesetCharacter.ToggledPowersOn.Add(toggleName);
-        }
+        rulesetCharacter.ToggledPowersOn.Remove(toggleName);
     }
 
     internal static void EnableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
     {
         var toggleName = actionId.ToString();
 
-        rulesetCharacter.ToggledPowersOn.Remove(toggleName);
+        rulesetCharacter.ToggledPowersOn.Add(toggleName);
     }
 
     internal static RulesetAttackMode TryRefreshAttackMode(

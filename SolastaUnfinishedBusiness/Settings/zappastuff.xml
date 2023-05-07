@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>1</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -21,7 +21,7 @@
         <string>SpellListBard</string>
       </key>
       <value>
-        <boolean>true</boolean>
+        <boolean>false</boolean>
       </value>
     </item>
     <item>
@@ -149,6 +149,7 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceFairy</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
@@ -195,7 +196,6 @@
     <string>RoguishRaven</string>
     <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
-    <string>FieldManipulator</string>
     <string>SorcerousSorrAkkath</string>
     <string>SorcerousSpellBlade</string>
     <string>WayOfTheDiscordance</string>
@@ -212,6 +212,9 @@
     <string>WizardSpellMaster</string>
     <string>PathOfTheSavagery</string>
     <string>CircleOfTheLife</string>
+    <string>WayOfTheTempest</string>
+    <string>RangerSurvivalist</string>
+    <string>SorcerousFieldManipulator</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -369,6 +372,8 @@
     <string>FeatPeregrinationTouchedWis</string>
     <string>FeatRopeItUp</string>
     <string>FeatSteadyAim</string>
+    <string>FeatElementalAdeptDamagePoison</string>
+    <string>FeatElementalMasterDamagePoison</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -438,6 +443,8 @@
     <string>Sentinel</string>
     <string>ShieldExpert</string>
     <string>Torchbearer</string>
+    <string>Lunger</string>
+    <string>RopeItUp</string>
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
@@ -473,6 +480,9 @@
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
     <string>MetamagicAltruisticSpell</string>
+    <string>MetamagicFocusedSpell</string>
+    <string>MetamagicPowerfulSpell</string>
+    <string>MetamagicWidenedSpell</string>
   </MetamagicEnabled>
   <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
   <SpellListSliderPosition>
@@ -628,6 +638,7 @@
           <string>SwordStorm</string>
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>RadiantMotes</string>
           <string>Sanctuary</string>
           <string>ColorBurst</string>
@@ -680,6 +691,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>ColorBurst</string>
@@ -688,6 +700,7 @@
           <string>SpellWeb</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>Foresight</string>
           <string>MeteorSwarmSingleTarget</string>
@@ -741,6 +754,7 @@
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
           <string>ThunderStrike</string>
+          <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>Mule</string>
@@ -752,6 +766,7 @@
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>FarStep</string>
+          <string>SonicBoom</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
           <string>Foresight</string>
@@ -915,9 +930,12 @@
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
+  <EnablePcgRandom>true</EnablePcgRandom>
   <EnableRespec>true</EnableRespec>
-  <EnableCheatMenu>true</EnableCheatMenu>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
+  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCheatMenu>true</EnableCheatMenu>
+  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
@@ -1146,8 +1164,6 @@
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
-  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>
   <UnleashEnemyAsNpc>true</UnleashEnemyAsNpc>

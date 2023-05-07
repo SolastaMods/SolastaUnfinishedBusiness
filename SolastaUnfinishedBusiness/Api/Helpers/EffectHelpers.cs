@@ -28,6 +28,11 @@ internal static class EffectHelpers
             _ => throw new ArgumentOutOfRangeException(nameof(effectType), effectType, null)
         };
 
+        if (prefab == null)
+        {
+            return;
+        }
+
         var sentParameters = new ParticleSentParameters(attacker, defender, magicEffect.Name);
 
         WorldLocationPoolManager

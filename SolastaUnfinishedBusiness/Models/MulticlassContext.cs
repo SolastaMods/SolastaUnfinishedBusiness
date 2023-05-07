@@ -195,7 +195,8 @@ internal static class MulticlassContext
         // make all extra attacks use Force If Better
         foreach (var featureDefinitionAttributeModifier in DatabaseRepository
                      .GetDatabase<FeatureDefinitionAttributeModifier>()
-                     .Where(x => x.modifiedAttribute == AttributeDefinitions.AttacksNumber))
+                     .Where(x => x.modifiedAttribute == AttributeDefinitions.AttacksNumber &&
+                                 x.modifierOperation == AttributeModifierOperation.Additive))
         {
             featureDefinitionAttributeModifier.modifierValue = 2;
             featureDefinitionAttributeModifier.modifierOperation = AttributeModifierOperation.ForceIfBetter;

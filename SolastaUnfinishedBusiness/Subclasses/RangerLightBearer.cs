@@ -217,7 +217,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerAngelicFormSprout.SetCustomSubFeatures(new OnAfterActionFeatureAngelicForm(powerAngelicFormSprout));
+        powerAngelicFormSprout.SetCustomSubFeatures(new ActionFinishedAngelicForm(powerAngelicFormSprout));
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
@@ -304,7 +304,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IBeforeAttackEffect
+    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IAttackEffectBeforeDamage
     {
         private readonly ConditionDefinition _conditionDefinition;
 
@@ -313,7 +313,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -328,7 +328,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDyingOrUnconscious ||
+                !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }
@@ -423,6 +425,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
+                         .ToList()
+                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
                          .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
@@ -436,21 +440,21 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Angelic Form
     //
 
-    private sealed class OnAfterActionFeatureAngelicForm : IOnAfterActionFeature
+    private sealed class ActionFinishedAngelicForm : IActionFinished
     {
         private static FeatureDefinitionPower _featureDefinitionPower;
 
-        public OnAfterActionFeatureAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        public ActionFinishedAngelicForm(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
             {
-                return;
+                yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
@@ -467,7 +471,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
     private sealed class PhysicalAttackInitiatedOnMeOrAllyWardingLight : IPhysicalAttackInitiatedOnMeOrAlly
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMeOrAlly(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,

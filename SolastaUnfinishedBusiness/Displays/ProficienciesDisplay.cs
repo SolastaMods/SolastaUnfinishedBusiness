@@ -72,7 +72,8 @@ internal static class ProficienciesDisplay
             MetamagicContext.Metamagic,
             Main.Settings.MetamagicEnabled,
             ref displayToggle,
-            ref sliderPos);
+            ref sliderPos,
+            headerRendering: MetamagicHeader);
         Main.Settings.DisplayMetamagicToggle = displayToggle;
         Main.Settings.MetamagicSliderPosition = sliderPos;
 
@@ -116,6 +117,20 @@ internal static class ProficienciesDisplay
             20.Space();
             UI.ActionButton("Solasta Invocations docs".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
+        }
+
+        UI.Label();
+    }
+
+    private static void MetamagicHeader()
+    {
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("UB Metamagic docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("UnfinishedBusinessMetamagic.md"), UI.Width((float)200));
+            20.Space();
+            UI.ActionButton("Solasta Metamagic docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("SolastaMetamagic.md"), UI.Width((float)200));
         }
 
         UI.Label();

@@ -90,10 +90,10 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetCustomSubFeatures(rogueHolder)
+            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
@@ -130,7 +130,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
-                    hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
@@ -172,7 +171,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AfterAttackEffectFatalStrike())
+            .SetCustomSubFeatures(new AfterDamageFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -198,7 +197,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Elimination
     //
 
-    private sealed class CustomBehaviorElimination : IOnComputeAttackModifier
+    private sealed class CustomBehaviorElimination : IPhysicalAttackInitiated, IAttackComputeModifier
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
@@ -209,41 +208,13 @@ internal sealed class RoguishSlayer : AbstractSubclass
             _conditionDefinition = conditionDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            //
-            // allow critical hit if defender is surprised
-            //
-
-            if (defender.HasAnyConditionOfType(ConditionSurprised))
-            {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    myself.guid,
-                    _conditionDefinition,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    myself.guid,
-                    myself.CurrentFaction.Name);
-
-                myself.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-            }
-            else
-            {
-                var rulesetCondition =
-                    myself.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
-
-                if (rulesetCondition != null)
-                {
-                    myself.RemoveConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-                }
-            }
-
             //
             // Allow advantage if first round and higher initiative order vs defender
             //
@@ -276,6 +247,44 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             attackModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+        }
+
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            //
+            // allow critical hit if defender is surprised
+            //
+
+            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetAttacker == null)
+            {
+                yield break;
+            }
+
+            if (rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
+            {
+                rulesetAttacker.InflictCondition(
+                    _conditionDefinition.Name,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 
@@ -448,16 +457,19 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 return;
             }
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionChainOfExecutionBeneficial,
+            rulesetCharacter.InflictCondition(
+                _conditionChainOfExecutionBeneficial.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.EndOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -471,9 +483,9 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class AfterAttackEffectFatalStrike : IBeforeAttackEffect
+    private sealed class AfterDamageFatalStrike : IAttackEffectBeforeDamage
     {
-        public void BeforeOnAttackHit(
+        public void OnAttackEffectBeforeDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -482,8 +494,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
             ActionModifier attackModifier)
         {
             var battle = Gui.Battle;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (battle == null || defender.RulesetCharacter is not { } rulesetDefender ||
+            if (battle == null ||
+                rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
                 return;

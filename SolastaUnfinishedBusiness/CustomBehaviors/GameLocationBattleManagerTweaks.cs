@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
@@ -627,6 +628,35 @@ internal static class GameLocationBattleManagerTweaks
         attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
             instance.featuresToBrowseReaction);
 
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Supports for extra damage from elemental infusions on armorer
+         */
+
+        if (InnovationArmor.IsBuiltInWeapon(attackMode, null, null))
+        {
+            var torsoSlot =
+                attacker.RulesetCharacter.CharacterInventory.InventorySlotsByType[
+                    DatabaseHelper.SlotTypeDefinitions.TorsoSlot.Name];
+
+            if (torsoSlot is { Count: > 0 })
+            {
+                var additionalDamages = torsoSlot[0].EquipedItem.DynamicItemProperties
+                    .Select(x => x.FeatureDefinition)
+                    .OfType<IAdditionalDamageProvider>()
+                    .OfType<FeatureDefinition>();
+
+                instance.featuresToBrowseReaction.AddRange(additionalDamages);
+            }
+        }
+
+        /*
+         * Supports for extra damage from elemental infusions on armorer
+         * [CE] EDIT END
+         * ######################################
+         */
+
         // Add item properties?
         if (attacker.RulesetCharacter.CharacterInventory != null)
         {
@@ -808,6 +838,10 @@ internal static class GameLocationBattleManagerTweaks
 
                         // This is used to only offer smites on critical hits
                         if (!criticalHit &&
+                            // allows EldritchSmite to pass through
+                            featureDefinition is not FeatureDefinitionAdditionalDamage &&
+                            // allows PaladinSmite to pass through
+                            Main.Settings.AddPaladinSmiteToggle &&
                             !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;
@@ -933,21 +967,29 @@ internal static class GameLocationBattleManagerTweaks
                      * [CE] EDIT START
                      * Support for extra types of trigger conditions
                      */
-                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
-                        .TargetWithin10Ft:
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft:
                     {
                         validTrigger = instance.IsWithinXCells(attacker, defender, 2);
                         break;
                     }
 
-                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
-                        .TargetIsDuelingWithYou:
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou:
                     {
                         validTrigger = advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
                                        instance.IsWithin1Cell(attacker, defender) &&
                                        Gui.Battle.AllContenders
                                            .Where(x => x != attacker && x != defender)
                                            .All(x => !instance.IsWithin1Cell(attacker, x));
+                        break;
+                    }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                        ExtraAdditionalDamageTriggerCondition.SourceHasCondition:
+                    {
+                        validTrigger =
+                            attacker.RulesetCharacter.HasConditionOfType(provider.RequiredTargetCondition.Name);
                         break;
                     }
                     /*

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -61,11 +62,12 @@ internal static class GambitsBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                conditionName = MartialTactician.MarkDamagedByGambit
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionName = MartialTactician.MarkDamagedByGambit
+                })
             .SetFrequencyLimit(limit)
             .AddToDB();
     }
@@ -94,7 +96,7 @@ internal static class GambitsBuilders
             .AddToDB();
 
         //sub-feature that uses `spendDiePower` to spend die when character attacks
-        var spendDieOnAttack = new SpendPowerAfterAttack(spendDiePower);
+        var spendDieOnAttack = new SpendPowerAttackEffectAfterAttack(spendDiePower);
 
         //feature that has `spendDieOnAttack` sub-feature
         var featureSpendDieOnAttack = FeatureDefinitionBuilder
@@ -122,19 +124,25 @@ internal static class GambitsBuilders
         ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
+                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionBlinded,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB());
 
         var power = FeatureDefinitionPowerBuilder
@@ -144,21 +152,25 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                .SetSilent(Silent.None)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .SetFeatures(GambitDieDamage)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
@@ -173,19 +185,25 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
+                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
@@ -195,21 +213,27 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -224,24 +248,31 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
+                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(CustomConditionsContext.StopMovement, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Strength, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(CustomConditionsContext.StopMovement,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
@@ -251,21 +282,27 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -280,20 +317,24 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
-                        ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
@@ -303,21 +344,25 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                .SetSilent(Silent.None)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .SetFeatures(GambitDieDamage)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
@@ -332,25 +377,30 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false,
-                    AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(Category.Condition,
-                            ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
-                        .SetFeatures(FeatureDefinitionSavingThrowAffinitys
-                            .SavingThrowAffinityPatronHiveWeakeningPheromones)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Constitution, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}")
+                                    .SetGuiPresentation(Category.Condition,
+                                        ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
+                                    .SetFeatures(FeatureDefinitionSavingThrowAffinitys
+                                        .SavingThrowAffinityPatronHiveWeakeningPheromones)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
@@ -360,21 +410,26 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}Trigger")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}Trigger")
+                                    .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                    .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                    .SetSilent(Silent.None)
+                                    .SetPossessive()
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(GambitDieDamage)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -391,26 +446,31 @@ internal static class GambitsBuilders
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}Effect")
-                        .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
-                            ConditionDefinitions.ConditionDistracted)
-                        .SetConditionType(ConditionType.Detrimental)
-                        .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                            .Create($"CombatAffinity{name}")
-                            .SetGuiPresentation(name, Category.Feature)
-                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                            .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
-                            .AddToDB())
-                        //Lasts until the end of the target's turn
-                        .SetSpecialDuration(DurationType.Round, 1)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitionBuilder
+                                    .Create($"Condition{name}Effect")
+                                    .SetGuiPresentation(Category.Condition, Gui.NoLocalization,
+                                        ConditionDefinitions.ConditionDistracted)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                                        .Create($"CombatAffinity{name}")
+                                        .SetGuiPresentation(name, Category.Feature)
+                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                        .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
+                                        .AddToDB())
+                                    //Lasts until the end of the target's turn
+                                    .SetSpecialDuration(DurationType.Round, 1)
+                                    .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB());
 
         power = FeatureDefinitionPowerBuilder
@@ -420,21 +480,25 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(GambitDieDamage)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
+                                .SetSilent(Silent.None)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .SetFeatures(GambitDieDamage)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -453,27 +517,31 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                        .SetFeatures(
-                            GambitDieDamage,
-                            featureSpendDieOnAttack,
-                            FeatureDefinitionCombatAffinityBuilder
-                                .Create($"CombatAffinity{name}")
-                                .SetGuiPresentation(name, Category.Feature)
-                                .SetMyAttackAdvantage(AdvantageType.Advantage)
-                                .AddToDB())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetSilent(Silent.None)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                .SetFeatures(
+                                    GambitDieDamage,
+                                    featureSpendDieOnAttack,
+                                    FeatureDefinitionCombatAffinityBuilder
+                                        .Create($"CombatAffinity{name}")
+                                        .SetGuiPresentation(name, Category.Feature)
+                                        .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                        .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
@@ -492,24 +560,29 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetSilent(Silent.None)
-                        .SetPossessive()
-                        .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
-                            .Create($"Feature{name}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, ValidatorsWeapon.AlwaysValid),
-                                new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                            .AddToDB())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                                .SetSilent(Silent.None)
+                                .SetPossessive()
+                                .SetFeatures(GambitDieDamageOnce, FeatureDefinitionBuilder
+                                    .Create($"Feature{name}")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetCustomSubFeatures(
+                                        new IncreaseMeleeWeaponAttackReach(1, ValidatorsWeapon.AlwaysValid),
+                                        new BumpWeaponWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                                    .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -527,20 +600,24 @@ internal static class GambitsBuilders
             .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
-                .ExcludeCaster()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"Condition{name}")
-                        .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
-                        .SetSilent(Silent.None)
-                        .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .ExcludeCaster()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                                .SetSilent(Silent.None)
+                                .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Haste)
                     .Build())
-                .SetParticleEffectParameters(SpellDefinitions.Haste)
-                .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
@@ -582,32 +659,37 @@ internal static class GambitsBuilders
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice, new ModifyMagicEffectSavingThrow())
             .SetUniqueInstance()
             .SetShowCasting(false)
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
-                .ExcludeCaster()
-                .SetSavingThrowData(true,
-                    AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetMotionForm(ExtraMotionType.CustomSwap, 1)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create($"Condition{name}")
-                            .SetGuiPresentationNoContent(true)
-                            .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .SetParticleEffectParameters(SpellDefinitions.Haste)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
+                    .ExcludeCaster()
+                    .SetSavingThrowData(true,
+                        AttributeDefinitions.Dexterity, false,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(ExtraMotionType.CustomSwap, 1)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create($"Condition{name}")
+                                .SetGuiPresentationNoContent(true)
+                                .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .SetParticleEffectParameters(SpellDefinitions.Haste)
+                    .Build())
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, power);
@@ -709,24 +791,9 @@ internal static class GambitsBuilders
             .AddToDB();
     }
 
-    private static int GetTacticianLevel(RulesetCharacter character)
-    {
-        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
-
-        // required to ensure Tactician Adept feat doesn't increase dice for other fighter subclasses
-        if (hero != null &&
-            hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
-                out var characterSubclassDefinition) && characterSubclassDefinition.Name != MartialTactician.Name)
-        {
-            return 1;
-        }
-
-        return character.GetClassLevel(CharacterClassDefinitions.Fighter);
-    }
-
     private static DieType GetGambitDieSize(RulesetCharacter character)
     {
-        var level = GetTacticianLevel(character);
+        var level = character.GetSubclassLevel(CharacterClassDefinitions.Fighter, MartialTactician.Name);
 
         return level switch
         {
@@ -738,7 +805,35 @@ internal static class GambitsBuilders
         };
     }
 
-    private class InitialPool : IPowerUseModifier
+    private sealed class ModifyMagicEffectSavingThrow : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter character)
+        {
+            var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
+            var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+            var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+
+            if (strength >= dexterity && strength >= intelligence)
+            {
+                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Strength;
+            }
+            else if (dexterity >= strength && dexterity >= intelligence)
+            {
+                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Dexterity;
+            }
+            else
+            {
+                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
+            }
+
+            return effect;
+        }
+    }
+
+    private sealed class InitialPool : IPowerUseModifier
     {
         private InitialPool()
         {
@@ -753,16 +848,16 @@ internal static class GambitsBuilders
         }
     }
 
-    private class SpendPowerAfterAttack : IAfterAttackEffect
+    private sealed class SpendPowerAttackEffectAfterAttack : IAttackEffectAfterDamage
     {
         private readonly FeatureDefinitionPower power;
 
-        public SpendPowerAfterAttack(FeatureDefinitionPower power)
+        public SpendPowerAttackEffectAfterAttack(FeatureDefinitionPower power)
         {
             this.power = power;
         }
 
-        public void AfterOnAttackHit(
+        public void OnAttackEffectAfterDamage(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -781,7 +876,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Retaliate : IReactToAttackOnMeFinished
+    private sealed class Retaliate : IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition condition;
         private readonly bool melee;
@@ -855,17 +950,21 @@ internal static class GambitsBuilders
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
 
-            var character = me.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            var rulesetCharacter = me.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                string.Empty);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var tag = melee ? "GambitRiposte" : "GambitReturnFire";
@@ -881,14 +980,20 @@ internal static class GambitsBuilders
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
-                character.UsePower(UsablePowersProvider.Get(pool, character));
+                rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
             }
 
-            character.RemoveCondition(rulesetCondition);
+            var rulesetCondition =
+                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == condition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetCharacter.RemoveCondition(rulesetCondition);
+            }
         }
     }
 
-    private class ApplyConditionDependingOnSide : ICustomConditionFeature
+    private sealed class ApplyConditionDependingOnSide : ICustomConditionFeature
     {
         private readonly ConditionDefinition good, bad;
 
@@ -918,7 +1023,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Brace : CanMakeAoOOnReachEntered
+    private sealed class Brace : CanMakeAoOOnReachEntered
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinitionPower pool;
@@ -935,17 +1040,21 @@ internal static class GambitsBuilders
         private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
             GameLocationBattleManager battleManager, GameLocationActionManager actionManager, ReactionRequest request)
         {
-            var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
-                condition,
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                string.Empty
-            );
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
 
             yield break;
         }
@@ -978,7 +1087,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Precise : IAlterAttackOutcome
+    private sealed class Precise : IPhysicalAttackTryAlterOutcome
     {
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
         private const string Line = "Feedback/&GambitPreciseToHitRoll";
@@ -991,7 +1100,7 @@ internal static class GambitsBuilders
             this.feature = feature;
         }
 
-        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
+        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -1079,7 +1188,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private class Parry : IDefenderBeforeAttackHitConfirmed
+    private sealed class Parry : IPhysicalAttackBeforeHitConfirmed
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1092,7 +1201,7 @@ internal static class GambitsBuilders
             this.feature = feature;
         }
 
-        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        public IEnumerator OnAttackBeforeHitConfirmed(
             GameLocationBattleManager battle,
             GameLocationCharacter attacker,
             GameLocationCharacter me,
@@ -1179,7 +1288,7 @@ internal static class GambitsBuilders
         }
     }
 
-    internal class GambitActionDiceBox : IActionItemDiceBox
+    internal sealed class GambitActionDiceBox : IActionItemDiceBox
     {
         private GambitActionDiceBox()
         {

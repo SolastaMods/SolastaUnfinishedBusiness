@@ -129,7 +129,7 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var canAttack = cantrip.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanAttack;
+            var canAttack = cantrip.GetFirstSubFeatureOfType<IAttackAfterMagicEffect>()?.CanAttack;
 
             if (canAttack != null)
             {
@@ -224,12 +224,12 @@ public static class GameLocationBattleManagerPatcher
             }
 
             foreach (var extraEvents in attacker.RulesetActor
-                         .GetSubFeaturesByType<IAlterAttackOutcome>()
+                         .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
                          .TakeWhile(_ =>
                              action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
                              action.AttackSuccessDelta < 0)
                          .Select(feature =>
-                             feature.TryAlterAttackOutcome(__instance, action, attacker, target, attackModifier)))
+                             feature.OnAttackTryAlterOutcome(__instance, action, attacker, target, attackModifier)))
             {
                 while (extraEvents.MoveNext())
                 {
@@ -317,8 +317,8 @@ public static class GameLocationBattleManagerPatcher
             if (character != null)
             {
                 foreach (var extra in character
-                             .GetSubFeaturesByType<IDefenderBeforeAttackHitConfirmed>()
-                             .Select(feature => feature.DefenderBeforeAttackHitConfirmed(
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmed>()
+                             .Select(feature => feature.OnAttackBeforeHitConfirmed(
                                  __instance,
                                  attacker,
                                  defender,
@@ -650,11 +650,11 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
+            var attackModifiers = attacker.GetSubFeaturesByType<IAttackComputeModifier>();
 
             foreach (var feature in attackModifiers)
             {
-                feature.ComputeAttackModifier(
+                feature.OnAttackComputeModifier(
                     attacker,
                     defender,
                     attackParams.attackProximity,
@@ -751,17 +751,28 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
-            //PATCH: Support for `ITargetReducedToZeroHP` feature
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            var features = attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>();
 
-            foreach (var extraEvents in features
+            //PATCH: Support for `ITargetReducedToZeroHP` feature
+            foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
                          .Select(x =>
                              x.HandleCharacterReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
+                                 activeEffect)))
+            {
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
+            }
+
+            //PATCH: Support for `ISourceReducedToZeroHP` feature
+            foreach (var extraEvents in downedCreature.RulesetActor.GetSubFeaturesByType<ISourceReducedToZeroHp>()
+                         .Select(x =>
+                             x.HandleSourceReducedToZeroHp(attacker, downedCreature, rulesetAttackMode,
                                  activeEffect)))
             {
                 while (extraEvents.MoveNext())
@@ -792,17 +803,12 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: set critical strike global variable
             Global.CriticalHit = criticalHit;
 
-            //PATCH: support for `IOnMagicalAttackDamageEffect`
-            var features = attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>();
-
             //call all before handlers
-#if false
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
             {
-                yield return feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
-#endif
 
             while (values.MoveNext())
             {
@@ -810,7 +816,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //call all after handlers
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
             {
                 yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
@@ -1002,7 +1008,7 @@ public static class GameLocationBattleManagerPatcher
             foreach (var attackInitiated in
                      defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMe>())
             {
-                yield return attackInitiated.OnAttackInitiated(
+                yield return attackInitiated.OnAttackInitiatedOnMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
             }
 
@@ -1010,7 +1016,7 @@ public static class GameLocationBattleManagerPatcher
                          .SelectMany(x =>
                              x.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiatedOnMeOrAlly>()))
             {
-                yield return attackInitiated.OnAttackInitiated(
+                yield return attackInitiated.OnAttackInitiatedOnMeOrAlly(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
             }
         }

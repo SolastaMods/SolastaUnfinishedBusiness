@@ -13,6 +13,10 @@ internal static class MetamagicContext
     internal static void LateLoad()
     {
         LoadMetamagic(BuildMetamagicAltruisticSpell());
+        LoadMetamagic(BuildMetamagicFocusedSpell());
+        LoadMetamagic(BuildMetamagicPowerfulSpell());
+        LoadMetamagic(BuildMetamagicWidenedSpell());
+
         // sorting
         Metamagic = Metamagic.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -27,11 +31,7 @@ internal static class MetamagicContext
 
     private static void LoadMetamagic([NotNull] MetamagicOptionDefinition metamagicDefinition)
     {
-        if (!Metamagic.Contains(metamagicDefinition))
-        {
-            Metamagic.Add(metamagicDefinition);
-        }
-
+        Metamagic.Add(metamagicDefinition);
         UpdateMetamagicVisibility(metamagicDefinition);
     }
 

@@ -23,7 +23,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .AddToDB();
 
         onComputeAttackModifierOpportunistQuickStrike.SetCustomSubFeatures(
-            new OnComputeAttackModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
+            new AttackComputeModifierOpportunistQuickStrike(onComputeAttackModifierOpportunistQuickStrike));
 
         var savingThrowAffinityConditionOpportunistDebilitated = FeatureDefinitionSavingThrowAffinityBuilder
             .Create("SavingThrowAffinityOpportunistDebilitatingStrike")
@@ -41,19 +41,20 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             // use flat bonus to allow it to interact correct with sneak attack
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                hasSavingThrow = true,
-                conditionDefinition = ConditionDefinitionBuilder
-                    .Create("ConditionOpportunistDebilitated")
-                    .SetGuiPresentation(Category.Condition, ConditionBaned)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetFeatures(savingThrowAffinityConditionOpportunistDebilitated)
-                    .AddToDB(),
-                saveAffinity = EffectSavingThrowType.Negates
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    hasSavingThrow = true,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create("ConditionOpportunistDebilitated")
+                        .SetGuiPresentation(Category.Condition, ConditionBaned)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialDuration(DurationType.Round, 1)
+                        .SetFeatures(savingThrowAffinityConditionOpportunistDebilitated)
+                        .AddToDB(),
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .SetSavingThrowData(EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
                 EffectSavingThrowType.Negates, AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity)
             .AddToDB();
@@ -76,21 +77,22 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             // use flat bonus to allow it to interact correct with sneak attack
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
-            .SetConditionOperations(new ConditionOperationDescription
-            {
-                operation = ConditionOperationDescription.ConditionOperation.Add,
-                hasSavingThrow = true,
-                conditionDefinition = ConditionDefinitionBuilder
-                    .Create("ConditionOpportunistExposed")
-                    .SetGuiPresentation(Category.Condition, ConditionBaned)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetFeatures(
-                        savingThrowAffinityConditionOpportunistDebilitated,
-                        combatAffinityOpportunistExposingWeakness)
-                    .AddToDB(),
-                saveAffinity = EffectSavingThrowType.Negates
-            })
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    hasSavingThrow = true,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create("ConditionOpportunistExposed")
+                        .SetGuiPresentation(Category.Condition, ConditionBaned)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialDuration(DurationType.Round, 1)
+                        .SetFeatures(
+                            savingThrowAffinityConditionOpportunistDebilitated,
+                            combatAffinityOpportunistExposingWeakness)
+                        .AddToDB(),
+                    saveAffinity = EffectSavingThrowType.Negates
+                })
             .SetSavingThrowData(EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
                 EffectSavingThrowType.Negates, AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity)
             //.SetCustomSubFeatures(new CustomBehaviorExposingWeakness(powerOpportunistDebilitatingStrike))
@@ -135,16 +137,16 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     }
 #endif
 
-    private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierOpportunistQuickStrike : IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureDefinition;
 
-        public OnComputeAttackModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
+        public AttackComputeModifierOpportunistQuickStrike(FeatureDefinition featureDefinition)
         {
             _featureDefinition = featureDefinition;
         }
 
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,

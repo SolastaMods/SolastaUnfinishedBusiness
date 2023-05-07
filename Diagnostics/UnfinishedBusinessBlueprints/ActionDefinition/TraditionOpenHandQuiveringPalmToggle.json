@@ -1,0 +1,74 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": 9024,
+  "actionType": "NoCost",
+  "actionScope": "Battle",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "",
+  "requiresAuthorization": true,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "TogglePower",
+  "formType": "Large",
+  "overrideGuiActionType": false,
+  "overridenGuiActionType": "Main",
+  "focusCameraOnAction": false,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "baseActionForFailureTooltips": null,
+  "activatedPower": "Definition:PowerTraditionOpenHandQuiveringPalm:9b1f88b1-bace-5a9a-ba01-4c833533f515",
+  "displayPowerTooltip": true,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "addLevel": false,
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Action/&TraditionOpenHandQuiveringPalmToggleTitle",
+    "description": "Action/&TraditionOpenHandQuiveringPalmToggleDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c96c94289a0d7a849b86cab1efff714f",
+      "m_SubObjectName": "StunnningStrikeToggle",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "3ff38f3d-0a13-59ef-8278-4d80e5fd1611",
+  "contentPack": 9999,
+  "name": "TraditionOpenHandQuiveringPalmToggle"
+}

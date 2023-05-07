@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityModManagerNet;
-using static SolastaUnfinishedBusiness.Displays.BackgroundsAndDeitiesDisplay;
+using static SolastaUnfinishedBusiness.Displays.BackgroundsAndRacesDisplay;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
 using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
@@ -15,7 +15,7 @@ using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
-using static SolastaUnfinishedBusiness.Displays.RacesClassesSubclassesDisplay;
+using static SolastaUnfinishedBusiness.Displays.ClassesSubclassesDisplay;
 using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
@@ -28,29 +28,10 @@ using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 namespace SolastaUnfinishedBusiness.Displays
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class ModUi : IMenuSelectablePage
+    internal static class ModUi
     {
         internal const int DontDisplayDescription = 4;
         internal const float PixelsPerColumn = 220;
-        private int characterSelectedPane;
-        public string Name => Gui.Localize("ModUi/&Character");
-
-        public int Priority => 100;
-
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref characterSelectedPane, Name,
-                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
-                    DisplayCharacter),
-                new NamedAction(Gui.Localize("ModUi/&BackgroundsAndDeities"),
-                    DisplayBackgroundsAndDeities),
-                new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
-                    DisplayClassesAndSubclasses),
-                new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
-                    DisplayFeatsFightingStylesInvocations),
-                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
-                    DisplaySpells));
-        }
 
         internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
         {
@@ -185,24 +166,47 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    internal class GameplayViewer : IMenuSelectablePage
+    internal sealed class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;
         public string Name => Gui.Localize("ModUi/&Gameplay");
 
-        public int Priority => 200;
+        public int Priority => 100;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools),
+                new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
                 new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting));
         }
     }
 
     [UsedImplicitly]
-    internal class InterfaceViewer : IMenuSelectablePage
+    internal sealed class CharacterViewer : IMenuSelectablePage
+    {
+        private int characterSelectedPane;
+        public string Name => Gui.Localize("ModUi/&Character");
+
+        public int Priority => 200;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            ModUi.DisplaySubMenu(ref characterSelectedPane, Name,
+                new NamedAction(Gui.Localize("ModUi/&BackgroundsAndRaces"),
+                    DisplayBackgroundsAndDeities),
+                new NamedAction(Gui.Localize("ModUi/&ClassesAndSubclasses"),
+                    DisplayClassesAndSubclasses),
+                new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
+                    DisplayFeatsFightingStylesInvocations),
+                new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
+                    DisplaySpells));
+        }
+    }
+
+    [UsedImplicitly]
+    internal sealed class InterfaceViewer : IMenuSelectablePage
     {
         private int interfaceSelectedPane;
         public string Name => Gui.Localize("ModUi/&Interface");
@@ -219,7 +223,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    internal class PartyEditorViewer : IMenuSelectablePage
+    internal sealed class PartyEditorViewer : IMenuSelectablePage
     {
         public string Name => "Party Editor".Localized();
 
@@ -232,7 +236,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    internal class EncountersViewer : IMenuSelectablePage
+    internal sealed class EncountersViewer : IMenuSelectablePage
     {
         private int encountersSelectedPane;
         public string Name => Gui.Localize("ModUi/&Encounters");
@@ -249,7 +253,7 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
-    internal class CreditsAndDiagnosticsViewer : IMenuSelectablePage
+    internal sealed class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         private int creditsSelectedPane;
         public string Name => Gui.Localize("ModUi/&CreditsAndDiagnostics");

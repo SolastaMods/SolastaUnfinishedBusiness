@@ -86,7 +86,7 @@ internal sealed class MartialMarshal : AbstractSubclass
         var onComputeAttackModifierMarshalKnowYourEnemy = FeatureDefinitionBuilder
             .Create("OnComputeAttackModifierMarshalKnowYourEnemy")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new OnComputeAttackModifierMarshalKnowYourEnemy())
+            .SetCustomSubFeatures(new AttackComputeModifierMarshalKnowYourEnemy())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
@@ -360,6 +360,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetGuiPresentation("FeatureMarshalKnowledgeableDefense", Category.Feature)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                .SetSilent(Silent.WhenRemoved)
                 .SetPossessive()
                 .AddFeatures(
                     FeatureDefinitionAttributeModifierBuilder
@@ -403,7 +404,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             var battleManager = gameLocationBattleService as GameLocationBattleManager;
             var allies = new List<GameLocationCharacter>();
 
-            foreach (var guestCharacter in characterService.GuestCharacters)
+            foreach (var guestCharacter in characterService.GuestCharacters.ToList())
             {
                 if (guestCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster
                     || !rulesetCharacterMonster.MonsterDefinition.CreatureTags.Contains(EternalComradeName))
@@ -500,9 +501,9 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class OnComputeAttackModifierMarshalKnowYourEnemy : IOnComputeAttackModifier
+    private sealed class AttackComputeModifierMarshalKnowYourEnemy : IAttackComputeModifier
     {
-        public void ComputeAttackModifier(
+        public void OnAttackComputeModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
             BattleDefinitions.AttackProximity attackProximity,
@@ -599,7 +600,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private class DefenderBeforeAttackHitConfirmedKnowledgeableDefense : IPhysicalAttackInitiatedOnMe
     {
-        public IEnumerator OnAttackInitiated(
+        public IEnumerator OnAttackInitiatedOnMe(
             GameLocationBattleManager __instance,
             CharacterAction action,
             GameLocationCharacter attacker,
@@ -629,18 +630,20 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             var level = Math.Min(gameBestiaryEntry.KnowledgeLevelDefinition.Level, 3);
-            var condition = GetDefinition<ConditionDefinition>($"{ConditionMarshalKnowledgeableDefenseACName}{level}");
 
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetMe.Guid,
-                condition,
-                condition.DurationType,
-                condition.DurationParameter,
-                condition.TurnOccurence,
-                rulesetMe.Guid,
-                rulesetMe.CurrentFaction.Name);
-
-            rulesetMe.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetMe.InflictCondition(
+                $"{ConditionMarshalKnowledgeableDefenseACName}{level}",
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                rulesetMe.guid,
+                rulesetMe.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 }

@@ -127,6 +127,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetDurationData(DurationType.Round, 1)
             .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
+            .SetParticleEffectParameters(FeatureDefinitionPowers.PowerPatronHiveReactiveCarapace)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -142,6 +143,9 @@ internal static partial class SpellBuilders
                         ConditionForm.ConditionOperation.Add)
                     .Build())
             .Build();
+
+        effectDescription.EffectParticleParameters.casterParticleReference =
+            GuidingBolt.effectDescription.EffectParticleParameters.casterParticleReference;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -375,12 +379,9 @@ internal static partial class SpellBuilders
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
             .SetAttackModeOnly()
             .AddToDB();
-
-        // hack as the ResonatingStrike damage distribution is odd (4,6,5,5) and SetAdv doesn't cover that
-        additionalDamageResonatingStrike.diceByRankTable[4].diceNumber = 1;
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
@@ -392,7 +393,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttack,
+                AttackAfterMagicEffect.MeleeAttack,
                 CustomSpellEffectLevel.ByCasterLevel,
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
@@ -462,7 +463,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttackCanTwin,
+                AttackAfterMagicEffect.MeleeAttackCanTwin,
                 new UpgradeRangeBasedOnWeaponReach())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()

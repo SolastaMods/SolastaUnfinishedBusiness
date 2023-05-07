@@ -206,7 +206,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     private static bool RemoveMomentumAnyway(IControllableCharacter hero)
     {
         var currentMomentum = new List<RulesetCondition>();
-        var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+        var pb = hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
         currentMomentum.AddRange(
             hero.RulesetCharacter.ConditionsByCategory
@@ -298,7 +298,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
+                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
             .AddToDB();
 
@@ -313,7 +313,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
+                    .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
             .AddToDB();
 
@@ -332,7 +332,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
                     {
                         if (spellEffect.slotLevel > 0 || spellEffect.SpellDefinition
-                                .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
+                                .HasSubFeatureOfType<IAttackAfterMagicEffect>())
                         {
                             if (spellEffect.slotLevel / 2 > momentum)
                             {
@@ -348,34 +348,41 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             }
 
             // only apply if number of momentum less than PB
+            var rulesetHero = hero.RulesetCharacter;
             var currentMomentum = new List<RulesetCondition>();
-            var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+            var pb = rulesetHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             currentMomentum.AddRange(
-                hero.RulesetCharacter.ConditionsByCategory
+                rulesetHero.ConditionsByCategory
                     .SelectMany(x => x.Value)
                     .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
                                 x.conditionDefinition == ImprovedWarDanceMomentumExtraAction ||
                                 x.conditionDefinition == WarDanceMomentum));
 
-            if (!flag || RemoveMomentumAnyway(hero) || pb == 0 ||
-                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
-                hero.RulesetCharacter.HasConditionOfType(MomentumAlreadyApplied))
+            if (!flag ||
+                RemoveMomentumAnyway(hero) ||
+                pb == 0 ||
+                !rulesetHero.HasConditionOfType(ConditionWarDance) ||
+                rulesetHero.HasConditionOfType(MomentumAlreadyApplied))
             {
                 foreach (var cond in currentMomentum)
                 {
                     hero.RulesetCharacter.RemoveCondition(cond);
                 }
 
-                var marked = RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    MomentumAlreadyApplied,
+                rulesetHero.InflictCondition(
+                    MomentumAlreadyApplied.Name,
                     DurationType.Round,
                     1,
                     TurnOccurenceType.StartOfTurn,
-                    hero.Guid,
-                    hero.RulesetCharacter.CurrentFaction.Name);
+                    AttributeDefinitions.TagCombat,
+                    rulesetHero.guid,
+                    rulesetHero.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
 
-                hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, marked);
                 return false;
             }
 
@@ -393,41 +400,46 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             return true;
         }
 
-        private static void ApplyActionAffinity(RulesetCharacter character)
+        private static void ApplyActionAffinity(RulesetCharacter rulesetCharacter)
         {
-            if (character is not RulesetCharacterHero)
+            if (rulesetCharacter is not RulesetCharacterHero)
             {
                 return;
             }
 
             var condition = WarDanceMomentumExtraAction;
 
-            if (character.HasAnyFeature(ImproveWarDance))
+            if (rulesetCharacter.HasAnyFeature(ImproveWarDance))
             {
                 condition = ImprovedWarDanceMomentumExtraAction;
             }
 
-            if (character.HasConditionOfType(condition))
+            if (rulesetCharacter.HasConditionOfType(condition))
             {
                 return;
             }
 
-            var actionAffinity = RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                condition,
+            rulesetCharacter.InflictCondition(
+                condition.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                character.CurrentFaction.Name);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, actionAffinity);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
 
         private static void GrantWarDanceMomentum(IControllableCharacter hero)
         {
             // required for wildshape scenarios
-            if (hero.RulesetCharacter is not RulesetCharacterHero)
+            var rulesetCharacter = hero.RulesetCharacter;
+
+            if (rulesetCharacter is not RulesetCharacterHero)
             {
                 return;
             }
@@ -439,16 +451,19 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 return;
             }
 
-            var attackModifier = RulesetCondition.CreateActiveCondition(
-                hero.RulesetCharacter.Guid,
-                WarDanceMomentum,
+            rulesetCharacter.InflictCondition(
+                WarDanceMomentum.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                hero.RulesetCharacter.Guid,
-                hero.RulesetCharacter.CurrentFaction.Name);
-
-            hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, attackModifier);
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
@@ -485,7 +500,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class WarDanceFlurryAttackModifier : IModifyAttackModeForWeapon
+    private sealed class WarDanceFlurryWeaponAttackModifier : IModifyWeaponAttackMode
     {
         private const int LightMomentumModifier = -2;
         private const int MomentumModifier = -3;
