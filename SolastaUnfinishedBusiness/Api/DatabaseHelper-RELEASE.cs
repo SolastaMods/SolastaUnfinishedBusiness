@@ -405,7 +405,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionImprovedCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionImprovedCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialChampionSuperiorCritical { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialChampionSuperiorCritical");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMartialMountainerTunnelFighter { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMartialMountainerTunnelFighter");
-        internal static FeatureDefinitionAttributeModifier AttributeModifierMonkExtraAttack { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkExtraAttack");
         internal static FeatureDefinitionAttributeModifier AttributeModifierMonkUnarmoredDefense { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierMonkUnarmoredDefense");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
@@ -480,7 +479,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPetrifiedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPetrifiedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPoisonImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityProneImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProneImmunity");
-        internal static FeatureDefinitionConditionAffinity ConditionAffinityProtectedFromEvilCharmImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProtectedFromEvilCharmImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
     }
     internal static class FeatureDefinitionDamageAffinitys

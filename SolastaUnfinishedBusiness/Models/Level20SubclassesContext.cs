@@ -977,17 +977,17 @@ internal static class Level20SubclassesContext
             ref RollOutcome saveOutcome,
             ref int saveOutcomeDelta)
         {
-            if (target is not RulesetCharacter rulesetTarger)
+            if (target is not RulesetCharacter rulesetTarget)
             {
                 return;
             }
 
-            var rulesetCondition = rulesetTarger.AllConditions.FirstOrDefault(x =>
+            var rulesetCondition = rulesetTarget.AllConditions.FirstOrDefault(x =>
                 x.ConditionDefinition.Name == "ConditionTraditionOpenHandQuiveringPalm");
 
             if (rulesetCondition != null)
             {
-                rulesetTarger.RemoveCondition(rulesetCondition);
+                rulesetTarget.RemoveCondition(rulesetCondition);
             }
 
             if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
@@ -995,7 +995,7 @@ internal static class Level20SubclassesContext
                 return;
             }
 
-            var totalDamage = rulesetTarger.CurrentHitPoints + rulesetTarger.TemporaryHitPoints - 1;
+            var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
 
             target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
             effectForms.SetRange(
