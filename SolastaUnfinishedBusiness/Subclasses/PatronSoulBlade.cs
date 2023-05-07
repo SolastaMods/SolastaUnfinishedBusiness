@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -93,6 +94,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var conditionHexDefender = ConditionDefinitionBuilder
             .Create("ConditionSoulBladeHexDefender")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
@@ -102,7 +104,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("FeatureSoulBladeHex")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new AttackComputeModifierHex(conditionHexAttacker, conditionHexDefender))
+                new AttackOrMagicAttackInitiatedHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
@@ -231,17 +233,29 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    private sealed class AttackComputeModifierHex : IPhysicalAttackInitiated
+    private sealed class AttackOrMagicAttackInitiatedHex : IPhysicalAttackInitiated, IMagicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public AttackComputeModifierHex(
+        public AttackOrMagicAttackInitiatedHex(
             ConditionDefinition conditionHexAttacker,
             ConditionDefinition conditionHexDefender)
         {
             _conditionHexAttacker = conditionHexAttacker;
             _conditionHexDefender = conditionHexDefender;
+        }
+
+        public IEnumerator OnMagicalAttackInitiated(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return ApplyCondition(attacker, defender);
         }
 
         public IEnumerator OnAttackInitiated(
@@ -251,6 +265,11 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             GameLocationCharacter defender,
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
+        {
+            yield return ApplyCondition(attacker, defender);
+        }
+
+        private IEnumerator ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)
         {
             var rulesetDefender = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
