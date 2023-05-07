@@ -669,7 +669,7 @@ internal static class Level20SubclassesContext
             foreach (var ally in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 3)))
+                                     gameLocationBattleService.IsWithinXCells(attacker, x, 4)))
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -726,6 +726,11 @@ internal static class Level20SubclassesContext
                 return;
             }
 
+            if (rulesetCharacter.CurrentHitPoints >= rulesetCharacter.MissingHitPoints)
+            {
+                return;
+            }
+
             var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             effectForm.HealingForm.bonusHealing = pb;
@@ -753,6 +758,8 @@ internal static class Level20SubclassesContext
             }
 
             source.RulesetCharacter.StabilizeTo1HitPoint();
+            source.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                ConditionProne);
 
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
@@ -913,6 +920,12 @@ internal static class Level20SubclassesContext
 
         public IEnumerator OnActionFinished(CharacterAction characterAction)
         {
+            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                yield break;
+            }
+
             if (characterAction.ActionParams.TargetCharacters.Count == 0)
             {
                 yield break;
