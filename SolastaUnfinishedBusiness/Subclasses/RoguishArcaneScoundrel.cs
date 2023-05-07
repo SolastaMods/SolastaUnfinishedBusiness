@@ -22,6 +22,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     internal RoguishArcaneScoundrel()
     {
+        //
+        // LEVEL 3
+        //
+
         var castSpell = FeatureDefinitionCastSpellBuilder
             .Create($"CastSpell{Name}")
             .SetGuiPresentation(Category.Feature)
@@ -43,6 +47,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
+
+        //
+        // LEVEL 9
+        //
 
         var conditionDistractingAmbush = ConditionDefinitionBuilder
             .Create($"Condition{Name}{DistractingAmbush}")
@@ -91,6 +99,18 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 })
             .AddToDB();
 
+        //
+        // LEVEL 13
+        //
+
+        var conditionArcaneBackslash = ConditionDefinitionBuilder
+            .Create($"Condition{Name}ArcaneBackslash")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.UntilShortRest)
+            .AddFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3)
+            .AddToDB();
+
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ArcaneBackslash")
             .SetGuiPresentation(Category.Feature)
@@ -110,7 +130,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ModifyMagicEffectCounterSpell(powerArcaneBacklash, conditionDistractingAmbush));
+            new ActionFinishedCounterSpell(powerArcaneBacklash, conditionArcaneBackslash, conditionDistractingAmbush));
 
         var autoPreparedSpellsArcaneBackslash = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}ArcaneBackslash")
@@ -119,6 +139,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetPreparedSpellGroups(BuildSpellGroup(13, Counterspell))
             .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
             .AddToDB();
+
+        //
+        // LEVEL 17
+        //
 
         var powerGambit = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Gambit")
@@ -155,29 +179,54 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyMagicEffectCounterSpell : IActionFinished
+    private sealed class ActionFinishedCounterSpell : IActionFinished
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        private readonly ConditionDefinition _conditionArcaneBacklash;
+        private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ModifyMagicEffectCounterSpell(
+        public ActionFinishedCounterSpell(
             FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionDefinition)
+            ConditionDefinition conditionArcaneBacklash,
+            ConditionDefinition conditionDistractingAmbush)
         {
             _featureDefinitionPower = featureDefinitionPower;
-            _conditionDefinition = conditionDefinition;
+            _conditionArcaneBacklash = conditionArcaneBacklash;
+            _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
         public IEnumerator OnActionFinished(CharacterAction action)
         {
             if (action is not CharacterActionCastSpell characterActionCastSpell ||
-                characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
-                !characterActionCastSpell.ActionParams.TargetAction.Countered)
+                characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell)
             {
                 yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+
+            if (!rulesetCharacter.HasAnyConditionOfType(_conditionArcaneBacklash.Name))
+            {
+                rulesetCharacter.InflictCondition(
+                    _conditionArcaneBacklash.Name,
+                    _conditionArcaneBacklash.DurationType,
+                    _conditionArcaneBacklash.DurationParameter,
+                    _conditionArcaneBacklash.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
+
+            if (!characterActionCastSpell.ActionParams.TargetAction.Countered)
+            {
+                yield break;
+            }
+
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
@@ -187,12 +236,11 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
                 GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _featureDefinitionPower);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
-
                 rulesetDefender.InflictCondition(
-                    _conditionDefinition.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
+                    _conditionDistractingAmbush.Name,
+                    _conditionDistractingAmbush.DurationType,
+                    _conditionDistractingAmbush.DurationParameter,
+                    _conditionDistractingAmbush.TurnOccurence,
                     AttributeDefinitions.TagCombat,
                     rulesetCharacter.guid,
                     rulesetCharacter.CurrentFaction.Name,

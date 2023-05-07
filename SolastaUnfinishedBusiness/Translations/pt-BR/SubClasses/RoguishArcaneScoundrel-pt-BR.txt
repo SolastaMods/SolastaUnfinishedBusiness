@@ -2,7 +2,7 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofre desvantagem em seu próximo teste de resistência ou teste de habilidade até o final do seu próximo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
-Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Você causa seu ataque furtivo como dano de força a uma criatura sempre que anula uma magia dela.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Aprenda Contrafeitiço se você ainda não o fez. Sempre que você interromper com sucesso um feitiço usando-o, cause seu ataque furtivo como dano de força a essa criatura. Além disso, uma vez por descanso curto, na primeira vez que você lança Contrafeitiço, você recupera um espaço de feitiço de 3º nível.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Reação Arcana
 Feature/&PowerRoguishArcaneScoundrelGambitDescription=Você pode usar uma ação bônus para conjurar imagem espelhada como uma magia de 2º nível, sem expandir um espaço de magia, uma vez por descanso curto.
 Feature/&PowerRoguishArcaneScoundrelGambitTitle=Gambito do Canalha

@@ -2,7 +2,7 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce svantaggio al successivo tiro salvezza o prova di caratteristica fino alla fine del tuo prossimo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
-Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Infliggi il tuo attacco furtivo come danno da forza a una creatura ogni volta che ne neutralizza un incantesimo.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Impara Counterspell se non l'hai già fatto. Ogni volta che interrompi con successo un incantesimo usandolo, infliggi il tuo attacco furtivo come danno da forza a quella creatura. Inoltre, una volta per riposo breve, la prima volta che lanci Contromagia recuperi uno slot incantesimo di 3° livello.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contraccolpo Arcano
 Feature/&PowerRoguishArcaneScoundrelGambitDescription=Puoi usare un'azione bonus per lanciare immagine speculare come incantesimo di 2° livello, senza espandere uno slot incantesimo, una volta per riposo breve.
 Feature/&PowerRoguishArcaneScoundrelGambitTitle=Il gambetto del mascalzone

@@ -2,7 +2,7 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
-Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=You deal your sneak attack as force damage to a creature whenever you counter a spell from it.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per short rest, the first time you cast Counterspell you regain a 3rd level spell slot.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arcane Backlash
 Feature/&PowerRoguishArcaneScoundrelGambitDescription=You can use a bonus action to cast mirror image as a 2nd level spell, without expanding a spell slot, once per short rest.
 Feature/&PowerRoguishArcaneScoundrelGambitTitle=Scoundrel's Gambit

@@ -550,6 +550,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionMagicAffinitys
     {
+        internal static FeatureDefinitionMagicAffinity MagicAffinityAdditionalSpellSlot3 { get; } = GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityAdditionalSpellSlot3");
         internal static FeatureDefinitionMagicAffinity MagicAffinityBattleMagic { get; } = GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityBattleMagic");
         internal static FeatureDefinitionMagicAffinity MagicAffinityChitinousBoonAdditionalSpellSlot { get; } = GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityChitinousBoonAdditionalSpellSlot");
         internal static FeatureDefinitionMagicAffinity MagicAffinityGreenmageGreenMagicList { get; } = GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityGreenmageGreenMagicList");
