@@ -3,12 +3,12 @@
   <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
-  <DisplayRacesToggle>false</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
+  <DisplayRacesToggle>true</DisplayRacesToggle>
+  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>false</DisplayFeatsToggle>
+  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
+  <DisplayFeatsToggle>true</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -374,6 +374,9 @@
     <string>FeatSteadyAim</string>
     <string>FeatElementalAdeptDamagePoison</string>
     <string>FeatElementalMasterDamagePoison</string>
+    <string>FeatRetinueTouchedCha</string>
+    <string>FeatRetinueTouchedInt</string>
+    <string>FeatRetinueTouchedWis</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -430,6 +433,7 @@
     <string>FeatGroupGeneralAdept</string>
     <string>FeatGroupAegisTouched</string>
     <string>FeatGroupPeregrinationTouched</string>
+    <string>FeatGroupRetinueTouched</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -582,6 +586,7 @@
           <string>SunlightBlade</string>
           <string>EarthTremor</string>
           <string>MirrorImage</string>
+          <string>BrainBulwark</string>
           <string>MindBlank</string>
           <string>Foresight</string>
           <string>PowerWordHeal</string>
@@ -643,6 +648,7 @@
           <string>Sanctuary</string>
           <string>ColorBurst</string>
           <string>SpellWeb</string>
+          <string>BrainBulwark</string>
         </ArrayOfString>
       </value>
     </item>
@@ -699,6 +705,7 @@
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
           <string>WinterBreath</string>
+          <string>BrainBulwark</string>
           <string>FarStep</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>
@@ -725,6 +732,7 @@
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpiritShroud</string>
+          <string>BrainBulwark</string>
           <string>FarStep</string>
           <string>PowerWordKill</string>
         </ArrayOfString>
@@ -757,6 +765,7 @@
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>FindFamiliar</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
           <string>ColorBurst</string>
@@ -765,6 +774,7 @@
           <string>SpellWeb</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
+          <string>BrainBulwark</string>
           <string>FarStep</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>
@@ -928,6 +938,7 @@
   <RestockArcaneum>true</RestockArcaneum>
   <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
+  <DisableUpdateMessage>false</DisableUpdateMessage>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnablePcgRandom>true</EnablePcgRandom>
@@ -954,7 +965,6 @@
   <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
   <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
-  <AddMonkKiPointsToggle>true</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
   <AddMonsterSwapAttackToggle>true</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>1</FormationGridSelectedSet>

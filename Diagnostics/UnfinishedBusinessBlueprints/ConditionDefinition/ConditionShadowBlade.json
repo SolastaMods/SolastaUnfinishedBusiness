@@ -4,7 +4,6 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
     "Definition:CombatAffinityShadowBlade:af98c62e-f92d-53ef-b65f-ae5baaae14ad"
   ],
   "allowMultipleInstances": false,
