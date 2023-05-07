@@ -1,6 +1,10 @@
-﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Você é atingido por dano psíquico.
+﻿Condition/&ConditionBrainBulwarkDescription=Você tem resistência a danos psíquicos, bem como imunidade às condições Encantado, Amedrontado, Medo, Mente dominada e Mente controlada.
+Condition/&ConditionBrainBulwarkTitle=Baluarte Cerebral
+Feature/&AdditionalDamageStaggeringSmiteDescription=Você é atingido por dano psíquico.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Punição Impressionante
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Smite impressionante!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} causa mais dano a {1} por meio de um golpe impressionante (+{2})
+Spell/&BrainBulwarkDescription=Pela duração, você ou uma criatura voluntária que você possa ver dentro do alcance tem resistência a dano psíquico, bem como Imunidade às condições Encantado, Amedrontado, Medo, Dominado pela Mente e controlado pela Mente.
+Spell/&BrainBulwarkTitle=Baluarte Cerebral
 Spell/&StaggeringSmiteDescription=Na próxima vez que você acertar uma criatura com um ataque de arma durante a duração desta magia, sua arma perfura corpo e mente, e o ataque causa 4d6 de dano psíquico extra ao alvo. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha no teste, ele tem desvantagem nas jogadas de ataque e testes de habilidade, e não pode realizar reações até o final de seu próximo turno.
 Spell/&StaggeringSmiteTitle=Punição Impressionante

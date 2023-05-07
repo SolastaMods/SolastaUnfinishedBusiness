@@ -977,19 +977,25 @@ internal static class Level20SubclassesContext
             ref RollOutcome saveOutcome,
             ref int saveOutcomeDelta)
         {
-            if (target is not RulesetCharacter rulesetCharacter)
+            if (target is not RulesetCharacter rulesetTarget)
             {
                 return;
             }
 
-            rulesetCharacter.RemoveAllConditionsOfCategory("ConditionTraditionOpenHandQuiveringPalm");
+            var rulesetCondition = rulesetTarget.AllConditions.FirstOrDefault(x =>
+                x.ConditionDefinition.Name == "ConditionTraditionOpenHandQuiveringPalm");
+
+            if (rulesetCondition != null)
+            {
+                rulesetTarget.RemoveCondition(rulesetCondition);
+            }
 
             if (saveOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
             {
                 return;
             }
 
-            var totalDamage = rulesetCharacter.CurrentHitPoints + rulesetCharacter.TemporaryHitPoints - 1;
+            var totalDamage = rulesetTarget.CurrentHitPoints + rulesetTarget.TemporaryHitPoints - 1;
 
             target.SustainDamage(totalDamage, "DamagePure", false, caster.Guid, null, out _);
             effectForms.SetRange(
@@ -1062,7 +1068,7 @@ internal static class Level20SubclassesContext
 
         private static bool CanMeleeAttack([NotNull] GameLocationCharacter caster, GameLocationCharacter target)
         {
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {
@@ -1114,7 +1120,7 @@ internal static class Level20SubclassesContext
                 return attacks;
             }
 
-            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackOff);
+            var attackMode = caster.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
 
             if (attackMode == null)
             {

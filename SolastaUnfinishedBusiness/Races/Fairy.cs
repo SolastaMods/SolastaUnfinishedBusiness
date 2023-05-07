@@ -37,12 +37,10 @@ internal static class FairyRaceBuilder
         var rulesetCondition = character.AllConditions.FirstOrDefault(x =>
             x.ConditionDefinition == ConditionDefinitions.ConditionFlyingAdaptive);
 
-        if (rulesetCondition == null)
+        if (rulesetCondition != null)
         {
-            return;
+            character.RemoveCondition(rulesetCondition);
         }
-
-        character.RemoveCondition(rulesetCondition);
     }
 
     [NotNull]

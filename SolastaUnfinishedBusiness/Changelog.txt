@@ -1,8 +1,13 @@
 Open Mod UI > Tools and click History for full change details:
 
-- added Find Familiar spell suggested to Wizards
-- added Retinue Touched feats [bless, heroism, enhance ability]
-- added Roguish Hoodlum's brutal assault at level 17th
-- fixed Splint Armor missing its armor definition form
-- fixed Web spell rolling strength check until success
-- fixed Way of Freedom hiding level 17 on level up GUI
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+
+- added Brain Bulwark 4th level spell by [Demonic Duck]
+- fixed a null exception with touch spells cast off combat
+- fixed Eldritch Smite only triggering on critical hits
+- fixed Patron Moonlit not loosing invisibility after attack
+- fixed Patron Soulblade hex logic to correctly behave on MP
+- fixed Way of Silhouette not loosing invisibility after attack
+- fixed Weapon Master's momentum interaction with action surge
+- changed Monk Ki Points toggle to Distant Hand Technique toggle
+- changed Monk subclasses so only Distant Hand gets above toggle

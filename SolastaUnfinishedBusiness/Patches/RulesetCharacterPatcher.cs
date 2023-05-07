@@ -1238,23 +1238,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: support Monk Ki Points Toggle
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RemainingKiPoints), MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RemainingKiPoints_Getter_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            if (Main.Settings.AddMonkKiPointsToggle &&
-                !__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
-            {
-                __result = 0;
-            }
-        }
-    }
-
     //PATCH: support adding required action affinities to classes that can use toggles
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.PostLoad))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -1267,31 +1250,6 @@ public static class RulesetCharacterPatcher
             if (__instance is not RulesetCharacterHero hero)
             {
                 return;
-            }
-
-            if (hero.ClassesHistory.Contains(Monk))
-            {
-                var tag = AttributeDefinitions.GetClassTag(Monk, 1);
-
-                switch (Main.Settings.AddMonkKiPointsToggle)
-                {
-                    case true:
-                        if (!hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
-                        {
-                            hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
-                            hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-                        }
-
-                        break;
-                    case false:
-                        if (hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
-                        {
-                            hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
-                        }
-
-                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-                        break;
-                }
             }
 
             if (hero.ClassesHistory.Contains(Paladin))

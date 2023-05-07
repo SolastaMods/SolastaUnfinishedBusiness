@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -136,6 +137,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddToDB();
 
         featureMomentum.SetCustomSubFeatures(new TargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
+        DatabaseHelper.ActionDefinitions.ActionSurge.SetCustomSubFeatures(new ActionFinishedActionSurge());
 
         // LEVEL 10
 
@@ -401,6 +403,20 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+    }
+
+    private sealed class ActionFinishedActionSurge : IActionFinished
+    {
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.ActionSurge)
+            {
+                yield break;
+            }
+
+            characterAction.ActingCharacter.RulesetCharacter
+                .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, $"Condition{Name}Momentum");
         }
     }
 
