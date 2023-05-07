@@ -137,7 +137,6 @@ internal static partial class SpellBuilders
                 Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetParticleEffectParameters(DivineFavor)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Minute, 1)
