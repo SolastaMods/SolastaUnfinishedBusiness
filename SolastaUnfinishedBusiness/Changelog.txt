@@ -4,3 +4,4 @@ Open Mod UI > Tools and click History for full change details:
 - changed Shadow Blade spell to only grant advantage if target is not on bright light
 - fixed Crusader's Mantle spell preventing hero movement or input
 - fixed Patron Soulblade's hex to also trigger on magical attacks
+- tweaked Reflexive Party, Quivering Palm, Physical Perfection, and Purity of Light
