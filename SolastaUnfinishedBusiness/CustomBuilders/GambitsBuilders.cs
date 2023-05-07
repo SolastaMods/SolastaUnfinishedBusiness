@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -874,7 +875,13 @@ internal static class GambitsBuilders
                 rulesetCharacter.UsePower(UsablePowersProvider.Get(pool, rulesetCharacter));
             }
 
-            rulesetCharacter.RemoveAllConditionsOfCategory(condition.Name);
+            var rulesetCondition =
+                rulesetCharacter.AllConditions.FirstOrDefault(x => x.ConditionDefinition == condition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetCharacter.RemoveCondition(rulesetCondition);
+            }
         }
     }
 

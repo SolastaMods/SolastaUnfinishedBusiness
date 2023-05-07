@@ -4,18 +4,22 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureInvisibilityEveryRound:bf67a74c-489f-5f20-b471-5c29cbaadef6"
+    "Definition:ConditionAffinityFrightenedFearImmunity:9611f8c570eb8344bbba73c40351a17d",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityMindControlledImmunity:2f69cc55a85055743810ccf48cdd55df",
+    "Definition:ConditionAffinityMindDominatedImmunity:d611fc277b51e114ba4de9bad1c4a577",
+    "Definition:DamageAffinityPsychicResistance:6bcf228fbe370f34fa7cf0d8420998eb"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -86,7 +90,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,13 +132,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Condition/&ConditionBrainBulwarkTitle",
+    "description": "Condition/&ConditionBrainBulwarkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8f1fecc4-ea18-53c2-8cef-63c365b2b5ad",
+  "guid": "99bec5f8-34c8-5de6-b05b-d9892740e21e",
   "contentPack": 9999,
-  "name": "ConditionInvisibilityEveryRound"
+  "name": "ConditionBrainBulwark"
 }

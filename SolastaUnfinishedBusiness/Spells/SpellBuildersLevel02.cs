@@ -15,6 +15,8 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Color Burst
+
     internal static SpellDefinition BuildColorBurst()
     {
         const string NAME = "ColorBurst";
@@ -26,13 +28,15 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
         return spell;
     }
+
+    #endregion
 
     #region Mirror Image
 

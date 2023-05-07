@@ -8,6 +8,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityMonkKiPointsToggle:24119a53-4162-52ce-977c-2ca89ed88c28",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureWayOfTheDistantHandCombat:e5d6e488-9bba-5766-b298-4f26d4723f09",
       "level": 3
     },

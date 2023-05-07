@@ -3,7 +3,6 @@ ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangr
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
-ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
@@ -198,9 +197,9 @@ ModUi/&SettingsLoad=. Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc. ]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos <color=#D89555>Channel Divinity</color> usa um herói em seu retrato, semelhante a pontos de feitiçaria
-ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário. Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>

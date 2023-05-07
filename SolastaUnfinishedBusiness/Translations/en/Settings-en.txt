@@ -3,7 +3,6 @@ ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> co
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 ft of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
-ModUi/&AddMonkKiPointsToggle=Add a toggle to allow <color=#D89555>Monks</color> to enable/disable Ki Points <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -89,7 +88,7 @@ ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to 
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
-ModUi/&EnableInventoryTintKnownRecipesRed=Tint red known recipes
+ModUi/&EnableInventoryTintKnownRecipesRed=Tint known recipes red
 ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
@@ -200,7 +199,7 @@ ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
 ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Show button that opens info about controlled monster <i><color=#F0DAA0>[wild-shaped druids, summons, NPC followers, etc.]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
-ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
+ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory <i><color=#F0DAA0>[Hovering over it will show tooltip for crafted item]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>

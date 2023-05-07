@@ -1,9 +1,9 @@
 ﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Daring Duel
-Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gain additional armor class equal to half your proficiency bonus.
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gain additional +2 AC.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Sure Footed
-Feature/&ActionAffinityRoguishDuelistGracefulTakeDownDescription=Starting at 13th level, you can use your bonus action to make a shove attempt.
-Feature/&ActionAffinityRoguishDuelistGracefulTakeDownTitle=Graceful Takedown
+Feature/&FeatureRoguishDuelistReflexiveParryDescription=Starting at 13th level, once per turn while you aren’t incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
+Feature/&FeatureRoguishDuelistReflexiveParryTitle=Reflexive Parry
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Swirling Dance
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Starting at 9th level, when a creature misses you with a melee attack roll, you can use your reaction to make an immediate attack of opportunity against that creature.
 Feature/&FeatureSetRoguishDuelistMasterDuelistDescription=Your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. Once you do so, you can't use this feature again until you finish a short or long rest.
