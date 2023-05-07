@@ -62,6 +62,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var actionAffinityReflexiveParry = FeatureDefinitionBuilder
