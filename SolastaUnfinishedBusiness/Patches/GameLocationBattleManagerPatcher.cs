@@ -803,18 +803,12 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: set critical strike global variable
             Global.CriticalHit = criticalHit;
 
-            //PATCH: support for `IOnMagicalAttackDamageEffect`
-            var features = attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>();
-
-#if false
             //call all before handlers
-
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
             {
-                yield return feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
-#endif
 
             while (values.MoveNext())
             {
@@ -822,7 +816,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //call all after handlers
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
             {
                 yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
