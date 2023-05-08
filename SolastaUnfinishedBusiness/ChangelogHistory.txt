@@ -2,7 +2,7 @@
 
 1.4.33.85:
 
-- RESPEC required for Arcane Scoundrel or Duelist at or above level 13th
+- RESPEC REQUIRED: Arcane Scoundrel [>=13th]
 
 - fixed Crusader's Mantle spell preventing hero movement
 - fixed Soulblade hex not triggering on magical attacks
@@ -14,7 +14,7 @@
 
 1.4.33.84:
 
-- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Duelist [>=13th]
 
 - added Brain Bulwark 4th level spell by [Demonic Duck]
 - fixed a null exception with touch spells cast off combat

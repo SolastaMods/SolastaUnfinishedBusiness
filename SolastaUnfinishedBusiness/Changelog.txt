@@ -1,6 +1,6 @@
 Open Mod UI > Tools and click History for full change details:
 
-- RESPEC required for Arcane Scoundrel or Duelist at or above level 13th
+- RESPEC REQUIRED: Arcane Scoundrel [>=13th]
 
 - fixed Crusader's Mantle spell preventing hero movement
 - fixed Soulblade hex not triggering on magical attacks
