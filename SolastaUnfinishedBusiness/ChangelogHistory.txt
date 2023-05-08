@@ -6,8 +6,6 @@
 
 - fixed Crusader's Mantle spell preventing hero movement
 - fixed Soulblade hex not triggering on magical attacks
-- changed Arcane Scoundrel arcane backslash at 13th, and tricks of the trade at 17th
-- changed Duelist reflexive parry at 13th
 - changed gambits to use highest of str, dex or int on saving difficult ability
 - changed Shadow Blade spell to only grant adv if target is not on bright light
 - tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
