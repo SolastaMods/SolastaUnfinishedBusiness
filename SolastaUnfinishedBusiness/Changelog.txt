@@ -1,8 +1,8 @@
 Open Mod UI > Tools and click History for full change details:
 
 - changed gambits to use highest of str, dex or int on saving difficult ability
-- changed Shadow Blade spell to only grant advantage if target is not on bright light
-- fixed Crusader's Mantle spell preventing hero movement or input
-- fixed Patron Soulblade's hex to also trigger on magical attacks
-- tweaked Arcane Scoundrel's arcane backslash at 13th
-- tweaked Reflexive Party, Quivering Palm, Physical Perfection, and Purity of Light
+- changed Shadow Blade spell to only grant adv if target is not on bright light
+- fixed Crusader's Mantle spell preventing hero movement
+- fixed Patron Soulblade hex not triggering on magical attacks
+- tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
+- tweaked Rogue subclasses arcane backslash, and reflexive parry at 13th
