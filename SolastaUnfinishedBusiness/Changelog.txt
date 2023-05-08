@@ -2,6 +2,7 @@ Open Mod UI > Tools and click History for full change details:
 
 - RESPEC REQUIRED: Arcane Scoundrel [>=13th]
 
+- included campaign assets on DM Pro sorting option
 - fixed Crusader's Mantle spell preventing hero movement
 - fixed Soulblade hex not triggering on magical attacks
 - changed gambits to use highest of str, dex or int on saving difficult ability
