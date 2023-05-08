@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "None",
+  "saveDCModifierType": "FlatValue",
   "saveDCModifier": 0,
   "spellAttackModifierType": "None",
   "spellAttackModifier": 0,
@@ -19,7 +19,7 @@
   "somaticWithWeaponOrShield": true,
   "somaticWithWeapon": true,
   "canUseProficientWeaponAsFocus": true,
-  "rangeSpellNoProximityPenalty": false,
+  "rangeSpellNoProximityPenalty": true,
   "targetSelfOverride": null,
   "usesWarList": false,
   "warListSlotBonus": 1,
@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityCasterFightingCombatMagicTitle",
-    "description": "Feature/&MagicAffinityCasterFightingCombatMagicDescription",
+    "title": "Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle",
+    "description": "Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d97ab358-d6a2-5b95-909f-e18f70293ad3",
+  "guid": "6f9e66ea-9b90-56c3-943c-41ee1409f8cf",
   "contentPack": 9999,
-  "name": "MagicAffinityCasterFightingCombatMagic"
+  "name": "MagicAffinityCasterFightingCombatMagicImproved"
 }

@@ -330,7 +330,7 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
@@ -444,13 +444,17 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
+                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -469,6 +473,7 @@ internal static class GambitsBuilders
                                     //Lasts until the end of the target's turn
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB());
