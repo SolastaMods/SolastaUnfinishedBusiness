@@ -517,6 +517,21 @@ Your expert training with ranged weapons grants you these benefits:
 
 Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 
+# Retinue Touched [Cha]
+
+Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.
+
+# Retinue Touched [Int]
+
+Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.
+
+# Retinue Touched [Wis]
+
+Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast the bless, heroism and enhance ability spells once per long rest and you can cast these spells with your spell slots.
+
 # Revenant Great Sword [Dex]
 
 You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
