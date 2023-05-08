@@ -23,13 +23,28 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishArcaneScoundrelArcaneBackslashCounterSpell:2c1486dd-6cf0-593d-8ec8-99eab7a261a4",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsRoguishArcaneScoundrelArcaneBackslash:6d19223d-761e-504f-99c4-1eb9a7d733d4",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerRoguishArcaneScoundrelGambit:cbfb9089-77ff-50c1-8428-c4c02c6149ab",
+      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot3:d89af5f3-7437-5383-8e95-f549b4921b60",
       "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ReduceDamageRoguishArcaneScoundrelTricksOfTheTrade:e9febc0f-b6c7-5827-b245-8f26af196a20",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot4:9de9c0f9-8fb9-5f44-bf2c-6faf20d07010",
+      "level": 19
     }
   ],
   "personalityFlagOccurences": [],

@@ -1,6 +1,10 @@
 Open Mod UI > Tools and click History for full change details:
 
-- allowed gambits to use highest of str, dex or int on saving difficult ability
-- changed Shadow Blade spell to only grant advantage if target is not on bright light
-- fixed Crusader's Mantle spell preventing hero movement or input
-- fixed Patron Soulblade's hex to also trigger on magical attacks
+- RESPEC REQUIRED: Arcane Scoundrel [>=13th]
+
+- included campaign assets on DM Pro sorting option
+- fixed Crusader's Mantle spell preventing hero movement
+- fixed Soulblade hex not triggering on magical attacks
+- changed gambits to use highest of str, dex or int on saving difficult ability
+- changed Shadow Blade spell to only grant adv if target is not on bright light
+- tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th

@@ -127,7 +127,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
                     saveOccurence = TurnOccurenceType.EndOfTurn,
                     saveAffinity = EffectSavingThrowType.Negates
                 })
-            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrike())
+            .SetCustomSubFeatures(new CustomCodeImprovedDisablingStrike(additionalDamageDisablingStrike))
             .AddToDB();
 
         //
@@ -179,11 +179,18 @@ internal sealed class RangerSurvivalist : AbstractSubclass
 
     private sealed class CustomCodeImprovedDisablingStrike : IFeatureDefinitionCustomCode
     {
+        private readonly FeatureDefinitionAdditionalDamage _additionalDamageDisablingStrike;
+
+        public CustomCodeImprovedDisablingStrike(FeatureDefinitionAdditionalDamage additionalDamageDisablingStrike)
+        {
+            _additionalDamageDisablingStrike = additionalDamageDisablingStrike;
+        }
+
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
-                featureDefinitions.RemoveAll(x => x.Name == $"AdditionalDamage{Name}DisablingStrike");
+                featureDefinitions.RemoveAll(x => x == _additionalDamageDisablingStrike);
             }
         }
 

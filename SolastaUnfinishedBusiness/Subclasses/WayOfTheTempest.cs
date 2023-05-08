@@ -94,7 +94,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // LEVEL 11
 
-        // Tempest’s Fury
+        // Tempest's Fury
 
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
