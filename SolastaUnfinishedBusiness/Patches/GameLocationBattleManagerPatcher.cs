@@ -574,24 +574,6 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     }
 
-                    // Can I reduce the damage by half with Uncanny Dodge? (i.e.: Arcane Scoundrel)
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
-                    {
-                        if (!canReact)
-                        {
-                            continue;
-                        }
-
-                        yield return __instance.PrepareAndReact(
-                            defender,
-                            attacker,
-                            attacker,
-                            ActionDefinitions.Id.UncannyDodge,
-                            attackModifier);
-
-                        break;
-                    }
-
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
@@ -611,6 +593,8 @@ public static class GameLocationBattleManagerPatcher
                     case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
                         break;
