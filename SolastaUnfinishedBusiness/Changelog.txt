@@ -8,3 +8,4 @@ Open Mod UI > Tools and click History for full change details:
 - changed gambits to use highest of str, dex or int on saving difficult ability
 - changed Shadow Blade spell to only grant adv if target is not on bright light
 - tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
+- ungrouped Ape, Black Bear, Brown Bear, Deep Spider and Giant Eagle WS attacks

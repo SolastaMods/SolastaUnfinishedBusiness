@@ -99,6 +99,7 @@ internal static class SrdAndHouseRulesContext
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        UngroupWildshapeAttacks();
     }
 
     internal static void LateLoad()
@@ -616,6 +617,15 @@ internal static class SrdAndHouseRulesContext
         //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
+    }
+
+    private static void UngroupWildshapeAttacks()
+    {
+        WildShapeApe.groupAttacks = false;
+        WildshapeBlackBear.groupAttacks = false;
+        WildShapeBrownBear.groupAttacks = false;
+        WildshapeDeepSpider.groupAttacks = false;
+        WildShapeGiant_Eagle.groupAttacks = false;
     }
 
     // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
