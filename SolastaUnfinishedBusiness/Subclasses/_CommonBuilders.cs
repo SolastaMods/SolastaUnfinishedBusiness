@@ -69,6 +69,14 @@ internal static class CommonBuilders
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionMagicAffinity MagicAffinityCasterFightingCombatMagicImproved =
+        FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityCasterFightingCombatMagicImproved")
+            .SetGuiPresentation(Category.Feature)
+            .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+            .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
