@@ -814,27 +814,27 @@ internal static class GambitsBuilders
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
+            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                return effectDescription;
+            }
+
+            var proficiencyBonus = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
             var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
             var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var strDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
+            var dexDC = ComputeAbilityScoreBasedDC(dexterity, proficiencyBonus);
+            var intDC = ComputeAbilityScoreBasedDC(intelligence, proficiencyBonus);
+            var saveDC = Math.Max(intDC, Math.Max(strDC, dexDC));
 
-            if (strength >= dexterity && strength >= intelligence)
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Strength;
-            }
-            else if (dexterity >= strength && dexterity >= intelligence)
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Dexterity;
-            }
-            else
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-            }
+            rulesetEffectPower.usablePower.saveDC = saveDC;
 
-            return effect;
+            return effectDescription;
         }
     }
 
