@@ -103,12 +103,19 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         // LEVEL 13
         //
 
-        var conditionArcaneBackslash = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ArcaneBackslash")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.UntilShortRest)
-            .AddFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3)
+        var autoPreparedSpellsArcaneBackslash = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create($"AutoPreparedSpells{Name}ArcaneBackslash")
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Roguish")
+            .SetPreparedSpellGroups(BuildSpellGroup(13, Counterspell))
+            .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
+            .AddToDB();
+
+        var powerArcaneBackslashCounterSpell = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ArcaneBackslashCounterSpell")
+            .SetGuiPresentation(Counterspell.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetEffectDescription(Counterspell.EffectDescription)
             .AddToDB();
 
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
@@ -130,15 +137,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ActionFinishedCounterSpell(powerArcaneBacklash, conditionArcaneBackslash, conditionDistractingAmbush));
-
-        var autoPreparedSpellsArcaneBackslash = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create($"AutoPreparedSpells{Name}ArcaneBackslash")
-            .SetGuiPresentation("ExpandedSpells", Category.Feature)
-            .SetAutoTag("Roguish")
-            .SetPreparedSpellGroups(BuildSpellGroup(13, Counterspell))
-            .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
-            .AddToDB();
+            new ActionFinishedCounterSpell(
+                powerArcaneBacklash,
+                powerArcaneBackslashCounterSpell,
+                conditionDistractingAmbush));
 
         //
         // LEVEL 17
@@ -165,7 +167,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 additionalDamageDistractingAmbush)
             .AddFeaturesAtLevel(13,
                 autoPreparedSpellsArcaneBackslash,
-                powerArcaneBacklash)
+                powerArcaneBacklash,
+                powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
                 powerGambit)
             .AddToDB();
@@ -179,62 +182,44 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+
     private sealed class ActionFinishedCounterSpell : IActionFinished
     {
-        private readonly ConditionDefinition _conditionArcaneBacklash;
         private readonly ConditionDefinition _conditionDistractingAmbush;
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly FeatureDefinitionPower _powerArcaneBackslash;
+        private readonly FeatureDefinitionPower _powerCounterSpell;
 
         public ActionFinishedCounterSpell(
-            FeatureDefinitionPower featureDefinitionPower,
-            ConditionDefinition conditionArcaneBacklash,
+            FeatureDefinitionPower powerArcaneBackslash,
+            FeatureDefinitionPower powerCounterSpell,
             ConditionDefinition conditionDistractingAmbush)
         {
-            _featureDefinitionPower = featureDefinitionPower;
-            _conditionArcaneBacklash = conditionArcaneBacklash;
+            _powerArcaneBackslash = powerArcaneBackslash;
+            _powerCounterSpell = powerCounterSpell;
             _conditionDistractingAmbush = conditionDistractingAmbush;
         }
 
         public IEnumerator OnActionFinished(CharacterAction action)
         {
-            if (action is not CharacterActionCastSpell characterActionCastSpell ||
-                characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell)
+            if ((action is not CharacterActionCastSpell characterActionCastSpell ||
+                 characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
+                 !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
+                (action is not CharacterActionSpendPower characterActionSpendPower ||
+                 characterActionSpendPower.activePower.PowerDefinition != _powerCounterSpell ||
+                 !characterActionSpendPower.ActionParams.TargetAction.Countered))
             {
                 yield break;
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionArcaneBacklash.Name))
-            {
-                rulesetCharacter.InflictCondition(
-                    _conditionArcaneBacklash.Name,
-                    _conditionArcaneBacklash.DurationType,
-                    _conditionArcaneBacklash.DurationParameter,
-                    _conditionArcaneBacklash.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
-
-            if (!characterActionCastSpell.ActionParams.TargetAction.Countered)
-            {
-                yield break;
-            }
-
-            var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetCharacter);
+            var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
 
-                GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _featureDefinitionPower);
+                GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _powerArcaneBackslash);
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationCharacter.LocationPosition);
                 rulesetDefender.InflictCondition(
                     _conditionDistractingAmbush.Name,
