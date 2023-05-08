@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishArcaneScoundrelArcaneBackslashCounterSpell:2c1486dd-6cf0-593d-8ec8-99eab7a261a4",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsRoguishArcaneScoundrelArcaneBackslash:6d19223d-761e-504f-99c4-1eb9a7d733d4",
       "level": 13
     },

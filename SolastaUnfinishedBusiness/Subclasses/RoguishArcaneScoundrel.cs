@@ -116,6 +116,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetGuiPresentation(Counterspell.GuiPresentation)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetEffectDescription(Counterspell.EffectDescription)
+            .SetCustomSubFeatures(new ModifyMagicEffectArcaneBackslashCounterSpell())
             .AddToDB();
 
         var powerArcaneBacklash = FeatureDefinitionPowerBuilder
@@ -182,6 +183,25 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    private sealed class ModifyMagicEffectArcaneBackslashCounterSpell : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter character)
+        {
+            var level = character.GetClassLevel(CharacterClassDefinitions.Rogue);
+
+            if (level < 19)
+            {
+                return effect;
+            }
+
+            effect.effectForms[0].CounterForm.automaticSpellLevel = 4;
+
+            return effect;
+        }
+    }
 
     private sealed class ActionFinishedCounterSpell : IActionFinished
     {
