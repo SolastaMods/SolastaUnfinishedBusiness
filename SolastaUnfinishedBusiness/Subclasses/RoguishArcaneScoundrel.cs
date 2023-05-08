@@ -198,19 +198,20 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var level = character.GetClassLevel(CharacterClassDefinitions.Rogue);
 
             if (level < 19)
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.effectForms[0].CounterForm.automaticSpellLevel = 4;
+            effectDescription.effectForms[0].CounterForm.automaticSpellLevel = 4;
 
-            return effect;
+            return effectDescription;
         }
     }
 

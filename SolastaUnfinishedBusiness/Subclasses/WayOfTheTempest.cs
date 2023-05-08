@@ -274,14 +274,15 @@ internal sealed class WayOfTheTempest : AbstractSubclass
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            var damage = effect.FindFirstDamageForm();
+            var damage = effectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
-                return effect;
+                return effectDescription;
             }
 
             var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
@@ -295,7 +296,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             damage.dieType = dieType;
 
-            return effect;
+            return effectDescription;
         }
     }
 
