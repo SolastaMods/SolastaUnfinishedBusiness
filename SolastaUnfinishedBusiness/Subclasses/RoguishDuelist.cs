@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -18,7 +17,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishDuelist : AbstractSubclass
 {
-    private const string Name = "RoguishDuelist";
+    internal const string Name = "RoguishDuelist";
+    internal const string ConditionReflexiveParry = $"Condition{Name}ReflexiveParry";
     private const string SureFooted = "SureFooted";
     private const string MasterDuelist = "MasterDuelist";
 
@@ -58,7 +58,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         var conditionReflexiveParry = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ReflexiveParry")
+            .Create(ConditionReflexiveParry)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
@@ -72,9 +72,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         actionAffinityReflexiveParry.SetCustomSubFeatures(
             new PhysicalAttackBeforeHitConfirmedReflexiveParty(actionAffinityReflexiveParry, conditionReflexiveParry));
-
-        FeatureDefinitionActionAffinitys.ActionAffinityUncannyDodge.SetCustomSubFeatures(
-            new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAnyOfConditions(conditionReflexiveParry.Name)));
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")

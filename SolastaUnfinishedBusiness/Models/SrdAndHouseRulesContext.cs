@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -90,6 +91,21 @@ internal static class SrdAndHouseRulesContext
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
+
+        //BUGFIX: add an effect to Counterspell
+        Counterspell.EffectDescription.effectParticleParameters =
+            DreadfulOmen.EffectDescription.effectParticleParameters;
+
+        //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
+        static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
+        {
+            // this allows Reflexive Party to trigger without Uncanny Dodge which can be triggered after that
+            return character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
+                                conditions.Any(character.HasConditionOfType);
+        }
+
+        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+            IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
 
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
