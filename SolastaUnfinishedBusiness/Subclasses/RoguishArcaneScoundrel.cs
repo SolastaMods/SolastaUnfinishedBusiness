@@ -47,6 +47,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
             .AddToDB();
 
+        var magicAffinityGuilefulCasting = FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{Name}GuilefulCasting")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, false, true)
+            .AddToDB();
+
         //
         // LEVEL 9
         //
@@ -137,7 +143,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ActionFinishedCounterSpell(
+            new ActionFinishedArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
                 conditionDistractingAmbush));
@@ -145,12 +151,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         //
         // LEVEL 17
         //
-
-        var reduceDamageScoundrelGambit = FeatureDefinitionReduceDamageBuilder
-            .Create($"ReduceDamage{Name}TricksOfTheTrade")
-            .SetGuiPresentation(Category.Feature)
-            .SetUncannyDodge()
-            .AddToDB();
 
         var featureSetPremeditationSlot3 = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PremeditationSlot3")
@@ -171,6 +171,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 Sprites.GetSprite("ArcaneScoundrel", Resources.RoguishArcaneScoundrel, 256))
             .AddFeaturesAtLevel(3,
                 castSpell,
+                magicAffinityGuilefulCasting,
                 proficiencyCraftyArcana)
             .AddFeaturesAtLevel(9,
                 additionalDamageDistractingAmbush)
@@ -179,7 +180,6 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
-                reduceDamageScoundrelGambit,
                 featureSetPremeditationSlot3)
             .AddFeaturesAtLevel(19,
                 featureSetPremeditationSlot4)
@@ -214,13 +214,13 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedCounterSpell : IActionFinished
+    private sealed class ActionFinishedArcaneBackslash : IActionFinished
     {
         private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
-        public ActionFinishedCounterSpell(
+        public ActionFinishedArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
             FeatureDefinitionPower powerCounterSpell,
             ConditionDefinition conditionDistractingAmbush)
@@ -235,9 +235,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
                  !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
-                (action is not CharacterActionSpendPower characterActionSpendPower ||
-                 characterActionSpendPower.activePower.PowerDefinition != _powerCounterSpell ||
-                 !characterActionSpendPower.ActionParams.TargetAction.Countered))
+                (action is not CharacterActionUsePower characterActionUsePower ||
+                 characterActionUsePower.activePower.PowerDefinition != _powerCounterSpell ||
+                 !characterActionUsePower.ActionParams.TargetAction.Countered))
             {
                 yield break;
             }
