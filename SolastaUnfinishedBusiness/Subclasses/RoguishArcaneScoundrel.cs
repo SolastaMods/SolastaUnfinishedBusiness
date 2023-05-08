@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -147,14 +146,23 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         // LEVEL 17
         //
 
-        var powerGambit = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}Gambit")
-            .SetGuiPresentation(Category.Feature, SpellsContext.MirrorImage)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(SpellsContext.MirrorImage.EffectDescription)
-                    .Build())
+        var reduceDamageScoundrelGambit = FeatureDefinitionReduceDamageBuilder
+            .Create($"ReduceDamage{Name}TricksOfTheTrade")
+            .SetGuiPresentation(Category.Feature)
+            .SetUncannyDodge()
+            .AddToDB();
+
+        var featureSetPremeditationSlot3 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PremeditationSlot3")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3)
+            .AddToDB();
+
+        var featureSetPremeditationSlot4 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PremeditationSlot4")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4)
+            .SetCustomSubFeatures(new CustomCodePremeditation(featureSetPremeditationSlot3))
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -171,7 +179,10 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
-                powerGambit)
+                reduceDamageScoundrelGambit,
+                featureSetPremeditationSlot3)
+            .AddFeaturesAtLevel(19,
+                featureSetPremeditationSlot4)
             .AddToDB();
     }
 
@@ -255,6 +266,29 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                     0,
                     0);
             }
+        }
+    }
+
+    private sealed class CustomCodePremeditation : IFeatureDefinitionCustomCode
+    {
+        private readonly FeatureDefinitionFeatureSet _featureDefinitionFeatureSet;
+
+        public CustomCodePremeditation(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        {
+            _featureDefinitionFeatureSet = featureDefinitionFeatureSet;
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == _featureDefinitionFeatureSet);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // Empty
         }
     }
 }

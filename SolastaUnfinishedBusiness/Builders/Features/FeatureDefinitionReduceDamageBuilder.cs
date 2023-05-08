@@ -36,6 +36,13 @@ internal class FeatureDefinitionReduceDamageBuilder
         return this;
     }
 
+    [NotNull]
+    internal FeatureDefinitionReduceDamageBuilder SetUncannyDodge()
+    {
+        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget;
+        return this;
+    }
+
 #if false
     [NotNull]
     internal FeatureDefinitionReduceDamageBuilder SetSourceName(string sourceName)
