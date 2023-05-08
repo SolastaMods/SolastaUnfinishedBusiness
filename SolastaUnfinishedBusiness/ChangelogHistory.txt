@@ -2,12 +2,15 @@
 
 1.4.33.85:
 
+- RESPEC required for Arcane Scoundrel or Duelist at or above level 13th
+
+- fixed Crusader's Mantle spell preventing hero movement
+- fixed Soulblade hex not triggering on magical attacks
+- changed Arcane Scoundrel arcane backslash at 13th, and tricks of the trade at 17th
+- changed Duelist reflexive parry at 13th
 - changed gambits to use highest of str, dex or int on saving difficult ability
 - changed Shadow Blade spell to only grant adv if target is not on bright light
-- fixed Crusader's Mantle spell preventing hero movement
-- fixed Patron Soulblade hex not triggering on magical attacks
 - tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
-- tweaked Rogue subclasses arcane backslash, and reflexive parry at 13th
 
 1.4.33.84:
 
