@@ -322,7 +322,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)

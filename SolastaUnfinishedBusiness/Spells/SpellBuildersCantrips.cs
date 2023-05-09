@@ -46,7 +46,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -468,7 +468,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetIgnoreCover()
                 .SetEffectAdvancement( //this is needed for tooltip
                     EffectIncrementMethod.CasterLevelTable,
