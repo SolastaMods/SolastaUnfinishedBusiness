@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -6,11 +7,13 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -45,6 +48,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"Proficiency{Name}Arcana")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Arcana)
+            .AddToDB();
+
+        var magicAffinityGuilefulCasting = FeatureDefinitionMagicAffinityBuilder
+            .Create($"MagicAffinity{Name}GuilefulCasting")
+            .SetGuiPresentation(Category.Feature)
+            .SetHandsFullCastingModifiers(true, false, true)
             .AddToDB();
 
         //
@@ -137,7 +146,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ActionFinishedCounterSpell(
+            new ActionFinishedArcaneBackslash(
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell,
                 conditionDistractingAmbush));
@@ -146,23 +155,59 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         // LEVEL 17
         //
 
-        var reduceDamageScoundrelGambit = FeatureDefinitionReduceDamageBuilder
-            .Create($"ReduceDamage{Name}TricksOfTheTrade")
+        const string POWER_ESSENCE_THEFT = $"Power{Name}EssenceTheft";
+
+        static bool CanUseEssenceTheft(RulesetCharacter character)
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (gameLocationCharacter == null)
+            {
+                return false;
+            }
+
+            return gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name) &&
+                   !gameLocationCharacter.UsedSpecialFeatures.ContainsKey(POWER_ESSENCE_THEFT);
+        }
+
+        var powerEssenceTheft = FeatureDefinitionPowerBuilder
+            .Create(POWER_ESSENCE_THEFT)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 2, 19)
+                            .SetDamageForm(DamageTypeForce, 4, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDistractingAmbush, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerEssenceTheft.SetCustomSubFeatures(
+            new ValidatorsPowerUse(CanUseEssenceTheft),
+            new ActionFinishedEssenceTheft(powerEssenceTheft));
+
+        var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TricksOfTheTrade")
             .SetGuiPresentation(Category.Feature)
-            .SetUncannyDodge()
+            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3, powerEssenceTheft)
             .AddToDB();
 
-        var featureSetPremeditationSlot3 = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PremeditationSlot3")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3)
-            .AddToDB();
-
-        var featureSetPremeditationSlot4 = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PremeditationSlot4")
+        var featureSetPremeditationSlot = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4)
-            .SetCustomSubFeatures(new CustomCodePremeditation(featureSetPremeditationSlot3))
+            .SetCustomSubFeatures(new CustomCodePremeditationSlot4())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -171,6 +216,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 Sprites.GetSprite("ArcaneScoundrel", Resources.RoguishArcaneScoundrel, 256))
             .AddFeaturesAtLevel(3,
                 castSpell,
+                magicAffinityGuilefulCasting,
                 proficiencyCraftyArcana)
             .AddFeaturesAtLevel(9,
                 additionalDamageDistractingAmbush)
@@ -179,10 +225,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
-                reduceDamageScoundrelGambit,
-                featureSetPremeditationSlot3)
+                featureSetTricksOfTheTrade)
             .AddFeaturesAtLevel(19,
-                featureSetPremeditationSlot4)
+                featureSetPremeditationSlot)
             .AddToDB();
     }
 
@@ -198,29 +243,30 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var level = character.GetClassLevel(CharacterClassDefinitions.Rogue);
 
             if (level < 19)
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.effectForms[0].CounterForm.automaticSpellLevel = 4;
+            effectDescription.effectForms[0].CounterForm.automaticSpellLevel = 4;
 
-            return effect;
+            return effectDescription;
         }
     }
 
-    private sealed class ActionFinishedCounterSpell : IActionFinished
+    private sealed class ActionFinishedArcaneBackslash : IActionFinished
     {
         private readonly ConditionDefinition _conditionDistractingAmbush;
         private readonly FeatureDefinitionPower _powerArcaneBackslash;
         private readonly FeatureDefinitionPower _powerCounterSpell;
 
-        public ActionFinishedCounterSpell(
+        public ActionFinishedArcaneBackslash(
             FeatureDefinitionPower powerArcaneBackslash,
             FeatureDefinitionPower powerCounterSpell,
             ConditionDefinition conditionDistractingAmbush)
@@ -235,16 +281,19 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             if ((action is not CharacterActionCastSpell characterActionCastSpell ||
                  characterActionCastSpell.ActiveSpell.SpellDefinition != Counterspell ||
                  !characterActionCastSpell.ActionParams.TargetAction.Countered) &&
-                (action is not CharacterActionSpendPower characterActionSpendPower ||
-                 characterActionSpendPower.activePower.PowerDefinition != _powerCounterSpell ||
-                 !characterActionSpendPower.ActionParams.TargetAction.Countered))
+                (action is not CharacterActionUsePower characterActionUsePower ||
+                 characterActionUsePower.activePower.PowerDefinition != _powerCounterSpell ||
+                 !characterActionUsePower.ActionParams.TargetAction.Countered))
             {
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
@@ -269,20 +318,37 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodePremeditation : IFeatureDefinitionCustomCode
+    private sealed class ActionFinishedEssenceTheft : IActionFinished
     {
-        private readonly FeatureDefinitionFeatureSet _featureDefinitionFeatureSet;
+        private readonly FeatureDefinitionPower _powerEssenceTheft;
 
-        public CustomCodePremeditation(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        public ActionFinishedEssenceTheft(FeatureDefinitionPower powerEssenceTheft)
         {
-            _featureDefinitionFeatureSet = featureDefinitionFeatureSet;
+            _powerEssenceTheft = powerEssenceTheft;
         }
 
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
+        }
+    }
+
+    private sealed class CustomCodePremeditationSlot4 : IFeatureDefinitionCustomCode
+    {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
-                featureDefinitions.RemoveAll(x => x == _featureDefinitionFeatureSet);
+                featureDefinitions.RemoveAll(
+                    x => x == FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4);
             }
         }
 

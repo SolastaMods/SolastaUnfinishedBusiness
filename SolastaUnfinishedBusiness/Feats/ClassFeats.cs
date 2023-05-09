@@ -692,21 +692,22 @@ internal static class ClassFeats
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spellDefinition ||
                 !_spellListDefinition.SpellsByLevel
                     .Any(x => x.Level == 0 && x.Spells.Contains(spellDefinition)))
             {
-                return effect;
+                return effectDescription;
             }
 
-            var damage = effect.FindFirstDamageForm();
+            var damage = effectDescription.FindFirstDamageForm();
 
             if (damage == null)
             {
-                return effect;
+                return effectDescription;
             }
 
             string attribute;
@@ -729,7 +730,7 @@ internal static class ClassFeats
             }
             else
             {
-                return effect;
+                return effectDescription;
             }
 
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
@@ -738,7 +739,7 @@ internal static class ClassFeats
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
                 "Feat/&FeatPotentSpellcasterTitle", null));
 
-            return effect;
+            return effectDescription;
         }
     }
 

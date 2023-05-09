@@ -17,9 +17,10 @@ internal static class CreditsDisplay
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "Fairy, Half-elf, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, " +
-            "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, " +
-            "Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, " +
-            "Martial Royal Knight, Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Level 20, Multiclass"),
+            "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, " +
+            "Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, " +
+            "Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, Martial Royal Knight, " +
+            "Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
             "quality of life, Patron Elementalist, Patron Moonlit, Patron Riftwalker, Patron Soulblade, Martial Tactician, Way of Distant Hand, " +
@@ -28,21 +29,24 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, Wizard Arcane Fighter, Wizard Spellmaster, Martial Spell Shield"),
         ("HiddenHax",
-            "homebrew content design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath, Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
+            "homebrew design [Circle of the Eternal Grove, Path of the Elemental Fury, Path of the Reaver, Path of the Savagery, Oath of Dread, " +
+            "Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, Sorcerous Field Manipulator, Sorcerous Forceblade, Sorcerous Sorr-Akkath," +
+            "Martial Weapon Master, Way of the Discordance, Way of the Dragon, Way of the Tempest]"),
         ("Haxermn", "spells, Domain Defiler, Domain Smith, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("Nd", "College of Harlequin, College of Wardancer, Martial Marshal, Roguish Opportunist, Roguish Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
-        ("RedOrca", "Path of the Light"),
+        ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
+        ("RedOrca", "Path of the Light"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Holic75", "spells, Bolgrif"),
-        ("Taco", "homebrew content design [Roguish Acrobat, Defiler Domain, Oath of Altruism], custom icons"),
-        ("DubhHerder", "quality of life, spells, homebrew content design [Elementalist, Moonlit, Riftwalker]"),
-        ("Stuffies12", "homebrew content design [Ranger Hellwalker, Ranger Lightbearer]"),
-        ("Narria", "modKit, mod UI improvements, Party Editor"),
-        ("Pikachar2", "spells")
+        ("Taco",
+            "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
+        ("DubhHerder",
+            "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
+        ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

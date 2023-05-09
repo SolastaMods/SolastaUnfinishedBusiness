@@ -111,7 +111,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var effectDescriptionHex = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)

@@ -24,7 +24,7 @@ internal enum ExtraSituationalContext
     IsNotInBrightLight = 1008,
     IsRagingAndDualWielding = 1009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
-    TargetIsNotInBrightLight = 1011,
+    TargetIsNotInBrightLight = 1011
 }
 
 #if false

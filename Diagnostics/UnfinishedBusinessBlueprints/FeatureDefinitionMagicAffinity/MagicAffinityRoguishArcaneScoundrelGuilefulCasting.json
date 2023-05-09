@@ -7,7 +7,7 @@
   "spellAttackModifier": 0,
   "spellImmunities": [],
   "maxSpellLevelImmunity": -1,
-  "concentrationAffinity": "Advantage",
+  "concentrationAffinity": "None",
   "overConcentrationThreshold": -1,
   "castingAffinity": "Normal",
   "spellcastingSuccessDC": 10,
@@ -16,7 +16,7 @@
   "forcedSavingThrowAffinity": "None",
   "forcedSpellDefinition": null,
   "impairedSpeech": false,
-  "somaticWithWeaponOrShield": true,
+  "somaticWithWeaponOrShield": false,
   "somaticWithWeapon": true,
   "canUseProficientWeaponAsFocus": true,
   "rangeSpellNoProximityPenalty": false,
@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityCasterFightingCombatMagicTitle",
-    "description": "Feature/&MagicAffinityCasterFightingCombatMagicDescription",
+    "title": "Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingTitle",
+    "description": "Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d97ab358-d6a2-5b95-909f-e18f70293ad3",
+  "guid": "f527511d-da26-5e82-bb1b-1385d658650e",
   "contentPack": 9999,
-  "name": "MagicAffinityCasterFightingCombatMagic"
+  "name": "MagicAffinityRoguishArcaneScoundrelGuilefulCasting"
 }

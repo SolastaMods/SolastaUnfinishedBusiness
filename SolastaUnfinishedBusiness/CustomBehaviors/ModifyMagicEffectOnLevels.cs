@@ -18,8 +18,11 @@ public class ModifyMagicEffectOnLevels : IModifyMagicEffect
     // {
     // }
 
-    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-        RulesetCharacter character)
+    public EffectDescription ModifyEffect(
+        BaseDefinition definition,
+        EffectDescription effectDescription,
+        RulesetCharacter character,
+        RulesetEffect rulesetEffect)
     {
         var level = string.IsNullOrEmpty(className)
             ? character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel)
@@ -29,10 +32,10 @@ public class ModifyMagicEffectOnLevels : IModifyMagicEffect
         {
             if (level >= from)
             {
-                effect = upgrade;
+                effectDescription = upgrade;
             }
         }
 
-        return effect;
+        return effectDescription;
     }
 }

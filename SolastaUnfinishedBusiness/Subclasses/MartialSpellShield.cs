@@ -83,7 +83,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("MartialSpellShield", Resources.MartialSpellShield, 256))
             .AddFeaturesAtLevel(3,
-                MagicAffinityCasterFightingCombatMagic,
+                MagicAffinityCasterFightingCombatMagicImproved,
                 castSpellSpellShield)
             .AddFeaturesAtLevel(7,
                 PowerCasterFightingWarMagic,

@@ -6,7 +6,7 @@
     "rangeParameter": 2,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Individuals",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,

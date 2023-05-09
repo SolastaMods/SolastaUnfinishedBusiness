@@ -322,7 +322,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
@@ -428,9 +428,10 @@ internal static class Level20SubclassesContext
                             .Build())
                     .Build())
             .SetOverriddenPower(PowerTraditionSurvivalUnbreakableBody)
-            .SetCustomSubFeatures(
-                new SourceReducedToZeroHpPhysicalPerfection())
             .AddToDB();
+
+        powerTraditionSurvivalPhysicalPerfection.SetCustomSubFeatures(
+            new SourceReducedToZeroHpPhysicalPerfection(powerTraditionSurvivalPhysicalPerfection));
 
         TraditionSurvival.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerTraditionSurvivalPhysicalPerfection, 17));
@@ -670,6 +671,13 @@ internal static class Level20SubclassesContext
 
     private sealed class SourceReducedToZeroHpPhysicalPerfection : ISourceReducedToZeroHp
     {
+        private readonly FeatureDefinitionPower _powerPhysicalPerfection;
+
+        public SourceReducedToZeroHpPhysicalPerfection(FeatureDefinitionPower powerPhysicalPerfection)
+        {
+            _powerPhysicalPerfection = powerPhysicalPerfection;
+        }
+
         public IEnumerator HandleSourceReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter source,
@@ -704,8 +712,26 @@ internal static class Level20SubclassesContext
                 yield break;
             }
 
+            var usablePower = UsablePowersProvider.Get(_powerPhysicalPerfection, rulesetCharacter);
+            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+
             rulesetCharacter.ForceKiPointConsumption(1);
             rulesetCharacter.StabilizeAndGainHitPoints(10);
+            rulesetCharacter.InflictCondition(
+                ConditionDodging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfSourceTurn,
+                AttributeDefinitions.TagCombat,
+                attacker.Guid,
+                attacker.RulesetCharacter?.CurrentFaction.Name ?? string.Empty,
+                1,
+                null,
+                0,
+                0,
+                0);
+            effectPower.ApplyEffectOnCharacter(rulesetCharacter, true, source.LocationPosition);
+
             ServiceRepository.GetService<ICommandService>()
                 ?.ExecuteAction(new CharacterActionParams(source, ActionDefinitions.Id.StandUp), null, false);
         }

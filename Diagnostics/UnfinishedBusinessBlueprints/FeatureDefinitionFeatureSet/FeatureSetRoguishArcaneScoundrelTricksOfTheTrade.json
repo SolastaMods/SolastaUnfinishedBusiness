@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerRoguishArcaneScoundrelEssenceTheft:f8365038-906f-5e13-97db-9eeeff7d49af",
     "Definition:MagicAffinityAdditionalSpellSlot3:fc7e8317e9dcafd44a07c8712d77d31d"
   ],
   "mode": "Union",
@@ -12,9 +13,9 @@
   "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeTitle",
+    "description": "Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -34,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d89af5f3-7437-5383-8e95-f549b4921b60",
+  "guid": "20bf9821-84ef-54d4-b4c6-7830a6aebbcb",
   "contentPack": 9999,
-  "name": "FeatureSetRoguishArcaneScoundrelPremeditationSlot3"
+  "name": "FeatureSetRoguishArcaneScoundrelTricksOfTheTrade"
 }

@@ -776,15 +776,19 @@ public static class InnovationAlchemy
 
 internal sealed class AddPBToDamage : IModifyMagicEffect
 {
-    public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect, RulesetCharacter caster)
+    public EffectDescription ModifyEffect(
+        BaseDefinition definition,
+        EffectDescription effectDescription,
+        RulesetCharacter character,
+        RulesetEffect rulesetEffect)
     {
-        var damage = effect.FindFirstDamageForm();
+        var damage = effectDescription.FindFirstDamageForm();
 
         if (damage != null)
         {
-            damage.bonusDamage += caster.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            damage.bonusDamage += character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
         }
 
-        return effect;
+        return effectDescription;
     }
 }

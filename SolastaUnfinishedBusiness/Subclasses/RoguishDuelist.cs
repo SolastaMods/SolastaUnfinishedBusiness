@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
@@ -18,7 +17,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishDuelist : AbstractSubclass
 {
-    private const string Name = "RoguishDuelist";
+    internal const string Name = "RoguishDuelist";
+    internal const string ConditionReflexiveParry = $"Condition{Name}ReflexiveParry";
     private const string SureFooted = "SureFooted";
     private const string MasterDuelist = "MasterDuelist";
 
@@ -58,7 +58,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         var conditionReflexiveParry = ConditionDefinitionBuilder
-            .Create($"Condition{Name}ReflexiveParry")
+            .Create(ConditionReflexiveParry)
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
@@ -72,9 +72,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         actionAffinityReflexiveParry.SetCustomSubFeatures(
             new PhysicalAttackBeforeHitConfirmedReflexiveParty(actionAffinityReflexiveParry, conditionReflexiveParry));
-
-        FeatureDefinitionActionAffinitys.ActionAffinityUncannyDodge.SetCustomSubFeatures(
-            new ValidatorsDefinitionApplication(ValidatorsCharacter.HasAnyOfConditions(conditionReflexiveParry.Name)));
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
@@ -146,7 +143,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender.HasAnyConditionOfType(
+            if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
@@ -174,7 +171,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
             var rulesetDefender = me.RulesetCharacter;
 
-            rulesetDefender.InflictCondition(
+            rulesetDefender?.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
@@ -207,9 +204,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var character = me.RulesetCharacter;
+            var rulesetDefender = me.RulesetCharacter;
 
-            if (character == null || character.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0)
             {
                 yield break;
             }
@@ -237,7 +234,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            character.RollAttack(
+            rulesetDefender.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
@@ -254,7 +251,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
             action.AttackRollOutcome = outcome;
 
-            GameConsoleHelper.LogCharacterUsedPower(character, _power);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
         }
     }
 }

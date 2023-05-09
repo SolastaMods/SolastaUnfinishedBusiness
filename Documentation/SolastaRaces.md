@@ -25,14 +25,6 @@ Select the type of (and associated damage type) of your draconic ancestry.
 
 You can use your action to exhale destructive energy based on your draconic ancestry.
 
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
-
 
 
 
@@ -63,14 +55,6 @@ Unaffected by heavy armor penalties.
 * Move
 
 5◎
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
 
 
 
@@ -103,14 +87,6 @@ Proficient with the Perception skill.
 
 4 hours of meditation are sufficient to rest.
 
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
-
 
 
 
@@ -140,14 +116,6 @@ You have advantage on all Intelligence, Wisdom, and Charisma saving throws again
 * Move
 
 5◎
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
 
 
 
@@ -184,14 +152,6 @@ Common, Elvish, and one language of your choice
 
 6◎
 
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
-
 
 
 
@@ -221,14 +181,6 @@ When you roll a 1 on an attack roll, ability check, or saving throw, reroll and 
 * Move
 
 5◎
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
 
 
 
@@ -263,14 +215,6 @@ When you are reduced to 0 hit points but not killed outright, you drop to 1 hit 
 * Savage Attacks
 
 When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add the result to the extra damage of the critical hit
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
 
 
 
@@ -338,6 +282,10 @@ Originally born on Tirmar and brought to Solasta before the Cataclysm, <#B5D3DE>
 
 ## Level 1
 
+* Ability Score Increase
+
++1 to all ability scores
+
 * Languages
 
 Common and one language of your choice.
@@ -345,22 +293,6 @@ Common and one language of your choice.
 * Move
 
 6◎
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* 2 Bonus Feats
-
-Select 2 additional feats for your character.
-
-* Ability Score
-
-Increase two ability scores of your choice by 1 point each, or a single score by 2 points.
-
-* Bonus Skill
-
-Choose any skill
 
 
 
@@ -557,14 +489,6 @@ You have resistance to fire damage.
 * Infernal Legacy
 
 You know the Produce Flame cantrip. When you reach level 3, you can cast the Hellish Rebuke spell as a level 2 spell once with this trait, and regain the ability to do so again when you finish a long rest. When you reach level 5, you can cast the Darkness spell once with this trait, and regain the ability to do so again when you finish a long rest. Charisma is your spellcasting ability for these spells.
-
-* Help
-
-You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
-
-* Bonus Feat
-
-Select an additional feat for your character.
 
 
 

@@ -64,31 +64,37 @@ internal static class MetamagicBuilders
 
     private sealed class MetamagicAltruisticAlly : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-            RulesetCharacter character)
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            effect.rangeType = RangeType.Distance;
-            effect.rangeParameter = 6;
-            effect.targetType = TargetType.IndividualsUnique;
-            effect.targetParameter = 1;
-            effect.targetExcludeCaster = true;
+            effectDescription.rangeType = RangeType.Distance;
+            effectDescription.rangeParameter = 6;
+            effectDescription.targetType = TargetType.IndividualsUnique;
+            effectDescription.targetParameter = 1;
+            effectDescription.targetExcludeCaster = true;
 
-            return effect;
+            return effectDescription;
         }
     }
 
     private sealed class MetamagicAltruisticSelf : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
-            RulesetCharacter character)
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            effect.rangeType = RangeType.Distance;
-            effect.rangeParameter = 6;
-            effect.targetType = TargetType.IndividualsUnique;
-            effect.targetParameter = 1;
-            effect.inviteOptionalAlly = true;
+            effectDescription.rangeType = RangeType.Distance;
+            effectDescription.rangeParameter = 6;
+            effectDescription.targetType = TargetType.IndividualsUnique;
+            effectDescription.targetParameter = 1;
+            effectDescription.inviteOptionalAlly = true;
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -151,15 +157,18 @@ internal static class MetamagicBuilders
         }
 
         public EffectDescription ModifyEffect(
-            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            effect.EffectForms.Add(
+            effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(_conditionFocused, ConditionForm.ConditionOperation.Add, true)
                     .Build());
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -200,16 +209,16 @@ internal static class MetamagicBuilders
 
     private sealed class ModifyMagicEffectMetamagicPowerful : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
         {
-            foreach (var effectForm in effect.EffectForms
+            foreach (var effectForm in effectDescription.EffectForms
                          .Where(x => x.FormType == EffectForm.EffectFormType.Damage))
             {
                 effectForm.DamageForm.diceNumber += 1;
             }
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -250,12 +259,12 @@ internal static class MetamagicBuilders
 
     private sealed class ModifyMagicEffectMetamagicWidened : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition, EffectDescription effect, RulesetCharacter character)
+        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
         {
-            effect.targetParameter += 1;
+            effectDescription.targetParameter += 1;
 
-            return effect;
+            return effectDescription;
         }
     }
 
