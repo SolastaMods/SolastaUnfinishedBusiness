@@ -218,6 +218,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             //
             // Allow advantage if first round and higher initiative order vs defender
             //
+
             var battle = Gui.Battle;
 
             // always grant advantage on battle round zero
@@ -237,6 +238,12 @@ internal sealed class RoguishSlayer : AbstractSubclass
             // battle round one from here
             var gameLocationAttacker = GameLocationCharacter.GetFromActor(myself);
             var gameLocationDefender = GameLocationCharacter.GetFromActor(defender);
+
+            if (gameLocationAttacker == null || gameLocationDefender == null)
+            {
+                return;
+            }
+
             var attackerAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationAttacker);
             var defenderAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationDefender);
 
