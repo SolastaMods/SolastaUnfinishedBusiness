@@ -16,4 +16,5 @@ Feature/&PowerDomainDefilerDefileLifeDescription=Unleash a wave of necrotic ener
 Feature/&PowerDomainDefilerDefileLifeTitle=Defile Life
 Feature/&PowerDomainDefilerMarkForDeathDescription=Mark an enemy for death. They gain vulnerability to necrotic damage and must make a Charisma saving throw to negate it.
 Feature/&PowerDomainDefilerMarkForDeathTitle=Mark for Death
-Subclass/&DomainDefilerDescription=Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.Subclass/&DomainDefilerTitle=Defiler
+Subclass/&DomainDefilerDescription=Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
+Subclass/&DomainDefilerTitle=Defiler
