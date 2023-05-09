@@ -10,6 +10,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Hour",
@@ -264,8 +265,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Vulnerabilities",
-    "description": "You are vulnerable to Bludgeoning and Piercing damage",
+    "title": "Rules/&ConditionVulnerableTitle",
+    "description": "Rules/&ConditionVulnerableDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",

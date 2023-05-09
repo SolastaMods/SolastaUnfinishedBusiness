@@ -1,6 +1,8 @@
 {
   "$type": "LocationDefinition, Assembly-CSharp",
   "isUserLocation": false,
+  "isRandomEncounter": true,
+  "dungeonMakerPresence": true,
   "alwaysHidden": false,
   "registeredFactions": [],
   "registeredVariables": [],
@@ -185,8 +187,8 @@
     "unchartedDescription": "Feature/&Emptystring",
     "knownTitle": "Feature/&Emptystring",
     "knownDescription": "Feature/&Emptystring",
-    "exploredTitle": "Map/&Encounter_Jungle_Road_Title",
-    "exploredDescription": "Map/&Encounter_Jungle_Road_Description"
+    "exploredTitle": "LocationType/&Encounter_Jungle_Road_Title",
+    "exploredDescription": "LocationType/&Encounter_Jungle_Road_Description"
   },
   "challengeRating": -1,
   "focusWhenRevealed": false,
@@ -201,6 +203,9 @@
   "forceNoEncounterPrespawn": false,
   "disableTerrainShadows": true,
   "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

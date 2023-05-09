@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -348,6 +349,8 @@
   "useAnimationTag": true,
   "animationTag": "Javelin",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -385,10 +388,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Web_Spider",
-        "id": 1494289755,
-        "guid": "0FE50378-3CA6-417A-8612-700450483A21",
-        "name": "0FE50378-3CA6-417A-8612-700450483A21"
+        "objectName": "Spell",
+        "id": 523506649,
+        "guid": "225A6C3B-22D3-4B63-9E92-62510CD541D1",
+        "name": "225A6C3B-22D3-4B63-9E92-62510CD541D1"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

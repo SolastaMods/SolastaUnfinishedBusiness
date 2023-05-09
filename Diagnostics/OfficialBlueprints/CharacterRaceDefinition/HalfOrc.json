@@ -71,7 +71,10 @@
     "bodyAssetPrefix": "Human",
     "armorAssetPrefix": "Human",
     "helmetAssetPrefix": "Human",
-    "morphotypeAssetPrefix": "Human",
+    "faceShapeAssetPrefix": "Human",
+    "hairShapeAssetPrefix": "Human",
+    "beardShapeAssetPrefix": "Human",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [
       "Race/&HalfOrcMaleName1Title",
       "Race/&HalfOrcMaleName2Title",
@@ -232,7 +235,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 1.0
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "HalfOrc"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

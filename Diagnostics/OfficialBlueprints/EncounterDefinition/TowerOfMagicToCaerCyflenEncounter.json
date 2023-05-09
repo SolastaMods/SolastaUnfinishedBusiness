@@ -1,5 +1,6 @@
 {
   "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "type": "Event",
   "challengeRating": 2,
   "locationOverride": "Definition:Tower_Of_Magic_Leaving_LocationDB:66216c14b57cd494ab2fdd875d35c426",

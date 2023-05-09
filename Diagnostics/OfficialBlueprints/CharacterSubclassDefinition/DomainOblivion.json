@@ -40,6 +40,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionCleric:c774c974d5902a640a1e82a7608e8051",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainOblivionMarkOfFateImprovement:056da008ddeff774d85bb28a1af3137f",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

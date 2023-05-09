@@ -1,0 +1,30 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ItemFlag_Clue",
+    "description": "Equipment/&DLC3_Investigation_UselessClue_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6a6cc7897940d9842a5b49466685e5ca",
+      "m_SubObjectName": "BG_Acolyte_PrayerBook",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e9e93264c83e69349bbedda1c0c1dc20",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Clue3_Useless_PrayerBook"
+}

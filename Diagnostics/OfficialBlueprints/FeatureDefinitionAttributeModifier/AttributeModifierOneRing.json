@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "Charisma",
   "modifierOperation": "Additive",
-  "modifierValue": -1,
+  "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,

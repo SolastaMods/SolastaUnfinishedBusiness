@@ -1,0 +1,30 @@
+{
+  "$type": "ClueDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ItemFlag_Clue",
+    "description": "Equipment/&DLC3_Clue_Undermountain_04_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1cb00bc9e04618046b5f1f7ae2e9affb",
+      "m_SubObjectName": "Footprints",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9ac582914c84f1043a1bec20bcd8ce08",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Clue4"
+}

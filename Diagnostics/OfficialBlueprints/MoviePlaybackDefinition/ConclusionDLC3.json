@@ -1,0 +1,74 @@
+{
+  "$type": "MoviePlaybackDefinition, Assembly-CSharp",
+  "movieFilename": "DLC3_EndCS.mp4",
+  "subtitleOccurences": [
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 2.0,
+      "endSecond": 5.0,
+      "locKey": "Narration/&DLC3_OutroCinematic_01"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 6.0,
+      "endSecond": 9.0,
+      "locKey": "Narration/&DLC3_OutroCinematic_02"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 11.0,
+      "endSecond": 23.0,
+      "locKey": "Narration/&DLC3_OutroCinematic_03"
+    },
+    {
+      "$type": "SubtitleOccurenceDescription, Assembly-CSharp",
+      "startSecond": 24.0,
+      "endSecond": 36.0,
+      "locKey": "Narration/&DLC3_OutroCinematic_04"
+    }
+  ],
+  "fallbackImages": [],
+  "totalFallbackDuration": -1.0,
+  "audioEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseEventReference, AK.Wwise.Unity.API.WwiseTypes",
+      "objectName": "Play_POI_Outro",
+      "id": 3460861062,
+      "guid": "F8A0E5BB-D78F-4528-9E8C-D18FB4B7992D",
+      "name": "F8A0E5BB-D78F-4528-9E8C-D18FB4B7992D"
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "f45529ddc324a524ab4a282783f76296",
+  "contentPack": "BaseGame",
+  "name": "ConclusionDLC3"
+}

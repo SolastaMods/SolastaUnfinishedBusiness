@@ -1,0 +1,166 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:WandOfIdentify:9c8daf578d3694b43891d84a5e10bdab",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:WandOfMagicDetection:27d00c51252f27c499205e1c6a27fda0",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE2_Mundane_Ingredients:f709b8986437644458bdd7a32ab13857",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:RingDarkvision:fc4039e5726aaec4eae60b774c327ce7",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:RingOfLanguages:419b27d2ddc93524f88f3e94176e4021",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:RingDetectInvisible:2d1635ce30ec18043b71e8d6e77ad8bf",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Backpack_Handy_Haversack:9ec2d5fa8a78a6540aec55cbaa2e30f1",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:Backpack_Bag_Of_Holding:54f669dd16ccccd49b9e272f0de207ce",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:RingProtection+1:4a51b5654f7506d48818645f3024d4ea",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:BallOfLightning:9941e4a02c560bc4c873766b53eadc0b",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:RestorativeOintment:97987a31b6e74b94b8dbd6f9d59f9716",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 4,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 4,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 4,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:PotionOfSuperiorHealing:0b66baca2c0c01441a65465be8179ee2",
+      "treasureTableDefinition": "Definition:DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table:8df91f86207cefb479c624ec4706e62d",
+      "autoIdentify": true
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "c53505b9d75154a4ea0e42d5f5de632c",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Class_Lootpack_BasicChest_All"
+}

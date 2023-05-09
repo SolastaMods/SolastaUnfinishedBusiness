@@ -223,6 +223,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": true,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -236,14 +237,15 @@
       "Keep",
       "Keep",
       "Keep",
+      "Keep",
+      "Keep",
       "Keep"
     ],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

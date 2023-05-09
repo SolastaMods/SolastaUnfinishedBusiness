@@ -1,5 +1,6 @@
 {
   "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "package": {
     "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
     "weightedDecisions": [
@@ -42,6 +43,13 @@
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
         "decision": "Definition:Move_Dragon_Aggressive:a53f9a51cfb5f1349807651772f9bc1b",
         "weight": 1.5,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_Dragon_AggressiveLongRangeFallback:29cfcf0d26dabe040b510640fdc9bb9b",
+        "weight": 0.1,
         "cooldown": 0,
         "dynamicCooldown": false
       },
