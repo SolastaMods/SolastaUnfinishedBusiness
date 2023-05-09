@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Conosci il trucchetto <b>Burst of Radiance</b>. Al 3° livello impari <b>Fuoco fatato</b> e al 5° livello, <b>Esplosione di colore</b>. Entrambi possono essere usati una volta per riposo lungo.
+Feature/&CastSpellFairyDescription=Conosci il trucchetto <b>Burst of Radiance</b>. Al 3° livello impari <b>Fuoco fatato</b> e al 5° livello, <b>Esplosione di colore</b>. Entrambi possono essere usati una volta per riposo lungo.
 Feature/&CastSpellFairyTitle=Magia delle fate
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destrezza +2, Intelligenza, Saggezza o Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Punteggi di abilità

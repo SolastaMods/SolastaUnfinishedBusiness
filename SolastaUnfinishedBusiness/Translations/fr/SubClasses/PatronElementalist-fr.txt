@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=Votre contrôle des énergies élémentaires a augmenté au point que vous avez maintenant la domination sur les élémentaires plus faibles. Vous pouvez lancer conjuration d'élémentaire mineur à volonté.
+Feature/&BonusCantripElementalistMinorElementalDescription=Votre contrôle des énergies élémentaires a augmenté au point que vous avez maintenant la domination sur les élémentaires plus faibles. Vous pouvez lancer conjuration d'élémentaire mineur à volonté.
 Feature/&BonusCantripElementalistMinorElementalTitle=Sbires élémentaires
 Feature/&ElementalPatronAirPlane=Avion
 Feature/&ElementalPatronEarthPlane=Plan de la Terre

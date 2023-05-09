@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=Die Rüstungsklasse wird um 1 verringert.
+Condition/&ConditionAcidClawsDescription=Die Rüstungsklasse wird um 1 verringert.
 Condition/&ConditionAcidClawsTitle=Säure brennen
 Condition/&ConditionMindSpikeDescription=Zieht 1W4 vom nächsten Rettungswurf ab.
 Condition/&ConditionMindSpikeTitle=Geistspitze

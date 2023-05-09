@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Puoi assorbire energia dalla luce solare. Mentre sei esposto alla luce diretta e intensa, recuperi 2 PS all'inizio del tuo turno.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Puoi assorbire energia dalla luce solare. Mentre sei esposto alla luce diretta e intensa, recuperi 2 PS all'inizio del tuo turno.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Fotosintesi
 Condition/&ConditionAncientForestRootedDescription=I viticci arboricoli crescono dai tuoi piedi e scavano nel terreno. Puoi lanciare intralciare a volontà. La tua velocità diventa 0 e ottieni vantaggio su qualsiasi tiro salvezza per spingerti, tirarti o farti cadere prono.
 Condition/&ConditionAncientForestRootedTitle=Radicato

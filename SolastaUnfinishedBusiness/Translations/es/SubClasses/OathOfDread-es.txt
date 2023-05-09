@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si estás asustado o temeroso, tu velocidad se reduce a 0 y recibes daño psíquico igual a la mitad del nivel de paladín del emanador.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si estás asustado o temeroso, tu velocidad se reduce a 0 y recibes daño psíquico igual a la mitad del nivel de paladín del emanador.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de dominación
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=El marcador tiene ventaja en las tiradas de ataque contra ti.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marca de castigo

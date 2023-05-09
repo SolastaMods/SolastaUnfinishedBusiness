@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se sei spaventato o temuto, la tua velocità viene ridotta a 0 e subisci danni psichici pari alla metà del livello da paladino dell'emanatore.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se sei spaventato o temuto, la tua velocità viene ridotta a 0 e subisci danni psichici pari alla metà del livello da paladino dell'emanatore.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura di dominio
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Il segnalino ha vantaggio sui tiri per colpire contro di te.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marchio di castigo

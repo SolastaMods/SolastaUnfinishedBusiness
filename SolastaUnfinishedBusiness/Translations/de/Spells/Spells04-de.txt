@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=Sie haben Resistenz gegen psychischen Schaden sowie Immunität gegen die Zustände Bezaubert, Verängstigt, Angst, Gedankenbeherrscht und Gedankengesteuert.
+Condition/&ConditionBrainBulwarkDescription=Sie haben Resistenz gegen psychischen Schaden sowie Immunität gegen die Zustände Bezaubert, Verängstigt, Angst, Gedankenbeherrscht und Gedankengesteuert.
 Condition/&ConditionBrainBulwarkTitle=Gehirn Bollwerk
 Feature/&AdditionalDamageStaggeringSmiteDescription=Du wirst von psychischem Schaden getroffen.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Umwerfendes Smite

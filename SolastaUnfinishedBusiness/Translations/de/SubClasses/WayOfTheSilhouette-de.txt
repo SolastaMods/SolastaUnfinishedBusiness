@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Sie können 2 Ki-Punkte ausgeben, um Dunkelheit, Dunkelsicht, Spurlos vorbei oder Stille zu wirken, ohne materielle Komponenten bereitzustellen. Zusätzlich erhaltet ihr den leichten Cantrip, falls ihr ihn noch nicht kennt.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Sie können 2 Ki-Punkte ausgeben, um Dunkelheit, Dunkelsicht, Spurlos vorbei oder Stille zu wirken, ohne materielle Komponenten bereitzustellen. Zusätzlich erhaltet ihr den leichten Cantrip, falls ihr ihn noch nicht kennt.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silhouetten-Kunst
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Umhang der Silhouetten funktioniert jetzt zusätzlich zu natürlicher Dunkelheit auch bei schwachem Licht und magischer Dunkelheit.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Verbesserter Umhang der Silhouetten

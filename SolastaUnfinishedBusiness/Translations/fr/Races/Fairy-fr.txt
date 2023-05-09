@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Vous connaissez le sort mineur <b>Burst of Radiance</b>. Au niveau 3, vous apprenez <b>Faerie Fire</b> et au niveau 5, <b>Color Burst</b>. Les deux peuvent être utilisés une fois par repos long.
+Feature/&CastSpellFairyDescription=Vous connaissez le sort mineur <b>Burst of Radiance</b>. Au niveau 3, vous apprenez <b>Faerie Fire</b> et au niveau 5, <b>Color Burst</b>. Les deux peuvent être utilisés une fois par repos long.
 Feature/&CastSpellFairyTitle=Magie des fées
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Dextérité +2, Intelligence, Sagesse ou Charisme +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Scores de capacité

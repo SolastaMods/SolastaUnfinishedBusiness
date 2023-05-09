@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Você tem vantagem em sua próxima jogada de ataque.
+Condition/&ConditionFeatSteadyAimAdvantageDescription=Você tem vantagem em sua próxima jogada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira firme
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Você não pode se mover até o final do seu turno.
 Condition/&ConditionFeatSteadyAimRestrainedTitle=Restringido por Steady Aim

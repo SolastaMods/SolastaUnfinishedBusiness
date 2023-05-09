@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Os inventores são consertadores, alquimistas e muito mais. Eles preenchem o espaço entre magia e tecnologia.
+Class/&InventorDescription=Os inventores são consertadores, alquimistas e muito mais. Eles preenchem o espaço entre magia e tecnologia.
 Class/&InventorTitle=Inventor
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Ataques feitos com esta arma causam 1d4 {0} de dano adicional.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Elemental Maior [{0}]

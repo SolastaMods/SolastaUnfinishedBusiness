@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Ya conoces el cantrip <b>Estallido de resplandor</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Explosión de color</b>. Ambos pueden usarse una vez por descanso prolongado.
+Feature/&CastSpellFairyDescription=Ya conoces el cantrip <b>Estallido de resplandor</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Explosión de color</b>. Ambos pueden usarse una vez por descanso prolongado.
 Feature/&CastSpellFairyTitle=Magia de hadas
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destreza +2, Inteligencia, Sabiduría o Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Puntuaciones de habilidad

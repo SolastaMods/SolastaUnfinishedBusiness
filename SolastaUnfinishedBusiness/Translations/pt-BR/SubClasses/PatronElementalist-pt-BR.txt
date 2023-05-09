@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=Seu controle das energias elementais aumentou a ponto de agora você ter domínio sobre os elementais mais fracos. Você pode conjurar elemental menor à vontade.
+Feature/&BonusCantripElementalistMinorElementalDescription=Seu controle das energias elementais aumentou a ponto de agora você ter domínio sobre os elementais mais fracos. Você pode conjurar elemental menor à vontade.
 Feature/&BonusCantripElementalistMinorElementalTitle=Lacaios Elementais
 Feature/&ElementalPatronAirPlane=Avião
 Feature/&ElementalPatronEarthPlane=Plano terrestre

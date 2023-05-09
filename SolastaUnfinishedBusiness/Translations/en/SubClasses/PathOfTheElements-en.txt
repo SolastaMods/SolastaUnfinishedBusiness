@@ -1,4 +1,4 @@
-﻿Condition/&ConditionPathOfTheElementsElementalBlessingDescription=You have damage resistance.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=You have damage resistance.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Elemental Blessing
 Feature/&AncestryPathOfTheElementsAllDescription=While you are raging, all enemy creatures within 5 feet of you at the end of your turn take 1d6 {0} damage. This damage increases to 1d10 at 6th level, 2d6 at 10th level, and 2d10 at 14th level.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Blizzard

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Wenn Sie verängstigt oder gefürchtet sind, wird Ihre Geschwindigkeit auf 0 reduziert und Sie erleiden psychischen Schaden in Höhe der Hälfte der Paladinstufe des Emanators.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Wenn Sie verängstigt oder gefürchtet sind, wird Ihre Geschwindigkeit auf 0 reduziert und Sie erleiden psychischen Schaden in Höhe der Hälfte der Paladinstufe des Emanators.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura der Herrschaft
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Der Marker ist bei Angriffswürfen gegen dich im Vorteil.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Zeichen der Züchtigung

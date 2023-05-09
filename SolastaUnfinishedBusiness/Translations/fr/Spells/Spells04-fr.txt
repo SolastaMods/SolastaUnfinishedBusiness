@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=Vous avez une résistance aux dégâts psychiques, ainsi qu'une immunité aux conditions charmé, effrayé, peur, dominé par l'esprit et contrôlé par l'esprit.
+Condition/&ConditionBrainBulwarkDescription=Vous avez une résistance aux dégâts psychiques, ainsi qu'une immunité aux conditions charmé, effrayé, peur, dominé par l'esprit et contrôlé par l'esprit.
 Condition/&ConditionBrainBulwarkTitle=Rempart cérébral
 Feature/&AdditionalDamageStaggeringSmiteDescription=Vous êtes touché par des dégâts psychiques.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Châtiment étourdissant

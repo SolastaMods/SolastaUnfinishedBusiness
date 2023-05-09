@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=You cannot be restrained.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=You cannot be restrained.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom
 Feature/&BonusCantripRiftWalkWardingBondDescription=Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Rift Cloak

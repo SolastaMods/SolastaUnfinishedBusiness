@@ -1,4 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Du hast eine Fluggeschwindigkeit, die deiner Schrittgeschwindigkeit entspricht, und deine Angriffe zählen ebenfalls als magisch.
+Condition/&ConditionRangerLightBearerAngelicFormDescription=Du hast eine Fluggeschwindigkeit, die deiner Schrittgeschwindigkeit entspricht, und deine Angriffe zählen ebenfalls als magisch.
 Condition/&ConditionRangerLightBearerAngelicFormTitle=Engelsform
 Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn du vom Zaubernden mit einem Waffenangriff getroffen wirst, wird der gesamte durch den Angriff verursachte Schaden zu Strahlenschaden, und du erleidest zusätzlich 1W8 Strahlenschaden durch den Angriff. Ab der 11. Stufe erhöht sich der Zusatzschaden auf 2W8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Gekennzeichnet durch den gesegneten Krieger

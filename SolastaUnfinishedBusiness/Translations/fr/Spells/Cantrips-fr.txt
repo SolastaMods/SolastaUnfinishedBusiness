@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=La classe d'armure est réduite de 1.
+Condition/&ConditionAcidClawsDescription=La classe d'armure est réduite de 1.
 Condition/&ConditionAcidClawsTitle=Brûlure à l'acide
 Condition/&ConditionMindSpikeDescription=Soustrait 1d4 au prochain jet de sauvegarde.
 Condition/&ConditionMindSpikeTitle=Pic d'esprit

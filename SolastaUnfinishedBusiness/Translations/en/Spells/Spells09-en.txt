@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
+Condition/&ConditionForesightDescription=Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
 Condition/&ConditionForesightTitle=Foresight
 Condition/&ConditionTimeStopDescription=Time is frozen for the affected creature.
 Condition/&ConditionTimeStopTitle=Time Stopped

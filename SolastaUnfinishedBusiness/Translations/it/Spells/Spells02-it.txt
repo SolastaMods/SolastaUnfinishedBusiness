@@ -1,4 +1,4 @@
-﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=Devi effettuare una prova di abilità di Forza per uscire da questa condizione.
+Condition/&ConditionGrappledRestrainedSpellWebDescription=Devi effettuare una prova di abilità di Forza per uscire da questa condizione.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Trattenuto dal web
 Condition/&ConditionMirrorImageDescription=I nemici possono prendere di mira accidentalmente questo duplicato al posto tuo. Se viene colpito il duplicato, scompare.
 Condition/&ConditionMirrorImageTitle=Duplicato speculare

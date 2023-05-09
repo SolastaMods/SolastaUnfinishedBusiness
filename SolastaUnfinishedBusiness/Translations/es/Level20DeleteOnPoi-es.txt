@@ -1,6 +1,6 @@
 Action/&PersistentRageStartDescription=Durante un minuto, tienes ventaja en las salvaciones y comprobaciones de Fuerza, una bonificación al daño de ataque cuerpo a cuerpo y resistencia al daño cortante, contundente y perforante. Obtienes estos beneficios solo si no llevas una armadura pesada.
 Feature/&FeatureSetMonkDiamondSoulDescription=A partir del nivel 14, tu dominio del Ki te otorga competencia en todas las tiradas de salvación. Además, cada vez que haces una tirada de salvación y fallas, puedes gastar 1 punto de Ki para volver a tirar y tomar el segundo resultado.
-Feature/&FeatureSetMonkDiamondSoulTitle=alma de diamante
+Feature/&FeatureSetMonkDiamondSoulTitle=Alma de diamante
 Feature/&FeatureSetMonkTongueSunMoonDescription=A partir del nivel 13, aprendes a tocar el Ki de otras mentes para que entiendas todos los idiomas hablados. Además, cualquier criatura que pueda entender un idioma puede entender lo que dices.
 Feature/&FeatureSetMonkTongueSunMoonTitle=Lengua del sol y la luna
 Feature/&IndomitableResistanceAddDescription=Puedes usar la resistencia Indomable una vez más entre descansos prolongados.
@@ -10,6 +10,6 @@ Feature/&PowerPaladinCleansingTouchTitle=Toque Limpiador
 Feature/&Ranger_Vanish_Description=A partir del nivel 14, puedes usar la acción Ocultar como acción adicional en tu turno.
 Feature/&Ranger_Vanish_Title=Desaparecer
 Feature/&RogueBlindsenseDescription=Eres consciente de la ubicación de cualquier criatura oculta o invisible a 10 pies de ti.
-Feature/&RogueBlindsenseTitle=sentido ciego
+Feature/&RogueBlindsenseTitle=Sentido ciego
 Feature/&RogueSlipperyMindDescription=Has adquirido mayor Fuerza mental. Obtienes competencia en las tiradas de salvación de Sabiduría.
 Feature/&RogueSlipperyMindTitle=Mente resbaladiza

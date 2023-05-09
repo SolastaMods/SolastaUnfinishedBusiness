@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Você conhece o truque <b>Burst of Radiance</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados uma vez por descanso longo.
+Feature/&CastSpellFairyDescription=Você conhece o truque <b>Burst of Radiance</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados uma vez por descanso longo.
 Feature/&CastSpellFairyTitle=Magia das Fadas
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destreza +2, Inteligência, Sabedoria ou Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Valores de habilidade

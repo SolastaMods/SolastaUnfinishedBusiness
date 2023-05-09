@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=La tua gravità è negata.
+Condition/&ConditionMoonlitMoonTouchedDescription=La tua gravità è negata.
 Condition/&ConditionMoonlitMoonTouchedTitle=Luna Toccata
 Feature/&BonusCantripsMoonlitDescription=Il tuo controllo della luce lunare è aumentato a un nuovo livello. Puoi lanciare gli incantesimi <b>Raggio di luna</b> e <b>Fuoco fatato</b> a piacimento.
 Feature/&BonusCantripsMoonlitTitle=Controllo della luce

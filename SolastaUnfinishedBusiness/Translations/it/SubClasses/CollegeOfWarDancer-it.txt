@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCharmedByDanceOfWarDescription=Classe armatura ridotta dal modificatore di Carisma.
+Condition/&ConditionCharmedByDanceOfWarDescription=Classe armatura ridotta dal modificatore di Carisma.
 Condition/&ConditionCharmedByDanceOfWarTittle=Ammaliato
 Condition/&ConditionWarDanceDescription=Muoviti e attacca rapidamente.
 Condition/&ConditionWarDanceLightMomentumDescription=Il tuo attacco ha uno slancio leggero.

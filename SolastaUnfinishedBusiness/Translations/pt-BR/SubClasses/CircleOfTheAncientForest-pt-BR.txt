@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Você pode absorver energia da luz solar. Enquanto estiver sob luz forte direta, você recupera 2 HP no início do seu turno.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Você pode absorver energia da luz solar. Enquanto estiver sob luz forte direta, você recupera 2 HP no início do seu turno.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Fotossíntese
 Condition/&ConditionAncientForestRootedDescription=Gavinhas arbóreas crescem de seus pés e cavam no chão. Você pode conjurar emaranhar à vontade. Seu deslocamento torna-se 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo.
 Condition/&ConditionAncientForestRootedTitle=Enraizado

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Você tem vantagem em todos os ataques com sua arma especializada até o final do seu turno.
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Você tem vantagem em todos os ataques com sua arma especializada até o final do seu turno.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Golpes Focados
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Você ganha +1 nas jogadas de ataque e dano com seu tipo de arma especializada. Um mestre de armas marciais terá desvantagem para atacar com todos os outros tipos de armas, mas recebe um bônus de +2 a partir do nível 15.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Especialização em Arma

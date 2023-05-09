@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Los inventores son manipuladores, alquimistas y más. Ellos unen el espacio entre la magia y la tecnología.
+Class/&InventorDescription=Los inventores son manipuladores, alquimistas y más. Ellos unen el espacio entre la magia y la tecnología.
 Class/&InventorTitle=Inventor
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Los ataques realizados con esta arma infligen 1d4 {0} de daño adicional.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Elemental mayor [{0}]

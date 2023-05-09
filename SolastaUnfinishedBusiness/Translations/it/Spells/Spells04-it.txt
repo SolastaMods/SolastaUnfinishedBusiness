@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=Hai resistenza ai danni psichici, così come immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla mente e Controllato dalla mente.
+Condition/&ConditionBrainBulwarkDescription=Hai resistenza ai danni psichici, così come immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla mente e Controllato dalla mente.
 Condition/&ConditionBrainBulwarkTitle=Baluardo del cervello
 Feature/&AdditionalDamageStaggeringSmiteDescription=Sei colpito da un danno psichico.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Punizione Sconcertante

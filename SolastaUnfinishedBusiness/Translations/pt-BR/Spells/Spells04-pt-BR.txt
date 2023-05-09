@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=Você tem resistência a danos psíquicos, bem como imunidade às condições Encantado, Amedrontado, Medo, Mente dominada e Mente controlada.
+Condition/&ConditionBrainBulwarkDescription=Você tem resistência a danos psíquicos, bem como imunidade às condições Encantado, Amedrontado, Medo, Mente dominada e Mente controlada.
 Condition/&ConditionBrainBulwarkTitle=Baluarte Cerebral
 Feature/&AdditionalDamageStaggeringSmiteDescription=Você é atingido por dano psíquico.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Punição Impressionante

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDauntlessPursuerDescription=You gain 2 extra movement cells and ignore opponent's reactions.
+Condition/&ConditionDauntlessPursuerDescription=You gain 2 extra movement cells and ignore opponent's reactions.
 Condition/&ConditionDauntlessPursuerTitle=Dauntless Pursuer
 Condition/&ConditionScornfulPrayerDescription=Strength and vocals fade as the prayer envelops. While under the effects, the prayer causes the enemy to be enfeebled and cursed on attack rolls.
 Condition/&ConditionScornfulPrayerTitle=Scorned

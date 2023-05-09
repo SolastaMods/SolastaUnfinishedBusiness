@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArmorGuardianModeDescription=Erhalte eine <b>Donnerhandschuh</b>-Waffe (1W8 Donnerschaden), wenn du freie Hand und <b>Defensivfeld</b>-Bonusaktion hast, um temporäre HP in Höhe der Stufe des Erfinders zu erhalten.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Erhalte eine <b>Donnerhandschuh</b>-Waffe (1W8 Donnerschaden), wenn du freie Hand und <b>Defensivfeld</b>-Bonusaktion hast, um temporäre HP in Höhe der Stufe des Erfinders zu erhalten.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Wächter
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Erhalte einen <b>Blitzwerfer</b>-Fernangriff (1W6 Blitzschaden, erster Angriff in der Runde verursacht 2W6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Eindringling

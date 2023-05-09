@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=La clase de armadura se reduce en 1.
+Condition/&ConditionAcidClawsDescription=La clase de armadura se reduce en 1.
 Condition/&ConditionAcidClawsTitle=Quemadura de ácido
 Condition/&ConditionMindSpikeDescription=Resta 1d4 de la siguiente tirada de salvación.
 Condition/&ConditionMindSpikeTitle=Pico mental

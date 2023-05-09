@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Vous pouvez faire une attaque supplémentaire la première fois que vous tuez un ennemi à votre tour. De plus, chaque fois que vous tuez un ennemi, votre attaque sournoise peut être réutilisée au même tour.
+Feature/&AdditionalActionRavenKillingSpreeDescription=Vous pouvez faire une attaque supplémentaire la première fois que vous tuez un ennemi à votre tour. De plus, chaque fois que vous tuez un ennemi, votre attaque sournoise peut être réutilisée au même tour.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Tuerie
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Votre attaque subit un malus de -4 pour toucher.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Coup de coeur à la recherche

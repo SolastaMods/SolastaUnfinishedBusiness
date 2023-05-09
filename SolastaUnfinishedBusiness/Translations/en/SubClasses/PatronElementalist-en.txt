@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
+Feature/&BonusCantripElementalistMinorElementalDescription=Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
 Feature/&BonusCantripElementalistMinorElementalTitle=Elemental Minions
 Feature/&ElementalPatronAirPlane=Air Plane
 Feature/&ElementalPatronEarthPlane=Earth Plane

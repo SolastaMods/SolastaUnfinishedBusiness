@@ -1,5 +1,3 @@
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Tant que vous tenez une épée longue, vous gagnez un bonus de +1 à la classe d'armure.
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse de l'épée longue
 Condition/&ConditionFeatCrusherCriticalHitDescription=Vous avez été écrasé par un coup critique et les attaques contre vous ont l'avantage.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Écrasé
 Condition/&ConditionFeatPiercerNonMagicDescription=Lorsque vous touchez une créature avec une attaque qui inflige des dégâts perforants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet.
@@ -46,6 +44,8 @@ Feature/&AdditionalDamageFeatPiercerDescription=Lorsque vous marquez un coup cri
 Feature/&AdditionalDamageFeatPiercerTitle=Perceur
 Feature/&AttackModifierFeatSpearMasteryDescription=Vous gagnez un bonus de +1 aux jets d'attaque que vous effectuez avec une lance et son dé de dégâts passe d'un d6 à un d8, et d'un d8 à un d10 lorsqu'il est manié à deux mains.
 Feature/&AttackModifierFeatSpearMasteryTitle=Maîtrise de la lance
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Tant que vous tenez une épée longue, vous gagnez un bonus de +1 à la classe d'armure.
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse de l'épée longue
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Maîtrise de la lame
 Feature/&ModifyAttackModeFeatFellHandedTitle=Tombé à la main
 Feature/&PowerFeatFellHandedAdvantageDescription=Chaque fois que vous avez un avantage sur un jet d'attaque au corps à corps et que vous touchez, vous renversez la cible si le plus faible des deux jets de d20 touche également la cible.

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=Armor class is lowered by 1.
+Condition/&ConditionAcidClawsDescription=Armor class is lowered by 1.
 Condition/&ConditionAcidClawsTitle=Acid Burn
 Condition/&ConditionMindSpikeDescription=Subtracts 1d4 from the next saving throw.
 Condition/&ConditionMindSpikeTitle=Mind Spike

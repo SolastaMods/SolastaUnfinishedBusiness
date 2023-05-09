@@ -1,16 +1,15 @@
-﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Your armor strengthens to adamantine, halving critical damage.
+Condition/&ConditionDomainSmithAdamantBenedictionDescription=Your armor strengthens to adamantine, halving critical damage.
 Condition/&ConditionDomainSmithAdamantBenedictionTitle=Adamantine Armor
-Feature/&AttributeModifierDomainSmithReinforceArmorDescription=This armor has been reinforced providing an additional +{0} AC.
-Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Reinforced
-Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Gain fire resistance and while wearing armor gain +1 AC.
-Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Forge Mastery
 Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Once per turn, deal +{0}d8 fire damage on weapon attacks.
 Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Divine Strike
+Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Gain fire resistance and while wearing armor gain +1 AC.
+Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Forge Mastery
+Feature/&AttributeModifierDomainSmithReinforceArmorDescription=This armor has been reinforced providing an additional +{0} AC.
+Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Reinforced
+Feature/&BonusProficiencyDomainSmithDescription=Gain proficiency in smith tools and heavy armor.
+Feature/&BonusProficiencyDomainSmithTitle=Bonus Proficiencies
 Feature/&PowerDomainSmithAdamantBenedictionDescription=Using an action, bolster the armor of allies in a 30ft radius. Their armor gains the Strength of adamantine armor, gaining immunity to critical for 1 minute.
 Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Benediction
 Feature/&PowerDomainSmithReinforceArmorDescription=Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +{0} AC.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reinforce Armor
-Feature/&BonusProficiencyDomainSmithDescription=Gain proficiency in smith tools and heavy armor.
-Feature/&BonusProficiencyDomainSmithTitle=Bonus Proficiencies
-Subclass/&DomainSmithTitle=Smith
-Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
+Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.Subclass/&DomainSmithTitle=Smith

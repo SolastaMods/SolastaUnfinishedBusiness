@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBladeDancerBladeDanceDescription=Você pode usar uma ação bônus para iniciar a dança da lâmina, que dura 1 minuto. Termina cedo se você estiver incapacitado, se usar armadura média, armadura pesada ou um escudo, ou se empunhar uma arma de duas mãos para fazer um ataque.
+Condition/&ConditionBladeDancerBladeDanceDescription=Você pode usar uma ação bônus para iniciar a dança da lâmina, que dura 1 minuto. Termina cedo se você estiver incapacitado, se usar armadura média, armadura pesada ou um escudo, ou se empunhar uma arma de duas mãos para fazer um ataque.
 Condition/&ConditionBladeDancerBladeDanceTitle=Dança das Lâminas
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=Você adiciona +5 ao dano de seus ataques com arma enquanto sua dança da lâmina estiver ativa.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Dança da vitória

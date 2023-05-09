@@ -1,5 +1,5 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=A partir del 3.er nivel, añades la mitad de tu bonificador de competencia a cualquier prueba de Carisma que realices y que aún no utilice tu bonificador de competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
-Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=A partir del 3.er nivel, añades la mitad de tu bonificador de competencia a cualquier prueba de Carisma que realices y que aún no utilice tu bonificador de competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Enviado real
 Feature/&PowerRoyalKnightInspiringProtectionDescription=A partir del nivel 15, tus acciones inspiran a otros a seguir luchando. Siempre que uno de tus aliados que puedas ver a 60 pies falle una tirada de salvación, puedes usar tu reacción para hacer que ese aliado vuelva a tirar su tirada de salvación. Puede utilizar esta función tres veces por descanso prolongado.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=Protección inspiradora
 Feature/&PowerRoyalKnightInspiringSurgeDescription=A partir del nivel 10, como acción adicional, puedes otorgar a un aliado una acción principal adicional durante 1 ronda. Puedes usar este poder una vez por breve descanso.

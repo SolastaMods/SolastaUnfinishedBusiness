@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Vorteil bei allen Angriffswürfen, Attributswürfen und Rettungswürfen. Andere Kreaturen haben einen Nachteil bei Angriffswürfen.
+Condition/&ConditionForesightDescription=Vorteil bei allen Angriffswürfen, Attributswürfen und Rettungswürfen. Andere Kreaturen haben einen Nachteil bei Angriffswürfen.
 Condition/&ConditionForesightTitle=Voraussicht
 Condition/&ConditionTimeStopDescription=Die Zeit wird für die betroffene Kreatur eingefroren.
 Condition/&ConditionTimeStopTitle=Zeit angehalten

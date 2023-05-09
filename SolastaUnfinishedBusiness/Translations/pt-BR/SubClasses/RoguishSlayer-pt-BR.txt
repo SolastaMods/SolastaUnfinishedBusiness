@@ -1,4 +1,4 @@
-﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumente o dano do seu próximo ataque furtivo em 3d6 extras, até o final do seu próximo turno. Este dano aumenta para 4d6 no 13º nível e 5d6 no 17º nível.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumente o dano do seu próximo ataque furtivo em 3d6 extras, até o final do seu próximo turno. Este dano aumenta para 4d6 no 13º nível e 5d6 no 17º nível.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Cadeia de Execução
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Você está marcado pelo Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marca do Assassino

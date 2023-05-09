@@ -1,4 +1,4 @@
-﻿Condition/&AfterRestIdentifyDescription=Identifying magic items
+Condition/&AfterRestIdentifyDescription=Identifying magic items
 Condition/&AfterRestIdentifyTitle=Identifying
 Condition/&ConditionDistractedByAllyDescription=This creature has been distracted.
 Condition/&ConditionDistractedByAllyTitle=Distracted

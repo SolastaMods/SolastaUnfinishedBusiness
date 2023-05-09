@@ -1,5 +1,3 @@
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Während Sie ein Langschwert halten, erhalten Sie einen Bonus von +1 auf die Rüstungsklasse.
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse des Langschwerts
 Condition/&ConditionFeatCrusherCriticalHitDescription=Du wurdest von einem kritischen Treffer zermalmt und Angriffe gegen dich sind im Vorteil.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Zerquetscht
 Condition/&ConditionFeatPiercerNonMagicDescription=Wenn du eine Kreatur mit einem Angriff triffst, der Stichschaden verursacht, kannst du Würfel neu würfeln, wenn du eine 1 würfelst, und du musst den neuen Wurf verwenden.
@@ -46,6 +44,8 @@ Feature/&AdditionalDamageFeatPiercerDescription=Wenn Sie einen kritischen Treffe
 Feature/&AdditionalDamageFeatPiercerTitle=Piercer
 Feature/&AttackModifierFeatSpearMasteryDescription=Du erhältst einen Bonus von +1 auf Angriffswürfe, die du mit einem Speer machst, und sein Schadenswürfel ändert sich von einem W6 zu einem W8 und von einem W8 zu einem W10, wenn er mit zwei Händen geführt wird.
 Feature/&AttackModifierFeatSpearMasteryTitle=Speerbeherrschung
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Während Sie ein Langschwert halten, erhalten Sie einen Bonus von +1 auf die Rüstungsklasse.
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse des Langschwerts
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Klingenbeherrschung
 Feature/&ModifyAttackModeFeatFellHandedTitle=Fiel übergeben
 Feature/&PowerFeatFellHandedAdvantageDescription=Immer wenn Sie einen Vorteil bei einem Nahkampfangriffswurf haben und treffen, werfen Sie das Ziel zu Boden, wenn der niedrigere der beiden W20-Würfe das Ziel ebenfalls treffen würde.
