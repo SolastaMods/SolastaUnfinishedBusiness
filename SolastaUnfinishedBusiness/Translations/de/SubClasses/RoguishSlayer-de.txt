@@ -1,4 +1,4 @@
-﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Erhöhe den Schaden deines nächsten Hinterhältigen Angriffs um zusätzliche 3W6 bis zum Ende deines nächsten Zuges. Dieser Schaden steigt auf 4W6 auf der 13. Stufe und 5W6 auf der 17. Stufe.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Erhöhe den Schaden deines nächsten Hinterhältigen Angriffs um zusätzliche 3W6 bis zum Ende deines nächsten Zuges. Dieser Schaden steigt auf 4W6 auf der 13. Stufe und 5W6 auf der 17. Stufe.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Ausführungskette
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Du bist von der Jägerin markiert.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Zeichen des Jägers

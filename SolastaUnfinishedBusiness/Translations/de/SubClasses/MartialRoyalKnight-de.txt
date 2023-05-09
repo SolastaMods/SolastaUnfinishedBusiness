@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Ab der 3. Stufe addierst du die Hälfte deines Kompetenzbonus zu jedem Charismawurf, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Ab der 3. Stufe addierst du die Hälfte deines Kompetenzbonus zu jedem Charismawurf, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Königlicher Gesandter
 Feature/&PowerRoyalKnightInspiringProtectionDescription=Ab der 15. Stufe inspirieren deine Taten andere dazu, weiterzukämpfen. Immer wenn einem deiner Verbündeten, den du innerhalb von 60 Fuß sehen kannst, ein Rettungswurf misslingt, kannst du deine Reaktion nutzen, um diesen Verbündeten dazu zu bringen, seinen Rettungswurf zu wiederholen. Sie können diese Funktion dreimal pro langer Pause verwenden.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=Inspirierender Schutz
@@ -14,4 +14,4 @@ Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Nutze diese K
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Inspirierender Schutz
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Inspirierender Schutz
 Subclass/&MartialRoyalKnightDescription=Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein königlicher Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
-Subclass/&MartialRoyalKnightTitle=königlicher Ritter
+Subclass/&MartialRoyalKnightTitle=Königlicher Ritter

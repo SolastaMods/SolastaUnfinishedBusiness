@@ -1,4 +1,4 @@
-﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=Debes hacer una prueba de habilidad de Fuerza para salir de esta condición.
+Condition/&ConditionGrappledRestrainedSpellWebDescription=Debes hacer una prueba de habilidad de Fuerza para salir de esta condición.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restringido por Web
 Condition/&ConditionMirrorImageDescription=Los enemigos pueden apuntar accidentalmente a este duplicado en lugar de a ti. Si se golpea el duplicado, desaparece.
 Condition/&ConditionMirrorImageTitle=Duplicado de espejo

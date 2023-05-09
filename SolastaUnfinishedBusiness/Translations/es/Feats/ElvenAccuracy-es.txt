@@ -1,4 +1,4 @@
-﻿Feat/&FeatElvenAccuracyCharismaDescription=Tienes una puntería asombrosa con ataques que dependen de la precisión en lugar de la fuerza bruta. Aumenta tu Carisma en 1, hasta un máximo de 20. Siempre que tengas ventaja en una tirada de ataque usando Destreza, Inteligencia, Sabiduría o Carisma, puedes volver a tirar uno de los dados una vez.
+Feat/&FeatElvenAccuracyCharismaDescription=Tienes una puntería asombrosa con ataques que dependen de la precisión en lugar de la fuerza bruta. Aumenta tu Carisma en 1, hasta un máximo de 20. Siempre que tengas ventaja en una tirada de ataque usando Destreza, Inteligencia, Sabiduría o Carisma, puedes volver a tirar uno de los dados una vez.
 Feat/&FeatElvenAccuracyCharismaTitle=Precisión élfica [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=Tienes una puntería asombrosa con ataques que dependen de la precisión en lugar de la fuerza bruta. Aumenta tu Destreza en 1, hasta un máximo de 20. Siempre que tengas ventaja en una tirada de ataque usando Destreza, Inteligencia, Sabiduría o Carisma, puedes volver a tirar uno de los dados una vez.
 Feat/&FeatElvenAccuracyDexterityTitle=Precisión élfica [Dex]

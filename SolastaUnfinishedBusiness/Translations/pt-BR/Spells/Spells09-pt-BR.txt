@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Vantagem em todas as jogadas de ataque, testes de habilidade e testes de resistência. Outras criaturas têm desvantagem nas jogadas de ataque.
+Condition/&ConditionForesightDescription=Vantagem em todas as jogadas de ataque, testes de habilidade e testes de resistência. Outras criaturas têm desvantagem nas jogadas de ataque.
 Condition/&ConditionForesightTitle=Previsão
 Condition/&ConditionTimeStopDescription=O tempo é congelado para a criatura afetada.
 Condition/&ConditionTimeStopTitle=Tempo parado

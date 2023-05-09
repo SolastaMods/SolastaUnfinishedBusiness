@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Você e seus aliados têm meia cobertura enquanto estiverem a 3 metros de um canhão criado com Canhão Eldritch, como resultado de um campo brilhante de proteção mágica que o canhão emite.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Você e seus aliados têm meia cobertura enquanto estiverem a 3 metros de um canhão criado com Canhão Eldritch, como resultado de um campo brilhante de proteção mágica que o canhão emite.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Posição Fortificada
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Aprenda e esteja sempre preparado:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Feitiços de Artilheiro

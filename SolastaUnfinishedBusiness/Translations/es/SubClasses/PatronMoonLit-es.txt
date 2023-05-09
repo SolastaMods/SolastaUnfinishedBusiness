@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=Su gravedad es negada.
+Condition/&ConditionMoonlitMoonTouchedDescription=Su gravedad es negada.
 Condition/&ConditionMoonlitMoonTouchedTitle=Luna tocada
 Feature/&BonusCantripsMoonlitDescription=Tu control de la luz de la luna ha aumentado a un nuevo nivel. Puedes lanzar los hechizos <b>Rayo de luna</b> y <b>Fuego feérico</b> a voluntad.
 Feature/&BonusCantripsMoonlitTitle=Control de luz

@@ -1,4 +1,4 @@
-﻿Feat/&FeatArcanePrecisionDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\nDu kannst eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest deine Intelligenz für deine Angriffs- und Schadenswürfe für 1 Minute. Diese Funktion kann pro langer Pause als Leistungsbonus verwendet werden.
+Feat/&FeatArcanePrecisionDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\nDu kannst eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest deine Intelligenz für deine Angriffs- und Schadenswürfe für 1 Minute. Diese Funktion kann pro langer Pause als Leistungsbonus verwendet werden.
 Feat/&FeatArcanePrecisionTitle=Arkane Präzision
 Feat/&FeatCharismaticPrecisionDescription=Erhöhe dein Charisma um 1 bis maximal 20.\nDu kannst eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest dein Charisma 1 Minute lang für deine Angriffs- und Schadenswürfe. Diese Funktion kann pro langer Pause als Leistungsbonus verwendet werden.
 Feat/&FeatCharismaticPrecisionTitle=Charismatische Präzision

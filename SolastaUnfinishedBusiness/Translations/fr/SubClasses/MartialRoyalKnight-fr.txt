@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=À partir du niveau 3, vous ajoutez la moitié de votre bonus de maîtrise à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=À partir du niveau 3, vous ajoutez la moitié de votre bonus de maîtrise à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Envoyé royal
 Feature/&PowerRoyalKnightInspiringProtectionDescription=À partir du niveau 15, vos actions inspirent les autres à continuer à se battre. Chaque fois qu'un de vos alliés que vous pouvez voir dans un rayon de 18 mètres échoue à un jet de sauvegarde, vous pouvez utiliser votre réaction pour que cet allié relance sa sauvegarde. Vous pouvez utiliser cette fonctionnalité trois fois par repos long.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=Protection inspirante
@@ -14,4 +14,4 @@ Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Utilisez ce p
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Protection inspirante
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Protection inspirante
 Subclass/&MartialRoyalKnightDescription=Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier royal est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.
-Subclass/&MartialRoyalKnightTitle=chevalier royal
+Subclass/&MartialRoyalKnightTitle=Chevalier royal

@@ -12,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
+ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
 ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nessas listas
@@ -25,7 +26,6 @@ ModUi/&AllowMoreRealStateOnRestPanel=Permite mais estado real no painel de repou
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp de diamante é equivalente a 1000gp de diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permita a seleção do alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marcas de origem e tatuagens
-ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzir o peso da ração alimentar para 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
@@ -99,13 +99,13 @@ ModUi/&EnablePcgRandom=Habilite um algoritmo de gerador aleatório melhor <i><co
 ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo em torno do herói ou líder selecionado se nenhum for selecionado <i><color=#F0DAA0>[útil com grupos de 5 ou 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Pode selecionar truques ou feitiços já aprendidos de outras classes</i>
 ModUi/&EnableRespec=Habilite o RESPEC após a ação de descanso
-ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
 ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Permitir que recursos de heróis funcionem na forma <color=#D89555>Wildshape</color>
@@ -128,8 +128,8 @@ ModUi/&FormationResetAllSets=Reiniciar tudo
 ModUi/&FormationResetThisSet=Redefinir isso
 ModUi/&FormationSelected=Conjunto de formação {0} selecionado
 ModUi/&FullyControlConjurations=Controle totalmente as conjurações <i><color=#F0DAA0>[animais, elementais, etc]</color></i>
-ModUi/&Gameplay=Jogabilidade
 ModUi/&GameUi=IU do jogo
+ModUi/&Gameplay=Jogabilidade
 ModUi/&General=<color=#F0DAA0>Geral:</color>
 ModUi/&GeneralMenu=Em geral
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de saídas e teletransportadores, caso ainda não tenham sido descobertos
@@ -185,6 +185,7 @@ ModUi/&RestockCircleOfDanantar=Reabastecer Círculo de Danantar <i><color=#F0DAA
 ModUi/&RestockHelp=. Substitua os padrões para forçar o estoque de todos os comerciantes a reabastecer com o tempo <i><color=#F0DAA0>[excluindo manuais e tomos]</color></i>\n. Observe que alguns itens podem levar até 7 dias de jogo para reabastecer
 ModUi/&RestockTowerOfKnowledge=Reabastecer a Torre do Conhecimento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Regras
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moedas]</color></i>
 ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
@@ -204,7 +205,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dica
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco

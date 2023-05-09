@@ -1,4 +1,4 @@
-﻿Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Vous avez la résistance aux dégâts.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Vous avez la résistance aux dégâts.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Bénédiction élémentaire
 Feature/&AncestryPathOfTheElementsAllDescription=Pendant que vous faites rage, toutes les créatures ennemies dans un rayon de 1,50 mètre autour de vous à la fin de votre tour subissent 1d6 {0} dégâts. Ces dégâts passent à 1d10 au niveau 6, 2d6 au niveau 10 et 2d10 au niveau 14.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Tempête De Neige

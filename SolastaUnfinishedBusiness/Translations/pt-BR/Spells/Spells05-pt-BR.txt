@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
+Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
 Condition/&ConditionFarStepTitle=Passo distante
 Feature/&AdditionalDamageBanishingSmiteDescription=Você é atingido por dano de força.
 Feature/&AdditionalDamageBanishingSmiteTitle=Golpe de Banimento

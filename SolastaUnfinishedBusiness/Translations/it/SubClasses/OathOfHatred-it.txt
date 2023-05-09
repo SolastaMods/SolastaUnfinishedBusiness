@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDauntlessPursuerDescription=Ottieni 2 caselle di movimento extra e ignori le reazioni dell'avversario.
+Condition/&ConditionDauntlessPursuerDescription=Ottieni 2 caselle di movimento extra e ignori le reazioni dell'avversario.
 Condition/&ConditionDauntlessPursuerTitle=Inseguitore Intrepido
 Condition/&ConditionScornfulPrayerDescription=La forza e la voce svaniscono man mano che la preghiera si avvolge. Mentre è sotto gli effetti, la preghiera fa sì che il nemico venga indebolito e maledetto durante i tiri per colpire.
 Condition/&ConditionScornfulPrayerTitle=Disprezzato

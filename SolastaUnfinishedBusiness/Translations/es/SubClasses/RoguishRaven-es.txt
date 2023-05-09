@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Puedes realizar un ataque adicional la primera vez que matas a un enemigo en tu turno. Además, cada vez que matas a un enemigo, tu ataque furtivo se puede reutilizar en el mismo turno.
+Feature/&AdditionalActionRavenKillingSpreeDescription=Puedes realizar un ataque adicional la primera vez que matas a un enemigo en tu turno. Además, cada vez que matas a un enemigo, tu ataque furtivo se puede reutilizar en el mismo turno.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Matanza
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Tu ataque sufre una penalización de -4 al impactar.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Disparo en busca del corazón

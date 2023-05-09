@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Du hast einen Vorteil bei deinem nächsten Angriffswurf.
+Condition/&ConditionFeatSteadyAimAdvantageDescription=Du hast einen Vorteil bei deinem nächsten Angriffswurf.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Zielsicher
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Du kannst dich bis zum Ende deines Zuges nicht bewegen.
 Condition/&ConditionFeatSteadyAimRestrainedTitle=Zurückgehalten durch Steady Aim

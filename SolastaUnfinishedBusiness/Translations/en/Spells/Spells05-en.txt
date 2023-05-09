@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=You can use a bonus action to teleport up to 60 ft to an unoccupied space you can see.
+Condition/&ConditionFarStepDescription=You can use a bonus action to teleport up to 60 ft to an unoccupied space you can see.
 Condition/&ConditionFarStepTitle=Far Step
 Feature/&AdditionalDamageBanishingSmiteDescription=You're hit by force damage.
 Feature/&AdditionalDamageBanishingSmiteTitle=Banishing Smite

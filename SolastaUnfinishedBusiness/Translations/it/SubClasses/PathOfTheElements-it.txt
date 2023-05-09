@@ -1,4 +1,4 @@
-﻿Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Hai resistenza ai danni.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Hai resistenza ai danni.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Benedizione Elementale
 Feature/&AncestryPathOfTheElementsAllDescription=Mentre sei infuriato, tutte le creature nemiche entro 1,5 metri da te alla fine del tuo turno subiscono 1d6 {0} danni. Questo danno aumenta a 1d10 al 6° livello, 2d6 al 10° livello e 2d10 al 14° livello.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Bufera di neve

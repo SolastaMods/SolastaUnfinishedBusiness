@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie zu Beginn Ihres Zuges 2 HP zurück.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie zu Beginn Ihres Zuges 2 HP zurück.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Photosynthese
 Condition/&ConditionAncientForestRootedDescription=Baumranken wachsen aus deinen Füßen und graben sich in den Boden. Du kannst nach Belieben verstricken. Deine Geschwindigkeit wird 0 und du erhältst einen Vorteil bei Rettungswürfen, die dich stoßen, ziehen oder zu Boden werfen.
 Condition/&ConditionAncientForestRootedTitle=Verwurzelt

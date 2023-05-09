@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBladeDancerBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon.
+Condition/&ConditionBladeDancerBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon.
 Condition/&ConditionBladeDancerBladeDanceTitle=Blade Dancing
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=You add a +5 to the damage of your weapon attacks while your blade dance is active.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Dance of Victory

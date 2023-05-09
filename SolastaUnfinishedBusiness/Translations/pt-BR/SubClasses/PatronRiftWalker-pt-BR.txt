@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Você não pode ser contido.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Você não pode ser contido.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift Freedom
 Feature/&BonusCantripRiftWalkWardingBondDescription=Seu controle dos portais da fenda aumentou a ponto de agora você poder conceder a proteção da fenda a outros. Você pode conjurar vínculo de proteção à vontade (sem dividir o dano).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Manto da Fenda

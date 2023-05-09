@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Starting at 3rd level, you add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Starting at 3rd level, you add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
 Feature/&PowerRoyalKnightInspiringProtectionDescription=Starting at 15th level, your actions inspire others to keep on fighting. Whenever one of your allies that you can see within 60 feet fails a saving throw, you can use your reaction to make that ally reroll their save. You can use this feature three times per long rest.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=Inspiring Protection

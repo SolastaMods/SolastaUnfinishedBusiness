@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDistantHandDistractDescription=Hat Nachteil beim nächsten Angriff.
+Condition/&ConditionWayOfTheDistantHandDistractDescription=Hat Nachteil beim nächsten Angriff.
 Condition/&ConditionWayOfTheDistantHandDistractTitle=Abgelenkt
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractDescription=Hat bei allen Angriffen einen Nachteil.
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractTitle=Abgelenkt

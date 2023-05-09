@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Vous pouvez dépenser 2 points Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Vous pouvez dépenser 2 points Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arts de la silhouette
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cape of Silhouettes fonctionne désormais dans la pénombre et l'obscurité magique en plus de l'obscurité naturelle.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Cape de silhouettes améliorée

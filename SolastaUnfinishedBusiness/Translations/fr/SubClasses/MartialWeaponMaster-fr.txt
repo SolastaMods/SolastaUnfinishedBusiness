@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Vous avez l'avantage sur toutes les attaques avec votre arme spécialisée jusqu'à la fin de votre tour.
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Vous avez l'avantage sur toutes les attaques avec votre arme spécialisée jusqu'à la fin de votre tour.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Frappes ciblées
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Vous gagnez +1 aux jets de toucher et de dégâts avec votre type d'arme spécialisée. Un maître d'armes martiales aura un désavantage pour attaquer avec tous les autres types d'armes mais obtient un bonus de +2 à partir du niveau 15.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Spécialisation d'armes

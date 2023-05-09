@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Votre capacité de combat est grandement améliorée.
+Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Votre capacité de combat est grandement améliorée.
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=Inspiré
 Condition/&ConditionTerrifiedByHarlequinPerformanceDescription=Terrifié après avoir été témoin d'un allié a été assassiné brutalement.
 Condition/&ConditionTerrifiedByHarlequinPerformanceTitle=Terrifié

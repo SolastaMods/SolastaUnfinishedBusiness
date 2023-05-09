@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=You have advantage on your next attack roll.
+Condition/&ConditionFeatSteadyAimAdvantageDescription=You have advantage on your next attack roll.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Steady Aim
 Condition/&ConditionFeatSteadyAimRestrainedDescription=You cannot move until the end of your turn.
 Condition/&ConditionFeatSteadyAimRestrainedTitle=Restrained by Steady Aim

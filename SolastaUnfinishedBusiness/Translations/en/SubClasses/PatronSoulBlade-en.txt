@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Cursed by a Soul Hex.
+Condition/&ConditionSoulBladeHexDefenderDescription=Cursed by a Soul Hex.
 Condition/&ConditionSoulBladeHexDefenderTitle=Soul Hex
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Counts as magical and uses Charisma modifier for attack and damage rolls.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Soul Empowered
