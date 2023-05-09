@@ -139,6 +139,7 @@ public static class CharacterActionUsePowerPatcher
                 yield break;
             }
 
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var effectForm in __instance.ActionParams.RulesetEffect.EffectDescription.EffectForms)
             {
                 if (effectForm.FormType != EffectForm.EffectFormType.Counter)
@@ -208,15 +209,15 @@ public static class CharacterActionUsePowerPatcher
                              __instance.ActionParams.ActingCharacter.RulesetCharacter.SpellRepertoires
                                  .Where(spellRepertoire =>
                                      spellRepertoire.SpellCastingFeature.SpellCastingOrigin is
-                                         FeatureDefinitionCastSpell
-                                             .CastingOrigin.Class or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
+                                         FeatureDefinitionCastSpell.CastingOrigin.Class
+                                         or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
                     {
                         abilityScoreName = spellRepertoire.SpellCastingFeature.SpellcastingAbility;
                         break;
                     }
 
                     var proficiencyName = string.Empty;
-                    
+
                     if (counterForm.AddProficiencyBonus)
                     {
                         proficiencyName = "ForcedProficiency";
@@ -226,10 +227,10 @@ public static class CharacterActionUsePowerPatcher
                         checkDC, RuleDefinitions.AdvantageType.None,
                         __instance.ActionParams.ActionModifiers[0], false, 0, out var outcome,
                         out var successDelta, true);
-                    
+
                     counterAction.AbilityCheckRollOutcome = outcome;
                     counterAction.AbilityCheckSuccessDelta = successDelta;
-                    
+
                     // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (counterAction.AbilityCheckRollOutcome)
                     {
@@ -251,7 +252,7 @@ public static class CharacterActionUsePowerPatcher
                 }
 
                 var unknown = string.IsNullOrEmpty(counteredSpell.IdentifiedBy);
-                    
+
                 __instance.ActingCharacter.RulesetCharacter.SpellCounter(
                     __instance.ActingCharacter.RulesetCharacter,
                     __instance.ActionParams.TargetAction.ActingCharacter.RulesetCharacter,

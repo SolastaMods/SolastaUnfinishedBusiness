@@ -486,14 +486,14 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             {
                 yield break;
             }
-            
+
             var rulesetAttacker = attacker.RulesetCharacter;
 
             if (rulesetAttacker == null)
             {
                 yield break;
             }
-            
+
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter

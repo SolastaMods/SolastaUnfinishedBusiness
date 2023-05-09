@@ -1317,7 +1317,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Disintegrate { get; } = GetDefinition<SpellDefinition>("Disintegrate");
         internal static SpellDefinition DispelEvilAndGood { get; } = GetDefinition<SpellDefinition>("DispelEvilAndGood");
         internal static SpellDefinition DispelMagic { get; } = GetDefinition<SpellDefinition>("DispelMagic");
-        internal static SpellDefinition DivineFavor { get; } = GetDefinition<SpellDefinition>("DivineFavor");
         internal static SpellDefinition DominateBeast { get; } = GetDefinition<SpellDefinition>("DominateBeast");
         internal static SpellDefinition DominatePerson { get; } = GetDefinition<SpellDefinition>("DominatePerson");
         internal static SpellDefinition DreadfulOmen { get; } = GetDefinition<SpellDefinition>("DreadfulOmen");
