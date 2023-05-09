@@ -2,9 +2,9 @@ Open Mod UI > Tools and click History for full change details:
 
 - RESPEC REQUIRED: Arcane Scoundrel [>=13th]
 
-- included campaign assets on DM Pro sorting option
-- fixed Crusader's Mantle spell preventing hero movement
+- fixed Crusader's Mantle spell soft locking the combat
 - fixed Soulblade hex not triggering on magical attacks
+- added campaign assets to DM Pro sorting setting [locations, npcs, quests, etc.]
 - changed gambits to use highest of str, dex or int on saving difficult ability
 - changed Shadow Blade spell to only grant adv if target is not on bright light
 - tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
