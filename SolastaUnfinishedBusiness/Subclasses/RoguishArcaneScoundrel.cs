@@ -14,6 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -155,7 +156,31 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         // LEVEL 17
         //
 
+        const string ADDITIONAL_DAMAGE_POSSESSED = $"AdditionalDamage{Name}Possessed";
         const string POWER_ESSENCE_THEFT = $"Power{Name}EssenceTheft";
+
+        var conditionPossessed = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Possessed")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPossessed)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
+            .AddToDB();
+
+        var additionalDamagePossessed = FeatureDefinitionAdditionalDamageBuilder
+            .Create(AdditionalDamageRogueSneakAttack, ADDITIONAL_DAMAGE_POSSESSED)
+            // need to set next 3 even with a template as builder clears them out
+            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    operation = ConditionOperationDescription.ConditionOperation.Add,
+                    conditionDefinition = conditionPossessed
+                })
+            .SetCustomSubFeatures(new CustomCodeAdditionalDamagePossessed())
+            .AddToDB();
+
 
         static bool CanUseEssenceTheft(RulesetCharacter character)
         {
@@ -166,7 +191,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 return false;
             }
 
-            return gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name) &&
+            return gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED) &&
                    !gameLocationCharacter.UsedSpecialFeatures.ContainsKey(POWER_ESSENCE_THEFT);
         }
 
@@ -177,7 +202,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(
@@ -195,18 +220,22 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerEssenceTheft.SetCustomSubFeatures(
             new ValidatorsPowerUse(CanUseEssenceTheft),
-            new ActionFinishedEssenceTheft(powerEssenceTheft));
+            new CustomBehaviorEssenceTheft(powerEssenceTheft, conditionPossessed));
+
 
         var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}TricksOfTheTrade")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3, powerEssenceTheft)
+            .AddFeatureSet(
+                MagicAffinityAdditionalSpellSlot3,
+                additionalDamagePossessed,
+                powerEssenceTheft)
             .AddToDB();
 
         var featureSetPremeditationSlot = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4)
+            .AddFeatureSet(MagicAffinityAdditionalSpellSlot4)
             .SetCustomSubFeatures(new CustomCodePremeditationSlot4())
             .AddToDB();
 
@@ -318,13 +347,35 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class ActionFinishedEssenceTheft : IActionFinished
+    private sealed class CustomCodeAdditionalDamagePossessed : IFeatureDefinitionCustomCode, IClassHoldingFeature
+    {
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            // Empty
+        }
+
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
+
+    private sealed class CustomBehaviorEssenceTheft : IActionFinished, IFilterTargetingMagicEffect
     {
         private readonly FeatureDefinitionPower _powerEssenceTheft;
+        private readonly ConditionDefinition _conditionPossessed;
 
-        public ActionFinishedEssenceTheft(FeatureDefinitionPower powerEssenceTheft)
+        public CustomBehaviorEssenceTheft(
+            FeatureDefinitionPower powerEssenceTheft,
+            ConditionDefinition conditionPossessed)
         {
             _powerEssenceTheft = powerEssenceTheft;
+            _conditionPossessed = conditionPossessed;
         }
 
         public IEnumerator OnActionFinished(CharacterAction characterAction)
@@ -339,6 +390,29 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
         }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            if (__instance.actionParams.RulesetEffect is not RulesetEffectPower rulesetEffectPower ||
+                rulesetEffectPower.PowerDefinition != _powerEssenceTheft)
+            {
+                return true;
+            }
+
+            if (target.RulesetCharacter == null)
+            {
+                return true;
+            }
+
+            var isValid = !target.RulesetCharacter.HasConditionOfType(_conditionPossessed.Name);
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustNotHavePossessedCondition");
+            }
+
+            return isValid;
+        }
     }
 
     private sealed class CustomCodePremeditationSlot4 : IFeatureDefinitionCustomCode
@@ -348,7 +422,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
                 featureDefinitions.RemoveAll(
-                    x => x == FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4);
+                    x => x == MagicAffinityAdditionalSpellSlot4);
             }
         }
 

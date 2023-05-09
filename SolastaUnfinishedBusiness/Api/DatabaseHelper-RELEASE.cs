@@ -189,6 +189,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionParalyzed_GhoulsCaress { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_GhoulsCaress");
         internal static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } = GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones");
         internal static ConditionDefinition ConditionPoisoned { get; } = GetDefinition<ConditionDefinition>("ConditionPoisoned");
+        internal static ConditionDefinition ConditionPossessed { get; } = GetDefinition<ConditionDefinition>("ConditionPossessed");
         internal static ConditionDefinition ConditionProne { get; } = GetDefinition<ConditionDefinition>("ConditionProne");
         internal static ConditionDefinition ConditionProtectedFromEnergyLightning { get; } = GetDefinition<ConditionDefinition>("ConditionProtectedFromEnergyLightning");
         internal static ConditionDefinition ConditionProtectedFromPoison { get; } = GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison");

@@ -1,5 +1,7 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=You suffer disadvantage on your saving throws or ability checks.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
+Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Your life essence was stolen to harm another creature.
+Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Possessed
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Starting at 9th level, whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Cast Wizard spells and cantrips.
@@ -11,7 +13,7 @@ Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingTitle=Guileful Castin
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per short rest, you cast Counterspell at it highest level without expending a spell slot.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arcane Backlash
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=You can steal essence from one creature and use it to harm another.
-Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essence Theft
+Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essence Rupture
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gain proficiency with Arcana skill. If you are already proficient, gain expertise instead.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arcane Affinity
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} is casting a spell! You can react to counter the spell without spending a spell slot.
@@ -20,3 +22,4 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Hostile Spell Casting
 Subclass/&RoguishArcaneScoundrelDescription=With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 Subclass/&RoguishArcaneScoundrelTitle=Arcane Scoundrel
+Tooltip/&MustNotHavePossessedCondition=Had life essence stolen and cannot be aimed

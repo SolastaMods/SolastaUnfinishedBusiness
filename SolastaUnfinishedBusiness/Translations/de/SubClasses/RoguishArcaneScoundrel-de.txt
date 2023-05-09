@@ -1,17 +1,19 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Du erleidest Nachteile bei deinen Rettungswürfen oder Attributswürfen.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
+Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=Deine Lebensessenz wurde gestohlen, um einer anderen Kreatur Schaden zuzufügen.
+Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Besessen
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ab der 9. Stufe erleidet jedes Mal, wenn du einer Kreatur hinterhältigen Angriffsschaden zufügst, diese Kreatur bei ihrem nächsten Rettungswurf oder ihrer nächsten Fähigkeitsprüfung bis zum Ende deines nächsten Zuges einen Nachteil.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Wirke Zaubererzauber und Cantrips.
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Zaubern
-Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeDescription=Ab der 17. Stufe erhältst du die folgenden Vorteile:\n• Du kannst Essenz von einer Kreatur stehlen und damit einer anderen Schaden zufügen. Wenn du während deines Zuges einer Kreatur Hinterhältigen Schaden zufügst, kannst du jede andere Kreatur innerhalb von 9 m von dir als freie Aktion anvisieren, indem du die Hälfte deiner Hinterhältigen Angriffswürfel (abgerundet) als Kraftschaden zufügst und darauf den Zustand Ablenkender Hinterhalt anwendest Kreatur.\n• Du erhältst einen zusätzlichen Slot deiner höchsten Zauberstufe.
+Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeDescription=Ab der 17. Stufe erhältst du die folgenden Vorteile:\n• Du kannst Essenz von einer Kreatur stehlen und damit einer anderen Schaden zufügen. Wenn du während deines Zuges einer Kreatur Hinterhältigen Schaden zufügst, kannst du eine beliebige andere Kreatur innerhalb von 9 m von dir als freie Aktion anvisieren, wobei du die Hälfte deiner Hinterhältigen Angriffswürfel (abgerundet) als Kraftschaden zufügst und die Bedingung Ablenkender Hinterhalt darauf anwendest Kreatur.\n• Du erhältst einen zusätzlichen Slot deiner höchsten Zauberstufe.
 Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeTitle=Tricks des Handels
 Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingDescription=Sie können Ihre Waffen als Zauberfokus verwenden und sind in der Lage, somatische Komponenten von Zaubersprüchen auszuführen, während Sie Gegenstände halten
 Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingTitle=Guile Casting
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Lernen Sie ab der 13. Stufe Gegenzauber, falls Sie dies noch nicht getan haben. Immer wenn Sie einen Zauber erfolgreich unterbrechen, fügen Sie dieser Kreatur Ihren Schleichangriff als Kraftschaden zu. Zusätzlich wirkst du einmal pro kurzer Pause Gegenzauber auf der höchsten Stufe, ohne einen Zauberslot zu verbrauchen.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arkane Gegenreaktion
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=Sie können Essenz von einer Kreatur stehlen und damit einer anderen Schaden zufügen.
-Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essenz Diebstahl
+Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Essenzbruch
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Erwerben Sie Kenntnisse in der Arcana-Fertigkeit. Wenn Sie bereits kompetent sind, erwerben Sie stattdessen Fachwissen.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arkane Affinität
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} wirkt einen Zauber! Sie können reagieren, um den Zauber zu kontern, ohne einen Zauberslot zu verbrauchen.
@@ -20,3 +22,4 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Feindliche Zaubersprüche
 Subclass/&RoguishArcaneScoundrelDescription=Mit schnellen Füßen und scharfem Verstand wenden Arcane Scoundrels eine Reihe magischer Tricks an, um ihre Gegner zu überlisten und zu schwächen.
 Subclass/&RoguishArcaneScoundrelTitle=Arkaner Schurke
+Tooltip/&MustNotHavePossessedCondition=Hatte Lebensessenz gestohlen und kann nicht gezielt werden
