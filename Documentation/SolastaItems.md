@@ -186,6 +186,10 @@ This incredible armor was created using the combined knowledge of the Snow Allia
 
 This enchanted dagger was forged by the priests of Misaye to fight giants and beasts.
 
+# Cherry Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
+
 # Cloth of the Lightbringers
 
 This cloth was designed and enchanted by the clerics of a Tirmarian cult to equip their paladins.
@@ -453,6 +457,10 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 # Greatsword of Sharpness
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was the masterful effort of Elgador Keenspirit, Magesmith of the Arcaneum.
+
+# Green Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Grievance
 
@@ -898,43 +906,11 @@ A finely decorated morningstar used by the Manacalon Imperial shock troops, imbu
 
 A cursed blade, forged by the ancient smiths of the Sorr-Akkath in the forges of Tirmar and blessed by Sorr-Tarr.
 
-# Noble Clothes (Blue)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Cherry)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Dominion)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Green)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
 # Noble Clothes (Masgarth)
 
 Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Noble Clothes (Northern)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Orange)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Pink)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Purple)
-
-Fine clothes of costly fabrics, decorated with gold or silver embroidery.
-
-# Noble Clothes (Red)
 
 Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
@@ -953,6 +929,10 @@ Masgarth Tabard
 # Ogre Javelin
 
 
+
+# Orange Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Orc Greataxe
 
@@ -981,6 +961,10 @@ Masgarth Tabard
 # Padded
 
 Padded armor consists of quilted layers of cloth and batting.
+
+# Pink Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Plate Armor
 
@@ -1158,6 +1142,10 @@ This enchanted weapon was forged using the ancient knowledge of Manacalon's mast
 
 Forged by master smith Krzystaff Flinthall, this weapon was enchanted by one of the first priests of Maraike who set foot on Solasta, after the opening of the Rift.
 
+# Purple Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
+
 # Quarterstaff
 
 
@@ -1221,6 +1209,10 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 # Rapier of Sharpness
 
 A masterpiece from Griff Blackheart, renowned for his deadly rapiers.
+
+# Red Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Ring Mail
 
@@ -1414,6 +1406,10 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 
 This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was the masterful effort of Elgador Keenspirit, Magesmith of the Arcaneum.
 
+# Silver Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
+
 # Skullcleaver
 
 Made before the Cataclysm by dwarven mountain mages whose secrets have since been long lost, this typically dwarven battle axe displays runes that clearly state that it was made to fight giants.
@@ -1585,6 +1581,10 @@ This enchanted longsword was forged by the priests of Arun to fight constructs a
 # Valkarokkopun Tabard
 
 A decorative vestment showing the armories of one's family, clan, or kingdom.
+
+# Valley Noble's Clothes
+
+Fine clothes of costly fabrics, decorated with gold or silver embroidery.
 
 # Vestment of the Primal Oak
 
