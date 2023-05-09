@@ -1,5 +1,7 @@
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Subisci svantaggio ai tiri salvezza o alle prove di caratteristica.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
+Condition/&ConditionRoguishArcaneScoundrelPossessedDescription=La tua essenza vitale è stata rubata per danneggiare un'altra creatura.
+Condition/&ConditionRoguishArcaneScoundrelPossessedTitle=Posseduto
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=A partire dal 9° livello, ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce svantaggio al successivo tiro salvezza o prova di caratteristica fino alla fine del tuo prossimo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancia incantesimi e trucchetti da mago.
@@ -11,7 +13,7 @@ Feature/&MagicAffinityRoguishArcaneScoundrelGuilefulCastingTitle=Casting inganne
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=A partire dal 13° livello, impara Controincantesimo se non l'hai già fatto. Ogni volta che interrompi con successo un incantesimo usandolo, infliggi il tuo attacco furtivo come danno da forza a quella creatura. Inoltre, una volta per riposo breve, lanci Controincantesimo al livello più alto senza spendere uno slot incantesimo.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contraccolpo Arcano
 Feature/&PowerRoguishArcaneScoundrelEssenceTheftDescription=Puoi rubare l'essenza da una creatura e usarla per danneggiarne un'altra.
-Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Furto di Essenza
+Feature/&PowerRoguishArcaneScoundrelEssenceTheftTitle=Rottura dell'Essenza
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Ottieni competenza con l'abilità Arcana. Se sei già esperto, acquisisci invece esperienza.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Affinità Arcana
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellDescription={0} sta lanciando un incantesimo! Puoi reagire per contrastare l'incantesimo senza spendere uno slot incantesimo.
@@ -20,3 +22,4 @@ Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellReactT
 Reaction/&SpendPowerPowerRoguishArcaneScoundrelArcaneBackslashCounterSpellTitle=Lancio di incantesimi ostili
 Subclass/&RoguishArcaneScoundrelDescription=Con rapidità di piedi e acutezza di ingegno, gli Arcane Scoundrels utilizzano una serie di trucchi magici per superare in astuzia e debilitare i loro avversari.
 Subclass/&RoguishArcaneScoundrelTitle=Canaglia Arcana
+Tooltip/&MustNotHavePossessedCondition=L'essenza della vita è stata rubata e non può essere mirata
