@@ -2124,7 +2124,7 @@ Interrupt an enemy's spellcasting.
 
 ## Level 17
 
-* Tricks of the Trade
+* Essence Thief
 
 Starting at 17th level, you gain the following benefits:
 • You can steal essence from one creature and use it to harm another. During your turn, when you deal sneak attack damage to a creature, you can target any other creature within 30 feet of you as a free action, dealing half your sneak attack dice (rounded down) as force damage and applying Distracting Ambush condition to that creature.
