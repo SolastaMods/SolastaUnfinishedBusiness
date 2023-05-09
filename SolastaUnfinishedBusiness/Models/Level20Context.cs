@@ -38,7 +38,7 @@ internal static class Level20Context
     internal const int ModMaxLevel = 20;
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
-    internal static readonly int GameMaxLevel = 16;
+    internal const int GameMaxLevel = 16;
 
     internal static void Load()
     {
