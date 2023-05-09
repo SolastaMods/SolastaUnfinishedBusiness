@@ -163,6 +163,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .Create($"Condition{Name}Possessed")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPossessed)
             .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfSourceTurn)
             .AddToDB();
 
@@ -185,20 +186,14 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         static bool CanUseEssenceTheft(RulesetCharacter character)
         {
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-            if (gameLocationCharacter == null)
-            {
-                return false;
-            }
-
-            return gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED) &&
-                   !gameLocationCharacter.UsedSpecialFeatures.ContainsKey(POWER_ESSENCE_THEFT);
+        
+            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED);
         }
 
         var powerEssenceTheft = FeatureDefinitionPowerBuilder
             .Create(POWER_ESSENCE_THEFT)
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
-            .SetUsesFixed(ActivationTime.NoCost)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -349,6 +344,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     private sealed class CustomCodeAdditionalDamagePossessed : IFeatureDefinitionCustomCode, IClassHoldingFeature
     {
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
@@ -361,14 +358,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         {
             // Empty
         }
-
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 
     private sealed class CustomBehaviorEssenceTheft : IActionFinished, IFilterTargetingMagicEffect
     {
-        private readonly FeatureDefinitionPower _powerEssenceTheft;
         private readonly ConditionDefinition _conditionPossessed;
+        private readonly FeatureDefinitionPower _powerEssenceTheft;
 
         public CustomBehaviorEssenceTheft(
             FeatureDefinitionPower powerEssenceTheft,
