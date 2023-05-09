@@ -12,4 +12,5 @@ Feature/&PowerDomainSmithAdamantBenedictionDescription=Using an action, bolster 
 Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Benediction
 Feature/&PowerDomainSmithReinforceArmorDescription=Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +{0} AC.
 Feature/&PowerDomainSmithReinforceArmorTitle=Reinforce Armor
-Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.Subclass/&DomainSmithTitle=Smith
+Subclass/&DomainSmithDescription=Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
+Subclass/&DomainSmithTitle=Smith

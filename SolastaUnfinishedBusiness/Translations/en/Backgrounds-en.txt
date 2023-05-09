@@ -1,5 +1,6 @@
 Background/&BackgroundFarmerDescription=You have worked the land and hand-raised livestock from birth to feed the mouths of many. As a farmer, you woke up before the sun and came in from working the fields after it set. You have left behind a mundane life to seek adventure for thrill or fame or fortune.
-Background/&BackgroundFarmerTitle=FarmerFeature/&ProficiencyBackgroundFarmerSkillsDescription=Animal Handling, Nature and Perception
+Background/&BackgroundFarmerTitle=Farmer
+Feature/&ProficiencyBackgroundFarmerSkillsDescription=Animal Handling, Nature and Perception
 Feature/&ProficiencyBackgroundFarmerSkillsTitle=Farmer Skills
 Feature/&ProficiencyBackgroundFarmerWeaponsDescription=Proficiency in clubs and hand axes. +1 to hit with them.
 Feature/&ProficiencyBackgroundFarmerWeaponsTitle=Farmer Weapons
