@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -6,11 +7,13 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -152,17 +155,59 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         // LEVEL 17
         //
 
-        var featureSetPremeditationSlot3 = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PremeditationSlot3")
-            .SetGuiPresentationNoContent(true)
-            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3)
+        const string POWER_ESSENCE_THEFT = $"Power{Name}EssenceTheft";
+
+        static bool CanUseEssenceTheft(RulesetCharacter character)
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            if (gameLocationCharacter == null)
+            {
+                return false;
+            }
+
+            return gameLocationCharacter.UsedSpecialFeatures.ContainsKey(AdditionalDamageRogueSneakAttack.Name) &&
+                   !gameLocationCharacter.UsedSpecialFeatures.ContainsKey(POWER_ESSENCE_THEFT);
+        }
+
+        var powerEssenceTheft = FeatureDefinitionPowerBuilder
+            .Create(POWER_ESSENCE_THEFT)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+                    .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDiceAdvancement(LevelSourceType.CharacterLevel, 1, 1, 2, 19)
+                            .SetDamageForm(DamageTypeForce, 4, DieType.D6)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionDistractingAmbush, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
-        var featureSetPremeditationSlot4 = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}PremeditationSlot4")
+        powerEssenceTheft.SetCustomSubFeatures(
+            new ValidatorsPowerUse(CanUseEssenceTheft),
+            new ActionFinishedEssenceTheft(powerEssenceTheft));
+
+        var featureSetTricksOfTheTrade = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TricksOfTheTrade")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot3, powerEssenceTheft)
+            .AddToDB();
+
+        var featureSetPremeditationSlot = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}PremeditationSlot")
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4)
-            .SetCustomSubFeatures(new CustomCodePremeditation(featureSetPremeditationSlot3))
+            .SetCustomSubFeatures(new CustomCodePremeditationSlot4())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -180,9 +225,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 powerArcaneBacklash,
                 powerArcaneBackslashCounterSpell)
             .AddFeaturesAtLevel(17,
-                featureSetPremeditationSlot3)
+                featureSetTricksOfTheTrade)
             .AddFeaturesAtLevel(19,
-                featureSetPremeditationSlot4)
+                featureSetPremeditationSlot)
             .AddToDB();
     }
 
@@ -243,9 +288,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var actingCharacter = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerArcaneBackslash, rulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(AdditionalDamageRogueSneakAttack.Name, 1);
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
@@ -270,20 +318,37 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomCodePremeditation : IFeatureDefinitionCustomCode
+    private sealed class ActionFinishedEssenceTheft : IActionFinished
     {
-        private readonly FeatureDefinitionFeatureSet _featureDefinitionFeatureSet;
+        private readonly FeatureDefinitionPower _powerEssenceTheft;
 
-        public CustomCodePremeditation(FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        public ActionFinishedEssenceTheft(FeatureDefinitionPower powerEssenceTheft)
         {
-            _featureDefinitionFeatureSet = featureDefinitionFeatureSet;
+            _powerEssenceTheft = powerEssenceTheft;
         }
 
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+
+            actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
+        }
+    }
+
+    private sealed class CustomCodePremeditationSlot4 : IFeatureDefinitionCustomCode
+    {
         public void ApplyFeature(RulesetCharacterHero hero, string tag)
         {
             foreach (var featureDefinitions in hero.ActiveFeatures.Values)
             {
-                featureDefinitions.RemoveAll(x => x == _featureDefinitionFeatureSet);
+                featureDefinitions.RemoveAll(
+                    x => x == FeatureDefinitionMagicAffinitys.MagicAffinityAdditionalSpellSlot4);
             }
         }
 

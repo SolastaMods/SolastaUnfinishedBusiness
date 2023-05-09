@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:MagicAffinityAdditionalSpellSlot3:fc7e8317e9dcafd44a07c8712d77d31d"
+    "Definition:MagicAffinityAdditionalSpellSlot4:0beab9f2ef8336c478c84971a3b11c49"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -34,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d89af5f3-7437-5383-8e95-f549b4921b60",
+  "guid": "8e525e1c-ab99-5166-9e82-ffebd11395ea",
   "contentPack": 9999,
-  "name": "FeatureSetRoguishArcaneScoundrelPremeditationSlot3"
+  "name": "FeatureSetRoguishArcaneScoundrelPremeditationSlot"
 }

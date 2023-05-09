@@ -38,12 +38,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot3:d89af5f3-7437-5383-8e95-f549b4921b60",
+      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelTricksOfTheTrade:20bf9821-84ef-54d4-b4c6-7830a6aebbcb",
       "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot4:9de9c0f9-8fb9-5f44-bf2c-6faf20d07010",
+      "featureDefinition": "Definition:FeatureSetRoguishArcaneScoundrelPremeditationSlot:8e525e1c-ab99-5166-9e82-ffebd11395ea",
       "level": 19
     }
   ],
