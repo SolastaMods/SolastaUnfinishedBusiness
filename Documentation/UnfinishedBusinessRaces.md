@@ -51,6 +51,14 @@ As a bonus action, you can magically turn invisible for 1 round. This invisibili
 
 You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
 
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
+
 
 
 
@@ -171,6 +179,14 @@ Common, Elvish
 
 You know the Burst of Radiance cantrip. At 3rd level you learn Faerie Fire and at 5th level, Color Burst. Both can be used once per long rest.
 
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
+
 
 
 
@@ -208,6 +224,14 @@ Common, Gnomish.
 * Natural Illusionist
 
 You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it.
+
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
 
 
 
@@ -298,6 +322,14 @@ Immunity to magical sleep
 
 Common, Elvish, and one language of your choice
 
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
+
 
 
 
@@ -352,6 +384,14 @@ Common, Draconic.
 
 6◎
 
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
+
 
 
 
@@ -399,6 +439,14 @@ Common, Infernal.
 * Tiefling Attribute Increase
 
 Charisma +2
+
+* Help
+
+You can aid a friendly creature in attacking a creature within 5 ft of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+* Bonus Feat
+
+Select an additional feat for your character.
 
 
 
