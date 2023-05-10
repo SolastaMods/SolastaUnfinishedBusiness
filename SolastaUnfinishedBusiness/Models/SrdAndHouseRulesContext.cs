@@ -80,9 +80,6 @@ internal static class SrdAndHouseRulesContext
             spells.RemoveAll(x => x == null);
         }
 
-        //BUGFIX: fix tradition light race repertoire
-        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
-
         //BUGFIX: add a sprite reference to Resurrection
         Resurrection.GuiPresentation.spriteReference =
             Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
