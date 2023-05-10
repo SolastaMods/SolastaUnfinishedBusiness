@@ -1,10 +1,10 @@
-Condition/&ConditionBrainBulwarkDescription=你对精神伤害有抵抗力，并且对被迷住、害怕、恐惧、精神支配和精神控制的情况免疫。
-Condition/&ConditionBrainBulwarkTitle=大脑壁垒
+Condition/&ConditionBrainBulwarkDescription=你对精神伤害有抵抗力，并且免疫魅惑、害怕、恐惧、心智支配和精神控制。
+Condition/&ConditionBrainBulwarkTitle=心智屏障
 Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
 Feature/&AdditionalDamageStaggeringSmiteTitle=惊震斩
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊震斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊震斩对 {1} 造成更多伤害 (+{2})
-Spell/&BrainBulwarkDescription=在此期间，你或范围内你能看到的一个自愿生物对精神伤害具有抵抗力，并且对被迷住、恐惧、恐惧、心智支配和心智控制的状态具有免疫力。
-Spell/&BrainBulwarkTitle=大脑壁垒
+Spell/&BrainBulwarkDescription=在此期间，你或范围内你能看到的一个自愿生物对精神伤害具有抵抗力，并且免疫魅惑、恐惧、恐惧、心智支配和精神控制的状态。
+Spell/&BrainBulwarkTitle=心智屏障
 Spell/&StaggeringSmiteDescription=在此法术的持续时间内，下次你用武器攻击命中一个生物时，你的武器会刺穿身体和心灵，并且攻击会对目标造成额外的 4d6 心灵伤害。目标必须进行一次感知豁免。豁免失败时，它在攻击检定和能力检定上具有劣势，并且不能做出反应，直到它的下一轮结束。
 Spell/&StaggeringSmiteTitle=惊震斩

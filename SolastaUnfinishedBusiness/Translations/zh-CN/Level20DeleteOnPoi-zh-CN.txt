@@ -1,5 +1,6 @@
 Action/&PersistentRageStartDescription=在一分钟内，你在力量豁免和近战攻击检定上有优势，抵抗挥砍、钝击和穿刺伤害。只有当你不穿重甲时才能获得这些增益。
 Feature/&FeatureSetMonkDiamondSoulDescription=从14级开始，你对气的掌握将使你精通所有豁免检定。此外，每当你进行豁免检定失败时，你可以花费1气点来重新掷骰并获得第二个结果。
+Feature/&FeatureSetMonkDiamondSoulTitle=金刚魂
 Feature/&FeatureSetMonkTongueSunMoonDescription=从第13级开始，你学习触摸其他心灵的气，这样你就能理解所有的语言。此外，任何能听懂语言的生物都能听懂你说的话。
 Feature/&FeatureSetMonkTongueSunMoonTitle=天语通
 Feature/&IndomitableResistanceAddDescription=在长休后，你可以使用顽强不屈。
