@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDauntlessPursuerDescription=Vous gagnez 2 cellules de mouvement supplémentaires et ignorez les réactions de l'adversaire.
+Condition/&ConditionDauntlessPursuerDescription=Vous gagnez 2 cellules de mouvement supplémentaires et ignorez les réactions de l'adversaire.
 Condition/&ConditionDauntlessPursuerTitle=Poursuivant intrépide
 Condition/&ConditionScornfulPrayerDescription=La force et la voix s'estompent au fur et à mesure que la prière s'enveloppe. Sous les effets, la prière affaiblit et maudit l'ennemi lors des jets d'attaque.
 Condition/&ConditionScornfulPrayerTitle=Méprisé

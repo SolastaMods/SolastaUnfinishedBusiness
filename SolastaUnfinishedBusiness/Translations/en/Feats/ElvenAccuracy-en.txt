@@ -1,4 +1,4 @@
-﻿Feat/&FeatElvenAccuracyCharismaDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
+Feat/&FeatElvenAccuracyCharismaDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 Feat/&FeatElvenAccuracyCharismaTitle=Elven Precision [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 Feat/&FeatElvenAccuracyDexterityTitle=Elven Precision [Dex]

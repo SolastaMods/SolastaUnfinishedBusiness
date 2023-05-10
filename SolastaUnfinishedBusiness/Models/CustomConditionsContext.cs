@@ -21,6 +21,10 @@ internal static class CustomConditionsContext
 
     internal static ConditionDefinition StopMovement;
 
+    private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
+
+    private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
+
     internal static void Load()
     {
         StopMovement = ConditionDefinitionBuilder
@@ -31,8 +35,38 @@ internal static class CustomConditionsContext
                 FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained)
             .AddToDB();
 
-        InvisibilityEveryRound = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRound")
+        InvisibilityEveryRound = BuildInvisibilityEveryRound();
+
+        LightSensitivity = BuildLightSensitivity();
+
+        Distracted = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
+    }
+
+    private static ConditionDefinition BuildInvisibilityEveryRound()
+    {
+        ConditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
+            .Create("ConditionInvisibilityEveryRoundRevealed")
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        ConditionInvisibilityEveryRoundHidden = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
+            .SetCancellingConditions(ConditionInvisibilityEveryRoundRevealed)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(
+                ConditionInterruption.Attacks,
+                ConditionInterruption.CastSpell,
+                ConditionInterruption.UsePower)
+            .AddToDB();
+
+        var conditionInvisibilityEveryRound = ConditionDefinitionBuilder
+            .Create("ConditionInvisibilityEveryRound")
+            .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionBuilder
@@ -42,14 +76,7 @@ internal static class CustomConditionsContext
                 .AddToDB())
             .AddToDB();
 
-        InvisibilityEveryRound.SpecialInterruptions.Clear();
-
-        LightSensitivity = BuildLightSensitivity();
-
-        Distracted = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
-            .SetOrUpdateGuiPresentation(Category.Condition)
-            .AddToDB();
+        return conditionInvisibilityEveryRound;
     }
 
     private static ConditionDefinition BuildLightSensitivity()
@@ -82,23 +109,45 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : IActionFinished
+    private sealed class InvisibilityEveryRoundBehavior : IActionFinished, ICustomConditionFeature
     {
+        private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
+        private const string CategoryHidden = "InvisibilityEveryRoundHidden";
+
         public IEnumerator OnActionFinished(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+            var actionParams = action.ActionParams;
+            var hero = actingCharacter.RulesetCharacter;
+
             if (action is not (CharacterActionUsePower or CharacterActionCastSpell or CharacterActionAttack))
             {
                 yield break;
             }
 
-            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var actionParams = action.ActionParams;
+            var ruleEffect = actionParams.RulesetEffect;
 
-            var rulesetEffect = actionParams.RulesetEffect;
-
-            if (rulesetEffect == null || !IsAllowedEffect(rulesetEffect.EffectDescription))
+            if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
             {
-                rulesetCharacter.RemoveAllConditionsOfCategory("ConditionInvisibilityEveryRound");
+                BecomeRevealed(hero);
+            }
+        }
+
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is not RulesetCharacterMonster &&
+                !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
+            {
+                BecomeHidden(target);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            if (target is not RulesetCharacterMonster)
+            {
+                target.RemoveAllConditionsOfCategory(CategoryHidden, false);
             }
         }
 
@@ -149,6 +198,34 @@ internal static class CustomConditionsContext
             }
 
             return true;
+        }
+
+        private static void BecomeRevealed(RulesetCharacter hero)
+        {
+            hero.AddConditionOfCategory(CategoryRevealed,
+                RulesetCondition.CreateActiveCondition(
+                    hero.Guid,
+                    ConditionInvisibilityEveryRoundRevealed,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    hero.Guid,
+                    hero.CurrentFaction.Name
+                ));
+        }
+
+        private static void BecomeHidden(RulesetCharacter hero)
+        {
+            hero.AddConditionOfCategory(CategoryHidden,
+                RulesetCondition.CreateActiveCondition(
+                    hero.Guid,
+                    ConditionInvisibilityEveryRoundHidden,
+                    DurationType.Permanent,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
+                    hero.Guid,
+                    hero.CurrentFaction.Name),
+                false);
         }
     }
 }

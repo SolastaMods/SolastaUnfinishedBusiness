@@ -76,12 +76,12 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         var additionalDamagePathOfTheLightIlluminatingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamagePathOfTheLightIlluminatingStrikeName)
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("IlluminatingStrike")
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAddLightSource(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -89,8 +89,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
                     Operation = ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinition = conditionPathOfTheLightIlluminated
                 })
+            .SetAddLightSource(true)
             .SetLightSourceForm(lightSourceForm)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
 
@@ -282,11 +282,10 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 FeatureDefinitionPowerBuilder
                     .Create(PowerPathOfTheLightIlluminatingBurstName)
                     .SetGuiPresentation(Category.Feature, PowerDomainSunHeraldOfTheSun)
-                    .SetUsesFixed(ActivationTime.NoCost, RechargeRate.OneMinute)
+                    .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
                     .SetEffectDescription(effectDescription)
                     .SetDisableIfConditionIsOwned(conditionPathOfTheLightSuppressedIlluminatingBurst)
                     .SetShowCasting(false)
-                    .SetCustomSubFeatures(new PowerIlluminatingBurst())
                     .AddToDB(),
                 powerPathOfTheLightIlluminatingBurstSuppressor)
             .AddToDB();
@@ -355,11 +354,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
     //
     // behavior classes
     //
-
-    private sealed class PowerIlluminatingBurst : IStartOfTurnRecharge
-    {
-        public bool IsRechargeSilent => true;
-    }
 
     private sealed class ConditionIlluminated : INotifyConditionRemoval
     {

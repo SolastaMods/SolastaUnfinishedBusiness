@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Hai vantaggio al tuo prossimo tiro per colpire.
+Condition/&ConditionFeatSteadyAimAdvantageDescription=Hai vantaggio al tuo prossimo tiro per colpire.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Mira stabile
 Condition/&ConditionFeatSteadyAimRestrainedDescription=Non puoi muoverti fino alla fine del tuo turno.
 Condition/&ConditionFeatSteadyAimRestrainedTitle=Trattenuto da Steady Aim

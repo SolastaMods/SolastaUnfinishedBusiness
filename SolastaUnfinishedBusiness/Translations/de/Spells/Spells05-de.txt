@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Sie können eine Bonusaktion verwenden, um sich bis zu 60 Fuß zu einem unbesetzten Feld zu teleportieren, das Sie sehen können.
+Condition/&ConditionFarStepDescription=Sie können eine Bonusaktion verwenden, um sich bis zu 60 Fuß zu einem unbesetzten Feld zu teleportieren, das Sie sehen können.
 Condition/&ConditionFarStepTitle=Weiter Schritt
 Feature/&AdditionalDamageBanishingSmiteDescription=Du wirst von Gewaltschaden getroffen.
 Feature/&AdditionalDamageBanishingSmiteTitle=Verbannung von Smite

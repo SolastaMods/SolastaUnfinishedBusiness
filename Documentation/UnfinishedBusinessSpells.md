@@ -19,6 +19,10 @@ You extend your hand and trace a sigil of warding in the air. Until the end of y
 On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
 A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 
+# Brain Bulwark
+
+For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
+
 # Burst of Radiance
 
 Create a brilliant flash of shimmering light, damaging all enemies around you.
@@ -59,6 +63,10 @@ Your next hit ensnares your target in vines - it receives 1d6 piercing damage ea
 # Far Step
 
 You teleport up to 60 ft to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
+
+# Find Familiar
+
+You gain the service of a familiar. The familiar can use the help action and you can cast any touch or melee hit spell through the familiar.
 
 # Foresight
 

@@ -23,7 +23,8 @@ internal enum ExtraSituationalContext
     HasGreatswordInHands = 1007,
     IsNotInBrightLight = 1008,
     IsRagingAndDualWielding = 1009,
-    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
+    TargetIsNotInBrightLight = 1011
 }
 
 #if false

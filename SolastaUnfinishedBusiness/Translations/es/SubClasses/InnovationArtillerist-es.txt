@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Tú y tus aliados tenéis la mitad de la cobertura cuando estáis a 10 pies o menos de un cañón creado con Eldritch Cannon, como resultado de un campo brillante de protección mágica que emite el cañón.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Tú y tus aliados tenéis la mitad de la cobertura cuando estáis a 10 pies o menos de un cañón creado con Eldritch Cannon, como resultado de un campo brillante de protección mágica que emite el cañón.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Posición fortificada
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Aprende y ten siempre preparado:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Hechizos de artillero

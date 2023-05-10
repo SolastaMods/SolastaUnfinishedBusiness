@@ -80,7 +80,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             .AddFeatureSet(featureRavenDeadlyAim, powerSteadyAim)
             .AddToDB();
 
-        // Perfect Shot
+        // perfect Shot
         var dieRollModifierRavenPerfectShot = FeatureDefinitionDieRollModifierBuilder
             .Create("DieRollModifierRavenPerfectShot")
             .SetGuiPresentation(Category.Feature)
@@ -88,8 +88,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                 "Feature/&DieRollModifierRavenPainMakerReroll")
             .SetCustomSubFeatures(new RavenRerollAnyDamageDieMarker())
             .AddToDB();
-
-        // You now reroll any 1s and 2s when rolling for damage. You must keep the second roll.
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
@@ -163,13 +161,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AdditionalDamageRavenHeartSeekingShot")
                     .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("HeartSeekingShot")
+                    .SetDamageDice(DieType.D6, 1)
+                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
-                    .SetDamageDice(DieType.D6, 1)
-                    .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .AddToDB()
             )
             .AddToDB();
@@ -273,13 +270,17 @@ internal sealed class RoguishRaven : AbstractSubclass
             _power = power;
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var character = me.RulesetCharacter;
+            var rulesetDefender = me.RulesetCharacter;
 
-            if (character == null || character.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
+            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
             {
                 yield break;
             }
@@ -307,7 +308,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            character.RollAttack(
+            rulesetDefender.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
@@ -315,7 +316,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 attackModifier.ignoreAdvantage,
                 attackModifier.attackAdvantageTrends,
                 attackMode.ranged,
-                false, // check this
+                false,
                 attackModifier.attackRollModifier,
                 out var outcome,
                 out var successDelta,
@@ -325,7 +326,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
 
-            GameConsoleHelper.LogCharacterUsedPower(character, _power);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
         }
     }
 }

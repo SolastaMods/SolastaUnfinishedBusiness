@@ -1,4 +1,4 @@
-﻿Feat/&FeatArcaneDefenseDescription=Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Intelligence modifier.
+Feat/&FeatArcaneDefenseDescription=Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Intelligence modifier.
 Feat/&FeatArcaneDefenseTitle=Arcane Defense
 Feat/&FeatCharismaticDefenseDescription=Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor or shield, your armor class is equal to 10 + your Dexterity modifier + your Charisma modifier.
 Feat/&FeatCharismaticDefenseTitle=Charismatic Defense

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArmorGuardianModeDescription=Ottieni l'arma <b>Guanto del tuono</b> (1d8 danni da tuono) se hai la mano libera e l'azione bonus <b>Campo difensivo</b> per ottenere HP temporanei pari al livello dell'Inventore.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Ottieni l'arma <b>Guanto del tuono</b> (1d8 danni da tuono) se hai la mano libera e l'azione bonus <b>Campo difensivo</b> per ottenere HP temporanei pari al livello dell'Inventore.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Custode
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Ottieni un attacco a distanza <b>Lanciafulmini</b> (1d6 danni da fulmine, il primo attacco del round infligge 2d6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Infiltrato

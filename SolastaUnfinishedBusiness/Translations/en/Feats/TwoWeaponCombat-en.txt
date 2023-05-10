@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=Your foes are reeling!
+Condition/&ConditionDualFlurryGrantDescription=Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle=Dual Flurry
 Feat/&FeatDualFlurryDescription=You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 Feat/&FeatDualFlurryTitle=Dual Flurry

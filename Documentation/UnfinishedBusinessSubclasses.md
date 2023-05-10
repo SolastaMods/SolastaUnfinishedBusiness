@@ -213,7 +213,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 * War Casting
 
-Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -261,7 +261,7 @@ When you engage in two-weapon fighting, you can add your ability modifier to the
 
 * War Casting
 
-Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -340,7 +340,7 @@ The Momentum duration is also extended by 1 round if you reduce your enemy to 0 
 
 * War Casting
 
-Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -928,9 +928,9 @@ Spell Shields are fighters that specialize in defense and protection. They use m
 
 ## Level 3
 
-* War Casting
+* Improved War Casting
 
-Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when if enemies are within melee range.
 
 * Spellcasting
 
@@ -988,7 +988,7 @@ You gain four D6 dice called gambit dice that you can spend to use various gambi
 
 * Gambits
 
-Learn 4 gambits - special maneuvers that use gambit dice and usually add roll of the gambit dice to the attack's damage. Some of the gambits allow target to make saving throw to avoid effects, DC of those gambits is 8 + your proficiency bonus + your Intelligence modifier.
+Learn 4 gambits - special maneuvers that use gambit dice and usually add roll of the gambit dice to the attack's damage. Some of the gambits allow target to make saving throw to avoid effects, DC of those gambits is 8 + your proficiency bonus + your Strength or Dexterity or Intelligence modifier, whichever is higher.
 
 * Sharp Mind
 
@@ -2079,7 +2079,7 @@ If an attack roll would have successfully hit you, you may use your reaction to 
 
 # Arcane Scoundrel
 
-With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
+With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 
 
 ## Level 3
@@ -2087,6 +2087,10 @@ With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of
 * Arcane Affinity
 
 Gain proficiency with Arcana skill. If you are already proficient, gain expertise instead.
+
+* Guileful Casting
+
+You can use your weapons as spellcasting focus and are able to perform somatic components of spells while holding items
 
 * Spellcasting
 
@@ -2097,14 +2101,18 @@ Cast Wizard spells and cantrips.
 
 * Distracting Ambush
 
-Whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
+Starting at 9th level, whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
 
 
 ## Level 13
 
 * Arcane Backlash
 
-You deal your sneak attack as force damage to a creature whenever you counter a spell from it.
+Starting at 13th level, learn Counterspell if you haven't done so already. Whenever you successfully interrupt a spell using it, deal your sneak attack as force damage to that creature. Additionally, once per short rest, you cast Counterspell at it highest level without expending a spell slot.
+
+* Counterspell
+
+Interrupt an enemy's spellcasting.
 
 * Expanded Spells
 
@@ -2116,9 +2124,11 @@ You deal your sneak attack as force damage to a creature whenever you counter a 
 
 ## Level 17
 
-* Scoundrel's Gambit
+* Essence Thief
 
-You can use a bonus action to cast mirror image as a 2nd level spell, without expanding a spell slot, once per short rest.
+Starting at 17th level, you gain the following benefits:
+• You can steal essence from one creature and use it to harm another. During your turn, when you deal sneak attack damage to a creature, you can target any other creature within 30 feet of you as a free action, dealing half your sneak attack dice (rounded down) as force damage and applying Distracting Ambush condition to that creature.
+• You gain one additional slot of your highest caster level.
 
 
 
@@ -2136,7 +2146,7 @@ You don't need advantage on the attack roll to use your Sneak Attack against a c
 
 * Sure Footed
 
-While unarmored or wearing light armor with no shield, gain additional armor class equals to half your proficiency bonus and advantage on initiative rolls.
+While unarmored or wearing light armor with no shield, gain additional +2 AC and advantage on initiative rolls.
 
 
 ## Level 9
@@ -2148,9 +2158,9 @@ Starting at 9th level, when a creature misses you with a melee attack roll, you 
 
 ## Level 13
 
-* Graceful Takedown
+* Reflexive Parry
 
-Starting at 13th level, you can use your bonus action to make a shove attempt.
+Starting at 13th level, once per turn while you aren't incapacitated, shocked or slowed and get hit by a melee weapon attack, you immediately use your Uncanny Dodge feature without needing or consuming your reaction.
 
 
 ## Level 17

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Maledetto da una maledizione dell'anima.
+Condition/&ConditionSoulBladeHexDefenderDescription=Maledetto da una maledizione dell'anima.
 Condition/&ConditionSoulBladeHexDefenderTitle=Maledizione dell'anima
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Conta come magico e usa il modificatore di Carisma per i tiri per colpire e per i danni.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Anima potenziata

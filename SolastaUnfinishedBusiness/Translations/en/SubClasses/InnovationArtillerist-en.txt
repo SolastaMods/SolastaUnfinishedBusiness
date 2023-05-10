@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=You and your allies have half cover while within 10 feet of a cannon created with Eldritch Cannon, as a result of a shimmering field of magical protection that the cannon emits.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=You and your allies have half cover while within 10 feet of a cannon created with Eldritch Cannon, as a result of a shimmering field of magical protection that the cannon emits.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Fortified Position
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Artillerist Spells

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCharmedByDanceOfWarDescription=Rüstungsklasse durch Charisma-Modifikator reduziert.
+Condition/&ConditionCharmedByDanceOfWarDescription=Rüstungsklasse durch Charisma-Modifikator reduziert.
 Condition/&ConditionCharmedByDanceOfWarTittle=Fasziniert
 Condition/&ConditionWarDanceDescription=Bewegen Sie sich und greifen Sie schnell an.
 Condition/&ConditionWarDanceLightMomentumDescription=Dein Angriff hat leichten Schwung.

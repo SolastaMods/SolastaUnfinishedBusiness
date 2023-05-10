@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=La tua mente esploderà in danni necrotici se entri in discordanza per la terza volta.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=La tua mente esploderà in danni necrotici se entri in discordanza per la terza volta.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordanza
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Prendi -1d4 ai tiri salvezza e -2 ai tiri per colpire. Puoi tentare di salvare alla fine di ogni tuo turno.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Tumulto profondo
@@ -8,9 +8,9 @@ Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=A partire dal 6° livell
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Scisma
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=All'11° livello, ottieni la capacità di provocare un'esplosione di energia negativa accumulata. Puoi aumentare il danno spendendo punti Ki. Ogni punto speso, fino a un massimo del tuo bonus di competenza, aumenta il danno di 1d6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Esplosione di disarmonia
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spendi {0} Ki Point per infliggere {1}d6 danni.
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Esplosione di Disarmonia [{0} Ki]
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=A partire dal 17° livello, quando una creatura riceve danni dal privilegio Discordanza, deve riuscire un tiro salvezza su Carisma o ricevere la condizione Turmotion per un massimo di un minuto. Se una creatura supera il tiro salvezza o l'effetto termina, la creatura è immune a ulteriori effetti di Turmoil.
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Tumulto profondo
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spendi {0} Ki Point per infliggere {1}d6 danni.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Esplosione di Disarmonia [{0} Ki]
 Subclass/&WayOfTheDiscordanceDescription=Mentre la maggior parte dei monaci cerca l'illuminazione attraverso la contemplazione e il raggiungimento della pace interiore, i monaci della Via della Discordanza, d'altra parte, si concentrano sull'imbrigliare le energie caotiche dell'universo. Questi mistici studiosi della disarmonia sfruttano i conflitti interiori dei loro nemici manipolando il loro Ki, devastandoli con esplosioni di energia distorcente.
 Subclass/&WayOfTheDiscordanceTitle=Via della discordia

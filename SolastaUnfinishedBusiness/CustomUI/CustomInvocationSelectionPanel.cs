@@ -935,14 +935,20 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private IEnumerator BlendToLevelGroup(int level)
     {
+        SpellsByLevelGroup group = null;
         var duration = ScrollDuration;
-        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-        var group = spellsByLevelTable.GetChild(0).GetComponent<SpellsByLevelGroup>();
+        var shouldAssignGroup = true;
 
         foreach (Transform child in spellsByLevelTable)
         {
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             var spellByLevelGroup = child.GetComponent<SpellsByLevelGroup>();
+
+            if (shouldAssignGroup)
+            {
+                shouldAssignGroup = false;
+                group = spellByLevelGroup;
+            }
 
             if (spellByLevelGroup.SpellLevel == level)
             {
@@ -951,7 +957,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         var initialX = spellsByLevelTable.anchoredPosition.x;
-        var finalX = -group.RectTransform.anchoredPosition.x + SpellsByLevelMargin;
+        var finalX = -group!.RectTransform.anchoredPosition.x + SpellsByLevelMargin;
 
         while (duration > 0)
         {

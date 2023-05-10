@@ -956,22 +956,23 @@ internal static class OtherFeats
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spellDefinition)
             {
-                return effect;
+                return effectDescription;
             }
 
-            if (effect.rangeType != RangeType.RangeHit || !effect.HasDamageForm())
+            if (effectDescription.rangeType != RangeType.RangeHit || !effectDescription.HasDamageForm())
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effectDescription.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
 
-            return effect;
+            return effectDescription;
         }
     }
 

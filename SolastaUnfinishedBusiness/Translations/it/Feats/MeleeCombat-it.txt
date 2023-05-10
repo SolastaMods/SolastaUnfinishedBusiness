@@ -1,5 +1,3 @@
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Mentre impugni una spada lunga, ottieni un bonus di +1 alla classe armatura.
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finezza della spada lunga
 Condition/&ConditionFeatCrusherCriticalHitDescription=Sei stato schiacciato da un colpo critico e gli attacchi contro di te hanno un vantaggio.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Schiacciato
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando colpisci una creatura con un attacco che infligge danni perforanti, puoi ripetere il tiro dei dadi quando ottieni un 1 e devi usare il nuovo tiro.
@@ -46,6 +44,8 @@ Feature/&AdditionalDamageFeatPiercerDescription=Quando metti a segno un colpo cr
 Feature/&AdditionalDamageFeatPiercerTitle=Perforatore
 Feature/&AttackModifierFeatSpearMasteryDescription=Ottieni un bonus di +1 ai tiri per colpire che effettui con una lancia e il suo dado di danno cambia da un d6 a un d8 e da un d8 a un d10 se impugnato con due mani.
 Feature/&AttackModifierFeatSpearMasteryTitle=Padronanza della lancia
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Mentre impugni una spada lunga, ottieni un bonus di +1 alla classe armatura.
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finezza della spada lunga
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Padronanza della lama
 Feature/&ModifyAttackModeFeatFellHandedTitle=Caduto con le mani
 Feature/&PowerFeatFellHandedAdvantageDescription=Ogni volta che hai vantaggio su un tiro per colpire in mischia e colpisci, fai cadere il bersaglio prono se anche il più basso dei due tiri di d20 colpirebbe il bersaglio.

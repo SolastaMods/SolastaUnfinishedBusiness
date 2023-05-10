@@ -228,15 +228,16 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             var classLevel = character.GetClassLevel(CharacterClassDefinitions.Sorcerer);
             var charisma = character.TryGetAttributeValue(AttributeDefinitions.Charisma);
             var charismaModifier = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
             var healing = classLevel + Math.Max(1, charismaModifier);
 
-            effect.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
+            effectDescription.EffectForms[0].TemporaryHitPointsForm.bonusHitPoints = healing;
 
             if (_consumedSlots)
             {
@@ -245,7 +246,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                     ?.RepayUse();
             }
 
-            return effect;
+            return effectDescription;
         }
     }
 }

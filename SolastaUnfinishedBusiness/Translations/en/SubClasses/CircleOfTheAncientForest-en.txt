@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
+Condition/&ConditionAncientForestPhotosynthesisDescription=You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Photosynthesis
 Condition/&ConditionAncientForestRootedDescription=Arboreal tendrils grow from your ft and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
 Condition/&ConditionAncientForestRootedTitle=Rooted

@@ -1,8 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerTraditionSurvivalPhysicalPerfectionHeal:4ae6b4ee-26bc-58d6-801f-00fb8337b7d9",
-    "Definition:PowerTraditionSurvivalPhysicalPerfection:12013063-7606-507c-99ab-3fa7b9d43be5"
+    "Definition:PowerRoguishArcaneScoundrelEssenceTheft:f8365038-906f-5e13-97db-9eeeff7d49af",
+    "Definition:MagicAffinityAdditionalSpellSlot3:fc7e8317e9dcafd44a07c8712d77d31d",
+    "Definition:AdditionalDamageRoguishArcaneScoundrelPossessed:965f7546-d02c-5c07-8199-1fdc9f0cd1d3"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -14,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetTraditionSurvivalPhysicalPerfectionTitle",
-    "description": "Feature/&FeatureSetTraditionSurvivalPhysicalPerfectionDescription",
+    "title": "Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeTitle",
+    "description": "Feature/&FeatureSetRoguishArcaneScoundrelTricksOfTheTradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8f4be112-9163-5e45-9252-38cfe705ae70",
+  "guid": "20bf9821-84ef-54d4-b4c6-7830a6aebbcb",
   "contentPack": 9999,
-  "name": "FeatureSetTraditionSurvivalPhysicalPerfection"
+  "name": "FeatureSetRoguishArcaneScoundrelTricksOfTheTrade"
 }

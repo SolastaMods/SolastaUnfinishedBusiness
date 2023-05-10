@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Sua capacidade de luta é bastante aprimorada.
+Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Sua capacidade de luta é bastante aprimorada.
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=Inspirado
 Condition/&ConditionTerrifiedByHarlequinPerformanceDescription=Aterrorizado depois de testemunhar um aliado foi assassinado brutalmente.
 Condition/&ConditionTerrifiedByHarlequinPerformanceTitle=Aterrorizado

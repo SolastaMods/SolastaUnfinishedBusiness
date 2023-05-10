@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=Your gravity is negated.
+Condition/&ConditionMoonlitMoonTouchedDescription=Your gravity is negated.
 Condition/&ConditionMoonlitMoonTouchedTitle=Moon Touched
 Feature/&BonusCantripsMoonlitDescription=Your control of moon light has increased to a new level. You can cast the spells <b>Moonbeam</b> and <b>Faerie Fire</b> at will.
 Feature/&BonusCantripsMoonlitTitle=Light Control

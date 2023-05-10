@@ -185,7 +185,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create()
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(VampiricTouch)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -220,11 +220,6 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerTouchOfDarknessFixed, powerTouchOfDarknessPoints)
             .AddToDB();
-
-        // BUGFIX
-
-        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
         // MAIN
 

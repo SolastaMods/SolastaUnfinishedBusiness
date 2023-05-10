@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Sie können nicht zurückgehalten werden.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Sie können nicht zurückgehalten werden.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift-Freiheit
 Feature/&BonusCantripRiftWalkWardingBondDescription=Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Rift-Umhang

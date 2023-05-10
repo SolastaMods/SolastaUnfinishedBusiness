@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
+Class/&InventorDescription=Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 Class/&InventorTitle=Inventor
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Attacks made with this weapon deal an additional 1d4 {0} damage.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Major Elemental [{0}]

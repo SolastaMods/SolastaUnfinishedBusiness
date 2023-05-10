@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=Sua gravidade é negada.
+Condition/&ConditionMoonlitMoonTouchedDescription=Sua gravidade é negada.
 Condition/&ConditionMoonlitMoonTouchedTitle=Lua Tocada
 Feature/&BonusCantripsMoonlitDescription=Seu controle da luz da lua aumentou para um novo nível. Você pode lançar os feitiços <b>Moonbeam</b> e <b>Faerie Fire</b> à vontade.
 Feature/&BonusCantripsMoonlitTitle=Controle de luz

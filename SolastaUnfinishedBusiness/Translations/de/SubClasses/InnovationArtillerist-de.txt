@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Sie und Ihre Verbündeten haben halbe Deckung, während Sie sich innerhalb von 3 m um eine Kanone befinden, die mit Eldritch Cannon erstellt wurde, als Ergebnis eines schimmernden Feldes magischen Schutzes, das die Kanone ausstrahlt.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Sie und Ihre Verbündeten haben halbe Deckung, während Sie sich innerhalb von 3 m um eine Kanone befinden, die mit Eldritch Cannon erstellt wurde, als Ergebnis eines schimmernden Feldes magischen Schutzes, das die Kanone ausstrahlt.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Befestigte Stellung
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Lernen und immer vorbereitet sein:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Zauber des Artilleristen

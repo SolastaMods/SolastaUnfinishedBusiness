@@ -1,4 +1,4 @@
-﻿Feat/&FeatArcaneDefenseDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nTant que vous ne portez ni armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur d'Intelligence.
+Feat/&FeatArcaneDefenseDescription=Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nTant que vous ne portez ni armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur d'Intelligence.
 Feat/&FeatArcaneDefenseTitle=Défense arcanique
 Feat/&FeatCharismaticDefenseDescription=Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nTant que vous ne portez ni armure ni bouclier, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur de Charisme.
 Feat/&FeatCharismaticDefenseTitle=Défense charismatique
