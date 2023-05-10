@@ -1,0 +1,81 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 15,
+  "locationOverride": null,
+  "locationBlacklist": [],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_MountainDruid:b2cf80c54f3c7a448a318b04529d0178",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Winter_Wolf:355dd21d6b2867a41a2855dc09f2897c",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:TundraTiger_MonsterDefinition:f9015700a865c1145a7ecd91ce4afae7",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Polar_Bear:10a2589164dced34388cf9188b617c35",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Spread:4fbd444af01e4f94e8155bc494305192",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR15_Druids_Beasts_Title",
+    "description": "Encounter/&DLC3_CR12_Druids_Beasts_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "adc8b19f92f571c41adc29ab5ffd8175",
+  "contentPack": "PalaceOfIce",
+  "name": "CR16_DLC3_Druids_Bulettes"
+}

@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 6,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": "Definition:ConditionUnderDemonicInfluence:4b1f8f41c85ec4049bb9e39e9caa091b",
-    "targetSide": "Enemy",
+    "targetSide": "Ally",
     "durationType": "Instantaneous",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -149,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "149e326fc8149de479345089d140ab14",
+        "m_AssetGUID": "a50e8c60587a7a441a515b8937615336",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -167,13 +168,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "035ea0c4a9ebf1b4281c93fb803b5076",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "79487333216ce6e449c3c421a46e3ca7",
+        "m_AssetGUID": "bae4303b0def6ea49b988866fd01758b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -197,7 +198,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ad2bd082ed04339499d5b34895a4aa27",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -318,7 +319,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -331,6 +332,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

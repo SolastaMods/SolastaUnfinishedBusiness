@@ -1,0 +1,64 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollWallOfThorns:c0c4c8bcbefe2514ebccbbde7c7b02c1",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 22,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_BadlandsBear_Pelt:df0116b530a7fbe4e8e3decb5217e2bf"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 4,
+      "itemDefinition": "Definition:Ingredient_CrimsonSpiderVenomGland:afa4c79a504102f4580a5a64eceb4b32"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 4,
+      "itemDefinition": "Definition:Ingredient_TigerDrake_Fang:d3b5eb0276e961f468e3c82e7f05a88e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:50_GP_Sapphire:94593fce05b78ec4aa7d55125259126e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83"
+    }
+  ],
+  "spellDefinition": "Definition:WallOfThorns:1ce3e76ff87b4d84ab97b8d2b8357c75",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollWallOfThornsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "963f2ee90cfe46f44aacd91517350edb",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L6_WallOfThorns"
+}

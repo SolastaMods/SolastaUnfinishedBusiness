@@ -1,0 +1,64 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollSunburst:e680b64332272644aaac117531a2739f",
+  "stackCount": 1,
+  "craftingHours": 6,
+  "craftingDC": 25,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_Dragonrose:e6aefc7519b006e489091c77fbca530c"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_BadlandsSpiderVenomGland:8fc51d73ff06c6f4baec8ee9a1c4acb7"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_TigerDrakeScales:49fd70fbcc08ffe4eb11cfbb9f082b2e"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_PolarBear_Pelt:bbf55d6e32d450c4b981094f9993e936"
+    }
+  ],
+  "spellDefinition": "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollSunburstTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c6409d68212bcaa48bbbbb0f476efbb9",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L8_Sunburst"
+}

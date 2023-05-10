@@ -1,0 +1,366 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "merchantCategory": "Armor",
+  "weight": 10.0,
+  "slotTypes": [
+    "TorsoSlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "TorsoSlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    30000,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Standard",
+    "Leather"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": true,
+  "requiresAttunement": true,
+  "requiresIdentification": true,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Legendary",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:ProficiencyAllLanguages:49588ac1b01f26148ac73aea7dcfddab",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    }
+  ],
+  "isArmor": true,
+  "armorDefinition": {
+    "$type": "ArmorDescription, Assembly-CSharp",
+    "armorType": "LeatherType",
+    "armorClassValue": 11,
+    "isBaseArmorClass": true,
+    "maxDexterityBonus": -1,
+    "requiresMinimalStrength": false,
+    "minimalStrength": 13
+  },
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": true,
+  "usableDeviceDescription": {
+    "$type": "UsableDeviceDescription, Assembly-CSharp",
+    "usage": "Charges",
+    "chargesCapital": "Fixed",
+    "chargesCapitalNumber": 5,
+    "chargesCapitalDie": "D1",
+    "chargesCapitalBonus": 0,
+    "rechargeRate": "Dawn",
+    "rechargeNumber": 5,
+    "rechargeDie": "D1",
+    "rechargeBonus": 0,
+    "outOfChargesConsequence": "Persist",
+    "magicAttackBonus": 8,
+    "saveDC": 16,
+    "deviceFunctions": [
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 1,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:FindTraps:784a59eab3d513b42aeab8547027e5f5",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 2,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:PassWithoutTrace:f6e7156667938ea48ba53c669cc59019",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
+        "useAmount": 3,
+        "rechargeRate": "AtWill",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+        "featureDefinitionPower": null
+      }
+    ],
+    "usableDeviceTags": [],
+    "onUseParticle": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  },
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "Equipment/&DLC3_MagnificientJacket_Title",
+    "unidentifiedDescription": "Equipment/&DLC3_MagnificientJacket_Description",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": true,
+    "isArmorAddressableNameGenderSpecific": false,
+    "armorAddressableName": "Bard_Armor",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "GlitterJacket",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": false,
+    "maleBodyPartBehaviours": [
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Nothing",
+      "Both",
+      "Armor",
+      "Shape",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor"
+    ],
+    "femaleBodyPartBehaviours": [
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor",
+      "Armor"
+    ],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "clueSuspectPairs": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&DLC3_GlitterJacket_Title",
+    "description": "Equipment/&DLC3_GlitterJacket_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "63184885601375244aca02dafe4786c5",
+      "m_SubObjectName": "DLC3_GlitterJacket",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1ede265b56e362d40ad8f97684224685",
+  "contentPack": "PalaceOfIce",
+  "name": "GlitterJacket"
+}

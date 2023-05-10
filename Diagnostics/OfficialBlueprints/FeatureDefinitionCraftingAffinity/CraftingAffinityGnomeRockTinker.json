@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionCraftingAffinity, Assembly-CSharp",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ArtisanToolSmithToolsType:b28d62b91f1361f4f8b0d45fc28dbd14",
+      "durationMultiplier": 0.25,
+      "doubleProficiencyBonus": true
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "55f28a487324a1c4080f176957ff16c2",
+  "contentPack": "BaseGame",
+  "name": "CraftingAffinityGnomeRockTinker"
+}

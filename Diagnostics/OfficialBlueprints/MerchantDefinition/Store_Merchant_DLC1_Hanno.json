@@ -741,7 +741,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:CraftingManual_DLC1_Enchant_ScimitarOfAcuteness:a61420417e600b443a0efc084bf6c76a",
+      "itemDefinition": "Definition:CraftingManual_Enchant_Scimitar_of_Acuteness:3e95d4db31b9116418cf12e813a488fe",
       "stackCount": 1,
       "initialAmount": 1,
       "minAmount": 0,

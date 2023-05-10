@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListShockOrenetis:58ee39d49c92e80488236af71073d976",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 11,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

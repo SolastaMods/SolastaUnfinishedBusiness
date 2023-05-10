@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
   "creatureTags": [],
@@ -67,7 +67,7 @@
   "languages": [],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 11.0,
+  "audioRaceRTPCValue": 78.0,
   "challengeRating": 4.0,
   "noExperienceGain": false,
   "droppedLootDefinition": null,
@@ -80,7 +80,9 @@
     "Definition:CombatAffinityPackTactics:d220eabb22f6ae84f8aeea2c68077a93",
     "Definition:MovementAffinityNoVault:0b6455d36a68ae84f864f99a3b2c3a34",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd"
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -107,7 +109,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -170,18 +172,20 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:TundraTiger_White:fb58f50ecfb946f4a84b471021f8ec9c"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "7caaeda951610464e9007ab91633de89",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.655,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "7caaeda951610464e9007ab91633de89",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -244,6 +248,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "f9015700a865c1145a7ecd91ce4afae7",
-  "contentPack": "LostValley",
+  "contentPack": "PalaceOfIce",
   "name": "TundraTiger_MonsterDefinition"
 }

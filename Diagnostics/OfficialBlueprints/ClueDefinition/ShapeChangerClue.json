@@ -1,6 +1,5 @@
 {
   "$type": "ClueDefinition, Assembly-CSharp",
-  "suspicionModifier": 1.0,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -8,8 +7,8 @@
     "description": "Screen/&InvestigationClueShapechangerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2e1e9a8d196569646986736e5ecd3d78",
-      "m_SubObjectName": "Sorr-Akkath_Saboteur",
+      "m_AssetGUID": "802b5669009d877459a5fff03783bf9c",
+      "m_SubObjectName": "ClueShapeChanger",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

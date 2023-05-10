@@ -23,7 +23,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart",
+    "recurrentEffect": "OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -32,8 +32,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Day",
-    "durationParameter": 99,
+    "durationType": "Permanent",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -48,6 +48,7 @@
     "fixedSavingThrowDifficultyClass": 18,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -352,6 +353,7 @@
       }
     }
   },
+  "priority": 0,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

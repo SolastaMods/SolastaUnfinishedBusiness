@@ -1,0 +1,48 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 10,
+  "attackingPenalty": 0,
+  "killingPenalty": 5,
+  "prominentMembers": [
+    "Definition:Ceiwad_Silverflower:d1303b4a8da9f3348ae3213356193d1a",
+    "Definition:Captain_Verissa_Ironshell:5eec1cee7cb14294b8477168c77e48d7"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "e82067991d466364392b596bc29ade31",
+    "m_SubObjectName": "PrincipalityFlagSmall",
+    "m_SubObjectType": ""
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&PrincipalityTitle",
+    "description": "Faction/&PrincipalityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c1db8a4dc21511245ade77236961b9b9",
+      "m_SubObjectName": "PrincipalityFlag",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "f74fb8892039a6241be44e6078cd94b9",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_Principality"
+}

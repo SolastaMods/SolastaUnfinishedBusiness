@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetKindredSpiritSharedPain:7d1ea347e3c86c24db9960e7e83f9e46",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetKindredSpiritRage:0a3eeacda2e5a5748b6cf5279f8c87d5",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [

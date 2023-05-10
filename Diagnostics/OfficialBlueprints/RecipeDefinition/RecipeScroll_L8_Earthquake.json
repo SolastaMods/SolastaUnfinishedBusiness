@@ -1,0 +1,59 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollEarthquake:bd6653df7ac0c464988b49550c2de309",
+  "stackCount": 1,
+  "craftingHours": 6,
+  "craftingDC": 25,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_DeepRootLichen:95b954de7fac7c94b8a5888e53c3097b"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_Moonflower:11b9d6eabd26bbd46a5c027c009fa2fa"
+    }
+  ],
+  "spellDefinition": "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollEarthquakeTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9893847ed8394e9478334b0de65288f2",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L8_Earthquake"
+}

@@ -9,6 +9,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -24,7 +25,37 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [],
+  "recurrentEffectForms": [
+    {
+      "$type": "EffectForm, Assembly-CSharp",
+      "formType": "Divination",
+      "addBonusMode": "None",
+      "applyLevel": "No",
+      "levelType": "ClassLevel",
+      "levelMultiplier": 0,
+      "diceByLevelTable": [],
+      "createdByCharacter": false,
+      "createdByCondition": true,
+      "hasSavingThrow": false,
+      "savingThrowAffinity": "None",
+      "dcModifier": 0,
+      "canSaveToCancel": false,
+      "saveOccurence": "StartOfTurn",
+      "divinationForm": {
+        "$type": "DivinationForm, Assembly-CSharp",
+        "divinationType": "RevealEntitiesBearingTags",
+        "creatureFamilies": [],
+        "revealedTags": [
+          "Shapechanger",
+          "NonDetection"
+        ],
+        "rangeCells": 16,
+        "silent": true
+      },
+      "hasFilterId": false,
+      "filterId": 0
+    }
+  ],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",

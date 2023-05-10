@@ -1,0 +1,64 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:ScrollSymbol:8733ba80165ecab4f9b1198e9b95f764",
+  "stackCount": 1,
+  "craftingHours": 5,
+  "craftingDC": 24,
+  "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_SpiderQueenVenomGland:7e42c28bc4d8f7244b3e39934cdcded3"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Mutant_DireWolf_Pelt:0d1dec4ed811cb94498fe533ea3fa8da"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_RiverEmerald:7858849b8df8d5d438f06743ab205622"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_PrimordialCrystal:5273cd5f02392004c952d7b7bd6257db"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_BrownBear_Pelt:dbb8ae86d0956db4ca14307e3fc39c06"
+    }
+  ],
+  "spellDefinition": "Definition:Symbol:8c8ce37ddf59f72449ac2a6f384d34ea",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&ScrollSymbolTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b153c848eeca90240a4a91ad0597a638",
+  "contentPack": "BaseGame",
+  "name": "RecipeScroll_L7_Symbol"
+}

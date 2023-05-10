@@ -1,7 +1,7 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 6,
+  "maxSpellLevel": 8,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
@@ -123,6 +123,28 @@
         "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177",
         "Definition:Sunbeam:ec547e11445032d4f9519982399724a6",
         "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": [
+        "Definition:FingerOfDeath:facc856c4a4e5d54090b481bef1441a4",
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a",
+        "Definition:DelayedBlastFireball:2a6be6d6587508546a64e174134a37eb",
+        "Definition:PrismaticSpray:322f68bf5c12ce94291974479425c1cd",
+        "Definition:GravitySlam:265ad14a4c626d840bb1fb3be0ec4706"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": [
+        "Definition:PowerWordStun:6c2a33f146b955a4a8f16ecf21d1f73f",
+        "Definition:IncendiaryCloud:d7ff1dbd52e71e948b4e6b2d686e04fd",
+        "Definition:DominateMonster:eaa4d8645ff6ec547b75ab43d06111db",
+        "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
+        "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d"
       ]
     }
   ],

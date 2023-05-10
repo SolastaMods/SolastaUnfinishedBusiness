@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -348,6 +349,8 @@
   "useAnimationTag": true,
   "animationTag": "Dagger",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -385,10 +388,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Bear_Black",
-        "id": 1972441049,
-        "guid": "28AB9BD3-699D-4AB4-98BC-37BD9CA260AC",
-        "name": "28AB9BD3-699D-4AB4-98BC-37BD9CA260AC"
+        "objectName": "Claw_Bear_Brown",
+        "id": 2402474284,
+        "guid": "59CF3C46-78F4-41D1-8EC9-893AFD053E7C",
+        "name": "59CF3C46-78F4-41D1-8EC9-893AFD053E7C"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Armor",
   "weight": 3.0,
   "slotTypes": [
@@ -186,6 +186,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ClothesNoble_Valley_Pink",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -199,6 +200,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -211,22 +214,23 @@
       "Both",
       "Shape",
       "Both",
+      "Shape",
+      "Shape",
       "Shape"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Armor_Noble_ClothesTitle",
+    "title": "Equipment/&Armor_Noble_ClothesTitlePink",
     "description": "Equipment/&Armor_Noble_ClothesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b5152b8d06b85f449b99190dd2a74c7d",
-      "m_SubObjectName": "NobleOutfit_male",
+      "m_AssetGUID": "4de91823094d30046a62161d8cfc4897",
+      "m_SubObjectName": "ClothesNoble_Valley_Pink",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

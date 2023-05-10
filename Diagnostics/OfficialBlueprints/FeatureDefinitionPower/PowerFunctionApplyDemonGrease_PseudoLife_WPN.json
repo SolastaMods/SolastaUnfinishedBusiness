@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -108,7 +109,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionPseudoLifeTempHP:563f3cb91de53db4bbd3d3c2adf093fc",
+          "conditionDefinition": "Definition:ConditionDemonGreasePseudoLifeDisadvAttacks:e662cf0dd9478fc4d8897ed9fae02fcd",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -135,7 +136,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionDemonGreasePseudoLifeDisadvAttacks:e662cf0dd9478fc4d8897ed9fae02fcd",
+          "conditionDefinition": "Definition:ConditionPseudoLifeTempHP:563f3cb91de53db4bbd3d3c2adf093fc",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -380,6 +381,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

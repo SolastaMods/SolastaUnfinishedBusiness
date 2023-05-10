@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfInvisibility:9f3974b2b1468d242af51b8bd8a28420",
   "stackCount": 1,
-  "craftingHours": 32,
-  "craftingDC": 13,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {

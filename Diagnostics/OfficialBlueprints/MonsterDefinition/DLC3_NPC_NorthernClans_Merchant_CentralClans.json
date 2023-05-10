@@ -1,0 +1,229 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "NPC",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "DLC3_Faction_UndermountainClan",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "LawfulGood",
+  "armorClass": 10,
+  "armor": "Plate",
+  "hitDice": 2,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 0,
+  "standardHitPoints": 15,
+  "abilityScores": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+  ],
+  "savingThrowScores": [],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeFragileHurtDamageDealers_Ranged"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Dwarvish",
+    "Language_Terran",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 4.0,
+  "challengeRating": 0.0,
+  "noExperienceGain": true,
+  "droppedLootDefinition": null,
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
+  ],
+  "attackIterations": [],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 6,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "883ffc063ff92484e91ded48936d7347",
+    "m_SubObjectName": "DLC1_Complex_NPC_Guard_Captain",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": true,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_DLC3_WhiteCity_Merchant_Central:6e20f9bd912c36d42aa7beff6270c271"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.74,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.66,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": false,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_NorthernClans_Merchant_General_Title",
+    "description": "NPC/&DLC3_NPC_NorthernClans_Merchant_CentralClans_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "1c5aa68c464351c41a64a02211aabc3f",
+      "m_SubObjectName": "NPC_Presentation_DLC3_WhiteCity_Merchant_Central",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "8400486b488353646b16363258da1d5d",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_NPC_NorthernClans_Merchant_CentralClans"
+}

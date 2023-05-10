@@ -1,0 +1,233 @@
+{
+  "$type": "LocationDefinition, Assembly-CSharp",
+  "isUserLocation": false,
+  "isRandomEncounter": false,
+  "dungeonMakerPresence": false,
+  "alwaysHidden": true,
+  "registeredFactions": [],
+  "registeredVariables": [],
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "197302285f366204ea322f9401ea00be",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "audioState": {
+    "$type": "AK.Wwise.State, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": {
+      "$type": "WwiseStateReference, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseStateGroupReference": {
+        "$type": "WwiseStateGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+        "objectName": "State_LocationName",
+        "id": 598649695,
+        "guid": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE",
+        "name": "0785F1BC-DEE8-4D0A-A678-33E4912B6ACE"
+      },
+      "objectName": "DLC3_Kaupaapunki_Necropolis",
+      "id": 2429789919,
+      "guid": "A41706F9-E1F0-46C6-B800-7FFF7DBE8197",
+      "name": "A41706F9-E1F0-46C6-B800-7FFF7DBE8197"
+    },
+    "groupIdInternal": 0,
+    "groupGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    },
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": false,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": null,
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5019608,
+      "g": 0.5019608,
+      "b": 0.5019608,
+      "a": 1.0
+    },
+    "fog": false,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.0638,
+    "excludeSkybox": false,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.003,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": true,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 5.066395E-07,
+        "g": 0.5,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": true,
+      "extinction": 0.75,
+      "name": "DLC3_KaupaapunkiNecropolis_AuraBaseParameters"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8396226,
+        "g": 0.8396226,
+        "b": 0.8396226,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8301887,
+        "g": 0.7941427,
+        "b": 0.716625154,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.9056604,
+        "g": 0.814607561,
+        "b": 0.7390531,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.4,
+      "sunDirection": -97.7,
+      "sunTilt": 4.9,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.538447857,
+        "g": 0.72206825,
+        "b": 0.9433962,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 0.1,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 1.0,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 0.8,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.807404757,
+        "g": 0.8918604,
+        "b": 0.9056604,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.721965134,
+        "g": 0.830085754,
+        "b": 0.9056604,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8679245,
+        "g": 0.8223644,
+        "b": 0.790138841,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.50284797,
+        "g": 0.754689157,
+        "b": 0.9433962,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 1.35,
+      "nightAtmosphereThickness": 0.5,
+      "name": "DLC3_Kaupaapunki_DayCycleProfile"
+    },
+    "name": "DLC3_KaupaapunkiNecropolis_RenderSettings"
+  },
+  "locationPresentation": {
+    "$type": "LocationPresentation, Assembly-CSharp",
+    "unchartedTitle": "Feature/&Emptystring",
+    "unchartedDescription": "Feature/&Emptystring",
+    "knownTitle": "Feature/&Emptystring",
+    "knownDescription": "Feature/&Emptystring",
+    "exploredTitle": "Feature/&Emptystring",
+    "exploredDescription": "Feature/&Emptystring"
+  },
+  "challengeRating": 1,
+  "focusWhenRevealed": false,
+  "startsWithScavengerCamp": false,
+  "ignoredByScavengers": false,
+  "useDirectionalLightInCutscene": true,
+  "useNewSectorCullingAlgorithm": true,
+  "keepSectorCullingResultsWhenInactive": false,
+  "setCurrentCampaignNodeWhenLeaving": false,
+  "hasPriorityForTeleporter": false,
+  "canAttackNonHostileCharacters": false,
+  "forceNoEncounterPrespawn": false,
+  "disableTerrainShadows": true,
+  "disablePlayerLightCastShadows": false,
+  "notCompatibleWithHugeOrSpecialCreatures": false,
+  "entranceIdxToSpriteReferenceMappings": [],
+  "teleportNoReturnPossibleWarningMessage": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Map/&Location_Presentation_DLC3_KaupaapunkiNecropolis_Title",
+    "description": "Map/&Location_Presentation_DLC3_KaupaapunkiNecropolis_Descriptio",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "334ea1f8e61227f4796132b3ee774bca",
+      "m_SubObjectName": "DLC3_KaupaapunkiNecropolis",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "d65f195c6a57fe64db8b874c618e75b2",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_KaupaapunkiNecropolis_LocationDB"
+}

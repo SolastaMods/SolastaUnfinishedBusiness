@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 100,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -194,7 +195,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "2c9b1a5eb2012e64d8ef56e92c4ae76e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -309,19 +310,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "b9a7b49165a2d4a4a8269ba50de2ed57",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "4f7aac5a0d8b3a74aa5c75817922ef5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "dafd4e67de6f1ba4faac4a0a6cbdfbdb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -345,7 +346,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation2",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -358,6 +359,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -379,7 +381,7 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": false,
+  "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,

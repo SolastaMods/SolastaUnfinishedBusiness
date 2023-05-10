@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "Initiative",
+  "modifierOperation": "Additive",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&EarlyBird_Function_Title",
+    "description": "Equipment/&Skullcleaver_Initiative_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1c8f33719da5dd14487a6ae6497e8b9a",
+  "contentPack": "BaseGame",
+  "name": "AttributeModifier_DLC3_DwarvenWeapon_Skullcleaver_Initiative"
+}

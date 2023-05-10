@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AbilityCheckAffinityThiefSupremeSneak:2a49b2f5e5c8f954fa31cf9dafaae0aa",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityUseMagicalItem:0b276a3faeeafe749b8d7594bfcf7d36",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],

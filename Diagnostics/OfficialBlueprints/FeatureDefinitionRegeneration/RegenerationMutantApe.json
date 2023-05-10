@@ -8,6 +8,7 @@
   "preventingDamages": [
     "DamageAcid"
   ],
+  "isActiveWhenDown": false,
   "particlePrefab": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

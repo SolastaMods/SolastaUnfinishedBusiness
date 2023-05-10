@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Enchanted_Maul_Of_The_Destroyer:d90fa2dfafd9f7c439f17dedc7bf7390",
   "stackCount": 1,
-  "craftingHours": 85,
-  "craftingDC": 18,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

@@ -61,7 +61,35 @@
   "languages": [
     "Language_Giant"
   ],
-  "audioSwitches": [],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "Default",
+        "id": 782826392,
+        "guid": "DA107412-131C-41FA-A730-5C09015AACE1",
+        "name": "DA107412-131C-41FA-A730-5C09015AACE1"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 49.0,
   "challengeRating": 5.0,
@@ -98,8 +126,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:Giant_Hill:e0f8dfa38e5fbfb4ca1fd639c1477d5f",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,

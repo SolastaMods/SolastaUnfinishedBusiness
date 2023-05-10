@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Monstrosity",
   "creatureTags": [],
@@ -13,11 +13,11 @@
   "hitDice": 21,
   "hitDiceType": "D12",
   "hitPointsBonus": 126,
-  "standardHitPoints": 262,
+  "standardHitPoints": 218,
   "abilityScores": [
-    26,
+    24,
     15,
-    22,
+    21,
     4,
     10,
     5
@@ -81,7 +81,7 @@
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 34.0,
-  "challengeRating": 18.0,
+  "challengeRating": 17.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Remorhaz_Ancient_Loot_Drop:2aab4a1a466f59d4dae0f1a02f29c8b7",
   "stealableLootDefinition": null,
@@ -99,7 +99,12 @@
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
     "Definition:PowerAncientRemorhazSwallow:f8150fc16c108fd46ae285d67b789939",
-    "Definition:Regeneration_Ancient_Remorhaz:b4af810cff4e0dd49a63d271e9985235"
+    "Definition:Regeneration_Ancient_Remorhaz:b4af810cff4e0dd49a63d271e9985235",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityFrightenedFearImmunity:9611f8c570eb8344bbba73c40351a17d",
+    "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -121,7 +126,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -191,8 +196,10 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:M_Remorhaz_Ancient:8b549580bbec5e94cb0fbdb24cffeb90"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "ded896e0c4ef46144904375ecadb1bb1",

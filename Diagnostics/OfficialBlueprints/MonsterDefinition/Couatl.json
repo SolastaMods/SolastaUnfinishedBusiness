@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Celestial",
   "creatureTags": [],
@@ -117,7 +117,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -254,6 +254,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "eef70e597fde31347a179b303fc959c9",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Couatl"
 }

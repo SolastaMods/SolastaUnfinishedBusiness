@@ -1,0 +1,33 @@
+{
+  "$type": "CharacterInteractionDefinition, Assembly-CSharp",
+  "actionId": "Manipulate",
+  "cursorType": "Parley",
+  "animation": "NoAnimation",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_Einareum_Merchant_General_Description",
+    "description": "CharacterInteraction/&NpcInteractionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "3dee7ca6c0601ba4a84828e65fcbbd87",
+      "m_SubObjectName": "MerchantRest",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "1fa01ac60cb637b4fb37cc5d41e97b13",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Speak_Kaupaa_Merchant_General"
+}

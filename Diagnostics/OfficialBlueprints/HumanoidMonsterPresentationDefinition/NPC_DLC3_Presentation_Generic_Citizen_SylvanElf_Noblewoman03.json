@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Elf:143998b174becf84682ae849dfe9d757",
+  "subRaceDefinition": "Definition:ElfSylvan:1b0e27feb0a8d6944b907d5afaf28e0a",
+  "sex": "Female",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_NPC_LeralynGhost",
+  "hairShapeMorphotype": "HairShape_A",
+  "hairColorMorphotype": "HairColor_11",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBlue",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ClothesSage",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.7918445,
+    "g": 1.0,
+    "b": 0.78773576,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.535052061,
+    "g": 0.6981132,
+    "b": 0.484069,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.288702577,
+    "g": 0.51886785,
+    "b": 0.2618814,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5471698,
+    "g": 0.136792421,
+    "b": 0.136792421,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_CitizenTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "9c9e580a5ab77b84e97ba52677f4d15c",
+      "m_SubObjectName": "NPC_DLC1_Presentation_Generic_Citizen_Elf_Noblewoman03",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "f9ff3baacfc01974390ee89ccf9e1044",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Noblewoman03"
+}

@@ -44,7 +44,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Music/&WizardsTowerTitle",
+    "title": "Music/&ValleyTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -60,12 +60,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 1,
+    "sortOrder": 23,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
   "guid": "303c7bbc3ea48824ebda529cb33e21e0",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "DLC1_Valley"
 }

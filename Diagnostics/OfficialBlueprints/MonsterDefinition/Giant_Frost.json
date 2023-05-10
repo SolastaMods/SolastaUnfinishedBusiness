@@ -61,7 +61,35 @@
   "languages": [
     "Language_Giant"
   ],
-  "audioSwitches": [],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "Default",
+        "id": 782826392,
+        "guid": "DA107412-131C-41FA-A730-5C09015AACE1",
+        "name": "DA107412-131C-41FA-A730-5C09015AACE1"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 48.0,
   "challengeRating": 8.0,
@@ -72,7 +100,10 @@
   "features": [
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c"
+    "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -162,8 +193,10 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Giant_Frost_Presentation:1364041347c09d2429bbc63f87c0cd75"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "2351ec8d0f454e04ebcc2826e16f6ed5",
@@ -236,6 +269,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "24ce4946c0d776b44b6bf7370147ccb7",
-  "contentPack": "LostValley",
+  "contentPack": "PalaceOfIce",
   "name": "Giant_Frost"
 }

@@ -1,0 +1,244 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 18,
+  "armor": "ChainMail",
+  "hitDice": 8,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 16,
+  "standardHitPoints": 52,
+  "abilityScores": [
+    14,
+    14,
+    14,
+    10,
+    10,
+    12
+  ],
+  "savingThrowScores": [],
+  "skillScores": [
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Perception",
+      "bonus": 2
+    },
+    {
+      "$type": "MonsterSkillProficiency, Assembly-CSharp",
+      "skillName": "Athletics",
+      "bonus": 4
+    }
+  ],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:ClericCombatDecisions:d5ceea03da8e7be4c86e2c1e37dda354",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeFragileDamageDealersSpread"
+  },
+  "languages": [
+    "Language_Common"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 6.0,
+  "challengeRating": 3.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:DLC3_Gallivan_Cleric_Loot_Drop:548457649ff1ac74ebba0a8d7f82cdfb",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:CastSpell_DLC1_Mask_Cleric:3e81e5c1986fdb349865462e75b037e0"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_DLC3_Gallivan_Cleric_Mace:bf8102133bfbfc04a8d212868e50d5cb"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 200,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": false,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_DLC3_Gallivan_Cleric:065d69858fb08cb4fae94b4f6252787b"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.6553079,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "0133818880b4f9d4db5ebd9d6f265bbe",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.6553079,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "MiddleGate",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_GallivanCleric_Title",
+    "description": "NPC/&DLC3_NPC_GallivanCleric_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d89cfe9cf2fa46b4c8c1198df6fc1801",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Gallivan_Cleric",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "ecf98b3eeffd15d41beb2c1cae4f3843",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Gallivan_Cleric"
+}

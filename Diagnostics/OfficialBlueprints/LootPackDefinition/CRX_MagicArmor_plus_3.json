@@ -1,0 +1,46 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:6D6_Copper_Coins:40e84944944a7ce43b5c907053cf580f",
+      "treasureTableDefinition": "Definition:RandomTreasureTableN2_Armors_03:a732c3fdb1e882147bbfd2980c07cd55",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "LootPack/&1MagicArmorPlus3",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "2ce459dd56b781949be5aa4b7c7fbe7c",
+  "contentPack": "BaseGame",
+  "name": "CRX_MagicArmor_plus_3"
+}

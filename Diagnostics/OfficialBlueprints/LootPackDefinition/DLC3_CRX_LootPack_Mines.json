@@ -1,0 +1,56 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": null,
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableH_IngredientsMineralsPlants:e55ce1092585e1840a1ad55ed011f2ea",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 3,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": null,
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableA_Gem:2bef88d988a46dd4f9c3578dd8541018",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "LootPack/&CR0_Loot_PackTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "f482fd369bb09534982edc088169ca82",
+  "contentPack": "BaseGame",
+  "name": "DLC3_CRX_LootPack_Mines"
+}

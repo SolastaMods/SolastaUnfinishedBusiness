@@ -1,0 +1,249 @@
+{
+  "$type": "ItemDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "merchantCategory": "Armor",
+  "weight": 3.0,
+  "slotTypes": [
+    "TabardSlot",
+    "ContainerSlot"
+  ],
+  "slotsWhereActive": [
+    "TabardSlot"
+  ],
+  "activeOnGround": false,
+  "destroyedWhenUnequiped": false,
+  "forceEquip": false,
+  "forceEquipSlot": "",
+  "canBeStacked": false,
+  "stackSize": 10,
+  "defaultStackCount": -1,
+  "costs": [
+    0,
+    2,
+    0,
+    0,
+    0
+  ],
+  "itemTags": [
+    "Standard"
+  ],
+  "activeTags": [],
+  "inactiveTags": [],
+  "magical": false,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
+  "requiredAttunementClasses": [],
+  "itemRarity": "Common",
+  "incompatibleWithMonkReturnMissile": false,
+  "staticProperties": [],
+  "isArmor": true,
+  "armorDefinition": {
+    "$type": "ArmorDescription, Assembly-CSharp",
+    "armorType": "ClothesType",
+    "armorClassValue": 10,
+    "isBaseArmorClass": true,
+    "maxDexterityBonus": -1,
+    "requiresMinimalStrength": false,
+    "minimalStrength": 13
+  },
+  "isWeapon": false,
+  "isAmmunition": false,
+  "isUsableDevice": false,
+  "isTool": false,
+  "isMusicalInstrument": false,
+  "musicalInstrumentDefinition": {
+    "$type": "MusicalInstrumentDescription, Assembly-CSharp",
+    "musicalInstrumentType": "LuteType"
+  },
+  "isStarterPack": false,
+  "isContainerItem": false,
+  "isLightSourceItem": false,
+  "isFocusItem": false,
+  "isWealthPile": false,
+  "isSpellbook": false,
+  "isDocument": false,
+  "isFood": false,
+  "isFactionRelic": false,
+  "personalityFlagOccurences": [],
+  "soundEffectDescriptionOverride": {
+    "$type": "SoundEffectDescription, Assembly-CSharp",
+    "startEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopEvent": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "startSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "stopSwitch": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickBody": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiStoreOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    "guiPickOther": {
+      "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "soundEffectOnHitDescriptionOverride": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": null,
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
+  "itemPresentation": {
+    "$type": "ItemPresentation, Assembly-CSharp",
+    "unidentifiedTitle": "",
+    "unidentifiedDescription": "",
+    "overrideSubtype": "None",
+    "assetReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "scaleFactorWhileWielded": 1.0,
+    "useArmorAddressableName": true,
+    "isArmorAddressableNameGenderSpecific": false,
+    "armorAddressableName": "ClothesTabard",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "ClothesTabard_Telema",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "hasCrownVariationMask": false,
+    "crownVariationMask": 0,
+    "sameBehavioursForMaleAndFemale": true,
+    "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Keep",
+      "Armor",
+      "Armor",
+      "Armor"
+    ],
+    "femaleBodyPartBehaviours": [
+      "Shape",
+      "Shape",
+      "Shape",
+      "Shape",
+      "Nothing",
+      "Shape",
+      "Armor",
+      "Shape",
+      "Armor"
+    ],
+    "itemFlags": [],
+    "serializedVersion": 1
+  },
+  "clueSuspectPairs": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Tabard_Telema_Title",
+    "description": "Equipment/&Tabard_Base_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "eae56736b87204d409a48d5064a73447",
+      "m_SubObjectName": "TabardTelema",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "25bd4e44fad1f65458ab95dbad049709",
+  "contentPack": "BaseGame",
+  "name": "ClothesTabardDLC3_Telema"
+}

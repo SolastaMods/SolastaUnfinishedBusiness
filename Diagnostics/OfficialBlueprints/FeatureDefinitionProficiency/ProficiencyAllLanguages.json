@@ -2,17 +2,21 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Language",
   "proficiencies": [
+    "Language_Abyssal",
     "Language_Common",
+    "Language_Draconic",
+    "Language_Druidic",
     "Language_Dwarvish",
+    "Language_Elvish",
+    "Language_Giant",
+    "Language_Gnomish",
     "Language_Goblin",
+    "Language_Halfling",
+    "Language_Infernal",
+    "Language_Orc",
     "Language_SpyCode",
     "Language_Terran",
-    "Language_Tirmarian",
-    "Language_Elvish",
-    "Language_Halfling",
-    "Language_Giant",
-    "Language_Orc",
-    "Language_Draconic"
+    "Language_Tirmarian"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

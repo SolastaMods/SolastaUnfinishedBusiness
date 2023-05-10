@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListSorr-Akkath_Acolyte_of_Sorr-Tarr:d45887d419d4ffe4a957b1104d10e8bb",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 5,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

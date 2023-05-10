@@ -1,0 +1,270 @@
+{
+  "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
+  "decision": {
+    "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
+    "description": "Fly towards the enemies, not penalizing dashes.",
+    "scorer": {
+      "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
+      "scorer": {
+        "$type": "TA.AI.ActivityScorer, Assembly-CSharp",
+        "considerations": [
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "RemainingMoveStatus",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.6,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "HasEnoughRemainingMove"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "IsValidSpecialMoveDestination",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "IsValidSpecialMoveDestination"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "DistanceFromMe",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 12.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorFarFromMe_Dragon"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "HasEnemiesInMeleeRange",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.9,
+                "intParameter": 1,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": true,
+                "boolTerParameter": false
+              },
+              "name": "NotHasEnemyInMeleeRange"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "IsDangerousPosition",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "PenalizeDangerousCell"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceEnemyProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 5.0,
+                "intParameter": 3,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorEnemyProximityAtPosition"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceEnemyProximity",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 40.0,
+                "intParameter": 6,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorLongRangeEnemyGroupProximityAtPosition"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "CanStandOnCell",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 0,
+                "byteParameter": 0,
+                "boolParameter": true,
+                "boolSecParameter": true,
+                "boolTerParameter": true
+              },
+              "name": "CanStandOnCellForDragonFly"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "HasCharactersInBox",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.9,
+                "intParameter": 3,
+                "byteParameter": 1,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorEnemiesInBoxAtPosition"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "InfluenceAttackableEnemy",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 1.5,
+                "intParameter": 2,
+                "byteParameter": 1,
+                "boolParameter": true,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "FavorAttackableEnemyWithReachAtPosition"
+            },
+            "weight": 1.0
+          }
+        ]
+      },
+      "name": "MoveScorer_Dragon_AggressiveLongRangeFallback"
+    },
+    "activityType": "SpecialMove",
+    "stringParameter": "",
+    "stringSecParameter": "",
+    "boolParameter": false,
+    "boolSecParameter": false,
+    "floatParameter": 3.0,
+    "enumParameter": 2
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "29cfcf0d26dabe040b510640fdc9bb9b",
+  "contentPack": "BaseGame",
+  "name": "Move_Dragon_AggressiveLongRangeFallback"
+}

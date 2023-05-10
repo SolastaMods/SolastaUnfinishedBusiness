@@ -1,34 +1,11 @@
 {
   "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 40,
+      "odds": 30,
       "itemDefinition": "Definition:Poison_Basic:b5b96717da1f5114abfa3b097bc1db7d",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 20,
-      "itemDefinition": "Definition:Poison_BrimstoneFang:84994201c262805459c4b7bd848223b0",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 20,
-      "itemDefinition": "Definition:Poison_TigerFang:cbca0dafdd85dd240916dbd8ca7b5993",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 20,
-      "itemDefinition": "Definition:Poison_DarkStab:95fcc2bc8e27b504d956e668caf7a330",
-      "amount": 1
-    },
-    {
-      "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 10,
-      "itemDefinition": "Definition:Poison_DeepPain:16a212b720498e543b44286677f78360",
       "amount": 1
     },
     {
@@ -39,32 +16,56 @@
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 10,
       "itemDefinition": "Definition:Poison_ArunsLight:d11d22644d6806d459dd51d21d01ff47",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 5,
+      "odds": 10,
+      "itemDefinition": "Definition:Poison_BrimstoneFang:84994201c262805459c4b7bd848223b0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:Poison_DarkStab:95fcc2bc8e27b504d956e668caf7a330",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
       "itemDefinition": "Definition:Poison_MaraikesTorpor:ffadc5444ddfcaf46ac0a2b462ec9c04",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 2,
+      "odds": 5,
+      "itemDefinition": "Definition:Poison_DeepPain:16a212b720498e543b44286677f78360",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
       "itemDefinition": "Definition:Poison_TheLongNight:8aa7ebee8cfc86240adfc9d53335cff8",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 2,
+      "odds": 5,
       "itemDefinition": "Definition:Poison_TheBurden:a2cfbe62caaa3c14ea619a0b9248720e",
       "amount": 1
     },
     {
       "$type": "TreasureOption, Assembly-CSharp",
-      "odds": 2,
+      "odds": 5,
       "itemDefinition": "Definition:Poison_GhoulsCaress:55a8173b61548ea408def7437de32980",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 2,
+      "itemDefinition": "Definition:Poison_TigerFang:cbca0dafdd85dd240916dbd8ca7b5993",
       "amount": 1
     }
   ],

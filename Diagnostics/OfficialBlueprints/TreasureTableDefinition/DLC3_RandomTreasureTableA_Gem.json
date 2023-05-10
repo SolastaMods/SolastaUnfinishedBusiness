@@ -1,0 +1,81 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 25,
+      "itemDefinition": "Definition:20_GP_Amethyst:8f7795d6772e6584c856e1240ce99fdb",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 20,
+      "itemDefinition": "Definition:50_GP_Sapphire:94593fce05b78ec4aa7d55125259126e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 10,
+      "itemDefinition": "Definition:100_GP_Pearl:c3663c5d326ae1747aa410838f075c83",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 8,
+      "itemDefinition": "Definition:300_GP_Opal:bc757d124d8a9044fb2f6206ba1b2163",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 6,
+      "itemDefinition": "Definition:500_GP_Ruby:6edbb4ac30b262d4baba7949d0595158",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 6,
+      "itemDefinition": "Definition:500_GP_Black_Pearl_Powder:9a301225fb86c7f4aa99439fa2465c68",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 4,
+      "itemDefinition": "Definition:1000_GP_Diamond:b6dcb2b305ede8440bf70c35e774e736",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2bef88d988a46dd4f9c3578dd8541018",
+  "contentPack": "BaseGame",
+  "name": "DLC3_RandomTreasureTableA_Gem"
+}

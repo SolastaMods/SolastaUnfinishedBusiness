@@ -1,0 +1,85 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Male",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkin_04",
+  "musculatureMorphotypeValue": 64.4,
+  "ageMorphotypeValue": 14.3,
+  "tailLengthMorphotypeValue": 100.0,
+  "modelScale": 1.0,
+  "faceShapeMorphotype": "FaceShape_CA_F",
+  "hairShapeMorphotype": "HairShape_H",
+  "hairColorMorphotype": "HairColor_46",
+  "beardShapeMorphotype": "BeardShape_None",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColor_018",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_05",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_04",
+  "scarsMorphotype": "Scars_None",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
+  "armorDefinition": "ScaleMail",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8113207,
+    "g": 0.5306296,
+    "b": 0.3559095,
+    "a": 0.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.12437699,
+    "g": 0.6132076,
+    "b": 0.3720624,
+    "a": 0.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.53773576,
+    "g": 0.1851637,
+    "b": 0.1851637,
+    "a": 0.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.393325,
+    "g": 0.53773576,
+    "b": 0.3830099,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&DLC3_NPC_GallivanArcher_Title",
+    "description": "NPC/&DLC3_NPC_GallivanArcher_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "01c0d8f14c5f4b24b8e538929f42afb4",
+      "m_SubObjectName": "NPC_Presentation_DLC3_Gallivan_Archer_M_01",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "dc7e832290086744c8182831a443cc8b",
+  "contentPack": "PalaceOfIce",
+  "name": "NPC_Presentation_DLC3_Gallivan_Archer_M_01"
+}

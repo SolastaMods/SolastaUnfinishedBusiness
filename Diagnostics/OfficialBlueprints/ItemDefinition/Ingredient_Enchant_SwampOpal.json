@@ -30,7 +30,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Uncommon",
+  "itemRarity": "Common",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -174,6 +174,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -184,8 +185,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -211,6 +211,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "ae4b9f7455cfe3c42add07fe46334d16",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Ingredient_Enchant_SwampOpal"
 }

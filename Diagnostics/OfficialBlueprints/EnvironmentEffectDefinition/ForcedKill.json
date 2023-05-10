@@ -48,6 +48,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -314,6 +315,7 @@
       }
     }
   },
+  "priority": 0,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

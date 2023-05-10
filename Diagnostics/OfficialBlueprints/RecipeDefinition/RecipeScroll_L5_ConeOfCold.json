@@ -1,30 +1,26 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScrollConeOfCold:42160397a78a2e346be44bbd8aee1114",
   "stackCount": 1,
-  "craftingHours": 54,
-  "craftingDC": 18,
+  "craftingHours": 4,
+  "craftingDC": 20,
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+      "amount": 2,
+      "itemDefinition": "Definition:20_GP_Amethyst:8f7795d6772e6584c856e1240ce99fdb"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_Serpentinite:6704bce3d2425b24ebe65ce9c668748a"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+      "itemDefinition": "Definition:500_GP_Ruby:6edbb4ac30b262d4baba7949d0595158"
     }
   ],
   "spellDefinition": "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
