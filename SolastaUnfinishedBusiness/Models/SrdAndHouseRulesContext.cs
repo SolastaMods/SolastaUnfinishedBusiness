@@ -7,11 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-<<<<<<< HEAD
-=======
-using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Subclasses;
->>>>>>> 7e287f217aec459e5d79f85f128e9ce76ad6b4c4
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -78,36 +73,6 @@ internal static class SrdAndHouseRulesContext
 
     internal static void LateLoad()
     {
-<<<<<<< HEAD
-=======
-        //BUGFIX: fix tradition light race repertoire
-        CastSpellTraditionLight.slotsPerLevels = CastSpellElfHigh.slotsPerLevels;
-
-        //BUGFIX: this official condition doesn't have sprites or description
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
-        ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
-
-        //BUGFIX: add an effect to Counterspell
-        Counterspell.EffectDescription.effectParticleParameters =
-            DreadfulOmen.EffectDescription.effectParticleParameters;
-
-        // BUGFIX: Chill Touch and Ray of Frost should have not saving throw
-        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-
-        //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
-        static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
-        {
-            // this allows Reflexive Party to trigger without Uncanny Dodge which can be triggered after that
-            return character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
-                                conditions.Any(character.HasConditionOfType);
-        }
-
-        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
-            IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
-
->>>>>>> 7e287f217aec459e5d79f85f128e9ce76ad6b4c4
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
 
