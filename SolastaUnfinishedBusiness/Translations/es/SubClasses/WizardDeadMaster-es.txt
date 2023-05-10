@@ -1,4 +1,4 @@
-﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Hechizos de maestro muerto
 Feature/&BypassSpellConcentrationDeadMasterDescription=Has aprendido los caminos de la nigromancia. Si estás levantado, no necesitas concentración para resucitar muertos.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersión

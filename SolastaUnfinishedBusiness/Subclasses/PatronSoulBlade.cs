@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -92,6 +94,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var conditionHexDefender = ConditionDefinitionBuilder
             .Create("ConditionSoulBladeHexDefender")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .SetPossessive()
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
@@ -101,14 +104,14 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("FeatureSoulBladeHex")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new AttackComputeModifierHex(conditionHexAttacker, conditionHexDefender))
+                new AttackOrMagicAttackInitiatedHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
         var effectDescriptionHex = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
@@ -230,12 +233,12 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    private sealed class AttackComputeModifierHex : IAttackComputeModifier
+    private sealed class AttackOrMagicAttackInitiatedHex : IPhysicalAttackInitiated, IMagicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public AttackComputeModifierHex(
+        public AttackOrMagicAttackInitiatedHex(
             ConditionDefinition conditionHexAttacker,
             ConditionDefinition conditionHexDefender)
         {
@@ -243,45 +246,54 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             _conditionHexDefender = conditionHexDefender;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnMagicalAttackInitiated(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
         {
-            var battle = Gui.Battle;
+            yield return ApplyCondition(attacker, defender);
+        }
 
-            if (battle == null)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            yield return ApplyCondition(attacker, defender);
+        }
+
+        private IEnumerator ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetAttacker == null)
             {
-                return;
+                yield break;
             }
 
-            if (defender.HasAnyConditionOfType(_conditionHexDefender.Name))
+            if (rulesetDefender.HasAnyConditionOfType(_conditionHexDefender.Name))
             {
-                myself.InflictCondition(
+                rulesetAttacker.InflictCondition(
                     _conditionHexAttacker.Name,
                     DurationType.Round,
                     0,
                     TurnOccurenceType.StartOfTurn,
                     AttributeDefinitions.TagCombat,
-                    myself.guid,
-                    myself.CurrentFaction.Name,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
                     1,
                     null,
                     0,
                     0,
                     0);
-            }
-            else
-            {
-                var rulesetCondition =
-                    myself.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionHexAttacker);
-
-                if (rulesetCondition != null)
-                {
-                    myself.RemoveConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-                }
             }
         }
     }

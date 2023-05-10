@@ -59,21 +59,21 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
         }
 
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
         if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
-
-        toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
-        }
-
-        UI.Label();
 
         toggle = Main.Settings.FixEldritchBlastRange;
         if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
@@ -102,18 +102,18 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        }
+
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
             SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
-        }
-
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;

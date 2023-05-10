@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -15,6 +16,8 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Color Burst
+
     internal static SpellDefinition BuildColorBurst()
     {
         const string NAME = "ColorBurst";
@@ -26,13 +29,15 @@ internal static partial class SpellBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(ColorSpray)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 5)
+                    .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 5)
                     .SetParticleEffectParameters(HypnoticPattern)
                     .Build())
             .AddToDB();
 
         return spell;
     }
+
+    #endregion
 
     #region Mirror Image
 
@@ -201,11 +206,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
                     .SetGuiPresentation($"Item{NAME}", Category.Item)
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
                     .AddToDB())
             .AddToDB();
 

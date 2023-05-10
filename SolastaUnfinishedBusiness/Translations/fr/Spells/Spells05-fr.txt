@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Vous pouvez utiliser une action bonus pour vous téléporter jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir.
+Condition/&ConditionFarStepDescription=Vous pouvez utiliser une action bonus pour vous téléporter jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir.
 Condition/&ConditionFarStepTitle=Pas loin
 Feature/&AdditionalDamageBanishingSmiteDescription=Vous êtes touché par des dégâts de force.
 Feature/&AdditionalDamageBanishingSmiteTitle=Châtiment de bannissement

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=La classe armatura è ridotta di 1.
+Condition/&ConditionAcidClawsDescription=La classe armatura è ridotta di 1.
 Condition/&ConditionAcidClawsTitle=Ustione da acido
 Condition/&ConditionMindSpikeDescription=Sottrae 1d4 dal prossimo tiro salvezza.
 Condition/&ConditionMindSpikeTitle=Mente Spike

@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddHalfProficiencyBonus",
-  "modifierValue": 1,
+  "modifierOperation": "Additive",
+  "modifierValue": 2,
   "modifierAbilityScore": "Constitution",
   "situationalContext": 1001,
   "minimum1": false,

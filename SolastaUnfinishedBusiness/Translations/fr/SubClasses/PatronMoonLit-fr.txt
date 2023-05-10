@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=Votre gravité est annulée.
+Condition/&ConditionMoonlitMoonTouchedDescription=Votre gravité est annulée.
 Condition/&ConditionMoonlitMoonTouchedTitle=Lune touchée
 Feature/&BonusCantripsMoonlitDescription=Votre contrôle de la lumière de la lune a atteint un nouveau niveau. Vous pouvez lancer les sorts <b>Rayon de lune</b> et <b>Feu des fées</b> à volonté.
 Feature/&BonusCantripsMoonlitTitle=Contrôle de la lumière

@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=Ihre Kontrolle über elementare Energien hat sich bis zu dem Punkt erhöht, an dem Sie jetzt die Herrschaft über schwächere Elementare haben. Du kannst Kleines Elementar beschwören nach Belieben wirken.
+Feature/&BonusCantripElementalistMinorElementalDescription=Ihre Kontrolle über elementare Energien hat sich bis zu dem Punkt erhöht, an dem Sie jetzt die Herrschaft über schwächere Elementare haben. Du kannst Kleines Elementar beschwören nach Belieben wirken.
 Feature/&BonusCantripElementalistMinorElementalTitle=Elementare Günstlinge
 Feature/&ElementalPatronAirPlane=Flugzeug
 Feature/&ElementalPatronEarthPlane=Erdebene

@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Les inventeurs sont des bricoleurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.
+Class/&InventorDescription=Les inventeurs sont des bricoleurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.
 Class/&InventorTitle=Inventeur
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Les attaques effectuées avec cette arme infligent 1d4 {0} dégâts supplémentaires.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Élémentaire majeur [{0}]

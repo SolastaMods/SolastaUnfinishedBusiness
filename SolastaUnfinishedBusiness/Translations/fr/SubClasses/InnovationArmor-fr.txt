@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArmorGuardianModeDescription=Gagnez l'arme <b>Gantelet du tonnerre</b> (1d8 dégâts de tonnerre) si vous avez la main libre et l'action bonus <b>Champ défensif</b> pour gagner des PV temporaires égaux au niveau d'inventeur.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Gagnez l'arme <b>Gantelet du tonnerre</b> (1d8 dégâts de tonnerre) si vous avez la main libre et l'action bonus <b>Champ défensif</b> pour gagner des PV temporaires égaux au niveau d'inventeur.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Gardien
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Gagne une attaque à distance <b>Lanceur de foudre</b> (1d6 dégâts de foudre, la première attaque du round inflige 2d6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Agent infiltré

@@ -706,6 +706,13 @@ Starting at the 6th level, when a creature misses you with a melee attack roll, 
 Starting at the 11th level, when you use Flurry of Blows, you can make up to one additional attack with it (up to a total of 3 flurry of blows attacks).
 
 
+## Level 17
+
+* Purity of Light
+
+You can attack three times, instead of twice, whenever you take the Attack action on your turn.
+
+
 
 
 # Way of Light
@@ -742,7 +749,7 @@ Starting at the 11th level, as a bonus action, you can spend 2 Ki points to gene
 Starting at 17th level, you gain the following benefits:
 • All your monk weapon attacks and unarmed attacks now apply Luminous Ki.
 • Your Radiant Strikes now deal 1d6 radiant damage.
-• When you hit a creature affected by Luminous Ki, all conscious allies within 20 feet of that creature restore 2 hit points, with monk receiving twice that amount.
+• When you hit a creature affected by Luminous Ki, you restore 4 hit points and all conscious allies within 20 feet of you restore half that amount.
 
 
 
@@ -779,7 +786,7 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
-• When you are reduced to 0 hit points, you are instead set to 1 hit point. You can use this feature once per long rest.
+• When you are reduced to 0 hit points, you can pay 1 ki to restore 10 hit points.
 
 
 
@@ -817,7 +824,7 @@ At level 11, when you are about to be hit by an attack or single target spell, y
 
 * Quivering Palm
 
-Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
+Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for 24 hours. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
 
 
 
@@ -1406,6 +1413,15 @@ When you hit an enemy with a sneak attack, they have disadvantage on attacks mad
 * Dirty Fighting
 
 You can use a bonus action to catch a target within 1 cell of you off guard. They must make a CON saving throw (DC 8 + proficiency bonus + STR modifier) or become blinded and incapacitated until the end of your next turn. Once hit by Dirty Fighting, the same target cannot be affected again.
+
+
+## Level 17
+
+* Brutal Assault           
+
+Starting at 17th level, you gain the following benefits:
+• Whenever the target of your Dirty Fighting fails the saving throw, you can immediately make one weapon attack against that creature as a part of the same bonus action.
+• Whenever you hit a creature that is prone, stunned, blinded, frightened, incapacitated, poisoned, paralyzed or restrained, you deal extra damage equal to your proficiency bonus.
 
 
 

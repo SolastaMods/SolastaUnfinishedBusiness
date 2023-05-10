@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Você conhece o truque <b>Burst of Radiance</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados uma vez por descanso longo.
+Feature/&CastSpellFairyDescription=Você conhece o truque <b>Burst of Radiance</b>. No 3º nível você aprende <b>Faerie Fire</b> e no 5º nível, <b>Color Burst</b>. Ambos podem ser usados uma vez por descanso longo.
 Feature/&CastSpellFairyTitle=Magia das Fadas
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destreza +2, Inteligência, Sabedoria ou Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Valores de habilidade
@@ -8,7 +8,7 @@ Feature/&PowerFairyFlightDismissDescription=Cancele seu voo.
 Feature/&PowerFairyFlightDismissTitle=Ignorar voo
 Feature/&PowerFairyFlightSproutDescription=Com uma ação, você pode obter um deslocamento de voo igual ao seu deslocamento de caminhada. Você não pode usar isso se estiver usando armadura média ou pesada.
 Feature/&PowerFairyFlightSproutTitle=Voo
-Feature/&ProficencyFairyLanguagesDescription=Comum, qualquer outro idioma
-Feature/&ProficencyFairyLanguagesTitle=Línguas
+Feature/&ProficiencyFairyLanguagesDescription=Comum, qualquer outro idioma
+Feature/&ProficiencyFairyLanguagesTitle=Línguas
 Race/&RaceFairyDescription=O Feywild é o lar de muitos povos fantásticos, incluindo fadas. As fadas são um povo pequenino, mas não tanto quanto seus amigos duendes e duendes. As primeiras fadas falavam élfico, goblin ou silvestre, e os encontros com visitantes humanos levaram muitos deles a aprender o comum também.
 Race/&RaceFairyTitle=Fada

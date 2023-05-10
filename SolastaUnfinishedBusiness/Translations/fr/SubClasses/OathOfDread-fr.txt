@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si vous êtes effrayé ou effrayé, votre vitesse est réduite à 0 et vous subissez des dégâts psychiques égaux à la moitié du niveau de paladin de l'émanateur.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si vous êtes effrayé ou effrayé, votre vitesse est réduite à 0 et vous subissez des dégâts psychiques égaux à la moitié du niveau de paladin de l'émanateur.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de domination
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Le marqueur a un avantage sur les jets d'attaque contre vous.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marque de châtiment

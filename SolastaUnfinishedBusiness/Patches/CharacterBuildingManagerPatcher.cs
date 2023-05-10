@@ -239,7 +239,7 @@ public static class CharacterBuildingManagerPatcher
                 return;
             }
 
-            //BUGFIX: this is a hack that fixes the particular case where we get double invocation pools if hero is MC
+            //PATCH: fixes the particular case where we get double invocation pools if hero is MC
             var heroBuildingData = hero.GetHeroBuildingData();
 
             if (heroBuildingData.PointPoolStacks

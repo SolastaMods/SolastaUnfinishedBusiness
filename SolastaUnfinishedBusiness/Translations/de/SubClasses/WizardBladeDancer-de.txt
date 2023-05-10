@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBladeDancerBladeDanceDescription=Du kannst eine Bonusaktion verwenden, um den Klingentanz zu starten, der 1 Minute dauert. Es endet vorzeitig, wenn Sie handlungsunfähig sind, wenn Sie eine mittlere Rüstung, eine schwere Rüstung oder einen Schild verwenden oder wenn Sie eine Zweihand führen, um mit einer Waffe anzugreifen.
+Condition/&ConditionBladeDancerBladeDanceDescription=Du kannst eine Bonusaktion verwenden, um den Klingentanz zu starten, der 1 Minute dauert. Es endet vorzeitig, wenn Sie handlungsunfähig sind, wenn Sie eine mittlere Rüstung, eine schwere Rüstung oder einen Schild verwenden oder wenn Sie eine Zweihand führen, um mit einer Waffe anzugreifen.
 Condition/&ConditionBladeDancerBladeDanceTitle=Klingen tanzen
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=Sie fügen dem Schaden Ihrer Waffenangriffe +5 hinzu, während Ihr Klingentanz aktiv ist.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Tanz des Sieges

@@ -1,4 +1,4 @@
-﻿Feat/&FeatElvenAccuracyCharismaDescription=Você tem uma mira incrível com ataques que dependem de precisão em vez de força bruta. Aumente seu Carisma em 1, até um máximo de 20. Sempre que você tiver vantagem em uma jogada de ataque usando Destreza, Inteligência, Sabedoria ou Carisma, você pode rolar novamente um dos dados uma vez.
+Feat/&FeatElvenAccuracyCharismaDescription=Você tem uma mira incrível com ataques que dependem de precisão em vez de força bruta. Aumente seu Carisma em 1, até um máximo de 20. Sempre que você tiver vantagem em uma jogada de ataque usando Destreza, Inteligência, Sabedoria ou Carisma, você pode rolar novamente um dos dados uma vez.
 Feat/&FeatElvenAccuracyCharismaTitle=Precisão Élfica [Cha]
 Feat/&FeatElvenAccuracyDexterityDescription=Você tem uma mira incrível com ataques que dependem de precisão em vez de força bruta. Aumente sua Destreza em 1, até um máximo de 20. Sempre que você tiver vantagem em uma jogada de ataque usando Destreza, Inteligência, Sabedoria ou Carisma, você pode rolar novamente um dos dados uma vez.
 Feat/&FeatElvenAccuracyDexterityTitle=Precisão Élfica [Dex]

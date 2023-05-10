@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puedes gastar 2 puntos de Ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puedes gastar 2 puntos de Ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silueta artes
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Capa de siluetas ahora funciona con poca luz y oscuridad mágica además de la oscuridad natural.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Capa de siluetas mejorada

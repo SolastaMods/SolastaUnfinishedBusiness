@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Ventaja en todas las tiradas de ataque, pruebas de habilidad y tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque.
+Condition/&ConditionForesightDescription=Ventaja en todas las tiradas de ataque, pruebas de habilidad y tiradas de salvación. Otras criaturas tienen desventaja en las tiradas de ataque.
 Condition/&ConditionForesightTitle=Previsión
 Condition/&ConditionTimeStopDescription=El tiempo se congela para la criatura afectada.
 Condition/&ConditionTimeStopTitle=Tiempo detenido

@@ -366,7 +366,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Superior Inspiration
 
-when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
+When you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 
 
 

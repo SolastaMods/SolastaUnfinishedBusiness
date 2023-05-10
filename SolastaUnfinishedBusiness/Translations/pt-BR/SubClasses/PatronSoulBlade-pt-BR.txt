@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Amaldiçoado por um Soul Hex.
+Condition/&ConditionSoulBladeHexDefenderDescription=Amaldiçoado por um Soul Hex.
 Condition/&ConditionSoulBladeHexDefenderTitle=Feitiço da Alma
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Conta como mágico e usa o modificador de Carisma para jogadas de ataque e dano.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Alma Empoderada

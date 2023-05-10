@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=A classe de armadura é reduzida em 1.
+Condition/&ConditionAcidClawsDescription=A classe de armadura é reduzida em 1.
 Condition/&ConditionAcidClawsTitle=Queimadura ácida
 Condition/&ConditionMindSpikeDescription=Subtrai 1d4 do próximo teste de resistência.
 Condition/&ConditionMindSpikeTitle=Pico Mental

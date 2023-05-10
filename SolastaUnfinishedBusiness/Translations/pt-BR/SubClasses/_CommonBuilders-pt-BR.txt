@@ -1,10 +1,12 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Você ganha um ataque extra e agora pode atacar até 2 vezes no seu turno.
-Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque extra
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque Extra
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Você tem imunidade a dano necrótico e seu máximo de pontos de vida não pode ser reduzido.
 Feature/&DamageAffinityGenericHardenToNecroticTitle=Endurecer para necrótico
 Feature/&FeatureSetCasterFightingProficiencyDescription=Você pode usar armadura leve, armadura média e escudo e também ganhar proficiência com armas marciais.
 Feature/&FeatureSetCasterFightingProficiencyTitle=Armaduras e Armas
-Feature/&MagicAffinityCasterFightingCombatMagicDescription=Vantagem em testes de concentração, bem como a capacidade de executar componentes somáticos de feitiços enquanto segura itens.
+Feature/&MagicAffinityCasterFightingCombatMagicDescription=Vantagem em testes de concentração também, ser capaz de usar suas armas como foco de conjuração e ser capaz de executar componentes somáticos de magias enquanto segura itens.
+Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=Vantagem em testes de concentração também, ser capaz de usar suas armas como foco de conjuração, ser capaz de executar componentes somáticos de feitiços enquanto segura itens e nenhuma desvantagem quando os inimigos estiverem dentro do alcance corpo a corpo.
+Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=Conjuração de Guerra Aprimorada
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=Elenco de guerra
 Feature/&PowerArcaneFighterEnchantWeaponDescription=Quando ativo em uma arma, seus ataques contam como mágicos e você usa seu modificador de conjuração de feitiços para suas jogadas de ataque e dano.
 Feature/&PowerArcaneFighterEnchantWeaponTitle=Arma Arcana

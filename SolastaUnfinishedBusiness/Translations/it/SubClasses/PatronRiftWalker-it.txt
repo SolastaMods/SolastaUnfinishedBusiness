@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Non puoi essere trattenuto.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Non puoi essere trattenuto.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Libertà di frattura
 Feature/&BonusCantripRiftWalkWardingBondDescription=Il tuo controllo sui portali del varco è aumentato al punto che ora puoi concedere la protezione del varco ad altri. Puoi lanciare legame di protezione a volontà (senza la condivisione del danno).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Mantello della Fenditura

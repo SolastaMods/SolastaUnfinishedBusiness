@@ -28,8 +28,6 @@ public class CharacterActionMonkKiPointsToggle : CharacterAction
             rulesetCharacter.EnableToggle(Action);
         }
 
-        rulesetCharacter.KiPointsAltered?.Invoke(rulesetCharacter, rulesetCharacter.RemainingKiPoints);
-
         yield return null;
     }
 }

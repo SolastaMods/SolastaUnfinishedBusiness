@@ -182,7 +182,7 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //BUGFIX: game doesn't consider cantrips gained from BonusCantrips feature
+            //PATCH: game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
             //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
@@ -872,39 +872,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RechargePowersForTurnStart))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RechargePowersForTurnStart_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance)
-        {
-            //PATCH: support for powers that recharge on turn start
-            foreach (var usablePower in __instance.UsablePowers)
-            {
-                if (usablePower.RemainingUses >= usablePower.MaxUses)
-                {
-                    continue;
-                }
-
-                var startOfTurnRecharge = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IStartOfTurnRecharge>();
-
-                if (startOfTurnRecharge == null)
-                {
-                    continue;
-                }
-
-                usablePower.Recharge();
-
-                if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
-                {
-                    __instance.PowerRecharged(__instance, usablePower);
-                }
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RepayPowerUse))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1238,23 +1205,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    //PATCH: support Monk Ki Points Toggle
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RemainingKiPoints), MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RemainingKiPoints_Getter_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, ref int __result)
-        {
-            if (Main.Settings.AddMonkKiPointsToggle &&
-                !__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
-            {
-                __result = 0;
-            }
-        }
-    }
-
     //PATCH: support adding required action affinities to classes that can use toggles
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.PostLoad))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -1267,31 +1217,6 @@ public static class RulesetCharacterPatcher
             if (__instance is not RulesetCharacterHero hero)
             {
                 return;
-            }
-
-            if (hero.ClassesHistory.Contains(Monk))
-            {
-                var tag = AttributeDefinitions.GetClassTag(Monk, 1);
-
-                switch (Main.Settings.AddMonkKiPointsToggle)
-                {
-                    case true:
-                        if (!hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
-                        {
-                            hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
-                            hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-                        }
-
-                        break;
-                    case false:
-                        if (hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
-                        {
-                            hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
-                        }
-
-                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-                        break;
-                }
             }
 
             if (hero.ClassesHistory.Contains(Paladin))

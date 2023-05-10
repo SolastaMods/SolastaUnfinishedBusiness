@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBladeDancerBladeDanceDescription=Puoi usare un'azione bonus per iniziare la danza delle lame, che dura 1 minuto. Termina presto se sei inabile, se usi un'armatura media, un'armatura pesante o uno scudo, o se brandisci un'armatura a due mani per effettuare un attacco con un'arma.
+Condition/&ConditionBladeDancerBladeDanceDescription=Puoi usare un'azione bonus per iniziare la danza delle lame, che dura 1 minuto. Termina presto se sei inabile, se usi un'armatura media, un'armatura pesante o uno scudo, o se brandisci un'armatura a due mani per effettuare un attacco con un'arma.
 Condition/&ConditionBladeDancerBladeDanceTitle=Lama danzante
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=Aggiungi un +5 al danno dei tuoi attacchi con le armi mentre la tua danza delle lame è attiva.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Danza della vittoria

@@ -1,4 +1,4 @@
-﻿Feat/&FeatGroupAegisTouchedDescription=Erhöhe eines deiner mentalen Attribute um 1 bis zu einem Maximum von 20.\nDu erhältst die Fähigkeit, den Schild des Glaubens, Schutz gegen Böses und Gutes und Schutz vor Giftzaubern einmal pro langer Pause zu wirken, und du kannst diese Zauber wirken mit deinen Zauberslots.
+Feat/&FeatGroupAegisTouchedDescription=Erhöhe eines deiner mentalen Attribute um 1 bis zu einem Maximum von 20.\nDu erhältst die Fähigkeit, den Schild des Glaubens, Schutz gegen Böses und Gutes und Schutz vor Giftzaubern einmal pro langer Pause zu wirken, und du kannst diese Zauber wirken mit deinen Zauberslots.
 Feat/&FeatGroupAegisTouchedTitle=Ägis berührt
 Feat/&FeatGroupAgilityCombatDescription={0}
 Feat/&FeatGroupAgilityCombatTitle=Kampf: Beweglichkeit

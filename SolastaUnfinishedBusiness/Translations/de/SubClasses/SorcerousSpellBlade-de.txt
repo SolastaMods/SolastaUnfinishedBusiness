@@ -1,11 +1,11 @@
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererDescription=Wenn du mit einem Angriff triffst oder mit einem Zauber Schaden zufügst, addiere deinen Charisma-Modifikator als zusätzlichen Kraftschaden zu einem Schadenswurf dieses Angriffs oder Zaubers.
 Feature/&AdditionalDamageSorcerousSpellBladeWarSorcererTitle=Kriegszauberer
-Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Sie erwerben Kenntnisse im Umgang mit leichter Rüstung, mittlerer Rüstung und Kriegswaffen.
-Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Kampftraining
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesDescription=Deine Rüstungsklasse steigt um 2 und du erlernst Geschicklichkeits-Rettungswürfe.
 Feature/&FeatureSetSorcerousSpellBladeBattleReflexesTitle=Kampfreflexe
 Feature/&FeatureSetSorcerousSpellBladeManaShieldDescription=Du kannst deine Bonusaktion verwenden, um eine Minute lang temporäre Trefferpunkte in Höhe deiner Hexenmeisterstufe + CH-Modifikator zu erhalten, und zwar so oft pro langer Pause, wie es deinem Fertigkeitsbonus entspricht. Wenn Sie keine Anwendungen mehr haben, können Sie stattdessen zwei Hexereipunkte ausgeben.
 Feature/&FeatureSetSorcerousSpellBladeManaShieldTitle=Mana-Schild
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingDescription=Sie erwerben Kenntnisse im Umgang mit leichter Rüstung, mittlerer Rüstung und Kriegswaffen.
+Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Kampftraining
 Feedback/&AdditionalDamageWarSorcererFormat=Kriegszauberer
 Feedback/&AdditionalDamageWarSorcererLine={0} fügt {1} (+{2}) Kriegszauberer-Schaden zu
 Subclass/&SorcerousSpellBladeDescription=Forceblades kombinieren kriegerische Fähigkeiten mit angeborenen magischen Talenten, um ihre Feinde zu übertreffen.
