@@ -94,9 +94,6 @@ internal static class BootContext
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();
 
-        // Load SRD and House rules towards the load phase end in case they change previous blueprints
-        SrdAndHouseRulesContext.Load();
-
         // Level 20 must always load after classes and subclasses
         Level20Context.Load();
 
@@ -122,8 +119,11 @@ internal static class BootContext
             // Custom metamagic
             MetamagicContext.LateLoad();
 
-            // Divine Smite fixes and final switches
+            // SRD rules switches
             SrdAndHouseRulesContext.LateLoad();
+
+            // Vanilla Fixes
+            FixesContext.LateLoad();
 
             // Level 20 - patching and final configs
             Level20Context.LateLoad();

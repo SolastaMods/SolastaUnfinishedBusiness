@@ -1,4 +1,4 @@
-Condition/&ConditionBladeDancerBladeDanceDescription=你可以用一个附赠动作开始剑舞，持续 1 分钟。如果你无法行动，或穿着中甲、重甲或盾牌，或者双手使用武器进行攻击，剑舞会提前结束。
+Condition/&ConditionBladeDancerBladeDanceDescription=你可以用一个附赠动作开始剑舞，持续 1 分钟。如果你无法行动，或穿着中甲、重甲或盾牌，或者使用双手武器进行攻击，剑舞会提前结束。
 Condition/&ConditionBladeDancerBladeDanceTitle=剑舞
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=当你的剑舞激活时，你的武器伤害 +5。
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=胜利之舞
@@ -17,5 +17,5 @@ Reaction/&SpendSpellSlotDanceOfDefenseReactDescription=使用反应来减少伤�
 Reaction/&SpendSpellSlotDanceOfDefenseReactTitle=防御之舞
 Reaction/&SpendSpellSlotDanceOfDefenseTitle=防御之舞
 Reaction/&SubitemSelectDanceOfDefenseTitle=选择法术位
-Subclass/&WizardBladeDancerDescription=剑舞者使用一系列复杂、优雅的动作来抵御伤害，并让剑舞者将魔法转化为毁灭性的攻击和狡猾的防御。许多在工作中观察过刀刃舞者的人都记得这种表演是他们生活中最美好的体验之一，伴随着刀刃的华丽舞蹈。
+Subclass/&WizardBladeDancerDescription=剑舞者使用一系列复杂、优雅的动作来抵御伤害，并将魔法转化为毁灭性的攻击和灵巧的防御。许多与剑舞者同行之人都记得观看这种伴随着刀刃的华丽舞蹈是他们生活中最美好的体验之一。
 Subclass/&WizardBladeDancerTitle=剑舞者

@@ -59,7 +59,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=禁用此mod提供的职业专长的�
 ModUi/&DisableRacePrerequisitesOnModFeats=禁用此mod提供的专长的种族前提条件
 ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>强化黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[蓝色药丸用户，这是你最后的机会]</color></i>
+ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[你确定要服下这个蓝色药丸，逃避真实吗]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
