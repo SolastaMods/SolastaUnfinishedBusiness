@@ -182,7 +182,7 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //BUGFIX: game doesn't consider cantrips gained from BonusCantrips feature
+            //PATCH: game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
             //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)

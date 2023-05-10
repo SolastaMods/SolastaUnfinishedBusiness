@@ -96,6 +96,10 @@ internal static class SrdAndHouseRulesContext
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;
 
+        // BUGFIX: Chill Touch and Ray of Frost should have not saving throw
+        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
         static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
         {
