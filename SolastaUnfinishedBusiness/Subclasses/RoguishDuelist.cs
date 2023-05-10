@@ -115,7 +115,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
-    
+
     //
     // Reflexive Party
     //

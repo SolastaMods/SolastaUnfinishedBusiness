@@ -188,8 +188,9 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         static bool CanUseEssenceTheft(RulesetCharacter character)
         {
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-        
-            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED);
+
+            return gameLocationCharacter != null &&
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(ADDITIONAL_DAMAGE_POSSESSED);
         }
 
         var powerEssenceTheft = FeatureDefinitionPowerBuilder

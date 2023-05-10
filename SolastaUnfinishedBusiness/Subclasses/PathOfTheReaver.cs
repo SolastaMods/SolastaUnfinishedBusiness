@@ -40,7 +40,6 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                         .SetImpactParticleReference(ConditionDefinitions
                             .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
-
                         .SetCustomSubFeatures(new BarbarianHolder())
                         .AddToDB()))
             .AddToDB();
