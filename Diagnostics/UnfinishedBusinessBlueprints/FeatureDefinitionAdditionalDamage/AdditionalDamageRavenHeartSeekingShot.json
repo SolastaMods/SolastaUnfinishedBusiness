@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "HeartSeekingShot",
-  "limitedUsage": "None",
+  "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
