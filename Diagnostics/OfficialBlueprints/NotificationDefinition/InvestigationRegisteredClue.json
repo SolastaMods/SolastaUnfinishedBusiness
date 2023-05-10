@@ -1,0 +1,36 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "None",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 48.0,
+    "y": 72.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&InvestigationRegisteredClueTitle",
+    "description": "Notification/&InvestigationRegisteredClueDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9607844,
+      "g": 0.7058824,
+      "b": 0.5254902,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9b45f1561fafd814b9eb03cced1c32e0",
+  "contentPack": "BaseGame",
+  "name": "InvestigationRegisteredClue"
+}

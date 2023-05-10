@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:PotionOfGiantStrengthCloud:2468a7c703c47f442925579c5ef8de83",
   "stackCount": 1,
-  "craftingHours": 96,
-  "craftingDC": 18,
+  "craftingHours": 5,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:HerbalismKitType:f470a833c25f4ca4e810ff7c7ea51369",
   "ingredients": [
     {
@@ -25,6 +26,11 @@
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 4,
       "itemDefinition": "Definition:Ingredient_Serpentinite:6704bce3d2425b24ebe65ce9c668748a"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 4,
+      "itemDefinition": "Definition:Ingredient_BadlandsBear_Meat:351b189bee3dd4b44bc38a12bd09c0bf"
     }
   ],
   "spellDefinition": null,

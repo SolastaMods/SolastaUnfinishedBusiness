@@ -1115,20 +1115,6 @@
       "reassortRateValue": 23,
       "requiredFaction": "DLC1_Faction_Rebellion",
       "factionStatus": "Alliance"
-    },
-    {
-      "$type": "StockUnitDescription, Assembly-CSharp",
-      "initialized": true,
-      "itemDefinition": "Definition:DwarvenWarDrums:d23b9ed52419d604f855f5ddee638600",
-      "stackCount": 1,
-      "initialAmount": 1,
-      "minAmount": 0,
-      "maxAmount": 1,
-      "reassortAmount": 0,
-      "reassortRateType": "Day",
-      "reassortRateValue": 23,
-      "requiredFaction": "DLC1_Faction_Rebellion",
-      "factionStatus": "Brotherhood"
     }
   ],
   "guiPresentation": {

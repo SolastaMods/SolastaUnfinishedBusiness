@@ -104,8 +104,8 @@
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "12e41f22c19ae604eb690ffe9aa578e7",
-    "m_SubObjectName": "Tiger_Drake",
+    "m_AssetGUID": "04f38752a85d4a64da049958bcfc267d",
+    "m_SubObjectName": "Mutant_Drake",
     "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
@@ -214,8 +214,8 @@
     "description": "Monster/&TigerDrake_Mutant_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ef9977855c0bcb34cb54a5f3bd1bae5b",
-      "m_SubObjectName": "CustomPortrait_Tiger_Drake",
+      "m_AssetGUID": "8a0a3a5e04cb06449ab65cf640357bb6",
+      "m_SubObjectName": "Mutant_TigerDrake",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

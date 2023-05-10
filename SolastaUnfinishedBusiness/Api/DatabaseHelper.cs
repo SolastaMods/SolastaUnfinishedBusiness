@@ -1,7 +1,4 @@
-// automatically generated on 2/20/2023 12:00:00 AM
-// ReSharper disable IdentifierTypo
-// ReSharper disable InconsistentNaming
-// ReSharper disable StringLiteralTypo
+// automatically generated on 4/29/2023 12:00:00 AM
 
 using TA.AI;
 
@@ -178,6 +175,9 @@ internal static partial class DatabaseHelper
 
         internal static ActionDefinition Levitate { get; } =
             GetDefinition<ActionDefinition>("Levitate");
+
+        internal static ActionDefinition LevitateFree { get; } =
+            GetDefinition<ActionDefinition>("LevitateFree");
 
         internal static ActionDefinition LootGround { get; } =
             GetDefinition<ActionDefinition>("LootGround");
@@ -626,6 +626,15 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition ElfSylvan { get; } =
             GetDefinition<CharacterRaceDefinition>("ElfSylvan");
 
+        internal static CharacterRaceDefinition Gnome { get; } =
+            GetDefinition<CharacterRaceDefinition>("Gnome");
+
+        internal static CharacterRaceDefinition GnomeRock { get; } =
+            GetDefinition<CharacterRaceDefinition>("GnomeRock");
+
+        internal static CharacterRaceDefinition GnomeShadow { get; } =
+            GetDefinition<CharacterRaceDefinition>("GnomeShadow");
+
         internal static CharacterRaceDefinition HalfElf { get; } =
             GetDefinition<CharacterRaceDefinition>("HalfElf");
 
@@ -643,6 +652,9 @@ internal static partial class DatabaseHelper
 
         internal static CharacterRaceDefinition Human { get; } =
             GetDefinition<CharacterRaceDefinition>("Human");
+
+        internal static CharacterRaceDefinition Tiefling { get; } =
+            GetDefinition<CharacterRaceDefinition>("Tiefling");
     }
 
     internal static class CharacterSizeDefinitions
@@ -1082,6 +1094,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionChilledByTouch { get; } =
             GetDefinition<ConditionDefinition>("ConditionChilledByTouch");
 
+        internal static ConditionDefinition ConditionChilledInsteadOfFrozen { get; } =
+            GetDefinition<ConditionDefinition>("ConditionChilledInsteadOfFrozen");
+
         internal static ConditionDefinition ConditionCircleBalanceEmbracedByCold { get; } =
             GetDefinition<ConditionDefinition>("ConditionCircleBalanceEmbracedByCold");
 
@@ -1126,6 +1141,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionConstrictedByMarilith { get; } =
             GetDefinition<ConditionDefinition>("ConditionConstrictedByMarilith");
+
+        internal static ConditionDefinition ConditionConstrictedDM { get; } =
+            GetDefinition<ConditionDefinition>("ConditionConstrictedDM");
 
         internal static ConditionDefinition ConditionConstrictingCouatl { get; } =
             GetDefinition<ConditionDefinition>("ConditionConstrictingCouatl");
@@ -1220,6 +1238,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDashingBonus { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashingBonus");
 
+        internal static ConditionDefinition ConditionDashingBonusAdditional { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDashingBonusAdditional");
+
         internal static ConditionDefinition ConditionDashingBonusStepOfTheWind { get; } =
             GetDefinition<ConditionDefinition>("ConditionDashingBonusStepOfTheWind");
 
@@ -1240,6 +1261,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionDazzled { get; } =
             GetDefinition<ConditionDefinition>("ConditionDazzled");
+
+        internal static ConditionDefinition ConditionDazzled_SnowBulette { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDazzled_SnowBulette");
 
         internal static ConditionDefinition ConditionDead { get; } =
             GetDefinition<ConditionDefinition>("ConditionDead");
@@ -1640,6 +1664,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionImmuneToDemonicInfluence { get; } =
             GetDefinition<ConditionDefinition>("ConditionImmuneToDemonicInfluence");
 
+        internal static ConditionDefinition ConditionImmuneToWeatherEffects { get; } =
+            GetDefinition<ConditionDefinition>("ConditionImmuneToWeatherEffects");
+
         internal static ConditionDefinition ConditionIncapacitated { get; } =
             GetDefinition<ConditionDefinition>("ConditionIncapacitated");
 
@@ -1735,6 +1762,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionLeadByExampleMarked { get; } =
             GetDefinition<ConditionDefinition>("ConditionLeadByExampleMarked");
+
+        internal static ConditionDefinition ConditionLeadership { get; } =
+            GetDefinition<ConditionDefinition>("ConditionLeadership");
 
         internal static ConditionDefinition ConditionLethargic { get; } =
             GetDefinition<ConditionDefinition>("ConditionLethargic");
@@ -1934,6 +1964,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionPheromoned { get; } =
             GetDefinition<ConditionDefinition>("ConditionPheromoned");
 
+        internal static ConditionDefinition ConditionPOIMinersInitiative { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPOIMinersInitiative");
+
         internal static ConditionDefinition ConditionPoisoned { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisoned");
 
@@ -1945,6 +1978,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionPoisonedDarkweaverPoisonous { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisonedDarkweaverPoisonous");
+
+        internal static ConditionDefinition ConditionPoisonedGhastStench { get; } =
+            GetDefinition<ConditionDefinition>("ConditionPoisonedGhastStench");
 
         internal static ConditionDefinition ConditionPoisonedHezrouStench { get; } =
             GetDefinition<ConditionDefinition>("ConditionPoisonedHezrouStench");
@@ -2045,6 +2081,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionResistedDruidNaturesSanctuary { get; } =
             GetDefinition<ConditionDefinition>("ConditionResistedDruidNaturesSanctuary");
 
+        internal static ConditionDefinition ConditionResistedGhastStench { get; } =
+            GetDefinition<ConditionDefinition>("ConditionResistedGhastStench");
+
         internal static ConditionDefinition ConditionResistedHezrouStench { get; } =
             GetDefinition<ConditionDefinition>("ConditionResistedHezrouStench");
 
@@ -2125,6 +2164,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionShieldedByFaith { get; } =
             GetDefinition<ConditionDefinition>("ConditionShieldedByFaith");
+
+        internal static ConditionDefinition ConditionShieldedByKnightParry { get; } =
+            GetDefinition<ConditionDefinition>("ConditionShieldedByKnightParry");
 
         internal static ConditionDefinition ConditionShieldedByMarilithParry { get; } =
             GetDefinition<ConditionDefinition>("ConditionShieldedByMarilithParry");
@@ -2322,6 +2364,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionTrueStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionTrueStrike");
 
+        internal static ConditionDefinition ConditionTrueStrikeSource { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTrueStrikeSource");
+
         internal static ConditionDefinition ConditionTurned { get; } =
             GetDefinition<ConditionDefinition>("ConditionTurned");
 
@@ -2485,6 +2530,9 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyDelayedBlastFireball { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyDelayedBlastFireball");
 
+        internal static EffectProxyDefinition ProxyEarthquake { get; } =
+            GetDefinition<EffectProxyDefinition>("ProxyEarthquake");
+
         internal static EffectProxyDefinition ProxyEntangle { get; } =
             GetDefinition<EffectProxyDefinition>("ProxyEntangle");
 
@@ -2629,11 +2677,59 @@ internal static partial class DatabaseHelper
         internal static FactionDefinition DLC1_Faction_ThePeople { get; } =
             GetDefinition<FactionDefinition>("DLC1_Faction_ThePeople");
 
+        internal static FactionDefinition DLC3_Faction_Captain_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Captain_Hidden");
+
+        internal static FactionDefinition DLC3_Faction_ElvenClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan");
+
+        internal static FactionDefinition DLC3_Faction_ElvenClan_Dragons { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_Dragons");
+
+        internal static FactionDefinition DLC3_Faction_ElvenClan_Impostors { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_Impostors");
+
+        internal static FactionDefinition DLC3_Faction_ElvenClan_RebelCivilians { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_ElvenClan_RebelCivilians");
+
+        internal static FactionDefinition DLC3_Faction_Fake_Ally_Trapper { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Fake_Ally_Trapper");
+
+        internal static FactionDefinition DLC3_Faction_Gallivan_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Gallivan_Hidden");
+
+        internal static FactionDefinition DLC3_Faction_General_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_General_Hidden");
+
+        internal static FactionDefinition DLC3_Faction_GiantCitizen_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_GiantCitizen_Hidden");
+
+        internal static FactionDefinition DLC3_Faction_HumanClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_HumanClan");
+
+        internal static FactionDefinition DLC3_Faction_NorthernClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_NorthernClan");
+
+        internal static FactionDefinition DLC3_Faction_Principality { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Principality");
+
+        internal static FactionDefinition DLC3_Faction_Prisoner_Hidden { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_Prisoner_Hidden");
+
+        internal static FactionDefinition DLC3_Faction_SouthernClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_SouthernClan");
+
+        internal static FactionDefinition DLC3_Faction_UndermountainClan { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan");
+
+        internal static FactionDefinition DLC3_Faction_UndermountainClan_Ettiven { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan_Ettiven");
+
+        internal static FactionDefinition DLC3_Faction_UndermountainClan_Perlevinn { get; } =
+            GetDefinition<FactionDefinition>("DLC3_Faction_UndermountainClan_Perlevinn");
+
         internal static FactionDefinition Evocation_Suncloud_Clan { get; } =
             GetDefinition<FactionDefinition>("Evocation_Suncloud_Clan");
-
-        internal static FactionDefinition Faction_Principality { get; } =
-            GetDefinition<FactionDefinition>("Faction_Principality");
 
         internal static FactionDefinition HostileMonsters { get; } =
             GetDefinition<FactionDefinition>("HostileMonsters");
@@ -3069,6 +3165,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPoisoned { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityPoisoned");
 
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityPraetorChainshirt { get; } =
+            GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityPraetorChainshirt");
+
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityRangerHideInPlainSight { get; } =
             GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityRangerHideInPlainSight");
 
@@ -3384,6 +3483,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamage_DLC1_Mask_Spy_SneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_DLC1_Mask_Spy_SneakAttack");
+
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamage_Dlc3_Shadowcaster_SneakAttack { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_Dlc3_Shadowcaster_SneakAttack");
+
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamage_DLC3_SneakAttack_Misouk { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_DLC3_SneakAttack_Misouk");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamage_GoblinCutthroat_Finisher { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamage_GoblinCutthroat_Finisher");
@@ -3781,6 +3886,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttackModifier AttackModifierDemonGreaseNightHunt { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierDemonGreaseNightHunt");
 
+        internal static FeatureDefinitionAttackModifier AttackModifierDemonGreaseNightHuntPlus2 { get; } =
+            GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierDemonGreaseNightHunt+2");
+
         internal static FeatureDefinitionAttackModifier AttackModifierFeatAmbidextrous { get; } =
             GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFeatAmbidextrous");
 
@@ -3898,6 +4006,13 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionAttributeModifier AttributeModifier_BootsOfFirstStrike_Initiative { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifier_BootsOfFirstStrike_Initiative");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifier_DLC3_DwarvenWeapon_Skullcleaver_Initiative
+        {
+            get;
+        } =
+            GetDefinition<FeatureDefinitionAttributeModifier>(
+                "AttributeModifier_DLC3_DwarvenWeapon_Skullcleaver_Initiative");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifier_JackOfAllTrades { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifier_JackOfAllTrades");
@@ -4037,6 +4152,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCogOfCohh { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCogOfCohh");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierCONArmorOfTheBlackMarsh { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCONArmorOfTheBlackMarsh");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierConditionCloakAndDagger { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierConditionCloakAndDagger");
 
@@ -4058,6 +4176,11 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Solasta { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Solasta");
 
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>(
+                "AttributeModifierCriticalThresholdDLC3_Dwarven_Weapon_Dagger+3");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierCursedByMummyRot { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCursedByMummyRot");
 
@@ -4069,6 +4192,34 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierDiscretionOfTheCoedymwarth { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDiscretionOfTheCoedymwarth");
+
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierDLC3_Dwarven_Weapon_BattleaxePlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Battleaxe+3");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_DaggerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Dagger+3");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_GreataxePlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Greataxe+3");
+
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierDLC3_Dwarven_Weapon_LongswordPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Longsword+3");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierDLC3_Dwarven_Weapon_QuarterstaffPlus3
+        {
+            get;
+        } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Quarterstaff+3");
+
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierDLC3_Dwarven_Weapon_ShortswordPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Shortsword+3");
+
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierDLC3_Dwarven_Weapon_WarhammerPlus3 { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDLC3_Dwarven_Weapon_Warhammer+3");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierDomainBattleExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDomainBattleExtraAttack");
@@ -4178,6 +4329,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierFightingStyleDefense { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFightingStyleDefense");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierGarmentsOfTheWiseCHA { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGarmentsOfTheWiseCHA");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierGarmentsOfTheWiseWIS { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGarmentsOfTheWiseWIS");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierGiantCloud { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGiantCloud");
 
@@ -4204,6 +4361,16 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierGiantStrengthHillPermanent { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGiantStrengthHillPermanent");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierGnomeAbilityScoreIncreaseInt { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGnomeAbilityScoreIncreaseInt");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierGnomeRockAbilityScoreIncreaseCon { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGnomeRockAbilityScoreIncreaseCon");
+
+        internal static FeatureDefinitionAttributeModifier
+            AttributeModifierGnomeShadowAbilityScoreIncreaseDex { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierGnomeShadowAbilityScoreIncreaseDex");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierHalfElfAbilityScoreIncreaseCha { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierHalfElfAbilityScoreIncreaseCha");
@@ -4241,6 +4408,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierInvocationVoiceChainMaster { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierInvocationVoiceChainMaster");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierJakarBuckler { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierJakarBuckler");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierKindredSpiritBear { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierKindredSpiritBear");
@@ -4345,6 +4515,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsMultiplier { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsMultiplier");
 
+        internal static FeatureDefinitionAttributeModifier AttributeModifierStaffOfMetis { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierStaffOfMetis");
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierStoneRockSolid { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierStoneRockSolid");
 
@@ -4359,6 +4532,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierThirstingBladeExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierThirstingBladeExtraAttack");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseCha { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseCha");
+
+        internal static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseInt { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseInt");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierTomeOfAllThings_CHA { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTomeOfAllThings_CHA");
@@ -4485,6 +4664,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionBonusCantrips BonusCantripsDomainSun { get; } =
             GetDefinition<FeatureDefinitionBonusCantrips>("BonusCantripsDomainSun");
+
+        internal static FeatureDefinitionBonusCantrips BonusCantripsTiefling { get; } =
+            GetDefinition<FeatureDefinitionBonusCantrips>("BonusCantripsTiefling");
     }
 
     internal static class FeatureDefinitionCampAffinitys
@@ -4522,8 +4704,38 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpell_DLC1_Mask_Cleric { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_Mask_Cleric");
 
-        internal static FeatureDefinitionCastSpell CastSpell_Kratshar { get; } =
-            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Kratshar");
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Cultist_Marksman { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Cultist_Marksman");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Gallivan_Druid { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Gallivan_Druid");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Gallivan_RogueShadowCaster { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Gallivan_RogueShadowCaster");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Kratshar { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Kratshar");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Marduk { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Marduk");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Misouk { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Misouk");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_MountainDruid { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_MountainDruid");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Raider_Arcanist { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Raider_Arcanist");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Raider_Shaman { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Raider_Shaman");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Raider_Sorcerer { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Raider_Sorcerer");
+
+        internal static FeatureDefinitionCastSpell CastSpell_DLC3_Vigdis { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC3_Vigdis");
 
         internal static FeatureDefinitionCastSpell CastSpell_Swamp_Hag { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Swamp_Hag");
@@ -4534,14 +4746,23 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpellAdria { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellAdria");
 
+        internal static FeatureDefinitionCastSpell CastSpellArchmage_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellArchmage_DLC3");
+
         internal static FeatureDefinitionCastSpell CastSpellArrok { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellArrok");
+
+        internal static FeatureDefinitionCastSpell CastSpellBanditCaptain_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellBanditCaptain_DLC3");
 
         internal static FeatureDefinitionCastSpell CastSpellBard { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellBard");
 
         internal static FeatureDefinitionCastSpell CastSpellBerylStonebeard { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellBerylStonebeard");
+
+        internal static FeatureDefinitionCastSpell CastSpellBerylStonebeard_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellBerylStonebeard_DLC3");
 
         internal static FeatureDefinitionCastSpell CastSpellCleric { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellCleric");
@@ -4594,6 +4815,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpellGlabrezu { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellGlabrezu");
 
+        internal static FeatureDefinitionCastSpell CastSpellGnomeShadow { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellGnomeShadow");
+
         internal static FeatureDefinitionCastSpell CastSpellGoblinShaman { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellGoblinShaman");
 
@@ -4605,6 +4829,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCastSpell CastSpellHyeronimus { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellHyeronimus");
+
+        internal static FeatureDefinitionCastSpell CastSpellKara { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellKara");
 
         internal static FeatureDefinitionCastSpell CastSpellKebra { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellKebra");
@@ -4671,6 +4898,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCastSpell CastSpellSorr_Akkath_Priest_of_Sorr_Tarr { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorr-Akkath_Priest_of_Sorr-Tarr");
+
+        internal static FeatureDefinitionCastSpell CastSpellTiefling { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpellTiefling");
 
         internal static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight");
@@ -4831,6 +5061,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityInvisibleStalker { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityInvisibleStalker");
 
+        internal static FeatureDefinitionCombatAffinity CombatAffinityLeadership { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityLeadership");
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityMartialMountaineerPackStriker { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityMartialMountaineerPackStriker");
 
@@ -4863,6 +5096,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
+
+        internal static FeatureDefinitionCombatAffinity CombatAffinityRangedWeaponCover { get; } =
+            GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityRangedWeaponCover");
 
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
@@ -4943,11 +5179,17 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionConditionAffinitys
     {
+        internal static FeatureDefinitionConditionAffinity ConditionAffinity_LairEffect_PalaceOfIceImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinity_LairEffect_PalaceOfIceImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityAlreadyHitByDirtyFighting { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityAlreadyHitByDirtyFighting");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityBanishedByMazeImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBanishedByMazeImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityBanishedImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBanishedImmunity");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityBlindnessImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityBlindnessImmunity");
@@ -5014,6 +5256,12 @@ internal static partial class DatabaseHelper
             GetDefinition<FeatureDefinitionConditionAffinity>(
                 "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedDemonicInfluence
+        {
+            get;
+        } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharmedDemonicInfluence");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestrySleep { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestrySleep");
 
@@ -5050,6 +5298,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityFrozenImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrozenImmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityGhastStenchImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGhastStenchImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityGrappledImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGrappledImmunity");
 
@@ -5067,6 +5318,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityKnightBrave { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityKnightBrave");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityLightSensitivityImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityLightSensitivityImmunity");
@@ -5127,11 +5381,26 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
 
+        internal static FeatureDefinitionConditionAffinity ConditionAffinitySlowedImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinitySlowedImmunity");
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityUnconsciousImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityUnconsciousImmunity");
 
         internal static FeatureDefinitionConditionAffinity ConditionAffinityVeilImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityVeilImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherChilledInsteadOfFrozenImmunity
+        {
+            get;
+        } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherChilledInsteadOfFrozenImmunity");
+
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityWeatherFrozenImmunity { get; } =
+            GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityWeatherFrozenImmunity");
     }
 
     internal static class FeatureDefinitionCraftingAffinitys
@@ -5141,6 +5410,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionCraftingAffinity CraftingAffinityFeatMasterEnchanter { get; } =
             GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityFeatMasterEnchanter");
+
+        internal static FeatureDefinitionCraftingAffinity CraftingAffinityGnomeRockTinker { get; } =
+            GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityGnomeRockTinker");
 
         internal static FeatureDefinitionCraftingAffinity CraftingAffinityLoremasterKeenMindCrafting { get; } =
             GetDefinition<FeatureDefinitionCraftingAffinity>("CraftingAffinityLoremasterKeenMindCrafting");
@@ -5520,6 +5792,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingResistanceExceptSilver { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistanceExceptSilver");
 
+        internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingResistanceTrue { get; } =
+            GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistanceTrue");
+
         internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingVulnerability { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingVulnerability");
 
@@ -5603,6 +5878,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionDieRollModifier DieRollModifierPlayerInitiativeFirstHyeronimus { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierPlayerInitiativeFirstHyeronimus");
+
+        internal static FeatureDefinitionDieRollModifier DieRollModifierPOIMiners_InitiativeFirst { get; } =
+            GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierPOIMiners_InitiativeFirst");
 
         internal static FeatureDefinitionDieRollModifier DieRollModifierRogueReliableTalent { get; } =
             GetDefinition<FeatureDefinitionDieRollModifier>("DieRollModifierRogueReliableTalent");
@@ -5725,6 +6003,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetBardRitualCasting { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBardRitualCasting");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetBootsOfTheSteadyFighter { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetBootsOfTheSteadyFighter");
+
         internal static FeatureDefinitionFeatureSet FeatureSetChampionRemarkableAthlete { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetChampionRemarkableAthlete");
 
@@ -5772,6 +6053,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionFeatureSet FeatureSetElfSylvanLanguages { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfSylvanLanguages");
+
+        internal static FeatureDefinitionFeatureSet FeatureSetGnomeRockTinker { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGnomeRockTinker");
 
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
@@ -5932,6 +6216,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetSpellCrusher { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSpellCrusher");
 
+        internal static FeatureDefinitionFeatureSet FeatureSetTieflingHellishResistance { get; } =
+            GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTieflingHellishResistance");
+
         internal static FeatureDefinitionFeatureSet FeatureSetTraditionCourtMageAlwaysPrepared { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionCourtMageAlwaysPrepared");
 
@@ -6088,6 +6375,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMagicAffinity MagicAffinityBattleMagic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityBattleMagic");
 
+        internal static FeatureDefinitionMagicAffinity MagicAffinityCantConcentrate { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCantConcentrate");
+
         internal static FeatureDefinitionMagicAffinity MagicAffinityCantUseMagic { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityCantUseMagic");
 
@@ -6223,6 +6513,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMagicAffinity MagicAffinityWandOfWarMagePlus2 { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWandOfWarMage+2");
 
+        internal static FeatureDefinitionMagicAffinity MagicAffinityWandOfWarMagePlus3 { get; } =
+            GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWandOfWarMage+3");
+
         internal static FeatureDefinitionMagicAffinity MagicAffinityWizardRitualCasting { get; } =
             GetDefinition<FeatureDefinitionMagicAffinity>("MagicAffinityWizardRitualCasting");
     }
@@ -6264,6 +6557,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionDashingBonus { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionDashingBonus");
+
+        internal static FeatureDefinitionMovementAffinity MovementAffinityConditionDashingBonusAdditional { get; } =
+            GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionDashingBonusAdditional");
 
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionDashingExpeditious { get; } =
             GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionDashingExpeditious");
@@ -6402,6 +6698,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionMoveMode MoveModeFly12 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly12");
+
+        internal static FeatureDefinitionMoveMode MoveModeFly16 { get; } =
+            GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly16");
 
         internal static FeatureDefinitionMoveMode MoveModeFly18 { get; } =
             GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly18");
@@ -6623,6 +6922,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower Deprecated_PowerTraditionFreedomSwirlingDance { get; } =
+            GetDefinition<FeatureDefinitionPower>("Deprecated_PowerTraditionFreedomSwirlingDance");
+
         internal static FeatureDefinitionPower Power_HornOfBlasting { get; } =
             GetDefinition<FeatureDefinitionPower>("Power_HornOfBlasting");
 
@@ -6914,8 +7216,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonBreath_Acid { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid");
 
-        internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral");
+        internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral_DLC3");
 
         internal static FeatureDefinitionPower PowerDragonBreath_Cold { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Cold");
@@ -6938,14 +7240,14 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonFrightfulPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence");
 
-        internal static FeatureDefinitionPower PowerDragonFrightfulPresence_Spectral { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence_Spectral");
+        internal static FeatureDefinitionPower PowerDragonFrightfulPresence_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence_Spectral_DLC3");
 
         internal static FeatureDefinitionPower PowerDragonWingAttack { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack");
 
-        internal static FeatureDefinitionPower PowerDragonWingAttack_Spectral { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack_Spectral");
+        internal static FeatureDefinitionPower PowerDragonWingAttack_Spectral_DLC3 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack_Spectral_DLC3");
 
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
@@ -7028,9 +7330,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFighterSecondWind { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind");
 
-        internal static FeatureDefinitionPower PowerFighterSecondWind_Ashdown { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_Ashdown");
-
         internal static FeatureDefinitionPower PowerFighterSecondWind_DLC1_5 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC1_5");
 
@@ -7042,6 +7341,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerFighterSecondWind_DLC1_NPC1 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC1_NPC1");
+
+        internal static FeatureDefinitionPower PowerFighterSecondWind_DLC3_Ashdown { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC3_Ashdown");
+
+        internal static FeatureDefinitionPower PowerFighterSecondWind_DLC3_GallivanCaporal { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC3_GallivanCaporal");
 
         internal static FeatureDefinitionPower PowerFighterSecondWind_Dominion_Soldier { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_Dominion_Soldier");
@@ -7337,6 +7642,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerKindredSpiritWolf { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKindredSpiritWolf");
 
+        internal static FeatureDefinitionPower PowerKnightLeadership { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKnightLeadership");
+
+        internal static FeatureDefinitionPower PowerKnightParry { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerKnightParry");
+
         internal static FeatureDefinitionPower PowerKutkartalIncreasedReliance { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerKutkartalIncreasedReliance");
 
@@ -7411,6 +7722,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerMountaineerCloseQuarters { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMountaineerCloseQuarters");
+
+        internal static FeatureDefinitionPower PowerMountaineerCloseQuarters_NPC_Level10 { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerMountaineerCloseQuarters_NPC_Level10");
 
         internal static FeatureDefinitionPower PowerMutantApeSlam { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerMutantApeSlam");
@@ -7586,6 +7900,18 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerRoguishHoodlumMenacing { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumMenacing");
 
+        internal static FeatureDefinitionPower PowerSessrothBreath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothBreath");
+
+        internal static FeatureDefinitionPower PowerSessrothFireball { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothFireball");
+
+        internal static FeatureDefinitionPower PowerSessrothFireballRechargable { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothFireballRechargable");
+
+        internal static FeatureDefinitionPower PowerSessrothTeleport { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSessrothTeleport");
+
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
 
@@ -7606,6 +7932,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionPower PowerSorakDoomLaughter { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakDoomLaughter");
+
+        internal static FeatureDefinitionPower PowerSorakDoomLaughter_DLC3_SorrTarr_Avatar { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerSorakDoomLaughter_DLC3_SorrTarr_Avatar");
 
         internal static FeatureDefinitionPower PowerSorakDreadLaughter { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerSorakDreadLaughter");
@@ -7742,9 +8071,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomFlurryOfBlowsUnendingStrikesImprovement");
 
-        internal static FeatureDefinitionPower PowerTraditionFreedomSwirlingDance { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerTraditionFreedomSwirlingDance");
-
         internal static FeatureDefinitionPower PowerTraditionGreenmageMagicalArrow { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionGreenmageMagicalArrow");
 
@@ -7867,6 +8193,12 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyArmor_Of_The_Oak { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyArmor_Of_The_Oak");
+
+        internal static FeatureDefinitionProficiency ProficiencyArmor_OfTheBlackMarsh { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyArmor_OfTheBlackMarsh");
+
+        internal static FeatureDefinitionProficiency ProficiencyArmor_PraetorChainshirt { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyArmor_PraetorChainshirt");
 
         internal static FeatureDefinitionProficiency ProficiencyArtistSkills { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyArtistSkills");
@@ -8005,6 +8337,18 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyFighterWeapon { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyFighterWeapon");
+
+        internal static FeatureDefinitionProficiency ProficiencyGarbOfThePrudentShield { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGarbOfThePrudentShield");
+
+        internal static FeatureDefinitionProficiency ProficiencyGnomeRockArtificersLore { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeRockArtificersLore");
+
+        internal static FeatureDefinitionProficiency ProficiencyGnomeShadowStealthy { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeShadowStealthy");
+
+        internal static FeatureDefinitionProficiency ProficiencyGnomeStaticLanguages { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyGnomeStaticLanguages");
 
         internal static FeatureDefinitionProficiency ProficiencyGreenmageWardenOfTheForestArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyGreenmageWardenOfTheForestArmor");
@@ -8170,6 +8514,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencySturdinessOfTheTundraArmor { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencySturdinessOfTheTundraArmor");
+
+        internal static FeatureDefinitionProficiency ProficiencyTieflingStaticLanguages { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyTieflingStaticLanguages");
 
         internal static FeatureDefinitionProficiency ProficiencyTraditionCourtMageAlwaysPreparedProtection { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyTraditionCourtMageAlwaysPreparedProtection");
@@ -8384,6 +8731,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionHolyAura { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHolyAura");
 
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionLeadership { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionLeadership");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionParalyzed { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionParalyzed");
 
@@ -8475,6 +8825,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGarbOfTheLightbringer { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGarbOfTheLightbringer");
 
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGarmentsOfTheWise { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGarmentsOfTheWise");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemAbjuration { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemAbjuration");
 
@@ -8498,6 +8851,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemTransmutation { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemTransmutation");
+
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGnomeCunning { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGnomeCunning");
 
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityHeraldOfBattle { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityHeraldOfBattle");
@@ -8755,6 +9111,15 @@ internal static partial class DatabaseHelper
         internal static FormationDefinition Dialog_Level_01_CaerLem_03 { get; } =
             GetDefinition<FormationDefinition>("Dialog_Level_01_CaerLem_03");
 
+        internal static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_Prisoners { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_Prisoners");
+
+        internal static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_SoldierAfterVirage { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_SoldierAfterVirage");
+
+        internal static FormationDefinition DLC3_Gallivanborder_ConvoyFormation_SoldierBeforeVirage { get; } =
+            GetDefinition<FormationDefinition>("DLC3_Gallivanborder_ConvoyFormation_SoldierBeforeVirage");
+
         internal static FormationDefinition MagicMouth { get; } =
             GetDefinition<FormationDefinition>("MagicMouth");
 
@@ -8853,6 +9218,9 @@ internal static partial class DatabaseHelper
 
         internal static GadgetBlueprint Exit { get; } =
             GetDefinition<GadgetBlueprint>("Exit");
+
+        internal static GadgetBlueprint ExitCampaignMap { get; } =
+            GetDefinition<GadgetBlueprint>("ExitCampaignMap");
 
         internal static GadgetBlueprint ExitMultiple { get; } =
             GetDefinition<GadgetBlueprint>("ExitMultiple");
@@ -9070,6 +9438,9 @@ internal static partial class DatabaseHelper
         internal static GadgetBlueprint VirtualExit { get; } =
             GetDefinition<GadgetBlueprint>("VirtualExit");
 
+        internal static GadgetBlueprint VirtualExitCampaignMap { get; } =
+            GetDefinition<GadgetBlueprint>("VirtualExitCampaignMap");
+
         internal static GadgetBlueprint VirtualExitMultiple { get; } =
             GetDefinition<GadgetBlueprint>("VirtualExitMultiple");
 
@@ -9277,6 +9648,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition _1_Gold_Coin { get; } =
             GetDefinition<ItemDefinition>("1_Gold_Coin");
 
+        internal static ItemDefinition _10_Gold_Coins { get; } =
+            GetDefinition<ItemDefinition>("10_Gold_Coins");
+
         internal static ItemDefinition _100_Gold_Coins { get; } =
             GetDefinition<ItemDefinition>("100_Gold_Coins");
 
@@ -9285,6 +9659,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition _100_GP_Pearl { get; } =
             GetDefinition<ItemDefinition>("100_GP_Pearl");
+
+        internal static ItemDefinition _1000_Gold_Coins { get; } =
+            GetDefinition<ItemDefinition>("1000_Gold_Coins");
 
         internal static ItemDefinition _1000_GP_Diamond { get; } =
             GetDefinition<ItemDefinition>("1000_GP_Diamond");
@@ -9324,6 +9701,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition _20D6_Silver_Coins { get; } =
             GetDefinition<ItemDefinition>("20D6_Silver_Coins");
+
+        internal static ItemDefinition _25_Gold_Coins { get; } =
+            GetDefinition<ItemDefinition>("25_Gold_Coins");
 
         internal static ItemDefinition _250_Gold_Coins { get; } =
             GetDefinition<ItemDefinition>("250_Gold_Coins");
@@ -9430,17 +9810,20 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ABJURATION_ValeOfRemembrance { get; } =
             GetDefinition<ItemDefinition>("ABJURATION_ValeOfRemembrance");
 
+        internal static ItemDefinition AbyssalAgitatorTool { get; } =
+            GetDefinition<ItemDefinition>("AbyssalAgitatorTool");
+
+        internal static ItemDefinition AdamantineHalfPlate { get; } =
+            GetDefinition<ItemDefinition>("AdamantineHalfPlate");
+
         internal static ItemDefinition AdamantinePlateArmor { get; } =
             GetDefinition<ItemDefinition>("AdamantinePlateArmor");
 
-        internal static ItemDefinition AlchemistFire { get; } =
-            GetDefinition<ItemDefinition>("AlchemistFire");
+        internal static ItemDefinition AlchemistFire_DOTNOTUSE { get; } =
+            GetDefinition<ItemDefinition>("AlchemistFire_DOTNOTUSE");
 
         internal static ItemDefinition AmuletOfHealth { get; } =
             GetDefinition<ItemDefinition>("AmuletOfHealth");
-
-        internal static ItemDefinition AmuletOfNonDetection { get; } =
-            GetDefinition<ItemDefinition>("AmuletOfNonDetection");
 
         internal static ItemDefinition AmuletOfPureSouls { get; } =
             GetDefinition<ItemDefinition>("AmuletOfPureSouls");
@@ -9519,6 +9902,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ArrowPlus2 { get; } =
             GetDefinition<ItemDefinition>("Arrow+2");
+
+        internal static ItemDefinition ArrowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Arrow+3");
 
         internal static ItemDefinition Art_Item_25_GP_BronzeStatuette { get; } =
             GetDefinition<ItemDefinition>("Art_Item_25_GP_BronzeStatuette");
@@ -9658,6 +10044,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition BattleaxePlus1 { get; } =
             GetDefinition<ItemDefinition>("Battleaxe+1");
 
+        internal static ItemDefinition BattleaxePlus2 { get; } =
+            GetDefinition<ItemDefinition>("Battleaxe+2");
+
+        internal static ItemDefinition BattleaxePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Battleaxe+3");
+
         internal static ItemDefinition BeltOfDwarvenKind { get; } =
             GetDefinition<ItemDefinition>("BeltOfDwarvenKind");
 
@@ -9730,6 +10122,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition BoltPlus1 { get; } =
             GetDefinition<ItemDefinition>("Bolt+1");
 
+        internal static ItemDefinition BoltPlus2 { get; } =
+            GetDefinition<ItemDefinition>("Bolt+2");
+
+        internal static ItemDefinition BoltPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Bolt+3");
+
         internal static ItemDefinition BONEKEEP_AdventurerJournal01 { get; } =
             GetDefinition<ItemDefinition>("BONEKEEP_AdventurerJournal01");
 
@@ -9778,6 +10176,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition BootsOfStridingAndSpringing { get; } =
             GetDefinition<ItemDefinition>("BootsOfStridingAndSpringing");
 
+        internal static ItemDefinition BootsOfTheSteadyFighter { get; } =
+            GetDefinition<ItemDefinition>("BootsOfTheSteadyFighter");
+
         internal static ItemDefinition BootsOfTheWinterland { get; } =
             GetDefinition<ItemDefinition>("BootsOfTheWinterland");
 
@@ -9804,6 +10205,15 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition BreastplatePlus1 { get; } =
             GetDefinition<ItemDefinition>("Breastplate+1");
+
+        internal static ItemDefinition BreastplatePlus2 { get; } =
+            GetDefinition<ItemDefinition>("Breastplate+2");
+
+        internal static ItemDefinition BreastplatePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Breastplate+3");
+
+        internal static ItemDefinition BreastplateOfSandraven { get; } =
+            GetDefinition<ItemDefinition>("BreastplateOfSandraven");
 
         internal static ItemDefinition Brightwall { get; } =
             GetDefinition<ItemDefinition>("Brightwall");
@@ -9835,17 +10245,32 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Candle { get; } =
             GetDefinition<ItemDefinition>("Candle");
 
-        internal static ItemDefinition CaveIllnessDrug { get; } =
-            GetDefinition<ItemDefinition>("CaveIllnessDrug");
-
         internal static ItemDefinition ChainMail { get; } =
             GetDefinition<ItemDefinition>("ChainMail");
 
         internal static ItemDefinition ChainmailPlus1 { get; } =
             GetDefinition<ItemDefinition>("Chainmail+1");
 
+        internal static ItemDefinition ChainmailPlus2 { get; } =
+            GetDefinition<ItemDefinition>("Chainmail+2");
+
+        internal static ItemDefinition ChainmailPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Chainmail+3");
+
+        internal static ItemDefinition ChainmailOfLifeRegnant { get; } =
+            GetDefinition<ItemDefinition>("ChainmailOfLifeRegnant");
+
         internal static ItemDefinition ChainShirt { get; } =
             GetDefinition<ItemDefinition>("ChainShirt");
+
+        internal static ItemDefinition ChainShirtPlus1 { get; } =
+            GetDefinition<ItemDefinition>("ChainShirt+1");
+
+        internal static ItemDefinition ChainShirtPlus2 { get; } =
+            GetDefinition<ItemDefinition>("ChainShirt+2");
+
+        internal static ItemDefinition ChainShirtPlus3 { get; } =
+            GetDefinition<ItemDefinition>("ChainShirt+3");
 
         internal static ItemDefinition ChargedBlueSapphire { get; } =
             GetDefinition<ItemDefinition>("ChargedBlueSapphire");
@@ -9871,8 +10296,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CloakOfArachnida { get; } =
             GetDefinition<ItemDefinition>("CloakOfArachnida");
 
-        internal static ItemDefinition CloakOfBat { get; } =
-            GetDefinition<ItemDefinition>("CloakOfBat");
+        internal static ItemDefinition CloakOfBat_DONOTUSE { get; } =
+            GetDefinition<ItemDefinition>("CloakOfBat_DONOTUSE");
 
         internal static ItemDefinition CloakOfDisplacement { get; } =
             GetDefinition<ItemDefinition>("CloakOfDisplacement");
@@ -9895,6 +10320,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ClothesCommon { get; } =
             GetDefinition<ItemDefinition>("ClothesCommon");
 
+        internal static ItemDefinition ClothesCommon_POI { get; } =
+            GetDefinition<ItemDefinition>("ClothesCommon_POI");
+
         internal static ItemDefinition ClothesCommon_Tattoo { get; } =
             GetDefinition<ItemDefinition>("ClothesCommon_Tattoo");
 
@@ -9906,6 +10334,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ClothesNoble { get; } =
             GetDefinition<ItemDefinition>("ClothesNoble");
+
+        internal static ItemDefinition ClothesNoble_POI { get; } =
+            GetDefinition<ItemDefinition>("ClothesNoble_POI");
 
         internal static ItemDefinition ClothesNoble_Valley { get; } =
             GetDefinition<ItemDefinition>("ClothesNoble_Valley");
@@ -9948,6 +10379,27 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ClothesTabardCouncil { get; } =
             GetDefinition<ItemDefinition>("ClothesTabardCouncil");
+
+        internal static ItemDefinition ClothesTabardDLC3_Elven { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Elven");
+
+        internal static ItemDefinition ClothesTabardDLC3_Human { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Human");
+
+        internal static ItemDefinition ClothesTabardDLC3_Northern { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Northern");
+
+        internal static ItemDefinition ClothesTabardDLC3_Southern { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Southern");
+
+        internal static ItemDefinition ClothesTabardDLC3_Telema { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Telema");
+
+        internal static ItemDefinition ClothesTabardDLC3_Undermountain { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_Undermountain");
+
+        internal static ItemDefinition ClothesTabardDLC3_WhiteCity { get; } =
+            GetDefinition<ItemDefinition>("ClothesTabardDLC3_WhiteCity");
 
         internal static ItemDefinition ClothesWizard { get; } =
             GetDefinition<ItemDefinition>("ClothesWizard");
@@ -10006,11 +10458,32 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Alchemy_Flash_Bolts { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flash_Bolts");
 
+        internal static ItemDefinition CraftingManual_Arrows { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Arrows");
+
         internal static ItemDefinition CraftingManual_BasicPoison_Arrows { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_BasicPoison_Arrows");
 
         internal static ItemDefinition CraftingManual_BasicPoison_Bolts { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_BasicPoison_Bolts");
+
+        internal static ItemDefinition CraftingManual_Bolts { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Bolts");
+
+        internal static ItemDefinition CraftingManual_DemonicGrease_Dawnbreak { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DemonicGrease_Dawnbreak");
+
+        internal static ItemDefinition CraftingManual_DemonicGrease_NightHunt { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DemonicGrease_NightHunt");
+
+        internal static ItemDefinition CraftingManual_DemonicGrease_PseudoLife { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DemonicGrease_PseudoLife");
+
+        internal static ItemDefinition CraftingManual_DemonicGrease_SpellTaint { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DemonicGrease_SpellTaint");
+
+        internal static ItemDefinition CraftingManual_DemonicGrease_TrueStrike { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DemonicGrease_TrueStrike");
 
         internal static ItemDefinition CraftingManual_DLC1_Enchant_AmuletOfPureSouls { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_AmuletOfPureSouls");
@@ -10063,6 +10536,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_DLC1_Enchant_HideArmorOfWilderness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_HideArmorOfWilderness");
 
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_MaulOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_MaulOfPerfection");
+
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_MaulOfShattering { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_MaulOfShattering");
+
         internal static ItemDefinition CraftingManual_DLC1_Enchant_MaulOfSmashing { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_MaulOfSmashing");
 
@@ -10090,6 +10569,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_DLC1_Enchant_SpearOfAcuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_SpearOfAcuteness");
 
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_SpearOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_SpearOfPerfection");
+
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_SpearOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_SpearOfSharpness");
+
         internal static ItemDefinition CraftingManual_DLC1_Enchant_StuddedOfLeadership { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_StuddedOfLeadership");
 
@@ -10111,11 +10596,20 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_DLC1_Enchant_WarhammerOfAcuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_WarhammerOfAcuteness");
 
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_WarhammerOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_WarhammerOfPerfection");
+
+        internal static ItemDefinition CraftingManual_DLC1_Enchant_WarhammerOfShattering { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_WarhammerOfShattering");
+
         internal static ItemDefinition CraftingManual_DLC1_Enchant_WarhammerStormbinder { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC1_Enchant_WarhammerStormbinder");
 
         internal static ItemDefinition CraftingManual_DLC2_5_Enchant_GauntletOfAcuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_GauntletOfAcuteness");
+
+        internal static ItemDefinition CraftingManual_DLC2_5_Enchant_GauntletOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_GauntletOfPerfection");
 
         internal static ItemDefinition CraftingManual_DLC2_5_Enchant_GauntletOfSharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_GauntletOfSharpness");
@@ -10129,11 +10623,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_DLC2_5_Enchant_WandOfWarMagePlus2 { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_WandOfWarMage+2");
 
+        internal static ItemDefinition CraftingManual_DLC2_5_Enchant_WandOfWarMagePlus3 { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Enchant_WandOfWarMage+3");
+
         internal static ItemDefinition CraftingManual_DLC2_5_Item_RestorativeOintment { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_DLC2.5_Item_RestorativeOintment");
 
         internal static ItemDefinition CraftingManual_Enchant_BattleAxe_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_BattleAxe_of_Acuteness");
+
+        internal static ItemDefinition CraftingManual_Enchant_BattleAxe_of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_BattleAxe_of_Perfection");
 
         internal static ItemDefinition CraftingManual_Enchant_BattleAxe_of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_BattleAxe_of_Sharpness");
@@ -10144,14 +10644,32 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Breastplate_Of_Deflection { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Breastplate_Of_Deflection");
 
+        internal static ItemDefinition CraftingManual_Enchant_Breastplate_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Breastplate_Of_Fortitude");
+
+        internal static ItemDefinition CraftingManual_Enchant_Breastplate_Of_Robustness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Breastplate_Of_Robustness");
+
         internal static ItemDefinition CraftingManual_Enchant_Breastplate_Of_Sturdiness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Breastplate_Of_Sturdiness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Chainmail_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Chainmail_Of_Fortitude");
 
         internal static ItemDefinition CraftingManual_Enchant_Chainmail_Of_Robustness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Chainmail_Of_Robustness");
 
         internal static ItemDefinition CraftingManual_Enchant_Chainmail_Of_Sturdiness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Chainmail_Of_Sturdiness");
+
+        internal static ItemDefinition CraftingManual_Enchant_ChainShirt_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_ChainShirt_Of_Fortitude");
+
+        internal static ItemDefinition CraftingManual_Enchant_ChainShirt_Of_Robustness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_ChainShirt_Of_Robustness");
+
+        internal static ItemDefinition CraftingManual_Enchant_ChainShirt_Of_Sturdiness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_ChainShirt_Of_Sturdiness");
 
         internal static ItemDefinition CraftingManual_Enchant_Dagger_EldritchWounds { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Dagger_EldritchWounds");
@@ -10162,6 +10680,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Dagger_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Dagger_Of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Dagger_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Dagger_Of_Perfection");
+
         internal static ItemDefinition CraftingManual_Enchant_Dagger_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Dagger_Of_Sharpness");
 
@@ -10170,6 +10691,12 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition CraftingManual_Enchant_EmpressGarb { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_EmpressGarb");
+
+        internal static ItemDefinition CraftingManual_Enchant_Greataxe_Of_Acuteness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greataxe_Of_Acuteness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Greataxe_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greataxe_Of_Perfection");
 
         internal static ItemDefinition CraftingManual_Enchant_Greataxe_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greataxe_Of_Sharpness");
@@ -10186,14 +10713,56 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Greatsword_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greatsword_Of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Greatsword_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greatsword_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Greatsword_Of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Greatsword_Of_Sharpness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Halfplate_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Halfplate_Of_Fortitude");
+
         internal static ItemDefinition CraftingManual_Enchant_Halfplate_Of_Robustness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Halfplate_Of_Robustness");
 
         internal static ItemDefinition CraftingManual_Enchant_Halfplate_Of_Sturdiness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Halfplate_Of_Sturdiness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Handaxe_Of_Acuteness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Handaxe_Of_Acuteness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Handaxe_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Handaxe_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Handaxe_Of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Handaxe_Of_Sharpness");
+
+        internal static ItemDefinition CraftingManual_Enchant_HeavyCrossbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_HeavyCrossbowOfPerfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_HeavyCrossbowOfSharpshooting { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_HeavyCrossbowOfSharpshooting");
+
+        internal static ItemDefinition CraftingManual_Enchant_HideArmorOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_HideArmorOfFortitude");
+
+        internal static ItemDefinition CraftingManual_Enchant_HideArmorOfRobustness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_HideArmorOfRobustness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Javelin_Of_Acuteness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Javelin_Of_Acuteness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Javelin_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Javelin_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Javelin_Of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Javelin_Of_Sharpness");
+
         internal static ItemDefinition CraftingManual_Enchant_Leather_Armor_Of_FlameDancing { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Leather_Armor_Of_FlameDancing");
+
+        internal static ItemDefinition CraftingManual_Enchant_Leather_Armor_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Leather_Armor_Of_Fortitude");
 
         internal static ItemDefinition CraftingManual_Enchant_Leather_Armor_Of_Robustness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Leather_Armor_Of_Robustness");
@@ -10204,11 +10773,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Leather_Armor_Of_Survival { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Leather_Armor_Of_Survival");
 
+        internal static ItemDefinition CraftingManual_Enchant_LightCrossbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_LightCrossbowOfPerfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_LightCrossbowOfSharpshooting { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_LightCrossbowOfSharpshooting");
+
         internal static ItemDefinition CraftingManual_Enchant_Longbow_Lightbringer { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longbow_Lightbringer");
 
         internal static ItemDefinition CraftingManual_Enchant_Longbow_Of_Accuracy { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longbow_Of_Accuracy");
+
+        internal static ItemDefinition CraftingManual_Enchant_Longbow_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longbow_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Longbow_Of_Sharpshooting { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longbow_Of_Sharpshooting");
 
         internal static ItemDefinition CraftingManual_Enchant_Longbow_Stormbow { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longbow_Stormbow");
@@ -10222,6 +10803,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Longsword_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Longsword_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Longsword_of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_of_Sharpness");
+
         internal static ItemDefinition CraftingManual_Enchant_Longsword_Stormblade { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_Stormblade");
 
@@ -10231,20 +10818,47 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Mace_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Mace_Of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Mace_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Mace_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Mace_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Mace_Of_Shattering");
+
         internal static ItemDefinition CraftingManual_Enchant_Mace_Of_Smashing { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Mace_Of_Smashing");
 
         internal static ItemDefinition CraftingManual_Enchant_Morningstar_Bearclaw { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Morningstar_Bearclaw");
 
+        internal static ItemDefinition CraftingManual_Enchant_Morningstar_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Morningstar_Of_Perfection");
+
         internal static ItemDefinition CraftingManual_Enchant_Morningstar_Of_Power { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Morningstar_Of_Power");
+
+        internal static ItemDefinition CraftingManual_Enchant_Morningstar_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Morningstar_Of_Shattering");
+
+        internal static ItemDefinition CraftingManual_Enchant_Morningstar_Of_Smashing { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Morningstar_Of_Smashing");
+
+        internal static ItemDefinition CraftingManual_Enchant_Plate_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Plate_Of_Fortitude");
 
         internal static ItemDefinition CraftingManual_Enchant_Plate_Of_Robustness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Plate_Of_Robustness");
 
         internal static ItemDefinition CraftingManual_Enchant_Plate_Of_Sturdiness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Plate_Of_Sturdiness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Quarterstaff_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Quarterstaff_Of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Quarterstaff_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Quarterstaff_Of_Shattering");
+
+        internal static ItemDefinition CraftingManual_Enchant_Quarterstaff_Of_Smashing { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Quarterstaff_Of_Smashing");
 
         internal static ItemDefinition CraftingManual_Enchant_Rapier_BlackAdder { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Rapier_BlackAdder");
@@ -10255,8 +10869,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Rapier_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Rapier_of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Rapier_of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Rapier_of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Rapier_of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Rapier_of_Sharpness");
+
         internal static ItemDefinition CraftingManual_Enchant_RapierOfHarmony { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_RapierOfHarmony");
+
+        internal static ItemDefinition CraftingManual_Enchant_Scale_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Scale_Of_Fortitude");
 
         internal static ItemDefinition CraftingManual_Enchant_Scale_Of_IceDancing { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Scale_Of_IceDancing");
@@ -10270,11 +10893,26 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Scimitar_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Scimitar_of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Scimitar_of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Scimitar_of_Perfection");
+
+        internal static ItemDefinition CraftingManual_Enchant_Shield_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shield_Of_Fortitude");
+
+        internal static ItemDefinition CraftingManual_Enchant_Shield_Of_Robustness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shield_Of_Robustness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Shield_Of_Sturdiness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shield_Of_Sturdiness");
+
         internal static ItemDefinition CraftingManual_Enchant_Shortbow_Medusa { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortbow_Medusa");
 
         internal static ItemDefinition CraftingManual_Enchant_Shortbow_Of_Accuracy { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortbow_Of_Accuracy");
+
+        internal static ItemDefinition CraftingManual_Enchant_Shortbow_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortbow_Of_Perfection");
 
         internal static ItemDefinition CraftingManual_Enchant_Shortbow_Of_Sharpshooting { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortbow_Of_Sharpshooting");
@@ -10285,11 +10923,26 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Enchant_Shortsword_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Of_Acuteness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Shortsword_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Of_Perfection");
+
         internal static ItemDefinition CraftingManual_Enchant_Shortsword_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Of_Sharpness");
 
+        internal static ItemDefinition CraftingManual_Enchant_Shortsword_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Sovereign");
+
         internal static ItemDefinition CraftingManual_Enchant_Shortsword_Whiteburn { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Enchant_Shortsword_Whiteburn");
+
+        internal static ItemDefinition CraftingManual_Enchant_Studded_Leather_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Studded_Leather_Of_Fortitude");
+
+        internal static ItemDefinition CraftingManual_Enchant_Studded_Leather_Of_Robustness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Studded_Leather_Of_Robustness");
+
+        internal static ItemDefinition CraftingManual_Enchant_Studded_Leather_Of_Sturdiness { get; } =
+            GetDefinition<ItemDefinition>("CraftingManual_Enchant_Studded_Leather_Of_Sturdiness");
 
         internal static ItemDefinition CraftingManual_Poison_ArivadsKiss { get; } =
             GetDefinition<ItemDefinition>("CraftingManual_Poison_ArivadsKiss");
@@ -10411,6 +11064,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfAcidArrow { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfAcidArrow");
 
+        internal static ItemDefinition CraftingManualScrollOfAnimalShapes { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfAnimalShapes");
+
+        internal static ItemDefinition CraftingManualScrollOfArcaneSword { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfArcaneSword");
+
         internal static ItemDefinition CraftingManualScrollOfBane { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfBane");
 
@@ -10422,6 +11081,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition CraftingManualScrollOfBlackTentacles { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfBlackTentacles");
+
+        internal static ItemDefinition CraftingManualScrollOfBladeBarrier { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfBladeBarrier");
 
         internal static ItemDefinition CraftingManualScrollOfBless { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfBless");
@@ -10438,8 +11100,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfBurningHands { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfBurningHands");
 
+        internal static ItemDefinition CraftingManualScrollOfChainLightning { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfChainLightning");
+
         internal static ItemDefinition CraftingManualScrollOfCharmPerson { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfCharmPerson");
+
+        internal static ItemDefinition CraftingManualScrollOfCircleOfDeath { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfCircleOfDeath");
+
+        internal static ItemDefinition CraftingManualScrollOfCloudKill { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfCloudKill");
 
         internal static ItemDefinition CraftingManualScrollOfColorSpray { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfColorSpray");
@@ -10450,14 +11121,29 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfComprehendLanguages { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfComprehendLanguages");
 
+        internal static ItemDefinition CraftingManualScrollOfConeOfCold { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfConeOfCold");
+
         internal static ItemDefinition CraftingManualScrollOfConfusion { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfConfusion");
 
         internal static ItemDefinition CraftingManualScrollOfConjureAnimals { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfConjureAnimals");
 
+        internal static ItemDefinition CraftingManualScrollOfConjureCelestial { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfConjureCelestial");
+
+        internal static ItemDefinition CraftingManualScrollOfConjureElemental { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfConjureElemental");
+
+        internal static ItemDefinition CraftingManualScrollOfConjureFey { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfConjureFey");
+
         internal static ItemDefinition CraftingManualScrollOfConjureMinorElemental { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfConjureMinorElemental");
+
+        internal static ItemDefinition CraftingManualScrollOfContagion { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfContagion");
 
         internal static ItemDefinition CraftingManualScrollOfCounterSpell { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfCounterSpell");
@@ -10477,6 +11163,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfDeathWard { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfDeathWard");
 
+        internal static ItemDefinition CraftingManualScrollOfDelayedBlastFireball { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDelayedBlastFireball");
+
         internal static ItemDefinition CraftingManualScrollOfDetectEvilAndGood { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfDetectEvilAndGood");
 
@@ -10489,11 +11178,35 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfDimensionDoor { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfDimensionDoor");
 
+        internal static ItemDefinition CraftingManualScrollOfDisintegrate { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDisintegrate");
+
+        internal static ItemDefinition CraftingManualScrollOfDispelEvilAndGood { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDispelEvilAndGood");
+
+        internal static ItemDefinition CraftingManualScrollOfDivineBlade { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDivineBlade");
+
+        internal static ItemDefinition CraftingManualScrollOfDivineWord { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDivineWord");
+
+        internal static ItemDefinition CraftingManualScrollOfDominateMonsters { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDominateMonsters");
+
+        internal static ItemDefinition CraftingManualScrollOfDominatePerson { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfDominatePerson");
+
+        internal static ItemDefinition CraftingManualScrollOfEarthquake { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfEarthquake");
+
         internal static ItemDefinition CraftingManualScrollOfEntangle { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfEntangle");
 
         internal static ItemDefinition CraftingManualScrollOfExpeditiousRetreat { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfExpeditiousRetreat");
+
+        internal static ItemDefinition CraftingManualScrollOfEyeBite { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfEyeBite");
 
         internal static ItemDefinition CraftingManualScrollOfFaerieFire { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFaerieFire");
@@ -10501,8 +11214,14 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfFear { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFear");
 
+        internal static ItemDefinition CraftingManualScrollOfFeeblemind { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfFeeblemind");
+
         internal static ItemDefinition CraftingManualScrollOfFindTraps { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFindTraps");
+
+        internal static ItemDefinition CraftingManualScrollOfFingerOfDeath { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfFingerOfDeath");
 
         internal static ItemDefinition CraftingManualScrollOfFireball { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFireball");
@@ -10510,8 +11229,14 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfFireShield { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFireShield");
 
+        internal static ItemDefinition CraftingManualScrollOfFireStorm { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfFireStorm");
+
         internal static ItemDefinition CraftingManualScrollOfFlameBlade { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFlameBlade");
+
+        internal static ItemDefinition CraftingManualScrollOfFlameStrike { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfFlameStrike");
 
         internal static ItemDefinition CraftingManualScrollOfFlamingSphere { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFlamingSphere");
@@ -10525,11 +11250,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfFreedomOfMovement { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfFreedomOfMovement");
 
+        internal static ItemDefinition CraftingManualScrollOfFreezingSphere { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfFreezingSphere");
+
+        internal static ItemDefinition CraftingManualScrollOfGlobeOfInvulnerability { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfGlobeOfInvulnerability");
+
+        internal static ItemDefinition CraftingManualScrollOfGravitySlam { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfGravitySlam");
+
         internal static ItemDefinition CraftingManualScrollOfGrease { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfGrease");
 
         internal static ItemDefinition CraftingManualScrollOfGreaterInvisibility { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfGreaterInvisibility");
+
+        internal static ItemDefinition CraftingManualScrollOfGreaterRestoration { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfGreaterRestoration");
 
         internal static ItemDefinition CraftingManualScrollOfGuardianOfFaith { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfGuardianOfFaith");
@@ -10537,11 +11274,29 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfGuidingBolt { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfGuidingBolt");
 
+        internal static ItemDefinition CraftingManualScrollOfHarm { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHarm");
+
         internal static ItemDefinition CraftingManualScrollOfHaste { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfHaste");
 
+        internal static ItemDefinition CraftingManualScrollOfHeal { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHeal");
+
+        internal static ItemDefinition CraftingManualScrollOfHeroesFeast { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHeroesFeast");
+
+        internal static ItemDefinition CraftingManualScrollOfHilarity { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHilarity");
+
+        internal static ItemDefinition CraftingManualScrollOfHoldMonster { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHoldMonster");
+
         internal static ItemDefinition CraftingManualScrollOfHoldPerson { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfHoldPerson");
+
+        internal static ItemDefinition CraftingManualScrollOfHolyAura { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfHolyAura");
 
         internal static ItemDefinition CraftingManualScrollOfHypnoticPattern { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfHypnoticPattern");
@@ -10549,8 +11304,14 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfIceStorm { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfIceStorm");
 
+        internal static ItemDefinition CraftingManualScrollOfIncendiaryCloud { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfIncendiaryCloud");
+
         internal static ItemDefinition CraftingManualScrollOfInflictWounds { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfInflictWounds");
+
+        internal static ItemDefinition CraftingManualScrollOfInsectPlague { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfInsectPlague");
 
         internal static ItemDefinition CraftingManualScrollOfInvisibility { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfInvisibility");
@@ -10579,8 +11340,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfMagicWeapon { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfMagicWeapon");
 
+        internal static ItemDefinition CraftingManualScrollOfMassCureWounds { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfMassCureWounds");
+
         internal static ItemDefinition CraftingManualScrollOfMassHealingWord { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfMassHealingWord");
+
+        internal static ItemDefinition CraftingManualScrollOfMaze { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfMaze");
+
+        internal static ItemDefinition CraftingManualScrollOfMindTwist { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfMindTwist");
 
         internal static ItemDefinition CraftingManualScrollOfMirrorImage { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfMirrorImage");
@@ -10594,17 +11364,32 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfPhantasmalKiller { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfPhantasmalKiller");
 
+        internal static ItemDefinition CraftingManualScrollOfPowerWordStun { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfPowerWordStun");
+
+        internal static ItemDefinition CraftingManualScrollOfPrismaticSpray { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfPrismaticSpray");
+
         internal static ItemDefinition CraftingManualScrollOfProtectionFromEnergy { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfProtectionFromEnergy");
 
         internal static ItemDefinition CraftingManualScrollOfProtectionFromEvilAndGood { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfProtectionFromEvilAndGood");
 
+        internal static ItemDefinition CraftingManualScrollOfRaiseDead { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfRaiseDead");
+
         internal static ItemDefinition CraftingManualScrollOfRayOfEnfeeblement { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfRayOfEnfeeblement");
 
+        internal static ItemDefinition CraftingManualScrollOfRegenerate { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfRegenerate");
+
         internal static ItemDefinition CraftingManualScrollOfRemoveCurse { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfRemoveCurse");
+
+        internal static ItemDefinition CraftingManualScrollOfResurrection { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfResurrection");
 
         internal static ItemDefinition CraftingManualScrollOfRevivify { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfRevivify");
@@ -10636,6 +11421,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfSlow { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfSlow");
 
+        internal static ItemDefinition CraftingManualScrollOfSpellWard { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfSpellWard");
+
         internal static ItemDefinition CraftingManualScrollOfSpiderClimb { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfSpiderClimb");
 
@@ -10651,17 +11439,35 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManualScrollOfStoneSkin { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfStoneSkin");
 
+        internal static ItemDefinition CraftingManualScrollOfSunbeam { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfSunbeam");
+
+        internal static ItemDefinition CraftingManualScrollOfSunburst { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfSunburst");
+
+        internal static ItemDefinition CraftingManualScrollOfSymbol { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfSymbol");
+
+        internal static ItemDefinition CraftingManualScrollOfThunderstorm { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfThunderstorm");
+
         internal static ItemDefinition CraftingManualScrollOfThunderwave { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfThunderwave");
 
         internal static ItemDefinition CraftingManualScrollOfTongues { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfTongues");
 
+        internal static ItemDefinition CraftingManualScrollOfTrueSeeing { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfTrueSeeing");
+
         internal static ItemDefinition CraftingManualScrollOfVampiricTouch { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfVampiricTouch");
 
         internal static ItemDefinition CraftingManualScrollOfWallOfFire { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfWallOfFire");
+
+        internal static ItemDefinition CraftingManualScrollOfWallOfThorns { get; } =
+            GetDefinition<ItemDefinition>("CraftingManualScrollOfWallOfThorns");
 
         internal static ItemDefinition CraftingManualScrollOfWardingBond { get; } =
             GetDefinition<ItemDefinition>("CraftingManualScrollOfWardingBond");
@@ -10725,6 +11531,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition DaggerPlus2 { get; } =
             GetDefinition<ItemDefinition>("Dagger+2");
+
+        internal static ItemDefinition DaggerPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Dagger+3");
 
         internal static ItemDefinition Dart { get; } =
             GetDefinition<ItemDefinition>("Dart");
@@ -11083,11 +11892,392 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition DLC1_Item_Stolen_Officer_Ring { get; } =
             GetDefinition<ItemDefinition>("DLC1_Item_Stolen_Officer_Ring");
 
+        internal static ItemDefinition DLC3_AmuletOfNonDetection { get; } =
+            GetDefinition<ItemDefinition>("DLC3_AmuletOfNonDetection");
+
+        internal static ItemDefinition DLC3_DemonGrease_DawnBreak { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_DawnBreak");
+
+        internal static ItemDefinition DLC3_DemonGrease_NightHunt { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_NightHunt");
+
+        internal static ItemDefinition DLC3_DemonGrease_PseudoLife { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_PseudoLife");
+
+        internal static ItemDefinition DLC3_DemonGrease_SpellTaint { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_SpellTaint");
+
+        internal static ItemDefinition DLC3_DemonGrease_TrueStrike { get; } =
+            GetDefinition<ItemDefinition>("DLC3_DemonGrease_TrueStrike");
+
+        internal static ItemDefinition DLC3_Document_Bericletter01 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter01");
+
+        internal static ItemDefinition DLC3_Document_Bericletter02 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter02");
+
+        internal static ItemDefinition DLC3_Document_Bericletter03 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter03");
+
+        internal static ItemDefinition DLC3_Document_Bericletter04 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter04");
+
+        internal static ItemDefinition DLC3_Document_Bericletter05 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter05");
+
+        internal static ItemDefinition DLC3_Document_Bericletter06 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter06");
+
+        internal static ItemDefinition DLC3_Document_Bericletter07 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter07");
+
+        internal static ItemDefinition DLC3_Document_Bericletter08 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Document_Bericletter08");
+
+        internal static ItemDefinition DLC3_Einareum_Lore_SnowAlliance { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Einareum_Lore_SnowAlliance");
+
+        internal static ItemDefinition DLC3_Einareum_Lore_SurvivingTheGreatWhite { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Einareum_Lore_SurvivingTheGreatWhite");
+
+        internal static ItemDefinition DLC3_Einareum_Lore_TheCrownOfTheMagister { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Einareum_Lore_TheCrownOfTheMagister");
+
+        internal static ItemDefinition DLC3_Einareum_Lore_TheWarOfSorrow { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Einareum_Lore_TheWarOfSorrow");
+
+        internal static ItemDefinition DLC3_ElvenSettlementHighDistrict_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementHighDistrict_Key");
+
+        internal static ItemDefinition DLC3_ElvenSettlementRuins_Document { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementRuins_Document");
+
+        internal static ItemDefinition DLC3_ElvenSettlementRuins_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlementRuins_Key");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue1 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue1");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue2 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue2");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue3");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue4 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue4");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue5 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue5");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue6_Useless_1_Bracelet { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue6_Useless_1_Bracelet");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue7_Useless_2_Comb { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue7_Useless_2_Comb");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue8_Useless_3_Pendant { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue8_Useless_3_Pendant");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_ItemClue9_Useless_5_Prayerbook { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_ItemClue9_Useless_5_Prayerbook");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_Lore_DayliLife { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_Lore_DayliLife");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_Lore_Dragons { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_Lore_Dragons");
+
+        internal static ItemDefinition DLC3_ElvenSettlements_Lore_TheSchism { get; } =
+            GetDefinition<ItemDefinition>("DLC3_ElvenSettlements_Lore_TheSchism");
+
+        internal static ItemDefinition DLC3_Equipment_Kaupaa_Necropolis_Skeleton_Key { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Equipment_Kaupaa_Necropolis_Skeleton_Key");
+
+        internal static ItemDefinition DLC3_Equipment_Undermountain_Clans_Claw { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Equipment_Undermountain_Clans_Claw");
+
+        internal static ItemDefinition DLC3_Equipment_WhiteCity_Marduk_Ring { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Equipment_WhiteCity_Marduk_Ring");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue1 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue1");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue2 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue2");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue3");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue4 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue4");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue5 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue5");
+
+        internal static ItemDefinition DLC3_Gallivan_Item_Clue6 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Item_Clue6");
+
+        internal static ItemDefinition DLC3_Gallivan_Lore_AshdownLetter { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Lore_AshdownLetter");
+
+        internal static ItemDefinition DLC3_Gallivan_Lore_BluntLetter { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Lore_BluntLetter");
+
+        internal static ItemDefinition DLC3_Gallivan_Lore_OnTheMarch { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Lore_OnTheMarch");
+
+        internal static ItemDefinition DLC3_Gallivan_Lore_TheCourtOfKnives { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Lore_TheCourtOfKnives");
+
+        internal static ItemDefinition DLC3_Gallivan_Lore_ThreeCenturyPact { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Gallivan_Lore_ThreeCenturyPact");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue1 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue1");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue2 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue2");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue3");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue4 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue4");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue5 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue5");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue6 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue6");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue7 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue7");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue8_Useless_Ribbon { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue8_Useless_Ribbon");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue8_Useless_Ring { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue8_Useless_Ring");
+
+        internal static ItemDefinition DLC3_GarradsCastle_ItemClue8_Useless_Scarf { get; } =
+            GetDefinition<ItemDefinition>("DLC3_GarradsCastle_ItemClue8_Useless_Scarf");
+
+        internal static ItemDefinition DLC3_Item_Gallivan_Wand_Showsharks { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Item_Gallivan_Wand_Showsharks");
+
+        internal static ItemDefinition DLC3_Kaupaa_Kaikonnen_Amulet_WoodBox { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Kaupaa_Kaikonnen_Amulet_WoodBox");
+
+        internal static ItemDefinition DLC3_Legendary_Battleaxe_Skullcleaver { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Battleaxe_Skullcleaver");
+
+        internal static ItemDefinition DLC3_Legendary_Dagger_SuddenDeath { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Dagger_SuddenDeath");
+
+        internal static ItemDefinition DLC3_Legendary_Greataxe_Imperator { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Greataxe_Imperator");
+
+        internal static ItemDefinition DLC3_Legendary_HeavyCrossbow_Driller { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_HeavyCrossbow_Driller");
+
+        internal static ItemDefinition DLC3_Legendary_LightCrossbow_Decadence { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_LightCrossbow_Decadence");
+
+        internal static ItemDefinition DLC3_Legendary_Longsword_Anvil { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Longsword_Anvil");
+
+        internal static ItemDefinition DLC3_Legendary_Quarterstaff_Purity { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Quarterstaff_Purity");
+
+        internal static ItemDefinition DLC3_Legendary_Shortsword_Grievance { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Shortsword_Grievance");
+
+        internal static ItemDefinition DLC3_Legendary_Warhammer_Glacier { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Legendary_Warhammer_Glacier");
+
+        internal static ItemDefinition DLC3_LeralynRing { get; } =
+            GetDefinition<ItemDefinition>("DLC3_LeralynRing");
+
+        internal static ItemDefinition DLC3_Magic_Morningstar_Guardian_Complete { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Magic_Morningstar_Guardian_Complete");
+
+        internal static ItemDefinition DLC3_Magic_Morningstar_Guardian_Uncomplete { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Magic_Morningstar_Guardian_Uncomplete");
+
+        internal static ItemDefinition DLC3_Magic_Shortsword_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Magic_Shortsword_Sovereign");
+
+        internal static ItemDefinition DLC3_NorthernTerritories_Lore_TrappersFamilyLetter { get; } =
+            GetDefinition<ItemDefinition>("DLC3_NorthernTerritories_Lore_TrappersFamilyLetter");
+
+        internal static ItemDefinition DLC3_NorthernTerritorties_Lore_GiantsPact { get; } =
+            GetDefinition<ItemDefinition>("DLC3_NorthernTerritorties_Lore_GiantsPact");
+
+        internal static ItemDefinition DLC3_NorthernTerritorties_Lore_RemorhazObservations { get; } =
+            GetDefinition<ItemDefinition>("DLC3_NorthernTerritorties_Lore_RemorhazObservations");
+
+        internal static ItemDefinition DLC3_Sigil_Ring_Abjuration { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Sigil_Ring_Abjuration");
+
+        internal static ItemDefinition DLC3_SoulBall { get; } =
+            GetDefinition<ItemDefinition>("DLC3_SoulBall");
+
+        internal static ItemDefinition DLC3_Telema_AbyssalAgitator_Instructions { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_AbyssalAgitator_Instructions");
+
+        internal static ItemDefinition DLC3_Telema_CustomGateInstructions { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_CustomGateInstructions");
+
+        internal static ItemDefinition DLC3_Telema_CustomGateManual { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_CustomGateManual");
+
+        internal static ItemDefinition DLC3_Telema_HectorsDiary { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_HectorsDiary");
+
+        internal static ItemDefinition DLC3_Telema_Lore_Continent { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_Lore_Continent");
+
+        internal static ItemDefinition DLC3_Telema_PyramidKey { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_PyramidKey");
+
+        internal static ItemDefinition DLC3_Telema_RoundKey { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_RoundKey");
+
+        internal static ItemDefinition DLC3_Telema_SessrothReport { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport");
+
+        internal static ItemDefinition DLC3_Telema_SessrothReport_b { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport_b");
+
+        internal static ItemDefinition DLC3_Telema_SessrothReport_c { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport_c");
+
+        internal static ItemDefinition DLC3_Telema_SessrothReport_d { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport_d");
+
+        internal static ItemDefinition DLC3_Telema_SessrothReport_e { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Telema_SessrothReport_e");
+
+        internal static ItemDefinition DLC3_Undermountain_BrigandsJournal { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_BrigandsJournal");
+
+        internal static ItemDefinition DLC3_Undermountain_HeatGenerator_Instructions { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_HeatGenerator_Instructions");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_DropDocument { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_DropDocument");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_ItemClue1 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_ItemClue1");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_ItemClue3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_ItemClue3");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_ItemClue4 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_ItemClue4");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_ItemClue5 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_ItemClue5");
+
+        internal static ItemDefinition DLC3_Undermountain_Investigation_ItemClue6 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Investigation_ItemClue6");
+
+        internal static ItemDefinition DLC3_Undermountain_ItemClue2_Useless_Ring { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_ItemClue2_Useless_Ring");
+
+        internal static ItemDefinition DLC3_Undermountain_ItemClue3_Useless_PrayerBook { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_ItemClue3_Useless_PrayerBook");
+
+        internal static ItemDefinition DLC3_Undermountain_ItemClue5_Useless_Pendant { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_ItemClue5_Useless_Pendant");
+
+        internal static ItemDefinition DLC3_Undermountain_Lore_MilitaryRanks { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Lore_MilitaryRanks");
+
+        internal static ItemDefinition DLC3_Undermountain_Lore_Tale { get; } =
+            GetDefinition<ItemDefinition>("DLC3_Undermountain_Lore_Tale");
+
+        internal static ItemDefinition DLC3_WhiteCity_FrozenQuest_Document_Lore_Dwarf_Note { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_FrozenQuest_Document_Lore_Dwarf_Note");
+
+        internal static ItemDefinition DLC3_WhiteCity_Giant_Clan_Trophy { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Giant_Clan_Trophy");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue0 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue0");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue2 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue2");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue4 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue4");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue5 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue5");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue6 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue6");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClue8 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClue8");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClueLoot1 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClueLoot1");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClueLoot2 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClueLoot2");
+
+        internal static ItemDefinition DLC3_WhiteCity_ItemClueLoot3 { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_ItemClueLoot3");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_Gnomes { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_Gnomes");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GreatHouses_CentralClans { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GreatHouses_CentralClans");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GreatHouses_EasternClans { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GreatHouses_EasternClans");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GreatHouses_NorthernClans { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GreatHouses_NorthernClans");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GreatHouses_SouthernClans { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GreatHouses_SouthernClans");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GreatHouses_WesternClans { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GreatHouses_WesternClans");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_GuideCity { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_GuideCity");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_IsridLetter { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_IsridLetter");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_MasgarthEvents { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_MasgarthEvents");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_SnowAllianceHistory { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_SnowAllianceHistory");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_TheEulalia { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_TheEulalia");
+
+        internal static ItemDefinition DLC3_WhiteCity_Lore_Tieflings { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Lore_Tieflings");
+
+        internal static ItemDefinition DLC3_WhiteCity_Unusual_Rock_Fragment { get; } =
+            GetDefinition<ItemDefinition>("DLC3_WhiteCity_Unusual_Rock_Fragment");
+
         internal static ItemDefinition Document_HalmanSummer_Conspiration_Docs { get; } =
             GetDefinition<ItemDefinition>("Document_HalmanSummer_Conspiration_Docs");
 
         internal static ItemDefinition Document_HalmanSummer_Letter { get; } =
             GetDefinition<ItemDefinition>("Document_HalmanSummer_Letter");
+
+        internal static ItemDefinition DragonPlateArmor { get; } =
+            GetDefinition<ItemDefinition>("DragonPlateArmor");
 
         internal static ItemDefinition DruidicFocus { get; } =
             GetDefinition<ItemDefinition>("DruidicFocus");
@@ -11116,8 +12306,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Dwarven_Plate { get; } =
             GetDefinition<ItemDefinition>("Dwarven_Plate");
 
-        internal static ItemDefinition DwarvenThrower { get; } =
-            GetDefinition<ItemDefinition>("DwarvenThrower");
+        internal static ItemDefinition DwarvenThrower_DONOTUSE { get; } =
+            GetDefinition<ItemDefinition>("DwarvenThrower_DONOTUSE");
 
         internal static ItemDefinition DwarvenWarDrums { get; } =
             GetDefinition<ItemDefinition>("DwarvenWarDrums");
@@ -11143,11 +12333,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Battleaxe_Punisher { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Battleaxe_Punisher");
 
+        internal static ItemDefinition Enchanted_BattleaxeOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_BattleaxeOfPerfection");
+
         internal static ItemDefinition Enchanted_BreastplateOfDeflection { get; } =
             GetDefinition<ItemDefinition>("Enchanted_BreastplateOfDeflection");
 
+        internal static ItemDefinition Enchanted_BreastPlateOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_BreastPlateOfFortitude");
+
+        internal static ItemDefinition Enchanted_BreastplateOfRobustness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_BreastplateOfRobustness");
+
         internal static ItemDefinition Enchanted_BreastplateOfSturdiness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_BreastplateOfSturdiness");
+
+        internal static ItemDefinition Enchanted_ChainmailOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ChainmailOfFortitude");
 
         internal static ItemDefinition Enchanted_ChainmailOfRobustness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ChainmailOfRobustness");
@@ -11157,6 +12359,15 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Enchanted_ChainShirt_Empress_war_garb { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ChainShirt_Empress_war_garb");
+
+        internal static ItemDefinition Enchanted_ChainShirtOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ChainShirtOfFortitude");
+
+        internal static ItemDefinition Enchanted_ChainShirtOfRobustness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ChainShirtOfRobustness");
+
+        internal static ItemDefinition Enchanted_ChainShirtOfSturdiness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ChainShirtOfSturdiness");
 
         internal static ItemDefinition Enchanted_Dagger_EldritchWounds { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Dagger_EldritchWounds");
@@ -11173,6 +12384,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Dagger_Souldrinker { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Dagger_Souldrinker");
 
+        internal static ItemDefinition Enchanted_DaggerOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_DaggerOfPerfection");
+
         internal static ItemDefinition Enchanted_Druid_Armor_Of_The_Forest { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Druid_Armor_Of_The_Forest");
 
@@ -11185,11 +12399,20 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Gauntlet_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Gauntlet_Of_Sharpness");
 
+        internal static ItemDefinition Enchanted_GauntletOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_GauntletOfPerfection");
+
         internal static ItemDefinition Enchanted_Greataxe_Of_Sharpness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Greataxe_Of_Sharpness");
 
         internal static ItemDefinition Enchanted_Greataxe_Stormblade { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Greataxe_Stormblade");
+
+        internal static ItemDefinition Enchanted_GreataxeOfAcuteness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_GreataxeOfAcuteness");
+
+        internal static ItemDefinition Enchanted_GreataxeOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_GreataxeOfPerfection");
 
         internal static ItemDefinition Enchanted_Greatsword_Doomblade { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Greatsword_Doomblade");
@@ -11200,11 +12423,29 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Greatsword_of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Greatsword_of_Acuteness");
 
+        internal static ItemDefinition Enchanted_GreatswordOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_GreatswordOfPerfection");
+
+        internal static ItemDefinition Enchanted_GreatswordOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_GreatswordOfSharpness");
+
+        internal static ItemDefinition Enchanted_HalfPlateOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HalfPlateOfFortitude");
+
         internal static ItemDefinition Enchanted_HalfPlateOfRobustness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HalfPlateOfRobustness");
 
         internal static ItemDefinition Enchanted_HalfPlateOfSturdiness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HalfPlateOfSturdiness");
+
+        internal static ItemDefinition Enchanted_HandaxeOfAcuteness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HandaxeOfAcuteness");
+
+        internal static ItemDefinition Enchanted_HandaxeOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HandaxeOfPerfection");
+
+        internal static ItemDefinition Enchanted_HandaxeOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HandaxeOfSharpness");
 
         internal static ItemDefinition Enchanted_HeavyCrossbow_of_Accuracy { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HeavyCrossbow_of_Accuracy");
@@ -11212,14 +12453,38 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_HeavyCrossbow_Whiteburn { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HeavyCrossbow_Whiteburn");
 
+        internal static ItemDefinition Enchanted_HeavyCrossbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HeavyCrossbowOfPerfection");
+
+        internal static ItemDefinition Enchanted_HeavyCrossbowOfSharpshooting { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HeavyCrossbowOfSharpshooting");
+
+        internal static ItemDefinition Enchanted_HideArmor_Of_Fortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HideArmor_Of_Fortitude");
+
+        internal static ItemDefinition Enchanted_HideArmor_Of_Robustness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_HideArmor_Of_Robustness");
+
         internal static ItemDefinition Enchanted_HideArmor_Of_The_Vagrant { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HideArmor_Of_The_Vagrant");
 
         internal static ItemDefinition Enchanted_HideArmor_Of_Wilderness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_HideArmor_Of_Wilderness");
 
+        internal static ItemDefinition Enchanted_JavelinOfAcuteness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_JavelinOfAcuteness");
+
+        internal static ItemDefinition Enchanted_JavelinOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_JavelinOfPerfection");
+
+        internal static ItemDefinition Enchanted_JavelinOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_JavelinOfSharpness");
+
         internal static ItemDefinition Enchanted_LeatherArmorOfFlameDancing { get; } =
             GetDefinition<ItemDefinition>("Enchanted_LeatherArmorOfFlameDancing");
+
+        internal static ItemDefinition Enchanted_LeatherArmorOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LeatherArmorOfFortitude");
 
         internal static ItemDefinition Enchanted_LeatherArmorOfRobustness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_LeatherArmorOfRobustness");
@@ -11236,6 +12501,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_LightCrossbow_Souldrinker { get; } =
             GetDefinition<ItemDefinition>("Enchanted_LightCrossbow_Souldrinker");
 
+        internal static ItemDefinition Enchanted_LightCrossbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LightCrossbowOfPerfection");
+
+        internal static ItemDefinition Enchanted_LightCrossbowOfSharpshooting { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LightCrossbowOfSharpshooting");
+
         internal static ItemDefinition Enchanted_Longbow_Lightbringer { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Longbow_Lightbringer");
 
@@ -11244,6 +12515,12 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Enchanted_Longbow_Stormbow { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Longbow_Stormbow");
+
+        internal static ItemDefinition Enchanted_LongbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LongbowOfPerfection");
+
+        internal static ItemDefinition Enchanted_LongbowOfSharpshooting { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LongbowOfSharpshooting");
 
         internal static ItemDefinition Enchanted_Longsword_Dragonblade { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Longsword_Dragonblade");
@@ -11260,11 +12537,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Longsword_Warden { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Longsword_Warden");
 
+        internal static ItemDefinition Enchanted_LongswordOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LongswordOfPerfection");
+
+        internal static ItemDefinition Enchanted_LongswordOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_LongswordOfSharpness");
+
         internal static ItemDefinition Enchanted_Mace_Of_Acuteness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Mace_Of_Acuteness");
 
+        internal static ItemDefinition Enchanted_Mace_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Mace_Of_Shattering");
+
         internal static ItemDefinition Enchanted_Mace_Of_Smashing { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Mace_Of_Smashing");
+
+        internal static ItemDefinition Enchanted_MaceOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_MaceOfPerfection");
 
         internal static ItemDefinition Enchanted_Maul_Dragonclaw { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Maul_Dragonclaw");
@@ -11275,17 +12564,44 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Maul_Of_The_Destroyer { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Maul_Of_The_Destroyer");
 
+        internal static ItemDefinition Enchanted_MaulOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_MaulOfPerfection");
+
+        internal static ItemDefinition Enchanted_MaulOfShattering { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_MaulOfShattering");
+
         internal static ItemDefinition Enchanted_Morningstar_Bearclaw { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Morningstar_Bearclaw");
 
         internal static ItemDefinition Enchanted_Morningstar_Of_Power { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Morningstar_Of_Power");
 
+        internal static ItemDefinition Enchanted_Morningstar_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Morningstar_Of_Shattering");
+
+        internal static ItemDefinition Enchanted_Morningstar_Of_Smashing { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Morningstar_Of_Smashing");
+
+        internal static ItemDefinition Enchanted_MorningstarOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_MorningstarOfPerfection");
+
+        internal static ItemDefinition Enchanted_PlateOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_PlateOfFortitude");
+
         internal static ItemDefinition Enchanted_PlateOfRobustness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_PlateOfRobustness");
 
         internal static ItemDefinition Enchanted_PlateOfSturdiness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_PlateOfSturdiness");
+
+        internal static ItemDefinition Enchanted_Quarterstaff_Of_Perfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Quarterstaff_Of_Perfection");
+
+        internal static ItemDefinition Enchanted_Quarterstaff_Of_Shattering { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Quarterstaff_Of_Shattering");
+
+        internal static ItemDefinition Enchanted_Quarterstaff_Of_Smashing { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Quarterstaff_Of_Smashing");
 
         internal static ItemDefinition Enchanted_Rapier_Blackadder { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Rapier_Blackadder");
@@ -11298,6 +12614,15 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Enchanted_Rapier_Of_Harmony { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Rapier_Of_Harmony");
+
+        internal static ItemDefinition Enchanted_Rapier_Of_Sharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_Rapier_Of_Sharpness");
+
+        internal static ItemDefinition Enchanted_RapierOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_RapierOfPerfection");
+
+        internal static ItemDefinition Enchanted_ScaleMailOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ScaleMailOfFortitude");
 
         internal static ItemDefinition Enchanted_ScaleMailOfIceDancing { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ScaleMailOfIceDancing");
@@ -11314,8 +12639,20 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Scimitar_Of_Speed { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Scimitar_Of_Speed");
 
+        internal static ItemDefinition Enchanted_ScimitarOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ScimitarOfPerfection");
+
         internal static ItemDefinition Enchanted_ScimitarOfTheAnfarels { get; } =
             GetDefinition<ItemDefinition>("Enchanted_ScimitarOfTheAnfarels");
+
+        internal static ItemDefinition Enchanted_ShieldOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ShieldOfFortitude");
+
+        internal static ItemDefinition Enchanted_ShieldOfRobustness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ShieldOfRobustness");
+
+        internal static ItemDefinition Enchanted_ShieldofSturdiness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ShieldofSturdiness");
 
         internal static ItemDefinition Enchanted_Shortbow_Medusa { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Shortbow_Medusa");
@@ -11325,6 +12662,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Enchanted_Shortbow_Of_Sharpshooting { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Shortbow_Of_Sharpshooting");
+
+        internal static ItemDefinition Enchanted_ShortbowOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ShortbowOfPerfection");
 
         internal static ItemDefinition Enchanted_Shortsword_Lightbringer { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Shortsword_Lightbringer");
@@ -11338,14 +12678,32 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Shortsword_Whiteburn { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Shortsword_Whiteburn");
 
+        internal static ItemDefinition Enchanted_ShortswordOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_ShortswordOfPerfection");
+
         internal static ItemDefinition Enchanted_SpearDoomSpear { get; } =
             GetDefinition<ItemDefinition>("Enchanted_SpearDoomSpear");
 
         internal static ItemDefinition Enchanted_SpearOfAcuteness { get; } =
             GetDefinition<ItemDefinition>("Enchanted_SpearOfAcuteness");
 
+        internal static ItemDefinition Enchanted_SpearOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_SpearOfPerfection");
+
+        internal static ItemDefinition Enchanted_SpearOfSharpness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_SpearOfSharpness");
+
+        internal static ItemDefinition Enchanted_StuddedLeatherOfFortitude { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_StuddedLeatherOfFortitude");
+
         internal static ItemDefinition Enchanted_StuddedLeatherOfLeadership { get; } =
             GetDefinition<ItemDefinition>("Enchanted_StuddedLeatherOfLeadership");
+
+        internal static ItemDefinition Enchanted_StuddedLeatherOfRobustness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_StuddedLeatherOfRobustness");
+
+        internal static ItemDefinition Enchanted_StuddedLeatherOfSturdiness { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_StuddedLeatherOfSturdiness");
 
         internal static ItemDefinition Enchanted_StuddedLeatherOfSurvival { get; } =
             GetDefinition<ItemDefinition>("Enchanted_StuddedLeatherOfSurvival");
@@ -11355,6 +12713,12 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Enchanted_Warhammer_Stormbinder { get; } =
             GetDefinition<ItemDefinition>("Enchanted_Warhammer_Stormbinder");
+
+        internal static ItemDefinition Enchanted_WarhammerOfPerfection { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_WarhammerOfPerfection");
+
+        internal static ItemDefinition Enchanted_WarhammerOfShattering { get; } =
+            GetDefinition<ItemDefinition>("Enchanted_WarhammerOfShattering");
 
         internal static ItemDefinition EnchantingTool { get; } =
             GetDefinition<ItemDefinition>("EnchantingTool");
@@ -11398,6 +12762,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Food_Ration_Foraged { get; } =
             GetDefinition<ItemDefinition>("Food_Ration_Foraged");
 
+        internal static ItemDefinition GarbOfThePrudentShield { get; } =
+            GetDefinition<ItemDefinition>("GarbOfThePrudentShield");
+
+        internal static ItemDefinition GarmentsOfTheWise { get; } =
+            GetDefinition<ItemDefinition>("GarmentsOfTheWise");
+
         internal static ItemDefinition GauntletsOfOgrePower { get; } =
             GetDefinition<ItemDefinition>("GauntletsOfOgrePower");
 
@@ -11409,6 +12779,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Giant_Rock { get; } =
             GetDefinition<ItemDefinition>("Giant_Rock");
+
+        internal static ItemDefinition GlitterJacket { get; } =
+            GetDefinition<ItemDefinition>("GlitterJacket");
 
         internal static ItemDefinition GlovesOfMissileSnaring { get; } =
             GetDefinition<ItemDefinition>("GlovesOfMissileSnaring");
@@ -11425,11 +12798,20 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition GreataxePlus2 { get; } =
             GetDefinition<ItemDefinition>("Greataxe+2");
 
+        internal static ItemDefinition GreataxePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Greataxe+3");
+
         internal static ItemDefinition Greatsword { get; } =
             GetDefinition<ItemDefinition>("Greatsword");
 
         internal static ItemDefinition GreatswordPlus1 { get; } =
             GetDefinition<ItemDefinition>("Greatsword+1");
+
+        internal static ItemDefinition GreatswordPlus2 { get; } =
+            GetDefinition<ItemDefinition>("Greatsword+2");
+
+        internal static ItemDefinition GreatswordPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Greatsword+3");
 
         internal static ItemDefinition GreenmageArmor { get; } =
             GetDefinition<ItemDefinition>("GreenmageArmor");
@@ -11443,11 +12825,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition HalfPlatePlus1_Aksha { get; } =
             GetDefinition<ItemDefinition>("HalfPlate+1_Aksha");
 
+        internal static ItemDefinition HalfPlatePlus2 { get; } =
+            GetDefinition<ItemDefinition>("HalfPlate+2");
+
+        internal static ItemDefinition HalfPlatePlus3 { get; } =
+            GetDefinition<ItemDefinition>("HalfPlate+3");
+
         internal static ItemDefinition Handaxe { get; } =
             GetDefinition<ItemDefinition>("Handaxe");
 
         internal static ItemDefinition HandaxePlus1 { get; } =
             GetDefinition<ItemDefinition>("Handaxe+1");
+
+        internal static ItemDefinition HandaxePlus2 { get; } =
+            GetDefinition<ItemDefinition>("Handaxe+2");
+
+        internal static ItemDefinition HandaxePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Handaxe+3");
 
         internal static ItemDefinition HeadbandOfIntellect { get; } =
             GetDefinition<ItemDefinition>("HeadbandOfIntellect");
@@ -11460,6 +12854,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition HeavyCrossbowPlus2 { get; } =
             GetDefinition<ItemDefinition>("HeavyCrossbow+2");
+
+        internal static ItemDefinition HeavyCrossbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("HeavyCrossbow+3");
 
         internal static ItemDefinition HelmOfComprehendingLanguages { get; } =
             GetDefinition<ItemDefinition>("HelmOfComprehendingLanguages");
@@ -11475,6 +12872,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition HideArmor_plus_one { get; } =
             GetDefinition<ItemDefinition>("HideArmor_plus_one");
+
+        internal static ItemDefinition HideArmor_plus_three { get; } =
+            GetDefinition<ItemDefinition>("HideArmor_plus_three");
 
         internal static ItemDefinition HideArmor_plus_two { get; } =
             GetDefinition<ItemDefinition>("HideArmor_plus_two");
@@ -11581,6 +12981,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ingredient_Enchant_Doom_Gem { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_Doom_Gem");
 
+        internal static ItemDefinition Ingredient_Enchant_HeartOfWinter { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_Enchant_HeartOfWinter");
+
         internal static ItemDefinition Ingredient_Enchant_Heartstone { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_Heartstone");
 
@@ -11635,8 +13038,11 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ingredient_Enchant_TrollHeart { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_TrollHeart");
 
-        internal static ItemDefinition Ingredient_FireSpiderVenomGland { get; } =
-            GetDefinition<ItemDefinition>("Ingredient_FireSpiderVenomGland");
+        internal static ItemDefinition Ingredient_Enchant_VolcanicTear { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_Enchant_VolcanicTear");
+
+        internal static ItemDefinition Ingredient_FireSpiderVenomGland_DONOTUSE { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_FireSpiderVenomGland_DONOTUSE");
 
         internal static ItemDefinition Ingredient_GallivanAmaranth { get; } =
             GetDefinition<ItemDefinition>("Ingredient_GallivanAmaranth");
@@ -11698,6 +13104,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ingredient_Sorak_Poison_Spine { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Sorak_Poison_Spine");
 
+        internal static ItemDefinition Ingredient_Sovereign_Stone { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_Sovereign_Stone");
+
         internal static ItemDefinition Ingredient_SpiderQueenVenomGland { get; } =
             GetDefinition<ItemDefinition>("Ingredient_SpiderQueenVenomGland");
 
@@ -11719,11 +13128,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ingredient_WinterWolf_Pelt { get; } =
             GetDefinition<ItemDefinition>("Ingredient_WinterWolf_Pelt");
 
+        internal static ItemDefinition JakarBuckler { get; } =
+            GetDefinition<ItemDefinition>("JakarBuckler");
+
         internal static ItemDefinition Javelin { get; } =
             GetDefinition<ItemDefinition>("Javelin");
 
+        internal static ItemDefinition Javelin_Ammunition_DLC3_Sessroth { get; } =
+            GetDefinition<ItemDefinition>("Javelin_Ammunition_DLC3_Sessroth");
+
         internal static ItemDefinition JavelinPlus1 { get; } =
             GetDefinition<ItemDefinition>("Javelin+1");
+
+        internal static ItemDefinition JavelinPlus2 { get; } =
+            GetDefinition<ItemDefinition>("Javelin+2");
+
+        internal static ItemDefinition JavelinPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Javelin+3");
 
         internal static ItemDefinition LavaBlast { get; } =
             GetDefinition<ItemDefinition>("LavaBlast");
@@ -11736,6 +13157,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition LeatherArmorPlus2 { get; } =
             GetDefinition<ItemDefinition>("LeatherArmor+2");
+
+        internal static ItemDefinition LeatherArmorPlus3 { get; } =
+            GetDefinition<ItemDefinition>("LeatherArmor+3");
 
         internal static ItemDefinition LeatherDruid { get; } =
             GetDefinition<ItemDefinition>("LeatherDruid");
@@ -11752,6 +13176,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition LightCrossbowPlus2 { get; } =
             GetDefinition<ItemDefinition>("LightCrossbow+2");
 
+        internal static ItemDefinition LightCrossbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("LightCrossbow+3");
+
         internal static ItemDefinition LoadedDice { get; } =
             GetDefinition<ItemDefinition>("LoadedDice");
 
@@ -11764,6 +13191,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition LongbowPlus2 { get; } =
             GetDefinition<ItemDefinition>("Longbow+2");
 
+        internal static ItemDefinition LongbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Longbow+3");
+
         internal static ItemDefinition Longsword { get; } =
             GetDefinition<ItemDefinition>("Longsword");
 
@@ -11772,6 +13202,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition LongswordPlus2 { get; } =
             GetDefinition<ItemDefinition>("Longsword+2");
+
+        internal static ItemDefinition LongswordPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Longsword+3");
 
         internal static ItemDefinition Lowlife_Quest_Document_Thief_Note { get; } =
             GetDefinition<ItemDefinition>("Lowlife_Quest_Document_Thief_Note");
@@ -11790,6 +13223,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition MacePlus2 { get; } =
             GetDefinition<ItemDefinition>("Mace+2");
+
+        internal static ItemDefinition MacePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Mace+3");
 
         internal static ItemDefinition Magic_Dagger_Cheater { get; } =
             GetDefinition<ItemDefinition>("Magic_Dagger_Cheater");
@@ -11821,17 +13257,26 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Manual_Of_Quickness_of_Action { get; } =
             GetDefinition<ItemDefinition>("Manual_Of_Quickness_of_Action");
 
+        internal static ItemDefinition Mark_Of_Sessroth { get; } =
+            GetDefinition<ItemDefinition>("Mark_Of_Sessroth");
+
         internal static ItemDefinition Mark_Of_The_Crown { get; } =
             GetDefinition<ItemDefinition>("Mark_Of_The_Crown");
 
         internal static ItemDefinition Maul { get; } =
             GetDefinition<ItemDefinition>("Maul");
 
+        internal static ItemDefinition Maul_DLC3_Sessroth { get; } =
+            GetDefinition<ItemDefinition>("Maul_DLC3_Sessroth");
+
         internal static ItemDefinition MaulPlus1 { get; } =
             GetDefinition<ItemDefinition>("Maul+1");
 
         internal static ItemDefinition MaulPlus2 { get; } =
             GetDefinition<ItemDefinition>("Maul+2");
+
+        internal static ItemDefinition MaulPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Maul+3");
 
         internal static ItemDefinition MonkArmor { get; } =
             GetDefinition<ItemDefinition>("MonkArmor");
@@ -11842,6 +13287,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition MonkGauntletPlus2 { get; } =
             GetDefinition<ItemDefinition>("MonkGauntlet+2");
 
+        internal static ItemDefinition MonkGauntletPlus3 { get; } =
+            GetDefinition<ItemDefinition>("MonkGauntlet+3");
+
         internal static ItemDefinition Morningstar { get; } =
             GetDefinition<ItemDefinition>("Morningstar");
 
@@ -11850,6 +13298,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition MorningstarPlus2 { get; } =
             GetDefinition<ItemDefinition>("Morningstar+2");
+
+        internal static ItemDefinition MorningstarPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Morningstar+3");
 
         internal static ItemDefinition NecklaceOfFireballs { get; } =
             GetDefinition<ItemDefinition>("NecklaceOfFireballs");
@@ -11883,6 +13334,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Orc_Javelin { get; } =
             GetDefinition<ItemDefinition>("Orc_Javelin");
+
+        internal static ItemDefinition Orc_Javelin_DLC3_Sessroth { get; } =
+            GetDefinition<ItemDefinition>("Orc_Javelin_DLC3_Sessroth");
 
         internal static ItemDefinition Orc_Mace { get; } =
             GetDefinition<ItemDefinition>("Orc_Mace");
@@ -11955,6 +13409,12 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition PlatePlus1 { get; } =
             GetDefinition<ItemDefinition>("Plate+1");
+
+        internal static ItemDefinition PlatePlus2 { get; } =
+            GetDefinition<ItemDefinition>("Plate+2");
+
+        internal static ItemDefinition PlatePlus3 { get; } =
+            GetDefinition<ItemDefinition>("Plate+3");
 
         internal static ItemDefinition Poison_ArivadsKiss { get; } =
             GetDefinition<ItemDefinition>("Poison_ArivadsKiss");
@@ -12049,6 +13509,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition PotionRemedy { get; } =
             GetDefinition<ItemDefinition>("PotionRemedy");
 
+        internal static ItemDefinition PraetorChainshirt { get; } =
+            GetDefinition<ItemDefinition>("PraetorChainshirt");
+
         internal static ItemDefinition PriestPack { get; } =
             GetDefinition<ItemDefinition>("PriestPack");
 
@@ -12103,17 +13566,29 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Primed_Scimitar { get; } =
             GetDefinition<ItemDefinition>("Primed Scimitar");
 
+        internal static ItemDefinition Primed_Shield { get; } =
+            GetDefinition<ItemDefinition>("Primed Shield");
+
         internal static ItemDefinition Primed_Shortbow { get; } =
             GetDefinition<ItemDefinition>("Primed Shortbow");
 
         internal static ItemDefinition Primed_Shortsword { get; } =
             GetDefinition<ItemDefinition>("Primed Shortsword");
 
+        internal static ItemDefinition Primed_Shortsword_DLC_Sovereign { get; } =
+            GetDefinition<ItemDefinition>("Primed Shortsword_DLC_Sovereign");
+
+        internal static ItemDefinition Primed_Handaxe { get; } =
+            GetDefinition<ItemDefinition>("Primed_Handaxe");
+
         internal static ItemDefinition Primed_HeavyCrossbow { get; } =
             GetDefinition<ItemDefinition>("Primed_HeavyCrossbow");
 
         internal static ItemDefinition Primed_HideArmor { get; } =
             GetDefinition<ItemDefinition>("Primed_HideArmor");
+
+        internal static ItemDefinition Primed_Javelin { get; } =
+            GetDefinition<ItemDefinition>("Primed_Javelin");
 
         internal static ItemDefinition Primed_LeatherDruid { get; } =
             GetDefinition<ItemDefinition>("Primed_LeatherDruid");
@@ -12126,6 +13601,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Primed_Maul { get; } =
             GetDefinition<ItemDefinition>("Primed_Maul");
+
+        internal static ItemDefinition Primed_Quarterstaff { get; } =
+            GetDefinition<ItemDefinition>("Primed_Quarterstaff");
 
         internal static ItemDefinition Primed_Spear { get; } =
             GetDefinition<ItemDefinition>("Primed_Spear");
@@ -12157,6 +13635,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition QuarterstaffPlus2 { get; } =
             GetDefinition<ItemDefinition>("Quarterstaff+2");
 
+        internal static ItemDefinition QuarterstaffPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Quarterstaff+3");
+
         internal static ItemDefinition Rapier { get; } =
             GetDefinition<ItemDefinition>("Rapier");
 
@@ -12165,6 +13646,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition RapierPlus2 { get; } =
             GetDefinition<ItemDefinition>("Rapier+2");
+
+        internal static ItemDefinition RapierPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Rapier+3");
 
         internal static ItemDefinition RestorativeOintment { get; } =
             GetDefinition<ItemDefinition>("RestorativeOintment");
@@ -12181,8 +13665,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ringmail { get; } =
             GetDefinition<ItemDefinition>("Ringmail");
 
-        internal static ItemDefinition RingMightyStrength { get; } =
-            GetDefinition<ItemDefinition>("RingMightyStrength");
+        internal static ItemDefinition RingMightyStrength_DONOTUSE { get; } =
+            GetDefinition<ItemDefinition>("RingMightyStrength_DONOTUSE");
 
         internal static ItemDefinition RingOfColdResistance { get; } =
             GetDefinition<ItemDefinition>("RingOfColdResistance");
@@ -12226,8 +13710,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScaleMailPlus1 { get; } =
             GetDefinition<ItemDefinition>("ScaleMail+1");
 
+        internal static ItemDefinition ScaleMailPlus2 { get; } =
+            GetDefinition<ItemDefinition>("ScaleMail+2");
+
+        internal static ItemDefinition ScaleMailPlus3 { get; } =
+            GetDefinition<ItemDefinition>("ScaleMail+3");
+
         internal static ItemDefinition ScaleMailCleric { get; } =
             GetDefinition<ItemDefinition>("ScaleMailCleric");
+
+        internal static ItemDefinition ScaleMailCleric_Vigdis { get; } =
+            GetDefinition<ItemDefinition>("ScaleMailCleric_Vigdis");
 
         internal static ItemDefinition ScholarPack { get; } =
             GetDefinition<ItemDefinition>("ScholarPack");
@@ -12241,14 +13734,26 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScimitarPlus1 { get; } =
             GetDefinition<ItemDefinition>("Scimitar+1");
 
-        internal static ItemDefinition ScimitarOfSpeed { get; } =
-            GetDefinition<ItemDefinition>("ScimitarOfSpeed");
+        internal static ItemDefinition ScimitarPlus2 { get; } =
+            GetDefinition<ItemDefinition>("Scimitar+2");
+
+        internal static ItemDefinition ScimitarPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Scimitar+3");
+
+        internal static ItemDefinition ScimitarOfSpeed_DONOTUSE { get; } =
+            GetDefinition<ItemDefinition>("ScimitarOfSpeed_DONOTUSE");
 
         internal static ItemDefinition ScrollAcidArrow { get; } =
             GetDefinition<ItemDefinition>("ScrollAcidArrow");
 
         internal static ItemDefinition ScrollAnimalFriendship { get; } =
             GetDefinition<ItemDefinition>("ScrollAnimalFriendship");
+
+        internal static ItemDefinition ScrollAnimalShapes { get; } =
+            GetDefinition<ItemDefinition>("ScrollAnimalShapes");
+
+        internal static ItemDefinition ScrollArcaneSword { get; } =
+            GetDefinition<ItemDefinition>("ScrollArcaneSword");
 
         internal static ItemDefinition ScrollBane { get; } =
             GetDefinition<ItemDefinition>("ScrollBane");
@@ -12310,6 +13815,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollConjureAnimals { get; } =
             GetDefinition<ItemDefinition>("ScrollConjureAnimals");
 
+        internal static ItemDefinition ScrollConjureCelestial { get; } =
+            GetDefinition<ItemDefinition>("ScrollConjureCelestial");
+
         internal static ItemDefinition ScrollConjureElemental { get; } =
             GetDefinition<ItemDefinition>("ScrollConjureElemental");
 
@@ -12340,6 +13848,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollDeathward { get; } =
             GetDefinition<ItemDefinition>("ScrollDeathward");
 
+        internal static ItemDefinition ScrollDelayedBlastFireball { get; } =
+            GetDefinition<ItemDefinition>("ScrollDelayedBlastFireball");
+
         internal static ItemDefinition ScrollDetectEvilandGood { get; } =
             GetDefinition<ItemDefinition>("ScrollDetectEvilandGood");
 
@@ -12361,8 +13872,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollDispelMagic { get; } =
             GetDefinition<ItemDefinition>("ScrollDispelMagic");
 
+        internal static ItemDefinition ScrollDivineBlade { get; } =
+            GetDefinition<ItemDefinition>("ScrollDivineBlade");
+
+        internal static ItemDefinition ScrollDivineWord { get; } =
+            GetDefinition<ItemDefinition>("ScrollDivineWord");
+
+        internal static ItemDefinition ScrollDominateMonster { get; } =
+            GetDefinition<ItemDefinition>("ScrollDominateMonster");
+
         internal static ItemDefinition ScrollDominatePerson { get; } =
             GetDefinition<ItemDefinition>("ScrollDominatePerson");
+
+        internal static ItemDefinition ScrollDreadfulOmen { get; } =
+            GetDefinition<ItemDefinition>("ScrollDreadfulOmen");
+
+        internal static ItemDefinition ScrollEarthquake { get; } =
+            GetDefinition<ItemDefinition>("ScrollEarthquake");
 
         internal static ItemDefinition ScrollEntangle { get; } =
             GetDefinition<ItemDefinition>("ScrollEntangle");
@@ -12388,14 +13914,23 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollFeatherFall { get; } =
             GetDefinition<ItemDefinition>("ScrollFeatherFall");
 
+        internal static ItemDefinition ScrollFeeblemind { get; } =
+            GetDefinition<ItemDefinition>("ScrollFeeblemind");
+
         internal static ItemDefinition ScrollFindTraps { get; } =
             GetDefinition<ItemDefinition>("ScrollFindTraps");
+
+        internal static ItemDefinition ScrollFingerOfDeath { get; } =
+            GetDefinition<ItemDefinition>("ScrollFingerOfDeath");
 
         internal static ItemDefinition ScrollFireball { get; } =
             GetDefinition<ItemDefinition>("ScrollFireball");
 
         internal static ItemDefinition ScrollFireShield { get; } =
             GetDefinition<ItemDefinition>("ScrollFireShield");
+
+        internal static ItemDefinition ScrollFireStorm { get; } =
+            GetDefinition<ItemDefinition>("ScrollFireStorm");
 
         internal static ItemDefinition ScrollFlameblade { get; } =
             GetDefinition<ItemDefinition>("ScrollFlameblade");
@@ -12423,6 +13958,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ScrollGlobeOfInvulnerability { get; } =
             GetDefinition<ItemDefinition>("ScrollGlobeOfInvulnerability");
+
+        internal static ItemDefinition ScrollGravitySlam { get; } =
+            GetDefinition<ItemDefinition>("ScrollGravitySlam");
 
         internal static ItemDefinition ScrollGrease { get; } =
             GetDefinition<ItemDefinition>("ScrollGrease");
@@ -12454,11 +13992,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollHideousLaughter { get; } =
             GetDefinition<ItemDefinition>("ScrollHideousLaughter");
 
+        internal static ItemDefinition ScrollHilarity { get; } =
+            GetDefinition<ItemDefinition>("ScrollHilarity");
+
         internal static ItemDefinition ScrollHoldMonster { get; } =
             GetDefinition<ItemDefinition>("ScrollHoldMonster");
 
         internal static ItemDefinition ScrollHoldPerson { get; } =
             GetDefinition<ItemDefinition>("ScrollHoldPerson");
+
+        internal static ItemDefinition ScrollHolyAura { get; } =
+            GetDefinition<ItemDefinition>("ScrollHolyAura");
 
         internal static ItemDefinition ScrollHypnoticPattern { get; } =
             GetDefinition<ItemDefinition>("ScrollHypnoticPattern");
@@ -12468,6 +14012,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ScrollIdentify { get; } =
             GetDefinition<ItemDefinition>("ScrollIdentify");
+
+        internal static ItemDefinition ScrollIncendiaryCloud { get; } =
+            GetDefinition<ItemDefinition>("ScrollIncendiaryCloud");
 
         internal static ItemDefinition ScrollInflictWounds { get; } =
             GetDefinition<ItemDefinition>("ScrollInflictWounds");
@@ -12505,11 +14052,17 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollMagicWeapon { get; } =
             GetDefinition<ItemDefinition>("ScrollMagicWeapon");
 
+        internal static ItemDefinition ScrollMalediction { get; } =
+            GetDefinition<ItemDefinition>("ScrollMalediction");
+
         internal static ItemDefinition ScrollMassCureWounds { get; } =
             GetDefinition<ItemDefinition>("ScrollMassCureWounds");
 
         internal static ItemDefinition ScrollMassHealingWord { get; } =
             GetDefinition<ItemDefinition>("ScrollMassHealingWord");
+
+        internal static ItemDefinition ScrollMaze { get; } =
+            GetDefinition<ItemDefinition>("ScrollMaze");
 
         internal static ItemDefinition ScrollMindTwist { get; } =
             GetDefinition<ItemDefinition>("ScrollMindTwist");
@@ -12526,6 +14079,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollPhantasmalKiller { get; } =
             GetDefinition<ItemDefinition>("ScrollPhantasmalKiller");
 
+        internal static ItemDefinition ScrollPowerWordStun { get; } =
+            GetDefinition<ItemDefinition>("ScrollPowerWordStun");
+
+        internal static ItemDefinition ScrollPrismaticSpray { get; } =
+            GetDefinition<ItemDefinition>("ScrollPrismaticSpray");
+
         internal static ItemDefinition ScrollProtectionFromEnergy { get; } =
             GetDefinition<ItemDefinition>("ScrollProtectionFromEnergy");
 
@@ -12537,6 +14096,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ScrollRayOfEnfeeblement { get; } =
             GetDefinition<ItemDefinition>("ScrollRayOfEnfeeblement");
+
+        internal static ItemDefinition ScrollRegenerate { get; } =
+            GetDefinition<ItemDefinition>("ScrollRegenerate");
 
         internal static ItemDefinition ScrollRemoveCurse { get; } =
             GetDefinition<ItemDefinition>("ScrollRemoveCurse");
@@ -12574,6 +14136,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ScrollSlow { get; } =
             GetDefinition<ItemDefinition>("ScrollSlow");
 
+        internal static ItemDefinition ScrollSpellWard { get; } =
+            GetDefinition<ItemDefinition>("ScrollSpellWard");
+
         internal static ItemDefinition ScrollSpiderClimb { get; } =
             GetDefinition<ItemDefinition>("ScrollSpiderClimb");
 
@@ -12591,6 +14156,15 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ScrollSunbeam { get; } =
             GetDefinition<ItemDefinition>("ScrollSunbeam");
+
+        internal static ItemDefinition ScrollSunburst { get; } =
+            GetDefinition<ItemDefinition>("ScrollSunburst");
+
+        internal static ItemDefinition ScrollSymbol { get; } =
+            GetDefinition<ItemDefinition>("ScrollSymbol");
+
+        internal static ItemDefinition ScrollThunderstorm { get; } =
+            GetDefinition<ItemDefinition>("ScrollThunderstorm");
 
         internal static ItemDefinition ScrollThunderWave { get; } =
             GetDefinition<ItemDefinition>("ScrollThunderWave");
@@ -12661,6 +14235,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ShortbowPlus2 { get; } =
             GetDefinition<ItemDefinition>("Shortbow+2");
 
+        internal static ItemDefinition ShortbowPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Shortbow+3");
+
         internal static ItemDefinition Shortsword { get; } =
             GetDefinition<ItemDefinition>("Shortsword");
 
@@ -12672,6 +14249,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition ShortswordPlus2 { get; } =
             GetDefinition<ItemDefinition>("Shortsword+2");
+
+        internal static ItemDefinition ShortswordPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Shortsword+3");
 
         internal static ItemDefinition Sigil_Ring_Abjuration { get; } =
             GetDefinition<ItemDefinition>("Sigil_Ring_Abjuration");
@@ -12705,6 +14285,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition SpearPlus2 { get; } =
             GetDefinition<ItemDefinition>("Spear+2");
+
+        internal static ItemDefinition SpearPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Spear+3");
 
         internal static ItemDefinition Spellbook { get; } =
             GetDefinition<ItemDefinition>("Spellbook");
@@ -12775,8 +14358,14 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition StuddedLeather_plus_one { get; } =
             GetDefinition<ItemDefinition>("StuddedLeather_plus_one");
 
+        internal static ItemDefinition StuddedLeather_plus_three { get; } =
+            GetDefinition<ItemDefinition>("StuddedLeather_plus_three");
+
         internal static ItemDefinition StuddedLeather_plus_two { get; } =
             GetDefinition<ItemDefinition>("StuddedLeather_plus_two");
+
+        internal static ItemDefinition StuddedLeatherOfTheBlackMarsh { get; } =
+            GetDefinition<ItemDefinition>("StuddedLeatherOfTheBlackMarsh");
 
         internal static ItemDefinition Telema_Confiscation_letter { get; } =
             GetDefinition<ItemDefinition>("Telema_Confiscation_letter");
@@ -12840,6 +14429,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition Tirmarian_Greataxe { get; } =
             GetDefinition<ItemDefinition>("Tirmarian_Greataxe");
+
+        internal static ItemDefinition Tirmarian_Greataxe_NoQuest { get; } =
+            GetDefinition<ItemDefinition>("Tirmarian_Greataxe_NoQuest");
 
         internal static ItemDefinition Tome_Of_LeadershipAndInfluence { get; } =
             GetDefinition<ItemDefinition>("Tome_Of_LeadershipAndInfluence");
@@ -12949,6 +14541,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition WandOfWarMagePlus2 { get; } =
             GetDefinition<ItemDefinition>("WandOfWarMage+2");
 
+        internal static ItemDefinition WandOfWarMagePlus3 { get; } =
+            GetDefinition<ItemDefinition>("WandOfWarMage+3");
+
         internal static ItemDefinition WandOfWinter { get; } =
             GetDefinition<ItemDefinition>("WandOfWinter");
 
@@ -12963,6 +14558,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition WarhammerPlus2 { get; } =
             GetDefinition<ItemDefinition>("Warhammer+2");
+
+        internal static ItemDefinition WarhammerPlus3 { get; } =
+            GetDefinition<ItemDefinition>("Warhammer+3");
 
         internal static ItemDefinition Warlock_Armor { get; } =
             GetDefinition<ItemDefinition>("Warlock_Armor");
@@ -12985,14 +14583,17 @@ internal static partial class DatabaseHelper
         internal static ItemFlagDefinition ItemFlag_Corrosive { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Corrosive");
 
-        internal static ItemFlagDefinition ItemFlag_Dwarven_Weapon { get; } =
-            GetDefinition<ItemFlagDefinition>("ItemFlag_Dwarven_Weapon");
-
         internal static ItemFlagDefinition ItemFlag_Flaming { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Flaming");
 
         internal static ItemFlagDefinition ItemFlag_Flash { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Flash");
+
+        internal static ItemFlagDefinition ItemFlagDemonicGrease { get; } =
+            GetDefinition<ItemFlagDefinition>("ItemFlagDemonicGrease");
+
+        internal static ItemFlagDefinition ItemFlagDLC3_Dwarven_Weapon { get; } =
+            GetDefinition<ItemFlagDefinition>("ItemFlagDLC3_Dwarven_Weapon");
 
         internal static ItemFlagDefinition ItemFlagIngredient_Component { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlagIngredient_Component");
@@ -13594,11 +15195,17 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition CRX_MagicArmor_plus_2 { get; } =
             GetDefinition<LootPackDefinition>("CRX_MagicArmor_plus_2");
 
+        internal static LootPackDefinition CRX_MagicArmor_plus_3 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicArmor_plus_3");
+
         internal static LootPackDefinition CRX_MagicWeapon_plus_1 { get; } =
             GetDefinition<LootPackDefinition>("CRX_MagicWeapon_plus_1");
 
         internal static LootPackDefinition CRX_MagicWeapon_plus_2 { get; } =
             GetDefinition<LootPackDefinition>("CRX_MagicWeapon_plus_2");
+
+        internal static LootPackDefinition CRX_MagicWeapon_plus_3 { get; } =
+            GetDefinition<LootPackDefinition>("CRX_MagicWeapon_plus_3");
 
         internal static LootPackDefinition CRX_RandomAmmo { get; } =
             GetDefinition<LootPackDefinition>("CRX_RandomAmmo");
@@ -14269,6 +15876,601 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition DLC1_Valley_NPC_Telerien_Purevoice_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("DLC1_Valley_NPC_Telerien_Purevoice_Loot_Drop");
 
+        internal static LootPackDefinition DLC3_Ambush_Lootpack_Crate_Broken { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Ambush_Lootpack_Crate_Broken");
+
+        internal static LootPackDefinition DLC3_Bjorni_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Bjorni_loot_drop");
+
+        internal static LootPackDefinition DLC3_CaporalGallivan_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CaporalGallivan_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_CaptainAshdown_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CaptainAshdown_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_All { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_All");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Barbarian { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Barbarian");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Bard { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Bard");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Cleric { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Cleric");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Druid { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Druid");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Fighter { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Fighter");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Monk { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Monk");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Paladin { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Paladin");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Ranger { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Ranger");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Rogue { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Rogue");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Sorcerer { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Sorcerer");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Warlock { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Warlock");
+
+        internal static LootPackDefinition DLC3_Class_Lootpack_BasicChest_Wizard { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Class_Lootpack_BasicChest_Wizard");
+
+        internal static LootPackDefinition DLC3_CR0_LootPack_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR0_LootPack_A");
+
+        internal static LootPackDefinition DLC3_CR0_LootPack_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR0_LootPack_B");
+
+        internal static LootPackDefinition DLC3_CR1_LootPack_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR1_LootPack_A");
+
+        internal static LootPackDefinition DLC3_CR1_LootPack_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR1_LootPack_B");
+
+        internal static LootPackDefinition DLC3_CR2_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR2_LootPack");
+
+        internal static LootPackDefinition DLC3_CR3_LootPack_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR3_LootPack_A");
+
+        internal static LootPackDefinition DLC3_CR3_LootPack_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR3_LootPack_B");
+
+        internal static LootPackDefinition DLC3_CR4_LootPack_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR4_LootPack_A");
+
+        internal static LootPackDefinition DLC3_CR4_LootPack_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR4_LootPack_B");
+
+        internal static LootPackDefinition DLC3_CR4_LootPack_C { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR4_LootPack_C");
+
+        internal static LootPackDefinition DLC3_CR5_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CR5_LootPack");
+
+        internal static LootPackDefinition DLC3_CRX_LootPack_Library { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CRX_LootPack_Library");
+
+        internal static LootPackDefinition DLC3_CRX_LootPack_Mines { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CRX_LootPack_Mines");
+
+        internal static LootPackDefinition DLC3_CRX_LootPack_PrimedItems { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_CRX_LootPack_PrimedItems");
+
+        internal static LootPackDefinition DLC3_Cultist_Marksman_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Cultist_Marksman_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Healer { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Healer");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Melee { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Melee");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Nuker { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Nuker");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicChest_Range { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicChest_Range");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_01");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_02");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_03");
+
+        internal static LootPackDefinition DLC3_EIN_Lootpack_BasicContainer_Library_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_EIN_Lootpack_BasicContainer_Library_04");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Chest_Legendary_QuarterstafPurity { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Chest_Legendary_QuarterstafPurity");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Clue_03_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Clue_03_Lootpack");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Clue_04_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Clue_04_Lootpack");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Clue_05_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Clue_05_Lootpack");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Corpse_Legendary_GlitterJacket { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Corpse_Legendary_GlitterJacket");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Document_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Document_Lootpack");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Leralyn_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Leralyn_Lootpack");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_01");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_02");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_03_Suspect1 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_03_Suspect1");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_04_Suspect2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_04_Suspect2");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_05_Suspect3 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_05_Suspect3");
+
+        internal static LootPackDefinition DLC3_ElvenSettlement_Pickpocket_Clue_06_Suspect5 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlement_Pickpocket_Clue_06_Suspect5");
+
+        internal static LootPackDefinition DLC3_ElvenSettlements_DragonChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_ElvenSettlements_DragonChest");
+
+        internal static LootPackDefinition DLC3_Encounter_Candle_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Encounter_Candle_Lootpack");
+
+        internal static LootPackDefinition DLC3_Feral_Dragon_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Feral_Dragon_loot_drop");
+
+        internal static LootPackDefinition DLC3_Gallivan_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Archer_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Gallivan_Camp_Chest_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Camp_Chest_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Cleric_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Cleric_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_01_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_01_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_01_Pickpocketable { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_01_Pickpocketable");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_02_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_02_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_02_Pickpocketable { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_02_Pickpocketable");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_04_Pickpocketable { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_04_Pickpocketable");
+
+        internal static LootPackDefinition DLC3_Gallivan_Clue_05_Pickpocketable { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Clue_05_Pickpocketable");
+
+        internal static LootPackDefinition DLC3_Gallivan_Convoy_Basket_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Basket_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Convoy_Cart_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Cart_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Convoy_Pots_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Pots_Lootpack");
+
+        internal static LootPackDefinition DLC3_Gallivan_Convoy_Tomb_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Gallivan_Convoy_Tomb_Lootpack");
+
+        internal static LootPackDefinition DLC3_Garrad_Castle_Any_Loot_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Garrad_Castle_Any_Loot_01");
+
+        internal static LootPackDefinition DLC3_Garrad_Castle_WeaponsRack_Loot_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Garrad_Castle_WeaponsRack_Loot_02");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue1 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue1");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue2");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue3 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue3");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue4 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue4");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue5 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue5");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue6 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue6");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue7 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue7");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackClue8 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackClue8");
+
+        internal static LootPackDefinition DLC3_GarradsCastle_LootPackNoClue { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GarradsCastle_LootPackNoClue");
+
+        internal static LootPackDefinition DLC3_GeneralBlunt_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GeneralBlunt_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_GeneralGallivan_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_GeneralGallivan_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Giant_Fire_Attacker_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Giant_Fire_Attacker_WhiteCity_1_loot_drop");
+
+        internal static LootPackDefinition DLC3_HumanClan_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_HumanClan_Archer_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Bucket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Bucket_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Trunk_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Trunk_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_East_Lootpack_BasicContainer_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_East_Lootpack_BasicContainer_Weapon_Rack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicChest_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicChest_02_Legendary { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicChest_02_Legendary");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Basket_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Crate_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_BasicContainer_Library_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_DemonHideoutCrate01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_DemonHideoutCrate01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Keep_Lootpack_DemonHideoutCrate02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Keep_Lootpack_DemonHideoutCrate02");
+
+        internal static LootPackDefinition
+            DLC3_Kaupaa_Mines_Lootpack_BasicContainer_Chest_Legendary_Battleaxe_Skullcleaver { get; } =
+            GetDefinition<LootPackDefinition>(
+                "DLC3_Kaupaa_Mines_Lootpack_BasicContainer_Chest_Legendary_Battleaxe_Skullcleaver");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicChest_03");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Basket_Pack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Crate_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_DeadBody_Legendary_BlackMarsh
+        {
+            get;
+        } =
+            GetDefinition<LootPackDefinition>(
+                "DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_DeadBody_Legendary_BlackMarsh");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_JuteSack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Library_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_03 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_03");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_04 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_04");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_05 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Necropolis_Lootpack_BasicContainer_Tomb_05");
+
+        internal static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicChest_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicChest_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Barrel_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Cart_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Cart_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Library_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Library_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_South_Lootpack_BasicContainer_Weapon_Rack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_South_Lootpack_BasicContainer_Weapon_Rack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Barrel_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_Pack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Basket_Pack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Broken_Crate_02");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_Crate_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_01");
+
+        internal static LootPackDefinition DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Kaupaa_Stone_Lootpack_BasicContainer_JuteSack_02");
+
+        internal static LootPackDefinition DLC3_NPC_ElvenClans_FakeEstorgath_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_FakeEstorgath_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_NPC_ElvenClans_Greybear_Hunter_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_Greybear_Hunter_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_NPC_ElvenClans_Greybear_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_Greybear_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_NPC_ElvenClans_Guard_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_ElvenClans_Guard_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_NPC_GarradSoldier_Loot_Drop_nondetection { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_GarradSoldier_Loot_Drop_nondetection");
+
+        internal static LootPackDefinition DLC3_NPC_WhiteCity_Civilian_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_WhiteCity_Civilian_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_NPC_WhiteCity_Loot_Drop_nondetection { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_WhiteCity_Loot_Drop_nondetection");
+
+        internal static LootPackDefinition DLC3_NPC_WhiteCity_Soldier_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_NPC_WhiteCity_Soldier_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Onereia_Spectral_Dragon_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Onereia_Spectral_Dragon_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Elves_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Elves_Lootpack");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Hall_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Hall_01");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Hall_02 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Hall_02");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Human_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Human_Lootpack");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Northern_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Northern_Lootpack");
+
+        internal static LootPackDefinition DLC3_PalaceOfIce_Undermountain_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_PalaceOfIce_Undermountain_Lootpack");
+
+        internal static LootPackDefinition DLC3_Raider_Arcanist_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Arcanist_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Raider_Archer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Archer_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Raider_Archer_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Archer_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Raider_Shaman_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Shaman_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Raider_Sorcerer_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Sorcerer_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Raider_Sorcerer_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Sorcerer_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Raider_Warrior_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Warrior_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Raider_Warrior_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Raider_Warrior_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Telema_Hall_Corpse_Hanging_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Hall_Corpse_Hanging_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_Hall_Corpse_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Hall_Corpse_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_HighLab_HectorsBody_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_HighLab_HectorsBody_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_LowLabHell_Pyramidkey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabHell_Pyramidkey_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_LowLabNormal_Chest_RoundKey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabNormal_Chest_RoundKey_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_LowLabNormal_SquareKey_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_LowLabNormal_SquareKey_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_Outdoors_Basket_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_Outdoors_Basket_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_TreasureRoom_ArmorStand_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_ArmorStand_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_TreasureRoom_Chest01_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_Chest01_Lootpack");
+
+        internal static LootPackDefinition DLC3_Telema_TreasureRoom_Library_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Telema_TreasureRoom_Library_Lootpack");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Berghild_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Berghild_LootPack");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Crate_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Crate_LootPack");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Guard_02_LootDrop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Guard_02_LootDrop");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Guard_04_LootDrop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Guard_04_LootDrop");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Guard_04_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Guard_04_LootPack");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_Guard_06_LootPack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_Guard_06_LootPack");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_NoClue_LootPack2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_NoClue_LootPack2");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_NoClue_LootPack3 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_NoClue_LootPack3");
+
+        internal static LootPackDefinition DLC3_Undermountain_Investigation_NoClue_LootPack5 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Investigation_NoClue_LootPack5");
+
+        internal static LootPackDefinition DLC3_Undermountain_LavaTunnels_DeadBody_Legendary_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_LavaTunnels_DeadBody_Legendary_Lootpack");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Duelist_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Duelist_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Duelist_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Duelist_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Spellmaster_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Spellmaster_Loot_Drop");
+
+        internal static LootPackDefinition DLC3_Undermountain_PerlevinnGuard_Spellmaster_Stealable_Loot { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_PerlevinnGuard_Spellmaster_Stealable_Loot");
+
+        internal static LootPackDefinition DLC3_Undermountain_Quarry_BrigandsChief_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_Undermountain_Quarry_BrigandsChief_Lootpack");
+
+        internal static LootPackDefinition DLC3_UndermountainOutside_arrowScrolls_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_UndermountainOutside_arrowScrolls_Lootpack");
+
+        internal static LootPackDefinition DLC3_UndermountainOutside_FoodRation_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_UndermountainOutside_FoodRation_Lootpack");
+
+        internal static LootPackDefinition DLC3_WhiteCity_FrozenQuest_Lootpack_BasicContainer_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_FrozenQuest_Lootpack_BasicContainer_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Lootpack_Library_CentralClans { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Lootpack_Library_CentralClans");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Lootpack_Library_GormHouse_A { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Lootpack_Library_GormHouse_A");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Lootpack_Library_GormHouse_B { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Lootpack_Library_GormHouse_B");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Lootpack_Library_SouthernClans { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Lootpack_Library_SouthernClans");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Lootpack_SmallChest { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Lootpack_SmallChest");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue1 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue1");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue2 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue2");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue4 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue4");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue5 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue5");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue6 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue6");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue7 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue7");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackClue8 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackClue8");
+
+        internal static LootPackDefinition DLC3_WhiteCity_LootPackNoClue { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_LootPackNoClue");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Possessed_Giants_ClanTrophy_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Possessed_Giants_ClanTrophy_Lootpack");
+
+        internal static LootPackDefinition DLC3_WhiteCity_Possessed_Giants_Legendary_DeadBody_Lootpack { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_Possessed_Giants_Legendary_DeadBody_Lootpack");
+
+        internal static LootPackDefinition
+            DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Broken_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Broken_Crate_01");
+
+        internal static LootPackDefinition DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Crate_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Crate_01");
+
+        internal static LootPackDefinition DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Shelf_01 { get; } =
+            GetDefinition<LootPackDefinition>("DLC3_WhiteCity_TrapperQuest_Lootpack_BasicContainer_Shelf_01");
+
         internal static LootPackDefinition Dropped_Gear_DLC1_Bodyguard { get; } =
             GetDefinition<LootPackDefinition>("Dropped_Gear_DLC1_Bodyguard");
 
@@ -14380,9 +16582,6 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition Evocation_Loot_test { get; } =
             GetDefinition<LootPackDefinition>("Evocation_Loot_test");
 
-        internal static LootPackDefinition Feral_Dragon_loot_drop { get; } =
-            GetDefinition<LootPackDefinition>("Feral_Dragon_loot_drop");
-
         internal static LootPackDefinition Fire_Elemental_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Fire_Elemental_loot_drop");
 
@@ -14406,9 +16605,6 @@ internal static partial class DatabaseHelper
 
         internal static LootPackDefinition Giant_Crow_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Crow_loot_drop");
-
-        internal static LootPackDefinition Giant_Fire_Attacker_WhiteCity_1_loot_drop { get; } =
-            GetDefinition<LootPackDefinition>("Giant_Fire_Attacker_WhiteCity_1_loot_drop");
 
         internal static LootPackDefinition Giant_Fire_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Fire_loot_drop");
@@ -14722,9 +16918,6 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition NPC_Aksha_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("NPC_Aksha_Loot_Drop");
 
-        internal static LootPackDefinition NPC_GarradSoldier_Loot_Drop_nondetection { get; } =
-            GetDefinition<LootPackDefinition>("NPC_GarradSoldier_Loot_Drop_nondetection");
-
         internal static LootPackDefinition NPC_Highwayman_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("NPC_Highwayman_loot_drop");
 
@@ -14739,9 +16932,6 @@ internal static partial class DatabaseHelper
 
         internal static LootPackDefinition Ogre_Zombie_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Ogre_Zombie_loot_drop");
-
-        internal static LootPackDefinition Onereia_Spectral_Dragon_Loot_Drop { get; } =
-            GetDefinition<LootPackDefinition>("Onereia_Spectral_Dragon_Loot_Drop");
 
         internal static LootPackDefinition Orc_Archer_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Orc_Archer_loot_drop");
@@ -14805,6 +16995,9 @@ internal static partial class DatabaseHelper
 
         internal static LootPackDefinition Sessroth_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Sessroth_loot_drop");
+
+        internal static LootPackDefinition Sessroth_loot_drop2 { get; } =
+            GetDefinition<LootPackDefinition>("Sessroth_loot_drop2");
 
         internal static LootPackDefinition Shambling_Mound_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("Shambling_Mound_Loot_Drop");
@@ -14884,6 +17077,12 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition SRD_Cult_Fanatic_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("SRD_Cult_Fanatic_loot_drop");
 
+        internal static LootPackDefinition SRD_DLC3_Archmage_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_DLC3_Archmage_loot_drop");
+
+        internal static LootPackDefinition SRD_DLC3_Knight_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("SRD_DLC3_Knight_loot_drop");
+
         internal static LootPackDefinition SRD_Mage_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("SRD_Mage_loot_drop");
 
@@ -14940,6 +17139,9 @@ internal static partial class DatabaseHelper
 
         internal static LootPackDefinition TEST_LOOTPACK_DOCUMENTS_ALL { get; } =
             GetDefinition<LootPackDefinition>("TEST_LOOTPACK_DOCUMENTS_ALL");
+
+        internal static LootPackDefinition TEST_LOOTPACK_FROST { get; } =
+            GetDefinition<LootPackDefinition>("TEST_LOOTPACK_FROST");
 
         internal static LootPackDefinition TEST_LOOTPACK_WEAPONSS_ALL { get; } =
             GetDefinition<LootPackDefinition>("TEST_LOOTPACK_WEAPONSS_ALL");
@@ -15151,6 +17353,93 @@ internal static partial class DatabaseHelper
         internal static MerchantDefinition Store_Merchant_DLC1_Yasmin { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DLC1_Yasmin");
 
+        internal static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_General { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_General");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_Ingredients");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_EINAREUM_NPC_Weapons { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_EINAREUM_NPC_Weapons");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_ElfShopOwner { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_ElfShopOwner");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_ElvenSettlement_Merchant { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_ElvenSettlement_Merchant");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_GallivanBorder_Merchant { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_GallivanBorder_Merchant");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_Grimhild { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Grimhild");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_ClanHouse { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_ClanHouse");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_General { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_General");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_General_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_General_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Ingredients");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Ingredients_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Ingredients_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Scavenger { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Scavenger");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Scavenger_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Scavenger_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Weapons { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Weapons");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_KAUPAA_NPC_Weapons_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_KAUPAA_NPC_Weapons_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_Lena { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Lena");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_Lena_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Lena_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_Undermountain_Merchant { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_Undermountain_Merchant");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Central_Clan { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Central_Clan");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Eastern_Clan { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Eastern_Clan");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_General { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_General");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Ingredients");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Northern_Clan { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Northern_Clan");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Scavenger { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Scavenger");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Scavenger_Final { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Scavenger_Final");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Southern_Clan { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Southern_Clan");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Weapons { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Weapons");
+
+        internal static MerchantDefinition Store_Merchant_DLC3_WhiteCity_NPC_Western_Clan { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DLC3_WhiteCity_NPC_Western_Clan");
+
         internal static MerchantDefinition Store_Merchant_DM_Armorer { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DM_Armorer");
 
@@ -15160,8 +17449,20 @@ internal static partial class DatabaseHelper
         internal static MerchantDefinition Store_Merchant_DM_GeneralStore { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DM_GeneralStore");
 
+        internal static MerchantDefinition Store_Merchant_DM_Ingredients { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DM_Ingredients");
+
         internal static MerchantDefinition Store_Merchant_DM_MagicalItems { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DM_MagicalItems");
+
+        internal static MerchantDefinition Store_Merchant_DM_MagicSmithPlus1 { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DM_MagicSmith+1");
+
+        internal static MerchantDefinition Store_Merchant_DM_Scavenger { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DM_Scavenger");
+
+        internal static MerchantDefinition Store_Merchant_DM_WanderingMerchant { get; } =
+            GetDefinition<MerchantDefinition>("Store_Merchant_DM_WanderingMerchant");
 
         internal static MerchantDefinition Store_Merchant_DM_Weaponsmith { get; } =
             GetDefinition<MerchantDefinition>("Store_Merchant_DM_Weaponsmith");
@@ -15228,6 +17529,9 @@ internal static partial class DatabaseHelper
 
         internal static MetamagicOptionDefinition MetamagicQuickenedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicQuickenedSpell");
+
+        internal static MetamagicOptionDefinition MetamagicSubtleSpell { get; } =
+            GetDefinition<MetamagicOptionDefinition>("MetamagicSubtleSpell");
 
         internal static MetamagicOptionDefinition MetamagicTwinnedSpell { get; } =
             GetDefinition<MetamagicOptionDefinition>("MetamagicTwinnedSpell");
@@ -15583,6 +17887,233 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_DLC1_Trainer_Staff { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_DLC1_Trainer_Staff");
 
+        internal static MonsterAttackDefinition Attack_DLC3_Archer_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Archer_Longbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Archer_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Archer_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Archmage_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Archmage_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Ashdown_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Ashdown_Sword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_BanditCaptain_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_BanditCaptain_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_DLC3_BanditCaptain_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_BanditCaptain_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Beryl_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Beryl_Hammer");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Cultist_Marksman_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Cultist_Marksman_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_CultistMarksman_LightCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_CultistMarksman_LightCrossbow");
+
+        internal static MonsterAttackDefinition
+            Attack_DLC3_DLC3_Undermountain_PerlevinnGuard_Duelist_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_DLC3_Undermountain_PerlevinnGuard_Duelist_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Dragonborn_Intermediate_Scimitar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Dragonborn_Intermediate_Scimitar");
+
+        internal static MonsterAttackDefinition Attack_DLC3_EldInnOwner_Bow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_EldInnOwner_Bow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElfShopOwner_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElfShopOwner_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElvenClan_Greybear_Hunter_Rapier { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElvenClan_Greybear_Hunter_Rapier");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElvenClan_Greybear_Hunter_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElvenClan_Greybear_Hunter_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElvenClan_Greybear_Rapier { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElvenClan_Greybear_Rapier");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElvenClan_Greybear_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElvenClan_Greybear_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_ElvenSettlementGuard_Thinblade { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_ElvenSettlementGuard_Thinblade");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Gallivan_Cleric_Mace { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Gallivan_Cleric_Mace");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Gallivan_Soldier_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Gallivan_Soldier_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GallivanArcher_Longbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanArcher_Longbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GallivanArcher_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanArcher_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GallivanCaporal_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanCaporal_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GallivanCaporal_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanCaporal_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GallivanSoldier_Spear { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GallivanSoldier_Spear");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Garrad_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Garrad_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Garrad_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_GeneralGallivan_Greataxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_GeneralGallivan_Greataxe");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Guard_Captain_Elven_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Guard_Captain_Elven_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Guard_Captain_Elven_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Guard_Captain_Elven_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_HumanClan_Archer_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Archer_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_HumanClan_Archer_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Archer_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_HumanClan_Marksman_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Marksman_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_HumanClan_Marksman_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_HumanClan_Marksman_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Kara_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Kara_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Kaupa_Miner_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Kaupa_Miner_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Kaupaa_Miner_Maul { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Kaupaa_Miner_Maul");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Knight_Greatsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Knight_Greatsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Knight_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Knight_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Marduk_BattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Marduk_BattleAxe");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Marduk_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Marduk_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Misouk_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Misouk_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Misouk_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Misouk_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Misouk_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Misouk_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_MountainDruid_Quarterstaff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_MountainDruid_Quarterstaff");
+
+        internal static MonsterAttackDefinition Attack_DLC3_NPC_WhiteCity_Civilian_01_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_NPC_WhiteCity_Civilian_01_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_NPC_WhiteCity_Civilian_01_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_NPC_WhiteCity_Civilian_01_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Arcanist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Arcanist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Archer_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Archer_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Archer_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Archer_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Shaman_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Shaman_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Sorcerer_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Sorcerer_Staff");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Warrior_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Warrior_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Raider_Warrior_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Raider_Warrior_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Rolf_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Rolf_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Rolf_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Rolf_Hammer");
+
+        internal static MonsterAttackDefinition Attack_DLC3_SouthernClanSoldierBattleAxe { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_SouthernClanSoldierBattleAxe");
+
+        internal static MonsterAttackDefinition Attack_DLC3_SouthernClanSoldierCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_SouthernClanSoldierCrossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_Investigation_Berghild_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_Investigation_Berghild_Longsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_Investigation_Guard_Greatsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_Investigation_Guard_Greatsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_Investigation_Guard_HeavyCrossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_Investigation_Guard_HeavyCrossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_Investigation_Guard_Shortsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_Investigation_Guard_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_Investigation_Guard_Spear { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_Investigation_Guard_Spear");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PerlevinnGuard_Duelist_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PerlevinnGuard_Duelist_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PerlevinnGuard_Duelist_Longsword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PerlevinnGuard_Duelist_Longsword");
+
+        internal static MonsterAttackDefinition
+            Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortsword
+        {
+            get;
+        } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PerlevinnGuard_Sharpshooter_Shortsword");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PerlevinnGuard_Spellmaster_Staff { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PerlevinnGuard_Spellmaster_Staff");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PernnelevinGuard_Dagger { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PernnelevinGuard_Dagger");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Undermountain_PernnelevinGuard_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Undermountain_PernnelevinGuard_Morningstar");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Vigdis_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Vigdis_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_Vigdis_Hammer { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_Vigdis_Hammer");
+
+        internal static MonsterAttackDefinition Attack_DLC3_YoungDwarf_Crossbow { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_YoungDwarf_Crossbow");
+
+        internal static MonsterAttackDefinition Attack_DLC3_YoungDwarf_Morningstar { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_DLC3_YoungDwarf_Morningstar");
+
         internal static MonsterAttackDefinition Attack_EagleMatriarch_Talons { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_EagleMatriarch_Talons");
 
@@ -15699,6 +18230,12 @@ internal static partial class DatabaseHelper
 
         internal static MonsterAttackDefinition Attack_Giant_Ape_Toss_Rock { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Giant_Ape_Toss_Rock");
+
+        internal static MonsterAttackDefinition Attack_Giant_Fire_Bjorni { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Fire_Bjorni");
+
+        internal static MonsterAttackDefinition Attack_Giant_Fire_Bjorni_Sword { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Giant_Fire_Bjorni_Sword");
 
         internal static MonsterAttackDefinition Attack_Giant_Fire_Rock { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Giant_Fire_Rock");
@@ -15901,6 +18438,9 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Lisbath_Crossbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Crossbow");
 
+        internal static MonsterAttackDefinition Attack_Lisbath_Shortsword_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Shortsword_DLC3");
+
         internal static MonsterAttackDefinition Attack_Lisbath_Sword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Lisbath_Sword");
 
@@ -15912,9 +18452,6 @@ internal static partial class DatabaseHelper
 
         internal static MonsterAttackDefinition Attack_Marilith_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Longsword");
-
-        internal static MonsterAttackDefinition Attack_Marilith_Tail { get; } =
-            GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail");
 
         internal static MonsterAttackDefinition Attack_Melek_Longbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Melek_Longbow");
@@ -16111,6 +18648,9 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Robar_Sword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Robar_Sword");
 
+        internal static MonsterAttackDefinition Attack_Robar_Sword_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Robar_Sword_DLC3");
+
         internal static MonsterAttackDefinition Attack_Rodric_Scimitar { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Rodric_Scimitar");
 
@@ -16189,6 +18729,9 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Sorr_Akkath_Devastator_Claw { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Devastator_Claw");
 
+        internal static MonsterAttackDefinition Attack_Sorr_Akkath_DLC3_SorrTarr_Avatar_Poisoned_Spine { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_DLC3_SorrTarr_Avatar_Poisoned_Spine");
+
         internal static MonsterAttackDefinition Attack_Sorr_Akkath_Harasser_Poisoned_Spine { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Akkath_Harasser_Poisoned_Spine");
 
@@ -16240,14 +18783,14 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Sorr_Tarr_Avatar_Shrieker { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Tarr_Avatar_Shrieker");
 
-        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Bite { get; } =
-            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Bite_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite_DLC3");
 
-        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Claw { get; } =
-            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Claw_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw_DLC3");
 
-        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Tail { get; } =
-            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Tail_DLC3 { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail_DLC3");
 
         internal static MonsterAttackDefinition Attack_Spectral_Spider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Spider_Bite");
@@ -16590,6 +19133,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition BadlandsBear { get; } =
             GetDefinition<MonsterDefinition>("BadlandsBear");
+
+        internal static MonsterDefinition BadlandsBear_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("BadlandsBear_POI_ONLY");
 
         internal static MonsterDefinition BadlandsSpider { get; } =
             GetDefinition<MonsterDefinition>("BadlandsSpider");
@@ -17185,6 +19731,711 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition DLC1_Valley_NPC_Telerien_Purevoice { get; } =
             GetDefinition<MonsterDefinition>("DLC1_Valley_NPC_Telerien_Purevoice");
 
+        internal static MonsterDefinition DLC3_Bandit_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Bandit_Archer");
+
+        internal static MonsterDefinition DLC3_Berghild_StrongSpine { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Berghild_StrongSpine");
+
+        internal static MonsterDefinition DLC3_Beryl_Stonebeard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Beryl_Stonebeard");
+
+        internal static MonsterDefinition DLC3_Brodir_SteelHeart { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Brodir_SteelHeart");
+
+        internal static MonsterDefinition DLC3_Council_Trooper_1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_1");
+
+        internal static MonsterDefinition DLC3_Council_Trooper_2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_2");
+
+        internal static MonsterDefinition DLC3_Council_Trooper_3 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Council_Trooper_3");
+
+        internal static MonsterDefinition DLC3_Dwarf_Refugee_1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Dwarf_Refugee_1");
+
+        internal static MonsterDefinition DLC3_Dwarf_Refugee_2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Dwarf_Refugee_2");
+
+        internal static MonsterDefinition DLC3_Dwarf_Refugee_3 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Dwarf_Refugee_3");
+
+        internal static MonsterDefinition DLC3_Elven_06_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_06_Guard");
+
+        internal static MonsterDefinition DLC3_Elven_07_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_07_Guard");
+
+        internal static MonsterDefinition DLC3_Elven_Informant_Civilian_04 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Informant_Civilian_04");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_01_InnOwner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_01_InnOwner");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_02_ShopOwner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_02_ShopOwner");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_03_Civilian { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_03_Civilian");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_04_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_04_Guard");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_05_Guard_Traitor { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_05_Guard_Traitor");
+
+        internal static MonsterDefinition DLC3_Elven_Suspect_05_Guard_Traitor_Incubus_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Elven_Suspect_05_Guard_Traitor_Incubus_Revealed");
+
+        internal static MonsterDefinition DLC3_ElvenClans_DragonbornIntermediate { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_DragonbornIntermediate");
+
+        internal static MonsterDefinition DLC3_ElvenClans_DragonbornPalace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_DragonbornPalace");
+
+        internal static MonsterDefinition DLC3_ElvenClans_ElfAdvisor1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfAdvisor1");
+
+        internal static MonsterDefinition DLC3_ElvenClans_ElfAdvisor2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfAdvisor2");
+
+        internal static MonsterDefinition DLC3_ElvenClans_ElfRepresentative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfRepresentative");
+
+        internal static MonsterDefinition DLC3_ElvenClans_ElfRepresentativePalace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfRepresentativePalace");
+
+        internal static MonsterDefinition DLC3_ElvenClans_ElfTraitor { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_ElfTraitor");
+
+        internal static MonsterDefinition DLC3_ElvenClans_Estorgath { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Estorgath");
+
+        internal static MonsterDefinition DLC3_ElvenClans_FakeEstorgath { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_FakeEstorgath");
+
+        internal static MonsterDefinition DLC3_ElvenClans_Leralyn { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_ElvenClans_Leralyn");
+
+        internal static MonsterDefinition DLC3_Ending_Ceiwad_Silverflower { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Ending_Ceiwad_Silverflower");
+
+        internal static MonsterDefinition DLC3_EttivenGuard_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_EttivenGuard_Palace");
+
+        internal static MonsterDefinition DLC3_Gallivan_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Archer");
+
+        internal static MonsterDefinition DLC3_Gallivan_Caporal { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Caporal");
+
+        internal static MonsterDefinition DLC3_Gallivan_Cleric { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Cleric");
+
+        internal static MonsterDefinition DLC3_Gallivan_ConvoyChief { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_ConvoyChief");
+
+        internal static MonsterDefinition DLC3_Gallivan_Druid { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Druid");
+
+        internal static MonsterDefinition DLC3_Gallivan_Elite_RogueShadowCaster { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Elite_RogueShadowCaster");
+
+        internal static MonsterDefinition DLC3_Gallivan_Elite_Soldier { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Elite_Soldier");
+
+        internal static MonsterDefinition DLC3_Gallivan_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_General");
+
+        internal static MonsterDefinition DLC3_Gallivan_Informant { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Informant");
+
+        internal static MonsterDefinition DLC3_Gallivan_Mage { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Mage");
+
+        internal static MonsterDefinition DLC3_Gallivan_Royals_TheCousin { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheCousin");
+
+        internal static MonsterDefinition DLC3_Gallivan_Royals_TheHeir { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheHeir");
+
+        internal static MonsterDefinition DLC3_Gallivan_Royals_TheKing { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheKing");
+
+        internal static MonsterDefinition DLC3_Gallivan_Royals_TheQueen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Royals_TheQueen");
+
+        internal static MonsterDefinition DLC3_Gallivan_Soldier { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Soldier");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect_Traitor_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect_Traitor_Revealed");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect01 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect01");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect02");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect03");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect04 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect04");
+
+        internal static MonsterDefinition DLC3_Gallivan_Suspect05 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gallivan_Suspect05");
+
+        internal static MonsterDefinition DLC3_Garrad_Miles { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Garrad_Miles");
+
+        internal static MonsterDefinition DLC3_GarradSoldier_Traitor_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier_Traitor_Revealed");
+
+        internal static MonsterDefinition DLC3_GarradSoldier02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier02");
+
+        internal static MonsterDefinition DLC3_GarradSoldier03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier03");
+
+        internal static MonsterDefinition DLC3_GarradSoldier06 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier06");
+
+        internal static MonsterDefinition DLC3_GarradSoldier08 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier08");
+
+        internal static MonsterDefinition DLC3_GarradSoldier0A { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier0A");
+
+        internal static MonsterDefinition DLC3_GarradSoldier0B { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier0B");
+
+        internal static MonsterDefinition DLC3_GarradSoldier0C { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier0C");
+
+        internal static MonsterDefinition DLC3_GarradSoldier0D { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_GarradSoldier0D");
+
+        internal static MonsterDefinition DLC3_Gatekeeper { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gatekeeper");
+
+        internal static MonsterDefinition DLC3_Giant_Fire_Attacker_WhiteCity_1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Giant_Fire_Attacker_WhiteCity_1");
+
+        internal static MonsterDefinition DLC3_Gilmar_Goldentongue { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gilmar_Goldentongue");
+
+        internal static MonsterDefinition DLC3_Gilmar_Goldentongue_Nocontrol { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gilmar_Goldentongue_Nocontrol");
+
+        internal static MonsterDefinition DLC3_Gilmar_Goldentongue_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Gilmar_Goldentongue_Palace");
+
+        internal static MonsterDefinition DLC3_Grimhild_DarkHead { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Grimhild_DarkHead");
+
+        internal static MonsterDefinition DLC3_HumanClans_Emissary { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_HumanClans_Emissary");
+
+        internal static MonsterDefinition DLC3_HumanClans_Prisoners { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_HumanClans_Prisoners");
+
+        internal static MonsterDefinition DLC3_HumanClans_Prisoners2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_HumanClans_Prisoners2");
+
+        internal static MonsterDefinition DLC3_Kara_WiseHead { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Kara_WiseHead");
+
+        internal static MonsterDefinition DLC3_Kara_WiseHead_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Kara_WiseHead_Palace");
+
+        internal static MonsterDefinition DLC3_Kara_WiseHead_Return { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Kara_WiseHead_Return");
+
+        internal static MonsterDefinition DLC3_Lena_Switfhand { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Lena_Switfhand");
+
+        internal static MonsterDefinition DLC3_Lisbath_Townsend { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Lisbath_Townsend");
+
+        internal static MonsterDefinition DLC3_Lisbath_Townsend_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Lisbath_Townsend_Palace");
+
+        internal static MonsterDefinition DLC3_Misouk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Misouk");
+
+        internal static MonsterDefinition DLC3_MountainDruid { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_MountainDruid");
+
+        internal static MonsterDefinition DLC3_NPC_Avatar_Of_Sorr_Tarr { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Avatar_Of_Sorr-Tarr");
+
+        internal static MonsterDefinition DLC3_NPC_Crowd7_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Crowd7_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_Crowd8_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Crowd8_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_Cultist_Arcanist { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Arcanist");
+
+        internal static MonsterDefinition DLC3_NPC_Cultist_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Archer");
+
+        internal static MonsterDefinition DLC3_NPC_Cultist_Brute { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Cultist_Brute");
+
+        internal static MonsterDefinition DLC3_NPC_CultistMarksman { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_CultistMarksman");
+
+        internal static MonsterDefinition DLC3_NPC_Einareum_Merchant_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_General");
+
+        internal static MonsterDefinition DLC3_NPC_Einareum_Merchant_Ingredients { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_Ingredients");
+
+        internal static MonsterDefinition DLC3_NPC_Einareum_Merchant_Weapons { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Einareum_Merchant_Weapons");
+
+        internal static MonsterDefinition DLC3_NPC_Elven3_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Elven3_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_Elven5_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Elven5_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Civilian_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Civilian_Unique { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian_Unique");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Civilian1 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian1");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Civilian2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian2");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Civilian3 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Civilian3");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_CivilianGeneric { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_CivilianGeneric");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Greybear { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Greybear");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Greybear_Hunter { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Greybear_Hunter");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Greybear_HunterCS { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Greybear_HunterCS");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Greybear_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Greybear_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Guard");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_Guard_Unique { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_Guard_Unique");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_GuardCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_GuardCaptain");
+
+        internal static MonsterDefinition DLC3_NPC_ElvenClans_GuardPalace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_ElvenClans_GuardPalace");
+
+        internal static MonsterDefinition DLC3_NPC_Gallivan_Merchant_EasternClans { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Gallivan_Merchant_EasternClans");
+
+        internal static MonsterDefinition DLC3_NPC_Garrad_Stableboy { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Garrad_Stableboy");
+
+        internal static MonsterDefinition DLC3_NPC_Generic_ElvenCitizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Generic_ElvenCitizen_Husk");
+
+        internal static MonsterDefinition DLC3_NPC_GenericScavengerScout { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_GenericScavengerScout");
+
+        internal static MonsterDefinition DLC3_NPC_Giant_Bjorni { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Giant_Bjorni");
+
+        internal static MonsterDefinition DLC3_NPC_Giant_Bjorni_CS { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Giant_Bjorni_CS");
+
+        internal static MonsterDefinition DLC3_NPC_Helia_Fairblade { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Helia_Fairblade");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Archer");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Guard");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Guard_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Guard_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_GuardElite { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_GuardElite");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Marksman { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Marksman");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Representative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Representative");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans_Representative_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans_Representative_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans1_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans1_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClans2_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClans2_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansCaporal { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansCaporal_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansCaporal_Narrator { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal_Narrator");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansCaporal_nocontrol { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal_nocontrol");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansCaporal_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansCaporal_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansLeader { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansLeader");
+
+        internal static MonsterDefinition DLC3_NPC_HumanClansLeader_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_HumanClansLeader_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_Narrator_DLC3_Ending { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Narrator_DLC3_Ending");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_noControl { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_noControl");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Son { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Son");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Leader_Son_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Leader_Son_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_CentralClans { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_CentralClans");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_EasternClans { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_EasternClans");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_General");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_Ingredients { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_Ingredients");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_Scavenger { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_Scavenger");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Merchant_Weapons { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Merchant_Weapons");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Representative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Representative");
+
+        internal static MonsterDefinition DLC3_NPC_NorthernClans_Representative_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_NorthernClans_Representative_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_Raider_Arcanist { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Raider_Arcanist");
+
+        internal static MonsterDefinition DLC3_NPC_Raider_Archer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Raider_Archer");
+
+        internal static MonsterDefinition DLC3_NPC_Raider_Shaman { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Raider_Shaman");
+
+        internal static MonsterDefinition DLC3_NPC_Raider_Sorcerer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Raider_Sorcerer");
+
+        internal static MonsterDefinition DLC3_NPC_Raider_Warrior { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_Raider_Warrior");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Brother_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Brother_Kaikonnen");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Butler { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Butler");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Caretaker { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Caretaker");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Cousin_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Cousin_Kaikonnen");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Generic_Citizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Generic_Citizen_Husk");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Generic_Cousin_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Generic_Cousin_Husk");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Generic_Guard_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Generic_Guard_Husk");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Guard_Ambush { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_Ambush");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Guard_City { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_City");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Guard_City_Quest { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Guard_City_Quest");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_GuardCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_GuardCaptain");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Incubus_Butler { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Incubus_Butler");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Incubus_Butler_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Incubus_Butler_Revealed");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Informant_City_Quest { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Informant_City_Quest");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Innkeeper { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Innkeeper");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Clan { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Clan");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_General { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_General");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Ingredients { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Ingredients");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Scavenger { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Scavenger");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Merchant_Weapons { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Merchant_Weapons");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Miner { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Miner");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Miner_Quest { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Miner_Quest");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Representative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Representative");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Traitor { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Traitor");
+
+        internal static MonsterDefinition DLC3_NPC_SouthernClans_Uncle_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_SouthernClans_Uncle_Kaikonnen");
+
+        internal static MonsterDefinition DLC3_NPC_UndermountainClans_Representative { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_UndermountainClans_Representative");
+
+        internal static MonsterDefinition DLC3_NPC_UndermountainClans_Representative_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_UndermountainClans_Representative_Palace");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Citizen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Citizen");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Civilian_01 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Civilian_01");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Civilian_01_Infiltrator { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Civilian_01_Infiltrator");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Gorn { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Gorn");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Guard_Captain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Guard_Captain");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Guard_City { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Guard_City");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Innkeeper { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Innkeeper");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Trapper_Family_01 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Trapper_Family_01");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Trapper_Family_02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Trapper_Family_02");
+
+        internal static MonsterDefinition DLC3_NPC_WhiteCity_Trapper_Family_03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_NPC_WhiteCity_Trapper_Family_03");
+
+        internal static MonsterDefinition DLC3_PeaksAbomination_Leader { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksAbomination_Leader");
+
+        internal static MonsterDefinition DLC3_PeaksAbomination_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksAbomination_MonsterDefinition");
+
+        internal static MonsterDefinition DLC3_PeaksTerror_CS_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksTerror_CS_MonsterDefinition");
+
+        internal static MonsterDefinition DLC3_PeaksTerror_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_PeaksTerror_MonsterDefinition");
+
+        internal static MonsterDefinition DLC3_Rhuad_Switfhand { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Rhuad_Switfhand");
+
+        internal static MonsterDefinition DLC3_Robar_Sharp { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Robar_Sharp");
+
+        internal static MonsterDefinition DLC3_Robar_Sharp_Palace { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Robar_Sharp_Palace");
+
+        internal static MonsterDefinition DLC3_Tamed_Winter_Wolf { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Tamed_Winter_Wolf");
+
+        internal static MonsterDefinition DLC3_Undercover_Heddlon_Surespell { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undercover_Heddlon_Surespell");
+
+        internal static MonsterDefinition DLC3_Undermountain_BanditCaptain { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_BanditCaptain");
+
+        internal static MonsterDefinition DLC3_Undermountain_Citizen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen");
+
+        internal static MonsterDefinition DLC3_Undermountain_Citizen_Beasts { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Beasts");
+
+        internal static MonsterDefinition DLC3_Undermountain_Citizen_Husk { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Husk");
+
+        internal static MonsterDefinition DLC3_Undermountain_Citizen_Quarry { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_Quarry");
+
+        internal static MonsterDefinition DLC3_Undermountain_Citizen_QuarryCrier { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Citizen_QuarryCrier");
+
+        internal static MonsterDefinition DLC3_Undermountain_EttivenGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_EttivenGuard");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard02");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard03");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard04 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard04");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard04_Infiltrator_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard04_Infiltrator_Revealed");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard05 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard05");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Guard06 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Guard06");
+
+        internal static MonsterDefinition DLC3_Undermountain_Investigation_Informant { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_Investigation_Informant");
+
+        internal static MonsterDefinition DLC3_Undermountain_NeutralGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_NeutralGuard");
+
+        internal static MonsterDefinition DLC3_Undermountain_NeutralGuard_Wounded { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_NeutralGuard_Wounded");
+
+        internal static MonsterDefinition DLC3_Undermountain_NeutralGuard_Wounded_Simple { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_NeutralGuard_Wounded_Simple");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard_Banter { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard_Banter");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard_Duelist { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard_Duelist");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard_Duelist2 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard_Duelist2");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard_Sharpshooter { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard_Sharpshooter");
+
+        internal static MonsterDefinition DLC3_Undermountain_PerlevinnGuard_Spellmaster { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_PerlevinnGuard_Spellmaster");
+
+        internal static MonsterDefinition DLC3_Undermountain_UndercoverGuard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Undermountain_UndercoverGuard");
+
+        internal static MonsterDefinition DLC3_Valdi_BoldHand { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Valdi_BoldHand");
+
+        internal static MonsterDefinition DLC3_Venerable_WhiteDragon_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Venerable_WhiteDragon_MonsterDefinition");
+
+        internal static MonsterDefinition DLC3_Vigdis_Kaikonnen { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Vigdis_Kaikonnen");
+
+        internal static MonsterDefinition DLC3_Vigdis_Kaikonnen_noControl { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Vigdis_Kaikonnen_noControl");
+
+        internal static MonsterDefinition DLC3_Violet_Goodcheer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_Violet_Goodcheer");
+
+        internal static MonsterDefinition DLC3_WhiteCity_ElevatorEngineer { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_ElevatorEngineer");
+
+        internal static MonsterDefinition DLC3_WhiteCity_MotherYoungDwarf { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_MotherYoungDwarf");
+
+        internal static MonsterDefinition DLC3_WhiteCity_SabotageWitness1_HumanSectorInhabitant { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_SabotageWitness1_HumanSectorInhabitant");
+
+        internal static MonsterDefinition DLC3_WhiteCity_SabotageWitness2_Guard { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_SabotageWitness2_Guard");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_01 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_01");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_02 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_02");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_03 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_03");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_04 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_04");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_05 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_05");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_06 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_06");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_08 { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_08");
+
+        internal static MonsterDefinition DLC3_WhiteCity_Suspect_Traitor_Incubus_Revealed { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_Suspect_Traitor_Incubus_Revealed");
+
+        internal static MonsterDefinition DLC3_WhiteCity_YoungDwarf { get; } =
+            GetDefinition<MonsterDefinition>("DLC3_WhiteCity_YoungDwarf");
+
         internal static MonsterDefinition Dryad { get; } =
             GetDefinition<MonsterDefinition>("Dryad");
 
@@ -17196,6 +20447,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Dryad_Water { get; } =
             GetDefinition<MonsterDefinition>("Dryad_Water");
+
+        internal static MonsterDefinition Dryad_Water_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("Dryad_Water_POI_ONLY");
 
         internal static MonsterDefinition Eagle_Matriarch { get; } =
             GetDefinition<MonsterDefinition>("Eagle_Matriarch");
@@ -17338,11 +20592,11 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Giant_Fire { get; } =
             GetDefinition<MonsterDefinition>("Giant_Fire");
 
-        internal static MonsterDefinition Giant_Fire_Attacker_WhiteCity_1 { get; } =
-            GetDefinition<MonsterDefinition>("Giant_Fire_Attacker_WhiteCity_1");
-
         internal static MonsterDefinition Giant_Frost { get; } =
             GetDefinition<MonsterDefinition>("Giant_Frost");
+
+        internal static MonsterDefinition Giant_Frost_Giant_Storm_Citizen_WhiteCity_1 { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Frost_Giant_Storm_Citizen_WhiteCity_1");
 
         internal static MonsterDefinition Giant_Hill { get; } =
             GetDefinition<MonsterDefinition>("Giant_Hill");
@@ -17361,6 +20615,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Giant_Storm_Citizen_WhiteCity_Hjalmar { get; } =
             GetDefinition<MonsterDefinition>("Giant_Storm_Citizen_WhiteCity_Hjalmar");
+
+        internal static MonsterDefinition Giant_Storm_Palace { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Storm_Palace");
 
         internal static MonsterDefinition Glabrezu_General { get; } =
             GetDefinition<MonsterDefinition>("Glabrezu_General");
@@ -17397,6 +20654,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Golem_Stone { get; } =
             GetDefinition<MonsterDefinition>("Golem_Stone");
+
+        internal static MonsterDefinition Golem_Stone_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("Golem_Stone_POI_ONLY");
 
         internal static MonsterDefinition Green_Hag { get; } =
             GetDefinition<MonsterDefinition>("Green_Hag");
@@ -17448,6 +20708,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Incubus_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Incubus_MonsterDefinition");
+
+        internal static MonsterDefinition Incubus_Telema_Cutscene_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Incubus_Telema_Cutscene_MonsterDefinition");
 
         internal static MonsterDefinition InvisibleStalker { get; } =
             GetDefinition<MonsterDefinition>("InvisibleStalker");
@@ -17587,6 +20850,9 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition MinotaurElite { get; } =
             GetDefinition<MonsterDefinition>("MinotaurElite");
 
+        internal static MonsterDefinition MinotaurElite_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("MinotaurElite_POI_ONLY");
+
         internal static MonsterDefinition MinotaurSpectral { get; } =
             GetDefinition<MonsterDefinition>("MinotaurSpectral");
 
@@ -17643,6 +20909,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition NPC_Brood { get; } =
             GetDefinition<MonsterDefinition>("NPC_Brood");
+
+        internal static MonsterDefinition NPC_DLC3_Merchant_HumanClan_Warcamp { get; } =
+            GetDefinition<MonsterDefinition>("NPC_DLC3_Merchant_HumanClan_Warcamp");
 
         internal static MonsterDefinition NPC_Giant_Trader_Gorrtek { get; } =
             GetDefinition<MonsterDefinition>("NPC_Giant_Trader_Gorrtek");
@@ -17704,15 +20973,6 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Patron_Coparann2 { get; } =
             GetDefinition<MonsterDefinition>("Patron_Coparann2");
 
-        internal static MonsterDefinition PeaksAbomination_Leader { get; } =
-            GetDefinition<MonsterDefinition>("PeaksAbomination_Leader");
-
-        internal static MonsterDefinition PeaksAbomination_MonsterDefinition { get; } =
-            GetDefinition<MonsterDefinition>("PeaksAbomination_MonsterDefinition");
-
-        internal static MonsterDefinition PeaksTerror_MonsterDefinition { get; } =
-            GetDefinition<MonsterDefinition>("PeaksTerror_MonsterDefinition");
-
         internal static MonsterDefinition PhaseSpider { get; } =
             GetDefinition<MonsterDefinition>("PhaseSpider");
 
@@ -17764,6 +21024,9 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Redeemer_Juggernaut { get; } =
             GetDefinition<MonsterDefinition>("Redeemer_Juggernaut");
 
+        internal static MonsterDefinition Redeemer_Juggernaut_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("Redeemer_Juggernaut_POI_ONLY");
+
         internal static MonsterDefinition Redeemer_Pilgrim { get; } =
             GetDefinition<MonsterDefinition>("Redeemer_Pilgrim");
 
@@ -17791,17 +21054,23 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sergeant_Coparann { get; } =
             GetDefinition<MonsterDefinition>("Sergeant_Coparann");
 
-        internal static MonsterDefinition Sessroth_MonsterDefinition { get; } =
-            GetDefinition<MonsterDefinition>("Sessroth_MonsterDefinition");
+        internal static MonsterDefinition Sessroth_01 { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_01");
 
-        internal static MonsterDefinition Sessroth2_MonsterDefinition { get; } =
-            GetDefinition<MonsterDefinition>("Sessroth2_MonsterDefinition");
+        internal static MonsterDefinition Sessroth_02 { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_02");
 
-        internal static MonsterDefinition Sessroth3_MonsterDefinition { get; } =
-            GetDefinition<MonsterDefinition>("Sessroth3_MonsterDefinition");
+        internal static MonsterDefinition Sessroth_03 { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_03");
+
+        internal static MonsterDefinition Sessroth_Dummy_NotUnique { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_Dummy_NotUnique");
 
         internal static MonsterDefinition ShamblingMound_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition");
+
+        internal static MonsterDefinition ShamblingMound_MonsterDefinition_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition_POI_ONLY");
 
         internal static MonsterDefinition Shieldguard_Tradtsson { get; } =
             GetDefinition<MonsterDefinition>("Shieldguard_Tradtsson");
@@ -17845,9 +21114,6 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Acolyte_of_Sorr_Tarr { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Acolyte_of_Sorr-Tarr");
 
-        internal static MonsterDefinition Sorr_Akkath_Archpriest_of_Sorr_Tarr { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Archpriest_of_Sorr-Tarr");
-
         internal static MonsterDefinition Sorr_Akkath_Assassin { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Assassin");
 
@@ -17857,17 +21123,23 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Devastator { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Devastator");
 
+        internal static MonsterDefinition Sorr_Akkath_Devastator_Cutscene { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Devastator_Cutscene");
+
         internal static MonsterDefinition Sorr_Akkath_Harasser { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Harasser");
+
+        internal static MonsterDefinition Sorr_Akkath_Kratshar_Cutscene { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Kratshar_Cutscene");
 
         internal static MonsterDefinition Sorr_Akkath_Kratshar_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Kratshar_MonsterDefinition");
 
-        internal static MonsterDefinition Sorr_Akkath_Priest_of_Sorr_Tarr { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Priest_of_Sorr-Tarr");
-
         internal static MonsterDefinition Sorr_Akkath_Saboteur { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Saboteur");
+
+        internal static MonsterDefinition Sorr_Akkath_Saboteur_Unique { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Saboteur_Unique");
 
         internal static MonsterDefinition Sorr_Akkath_Shikkath { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Shikkath");
@@ -17881,17 +21153,14 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Skirmisher_Unique { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Skirmisher_Unique");
 
-        internal static MonsterDefinition Sorr_Akkath_Slayer { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Slayer");
-
-        internal static MonsterDefinition Sorr_Akkath_Templar { get; } =
-            GetDefinition<MonsterDefinition>("Sorr-Akkath_Templar");
-
         internal static MonsterDefinition Sorr_Akkath_Tshar_Boss { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Tshar_Boss");
 
         internal static MonsterDefinition Sorr_Akkath_Warrior { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Warrior");
+
+        internal static MonsterDefinition Sorr_Akkath_WarriorUnique { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_WarriorUnique");
 
         internal static MonsterDefinition SpectralDragon_01 { get; } =
             GetDefinition<MonsterDefinition>("SpectralDragon_01");
@@ -17905,8 +21174,11 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition SpectralDragon_Magister { get; } =
             GetDefinition<MonsterDefinition>("SpectralDragon_Magister");
 
-        internal static MonsterDefinition SpectralDragon_Onereia { get; } =
-            GetDefinition<MonsterDefinition>("SpectralDragon_Onereia");
+        internal static MonsterDefinition SpectralDragon_Onereia_CS_DLC3 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_Onereia_CS_DLC3");
+
+        internal static MonsterDefinition SpectralDragon_Onereia_DLC3 { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_Onereia_DLC3");
 
         internal static MonsterDefinition SpectralSpider { get; } =
             GetDefinition<MonsterDefinition>("SpectralSpider");
@@ -17962,6 +21234,12 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition SRD_DLC_Veteran { get; } =
             GetDefinition<MonsterDefinition>("SRD_DLC_Veteran");
 
+        internal static MonsterDefinition SRD_DLC3_Archmage { get; } =
+            GetDefinition<MonsterDefinition>("SRD_DLC3_Archmage");
+
+        internal static MonsterDefinition SRD_DLC3_Knight { get; } =
+            GetDefinition<MonsterDefinition>("SRD_DLC3_Knight");
+
         internal static MonsterDefinition SRD_Mage { get; } =
             GetDefinition<MonsterDefinition>("SRD_Mage");
 
@@ -17989,6 +21267,9 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Stig { get; } =
             GetDefinition<MonsterDefinition>("Stig");
 
+        internal static MonsterDefinition Succubus_Cutscene_Telema_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Succubus_Cutscene_Telema_MonsterDefinition");
+
         internal static MonsterDefinition Succubus_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Succubus_MonsterDefinition");
 
@@ -18004,9 +21285,6 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Talbut_The_Grey { get; } =
             GetDefinition<MonsterDefinition>("Talbut_The_Grey");
 
-        internal static MonsterDefinition Tamed_Winter_Wolf { get; } =
-            GetDefinition<MonsterDefinition>("Tamed_Winter_Wolf");
-
         internal static MonsterDefinition TEMP_Quest_Giver { get; } =
             GetDefinition<MonsterDefinition>("TEMP_Quest_Giver");
 
@@ -18019,6 +21297,9 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Troll { get; } =
             GetDefinition<MonsterDefinition>("Troll");
 
+        internal static MonsterDefinition Troll_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("Troll_POI_ONLY");
+
         internal static MonsterDefinition TundraTiger_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("TundraTiger_MonsterDefinition");
 
@@ -18030,6 +21311,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition Urka { get; } =
             GetDefinition<MonsterDefinition>("Urka");
+
+        internal static MonsterDefinition Vrock_Cutscene_Telema_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Vrock_Cutscene_Telema_MonsterDefinition");
 
         internal static MonsterDefinition Vrock_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Vrock_MonsterDefinition");
@@ -18054,6 +21338,9 @@ internal static partial class DatabaseHelper
 
         internal static MonsterDefinition WightLord { get; } =
             GetDefinition<MonsterDefinition>("WightLord");
+
+        internal static MonsterDefinition WightLord_POI_ONLY { get; } =
+            GetDefinition<MonsterDefinition>("WightLord_POI_ONLY");
 
         internal static MonsterDefinition WildShapeApe { get; } =
             GetDefinition<MonsterDefinition>("WildShapeApe");
@@ -18985,6 +22272,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_AF_F { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_F");
 
+        internal static MorphotypeElementDefinition FaceShape_AF_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AF_G");
+
         internal static MorphotypeElementDefinition FaceShape_AS_A { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_A");
 
@@ -19002,6 +22292,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_AS_F { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_F");
+
+        internal static MorphotypeElementDefinition FaceShape_AS_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_AS_G");
 
         internal static MorphotypeElementDefinition FaceShape_B { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_B");
@@ -19027,6 +22320,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_CA_F { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_F");
 
+        internal static MorphotypeElementDefinition FaceShape_CA_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_CA_G");
+
         internal static MorphotypeElementDefinition FaceShape_D { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_D");
 
@@ -19035,6 +22331,12 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_F { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_F");
+
+        internal static MorphotypeElementDefinition FaceShape_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_G");
+
+        internal static MorphotypeElementDefinition FaceShape_H { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_H");
 
         internal static MorphotypeElementDefinition FaceShape_HalfElf_A { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_A");
@@ -19053,6 +22355,15 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_HalfElf_F { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_F");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_G");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_H { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_H");
+
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_I { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_I");
 
         internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Alena { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Alena");
@@ -19078,6 +22389,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Karel_Martel { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Karel_Martel");
 
+        internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_LenaSwiftHand { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_LenaSwiftHand");
+
         internal static MorphotypeElementDefinition FaceShape_HalfElf_NPC_Verissa_Ironshell { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HalfElf_NPC_Verissa_Ironshell");
 
@@ -19102,6 +22416,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_HO_NPC_Badri { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_HO_NPC_Badri");
 
+        internal static MorphotypeElementDefinition FaceShape_I { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_I");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Adrasteia_Epimeles_Aspis { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Adrasteia_Epimeles_Aspis");
 
@@ -19123,6 +22440,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Beryl_Stonebeard { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Beryl_Stonebeard");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_Brodir { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Brodir");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Cafrain_Shadow { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Cafrain_Shadow");
 
@@ -19135,11 +22455,17 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Citizen { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Citizen");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_Daisy { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Daisy");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Daliat_Sunbird { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Daliat_Sunbird");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Dalon_Lark { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Dalon_Lark");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Dyssalim { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Dyssalim");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Ellaria_Anfarel { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ellaria_Anfarel");
@@ -19147,17 +22473,35 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Esfalad_Graymas { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Esfalad_Graymas");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_EsmaBlunt { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_EsmaBlunt");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Estorgath { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Estorgath");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Finaliel_SharpMind { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Finaliel_SharpMind");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Galar_Goldentongue { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Galar_Goldentongue");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_GallivanOfficer { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_GallivanOfficer");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Gorim_Ironsoot { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gorim_Ironsoot");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Gormdottir { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gormdottir");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_GormTheWise { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_GormTheWise");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Graybear { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Graybear");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Grimhild { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Grimhild");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Gromnir_Stonefist { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Gromnir_Stonefist");
@@ -19170,6 +22514,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Heather_Merran { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Heather_Merran");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Hergrunn { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Hergrunn");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Idriel_Fair_Brow { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Idriel_Fair_Brow");
@@ -19185,6 +22532,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Joris_Nikannen { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Joris_Nikannen");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_KaraWiseHead { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_KaraWiseHead");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Karelia_Snowfox { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Karelia_Snowfox");
@@ -19203,6 +22553,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Lena { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lena");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_LeralynGhost { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_LeralynGhost");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Lisbath_Townsend { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Lisbath_Townsend");
@@ -19225,6 +22578,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Mardracht { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Mardracht");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_MardukStrongHeart { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_MardukStrongHeart");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Marin_Ving { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Marin_Ving");
 
@@ -19233,6 +22589,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Mildred_Warmhearth { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Mildred_Warmhearth");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Misouk { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Misouk");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Morden_Kyre { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Morden_Kyre");
@@ -19258,6 +22617,12 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Princess { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Princess");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_Ragnhild { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ragnhild");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Rassell { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Rassell");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Razan_Holarant { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Razan_Holarant");
 
@@ -19267,8 +22632,17 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Reya_Schildberg { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Reya_Schildberg");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_RhuadSwiftHand { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_RhuadSwiftHand");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Rivers { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Rivers");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Robar_Sharp { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Robar_Sharp");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_RolfStrongHeart { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_RolfStrongHeart");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Ron { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Ron");
@@ -19279,11 +22653,17 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Samko_Flint { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Samko_Flint");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_SanderKainnonen { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_SanderKainnonen");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_Serafiel_Anfarel { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Serafiel_Anfarel");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Sima_Temple { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Sima_Temple");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Stig { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Stig");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Talbut_the_Grey { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Talbut_the_Grey");
@@ -19294,8 +22674,20 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Telerien_Purevoice { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Telerien_Purevoice");
 
+        internal static MorphotypeElementDefinition FaceShape_NPC_ThadeosCobblestone { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_ThadeosCobblestone");
+
         internal static MorphotypeElementDefinition FaceShape_NPC_TomWorker { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_TomWorker");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_ValdiBoldHand { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_ValdiBoldHand");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_Vigdis { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Vigdis");
+
+        internal static MorphotypeElementDefinition FaceShape_NPC_VioletGoodCheer { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_VioletGoodCheer");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Wilf_Warmhearth { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Wilf_Warmhearth");
@@ -19546,6 +22938,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition Horns_E { get; } =
             GetDefinition<MorphotypeElementDefinition>("Horns_E");
 
+        internal static MorphotypeElementDefinition Horns_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Horns_F");
+
         internal static MorphotypeElementDefinition Horns_None { get; } =
             GetDefinition<MorphotypeElementDefinition>("Horns_None");
 
@@ -19690,6 +23085,12 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition Tail_E { get; } =
             GetDefinition<MorphotypeElementDefinition>("Tail_E");
 
+        internal static MorphotypeElementDefinition Tail_F { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_F");
+
+        internal static MorphotypeElementDefinition Tail_G { get; } =
+            GetDefinition<MorphotypeElementDefinition>("Tail_G");
+
         internal static MorphotypeElementDefinition Tail_None { get; } =
             GetDefinition<MorphotypeElementDefinition>("Tail_None");
 
@@ -19741,6 +23142,9 @@ internal static partial class DatabaseHelper
         internal static ReactionDefinition CounterAttackWithSpellHellishRebuke { get; } =
             GetDefinition<ReactionDefinition>("CounterAttackWithSpellHellishRebuke");
 
+        internal static ReactionDefinition CounterAttackWithSpellHellishRebukeTiefling { get; } =
+            GetDefinition<ReactionDefinition>("CounterAttackWithSpellHellishRebukeTiefling");
+
         internal static ReactionDefinition CounterAttackWithSpellMagicAffinityShadowRetribution { get; } =
             GetDefinition<ReactionDefinition>("CounterAttackWithSpellMagicAffinityShadowRetribution");
 
@@ -19755,6 +23159,15 @@ internal static partial class DatabaseHelper
 
         internal static ReactionDefinition DiamondSoul { get; } =
             GetDefinition<ReactionDefinition>("DiamondSoul");
+
+        internal static ReactionDefinition DiscipleOfTheElementsCold { get; } =
+            GetDefinition<ReactionDefinition>("DiscipleOfTheElementsCold");
+
+        internal static ReactionDefinition DiscipleOfTheElementsFire { get; } =
+            GetDefinition<ReactionDefinition>("DiscipleOfTheElementsFire");
+
+        internal static ReactionDefinition DiscipleOfTheElementsLightning { get; } =
+            GetDefinition<ReactionDefinition>("DiscipleOfTheElementsLightning");
 
         internal static ReactionDefinition GiantKiller { get; } =
             GetDefinition<ReactionDefinition>("GiantKiller");
@@ -19840,6 +23253,9 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_BattleaxeOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_BattleaxeOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_BattleaxeOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_BattleaxeOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_BattleaxeOfSharpness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_BattleaxeOfSharpness");
 
@@ -19867,17 +23283,32 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_BreastplateOfDeflection { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfDeflection");
 
+        internal static RecipeDefinition Recipe_Enchantment_BreastplateOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfFortitude");
+
+        internal static RecipeDefinition Recipe_Enchantment_BreastplateOfRobustness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfRobustness");
+
         internal static RecipeDefinition Recipe_Enchantment_BreastplateOfSturdiness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfSturdiness");
 
-        internal static RecipeDefinition Recipe_Enchantment_CaveIllnessDrug { get; } =
-            GetDefinition<RecipeDefinition>("Recipe_Enchantment_CaveIllnessDrug");
+        internal static RecipeDefinition Recipe_Enchantment_ChainmailOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainmailOfFortitude");
 
         internal static RecipeDefinition Recipe_Enchantment_ChainmailOfRobustness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainmailOfRobustness");
 
         internal static RecipeDefinition Recipe_Enchantment_ChainmailOfSturdiness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainmailOfSturdiness");
+
+        internal static RecipeDefinition Recipe_Enchantment_ChainShirtOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainShirtOfFortitude");
+
+        internal static RecipeDefinition Recipe_Enchantment_ChainShirtOfRobustness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainShirtOfRobustness");
+
+        internal static RecipeDefinition Recipe_Enchantment_ChainShirtOfSturdiness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainShirtOfSturdiness");
 
         internal static RecipeDefinition Recipe_Enchantment_CloakOfTheAncientKing { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_CloakOfTheAncientKing");
@@ -19900,6 +23331,9 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_DaggerOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_DaggerOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_DaggerOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_DaggerOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_DaggerOfSharpness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_DaggerOfSharpness");
 
@@ -19912,8 +23346,17 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_GauntletOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GauntletOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_GauntletOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GauntletOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_GauntletOfSharpness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GauntletOfSharpness");
+
+        internal static RecipeDefinition Recipe_Enchantment_GreataxeOfAcuteness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreataxeOfAcuteness");
+
+        internal static RecipeDefinition Recipe_Enchantment_GreataxeOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreataxeOfPerfection");
 
         internal static RecipeDefinition Recipe_Enchantment_GreataxeOfSharpness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreataxeOfSharpness");
@@ -19924,11 +23367,20 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_GreatswordLightbringer { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreatswordLightbringer");
 
+        internal static RecipeDefinition Recipe_Enchantment_GreatswordOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreatswordOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_GreatswordOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreatswordOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_GreatwordDoomblade { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreatwordDoomblade");
 
         internal static RecipeDefinition Recipe_Enchantment_GreatwordOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_GreatwordOfAcuteness");
+
+        internal static RecipeDefinition Recipe_Enchantment_HalfplateOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HalfplateOfFortitude");
 
         internal static RecipeDefinition Recipe_Enchantment_HalfplateOfRobustness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HalfplateOfRobustness");
@@ -19936,11 +23388,32 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_HalfplateOfSturdiness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HalfplateOfSturdiness");
 
+        internal static RecipeDefinition Recipe_Enchantment_HandaxeOfAcuteness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HandaxeOfAcuteness");
+
+        internal static RecipeDefinition Recipe_Enchantment_HandaxeOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HandaxeOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_HandaxeOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HandaxeOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_HeavyCrossbowOfAccuracy { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HeavyCrossbowOfAccuracy");
 
+        internal static RecipeDefinition Recipe_Enchantment_HeavyCrossbowOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HeavyCrossbowOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_HeavyCrossbowOfSharpshooting { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HeavyCrossbowOfSharpshooting");
+
         internal static RecipeDefinition Recipe_Enchantment_HeavyCrossbowWhiteburn { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HeavyCrossbowWhiteburn");
+
+        internal static RecipeDefinition Recipe_Enchantment_HideArmorOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HideArmorOfFortitude");
+
+        internal static RecipeDefinition Recipe_Enchantment_HideArmorOfRobustness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_HideArmorOfRobustness");
 
         internal static RecipeDefinition Recipe_Enchantment_HideArmorOfTheVagrant { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HideArmorOfTheVagrant");
@@ -19948,8 +23421,20 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_HideArmorOfWilderness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_HideArmorOfWilderness");
 
+        internal static RecipeDefinition Recipe_Enchantment_JavelinOfAcuteness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_JavelinOfAcuteness");
+
+        internal static RecipeDefinition Recipe_Enchantment_JavelinOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_JavelinOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_JavelinOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_JavelinOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_LeatherArmorOfFlameDancing { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LeatherArmorOfFlameDancing");
+
+        internal static RecipeDefinition Recipe_Enchantment_LeatherArmorOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LeatherArmorOfFortitude");
 
         internal static RecipeDefinition Recipe_Enchantment_LeatherArmorOfRobustness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LeatherArmorOfRobustness");
@@ -19960,11 +23445,23 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_LeatherArmorOfSurvival { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LeatherArmorOfSurvival");
 
+        internal static RecipeDefinition Recipe_Enchantment_LightCrossbowOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LightCrossbowOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_LightCrossbowOfSharpshooting { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LightCrossbowOfSharpshooting");
+
         internal static RecipeDefinition Recipe_Enchantment_LongbowLightbringer { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongbowLightbringer");
 
         internal static RecipeDefinition Recipe_Enchantment_LongbowOfAcurracy { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongbowOfAcurracy");
+
+        internal static RecipeDefinition Recipe_Enchantment_LongbowOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongbowOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_LongbowOfSharpshooting { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongbowOfSharpshooting");
 
         internal static RecipeDefinition Recipe_Enchantment_LongsbowStormbow { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongsbowStormbow");
@@ -19978,6 +23475,12 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_LongswordOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongswordOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_LongswordOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongswordOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_LongswordOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongswordOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_LongswordStormblade { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_LongswordStormblade");
 
@@ -19987,8 +23490,20 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_MaceOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaceOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_MaceOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaceOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_MaceOfShattering { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaceOfShattering");
+
         internal static RecipeDefinition Recipe_Enchantment_MaceOfSmashing { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaceOfSmashing");
+
+        internal static RecipeDefinition Recipe_Enchantment_MaulOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaulOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_MaulOfShattering { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaulOfShattering");
 
         internal static RecipeDefinition Recipe_Enchantment_MaulOfSmashing { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_MaulOfSmashing");
@@ -19999,8 +23514,17 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_MorningstarBearclaw { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_MorningstarBearclaw");
 
+        internal static RecipeDefinition Recipe_Enchantment_MorningstarOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MorningstarOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_MorningstarOfPower { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_MorningstarOfPower");
+
+        internal static RecipeDefinition Recipe_Enchantment_MorningstarOfShattering { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MorningstarOfShattering");
+
+        internal static RecipeDefinition Recipe_Enchantment_MorningstarOfSmashing { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_MorningstarOfSmashing");
 
         internal static RecipeDefinition Recipe_Enchantment_PendantOfTheHealer { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_PendantOfTheHealer");
@@ -20008,11 +23532,23 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_PeriaptOfTheMasterEnchanter { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_PeriaptOfTheMasterEnchanter");
 
+        internal static RecipeDefinition Recipe_Enchantment_PlateOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_PlateOfFortitude");
+
         internal static RecipeDefinition Recipe_Enchantment_PlateOfRobustness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_PlateOfRobustness");
 
         internal static RecipeDefinition Recipe_Enchantment_PlateOfSturdiness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_PlateOfSturdiness");
+
+        internal static RecipeDefinition Recipe_Enchantment_QuarterstaffOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_QuarterstaffOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_QuarterstaffOfShattering { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_QuarterstaffOfShattering");
+
+        internal static RecipeDefinition Recipe_Enchantment_QuarterstaffOfSmashing { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_QuarterstaffOfSmashing");
 
         internal static RecipeDefinition Recipe_Enchantment_RapierBlackAdder { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_RapierBlackAdder");
@@ -20026,8 +23562,17 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_RapierOfHarmony { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_RapierOfHarmony");
 
+        internal static RecipeDefinition Recipe_Enchantment_RapierOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_RapierOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_RapierOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_RapierOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_RingAmbassador { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_RingAmbassador");
+
+        internal static RecipeDefinition Recipe_Enchantment_ScaleMailOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScaleMailOfFortitude");
 
         internal static RecipeDefinition Recipe_Enchantment_ScaleMailOfIceDancing { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScaleMailOfIceDancing");
@@ -20044,11 +23589,23 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_ScimitarOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScimitarOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_ScimitarOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScimitarOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_ScimitarOfSpeed { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScimitarOfSpeed");
 
         internal static RecipeDefinition Recipe_Enchantment_ScimitarOfTheAnfarels { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ScimitarOfTheAnfarels");
+
+        internal static RecipeDefinition Recipe_Enchantment_ShieldOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShieldOfFortitude");
+
+        internal static RecipeDefinition Recipe_Enchantment_ShieldOfRobustness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShieldOfRobustness");
+
+        internal static RecipeDefinition Recipe_Enchantment_ShieldOfSturdiness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShieldOfSturdiness");
 
         internal static RecipeDefinition Recipe_Enchantment_ShortbowMedusa { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortbowMedusa");
@@ -20056,11 +23613,20 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_ShortbowOfAcurracy { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortbowOfAcurracy");
 
+        internal static RecipeDefinition Recipe_Enchantment_ShortbowOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortbowOfPerfection");
+
         internal static RecipeDefinition Recipe_Enchantment_ShortbowOfSharpshooting { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortbowOfSharpshooting");
 
+        internal static RecipeDefinition Recipe_Enchantment_Shortsword_Sovereign { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_Shortsword_Sovereign");
+
         internal static RecipeDefinition Recipe_Enchantment_ShortswordLightbringer { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortswordLightbringer");
+
+        internal static RecipeDefinition Recipe_Enchantment_ShortswordOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortswordOfPerfection");
 
         internal static RecipeDefinition Recipe_Enchantment_ShortswordWhiteburn { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ShortswordWhiteburn");
@@ -20077,11 +23643,26 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_SpearOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_SpearOfAcuteness");
 
+        internal static RecipeDefinition Recipe_Enchantment_SpearOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_SpearOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_SpearOfSharpness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_SpearOfSharpness");
+
         internal static RecipeDefinition Recipe_Enchantment_StuddedArmorOfLeadership { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_StuddedArmorOfLeadership");
 
         internal static RecipeDefinition Recipe_Enchantment_StuddedArmorOfSurvival { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_StuddedArmorOfSurvival");
+
+        internal static RecipeDefinition Recipe_Enchantment_StuddedLeatherOfFortitude { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_StuddedLeatherOfFortitude");
+
+        internal static RecipeDefinition Recipe_Enchantment_StuddedLeatherOfRobustness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_StuddedLeatherOfRobustness");
+
+        internal static RecipeDefinition Recipe_Enchantment_StuddedLeatherOfSturdiness { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_StuddedLeatherOfSturdiness");
 
         internal static RecipeDefinition Recipe_Enchantment_WandOfBlight { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfBlight");
@@ -20095,11 +23676,20 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_WandOfWarMagePlus2 { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWarMage+2");
 
+        internal static RecipeDefinition Recipe_Enchantment_WandOfWarMagePlus3 { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWarMage+3");
+
         internal static RecipeDefinition Recipe_Enchantment_WandOfWinter { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WandOfWinter");
 
         internal static RecipeDefinition Recipe_Enchantment_WarhammerOfAcuteness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WarhammerOfAcuteness");
+
+        internal static RecipeDefinition Recipe_Enchantment_WarhammerOfPerfection { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_WarhammerOfPerfection");
+
+        internal static RecipeDefinition Recipe_Enchantment_WarhammerOfShattering { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_WarhammerOfShattering");
 
         internal static RecipeDefinition Recipe_Enchantment_WarhammerStormbinder { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_WarhammerStormbinder");
@@ -20109,6 +23699,21 @@ internal static partial class DatabaseHelper
 
         internal static RecipeDefinition RecipeBasic_Bolts { get; } =
             GetDefinition<RecipeDefinition>("RecipeBasic_Bolts");
+
+        internal static RecipeDefinition RecipeDemonicGrease_DawnBreak { get; } =
+            GetDefinition<RecipeDefinition>("RecipeDemonicGrease_DawnBreak");
+
+        internal static RecipeDefinition RecipeDemonicGrease_NightHunt { get; } =
+            GetDefinition<RecipeDefinition>("RecipeDemonicGrease_NightHunt");
+
+        internal static RecipeDefinition RecipeDemonicGrease_PseudoLife { get; } =
+            GetDefinition<RecipeDefinition>("RecipeDemonicGrease_PseudoLife");
+
+        internal static RecipeDefinition RecipeDemonicGrease_SpellTaint { get; } =
+            GetDefinition<RecipeDefinition>("RecipeDemonicGrease_SpellTaint");
+
+        internal static RecipeDefinition RecipeDemonicGrease_TrueStrike { get; } =
+            GetDefinition<RecipeDefinition>("RecipeDemonicGrease_TrueStrike");
 
         internal static RecipeDefinition Recipe_DLC2_5_RestorativeOintment { get; } =
             GetDefinition<RecipeDefinition>("Recipe-DLC2.5-RestorativeOintment");
@@ -20320,6 +23925,9 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition RecipeScroll_L1_InflictWounds { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L1_InflictWounds");
 
+        internal static RecipeDefinition RecipeScroll_L1_Malediction { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L1_Malediction");
+
         internal static RecipeDefinition RecipeScroll_L1_OfBane { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L1_OfBane");
 
@@ -20515,6 +24123,9 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition RecipeScroll_L4_DimensionDoor { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L4_DimensionDoor");
 
+        internal static RecipeDefinition RecipeScroll_L4_DreadfulOmen { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L4_DreadfulOmen");
+
         internal static RecipeDefinition RecipeScroll_L4_FireShield { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L4_FireShield");
 
@@ -20577,6 +24188,120 @@ internal static partial class DatabaseHelper
 
         internal static RecipeDefinition RecipeScroll_L5_ScrollRaiseDead { get; } =
             GetDefinition<RecipeDefinition>("RecipeScroll_L5_ScrollRaiseDead");
+
+        internal static RecipeDefinition RecipeScroll_L6_BladeBarrier { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_BladeBarrier");
+
+        internal static RecipeDefinition RecipeScroll_L6_ChainLightning { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_ChainLightning");
+
+        internal static RecipeDefinition RecipeScroll_L6_CircleOfDeath { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_CircleOfDeath");
+
+        internal static RecipeDefinition RecipeScroll_L6_ConjureFey { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_ConjureFey");
+
+        internal static RecipeDefinition RecipeScroll_L6_Disintegrate { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_Disintegrate");
+
+        internal static RecipeDefinition RecipeScroll_L6_EyeBite { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_EyeBite");
+
+        internal static RecipeDefinition RecipeScroll_L6_FreezingSphere { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_FreezingSphere");
+
+        internal static RecipeDefinition RecipeScroll_L6_GlobeOfInvulnerability { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_GlobeOfInvulnerability");
+
+        internal static RecipeDefinition RecipeScroll_L6_Harm { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_Harm");
+
+        internal static RecipeDefinition RecipeScroll_L6_Heal { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_Heal");
+
+        internal static RecipeDefinition RecipeScroll_L6_HeroesFeast { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_HeroesFeast");
+
+        internal static RecipeDefinition RecipeScroll_L6_Hilarity { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_Hilarity");
+
+        internal static RecipeDefinition RecipeScroll_L6_Sunbeam { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_Sunbeam");
+
+        internal static RecipeDefinition RecipeScroll_L6_TrueSeeing { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_TrueSeeing");
+
+        internal static RecipeDefinition RecipeScroll_L6_WallOfThorns { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L6_WallOfThorns");
+
+        internal static RecipeDefinition RecipeScroll_L7_ArcaneSword { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_ArcaneSword");
+
+        internal static RecipeDefinition RecipeScroll_L7_ConjureCelestial { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_ConjureCelestial");
+
+        internal static RecipeDefinition RecipeScroll_L7_DelayedBlastFireball { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_DelayedBlastFireball");
+
+        internal static RecipeDefinition RecipeScroll_L7_DivineWord { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_DivineWord");
+
+        internal static RecipeDefinition RecipeScroll_L7_FingerOfDeath { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_FingerOfDeath");
+
+        internal static RecipeDefinition RecipeScroll_L7_FireStorm { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_FireStorm");
+
+        internal static RecipeDefinition RecipeScroll_L7_GravitySlam { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_GravitySlam");
+
+        internal static RecipeDefinition RecipeScroll_L7_PrismaticSpray { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_PrismaticSpray");
+
+        internal static RecipeDefinition RecipeScroll_L7_Regenerate { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_Regenerate");
+
+        internal static RecipeDefinition RecipeScroll_L7_Resurrection { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_Resurrection");
+
+        internal static RecipeDefinition RecipeScroll_L7_Symbol { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L7_Symbol");
+
+        internal static RecipeDefinition RecipeScroll_L8_AnimalShapes { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_AnimalShapes");
+
+        internal static RecipeDefinition RecipeScroll_L8_DivineBlade { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_DivineBlade");
+
+        internal static RecipeDefinition RecipeScroll_L8_DominateMonster { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_DominateMonster");
+
+        internal static RecipeDefinition RecipeScroll_L8_Earthquake { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_Earthquake");
+
+        internal static RecipeDefinition RecipeScroll_L8_Feeblemind { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_Feeblemind");
+
+        internal static RecipeDefinition RecipeScroll_L8_HolyAura { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_HolyAura");
+
+        internal static RecipeDefinition RecipeScroll_L8_IncendiaryCloud { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_IncendiaryCloud");
+
+        internal static RecipeDefinition RecipeScroll_L8_Maze { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_Maze");
+
+        internal static RecipeDefinition RecipeScroll_L8_PowerWordStun { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_PowerWordStun");
+
+        internal static RecipeDefinition RecipeScroll_L8_SpellWard { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_SpellWard");
+
+        internal static RecipeDefinition RecipeScroll_L8_Sunburst { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_Sunburst");
+
+        internal static RecipeDefinition RecipeScroll_L8_Thunderstorm { get; } =
+            GetDefinition<RecipeDefinition>("RecipeScroll_L8_Thunderstorm");
     }
 
     internal static class RoomBlueprints
@@ -20741,11 +24466,17 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition AnimalFriendship { get; } =
             GetDefinition<SpellDefinition>("AnimalFriendship");
 
+        internal static SpellDefinition AnimalShapes { get; } =
+            GetDefinition<SpellDefinition>("AnimalShapes");
+
         internal static SpellDefinition AnimateDead { get; } =
             GetDefinition<SpellDefinition>("AnimateDead");
 
         internal static SpellDefinition AnnoyingBee { get; } =
             GetDefinition<SpellDefinition>("AnnoyingBee");
+
+        internal static SpellDefinition ArcaneSword { get; } =
+            GetDefinition<SpellDefinition>("ArcaneSword");
 
         internal static SpellDefinition Bane { get; } =
             GetDefinition<SpellDefinition>("Bane");
@@ -20891,6 +24622,18 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition ConjureAnimalsTwoBeasts { get; } =
             GetDefinition<SpellDefinition>("ConjureAnimalsTwoBeasts");
 
+        internal static SpellDefinition ConjureCelestial { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestial");
+
+        internal static SpellDefinition ConjureCelestialCouatl { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialCouatl");
+
+        internal static SpellDefinition ConjureCelestialKutkartal { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialKutkartal");
+
+        internal static SpellDefinition ConjureCelestialMelek { get; } =
+            GetDefinition<SpellDefinition>("ConjureCelestialMelek");
+
         internal static SpellDefinition ConjureElemental { get; } =
             GetDefinition<SpellDefinition>("ConjureElemental");
 
@@ -20990,6 +24733,9 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DeathWard { get; } =
             GetDefinition<SpellDefinition>("DeathWard");
 
+        internal static SpellDefinition DelayedBlastFireball { get; } =
+            GetDefinition<SpellDefinition>("DelayedBlastFireball");
+
         internal static SpellDefinition DetectEvilAndGood { get; } =
             GetDefinition<SpellDefinition>("DetectEvilAndGood");
 
@@ -21011,17 +24757,29 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DispelMagic { get; } =
             GetDefinition<SpellDefinition>("DispelMagic");
 
+        internal static SpellDefinition DivineBlade { get; } =
+            GetDefinition<SpellDefinition>("DivineBlade");
+
         internal static SpellDefinition DivineFavor { get; } =
             GetDefinition<SpellDefinition>("DivineFavor");
 
+        internal static SpellDefinition DivineWord { get; } =
+            GetDefinition<SpellDefinition>("DivineWord");
+
         internal static SpellDefinition DominateBeast { get; } =
             GetDefinition<SpellDefinition>("DominateBeast");
+
+        internal static SpellDefinition DominateMonster { get; } =
+            GetDefinition<SpellDefinition>("DominateMonster");
 
         internal static SpellDefinition DominatePerson { get; } =
             GetDefinition<SpellDefinition>("DominatePerson");
 
         internal static SpellDefinition DreadfulOmen { get; } =
             GetDefinition<SpellDefinition>("DreadfulOmen");
+
+        internal static SpellDefinition Earthquake { get; } =
+            GetDefinition<SpellDefinition>("Earthquake");
 
         internal static SpellDefinition EldritchBlast { get; } =
             GetDefinition<SpellDefinition>("EldritchBlast");
@@ -21077,8 +24835,14 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition FeatherFall { get; } =
             GetDefinition<SpellDefinition>("FeatherFall");
 
+        internal static SpellDefinition Feeblemind { get; } =
+            GetDefinition<SpellDefinition>("Feeblemind");
+
         internal static SpellDefinition FindTraps { get; } =
             GetDefinition<SpellDefinition>("FindTraps");
+
+        internal static SpellDefinition FingerOfDeath { get; } =
+            GetDefinition<SpellDefinition>("FingerOfDeath");
 
         internal static SpellDefinition Fireball { get; } =
             GetDefinition<SpellDefinition>("Fireball");
@@ -21094,6 +24858,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition FireShieldWarm { get; } =
             GetDefinition<SpellDefinition>("FireShieldWarm");
+
+        internal static SpellDefinition FireStorm { get; } =
+            GetDefinition<SpellDefinition>("FireStorm");
 
         internal static SpellDefinition FlameBlade { get; } =
             GetDefinition<SpellDefinition>("FlameBlade");
@@ -21124,6 +24891,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition Goodberry { get; } =
             GetDefinition<SpellDefinition>("Goodberry");
+
+        internal static SpellDefinition GravitySlam { get; } =
+            GetDefinition<SpellDefinition>("GravitySlam");
 
         internal static SpellDefinition Grease { get; } =
             GetDefinition<SpellDefinition>("Grease");
@@ -21161,6 +24931,9 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition HellishRebuke { get; } =
             GetDefinition<SpellDefinition>("HellishRebuke");
 
+        internal static SpellDefinition HellishRebukeTiefling { get; } =
+            GetDefinition<SpellDefinition>("HellishRebukeTiefling");
+
         internal static SpellDefinition HeroesFeast { get; } =
             GetDefinition<SpellDefinition>("HeroesFeast");
 
@@ -21182,6 +24955,9 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition HoldPerson { get; } =
             GetDefinition<SpellDefinition>("HoldPerson");
 
+        internal static SpellDefinition HolyAura { get; } =
+            GetDefinition<SpellDefinition>("HolyAura");
+
         internal static SpellDefinition HuntersMark { get; } =
             GetDefinition<SpellDefinition>("HuntersMark");
 
@@ -21196,6 +24972,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition IdentifyCreatures { get; } =
             GetDefinition<SpellDefinition>("IdentifyCreatures");
+
+        internal static SpellDefinition IncendiaryCloud { get; } =
+            GetDefinition<SpellDefinition>("IncendiaryCloud");
 
         internal static SpellDefinition InflictWounds { get; } =
             GetDefinition<SpellDefinition>("InflictWounds");
@@ -21257,6 +25036,9 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition MassHealingWord { get; } =
             GetDefinition<SpellDefinition>("MassHealingWord");
 
+        internal static SpellDefinition Maze { get; } =
+            GetDefinition<SpellDefinition>("Maze");
+
         internal static SpellDefinition MindTwist { get; } =
             GetDefinition<SpellDefinition>("MindTwist");
 
@@ -21278,8 +25060,14 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition PoisonSpray { get; } =
             GetDefinition<SpellDefinition>("PoisonSpray");
 
+        internal static SpellDefinition PowerWordStun { get; } =
+            GetDefinition<SpellDefinition>("PowerWordStun");
+
         internal static SpellDefinition PrayerOfHealing { get; } =
             GetDefinition<SpellDefinition>("PrayerOfHealing");
+
+        internal static SpellDefinition PrismaticSpray { get; } =
+            GetDefinition<SpellDefinition>("PrismaticSpray");
 
         internal static SpellDefinition ProduceFlame { get; } =
             GetDefinition<SpellDefinition>("ProduceFlame");
@@ -21322,6 +25110,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition RayOfFrost { get; } =
             GetDefinition<SpellDefinition>("RayOfFrost");
+
+        internal static SpellDefinition Regenerate { get; } =
+            GetDefinition<SpellDefinition>("Regenerate");
 
         internal static SpellDefinition RemoveCurse { get; } =
             GetDefinition<SpellDefinition>("RemoveCurse");
@@ -21389,6 +25180,9 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Sparkle { get; } =
             GetDefinition<SpellDefinition>("Sparkle");
 
+        internal static SpellDefinition SpellWard { get; } =
+            GetDefinition<SpellDefinition>("SpellWard");
+
         internal static SpellDefinition SpiderClimb { get; } =
             GetDefinition<SpellDefinition>("SpiderClimb");
 
@@ -21409,6 +25203,36 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition Sunbeam { get; } =
             GetDefinition<SpellDefinition>("Sunbeam");
+
+        internal static SpellDefinition Sunburst { get; } =
+            GetDefinition<SpellDefinition>("Sunburst");
+
+        internal static SpellDefinition Symbol { get; } =
+            GetDefinition<SpellDefinition>("Symbol");
+
+        internal static SpellDefinition SymbolOfDeath { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfDeath");
+
+        internal static SpellDefinition SymbolOfFear { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfFear");
+
+        internal static SpellDefinition SymbolOfHopelessness { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfHopelessness");
+
+        internal static SpellDefinition SymbolOfInsanity { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfInsanity");
+
+        internal static SpellDefinition SymbolOfPain { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfPain");
+
+        internal static SpellDefinition SymbolOfSleep { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfSleep");
+
+        internal static SpellDefinition SymbolOfStun { get; } =
+            GetDefinition<SpellDefinition>("SymbolOfStun");
+
+        internal static SpellDefinition Thunderstorm { get; } =
+            GetDefinition<SpellDefinition>("Thunderstorm");
 
         internal static SpellDefinition Thunderwave { get; } =
             GetDefinition<SpellDefinition>("Thunderwave");
@@ -21482,20 +25306,41 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellList_DLC1_ManaScientist { get; } =
             GetDefinition<SpellListDefinition>("SpellList_DLC1_ManaScientist");
 
-        internal static SpellListDefinition SpellList_Gallivan_Druid { get; } =
-            GetDefinition<SpellListDefinition>("SpellList_Gallivan_Druid");
+        internal static SpellListDefinition SpellList_DLC3_BanditCaptain { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_BanditCaptain");
 
-        internal static SpellListDefinition SpellList_Gallivan_RogueShadowCaster { get; } =
-            GetDefinition<SpellListDefinition>("SpellList_Gallivan_RogueShadowCaster");
+        internal static SpellListDefinition SpellList_DLC3_Cultist_Marksman { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Cultist_Marksman");
 
-        internal static SpellListDefinition SpellList_Kratshar { get; } =
-            GetDefinition<SpellListDefinition>("SpellList_Kratshar");
+        internal static SpellListDefinition SpellList_DLC3_Gallivan_Druid { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Gallivan_Druid");
 
-        internal static SpellListDefinition SpellList_Misouk { get; } =
-            GetDefinition<SpellListDefinition>("SpellList_Misouk");
+        internal static SpellListDefinition SpellList_DLC3_Gallivan_RogueShadowCaster { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Gallivan_RogueShadowCaster");
 
-        internal static SpellListDefinition SpellList_Vigdis { get; } =
-            GetDefinition<SpellListDefinition>("SpellList_Vigdis");
+        internal static SpellListDefinition SpellList_DLC3_Kratshar { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Kratshar");
+
+        internal static SpellListDefinition SpellList_DLC3_Marduk { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Marduk");
+
+        internal static SpellListDefinition SpellList_DLC3_Misouk { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Misouk");
+
+        internal static SpellListDefinition SpellList_DLC3_MountainDruid { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_MountainDruid");
+
+        internal static SpellListDefinition SpellList_DLC3_Raider_Arcanist { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Raider_Arcanist");
+
+        internal static SpellListDefinition SpellList_DLC3_Raider_Shaman { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Raider_Shaman");
+
+        internal static SpellListDefinition SpellList_DLC3_Raider_Sorcerer { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Raider_Sorcerer");
+
+        internal static SpellListDefinition SpellList_DLC3_Vigdis { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_DLC3_Vigdis");
 
         internal static SpellListDefinition SpellListAcolyte { get; } =
             GetDefinition<SpellListDefinition>("SpellListAcolyte");
@@ -21509,6 +25354,9 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellListAllSpells { get; } =
             GetDefinition<SpellListDefinition>("SpellListAllSpells");
 
+        internal static SpellListDefinition SpellListArchmage_DLC3 { get; } =
+            GetDefinition<SpellListDefinition>("SpellListArchmage_DLC3");
+
         internal static SpellListDefinition SpellListArrok { get; } =
             GetDefinition<SpellListDefinition>("SpellListArrok");
 
@@ -21518,8 +25366,8 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellListBerylStonebeard { get; } =
             GetDefinition<SpellListDefinition>("SpellListBerylStonebeard");
 
-        internal static SpellListDefinition SpellListBerylStonebeard_2 { get; } =
-            GetDefinition<SpellListDefinition>("SpellListBerylStonebeard_2");
+        internal static SpellListDefinition SpellListBerylStonebeard_DLC3 { get; } =
+            GetDefinition<SpellListDefinition>("SpellListBerylStonebeard_DLC3");
 
         internal static SpellListDefinition SpellListCleric { get; } =
             GetDefinition<SpellListDefinition>("SpellListCleric");
@@ -21566,6 +25414,9 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellListGlabrezu { get; } =
             GetDefinition<SpellListDefinition>("SpellListGlabrezu");
 
+        internal static SpellListDefinition SpellListGnomeShadow { get; } =
+            GetDefinition<SpellListDefinition>("SpellListGnomeShadow");
+
         internal static SpellListDefinition SpellListGoblinShaman { get; } =
             GetDefinition<SpellListDefinition>("SpellListGoblinShaman");
 
@@ -21577,6 +25428,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellListDefinition SpellListHyeronimus { get; } =
             GetDefinition<SpellListDefinition>("SpellListHyeronimus");
+
+        internal static SpellListDefinition SpellListKara { get; } =
+            GetDefinition<SpellListDefinition>("SpellListKara");
 
         internal static SpellListDefinition SpellListKebra { get; } =
             GetDefinition<SpellListDefinition>("SpellListKebra");
@@ -21658,6 +25512,9 @@ internal static partial class DatabaseHelper
 
         internal static SpellListDefinition SpellListSwamp_Hag { get; } =
             GetDefinition<SpellListDefinition>("SpellListSwamp_Hag");
+
+        internal static SpellListDefinition SpellListTiefling { get; } =
+            GetDefinition<SpellListDefinition>("SpellListTiefling");
 
         internal static SpellListDefinition SpellListWarlock { get; } =
             GetDefinition<SpellListDefinition>("SpellListWarlock");
@@ -21864,6 +25721,15 @@ internal static partial class DatabaseHelper
         internal static DecisionPackageDefinition LegendaryAoE_DpS { get; } =
             GetDefinition<DecisionPackageDefinition>("LegendaryAoE_DpS");
 
+        internal static DecisionPackageDefinition LegendaryAvatarSorrTarAoE_Debuff { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryAvatarSorrTarAoE_Debuff");
+
+        internal static DecisionPackageDefinition LegendaryAvatarSorrTarAoE_WordOfDarkness { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryAvatarSorrTarAoE_WordOfDarkness");
+
+        internal static DecisionPackageDefinition LegendaryAvatarSorrTarAttack { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendaryAvatarSorrTarAttack");
+
         internal static DecisionPackageDefinition LegendaryDefilerAoE_Debuff { get; } =
             GetDefinition<DecisionPackageDefinition>("LegendaryDefilerAoE_Debuff");
 
@@ -21926,6 +25792,27 @@ internal static partial class DatabaseHelper
 
         internal static DecisionPackageDefinition LegendaryRemorhazStunningAttack { get; } =
             GetDefinition<DecisionPackageDefinition>("LegendaryRemorhazStunningAttack");
+
+        internal static DecisionPackageDefinition LegendarySessrothConeOfCold { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothConeOfCold");
+
+        internal static DecisionPackageDefinition LegendarySessrothFireball { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothFireball");
+
+        internal static DecisionPackageDefinition LegendarySessrothHellsbreath { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothHellsbreath");
+
+        internal static DecisionPackageDefinition LegendarySessrothJavelin { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothJavelin");
+
+        internal static DecisionPackageDefinition LegendarySessrothMaul { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothMaul");
+
+        internal static DecisionPackageDefinition LegendarySessrothTeleportAggressive { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothTeleportAggressive");
+
+        internal static DecisionPackageDefinition LegendarySessrothTeleportDefensive { get; } =
+            GetDefinition<DecisionPackageDefinition>("LegendarySessrothTeleportDefensive");
 
         internal static DecisionPackageDefinition LegendarySorakAoE_Debuff { get; } =
             GetDefinition<DecisionPackageDefinition>("LegendarySorakAoE_Debuff");
@@ -22041,6 +25928,15 @@ internal static partial class DatabaseHelper
         internal static DecisionPackageDefinition RogueShadowCasterCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("RogueShadowCasterCombatDecisions");
 
+        internal static DecisionPackageDefinition SessrothCombatDecisionsPhase1 { get; } =
+            GetDefinition<DecisionPackageDefinition>("SessrothCombatDecisionsPhase1");
+
+        internal static DecisionPackageDefinition SessrothCombatDecisionsPhase2 { get; } =
+            GetDefinition<DecisionPackageDefinition>("SessrothCombatDecisionsPhase2");
+
+        internal static DecisionPackageDefinition SessrothCombatDecisionsPhase3 { get; } =
+            GetDefinition<DecisionPackageDefinition>("SessrothCombatDecisionsPhase3");
+
         internal static DecisionPackageDefinition ShamblingMoundCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("ShamblingMoundCombatDecisions");
 
@@ -22055,6 +25951,9 @@ internal static partial class DatabaseHelper
 
         internal static DecisionPackageDefinition SorakAssassinCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("SorakAssassinCombatDecisions");
+
+        internal static DecisionPackageDefinition SorakAvatarOfSorrTarCombatDecisions { get; } =
+            GetDefinition<DecisionPackageDefinition>("SorakAvatarOfSorrTarCombatDecisions");
 
         internal static DecisionPackageDefinition SorakGruntCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("SorakGruntCombatDecisions");
@@ -22116,6 +26015,9 @@ internal static partial class DatabaseHelper
 
     internal static class ToolTypeDefinitions
     {
+        internal static ToolTypeDefinition AbyssalAgitatorToolType { get; } =
+            GetDefinition<ToolTypeDefinition>("AbyssalAgitatorToolType");
+
         internal static ToolTypeDefinition ArtisanToolSmithToolsType { get; } =
             GetDefinition<ToolTypeDefinition>("ArtisanToolSmithToolsType");
 
@@ -22150,6 +26052,99 @@ internal static partial class DatabaseHelper
 
     internal static class TreasureTableDefinitions
     {
+        internal static TreasureTableDefinition DLC3_Class_Random_AllClasses_Potions_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_Potions_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_UniversalSpellFoci_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_AllClasses_Wands_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_AllClasses_Wands_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Barbarian_PotionsGiantStrength_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Barbarian_PotionsGiantStrength_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Bard_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Bard_MagicItems_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Fighter_OneHandWeapons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Fighter_OneHandWeapons_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Monk_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Monk_MagicItems_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Paladin_TwoHandWeapons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Paladin_TwoHandWeapons_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Rogue_PoisonedArrows_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Rogue_PoisonedArrows_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Rogue_Poisons_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Rogue_Poisons_Table");
+
+        internal static TreasureTableDefinition DLC3_Class_Random_Warlock_MagicItems_Table { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_Class_Random_Warlock_MagicItems_Table");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableA_Gem { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableA_Gem");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableB_Scrolls { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableB_Scrolls");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableC_WeaponsStandard { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableC_WeaponsStandard");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableD_WeaponsMagic { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableD_WeaponsMagic");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableE_ArmorsStandard { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableE_ArmorsStandard");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableF_ArmorsMagic { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableF_ArmorsMagic");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableG_WondrousItems { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableG_WondrousItems");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableH_IngredientsMineralsPlants { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableH_IngredientsMineralsPlants");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableI_IngredientsCreatures { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableI_IngredientsCreatures");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableJ_IngredientsEnchanted { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableJ_IngredientsEnchanted");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableK_AmmosStandard { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableK_AmmosStandard");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableL_AmmosPoison { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableL_AmmosPoison");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableM_AmmosMagic { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableM_AmmosMagic");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableN_Legendary { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableN_Legendary");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableP_PrimedItem { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableP_PrimedItem");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableQ_Mundane_Gear { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableQ_Mundane_Gear");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableR_RecipeManuals { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableR_RecipeManuals");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableS_ConsumablesPoisonsPotions { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableS_ConsumablesPoisonsPotions");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableT_25_GP_Art_Items { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableT_25_GP_Art_Items");
+
+        internal static TreasureTableDefinition DLC3_RandomTreasureTableU_50_GP_Art_Items { get; } =
+            GetDefinition<TreasureTableDefinition>("DLC3_RandomTreasureTableU_50_GP_Art_Items");
+
         internal static TreasureTableDefinition IngredientLootStandard { get; } =
             GetDefinition<TreasureTableDefinition>("IngredientLootStandard");
 
@@ -22270,6 +26265,12 @@ internal static partial class DatabaseHelper
         internal static TreasureTableDefinition RandomTravelIngredient_Principality_Grassland { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_Principality_Grassland");
 
+        internal static TreasureTableDefinition RandomTravelIngredient_SnowAlliance_North { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_SnowAlliance_North");
+
+        internal static TreasureTableDefinition RandomTravelIngredient_SnowAlliance_South { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTravelIngredient_SnowAlliance_South");
+
         internal static TreasureTableDefinition RandomTreasureTableA_Gem { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTreasureTableA_Gem");
 
@@ -22326,6 +26327,12 @@ internal static partial class DatabaseHelper
 
         internal static TreasureTableDefinition RandomTreasureTableM_Primed_Item { get; } =
             GetDefinition<TreasureTableDefinition>("RandomTreasureTableM_Primed_Item");
+
+        internal static TreasureTableDefinition RandomTreasureTableN1_Weapons_03 { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableN1_Weapons_03");
+
+        internal static TreasureTableDefinition RandomTreasureTableN2_Armors_03 { get; } =
+            GetDefinition<TreasureTableDefinition>("RandomTreasureTableN2_Armors_03");
 
         internal static TreasureTableDefinition RandomWeaponTable { get; } =
             GetDefinition<TreasureTableDefinition>("RandomWeaponTable");

@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetLoreMasterArcaneLore:f606ed750f58826489c15b0b017b0ad6",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetLoreMasterArcaneProfessor:1e552ba89c578154c98fc3aa0a59683e",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

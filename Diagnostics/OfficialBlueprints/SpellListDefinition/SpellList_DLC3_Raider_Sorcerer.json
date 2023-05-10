@@ -1,0 +1,90 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5",
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "6b0a1105e04b0ed408ad93fc331a1b5c",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC3_Raider_Sorcerer"
+}

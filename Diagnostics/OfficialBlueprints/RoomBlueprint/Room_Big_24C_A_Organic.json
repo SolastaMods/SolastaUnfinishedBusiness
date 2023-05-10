@@ -528,7 +528,7 @@
     1,
     1,
     1,
-    2,
+    10,
     2,
     2,
     2,
@@ -2921,6 +2921,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d65c766f2032ae743874be8831cddc9a",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "4e77e75739688034dbf344cfdbd81b02",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

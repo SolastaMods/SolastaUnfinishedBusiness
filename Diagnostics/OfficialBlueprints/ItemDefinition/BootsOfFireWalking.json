@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    750,
+    2000,
     0,
     0,
     0
@@ -31,9 +31,9 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Uncommon",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "InactiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -209,10 +209,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -228,8 +231,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -255,6 +257,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "0f49500c229e13149aabb6bb6b231ac1",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "BootsOfFireWalking"
 }

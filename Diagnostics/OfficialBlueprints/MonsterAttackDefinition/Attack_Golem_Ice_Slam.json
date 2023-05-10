@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -134,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "596f82699eaecce468ad607a43095966",
+        "m_AssetGUID": "847bc99133c990a4f867c5fd15a9a28c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -182,7 +183,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "08392d8c7d27c984c92639b387762353",
+        "m_AssetGUID": "e0a00fe16f170984193e062c4335f245",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -313,6 +314,8 @@
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

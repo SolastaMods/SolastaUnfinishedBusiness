@@ -234,14 +234,14 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "HasEnemiesInBox",
+                "considerationType": "HasCharactersInBox",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
                 "floatParameter": 0.9,
                 "intParameter": 1,
-                "byteParameter": 0,
+                "byteParameter": 1,
                 "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false

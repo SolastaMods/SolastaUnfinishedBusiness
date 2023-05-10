@@ -1,6 +1,6 @@
 {
   "$type": "LanguageDefinition, Assembly-CSharp",
-  "personalityFlag": false,
+  "personalityFlag": true,
   "personalityAdditiveBase": 10,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

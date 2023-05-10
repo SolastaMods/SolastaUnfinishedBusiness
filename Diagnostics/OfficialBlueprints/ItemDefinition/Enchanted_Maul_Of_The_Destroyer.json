@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    3600,
+    7010,
     0,
     0,
     0
@@ -104,6 +104,7 @@
       "fixedSavingThrowDifficultyClass": 13,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -519,6 +520,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -527,8 +529,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -554,6 +555,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "d90fa2dfafd9f7c439f17dedc7bf7390",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Enchanted_Maul_Of_The_Destroyer"
 }

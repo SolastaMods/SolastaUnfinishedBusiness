@@ -107,14 +107,14 @@
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
-                "floatParameter": 12.0,
+                "floatParameter": 8.0,
                 "intParameter": 0,
                 "byteParameter": 0,
                 "boolParameter": false,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "FavorFarFromMe_Giant"
+              "name": "FavorFarFromMe_Giant_PenalizeSelf"
             },
             "weight": 1.0
           },
@@ -196,13 +196,13 @@
                 },
                 "stringParameter": "",
                 "floatParameter": 40.0,
-                "intParameter": 2,
+                "intParameter": 6,
                 "byteParameter": 0,
                 "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "FavorLongRangeEnemyProximityAtPosition"
+              "name": "FavorLongRangeEnemyGroupProximityAtPosition"
             },
             "weight": 1.0
           },
@@ -234,14 +234,14 @@
               "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
               "consideration": {
                 "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
-                "considerationType": "HasEnemiesInBox",
+                "considerationType": "HasCharactersInBox",
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
                 "stringParameter": "",
                 "floatParameter": 0.9,
                 "intParameter": 3,
-                "byteParameter": 0,
+                "byteParameter": 1,
                 "boolParameter": true,
                 "boolSecParameter": false,
                 "boolTerParameter": false

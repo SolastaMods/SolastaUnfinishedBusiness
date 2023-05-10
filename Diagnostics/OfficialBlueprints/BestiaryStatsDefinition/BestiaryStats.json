@@ -10881,6 +10881,321 @@
                   },
                   "m_Scale": 1.0,
                   "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 30504,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 12.796875,
+                    "m_Height": 10.640625,
+                    "m_HorizontalBearingX": 1.765625,
+                    "m_HorizontalBearingY": 33.515625,
+                    "m_HorizontalAdvance": 40.0
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 26,
+                    "m_Width": 14,
+                    "m_Height": 12
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 299,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.5625,
+                    "m_Height": 35.484375,
+                    "m_HorizontalBearingX": 4.234375,
+                    "m_HorizontalBearingY": 35.484375,
+                    "m_HorizontalAdvance": 22.921875
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 47,
+                    "m_Width": 17,
+                    "m_Height": 36
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 332,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 15.921875,
+                    "m_Height": 22.390625,
+                    "m_HorizontalBearingX": 2.515625,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 21.875
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 28,
+                    "m_Y": 5,
+                    "m_Width": 17,
+                    "m_Height": 23
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 334,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.234375,
+                    "m_Height": 21.3125,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.3125,
+                    "m_HorizontalAdvance": 22.078125
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 92,
+                    "m_Width": 17,
+                    "m_Height": 22
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 337,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 17.609375,
+                    "m_Height": 22.390625,
+                    "m_HorizontalBearingX": 2.234375,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 21.515625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 123,
+                    "m_Width": 18,
+                    "m_Height": 23
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 343,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 18.125,
+                    "m_Height": 21.828125,
+                    "m_HorizontalBearingX": 0.515625,
+                    "m_HorizontalBearingY": 21.3125,
+                    "m_HorizontalAdvance": 22.640625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 31,
+                    "m_Y": 37,
+                    "m_Width": 19,
+                    "m_Height": 23
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 346,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 19.28125,
+                    "m_Height": 22.390625,
+                    "m_HorizontalBearingX": 2.234375,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 23.765625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 54,
+                    "m_Y": 5,
+                    "m_Width": 20,
+                    "m_Height": 23
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 349,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.5625,
+                    "m_Height": 22.390625,
+                    "m_HorizontalBearingX": 2.234375,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 19.953125
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 31,
+                    "m_Y": 69,
+                    "m_Width": 17,
+                    "m_Height": 23
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 342,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.40625,
+                    "m_Height": 21.875,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 21.125
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 155,
+                    "m_Width": 17,
+                    "m_Height": 22
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 340,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.640625,
+                    "m_Height": 21.3125,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.3125,
+                    "m_HorizontalAdvance": 24.640625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 186,
+                    "m_Width": 17,
+                    "m_Height": 22
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 341,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.640625,
+                    "m_Height": 31.953125,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 31.953125,
+                    "m_HorizontalAdvance": 24.640625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 217,
+                    "m_Width": 17,
+                    "m_Height": 32
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 317,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 21.03125,
+                    "m_Height": 30.203125,
+                    "m_HorizontalBearingX": 2.40625,
+                    "m_HorizontalBearingY": 29.6875,
+                    "m_HorizontalAdvance": 25.078125
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 5,
+                    "m_Y": 258,
+                    "m_Width": 22,
+                    "m_Height": 31
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 348,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 17.953125,
+                    "m_Height": 31.390625,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.875,
+                    "m_HorizontalAdvance": 24.203125
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 31,
+                    "m_Y": 155,
+                    "m_Width": 18,
+                    "m_Height": 32
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 344,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 19.5625,
+                    "m_Height": 21.3125,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.3125,
+                    "m_HorizontalAdvance": 27.515625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 32,
+                    "m_Y": 101,
+                    "m_Width": 20,
+                    "m_Height": 22
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
+                },
+                {
+                  "$type": "UnityEngine.TextCore.Glyph, UnityEngine.TextCoreModule",
+                  "m_Index": 345,
+                  "m_Metrics": {
+                    "$type": "UnityEngine.TextCore.GlyphMetrics, UnityEngine.TextCoreModule",
+                    "m_Width": 16.515625,
+                    "m_Height": 21.3125,
+                    "m_HorizontalBearingX": 4.0,
+                    "m_HorizontalBearingY": 21.3125,
+                    "m_HorizontalAdvance": 24.515625
+                  },
+                  "m_GlyphRect": {
+                    "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                    "m_X": 57,
+                    "m_Y": 69,
+                    "m_Width": 17,
+                    "m_Height": 22
+                  },
+                  "m_Scale": 1.0,
+                  "m_AtlasIndex": 0
                 }
               ],
               "m_CharacterTable": [
@@ -10889,6 +11204,111 @@
                   "m_ElementType": "Character",
                   "m_Unicode": 8217,
                   "m_GlyphIndex": 30502,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 8221,
+                  "m_GlyphIndex": 30504,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1025,
+                  "m_GlyphIndex": 299,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1072,
+                  "m_GlyphIndex": 332,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1074,
+                  "m_GlyphIndex": 334,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1077,
+                  "m_GlyphIndex": 337,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1083,
+                  "m_GlyphIndex": 343,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1086,
+                  "m_GlyphIndex": 346,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1089,
+                  "m_GlyphIndex": 349,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1082,
+                  "m_GlyphIndex": 342,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1080,
+                  "m_GlyphIndex": 340,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1081,
+                  "m_GlyphIndex": 341,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1057,
+                  "m_GlyphIndex": 317,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1088,
+                  "m_GlyphIndex": 348,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1084,
+                  "m_GlyphIndex": 344,
+                  "m_Scale": 1.0
+                },
+                {
+                  "$type": "TMPro.TMP_Character, Unity.TextMeshPro",
+                  "m_ElementType": "Character",
+                  "m_Unicode": 1085,
+                  "m_GlyphIndex": 345,
                   "m_Scale": 1.0
                 }
               ],
@@ -10906,22 +11326,197 @@
                   "m_Y": 0,
                   "m_Width": 15,
                   "m_Height": 21
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 21,
+                  "m_Width": 23,
+                  "m_Height": 21
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 42,
+                  "m_Width": 26,
+                  "m_Height": 45
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 23,
+                  "m_Y": 0,
+                  "m_Width": 26,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 87,
+                  "m_Width": 26,
+                  "m_Height": 31
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 118,
+                  "m_Width": 27,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 26,
+                  "m_Y": 32,
+                  "m_Width": 28,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 49,
+                  "m_Y": 0,
+                  "m_Width": 29,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 26,
+                  "m_Y": 64,
+                  "m_Width": 26,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 150,
+                  "m_Width": 26,
+                  "m_Height": 31
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 181,
+                  "m_Width": 26,
+                  "m_Height": 31
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 212,
+                  "m_Width": 26,
+                  "m_Height": 41
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 253,
+                  "m_Width": 31,
+                  "m_Height": 40
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 26,
+                  "m_Y": 150,
+                  "m_Width": 27,
+                  "m_Height": 41
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 27,
+                  "m_Y": 96,
+                  "m_Width": 29,
+                  "m_Height": 31
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 52,
+                  "m_Y": 64,
+                  "m_Width": 26,
+                  "m_Height": 31
                 }
               ],
               "m_FreeGlyphRects": [
                 {
                   "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
-                  "m_X": 0,
-                  "m_Y": 21,
-                  "m_Width": 4095,
-                  "m_Height": 2026
+                  "m_X": 15,
+                  "m_Y": 0,
+                  "m_Width": 8,
+                  "m_Height": 21
                 },
                 {
                   "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
-                  "m_X": 15,
+                  "m_X": 23,
+                  "m_Y": 32,
+                  "m_Width": 3,
+                  "m_Height": 10
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 78,
                   "m_Y": 0,
-                  "m_Width": 4080,
+                  "m_Width": 4017,
                   "m_Height": 2047
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 0,
+                  "m_Y": 293,
+                  "m_Width": 4095,
+                  "m_Height": 1754
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 31,
+                  "m_Y": 191,
+                  "m_Width": 4064,
+                  "m_Height": 1856
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 26,
+                  "m_Y": 191,
+                  "m_Width": 4069,
+                  "m_Height": 62
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 26,
+                  "m_Y": 96,
+                  "m_Width": 1,
+                  "m_Height": 22
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 53,
+                  "m_Y": 127,
+                  "m_Width": 4042,
+                  "m_Height": 1920
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 27,
+                  "m_Y": 127,
+                  "m_Width": 4068,
+                  "m_Height": 23
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 54,
+                  "m_Y": 32,
+                  "m_Width": 4041,
+                  "m_Height": 32
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 56,
+                  "m_Y": 95,
+                  "m_Width": 4039,
+                  "m_Height": 1952
+                },
+                {
+                  "$type": "UnityEngine.TextCore.GlyphRect, UnityEngine.TextCoreModule",
+                  "m_X": 52,
+                  "m_Y": 95,
+                  "m_Width": 4043,
+                  "m_Height": 1
                 }
               ],
               "m_fontInfo": {

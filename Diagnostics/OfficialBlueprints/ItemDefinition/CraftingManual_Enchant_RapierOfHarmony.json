@@ -16,7 +16,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    200,
+    910,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Legendary",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -200,6 +200,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -208,8 +209,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -235,6 +235,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "273a8678b734bde479f70c377a6680d2",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "CraftingManual_Enchant_RapierOfHarmony"
 }

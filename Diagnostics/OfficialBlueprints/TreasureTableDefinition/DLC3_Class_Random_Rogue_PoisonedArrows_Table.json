@@ -1,0 +1,99 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_ArivadsKiss:5810b76b67f69b341bb6fe3c6187b167",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_ArunsLight:cb15ea6adaedad94db85c180a87258c9",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_BasicPoison:e03479fbbed75684ebaa44106f2f7d56",
+      "amount": 20
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_BrimstoneFang:0132e52e865e7d8429837b6fb036848b",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_DarkStab:9e37a3087b6a3e142bb5ba103669602d",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_DeepPain:c2756725eff55da4da577565f4f12a7e",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_GhoulsCaress:55bf43a3ba2cc06418e991f908e908be",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_MaraikesTorpor:4a5456b2cbe5441448b00d7f5435dbb5",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_TheBurden:7bf97a36e4b9eea40abe4438b2f3c0e7",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_TheLongNight:d6c320ad6360ab2418c267b5221a3321",
+      "amount": 10
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 1,
+      "itemDefinition": "Definition:Arrow_Poisoned_TigerFang:95c434773284d234b99b3b92e629804b",
+      "amount": 10
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "06b207e3cd3599a4aae8511e7c0a3a03",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Class_Random_Rogue_PoisonedArrows_Table"
+}

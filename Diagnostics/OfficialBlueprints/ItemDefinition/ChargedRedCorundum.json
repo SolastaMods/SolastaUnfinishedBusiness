@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "MagicDevice",
   "weight": 0.5,
   "slotTypes": [
@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1500,
+    1200,
     0,
     0,
     0
@@ -34,7 +34,7 @@
   "requiresAttunement": false,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "Uncommon",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -214,6 +214,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -222,8 +223,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -249,6 +249,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "b75abfba69f9c634fb85eb968328a0cc",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "ChargedRedCorundum"
 }
