@@ -164,7 +164,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
-                    .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))

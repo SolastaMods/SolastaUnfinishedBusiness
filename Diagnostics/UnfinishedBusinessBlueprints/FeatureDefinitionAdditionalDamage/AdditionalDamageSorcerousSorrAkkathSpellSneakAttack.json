@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
   "notificationTag": "SpellSneakAttack",
-  "limitedUsage": "OnceInMyTurn",
+  "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
