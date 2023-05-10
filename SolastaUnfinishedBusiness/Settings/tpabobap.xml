@@ -1045,7 +1045,6 @@
     <string>HalfPlate</string>
     <string>Ringmail</string>
     <string>ChainMail</string>
-    <string>SplintArmor</string>
     <string>Plate</string>
   </CraftingInStore>
   <CraftingItemsInDm />
