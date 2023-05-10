@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.86:
+
+- minor fixes on additional damage frequency
+- last version compatible with 1.4.x game branch
+
 1.4.33.85:
 
 - RESPEC REQUIRED: Arcane Scoundrel [>=13th]

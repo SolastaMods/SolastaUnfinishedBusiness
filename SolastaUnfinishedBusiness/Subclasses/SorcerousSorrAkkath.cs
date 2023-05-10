@@ -221,11 +221,6 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .AddFeatureSet(powerTouchOfDarknessFixed, powerTouchOfDarknessPoints)
             .AddToDB();
 
-        // BUGFIX
-
-        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
