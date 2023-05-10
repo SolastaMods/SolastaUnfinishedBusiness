@@ -1049,7 +1049,6 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition SorcererArmor { get; } = GetDefinition<ItemDefinition>("SorcererArmor");
         internal static ItemDefinition Spear { get; } = GetDefinition<ItemDefinition>("Spear");
         internal static ItemDefinition Spellbook { get; } = GetDefinition<ItemDefinition>("Spellbook");
-        internal static ItemDefinition SplintArmor { get; } = GetDefinition<ItemDefinition>("SplintArmor");
         internal static ItemDefinition StaffOfHealing { get; } = GetDefinition<ItemDefinition>("StaffOfHealing");
         internal static ItemDefinition StuddedLeather { get; } = GetDefinition<ItemDefinition>("StuddedLeather");
         internal static ItemDefinition Torch { get; } = GetDefinition<ItemDefinition>("Torch");
