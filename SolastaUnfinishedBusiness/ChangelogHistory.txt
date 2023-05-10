@@ -2,8 +2,10 @@
 
 1.4.33.86:
 
-- minor fixes on additional damage frequency
-- last version compatible with 1.4.x game branch
+- fixed Shadow Blade not granting ADV when enemy is not lit
+- changed Daring Duel additional damage to once in my turn
+- changed Possessed additional damage to once in my turn
+- updated Chinese translation terms
 
 1.4.33.85:
 
