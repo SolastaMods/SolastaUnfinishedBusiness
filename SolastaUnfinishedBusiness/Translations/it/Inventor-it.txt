@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Gli inventori sono armeggiatori, alchimisti e altro ancora. Colmano lo spazio tra magia e tecnologia.
+Class/&InventorDescription=Gli inventori sono armeggiatori, alchimisti e altro ancora. Colmano lo spazio tra magia e tecnologia.
 Class/&InventorTitle=Inventore
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Gli attacchi effettuati con quest'arma infliggono 1d4 {0} danni aggiuntivi.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Elementale Maggiore [{0}]

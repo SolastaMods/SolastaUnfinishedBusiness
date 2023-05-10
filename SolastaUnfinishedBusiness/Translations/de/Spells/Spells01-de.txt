@@ -1,4 +1,4 @@
-﻿Condition/&AdditionalConditionEnsnaringStrikeDescription=Sie sind in Ranken verstrickt, die Bewegung verhindern, bei Geschicklichkeitswürfen benachteiligt sind und in jeder Runde durchdringenden Schaden erleiden. Lege am Ende deines Zuges einen Stärke-Wurfwurf ab, um den Ranken zu entkommen.
+Condition/&AdditionalConditionEnsnaringStrikeDescription=Sie sind in Ranken verstrickt, die Bewegung verhindern, bei Geschicklichkeitswürfen benachteiligt sind und in jeder Runde durchdringenden Schaden erleiden. Lege am Ende deines Zuges einen Stärke-Wurfwurf ab, um den Ranken zu entkommen.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Verstrickt
 Condition/&ConditionMuleDescription=Ihre Geschwindigkeit wird nicht durch Belastung oder schwere Panzerung verringert. Sie können 20 zusätzliche Pfund tragen.
 Condition/&ConditionMuleTitle=Maultier

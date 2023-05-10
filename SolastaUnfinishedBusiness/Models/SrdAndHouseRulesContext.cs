@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -91,6 +92,21 @@ internal static class SrdAndHouseRulesContext
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
 
+        //BUGFIX: add an effect to Counterspell
+        Counterspell.EffectDescription.effectParticleParameters =
+            DreadfulOmen.EffectDescription.effectParticleParameters;
+
+        //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
+        static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
+        {
+            // this allows Reflexive Party to trigger without Uncanny Dodge which can be triggered after that
+            return character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
+                                conditions.Any(character.HasConditionOfType);
+        }
+
+        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+            IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
+
         //SETTING: modify normal vision range
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
 
@@ -99,6 +115,7 @@ internal static class SrdAndHouseRulesContext
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
+        UngroupWildshapeAttacks();
     }
 
     internal static void LateLoad()
@@ -616,6 +633,15 @@ internal static class SrdAndHouseRulesContext
         //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
+    }
+
+    private static void UngroupWildshapeAttacks()
+    {
+        WildShapeApe.groupAttacks = false;
+        WildshapeBlackBear.groupAttacks = false;
+        WildShapeBrownBear.groupAttacks = false;
+        WildshapeDeepSpider.groupAttacks = false;
+        WildShapeGiant_Eagle.groupAttacks = false;
     }
 
     // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style

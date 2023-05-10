@@ -1,4 +1,4 @@
-﻿Feat/&FeatArcaneDefenseDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, entspricht deine Rüstungsklasse 10 + deinem Geschicklichkeitsmodifikator + deinem Intelligenzmodifikator.
+Feat/&FeatArcaneDefenseDescription=Erhöhe deine Intelligenz um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, entspricht deine Rüstungsklasse 10 + deinem Geschicklichkeitsmodifikator + deinem Intelligenzmodifikator.
 Feat/&FeatArcaneDefenseTitle=Arkane Verteidigung
 Feat/&FeatCharismaticDefenseDescription=Erhöhe dein Charisma um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, entspricht deine Rüstungsklasse 10 + deinem Geschicklichkeitsmodifikator + deinem Charismamodifikator.
 Feat/&FeatCharismaticDefenseTitle=Charismatische Verteidigung

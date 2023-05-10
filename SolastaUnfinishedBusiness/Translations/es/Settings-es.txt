@@ -12,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requier
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos los artículos en DM
+ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminado</color>
 ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas
@@ -25,7 +26,6 @@ ModUi/&AllowMoreRealStateOnRestPanel=Permitir más estado real en el panel de de
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i><color=#F0DAA0>[p. ej. 2x500gp diamante es equivalente a 1000gp diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
-ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
@@ -99,13 +99,13 @@ ModUi/&EnablePcgRandom=Habilite un mejor algoritmo generador aleatorio <i><color
 ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo en torno al héroe seleccionado o al líder si no se selecciona ninguno <i><color=#F0DAA0>[útil con grupos de 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
 ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
-ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
 ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
+ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Permitir que funciones de héroes funcionen mientras están en forma <color=#D89555>Wildshape</color>
@@ -128,8 +128,8 @@ ModUi/&FormationResetAllSets=Resetear todo
 ModUi/&FormationResetThisSet=Restablecer esto
 ModUi/&FormationSelected=Conjunto de formación {0} seleccionado
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
-ModUi/&Gameplay=Como se Juega
 ModUi/&GameUi=Interfaz de usuario del juego
+ModUi/&Gameplay=Como se Juega
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto
@@ -185,6 +185,7 @@ ModUi/&RestockCircleOfDanantar=Reponer Círculo de Danantar <i><color=#F0DAA0>[J
 ModUi/&RestockHelp=. Anule los valores predeterminados para obligar a que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
 ModUi/&RestockTowerOfKnowledge=Reponer Torre del Conocimiento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Normas
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Escale los precios de los comerciantes correctamente/exactamente <i><color=#F0DAA0>[no más errores de redondeo al convertir valores de monedas]</color></i>
 ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
@@ -204,7 +205,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en in
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>
 ModUi/&SpellsMenu=Hechizos
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque

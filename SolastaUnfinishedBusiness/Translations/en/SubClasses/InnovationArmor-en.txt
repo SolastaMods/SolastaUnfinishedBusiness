@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArmorGuardianModeDescription=Gain <b>Thunder Gauntlet</b> (1d8 Thunder damage) weapon if you have free hand and <b>Defensive Field</b> bonus action to gain temporary HP equal to Inventor level.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Gain <b>Thunder Gauntlet</b> (1d8 Thunder damage) weapon if you have free hand and <b>Defensive Field</b> bonus action to gain temporary HP equal to Inventor level.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Guardian
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Gain <b>Lightning Launcher</b> ranged attack (1d6 Lightning damage, first attack in round deals 2d6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Infiltrator

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -118,6 +119,146 @@ public static class CharacterActionUsePowerPatcher
                 .ItemUsed?.Invoke(usableDevice.ItemDefinition.Name);
 
             return false;
+        }
+    }
+
+    //PATCH: this is vanilla code with the exception it checks for sub classes repertoires as well to counter effects
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CounterEffectAction))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            CharacterActionUsePower __instance,
+            CharacterAction counterAction)
+        {
+            if (__instance.ActionParams.TargetAction == null)
+            {
+                yield break;
+            }
+
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+            foreach (var effectForm in __instance.ActionParams.RulesetEffect.EffectDescription.EffectForms)
+            {
+                if (effectForm.FormType != EffectForm.EffectFormType.Counter)
+                {
+                    continue;
+                }
+
+                var counterForm = effectForm.CounterForm;
+
+                if (__instance.ActionParams.TargetAction.ActionParams.RulesetEffect is not RulesetEffectSpell
+                    counteredSpell)
+                {
+                    continue;
+                }
+
+                var counteredSpellDefinition = counteredSpell.SpellDefinition;
+                var slotLevel = counteredSpell.SlotLevel;
+
+                if (counterForm.AutomaticSpellLevel >= slotLevel)
+                {
+                    __instance.ActionParams.TargetAction.Countered = true;
+                }
+                else if (counterForm.CheckBaseDC != 0)
+                {
+                    var checkDC = counterForm.CheckBaseDC + slotLevel;
+
+                    __instance.ActingCharacter.RulesetCharacter
+                        .EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(
+                            __instance.ActingCharacter.RulesetCharacter.FeaturesToBrowse);
+
+                    foreach (var featureDefinition in __instance
+                                 .ActingCharacter.RulesetCharacter.FeaturesToBrowse)
+                    {
+                        var definitionMagicAffinity = (FeatureDefinitionMagicAffinity)featureDefinition;
+
+                        if (definitionMagicAffinity.CounterspellAffinity == RuleDefinitions.AdvantageType.None)
+                        {
+                            continue;
+                        }
+
+                        var num =
+                            definitionMagicAffinity.CounterspellAffinity == RuleDefinitions.AdvantageType.Advantage
+                                ? 1
+                                : -1;
+
+                        __instance.ActionParams.ActionModifiers[0].AbilityCheckAdvantageTrends.Add(
+                            new RuleDefinitions.TrendInfo(num,
+                                RuleDefinitions.FeatureSourceType.CharacterFeature,
+                                definitionMagicAffinity.Name, null));
+                    }
+
+                    if (counteredSpell.CounterAffinity != RuleDefinitions.AdvantageType.None)
+                    {
+                        var num = counteredSpell.CounterAffinity == RuleDefinitions.AdvantageType.Advantage
+                            ? 1
+                            : -1;
+
+                        __instance.ActionParams.ActionModifiers[0].AbilityCheckAdvantageTrends.Add(
+                            new RuleDefinitions.TrendInfo(num,
+                                RuleDefinitions.FeatureSourceType.CharacterFeature,
+                                counteredSpell.CounterAffinityOrigin, null));
+                    }
+
+                    var abilityScoreName = AttributeDefinitions.Charisma;
+
+                    foreach (var spellRepertoire in
+                             __instance.ActionParams.ActingCharacter.RulesetCharacter.SpellRepertoires
+                                 .Where(spellRepertoire =>
+                                     spellRepertoire.SpellCastingFeature.SpellCastingOrigin is
+                                         FeatureDefinitionCastSpell.CastingOrigin.Class
+                                         or FeatureDefinitionCastSpell.CastingOrigin.Subclass))
+                    {
+                        abilityScoreName = spellRepertoire.SpellCastingFeature.SpellcastingAbility;
+                        break;
+                    }
+
+                    var proficiencyName = string.Empty;
+
+                    if (counterForm.AddProficiencyBonus)
+                    {
+                        proficiencyName = "ForcedProficiency";
+                    }
+
+                    __instance.ActingCharacter.RollAbilityCheck(abilityScoreName, proficiencyName,
+                        checkDC, RuleDefinitions.AdvantageType.None,
+                        __instance.ActionParams.ActionModifiers[0], false, 0, out var outcome,
+                        out var successDelta, true);
+
+                    counterAction.AbilityCheckRollOutcome = outcome;
+                    counterAction.AbilityCheckSuccessDelta = successDelta;
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (counterAction.AbilityCheckRollOutcome)
+                    {
+                        case RuleDefinitions.RollOutcome.Failure:
+                            yield return ServiceRepository.GetService<IGameLocationBattleService>()
+                                .HandleFailedAbilityCheck(counterAction, __instance.ActingCharacter,
+                                    __instance.ActionParams.ActionModifiers[0]);
+                            break;
+                        case RuleDefinitions.RollOutcome.Success:
+                            __instance.ActionParams.TargetAction.Countered = true;
+                            break;
+                    }
+                }
+
+                if (!__instance.ActionParams.TargetAction.Countered ||
+                    __instance.ActingCharacter.RulesetCharacter.SpellCounter == null)
+                {
+                    continue;
+                }
+
+                var unknown = string.IsNullOrEmpty(counteredSpell.IdentifiedBy);
+
+                __instance.ActingCharacter.RulesetCharacter.SpellCounter(
+                    __instance.ActingCharacter.RulesetCharacter,
+                    __instance.ActionParams.TargetAction.ActingCharacter.RulesetCharacter,
+                    counteredSpellDefinition, __instance.ActionParams.TargetAction.Countered,
+                    unknown);
+            }
         }
     }
 }

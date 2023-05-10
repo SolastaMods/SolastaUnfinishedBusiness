@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Avantage sur tous les jets d'attaque, les tests de capacité et les jets de sauvegarde. Les autres créatures ont un désavantage aux jets d'attaque.
+Condition/&ConditionForesightDescription=Avantage sur tous les jets d'attaque, les tests de capacité et les jets de sauvegarde. Les autres créatures ont un désavantage aux jets d'attaque.
 Condition/&ConditionForesightTitle=Prévoyance
 Condition/&ConditionTimeStopDescription=Le temps est gelé pour la créature affectée.
 Condition/&ConditionTimeStopTitle=Temps arrêté

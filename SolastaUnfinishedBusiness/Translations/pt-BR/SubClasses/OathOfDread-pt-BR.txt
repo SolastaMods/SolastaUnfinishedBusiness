@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se você estiver amedrontado ou com medo, seu deslocamento é reduzido a 0 e você sofre dano psíquico igual à metade do nível de paladino do emanador.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se você estiver amedrontado ou com medo, seu deslocamento é reduzido a 0 e você sofre dano psíquico igual à metade do nível de paladino do emanador.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de Dominação
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=O marcador tem vantagem nas jogadas de ataque contra você.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marca de Castigo

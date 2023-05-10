@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Ihre Kampffähigkeit wird stark verbessert.
+Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Ihre Kampffähigkeit wird stark verbessert.
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=Inspiriert
 Condition/&ConditionTerrifiedByHarlequinPerformanceDescription=Verängstigt, nachdem sie gesehen hat, wie ein Verbündeter brutal ermordet wurde.
 Condition/&ConditionTerrifiedByHarlequinPerformanceTitle=Verängstigt

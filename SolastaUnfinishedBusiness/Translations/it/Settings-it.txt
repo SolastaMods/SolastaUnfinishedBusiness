@@ -12,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color> <b><i><color=#C04040E0>[Richied
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia installato questa mod
 ModUi/&Adventure=<color=#F0DAA0>Avventura:</color>
 ModUi/&AllItemInDm=Tutti gli articoli in DM
+ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
 ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi
@@ -25,7 +26,6 @@ ModUi/&AllowMoreRealStateOnRestPanel=Consenti più stato reale sul pannello di r
 ModUi/&AllowStackedMaterialComponent=Consenti componente materiale impilato <i><color=#F0DAA0>[ad es. 2 diamanti da 500 gp equivalgono a un diamante da 1000 gp]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Consenti la selezione del bersaglio quando lanci l'incantesimo <color=#D89555>Catena di Fulmini</color>
 ModUi/&AllowUnmarkedSorcerers=Consenti <color=#D89555>Stregone</color> senza segni di origine e tatuaggi
-ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Il tasto <color=#1E81B0>ALT</color> evidenzia solo i gadget nel campo visivo del gruppo <i><color=#F0DAA0>[solo dungeon personalizzati]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Ridurre il peso della razione di cibo a 2 libbre
 ModUi/&ArcaneShieldstaffOptions=Consenti a <color=#D89555>Bastone Scudo Arcano</color> di essere sintonizzato da qualsiasi classe
@@ -99,13 +99,13 @@ ModUi/&EnablePcgRandom=Abilita un migliore algoritmo generatore casuale <i><colo
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per ricongiungersi al gruppo attorno all'eroe selezionato o al leader se non ne è selezionato nessuno <i><color=#F0DAA0>[utile con gruppi di 5 o 6 ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
-ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad es.: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>
+ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Imposta probabilità percentuali di incontri casuali</color>
 ModUi/&Encounters=Incontri
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Consenti alle caratteristiche degli eroi di funzionare mentre sei in forma <color=#D89555>Wildshape</color>
@@ -128,8 +128,8 @@ ModUi/&FormationResetAllSets=Resetta tutto
 ModUi/&FormationResetThisSet=Ripristina questo
 ModUi/&FormationSelected=Gruppo di formazione {0} selezionato
 ModUi/&FullyControlConjurations=Controlla completamente le evocazioni <i><color=#F0DAA0>[animali, elementali, ecc.]</color></i>
-ModUi/&Gameplay=Gioco
 ModUi/&GameUi=Interfaccia utente del gioco
+ModUi/&Gameplay=Gioco
 ModUi/&General=<color=#F0DAA0>Generale:</color>
 ModUi/&GeneralMenu=Generale
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Nascondi gli effetti visivi delle uscite e dei teletrasporti se non ancora scoperti
@@ -185,6 +185,7 @@ ModUi/&RestockCircleOfDanantar=Rifornisci il Circolo di Danantar <i><color=#F0DA
 ModUi/&RestockHelp=. Ignora le impostazioni predefinite per forzare il rifornimento di tutte le scorte del commerciante nel tempo <i><color=#F0DAA0>[esclusi manuali e tomi]</color></i>\n. Nota che alcuni oggetti possono richiedere fino a 7 giorni di gioco per essere riforniti
 ModUi/&RestockTowerOfKnowledge=Rifornisci la Torre della Conoscenza <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Regole
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Ridimensiona i prezzi del commerciante correttamente/esattamente <i><color=#F0DAA0>[niente più errori di arrotondamento durante la conversione dei valori delle monete]</color></i>
 ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectSuggested=Seleziona Suggerito
@@ -204,7 +205,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in su
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro livello incantesimo</color> <color=#F0DAA0>[-1 visualizza tutto]</color></i></b>
 ModUi/&SpellsMenu=Incantesimi
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim con tutti i vestiti non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali

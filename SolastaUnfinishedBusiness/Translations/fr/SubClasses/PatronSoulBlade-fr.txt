@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Maudit par un maléfice d'âme.
+Condition/&ConditionSoulBladeHexDefenderDescription=Maudit par un maléfice d'âme.
 Condition/&ConditionSoulBladeHexDefenderTitle=Maléfice de l'âme
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Compte comme magique et utilise le modificateur de Charisme pour les jets d'attaque et de dégâts.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Âme habilitée

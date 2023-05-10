@@ -1,4 +1,4 @@
-﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumenta el daño de tu próximo ataque furtivo en 3d6 adicionales, hasta el final de tu próximo turno. Este daño aumenta a 4d6 en el nivel 13 y 5d6 en el nivel 17.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumenta el daño de tu próximo ataque furtivo en 3d6 adicionales, hasta el final de tu próximo turno. Este daño aumenta a 4d6 en el nivel 13 y 5d6 en el nivel 17.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Cadena de ejecución
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Estás marcado por el Asesino.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marca del asesino

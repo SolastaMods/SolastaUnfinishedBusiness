@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFeatSteadyAimAdvantageDescription=Tienes ventaja en tu próxima tirada de ataque.
+Condition/&ConditionFeatSteadyAimAdvantageDescription=Tienes ventaja en tu próxima tirada de ataque.
 Condition/&ConditionFeatSteadyAimAdvantageTitle=Buena puntería
 Condition/&ConditionFeatSteadyAimRestrainedDescription=No puedes moverte hasta el final de tu turno.
 Condition/&ConditionFeatSteadyAimRestrainedTitle=Restringido por Steady Aim

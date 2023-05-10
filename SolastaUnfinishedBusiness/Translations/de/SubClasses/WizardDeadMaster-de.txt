@@ -1,4 +1,4 @@
-﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Deadmaster-Zauber
 Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, brauchen Sie keine Konzentration, um Tote zu erwecken.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Streuen

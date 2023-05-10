@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Dein Geist wird nekrotischen Schaden anrichten, wenn du zum dritten Mal in Unstimmigkeit gerätst.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Dein Geist wird nekrotischen Schaden anrichten, wenn du zum dritten Mal in Unstimmigkeit gerätst.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Diskrepanz
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Nimm -1W4 auf Rettungswürfe und -2 auf Angriffswürfe. Sie können versuchen, am Ende jedes Ihrer Züge zu speichern.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Tiefgreifender Aufruhr
@@ -8,9 +8,9 @@ Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Ab der 6. Stufe wendest 
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schisma
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=Auf der 11. Stufe erhältst du die Fähigkeit, eine Eruption angesammelter negativer Energie zu verursachen. Sie können den Schaden erhöhen, indem Sie Ki-Punkte ausgeben. Jeder Punkt, den Sie ausgeben, bis zu einem Maximum Ihres Fertigkeitsbonus, erhöht den Schaden um 1W6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Ausbruch der Disharmonie
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gib {0} Ki-Punkte aus, um {1}W6 Schaden zu verursachen.
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion der Disharmonie [{0} Ki]
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=Ab der 17. Stufe muss eine Kreatur, wenn sie Schaden durch deine Discordance-Funktion erleidet, einen Charisma-Rettungswurf bestehen oder bis zu einer Minute lang den Zustand Aufruhr erhalten. Wenn einer Kreatur der Rettungswurf gelingt oder der Effekt abläuft, ist die Kreatur immun gegen weitere Effekte von Aufruhr.
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Tiefgreifender Aufruhr
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gib {0} Ki-Punkte aus, um {1}W6 Schaden zu verursachen.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion der Disharmonie [{0} Ki]
 Subclass/&WayOfTheDiscordanceDescription=Während die meisten Mönche durch Kontemplation Erleuchtung suchen und inneren Frieden erlangen, konzentrieren sich die Mönche des Weges der Zwietracht auf die Nutzung der chaotischen Energien des Universums. Diese mystischen Gelehrten der Disharmonie nutzen die inneren Konflikte ihrer Feinde aus, indem sie ihr Ki manipulieren und sie mit Ausbrüchen verzerrender Energie vernichten.
 Subclass/&WayOfTheDiscordanceTitle=Weg der Zwietracht

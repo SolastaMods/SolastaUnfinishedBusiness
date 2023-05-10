@@ -1,4 +1,4 @@
-﻿Condition/&ConditionOathOfDreadAuraOfDominationDescription=If you are frightened or feared, your speed is reduced to 0, and you take psychic damage equal to half the emanator's paladin level.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=If you are frightened or feared, your speed is reduced to 0, and you take psychic damage equal to half the emanator's paladin level.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura of Domination
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=The marker has advantage on attack rolls against you.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Mark of Castigation

@@ -1,4 +1,4 @@
-﻿Condition/&AfterRestIdentifyDescription=Magische Gegenstände erkennen
+Condition/&AfterRestIdentifyDescription=Magische Gegenstände erkennen
 Condition/&AfterRestIdentifyTitle=Identifizieren
 Condition/&ConditionDistractedByAllyDescription=Diese Kreatur wurde abgelenkt.
 Condition/&ConditionDistractedByAllyTitle=Abgelenkt

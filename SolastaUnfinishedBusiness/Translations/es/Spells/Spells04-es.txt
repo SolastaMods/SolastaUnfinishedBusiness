@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=Tienes resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
+Condition/&ConditionBrainBulwarkDescription=Tienes resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
 Condition/&ConditionBrainBulwarkTitle=Baluarte del cerebro
 Feature/&AdditionalDamageStaggeringSmiteDescription=Eres golpeado por daño psíquico.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Golpe asombroso

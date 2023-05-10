@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Você pode gastar 2 pontos de Ki para lançar escuridão, visão no escuro, passar sem deixar vestígios ou silenciar, sem fornecer componentes materiais. Além disso, você ganha o truque da luz, caso ainda não o conheça.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Você pode gastar 2 pontos de Ki para lançar escuridão, visão no escuro, passar sem deixar vestígios ou silenciar, sem fornecer componentes materiais. Além disso, você ganha o truque da luz, caso ainda não o conheça.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Artes de silhueta
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes agora funciona na penumbra e na escuridão mágica, além da escuridão natural.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Manto de Silhuetas Aprimorado

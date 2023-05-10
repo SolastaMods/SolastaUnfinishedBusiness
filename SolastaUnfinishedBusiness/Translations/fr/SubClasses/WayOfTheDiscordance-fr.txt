@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Votre esprit subira des dégâts nécrotiques si vous êtes en discordance pour la troisième fois.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Votre esprit subira des dégâts nécrotiques si vous êtes en discordance pour la troisième fois.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Désaccord
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Prenez -1d4 aux jets de sauvegarde et -2 aux jets d'attaque. Vous pouvez tenter de sauvegarder à la fin de chacun de vos tours.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Tourmente profonde
@@ -8,9 +8,9 @@ Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=À partir du niveau 6, v
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schisme
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=Au niveau 11, vous gagnez la capacité de provoquer une éruption d'énergie négative accumulée. Vous pouvez augmenter les dégâts en dépensant des points Ki. Chaque point que vous dépensez, jusqu'à un maximum de votre bonus de compétence, augmente les dégâts de 1d6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Explosion de disharmonie
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Dépensez {0} points de Ki pour infliger {1}d6 dégâts.
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion de disharmonie [{0} Ki]
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=À partir du niveau 17, lorsqu'une créature subit des dégâts de votre capacité de Discordance, elle doit réussir un jet de sauvegarde de Charisme ou subir l'état d'Agitation pendant une minute maximum. Si une créature réussit son jet de sauvegarde ou si l'effet expire, la créature est immunisée contre d'autres effets d'Agitation.
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Tourmente profonde
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Dépensez {0} points de Ki pour infliger {1}d6 dégâts.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion de disharmonie [{0} Ki]
 Subclass/&WayOfTheDiscordanceDescription=Alors que la plupart des moines recherchent l'illumination par la contemplation et l'atteinte de la paix intérieure, les moines de la Voie de la Discordance, quant à eux, se concentrent sur l'exploitation des énergies chaotiques de l'univers. Ces érudits mystiques de la disharmonie exploitent les conflits intérieurs de leurs ennemis en manipulant leur Ki, les dévastant avec des explosions d'énergie déformante.
 Subclass/&WayOfTheDiscordanceTitle=Chemin de la discorde

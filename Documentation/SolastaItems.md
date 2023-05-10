@@ -1462,6 +1462,10 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 
 Used mostly as a sign of status, this weapon may not have tasted blood during the Manacalon era.
 
+# Splint
+
+This armor is made of narrow, vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible chain mail protects the joints.
+
 # Staff of Fire
 
 Another creation of Lanathir Goldenfire, no mere trinket but a mighty weapon in the right hands. 

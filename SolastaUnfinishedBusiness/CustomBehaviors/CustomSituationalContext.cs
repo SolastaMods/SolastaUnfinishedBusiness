@@ -38,6 +38,9 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.IsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
 
+            ExtraSituationalContext.TargetIsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(
+                contextParams.target),
+
             ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
 
             ExtraSituationalContext.HasLongswordInHands =>

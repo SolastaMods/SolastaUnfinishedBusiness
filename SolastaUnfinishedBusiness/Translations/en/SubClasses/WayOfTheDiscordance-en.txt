@@ -1,4 +1,4 @@
-﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Your mind will blow in necrotic damage if you get in discordance for a 3rd time.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Your mind will blow in necrotic damage if you get in discordance for a 3rd time.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordance
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=Take -1d4 to saving throws, and -2 to attack rolls. You can attempt to save at the end of each of yours turns.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=Profound Turmoil
@@ -8,9 +8,9 @@ Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Starting at 6th level, y
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schism
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending Ki points. Each point you spend, to a maximum of your Proficiency bonus, increases the damage by 1d6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Burst of Disharmony
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spend {0} Ki Point to deal {1}d6 damage.
-Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Burst of Disharmony [{0} Ki]
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=Starting at 17th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw or receive Turmoil condition for up to one minute. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil.
 Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=Profound Turmoil
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spend {0} Ki Point to deal {1}d6 damage.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Burst of Disharmony [{0} Ki]
 Subclass/&WayOfTheDiscordanceDescription=While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 Subclass/&WayOfTheDiscordanceTitle=Way of Discordance

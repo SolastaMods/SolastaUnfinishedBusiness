@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=I tuoi nemici stanno vacillando!
+Condition/&ConditionDualFlurryGrantDescription=I tuoi nemici stanno vacillando!
 Condition/&ConditionDualFlurryGrantTitle=Doppia raffica
 Feat/&FeatDualFlurryDescription=Sei un maestro del combattimento con armi accoppiate. In qualsiasi turno in cui colpisci due volte con attacchi in mischia mentre impugni un'arma in ciascuna mano, puoi effettuare un attacco secondario aggiuntivo quando attacchi con la tua azione bonus.
 Feat/&FeatDualFlurryTitle=Doppia raffica

@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puoi spendere 2 punti Ki per lanciare oscurità, scurovisione, passare senza lasciare traccia o silenzio, senza fornire componenti materiali. Inoltre, ottieni il trucchetto leggero se non lo conosci già.
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Puoi spendere 2 punti Ki per lanciare oscurità, scurovisione, passare senza lasciare traccia o silenzio, senza fornire componenti materiali. Inoltre, ottieni il trucchetto leggero se non lo conosci già.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arti della siluetta
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes ora funziona in condizioni di luce fioca e oscurità magica oltre all'oscurità naturale.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Mantello delle sagome migliorato

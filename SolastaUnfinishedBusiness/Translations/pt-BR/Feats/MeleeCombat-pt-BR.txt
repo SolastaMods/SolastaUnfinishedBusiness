@@ -1,5 +1,3 @@
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Enquanto estiver segurando uma espada longa, você ganha um bônus de +1 na classe de armadura.
-Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Espada Longa Refinamento
 Condition/&ConditionFeatCrusherCriticalHitDescription=Você foi esmagado por um acerto crítico e os ataques contra você têm vantagem.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Esmagado
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando você atinge uma criatura com um ataque que causa dano perfurante, você pode jogar novamente os dados quando rolar um 1 e deve usar a nova jogada.
@@ -46,6 +44,8 @@ Feature/&AdditionalDamageFeatPiercerDescription=Quando você acerta um acerto cr
 Feature/&AdditionalDamageFeatPiercerTitle=Perfurador
 Feature/&AttackModifierFeatSpearMasteryDescription=Você ganha +1 de bônus nas jogadas de ataque feitas com uma lança e seu dado de dano muda de d6 para d8, e de d8 para d10 quando empunhado com as duas mãos.
 Feature/&AttackModifierFeatSpearMasteryTitle=Domínio da lança
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Enquanto estiver segurando uma espada longa, você ganha um bônus de +1 na classe de armadura.
+Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Espada Longa Refinamento
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Domínio da Lâmina
 Feature/&ModifyAttackModeFeatFellHandedTitle=Caiu de mãos dadas
 Feature/&PowerFeatFellHandedAdvantageDescription=Sempre que você tiver vantagem em uma jogada de ataque corpo a corpo e acertar, você derrubará o alvo se a menor das duas jogadas de d20 também acertar o alvo.

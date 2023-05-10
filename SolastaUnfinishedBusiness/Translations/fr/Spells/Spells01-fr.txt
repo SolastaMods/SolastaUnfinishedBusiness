@@ -1,4 +1,4 @@
-﻿Condition/&AdditionalConditionEnsnaringStrikeDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de Dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de Force pour échapper aux lianes.
+Condition/&AdditionalConditionEnsnaringStrikeDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de Dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de Force pour échapper aux lianes.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Pris au piège
 Condition/&ConditionMuleDescription=Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
 Condition/&ConditionMuleTitle=Mule

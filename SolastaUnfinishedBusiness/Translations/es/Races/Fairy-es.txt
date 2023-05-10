@@ -1,4 +1,4 @@
-﻿Feature/&CastSpellFairyDescription=Ya conoces el cantrip <b>Estallido de resplandor</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Explosión de color</b>. Ambos pueden usarse una vez por descanso prolongado.
+Feature/&CastSpellFairyDescription=Ya conoces el cantrip <b>Estallido de resplandor</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Explosión de color</b>. Ambos pueden usarse una vez por descanso prolongado.
 Feature/&CastSpellFairyTitle=Magia de hadas
 Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=Destreza +2, Inteligencia, Sabiduría o Carisma +1
 Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=Puntuaciones de habilidad
@@ -8,7 +8,7 @@ Feature/&PowerFairyFlightDismissDescription=Despedir su vuelo.
 Feature/&PowerFairyFlightDismissTitle=Descartar vuelo
 Feature/&PowerFairyFlightSproutDescription=Como acción, puedes darte a ti mismo una velocidad de vuelo igual a tu velocidad al caminar. No puedes usar esto si llevas una armadura mediana o pesada.
 Feature/&PowerFairyFlightSproutTitle=Vuelo
-Feature/&ProficencyFairyLanguagesDescription=Común, cualquier otro idioma
-Feature/&ProficencyFairyLanguagesTitle=Idiomas
+Feature/&ProficiencyFairyLanguagesDescription=Común, cualquier otro idioma
+Feature/&ProficiencyFairyLanguagesTitle=Idiomas
 Race/&RaceFairyDescription=Feywild es el hogar de muchos pueblos fantásticos, incluidas las hadas. Las hadas son una gente pequeña, pero no tanto como sus amigos duendecillos y duendes. Las primeras hadas hablaban élfico, duende o silvano, y los encuentros con visitantes humanos llevaron a muchas de ellas a aprender común también.
 Race/&RaceFairyTitle=Hada

@@ -573,24 +573,24 @@ internal static class InvocationsBuilders
             _damageType = damageType;
         }
 
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster)
+        public EffectDescription ModifyEffect(BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             if (definition != SpellDefinitions.EldritchBlast)
             {
-                return effect;
+                return effectDescription;
             }
 
-            var damage = effect.FindFirstDamageForm();
+            var damage = effectDescription.FindFirstDamageForm();
 
             if (damage != null)
             {
                 damage.DamageType = _damageType;
             }
 
-            return effect;
+            return effectDescription;
         }
     }
 

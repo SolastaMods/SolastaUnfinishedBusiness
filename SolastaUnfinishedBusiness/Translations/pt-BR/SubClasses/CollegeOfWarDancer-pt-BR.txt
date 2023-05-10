@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCharmedByDanceOfWarDescription=Classe de armadura reduzida pelo modificador de Carisma.
+Condition/&ConditionCharmedByDanceOfWarDescription=Classe de armadura reduzida pelo modificador de Carisma.
 Condition/&ConditionCharmedByDanceOfWarTittle=Encantado
 Condition/&ConditionWarDanceDescription=Mova-se e ataque rapidamente.
 Condition/&ConditionWarDanceLightMomentumDescription=Seu ataque tem impulso leve.

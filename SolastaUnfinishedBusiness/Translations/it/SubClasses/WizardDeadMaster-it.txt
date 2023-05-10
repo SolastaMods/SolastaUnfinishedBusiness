@@ -1,4 +1,4 @@
-﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Incantesimi del Maestro Morto
 Feature/&BypassSpellConcentrationDeadMasterDescription=Hai imparato le vie della negromanzia. Se potenziato, non hai bisogno di concentrazione per resuscitare morti.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Disperdere

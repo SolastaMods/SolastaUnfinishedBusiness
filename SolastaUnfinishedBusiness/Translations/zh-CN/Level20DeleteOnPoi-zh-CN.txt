@@ -1,0 +1,15 @@
+Action/&PersistentRageStartDescription=在一分钟内，你在力量豁免和检定上有优势，近战攻击伤害加值，以及对挥砍、钝击和穿刺伤害的抵抗力。只有当你没有穿着重甲时你才能获得这些好处。
+Feature/&FeatureSetMonkDiamondSoulDescription=从第 14 级开始，你对气的精通使你在所有豁免检定中都变得熟练。此外，每当你进行豁免并失败时，你可以花费1气重新掷骰并获得第二个结果。
+Feature/&FeatureSetMonkDiamondSoulTitle=金刚魂
+Feature/&FeatureSetMonkTongueSunMoonDescription=从第 13 级开始，你学会接触其他思想的气以便你理解所有口头语言。而且，任何能听懂语言的生物都能听懂你说的话。
+Feature/&FeatureSetMonkTongueSunMoonTitle=天语通
+Feature/&IndomitableResistanceAddDescription=你可以在长休之间再使用一次不屈不挠的抵抗。
+Feature/&IndomitableResistanceAddTitle=不屈不挠（高级）
+Feature/&PowerPaladinCleansingTouchDescription=从第 14 级开始，你可以用你的动作结束对你自己或你接触的一个自愿生物的一个法术。你可以使用此特性的次数等于你的魅力调整值（最少一次）。当你完成长休后，你会重新获得消耗的使用次数。
+Feature/&PowerPaladinCleansingTouchTitle=净化之触
+Feature/&Ranger_Vanish_Description=从 14 级开始，您可以使用附赠动作进行隐藏。
+Feature/&Ranger_Vanish_Title=消失
+Feature/&RogueBlindsenseDescription=你知道你周围 10 英尺内任何隐藏或隐形生物的位置。
+Feature/&RogueBlindsenseTitle=盲感
+Feature/&RogueSlipperyMindDescription=你获得了更强大的精神力量。你获得感知豁免的熟练项。
+Feature/&RogueSlipperyMindTitle=狡猾的头脑

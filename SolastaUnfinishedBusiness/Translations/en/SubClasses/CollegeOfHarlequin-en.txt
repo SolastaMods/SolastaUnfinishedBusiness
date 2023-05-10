@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Your fighting ability is greatly enhanced.
+Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Your fighting ability is greatly enhanced.
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=Inspired
 Condition/&ConditionTerrifiedByHarlequinPerformanceDescription=Terrified after witnessing an ally has been murdered brutally.
 Condition/&ConditionTerrifiedByHarlequinPerformanceTitle=Terrified

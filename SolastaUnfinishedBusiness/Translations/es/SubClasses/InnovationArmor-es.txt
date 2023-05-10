@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArmorGuardianModeDescription=Obtén el arma <b>Guantelete de trueno</b> (1d8 de daño de trueno) si tienes la mano libre y la acción de bonificación de <b>Campo defensivo</b> para obtener HP temporal igual al nivel de Inventor.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Obtén el arma <b>Guantelete de trueno</b> (1d8 de daño de trueno) si tienes la mano libre y la acción de bonificación de <b>Campo defensivo</b> para obtener HP temporal igual al nivel de Inventor.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Guardián
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Gana <b>Lanzador de relámpagos</b> ataque a distancia (1d6 de daño de relámpago, el primer ataque en la ronda inflige 2d6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Infiltrado

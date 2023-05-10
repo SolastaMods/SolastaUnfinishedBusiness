@@ -120,30 +120,31 @@ internal static partial class SpellBuilders
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter caster)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            if (caster is not RulesetCharacterHero hero)
+            if (character is not RulesetCharacterHero hero)
             {
-                return effect;
+                return effectDescription;
             }
 
             var weapon = hero.GetMainWeapon();
 
             if (weapon == null || !weapon.itemDefinition.IsWeapon)
             {
-                return effect;
+                return effectDescription;
             }
 
             var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
 
             if (reach <= 1)
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.rangeParameter = reach;
-            return effect;
+            effectDescription.rangeParameter = reach;
+            return effectDescription;
         }
     }
 
@@ -232,28 +233,27 @@ internal static partial class SpellBuilders
 
     private sealed class ModifyMagicEffectSkinOfRetribution : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+        public EffectDescription ModifyEffect(BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
         {
             var rulesetCondition =
                 character.AllConditions.FirstOrDefault(x =>
                     x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
 
-            if (rulesetCondition == null || !effect.HasDamageForm())
+            if (rulesetCondition == null || !effectDescription.HasDamageForm())
             {
-                return effect;
+                return effectDescription;
             }
 
             var effectLevel = rulesetCondition.EffectLevel;
-            var damageForm = effect.FindFirstDamageForm();
+            var damageForm = effectDescription.FindFirstDamageForm();
 
             damageForm.bonusDamage *= effectLevel;
 
             MaybeRemoveSkinOfRetribution(character);
 
-            return effect;
+            return effectDescription;
         }
 
         private static void MaybeRemoveSkinOfRetribution(RulesetCharacter target)

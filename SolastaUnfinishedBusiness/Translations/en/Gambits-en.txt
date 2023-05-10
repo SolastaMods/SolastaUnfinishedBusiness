@@ -1,9 +1,9 @@
 Condition/&ConditionGambitDebilitateDescription=Has disadvantage on saving throws.
 Condition/&ConditionGambitDebilitateTitle=Debilitated
 Condition/&ConditionGambitGoadingEffectTitle=Goaded
-Condition/&ConditionGambitSwitchBadDescription=armor class is decreased by the proficiency bonus of Tactician who inflicted this effect.
+Condition/&ConditionGambitSwitchBadDescription=Armor class is decreased by the proficiency bonus of Tactician who inflicted this effect.
 Condition/&ConditionGambitSwitchBadTitle=Baited
-Condition/&ConditionGambitSwitchGoodDescription=armor class is increased by the proficiency bonus of Tactician who inflicted this effect.
+Condition/&ConditionGambitSwitchGoodDescription=Armor class is increased by the proficiency bonus of Tactician who inflicted this effect.
 Condition/&ConditionGambitSwitchGoodTitle=Switched
 Feature/&GambitBlindDescription=If your next attack hits a creature, you will spend a <b>gambit die</b> to deal additional damage equal to the <b>gambit die</b> roll and and blind it for a round if it fails Constitution saving throw against your Gambit DC.
 Feature/&GambitBlindTitle=Blind

@@ -1,4 +1,4 @@
-﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Feitiços Deadmaster
 Feature/&BypassSpellConcentrationDeadMasterDescription=Você aprendeu os caminhos da necromancia. Se upcasted, você não precisa de concentração para ressuscitar os mortos.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersão

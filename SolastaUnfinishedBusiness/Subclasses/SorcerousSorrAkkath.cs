@@ -185,7 +185,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .Create()
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(VampiricTouch)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

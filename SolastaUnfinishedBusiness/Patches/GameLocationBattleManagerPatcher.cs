@@ -533,6 +533,7 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    {
                         if (!canReact)
                         {
                             continue;
@@ -571,6 +572,8 @@ public static class GameLocationBattleManagerPatcher
 
                         totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
                         break;
+                    }
+
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
@@ -591,6 +594,8 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
                         break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
+                        break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
@@ -598,8 +603,6 @@ public static class GameLocationBattleManagerPatcher
                     case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
-                        break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                         break;
@@ -803,18 +806,12 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: set critical strike global variable
             Global.CriticalHit = criticalHit;
 
-            //PATCH: support for `IOnMagicalAttackDamageEffect`
-            var features = attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>();
-
-#if false
             //call all before handlers
-
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
             {
-                yield return feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                yield return feature.OnMagicalAttackInitiated(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
-#endif
 
             while (values.MoveNext())
             {
@@ -822,7 +819,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //call all after handlers
-            foreach (var feature in features)
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackFinished>())
             {
                 yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
