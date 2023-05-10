@@ -34,14 +34,13 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .Create($"AdditionalDamage{Name}VoraciousFury")
                         .SetGuiPresentation($"Feature{Name}VoraciousFury", Category.Feature)
                         .SetNotificationTag("VoraciousFury")
-                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-                        .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
-                        .SetImpactParticleReference(ConditionDefinitions
-                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
                         .SetDamageDice(DieType.D1, 2)
                         .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
                         .SetSpecificDamageType(DamageTypeNecrotic)
+                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                        .SetImpactParticleReference(ConditionDefinitions
+                            .ConditionTraditionSurvivalUnbreakableBody.conditionStartParticleReference)
+
                         .SetCustomSubFeatures(new BarbarianHolder())
                         .AddToDB()))
             .AddToDB();

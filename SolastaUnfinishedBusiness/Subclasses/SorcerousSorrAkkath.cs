@@ -73,7 +73,7 @@ internal sealed class SorcerousSorrAkkath : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 6, 5)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature, EffectSavingThrowType.None)
             .AddToDB();
 

@@ -161,13 +161,13 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AdditionalDamageRavenHeartSeekingShot")
                     .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("HeartSeekingShot")
+                    .SetDamageDice(DieType.D6, 1)
+                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
+                    .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
-                    .SetDamageDice(DieType.D6, 1)
-                    .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
                     .AddToDB()
             )
             .AddToDB();

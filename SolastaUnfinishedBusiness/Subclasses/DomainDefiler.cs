@@ -237,9 +237,9 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
                 PowerDivineStrikeDescription(1))
             .SetNotificationTag("DivineStrike")
-            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
+            .SetSpecificDamageType(DamageTypeNecrotic)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .AddToDB();

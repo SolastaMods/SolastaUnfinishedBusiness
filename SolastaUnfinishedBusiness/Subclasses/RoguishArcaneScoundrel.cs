@@ -169,10 +169,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         var additionalDamagePossessed = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageRogueSneakAttack, ADDITIONAL_DAMAGE_POSSESSED)
-            // need to set next 3 even with a template as builder clears them out
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
