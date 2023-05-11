@@ -1019,8 +1019,18 @@ internal static class GambitsBuilders
 
             var condition = caster.IsOppositeSide(target.Side) ? bad : good;
 
-            target.InflictCondition(condition.Name, DurationType.Round, 1, TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat, caster.Guid, caster.CurrentFaction.Name, 1, null, 0, 0, 0);
+            target.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                caster.Guid,
+                caster.CurrentFaction.Name,
+                1, null,
+                0,
+                0,
+                0);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
