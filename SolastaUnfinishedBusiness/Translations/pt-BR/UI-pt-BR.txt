@@ -3,7 +3,7 @@ UI/&Add=Add
 UI/&Current Party=Parte Atual
 UI/&Experimental Preview:=Visualização experimental <i><color=Yellow>[salvar backup antes de usar]</color></i>:
 UI/&Expert=Especialista
-UI/&Party Editor=Editor de festas
+UI/&PartyEditor=Editor de festas
 UI/&Quickies=Rapidinhas
 UI/&Remove=Remover
 UI/&Skilled=Especializado

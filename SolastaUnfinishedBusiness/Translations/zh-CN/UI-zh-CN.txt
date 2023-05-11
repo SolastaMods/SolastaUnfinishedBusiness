@@ -3,7 +3,7 @@ UI/&Add=添加
 UI/&Current Party=当前队伍
 UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份保存]</color></i>：
 UI/&Expert=专家
-UI/&Party Editor=队伍编辑
+UI/&PartyEditor=队伍编辑
 UI/&Quickies=快捷
 UI/&Remove=移除
 UI/&Skilled=技能

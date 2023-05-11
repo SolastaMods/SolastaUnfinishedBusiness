@@ -3,7 +3,7 @@ UI/&Add=Add
 UI/&Current Party=Partito attuale
 UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
 UI/&Expert=Esperto
-UI/&Party Editor=Redattore di partito
+UI/&PartyEditor=Redattore di partito
 UI/&Quickies=Sveltine
 UI/&Remove=Rimuovere
 UI/&Skilled=Abile
