@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=Ajouter des couleurs éclatantes pour les yeux
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Déverrouillez les marquages et tatouages d'origine <color=#D89555>Sorcier</color> pour tous les personnages
 ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
+ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'avantage / désavantage de DnD <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
