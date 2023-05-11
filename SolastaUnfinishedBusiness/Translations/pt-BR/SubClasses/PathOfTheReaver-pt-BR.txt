@@ -1,6 +1,6 @@
-Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=A partir do 3º nível, você pode canalizar sua corrupção interna em seus ataques corpo a corpo. Enquanto você está em fúria, a primeira criatura que você acertar em cada um de seus turnos com um ataque de arma corpo a corpo recebe dano necrótico adicional igual à sua proficiência e você recupera uma quantidade igual de pontos de vida. Dano e cura são dobrados em um ataque crítico.
+Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=Começando no 3º nível, você pode canalizar sua corrupção interna em seus ataques corpo a corpo. Enquanto você está em fúria, a primeira criatura que você acertar em cada um de seus turnos com um ataque de arma corpo a corpo recebe dano necrótico adicional igual à sua proficiência e você recupera uma quantidade igual de pontos de vida. Quando você está abaixo da metade de seus pontos de vida máximos, o multiplicador aumenta em 1 e em um acerto crítico em outro 1.
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=Fúria Voraz
-Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partir do 6º nível, você ganha resistência a danos necróticos e venenosos.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partir do 6º nível, você ganha resistência a danos necróticos e venenosos. Além disso, seus pontos de vida máximos são aumentados em uma quantidade igual ao seu nível de bárbaro.
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalidade Profana
 Feature/&PowerPathOfTheReaverBloodbathDescription=A partir do 10º nível, enquanto você estiver em fúria, sempre que reduzir uma criatura a 0 pontos de vida usando um ataque de arma corpo a corpo, você pode eviscerar aquela criatura, recuperando um número de pontos de vida igual a 2x seu nível de Bárbaro. Você pode usar esse recurso uma vez por descanso curto.
 Feature/&PowerPathOfTheReaverBloodbathTitle=Banho de sangue
@@ -13,4 +13,4 @@ Reaction/&CustomReactionBloodbathReactDescription=Eviscerar esta criatura.
 Reaction/&CustomReactionBloodbathReactTitle=Eviscerar
 Reaction/&CustomReactionBloodbathTitle=Banho de sangue
 Subclass/&PathOfTheReaverDescription=Todos os Reavers passam por um ritual que envolve beber sangue contaminado de um dragão, infundindo permanentemente seus corpos com uma lasca de poder dracônico e voracidade, ao custo de aumentar gradualmente a corrupção. Esses temíveis guerreiros deleitam-se com a morte, recuperando a energia do sofrimento de seus inimigos.
-Subclass/&PathOfTheReaverTitle=Caminho do saqueador
+Subclass/&PathOfTheReaverTitle=caminho do saqueador

@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -51,7 +52,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance)
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifier{Name}ProfaneVitality")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
+                    .AddToDB())
             .AddToDB();
 
         // LEVEL 10
@@ -337,7 +343,17 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             attacker.UsedSpecialFeatures.TryAdd(SpecialFeatureName, 1);
 
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var multiplier = outcome is RollOutcome.Success ? 1 : 2;
+            var multiplier = 1;
+
+            if (outcome is RollOutcome.CriticalSuccess)
+            {
+                multiplier += 1;
+            }
+
+            if (rulesetAttacker.MissingHitPoints > rulesetAttacker.CurrentHitPoints)
+            {
+                multiplier += 1;
+            }
 
             rulesetAttacker.ReceiveHealing(multiplier * proficiencyBonus, true, rulesetAttacker.Guid);
         }
