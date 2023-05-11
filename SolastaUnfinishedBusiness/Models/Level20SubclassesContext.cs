@@ -1144,11 +1144,6 @@ internal static class Level20SubclassesContext
 
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
-            ApplyCondition(locationCharacter);
-        }
-
-        private void ApplyCondition(GameLocationCharacter locationCharacter)
-        {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
@@ -1174,11 +1169,6 @@ internal static class Level20SubclassesContext
                 0,
                 0);
             rulesetCharacter.RefreshAttackModes();
-        }
-
-        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
-        {
-            ApplyCondition(locationCharacter);
         }
     }
 

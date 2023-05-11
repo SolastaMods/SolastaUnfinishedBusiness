@@ -19,37 +19,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FixesContext
 {
-    internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
-    {
-        // Conjure animals (3)
-        ConjuredOneBeastTiger_Drake,
-        ConjuredTwoBeast_Direwolf,
-        ConjuredFourBeast_BadlandsSpider,
-        ConjuredEightBeast_Wolf,
-
-        // Conjure minor elemental (4)
-        SkarnGhoul, // CR 2
-        WindSnake, // CR 2
-        Fire_Jester, // CR 1
-
-        // Conjure woodland beings (4) - not implemented
-
-        // Conjure elemental (5)
-        Air_Elemental, // CR 5
-        Fire_Elemental, // CR 5
-        Earth_Elemental, // CR 5
-
-        InvisibleStalker, // CR 6
-
-        // Conjure fey (6)
-        FeyGiantApe, // CR 6
-        FeyGiant_Eagle, // CR 5
-        FeyBear, // CR 4
-        Green_Hag, // CR 3
-        FeyWolf, // CR 2
-        FeyDriad // CR 1
-    };
-
     internal static void LateLoad()
     {
         //BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
@@ -62,18 +31,26 @@ internal static class FixesContext
         Resurrection.GuiPresentation.spriteReference =
             Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
 
+        // REQUIRED FIXES
+        FixAttackBuffsAffectingSpellDamage();
+        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
+        FixDivineSmiteRestrictions();
+        FixFightingStyleArchery();
+        FixGorillaWildShapeRocksToUnlimited();
+        FixMartialArtsProgression();
+        FixMeleeHitEffectsRange();
+        FixMinorSpellIssues();
+        FixMissingWildShapeTagOnSomeForms();
+        FixMountaineerBonusShoveRestrictions();
+        FixRecklessAttackForReachWeapons();
+        FixStunningStrikeForAnyMonkWeapon();
+        FixTwinnedMetamagic();
+        FixWildshapeGroupAttacks();
+
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
-
-        //BUGFIX: add an effect to Counterspell
-        Counterspell.EffectDescription.effectParticleParameters =
-            DreadfulOmen.EffectDescription.effectParticleParameters;
-
-        //BUGFIX: Chill Touch and Ray of Frost should have not saving throw
-        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
-        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
         //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
         static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
@@ -85,22 +62,6 @@ internal static class FixesContext
 
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
-
-        // OTHER FIXES
-        FixDivineSmiteRestrictions();
-        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
-        FixMeleeHitEffectsRange();
-        FixMountaineerBonusShoveRestrictions();
-        FixRecklessAttackForReachWeapons();
-        FixStunningStrikeForAnyMonkWeapon();
-        SpellsMinorFixes();
-        FixMartialArtsProgression();
-        FixTwinnedMetamagic();
-        FixAttackBuffsAffectingSpellDamage();
-        FixMissingWildShapeTagOnSomeForms();
-        MakeGorillaWildShapeRocksUnlimited();
-        FixWildshapeGroupAttacks();
-        AddCustomWeaponValidatorToFightingStyleArchery();
     }
 
     /**
@@ -177,16 +138,20 @@ internal static class FixesContext
         FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
     }
 
-    private static void SpellsMinorFixes()
+    private static void FixMinorSpellIssues()
     {
-        // Shows Concentration tag in UI
+        //BUGFIX: add an effect to Counterspell
+        Counterspell.EffectDescription.effectParticleParameters =
+            DreadfulOmen.EffectDescription.effectParticleParameters;
+
+        //BUGFIX: Chill Touch and Ray of Frost should have not saving throw
+        ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+        RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
+
+        //BUGFIX: Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
 
-        //
-        // BUGFIX: spells durations
-        //
-
-        // Stops upcasting assigning non-SRD durations
+        //BUGFIX: stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]
         {
             ProtectionFromEnergy, ProtectionFromEnergyAcid, ProtectionFromEnergyCold, ProtectionFromEnergyFire,
@@ -263,7 +228,7 @@ internal static class FixesContext
         }
     }
 
-    private static void MakeGorillaWildShapeRocksUnlimited()
+    private static void FixGorillaWildShapeRocksToUnlimited()
     {
         //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
@@ -280,7 +245,7 @@ internal static class FixesContext
     }
 
     // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
-    private static void AddCustomWeaponValidatorToFightingStyleArchery()
+    private static void FixFightingStyleArchery()
     {
         FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
             new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
