@@ -54,7 +54,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance,
                 FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifier{Name}ProfaneVitality")
+                    .Create($"AttributeModifier{Name}ProfaneVitality")
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
                     .AddToDB())

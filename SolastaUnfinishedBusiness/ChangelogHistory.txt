@@ -6,6 +6,7 @@
 - fixed Way of the Tempest's gathering storm not applying lightning damage
 - changed Circle of the Eternal Grove's seed of life to a bonus action
 - changed Darkweaver's dark assault to trigger on start of rogue's turn
+- changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
 - changed Weapon Master's momentum to not use a reaction and be once in my turn
 
 1.4.33.85:
