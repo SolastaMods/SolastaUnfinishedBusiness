@@ -1,4 +1,4 @@
-UI/&****** Party Editor unavailable: Please load a save game ******=****** 队伍编辑器不可用：请加载游戏存档 ******
+UI/&PartyEditorUnavailable=****** 队伍编辑器不可用：请加载游戏存档 ******
 UI/&Add=添加
 UI/&Current Party=当前队伍
 UI/&Experimental Preview:=实验预览<i><color=Yellow>[使用前备份保存]</color></i>：
@@ -7,4 +7,4 @@ UI/&Party Editor=队伍编辑
 UI/&Quickies=快捷
 UI/&Remove=移除
 UI/&Skilled=技能
-UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=这个简单的队伍编辑器可让你在加载的游戏会话中编辑角色。请点击以下报告问题：
+UI/&PartyEditorMessage=这个简单的队伍编辑器可让你在加载的游戏会话中编辑角色。请点击以下报告问题：

@@ -1,4 +1,4 @@
-UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor unavailable: Please load a save game ******
+UI/&PartyEditorUnavailable=****** Party Editor unavailable: Please load a save game ******
 UI/&Add=Add
 UI/&Current Party=Current Party
 UI/&Experimental Preview:=Experimental Preview <i><color=Yellow>[backup save before using]</color></i>: 
@@ -7,4 +7,4 @@ UI/&Party Editor=Party Editor
 UI/&Quickies=Quickies
 UI/&Remove=Remove
 UI/&Skilled=Skilled
-UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:
+UI/&PartyEditorMessage=This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:

@@ -26,14 +26,14 @@ public static class PartyEditor
     internal static void OnGUI()
     {
         Label("Experimental Preview:".Localized().Orange().Bold() + " " +
-              "This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:"
+              "PartyEditorMessage"
                   .Localized().Green());
         LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
             "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
         var characters = GetCharacterList();
         if (characters == null)
         {
-            Label("****** Party Editor unavailable: Please load a save game ******".Localized()
+            Label("PartyEditorUnavailable".Localized()
                 .Yellow().Bold());
         }
         else
