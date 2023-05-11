@@ -458,10 +458,12 @@ internal static class Level20SubclassesContext
         // Darkweaver
         //
 
-        var attributeModifierRoguishDarkweaverDarkAssault = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierRoguishDarkweaverDarkAssault")
-            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, "Feature/&FighterExtraAttackDescription")
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
+        var additionalActionRoguishDarkweaverDarkAssault = FeatureDefinitionAdditionalActionBuilder
+            .Create("AdditionalActionRoguishDarkweaverDarkAssault")
+            .SetGuiPresentationNoContent(true)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetMaxAttacksNumber(1)
             .AddToDB();
 
         var movementAffinityRoguishDarkweaverDarkAssault = FeatureDefinitionMovementAffinityBuilder
@@ -475,16 +477,16 @@ internal static class Level20SubclassesContext
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStealthy)
             .SetPossessive()
             .SetSpecialDuration()
-            .AddFeatures(attributeModifierRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
+            .AddFeatures(additionalActionRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
             .AddToDB();
 
-        var featureSetRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
+        var featureRoguishDarkweaverDarkAssault = FeatureDefinitionBuilder
             .Create("FeatureRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new CharacterTurnEndListenerDarkAssault(conditionRoguishDarkweaverDarkAssault))
+            .SetCustomSubFeatures(new CustomBehaviorDarkAssault(conditionRoguishDarkweaverDarkAssault))
             .AddToDB();
 
-        RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureSetRoguishDarkweaverDarkAssault, 17));
+        RoguishDarkweaver.FeatureUnlocks.Add(new FeatureUnlockByLevel(featureRoguishDarkweaverDarkAssault, 17));
 
         //
         // Hoodlum
@@ -1131,21 +1133,27 @@ internal static class Level20SubclassesContext
     // Dark Assault
     //
 
-    private sealed class CharacterTurnEndListenerDarkAssault : ICharacterTurnEndListener
+    private sealed class CustomBehaviorDarkAssault : ICharacterTurnStartListener
     {
         private readonly ConditionDefinition _conditionDarkAssault;
 
-        public CharacterTurnEndListenerDarkAssault(ConditionDefinition conditionDarkAssault)
+        public CustomBehaviorDarkAssault(ConditionDefinition conditionDarkAssault)
         {
             _conditionDarkAssault = conditionDarkAssault;
         }
 
-        public void OnCharacterTurnEnded(GameLocationCharacter locationCharacter)
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            ApplyCondition(locationCharacter);
+        }
+
+        private void ApplyCondition(GameLocationCharacter locationCharacter)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
             if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter))
+                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
+                rulesetCharacter.HasConditionOfType(_conditionDarkAssault.Name))
             {
                 return;
             }
@@ -1165,6 +1173,12 @@ internal static class Level20SubclassesContext
                 0,
                 0,
                 0);
+            rulesetCharacter.RefreshAttackModes();
+        }
+
+        public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+        {
+            ApplyCondition(locationCharacter);
         }
     }
 
