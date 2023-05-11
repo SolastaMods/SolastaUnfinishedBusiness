@@ -415,7 +415,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     x.RulesetCharacter
                         .GetFeaturesByType<IDamageAffinityProvider>()
                         .All(y =>
-                            y.DamageAffinityType != DamageAffinityType.Immunity &&
+                            y.DamageAffinityType != DamageAffinityType.Immunity ||
                             y.DamageType != DamageTypeLightning))
                 .OrderBy(x => x.RulesetCharacter.CurrentHitPoints)
                 .ToList();
@@ -429,7 +429,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     x.RulesetCharacter
                         .GetFeaturesByType<IDamageAffinityProvider>()
                         .All(y =>
-                            y.DamageAffinityType != DamageAffinityType.Immunity &&
+                            y.DamageAffinityType != DamageAffinityType.Immunity ||
                             y.DamageType != DamageTypeLightning))
                 .Except(targets)
                 .OrderBy(x => x.RulesetCharacter.CurrentHitPoints));
