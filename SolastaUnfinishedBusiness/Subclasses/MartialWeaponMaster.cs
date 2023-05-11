@@ -347,18 +347,15 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!attacker.CanReact())
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService is not { IsBattleInProgress: true })
             {
                 yield break;
             }
 
-            var gameLocationActionService =
-                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationActionService == null || gameLocationBattleService == null ||
-                !gameLocationBattleService.IsBattleInProgress)
+            if (attacker.UsedSpecialFeatures.ContainsKey(_featureDefinition.Name) ||
+                gameLocationBattleService.Battle.ActiveContender != attacker)
             {
                 yield break;
             }
@@ -371,24 +368,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                {
-                    StringParameter = "Reaction/&CustomReactionMomentumDescription"
-                };
-            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestCustom("Momentum", reactionParams);
-
-            gameLocationActionService.AddInterruptRequest(reactionRequest);
-
-            yield return gameLocationBattleService.WaitForReactions(
-                attacker, gameLocationActionService, previousReactionCount);
-
-            if (!reactionParams.ReactionValidated)
-            {
-                yield break;
-            }
-
+            attacker.UsedSpecialFeatures.TryAdd(_featureDefinition.Name, 1);
             GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinition);
             rulesetAttacker.InflictCondition(
                 _conditionDefinition.Name,
