@@ -1,0 +1,68 @@
+{
+  "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "terrainType": "Grassland",
+  "encounterTable": "Definition:PrincipalityNoAttack:01e4e938dc1a63a4ea5122821be9a462",
+  "narrativeEventBasicLines": [
+    "Travel/&DLC1_StandardRandomEvents1",
+    "Travel/&DLC1_StandardRandomEvents2",
+    "Travel/&DLC1_StandardRandomEvents3",
+    "Travel/&DLC1_StandardRandomEvents4",
+    "Travel/&DLC1_StandardRandomEvents5",
+    "Travel/&DLC1_StandardRandomEvents6",
+    "Travel/&DLC1_StandardRandomEvents7",
+    "Travel/&DLC1_StandardRandomEvents8",
+    "Travel/&DLC1_StandardRandomEvents9",
+    "Travel/&DLC1_StandardRandomEvents10",
+    "Travel/&DLC1_StandardRandomEvents11",
+    "Travel/&DLC1_StandardRandomEvents12",
+    "Travel/&DLC1_StandardRandomEvents13",
+    "Travel/&DLC1_StandardRandomEvents14",
+    "Travel/&DLC1_StandardRandomEvents15",
+    "Travel/&DLC1_StandardRandomEvents21",
+    "Travel/&DLC1_StandardRandomEvents22",
+    "Travel/&DLC1_StandardRandomEvents23",
+    "Travel/&DLC1_StandardRandomEvents24",
+    "Travel/&DLC1_StandardRandomEvents25",
+    "Travel/&StandardRandomEvents1Title",
+    "Travel/&StandardRandomEvents11Title",
+    "Travel/&StandardRandomEvents7Title",
+    "Travel/&StandardRandomEvents8Title",
+    "Travel/&StandardRandomEvents9Title"
+  ],
+  "encounterLocations": [
+    "Definition:DLC3_Encounter_Hamlet_LocationDB:d743c2bff149e3743b1a5b356e968792",
+    "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
+    "Definition:DLC3_Encounter_Bridge_LocationDB:f47b81abfe1f999419aa2529f700dc6a",
+    "Definition:DLC3_Encounter_Crossroads_LocationDB:778de7fc1da37604389d8fa77bd45f60",
+    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6"
+  ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Principality_Grassland:f89c3ec5d25c09d48ad2e84ac47c41b5",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Biome/&Biome_DLC3_Principality_Title",
+    "description": "Biome/&Biome_DLC3_Principality_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 24,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9737ca4c6e6b4d84a9fa6e80529a88cb",
+  "contentPack": "PalaceOfIce",
+  "name": "Biome_DLC3_Principality"
+}

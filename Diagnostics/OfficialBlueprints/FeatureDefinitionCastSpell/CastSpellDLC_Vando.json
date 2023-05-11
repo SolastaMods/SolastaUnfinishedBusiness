@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDLC1_Vando:eb3e7da3378b55d488a45c5b4a7b2277",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 13,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

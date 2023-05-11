@@ -57,7 +57,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Header",
-        "text": "Order of Confiscation",
+        "text": "Equipment/&Kickstarter_Item_Letter_Description",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -68,7 +68,7 @@
       {
         "$type": "ContentFragmentDescription, Assembly-CSharp",
         "type": "Body",
-        "text": "Kickstarter_Item_Letter_Content",
+        "text": "Equipment/&Kickstarter_Item_Letter_Content",
         "spriteReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
           "m_AssetGUID": "",
@@ -226,6 +226,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -234,12 +235,11 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Equipment/&Kickstarter_Item_Letter_Title",
+    "title": "Equipment/&kickstarter_item_Letter_Title",
     "description": "Equipment/&Kickstarter_Item_Letter_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -1,0 +1,38 @@
+{
+  "$type": "PersonalityFlagDefinition, Assembly-CSharp",
+  "inDungeonEditor": true,
+  "dialog": true,
+  "anchor": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 0.0
+  },
+  "type": "Ancestry",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&GnomeTitle",
+    "description": "Race/&GnomeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "36f894fa6c466d946ac02ca48e334ed6",
+  "contentPack": "BaseGame",
+  "name": "GnomeFlag"
+}

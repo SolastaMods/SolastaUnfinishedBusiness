@@ -23,7 +23,7 @@
     "inviteOptionalAlly": false,
     "slotTypes": [],
     "recurrentEffect": "No",
-    "retargetAfterDeath": false,
+    "retargetAfterDeath": true,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -74,7 +75,7 @@
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": true,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
@@ -296,6 +297,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,
@@ -323,7 +325,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&DomainOblivionMarkOfFateTitle",
     "description": "Feature/&DomainOblivionMarkOfFateDescription",
     "spriteReference": {

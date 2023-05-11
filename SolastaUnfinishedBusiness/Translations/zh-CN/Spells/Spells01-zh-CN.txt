@@ -39,7 +39,6 @@ Spell/&MuleTitle=骡子
 Spell/&RadiantMotesDescription=释放出由 4 个光辉射弹组成的集群，每个光辉射弹造成 1d4 光辉伤害。\n当你使用 2 级或更高法术位施放此法术时，该法术会为高于 1 级的每个法术位多制造 1 个射弹。
 Spell/&RadiantMotesTitle=光耀射弹
 Spell/&SanctuaryDescription=守卫 30 尺内的盟友。如果被守卫的生物进行攻击或施放影响敌人的法术，则守卫结束。
-Spell/&SanctuaryTitle=圣所守护
 Spell/&SearingSmiteDescription=在你的下一次击中时，你的武器会发出白热强度的信号弹，攻击会对目标造成额外的 1d6 火焰伤害，并使目标着火。\n在每个回合开始时，目标必须进行一次成功通过体质豁免来停止燃烧，否则将受到 1d6 火焰伤害。\n<b>更高等级</b>：每超过 1 级槽位等级，攻击造成的初始额外伤害增加 1d6。
 Spell/&SearingSmiteTitle=灼热斩
 Spell/&SkinOfRetributionDescription=选择一种类型：强酸、寒冷、火焰、闪电、毒性或雷鸣。一层保护性的元素皮肤包裹着你，覆盖着你和你的装备。你在持续时间内每法术等级获得 5 点临时生命值。此外，如果一个生物在你拥有这些临时生命值时用近战攻击击中你，则该生物每法术等级受到 5 点所选类型的伤害。

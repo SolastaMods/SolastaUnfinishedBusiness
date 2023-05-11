@@ -64,6 +64,13 @@
         "advantageType": "Disadvantage"
       }
     ],
+    "damageAffinitiesByFamily": [
+      {
+        "$type": "DamageAffinityByFamilyDescription, Assembly-CSharp",
+        "family": "Plant",
+        "damageAffinityType": "MaximumDamage"
+      }
+    ],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,

@@ -1,15 +1,16 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:BootsOfFirstStrike:ef53cae866ecfe646965484c68875aaa",
   "stackCount": 1,
-  "craftingHours": 15,
-  "craftingDC": 8,
+  "craftingHours": 12,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 4,
-      "itemDefinition": "Definition:Ingredient_BadlandsBear_Pelt:df0116b530a7fbe4e8e3decb5217e2bf"
+      "amount": 3,
+      "itemDefinition": "Definition:Ingredient_Badlands_Ape_Pelt:b62aebbc0094753489c9dfb54b43d89f"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",

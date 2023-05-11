@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    100,
+    150,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": false,
-  "requiresAttunement": true,
+  "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Uncommon",
@@ -178,18 +178,18 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [
-      "Definition:ItemFlagIngredient_Enchant:8570e61c9f23cac42b10dd679ca9475e"
+      "Definition:ItemFlagPrimed:5ad24d01133943542b4b992e0b4ce985"
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

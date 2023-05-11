@@ -7,6 +7,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Permanent",

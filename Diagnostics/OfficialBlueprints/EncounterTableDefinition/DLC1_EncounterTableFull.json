@@ -1,5 +1,6 @@
 {
   "$type": "EncounterTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "encounterOccurences": [
     {
       "$type": "EncounterOccurenceDescription, Assembly-CSharp",
@@ -772,6 +773,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "7f0d2ac20b75e4143829ba379f6be73e",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "DLC1_EncounterTableFull"
 }

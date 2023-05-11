@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfMotherlandVolcanicAura:c58699f6437f9eb46a57201baa87193c",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetOathOfMotherlandHeartOfLava:0991f4538cc2eaa478b9bb3885e8b4f2",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListKythaela_Cantrips:ca0bbdce296f26742bc5d7ec39a896fb",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 3,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDivine_Avatar_Cleric:4d35ef859c3b6db459107920cfdac7ee",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 10,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

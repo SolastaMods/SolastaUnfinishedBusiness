@@ -1,6 +1,6 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "merchantCategory": "Armor",
   "weight": 6.0,
   "slotTypes": [
@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2500,
+    24010,
     0,
     0,
     0
@@ -33,7 +33,7 @@
   "requiresAttunement": false,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "VeryRare",
+  "itemRarity": "Legendary",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": true,
@@ -183,7 +183,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a01da3cedb3c50a49aa11de445d1bb0b",
+      "m_AssetGUID": "638591de52902ab438080ad9916dcf29",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -195,25 +195,27 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
+    "itemFlags": [
+      "Definition:ItemFlagDLC3_Dwarven_Weapon:ace5ba1631e464647aff9f239d056b05"
+    ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&Shield_plus_3_Title",
-    "description": "Equipment/&Shield_plus_3_Description",
+    "description": "Equipment/&GenericShield+3_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4527f198520207c498f1ca30daf3b41f",
-      "m_SubObjectName": "Shield+2",
+      "m_AssetGUID": "9e65e5c94d5eba84cb6744e69759bdab",
+      "m_SubObjectName": "DLC3_Shield+3",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -230,6 +232,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "169a72f3f88bfb149a076f4e9d75ff1e",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Shield+3"
 }

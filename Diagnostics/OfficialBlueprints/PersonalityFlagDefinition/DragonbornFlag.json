@@ -1,6 +1,6 @@
 {
   "$type": "PersonalityFlagDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "dialog": true,
   "anchor": {
     "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&ElfTitle",
-    "description": "Race/&ElfDescription",
+    "title": "Race/&DragonbornTitle",
+    "description": "Race/&DragonbornDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

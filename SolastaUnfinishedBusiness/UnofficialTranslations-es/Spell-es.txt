@@ -194,7 +194,6 @@ Spell/&RevivifyTitle=Revivificar
 Spell/&SacredFlameDescription=Golpea a un enemigo con daño radiante.
 Spell/&SacredFlameTitle=Llama Sagrada
 Spell/&SanctuaryDescription=Temperatura
-Spell/&SanctuaryTitle=Santuario
 Spell/&ScorchingRayDescription=Lanza rayos de fuego a uno o más enemigos.
 Spell/&ScorchingRayTitle=Rayo Abrasador
 Spell/&SeeInvisibilityDescription=Puedes ver criaturas invisibles.

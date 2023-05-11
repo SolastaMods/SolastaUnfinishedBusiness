@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [],
@@ -80,7 +80,7 @@
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 74.0,
   "challengeRating": 6.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Vrock_loot_drop:755f5f2c3a5b7674981eaf3d3d2c4c33",
@@ -100,7 +100,8 @@
     "Definition:PowerVrockSpores:1834830d5db46704e8cb24946770a24d",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
@@ -127,7 +128,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -180,7 +181,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "22652a12de6851845b52ea642f194678",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -190,27 +191,30 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": false,
-    "monsterPresentationDefinitions": [],
+    "hasPrefabVariants": true,
+    "monsterPresentationDefinitions": [
+      "Definition:Vrock_Blue:96e517e5d93df1242b2ce59cb44ec19b",
+      "Definition:Vrock_Brown:90ba408adc4d8cf459dac99a69a8bc0a"
+    ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.5,
+    "maleModelScale": 0.656,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 1.5,
+    "femaleModelScale": 0.656,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": false,
+    "canGeneratePortrait": true,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
@@ -221,10 +225,10 @@
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
-      "x": 0.5,
-      "y": 0.4
+      "x": 0.45,
+      "y": 0.3
     },
-    "portraitCameraFOV": 40.0,
+    "portraitCameraFOV": 70.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
@@ -246,8 +250,8 @@
     "description": "Monster/&Vrock_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e0f63d0ba1cf02240ba23897d967955e",
-      "m_SubObjectName": "CustomPortrait_Vrock",
+      "m_AssetGUID": "ab5fd1d0de6c32b4786e895f6c795f8d",
+      "m_SubObjectName": "Vrock_MonsterDefinition",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

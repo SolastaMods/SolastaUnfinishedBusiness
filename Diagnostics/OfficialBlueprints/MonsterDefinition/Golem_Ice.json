@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Construct",
   "creatureTags": [],
@@ -60,7 +60,10 @@
     "Definition:ConditionAffinityPoisonImmunity:558b2de37dbf89341ab0ed6c445873a6",
     "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
     "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
-    "Definition:PowerIceGolemBreath:bcc544c409b121d4c8606829b3dc4611"
+    "Definition:PowerIceGolemBreath:bcc544c409b121d4c8606829b3dc4611",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -82,7 +85,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -160,7 +163,7 @@
     },
     "hasPrefabVariants": true,
     "monsterPresentationDefinitions": [
-      "Definition:Golem_Iron_Presentation:8bc0020aa7035934496c384f7ad86730"
+      "Definition:Golem_Ice_Presentation:04b5c8719563ea6408fa18a52c75fafc"
     ],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -234,6 +237,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "49a674c721b42d842867c38c49a3af28",
-  "contentPack": "LostValley",
+  "contentPack": "PalaceOfIce",
   "name": "Golem_Ice"
 }

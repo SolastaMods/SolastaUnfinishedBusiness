@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -21,16 +19,6 @@ internal static class FixesContext
 {
     internal static void LateLoad()
     {
-        //BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
-        //BUGFIX: add a sprite reference to Resurrection
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
-
         // REQUIRED FIXES
         FixAttackBuffsAffectingSpellDamage();
         FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();

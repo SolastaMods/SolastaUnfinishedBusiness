@@ -47,6 +47,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -112,7 +113,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "dae9742ef3a3d8a46be3f5d11695e852",
+        "m_AssetGUID": "dda466beee12c3d4281eee75538ddd1c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -136,7 +137,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "993b66c579edb0e4cb121149b724c751",
+        "m_AssetGUID": "8b4263cc121c0574094bcde101d929ce",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -294,6 +295,7 @@
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
   "reactionContext": "None",
+  "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

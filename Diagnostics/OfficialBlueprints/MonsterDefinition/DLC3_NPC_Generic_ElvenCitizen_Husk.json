@@ -1,0 +1,219 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "None",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Humanoid",
+  "creatureTags": [],
+  "defaultFaction": "NeutralMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 13,
+  "armor": "",
+  "hitDice": 2,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 6,
+  "standardHitPoints": 15,
+  "abilityScores": [
+    16,
+    12,
+    16,
+    7,
+    11,
+    10
+  ],
+  "savingThrowScores": [],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [],
+  "defaultBattleDecisionPackage": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "threatEvaluatorDefinition": null,
+  "languages": [
+    "Language_Common"
+  ],
+  "audioSwitches": [],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 6.0,
+  "challengeRating": 0.5,
+  "noExperienceGain": true,
+  "droppedLootDefinition": "Definition:SRD_Bandit_loot_drop:e625d307ff42d0143ab24c5495262f5b",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+  ],
+  "attackIterations": [],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 20,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 190,
+  "isHusk": true,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "useHumanoidMonsterPresentationName": true,
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner01:ecf061f127ec8844f851397210568508",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner02:c8d734d6dff90d845ac5cefc70f4c644",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner03:c1965515ef3b6c64892dead9c134cf7d",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Commoner04:5303fc6d5b2f33248b3cbdad0329aaef",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman01:2514d76178b973745884ab2096095694",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman02:b4f30085ab3428a45b1593b7aac8abb8",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman03:1a66953f37280be468f216f802cae413",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_CommonerWoman04:3993b0b7d1e742d4180c0991e24b1300",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman01:4dd88143b70fb6c4a869dc29060d6644",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman02:ca7467b1668535341bf76660839d637a",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman03:c5178e5fb16f3ed419ca1efd82c7de4c",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Nobleman04:762e1f00e64c18f40b09d3cea09fe1c4",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Noblewoman01:208c0197e3dfadc42b0c1945efd93efc",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Noblewoman02:f53c437271dde4b4192bb69919621c2a",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Noblewoman03:f9ff3baacfc01974390ee89ccf9e1044",
+      "Definition:NPC_DLC3_Presentation_Generic_Citizen_SylvanElf_Noblewoman04:cea3a89f35c6a5d4cb259d50c6d31180"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "hasPhantomFadingFeet": true,
+    "hasPhantomVertexAnimation": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "bb0e59b0ec8fd2048b30ba2d8fbd310f",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.6553079,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "bb0e59b0ec8fd2048b30ba2d8fbd310f",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.6553079,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": false,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_CitizenTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "97e4ee8a5fdbd1b45921f34f92ffcf77",
+      "m_SubObjectName": "CustomPortrait_DLC1_Hannik",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9f0d02eacc7e7554f9192028b16f28a8",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_NPC_Generic_ElvenCitizen_Husk"
+}

@@ -1,0 +1,67 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 15,
+  "locationOverride": null,
+  "locationBlacklist": [
+    "Definition:DLC3_Encounter_Bridge_LocationDB:f47b81abfe1f999419aa2529f700dc6a",
+    "Definition:DLC3_Encounter_Canyon_LocationDB:56f8620f7dfe96b46aeb0b307a0eb2a5",
+    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6",
+    "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
+    "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
+    "Definition:DLC3_Encounter_Mines_LocationDB:66d16042c402c7943bff4601cb981d5c",
+    "Definition:DLC3_Encounter_FrozenAqueduct_LocationDB:dacbc3cfd212f844c900ccdcc0b2abee"
+  ],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:FeralDragon_Green:48eb540ec2f24204cb35e100b44df155",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackMedium:e31ffe17fd246524babea266f9755888",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:FeralDragon_Red:37eb040ee873d4f4d91e2f0d46d2ff7f",
+      "number": 1,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackMedium:e31ffe17fd246524babea266f9755888",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR15_FeralDragons_Title",
+    "description": "Encounter/&DLC3_CR11_FeralDragons_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4758b2e99a9a6f84a938f31191697109",
+  "contentPack": "PalaceOfIce",
+  "name": "CR15_DLC3_FeralDragons"
+}
