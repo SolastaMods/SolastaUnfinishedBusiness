@@ -1,10 +1,18 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackMain"
+  ],
+  "maxAttacksNumber": 1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&FeaturePathOfTheReaverCorruptedBloodTitle",
-    "description": "Feature/&FeaturePathOfTheReaverCorruptedBloodDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6cc62c37-3930-5521-8ef0-18c2df862f1e",
+  "guid": "1e2433eb-cfff-5a10-9e19-2f6a31eb0610",
   "contentPack": 9999,
-  "name": "FeaturePathOfTheReaverCorruptedBlood"
+  "name": "AdditionalActionRoguishDarkweaverDarkAssault"
 }

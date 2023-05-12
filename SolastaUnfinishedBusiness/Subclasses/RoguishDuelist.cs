@@ -27,12 +27,13 @@ internal sealed class RoguishDuelist : AbstractSubclass
         var additionalDamageDaringDuel = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageRogueSneakAttack, $"AdditionalDamage{Name}DaringDuel")
             .SetGuiPresentation(Category.Feature)
-            // need to set next 3 even with a template as builder clears them out
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
+            .SetCustomSubFeatures(new RogueHolder())
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
@@ -109,6 +110,11 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class RogueHolder : IClassHoldingFeature
+    {
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
+    }
 
     //
     // Reflexive Party

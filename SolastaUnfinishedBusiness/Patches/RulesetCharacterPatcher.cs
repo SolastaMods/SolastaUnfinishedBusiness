@@ -182,7 +182,7 @@ public static class RulesetCharacterPatcher
             ref int __result,
             ref RulesetSpellRepertoire matchingRepertoire)
         {
-            //BUGFIX: game doesn't consider cantrips gained from BonusCantrips feature
+            //PATCH: game doesn't consider cantrips gained from BonusCantrips feature
             //because of this issue Inventor can't use Light cantrip from quick-cast button on UI
             //this patch tries to find requested cantrip in repertoire's ExtraSpellsByTag
             if (spellDefinitionToCast.spellLevel != 0 || matchingRepertoire != null)
@@ -868,39 +868,6 @@ public static class RulesetCharacterPatcher
             {
                 spellRepertoire.spellsSlotCapacities = slots.DeepCopy();
                 spellRepertoire.RepertoireRefreshed?.Invoke(spellRepertoire);
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RechargePowersForTurnStart))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class RechargePowersForTurnStart_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance)
-        {
-            //PATCH: support for powers that recharge on turn start
-            foreach (var usablePower in __instance.UsablePowers)
-            {
-                if (usablePower.RemainingUses >= usablePower.MaxUses)
-                {
-                    continue;
-                }
-
-                var startOfTurnRecharge = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IStartOfTurnRecharge>();
-
-                if (startOfTurnRecharge == null)
-                {
-                    continue;
-                }
-
-                usablePower.Recharge();
-
-                if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
-                {
-                    __instance.PowerRecharged(__instance, usablePower);
-                }
             }
         }
     }

@@ -1,5 +1,5 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫移动限制以及被束缚。
-Condition/&ConditionFeatMobileAfterDashTitle=自由
+Condition/&ConditionFeatMobileAfterDashTitle=行动自如
 Feat/&FeatAstralArmsDescription=将你的感知提高 1，最大为 20。\n当你在你的回合进行攻击时，你的攻击范围为 10 尺。其他生物进入你的徒手攻击范围时会引发你的借机攻击.
 Feat/&FeatAstralArmsTitle=星灵延伸
 Feat/&FeatEldritchAdeptDescription=你可以从邪术士职业中选择一种祈唤。如果祈唤有先决条件，则只有当你是邪术士并且满足先决条件时才能选择该祈唤。每当你获得一个等级时，你就可以用另一个来自邪术士职业的祈唤来替换该祈唤。

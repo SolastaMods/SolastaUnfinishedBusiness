@@ -86,17 +86,16 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            // this is really ignored and treated in the custom damage validator
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(rogueHolder)
-            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
+            .SetImpactParticleReference(AdditionalDamageHalfOrcSavageAttacks.impactParticleReference)
+            .SetCustomSubFeatures(rogueHolder)
             .AddToDB();
 
         // add the additional chain of execution dice based off sneak attack ones
@@ -123,16 +122,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            // this is really ignored and treated in the custom damage validator
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(rogueHolder)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecutionDetrimental
                 })
+            .SetCustomSubFeatures(rogueHolder)
             .AddToDB();
 
         var featureChainOfExecution = FeatureDefinitionBuilder
@@ -171,7 +169,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AfterDamageFatalStrike())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -490,15 +488,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class AfterDamageFatalStrike : IAttackEffectBeforeDamage
+    private sealed class PhysicalAttackInitiatedFatalStrike : IPhysicalAttackInitiated
     {
-        public void OnAttackEffectBeforeDamage(
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
             var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
@@ -508,7 +506,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -529,7 +527,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             attackModifier.attackerDamageMultiplier *= 2;

@@ -65,9 +65,10 @@ internal sealed class RangerArcanist : AbstractSubclass
         var additionalDamageArcanistArcaneDetonation = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageHuntersMark, "AdditionalDamageArcanistArcaneDetonation")
             .SetGuiPresentation(Category.Feature)
-            .SetSpecificDamageType(DamageTypeForce)
-            .SetDamageDice(DieType.D6, 1)
             .SetNotificationTag(ArcanistMarkTag)
+            .SetDamageDice(DieType.D6, 1)
+            .SetSpecificDamageType(DamageTypeForce)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetTargetCondition(
                 conditionMarkedByArcanist,
                 AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
@@ -77,7 +78,6 @@ internal sealed class RangerArcanist : AbstractSubclass
                     ConditionDefinition = conditionMarkedByArcanist,
                     Operation = ConditionOperationDescription.ConditionOperation.Remove
                 })
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 

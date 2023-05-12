@@ -92,7 +92,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var powerSeedOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SeedOfLife")
             .SetGuiPresentation(Category.Feature, CureWounds)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder

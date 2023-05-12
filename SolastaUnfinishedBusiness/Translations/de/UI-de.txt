@@ -1,10 +1,10 @@
-UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor nicht verfügbar: Bitte laden Sie einen Spielstand ******
+UI/&PartyEditorUnavailable=****** Party Editor nicht verfügbar: Bitte laden Sie einen Spielstand ******
 UI/&Add=Add
 UI/&Current Party=Aktuelle Partei
 UI/&Experimental Preview:=Experimentelle Vorschau <i><color=Yellow>[Vor der Verwendung sichern]</color></i>:
 UI/&Expert=Experte
-UI/&Party Editor=Parteiredakteur
+UI/&PartyEditor=Parteiredakteur
 UI/&Quickies=Quickies
 UI/&Remove=Entfernen
 UI/&Skilled=Geschickt
-UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=Mit diesem einfachen Party-Editor können Sie Charaktere in einer geladenen Spielsitzung bearbeiten. Bitte klicken Sie auf Folgendes, um Probleme zu melden:
+UI/&PartyEditorMessage=Mit diesem einfachen Party-Editor können Sie Charaktere in einer geladenen Spielsitzung bearbeiten. Bitte klicken Sie auf Folgendes, um Probleme zu melden:

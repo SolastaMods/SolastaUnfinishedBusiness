@@ -1145,7 +1145,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AttackEffectBeforeDamageFeatPiercer(
+            new PhysicalAttackInitiatedFeatPiercer(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
@@ -1197,30 +1197,30 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
-    private sealed class AttackEffectBeforeDamageFeatPiercer : IAttackEffectBeforeDamage
+    private sealed class PhysicalAttackInitiatedFeatPiercer : IPhysicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal AttackEffectBeforeDamageFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal PhysicalAttackInitiatedFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
         }
 
-        public void OnAttackEffectBeforeDamage(
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
         {
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null || damage.DamageType != _damageType)
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;

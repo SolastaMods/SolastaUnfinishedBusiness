@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=Aggiungi colori luminosi per gli occhi
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatuaggi <color=#D89555>Stregone</color> per tutti i personaggi
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
+ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio DnD <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
