@@ -6,3 +6,4 @@ Open Mod UI > Tools and click History for full change details:
 - changed Darkweaver's dark assault to trigger on start of rogue's turn
 - changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
 - changed Weapon Master's momentum to not use a reaction and be once in my turn
+- changed Path of the Reaver for better multiplayer support [RESPEC is required]
