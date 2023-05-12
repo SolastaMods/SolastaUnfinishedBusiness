@@ -130,10 +130,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <Reference Include="Assembly-CSharp">
+    <Reference Include="Assembly-CSharp">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
-    </Reference> -->
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(SolutionDir)lib/Assembly-CSharp_public.dll</HintPath>
       <Private>false</Private>

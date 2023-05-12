@@ -28,6 +28,7 @@ internal static class SpellsContext
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
     internal static readonly SpellDefinition BanishingSmite = BuildBanishingSmite();
+    
     internal static readonly SpellDefinition BlindingSmite = BuildBlindingSmite();
     internal static readonly SpellDefinition BurstOfRadiance = BuildBurstOfRadiance();
     internal static readonly SpellDefinition ColorBurst = BuildColorBurst();
@@ -208,6 +209,7 @@ internal static class SpellsContext
             spellListInventorClass);
         RegisterSpell(BuildSwordStorm(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildTolltheDead(), 0, SpellListCleric, SpellListWizard, SpellListWarlock);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
@@ -219,6 +221,7 @@ internal static class SpellsContext
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
+        RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildSanctuary(), 0, SpellListCleric, spellListInventorClass);
@@ -228,6 +231,7 @@ internal static class SpellsContext
         RegisterSpell(WrathfulSmite, 0, SpellListPaladin);
 
         // 2nd level
+        RegisterSpell(BuildBindingIce(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(ColorBurst, 0, SpellListSorcerer, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
@@ -239,12 +243,14 @@ internal static class SpellsContext
         RegisterSpell(BlindingSmite, 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(BuildPulseWave(), 0, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
 
         // 4th level
         RegisterSpell(BuildBrainBulwark(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(BuildGravitySinkhole(), 0, SpellListWizard);
         RegisterSpell(StaggeringSmite, 0, SpellListPaladin);
 
         //5th level

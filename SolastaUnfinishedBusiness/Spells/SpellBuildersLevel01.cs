@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -772,6 +773,127 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+    /*
+    internal static SpellDefinition BuildGiftofAlacrity()
+    {
+        const string NAME = "GiftofAlacrity";
+
+        var alacrity = CreateConditionAlacrity();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Hour, 8)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(alacrity, ConditionForm.ConditionOperation.Add, false, false)
+                    .Build()
+                    )
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, CalmEmotions.GuiPresentation.SpriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Minute1)
+            .SetSpellLevel(1)
+            .SetRequiresConcentration(false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
+            .AddToDB();
+
+        return spell;
+
+        static ConditionDefinition CreateConditionAlacrity()
+        {
+            
+            Random rand = new Random();
+            int num = rnd.Next(1, 9);
+
+            var alacrity = FeatureDefinitionAttributeModifierBuilder
+            .Create("alacrity")
+            .SetModifiedAttribute(AttributeDefinitions.Initiative)
+            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .SetModifierValue(num)
+            .AddToDB();
+            
+            return ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionBlessed, "ConditionAlacrity")
+                .SetOrUpdateGuiPresentation("ConditionAlacrity", Category.Condition)
+                .SetFeatures(alacrity)
+                .SetAllowMultipleInstances(false)
+                .SetDuration(DurationType.Hour, 8)
+                .AddToDB();
+        }
+    }*/
+
+    internal static SpellDefinition BuildMagnifyGravity()
+    {
+        const string NAME = "MagnifyGravity";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
+
+        var magnifygravity = CreateConditionMagnifyGravity();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                true,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+
+            .SetDurationData(DurationType.Round, 1)
+            .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
+            .AddEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D8, diceNumber: 2)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
+            .AddEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(magnifygravity, ConditionForm.ConditionOperation.Add, false, false)
+                    .HasSavingThrow(EffectSavingThrowType.Negates).Build()
+
+            ).Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            //.SetGuiPresentation(Category.Spell, spriteReference)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(1)
+            .SetRequiresConcentration(false)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .AddToDB();
+
+        return spell;
+
+        static ConditionDefinition CreateConditionMagnifyGravity()
+        {
+            var magnifygravity = FeatureDefinitionMovementAffinityBuilder
+                .Create("ConditionMagnifyGravity")
+                .SetBaseSpeedMultiplicativeModifier(0.5f)
+                .AddToDB();
+
+            return ConditionDefinitionBuilder
+                .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
+                .SetOrUpdateGuiPresentation("ConditionGravity", Category.Condition)
+                .SetSpecialDuration(DurationType.Round, 1)
+                .SetFeatures(magnifygravity)
+                .AddToDB();
+        }
     }
 
     #endregion
