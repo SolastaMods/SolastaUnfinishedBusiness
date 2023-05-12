@@ -1,0 +1,2 @@
+Spell/&GravityFissureDescription=Manifeste uma ravina de energia gravitacional para atrair inimigos e esmagá-los.
+Spell/&GravityFissureTitle=Fissura de Gravidade

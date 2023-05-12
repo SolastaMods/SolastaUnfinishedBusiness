@@ -6,5 +6,7 @@ Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
 Spell/&BrainBulwarkDescription=For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 Spell/&BrainBulwarkTitle=Brain Bulwark
+Spell/&GravitySinkholeDescription=Draw enemies together and crush them with gravitational energy.
+Spell/&GravitySinkholeTitle=Gravity Sinkhole
 Spell/&StaggeringSmiteDescription=The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 Spell/&StaggeringSmiteTitle=Staggering Smite

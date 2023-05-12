@@ -40,5 +40,7 @@ Spell/&ThornyVinesDescription=Crei una lunga vite simile a una frusta ricoperta 
 Spell/&ThornyVinesTitle=Viti spinose
 Spell/&ThunderStrikeDescription=Crea un'esplosione di suoni tonanti, costringendo le creature adiacenti a te a effettuare un tiro salvezza su Costituzione o a subire 1d6 danni da tuono.\nI danni di questo incantesimo aumentano di 1d6 quando raggiungi il 5° livello (2d6), l'11° livello (3d6) e il 17° livello (4d6).
 Spell/&ThunderStrikeTitle=Scoppio sonoro
+Spell/&TollTheDeadDescription=Indichi una creatura che puoi vedere nel raggio d'azione e il suono di una campana dolorosa riempie l'aria intorno per un momento. Il bersaglio deve superare un tiro salvezza su Saggezza o subire 1d12 danni necrotici.\nI danni di questo incantesimo aumentano di 1d12 quando raggiungi il 5° livello (2d12), l'11° livello (3d12) e il 17° livello (4d12).
+Spell/&TollTheDeadTitle=Toll the Dead
 Spell/&WrackDescription=Scatena un'ondata di dolore paralizzante contro una creatura nel raggio d'azione. Il bersaglio deve effettuare un tiro salvezza su Costituzione o subire 1d8 danni necrotici, impedendogli di scattare o disimpegnarsi.
 Spell/&WrackTitle=Rottame

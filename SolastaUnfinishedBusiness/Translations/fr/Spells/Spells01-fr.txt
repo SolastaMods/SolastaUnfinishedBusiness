@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de Dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de Force pour échapper aux lianes.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Pris au piège
+Condition/&ConditionGravityDescription=Accablé par la gravité
+Condition/&ConditionGravityTitle=La vitesse est divisée par deux pendant un tour.
 Condition/&ConditionMuleDescription=Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
 Condition/&ConditionMuleTitle=Mule
 Condition/&ConditionSanctuaryDescription=Les attaques contre vous doivent faire un jet de sauvegarde de Sagesse. Sur un jet de sauvegarde raté, l'attaque rate. Les coups critiques en infligent la moitié.
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=Votre prochain coup emprisonne votre cible dan
 Spell/&EnsnaringStrikeTitle=Frappe envoûtante
 Spell/&FindFamiliarDescription=Vous gagnez le service d'un familier. Le familier peut utiliser l'action d'aide et vous pouvez lancer n'importe quel sort de toucher ou de mêlée à travers le familier.
 Spell/&FindFamiliarTitle=Trouver un familier
+Spell/&MagnifyGravityDescription=Augmentez fortement la gravité dans une sphère de 10 pieds de rayon pour écraser et ralentir les cibles.
+Spell/&MagnifyGravityTitle=Magnifier la gravité
 Spell/&MuleDescription=Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.
 Spell/&MuleTitle=Mule
 Spell/&RadiantMotesDescription=Libère une nuée de 4 projectiles radiants qui infligent 1d4 dégâts radiants chacun.\nLorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou supérieur, le sort crée 1 projectile supplémentaire pour chaque emplacement au-dessus du 1er.

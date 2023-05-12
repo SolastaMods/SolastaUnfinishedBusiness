@@ -1,0 +1,2 @@
+Spell/&GravityFissureDescription=Manifestiere eine Schlucht aus Gravitationsenergie, um Feinde anzuziehen und zu vernichten.
+Spell/&GravityFissureTitle=Schwerkraftspalt

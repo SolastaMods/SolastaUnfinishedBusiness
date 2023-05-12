@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de Destreza e recebendo dano perfurante a cada turno. No final do seu turno, faça um teste de resistência de arremesso de Força para escapar das vinhas.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Enredado
+Condition/&ConditionGravityDescription=Sobrecarregado pela gravidade
+Condition/&ConditionGravityTitle=A velocidade é reduzida pela metade por uma rodada.
 Condition/&ConditionMuleDescription=Sua velocidade não é reduzida por sobrecarga ou armadura pesada. Você pode carregar 20 libras adicionais.
 Condition/&ConditionMuleTitle=Mula
 Condition/&ConditionSanctuaryDescription=Ataques contra você devem fazer um teste de resistência de Sabedoria. Em uma falha no teste de resistência, o ataque erra. Acertos críticos causam metade.
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=Seu próximo golpe prende seu alvo em vinhas -
 Spell/&EnsnaringStrikeTitle=Ataque Enganador
 Spell/&FindFamiliarDescription=Você ganha o serviço de um familiar. O familiar pode usar a ação de ajuda e você pode lançar qualquer feitiço de toque ou ataque corpo a corpo através do familiar.
 Spell/&FindFamiliarTitle=Encontrar familiar
+Spell/&MagnifyGravityDescription=Aumente drasticamente a gravidade em uma esfera de 3 metros de raio para esmagar e retardar os alvos.
+Spell/&MagnifyGravityTitle=Amplie a Gravidade
 Spell/&MuleDescription=O destinatário deste feitiço é capaz de ignorar os efeitos de cargas pesadas ou armaduras na velocidade de movimento. Eles também podem carregar um pouco mais de peso.
 Spell/&MuleTitle=Mula
 Spell/&RadiantMotesDescription=Libera um enxame de 4 projéteis radiantes que causam 1d4 de dano radiante cada.\nQuando você lança este feitiço usando um espaço de magia de 2º nível ou superior, o feitiço cria mais 1 projétil para cada espaço acima do 1º.

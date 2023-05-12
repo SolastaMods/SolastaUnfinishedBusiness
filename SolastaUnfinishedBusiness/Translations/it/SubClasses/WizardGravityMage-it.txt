@@ -1,0 +1,27 @@
+Action/&WizardGravityMageEventHorizonDescription=Emette un potente campo di energia gravitazionale, immobilizzando e danneggiando i nemici entro 6 celle da te.
+Action/&WizardGravityMageEventHorizonTitle=Orizzonte degli eventi
+Condition/&ConditionEventHorizonDescription=Velocità ridotta a zero
+Condition/&ConditionEventHorizonSelfDescription=Infligge 2d10 danni da Forza ogni turno e riduce a zero la velocità dei nemici con un tiro salvezza su Forza fallito
+Condition/&ConditionEventHorizonSelfTitle=Orizzonte degli eventi
+Condition/&ConditionEventHorizonTitle=Schiacciato
+Condition/&ConditionHeavyDescription=Velocità ridotta di 2. Vantaggio alle prove di Forza e ai tiri salvezza.
+Condition/&ConditionHeavyTitle=Densità aumentata
+Condition/&ConditionLightDescription=Velocità aumentata di 2. Svantaggio alle prove di Forza e ai tiri salvezza.
+Condition/&ConditionLightTitle=Densità ridotta
+Condition/&ConditionViolentAttractionDescription=Una volta per turno, gli attacchi con le armi infliggono 1d10 danni aggiuntivi.
+Condition/&ConditionViolentAttractionTitle=Attrazione violenta
+Feature/&WizardGravityMageAdjustDensityDecreaseDescription=Diminuisce la Densità di un bersaglio, rendendolo più veloce a scapito dello svantaggio alle prove di Forza e ai tiri salvezza.
+Feature/&WizardGravityMageAdjustDensityDecreaseTitle=Regola densità (diminuisci)
+Feature/&WizardGravityMageAdjustDensityIncreaseDescription=Aumenta la Densità di un bersaglio, rendendolo più lento ma garantendo vantaggio alle prove di Forza e ai tiri salvezza.
+Feature/&WizardGravityMageAdjustDensityIncreaseTitle=Regola densità (aumenta)
+Feature/&WizardGravityMageGravityWellDescription=Le creature colpite dai tuoi attacchi con incantesimi vengono allontanate di 1 casella da te.
+Feature/&WizardGravityMageGravityWellTitle=Gravità Bene
+Feature/&WizardGravityMageViolentAttractionDescription=Aumenta la potenza d'urto delle armi di un alleato di 1d10 per 1 minuto.
+Feature/&WizardGravityMageViolentAttractionTitle=Attrazione violenta
+Feedback/&AdditionalDamageGravityMageViolentAttractionFormat=Attrazione violenta
+Feedback/&AdditionalDamageGravityMageViolentAttractionLine={0} infligge danni extra con Attrazione violenta.
+Feedback/&AdditionalFormat=Attrazione violenta
+Feedback/&AdditionalLine={0} infligge danni extra con Violent Attraction.Power/&WizardGravityMageEventHorizonDescription=Emetti un potente campo di energia gravitazionale, immobilizzando e danneggiando i nemici entro 6 celle da te.
+Power/&WizardGravityMageEventHorizonTitle=Orizzonte degli eventi
+Subclass/&TraditionWizardGravityMageDescription=Sulla scia del Cataclisma è diventato uno spettacolo comune vedere granelli di terra e altri oggetti attraverso le Badlands fluttuare nell'aria in modo impossibile. I maghi della graviturgia cercano di comprendere e padroneggiare la magia persistente che sostiene tali visioni. Sfruttano la violenta energia della gravità a loro vantaggio e il terribile danno dei loro nemici.
+Subclass/&TraditionWizardGravityMageTitle=Graviturgo

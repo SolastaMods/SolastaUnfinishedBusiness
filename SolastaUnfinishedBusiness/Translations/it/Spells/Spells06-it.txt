@@ -1,0 +1,2 @@
+Spell/&GravityFissureDescription=Manifesta un burrone di energia gravitazionale per attirare i nemici e schiacciarli.
+Spell/&GravityFissureTitle=Fessura gravitazionale
