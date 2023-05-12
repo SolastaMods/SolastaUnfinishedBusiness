@@ -16,6 +16,69 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    internal static SpellDefinition BuildBindingIce()
+    {
+        const string NAME = "BindingIce";
+
+        var frozen = CreateConditionIceBound();
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                true,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+            .AddEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeCold, dieType: DieType.D8, diceNumber: 3)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
+            .AddEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(frozen, ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates).Build()
+            ).Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(2)
+            .SetRequiresConcentration(false)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+
+        static ConditionDefinition CreateConditionIceBound()
+        {
+            var frozen = FeatureDefinitionMovementAffinityBuilder
+                .Create("Frozen")
+                .SetBaseSpeedMultiplicativeModifier(0)
+                .AddToDB();
+
+            return ConditionDefinitionBuilder
+                .Create(ConditionHindered_By_Frost, "ConditionIceBound")
+                .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
+                .SetSpecialDuration()
+                .SetFeatures(frozen)
+                .AddToDB();
+        }
+    }
+
     #region Color Burst
 
     internal static SpellDefinition BuildColorBurst()

@@ -40,5 +40,7 @@ Spell/&ThornyVinesDescription=Du erschaffst eine lange, peitschenartige, mit Dor
 Spell/&ThornyVinesTitle=Dornige Reben
 Spell/&ThunderStrikeDescription=Erzeugt einen Donnerstoß, der Kreaturen in deiner Nähe dazu zwingt, einen Konstitutionsrettungswurf zu machen oder 1W6 Donnerschaden zu erleiden.\nDer Schaden dieses Zaubers erhöht sich um 1W6, wenn du die 5. Stufe (2W6), die 11. Stufe (3W6) und die 17. Stufe erreichst Stufe (4W6).
 Spell/&ThunderStrikeTitle=Schallausbruch
+Spell/&TollTheDeadDescription=Sie zeigen auf eine Kreatur, die Sie in Reichweite sehen können, und für einen Moment erfüllt der Klang einer schmerzerfüllten Glocke die Luft um sie herum. Dem Ziel muss ein Weisheitsrettungswurf gelingen, sonst erleidet es 1W12 nekrotischen Schaden.\nDer Schaden dieses Zaubers erhöht sich um 1W12, wenn Sie die 5. Stufe (2W12), die 11. Stufe (3W12) und die 17. Stufe (4W12) erreichen.
+Spell/&TollTheDeadTitle=Toll the Dead
 Spell/&WrackDescription=Entfessle eine Welle lähmenden Schmerzes auf eine Kreatur in Reichweite. Das Ziel muss einen Konstitutionsrettungswurf machen oder 1W8 nekrotischen Schaden erleiden und es daran hindern, zu stürzen oder sich zu lösen.
 Spell/&WrackTitle=Wrack

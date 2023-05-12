@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Sie sind in Ranken verstrickt, die Bewegung verhindern, bei Geschicklichkeitswürfen benachteiligt sind und in jeder Runde durchdringenden Schaden erleiden. Lege am Ende deines Zuges einen Stärke-Wurfwurf ab, um den Ranken zu entkommen.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Verstrickt
+Condition/&ConditionGravityDescription=Von der Schwerkraft belastet
+Condition/&ConditionGravityTitle=Die Geschwindigkeit wird für eine Runde halbiert.
 Condition/&ConditionMuleDescription=Ihre Geschwindigkeit wird nicht durch Belastung oder schwere Panzerung verringert. Sie können 20 zusätzliche Pfund tragen.
 Condition/&ConditionMuleTitle=Maultier
 Condition/&ConditionSanctuaryDescription=Angriffe gegen dich müssen einen Weisheitswurf machen. Bei einem fehlgeschlagenen Rettungswurf verfehlt der Angriff. Kritische Treffer machen die Hälfte.
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=Dein nächster Treffer verstrickt dein Ziel in
 Spell/&EnsnaringStrikeTitle=Verstrickender Schlag
 Spell/&FindFamiliarDescription=Sie erhalten den Dienst eines Vertrauten. Der Vertraute kann die Hilfe-Aktion nutzen und Sie können jeden Berührungs- oder Nahkampftrefferzauber durch den Vertrauten wirken.
 Spell/&FindFamiliarTitle=Vertraut finden
+Spell/&MagnifyGravityDescription=Erhöhen Sie die Schwerkraft in einer Kugel mit einem Radius von 10 Fuß stark, um Ziele zu zerquetschen und zu verlangsamen.
+Spell/&MagnifyGravityTitle=Vergrößern Sie die Schwerkraft
 Spell/&MuleDescription=Der Empfänger dieses Zaubers kann die Auswirkungen schwerer Lasten oder Rüstungen auf die Bewegungsgeschwindigkeit ignorieren. Sie können auch etwas mehr Gewicht tragen.
 Spell/&MuleTitle=Maultier
 Spell/&RadiantMotesDescription=Entfesselt einen Schwarm von 4 strahlenden Projektilen, die jeweils 1W4 strahlenden Schaden verursachen.\nWenn du diesen Zauber mit einem Zauberplatz der 2. Stufe oder höher wirkst, erzeugt der Zauber 1 weiteres Projektil für jeden Platz über dem 1.

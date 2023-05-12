@@ -1,0 +1,2 @@
+Spell/&GravityFissureDescription=展现引力能量的峡谷，吸引敌人并碾压他们。
+Spell/&GravityFissureTitle=重力裂缝

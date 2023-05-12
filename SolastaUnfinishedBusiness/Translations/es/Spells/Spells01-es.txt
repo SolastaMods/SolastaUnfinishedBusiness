@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Estás enredado en enredaderas que impiden el movimiento, tienes desventaja en las tiradas de salvación de Destreza y recibes daño perforante cada turno. Al final de tu turno, haz una tirada de salvación de Fuerza para escapar de las enredaderas.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Atrapado
+Condition/&ConditionGravityDescription=Cargado por la gravedad
+Condition/&ConditionGravityTitle=La velocidad se reduce a la mitad por una ronda.
 Condition/&ConditionMuleDescription=Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
 Condition/&ConditionMuleTitle=Mula
 Condition/&ConditionSanctuaryDescription=Los ataques contra ti deben hacer una tirada de salvación de Sabiduría. En una tirada de salvación fallida, el ataque falla. Los golpes críticos tratan la mitad.
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=Tu próximo golpe atrapa a tu objetivo en enre
 Spell/&EnsnaringStrikeTitle=Golpe atrapante
 Spell/&FindFamiliarDescription=Obtienes el servicio de un familiar. El familiar puede usar la acción de ayuda y tú puedes lanzar cualquier hechizo de toque o cuerpo a cuerpo a través del familiar.
 Spell/&FindFamiliarTitle=Encuentra familiar
+Spell/&MagnifyGravityDescription=Aumenta considerablemente la gravedad en una esfera de 10 pies de radio para aplastar y ralentizar a los objetivos.
+Spell/&MagnifyGravityTitle=magnificar la gravedad
 Spell/&MuleDescription=El destinatario de este hechizo puede ignorar los efectos de cargas pesadas o armaduras en la velocidad de movimiento. También pueden llevar un poco más de peso.
 Spell/&MuleTitle=Mula
 Spell/&RadiantMotesDescription=Libera un enjambre de 4 proyectiles radiantes que infligen 1d4 de daño radiante cada uno.\nCuando lanzas este hechizo usando un espacio de hechizo de nivel 2 o superior, el hechizo crea 1 proyectil más para cada espacio por encima del primero.
