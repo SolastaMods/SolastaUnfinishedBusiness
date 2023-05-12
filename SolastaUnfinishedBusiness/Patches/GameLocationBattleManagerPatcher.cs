@@ -991,6 +991,9 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
+            
             while (values.MoveNext())
             {
                 yield return values.Current;
@@ -1051,6 +1054,14 @@ public static class GameLocationBattleManagerPatcher
             foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
             {
                 yield return feature.OnAttackFinished(
+                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                    damageAmount);
+            }
+
+            //PATCH: allow custom behavior when physical attack finished on defender
+            foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+            {
+                yield return feature.OnAttackFinishedOnMe(
                     __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                     damageAmount);
             }
