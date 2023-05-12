@@ -23,7 +23,6 @@ internal static class RacesContext
         raceGnome.GuiPresentation.hidden = true;
         Main.Settings.RaceEnabled.Remove(raceGnome.Name);
 
-        /*
         var raceTiefling = TieflingRaceBuilder.RaceTiefling;
 
         raceTiefling.GuiPresentation.hidden = true;
@@ -32,7 +31,7 @@ internal static class RacesContext
         {
             x.GuiPresentation.hidden = true;
             Main.Settings.RaceEnabled.Remove(x.Name);
-        });*/
+        });
         // END BACKWARD COMPATIBILITY
 
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
@@ -41,8 +40,6 @@ internal static class RacesContext
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
         LoadRace(KoboldRaceBuilder.RaceKobold);
         LoadRace(FairyRaceBuilder.RaceFairy);
-        LoadRace(TieflingRaceBuilder.RaceTiefling);
-        LoadRace(GnomeRaceBuilder.RaceGnome);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

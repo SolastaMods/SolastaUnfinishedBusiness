@@ -149,36 +149,6 @@ internal static class TieflingRaceBuilder
                 castSpellTieflingZariel)
             .AddToDB();
 
-        var castSpellTieflingDevilTongue = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellTieflingDevilTongue")
-            .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.FixedList)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
-            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListTieflingDevilTongue")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.ViciousMockery)
-                .SetSpellsAtLevel(1, SpellDefinitions.CharmPerson)
-                .SetSpellsAtLevel(2, SpellDefinitions.CalmEmotions)
-                .FinalizeSpells(true, -1)
-                .AddToDB())
-            .AddToDB();
-
-        var raceTieflingDevilTongue = CharacterRaceDefinitionBuilder
-            .Create(SubraceDarkelf, "RaceTieflingDevilTongue")
-            .SetGuiPresentation(Category.Race, Human)
-            .SetGuiPresentation(Category.Race)
-            .SetFeaturesAtLevel(1,
-                attributeModifierTieflingIntelligenceAbilityScoreIncrease,
-                castSpellTieflingDevilTongue)
-            .AddToDB();
-
         #endregion
 
         #region Main Race
@@ -225,7 +195,7 @@ internal static class TieflingRaceBuilder
                 damageAffinityTieflingHellishResistance)
             .AddToDB();
 
-        raceTiefling.subRaces.SetRange(raceTieflingAsmodeus, raceTieflingMephistopheles, raceTieflingZariel, raceTieflingDevilTongue);
+        raceTiefling.subRaces.SetRange(raceTieflingAsmodeus, raceTieflingMephistopheles, raceTieflingZariel);
 
         return raceTiefling;
     }
