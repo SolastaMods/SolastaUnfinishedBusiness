@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Puoi usare un'azione bonus per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere.
+Condition/&ConditionFarStepDescription=Puoi usare un'azione bonus per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere.
 Condition/&ConditionFarStepTitle=Passo lontano
 Feature/&AdditionalDamageBanishingSmiteDescription=Sei colpito da un danno da forza.
 Feature/&AdditionalDamageBanishingSmiteTitle=Punizione del bando

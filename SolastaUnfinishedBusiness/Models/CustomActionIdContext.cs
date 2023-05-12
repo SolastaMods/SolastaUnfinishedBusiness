@@ -323,7 +323,6 @@ public static class CustomActionIdContext
     {
         var extra = (ExtraActionId)id;
 
-        //TODO: consider adding all invocation actions to a list and check it here
         return id is Id.CastInvocation
                || extra is ExtraActionId.CastInvocationBonus
                    or ExtraActionId.CastInvocationNoCost

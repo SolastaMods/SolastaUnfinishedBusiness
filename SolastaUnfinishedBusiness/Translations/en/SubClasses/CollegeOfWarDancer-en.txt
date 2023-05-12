@@ -1,4 +1,4 @@
-﻿Condition/&ConditionCharmedByDanceOfWarDescription=Armor class reduced by Charisma modifier.
+Condition/&ConditionCharmedByDanceOfWarDescription=Armor class reduced by Charisma modifier.
 Condition/&ConditionCharmedByDanceOfWarTittle=Charmed
 Condition/&ConditionWarDanceDescription=Move and attack swiftly.
 Condition/&ConditionWarDanceLightMomentumDescription=Your attack has light momentum.

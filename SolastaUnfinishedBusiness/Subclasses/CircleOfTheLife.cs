@@ -92,13 +92,13 @@ internal sealed class CircleOfTheLife : AbstractSubclass
         var powerSeedOfLife = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}SeedOfLife")
             .SetGuiPresentation(Category.Feature, CureWounds)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
                     .SetParticleEffectParameters(HealingWord)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -206,28 +206,30 @@ internal sealed class CircleOfTheLife : AbstractSubclass
 
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spell)
             {
-                return effect;
+                return effectDescription;
             }
 
-            var hasHealingForm = effect.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
+            var hasHealingForm =
+                effectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
 
             if (!hasHealingForm && spell != LesserRestoration && spell != GreaterRestoration)
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.EffectForms.Add(
+            effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(_conditionVerdancy, ConditionForm.ConditionOperation.Add)
                     .Build());
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -264,41 +266,41 @@ internal sealed class CircleOfTheLife : AbstractSubclass
             _conditionRevitalizingBoon = conditionRevitalizingBoon;
         }
 
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+        public EffectDescription ModifyEffect(BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character, RulesetEffect rulesetEffect)
         {
             if (definition is FeatureDefinitionPower { Name: $"Power{Name}SeedOfLife" })
             {
-                effect.EffectForms.Add(
+                effectDescription.EffectForms.Add(
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
                         .Build());
 
-                return effect;
+                return effectDescription;
             }
 
             if (definition is not SpellDefinition spell)
             {
-                return effect;
+                return effectDescription;
             }
 
-            var hasHealingForm = effect.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
+            var hasHealingForm =
+                effectDescription.EffectForms.Any(x => x.FormType == EffectForm.EffectFormType.Healing);
 
             if (!hasHealingForm && spell != LesserRestoration && spell != GreaterRestoration)
             {
-                return effect;
+                return effectDescription;
             }
 
-            effect.EffectForms.Add(
+            effectDescription.EffectForms.Add(
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(_conditionRevitalizingBoon, ConditionForm.ConditionOperation.Add)
                     .Build());
 
-            return effect;
+            return effectDescription;
         }
     }
 }

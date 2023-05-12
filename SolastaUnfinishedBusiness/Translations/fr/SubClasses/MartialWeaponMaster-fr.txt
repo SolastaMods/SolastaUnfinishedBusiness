@@ -1,10 +1,10 @@
-﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Vous avez l'avantage sur toutes les attaques avec votre arme spécialisée jusqu'à la fin de votre tour.
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Vous avez l'avantage sur toutes les attaques avec votre arme spécialisée jusqu'à la fin de votre tour.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Frappes ciblées
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Vous gagnez +1 aux jets de toucher et de dégâts avec votre type d'arme spécialisée. Un maître d'armes martiales aura un désavantage pour attaquer avec tous les autres types d'armes mais obtient un bonus de +2 à partir du niveau 15.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Spécialisation d'armes
-Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Gagnez des points de vie temporaires égaux à votre niveau de maître d'armes + bonus de compétence + modificateur de Constitution après le début d'une bataille et que vous avez équipé votre arme spécialisée.
+Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Gagnez des points de vie temporaires égaux à votre niveau de maître d'armes + bonus de maîtrise + modificateur de Constitution après le début d'une bataille et que vous avez équipé votre arme spécialisée.
 Feature/&FeatureMartialWeaponMasterBattleStanceTitle=Position de combat
-Feature/&FeatureMartialWeaponMasterMomentumDescription=Après avoir réduit une créature à 0 points de vie avec votre arme spécialisée, vous pouvez utiliser votre réaction pour gagner une attaque supplémentaire.
+Feature/&FeatureMartialWeaponMasterMomentumDescription=Une fois pendant votre tour, lorsque vous réduisez une créature à 0 points de vie en utilisant votre arme spécialisée, vous pouvez effectuer une attaque avec une arme supplémentaire dans le cadre de votre action d'attaque.
 Feature/&FeatureMartialWeaponMasterMomentumTitle=Élan
 Feature/&FeatureMartialWeaponMasterPerfectStrikesDescription=Vos frappes ciblées vous confèrent également un avantage sur tous les jets de dégâts lorsque vous attaquez avec votre arme spécialisée.
 Feature/&FeatureMartialWeaponMasterPerfectStrikesTitle=Frappes parfaites

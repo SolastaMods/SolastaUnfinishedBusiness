@@ -323,9 +323,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&FeatureSetTraditionSurvivalPhysicalPerfectionTitle",
-    "description": "Feature/&FeatureSetTraditionSurvivalPhysicalPerfectionDescription",
+    "hidden": false,
+    "title": "Feature/&PowerTraditionSurvivalPhysicalPerfectionTitle",
+    "description": "Feature/&PowerTraditionSurvivalPhysicalPerfectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",

@@ -330,7 +330,7 @@ internal static class GambitsBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
+                            .SetConditionForm(ConditionDefinitions.ConditionFrightened,
                                 ConditionForm.ConditionOperation.Add)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
@@ -444,13 +444,17 @@ internal static class GambitsBuilders
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker,
+                new ModifyMagicEffectSavingThrow())
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                        AttributeDefinitions.Intelligence)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -469,6 +473,7 @@ internal static class GambitsBuilders
                                     //Lasts until the end of the target's turn
                                     .SetSpecialDuration(DurationType.Round, 1)
                                     .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
             .AddToDB());
@@ -809,27 +814,27 @@ internal static class GambitsBuilders
     {
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
+            if (rulesetEffect is not RulesetEffectPower rulesetEffectPower)
+            {
+                return effectDescription;
+            }
+
+            var proficiencyBonus = character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var strength = character.TryGetAttributeValue(AttributeDefinitions.Strength);
             var dexterity = character.TryGetAttributeValue(AttributeDefinitions.Dexterity);
             var intelligence = character.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+            var strDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
+            var dexDC = ComputeAbilityScoreBasedDC(dexterity, proficiencyBonus);
+            var intDC = ComputeAbilityScoreBasedDC(intelligence, proficiencyBonus);
+            var saveDC = Math.Max(intDC, Math.Max(strDC, dexDC));
 
-            if (strength >= dexterity && strength >= intelligence)
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Strength;
-            }
-            else if (dexterity >= strength && dexterity >= intelligence)
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Dexterity;
-            }
-            else
-            {
-                effect.SavingThrowDifficultyAbility = AttributeDefinitions.Intelligence;
-            }
+            rulesetEffectPower.usablePower.saveDC = saveDC;
 
-            return effect;
+            return effectDescription;
         }
     }
 
@@ -1014,8 +1019,18 @@ internal static class GambitsBuilders
 
             var condition = caster.IsOppositeSide(target.Side) ? bad : good;
 
-            target.InflictCondition(condition.Name, DurationType.Round, 1, TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat, caster.Guid, caster.CurrentFaction.Name, 1, null, 0, 0, 0);
+            target.InflictCondition(
+                condition.Name,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat,
+                caster.Guid,
+                caster.CurrentFaction.Name,
+                1, null,
+                0,
+                0,
+                0);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)

@@ -1,6 +1,9 @@
 Open Mod UI > Tools and click History for full change details:
 
-- allowed gambits to use highest of str, dex or int on saving difficult ability
-- changed Shadow Blade spell to only grant advantage if target is not on bright light
-- fixed Crusader's Mantle spell preventing hero movement or input
-- fixed Patron Soulblade's hex to also trigger on magical attacks
+- fixed Shadow Blade spell not granting advantage when enemy not in bright light
+- fixed Way of the Tempest's gathering storm not applying lightning damage
+- changed Circle of the Eternal Grove's seed of life to a bonus action
+- changed Darkweaver's dark assault to trigger on start of rogue's turn
+- changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
+- changed Weapon Master's momentum to not use a reaction and be once in my turn
+- changed Path of the Reaver for better multiplayer support [RESPEC is required]

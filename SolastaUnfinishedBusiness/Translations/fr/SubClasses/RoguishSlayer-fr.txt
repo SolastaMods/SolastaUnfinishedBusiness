@@ -1,4 +1,4 @@
-﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Augmente les dégâts de votre prochaine attaque sournoise de 3d6 supplémentaires, jusqu'à la fin de votre prochain tour. Ces dégâts passent à 4d6 au niveau 13 et à 5d6 au niveau 17.
+Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Augmente les dégâts de votre prochaine attaque sournoise de 3d6 supplémentaires, jusqu'à la fin de votre prochain tour. Ces dégâts passent à 4d6 au niveau 13 et à 5d6 au niveau 17.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Chaîne d'exécution
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Vous êtes marqué par le Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marque du tueur

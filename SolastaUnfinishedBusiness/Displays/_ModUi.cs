@@ -225,7 +225,7 @@ namespace SolastaUnfinishedBusiness.Displays
     [UsedImplicitly]
     internal sealed class PartyEditorViewer : IMenuSelectablePage
     {
-        public string Name => "Party Editor".Localized();
+        public string Name => "PartyEditor".Localized();
 
         public int Priority => 400;
 

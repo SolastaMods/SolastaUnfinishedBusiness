@@ -1,10 +1,10 @@
-﻿UI/&Quickies=Sveltine
-UI/&Current Party=Partito attuale
-UI/&Party Editor=Redattore di partito
-UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
-UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:
-UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor non disponibile: carica un salvataggio ******
+UI/&PartyEditorUnavailable=****** Party Editor non disponibile: carica un salvataggio ******
 UI/&Add=Add
+UI/&Current Party=Partito attuale
+UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
+UI/&Expert=Esperto
+UI/&PartyEditor=Redattore di partito
+UI/&Quickies=Sveltine
 UI/&Remove=Rimuovere
 UI/&Skilled=Abile
-UI/&Expert=Esperto
+UI/&PartyEditorMessage=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:

@@ -1,5 +1,6 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
+#if false
 using System;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
@@ -51,3 +52,4 @@ internal static partial class UI
         return true;
     }
 }
+#endif

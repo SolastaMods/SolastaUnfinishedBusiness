@@ -1,4 +1,4 @@
-﻿Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Vous ajoutez la moitié de votre bonus de compétence à votre classe d'armure tout en maniant un bâton à deux mains, et vous ne portez ni armure ni armure légère.
+Feature/&AttributeModifierRoguishAcrobatProtectorDescription=Vous ajoutez la moitié de votre bonus de compétence à votre classe d'armure tout en maniant un bâton à deux mains, et vous ne portez ni armure ni armure légère.
 Feature/&AttributeModifierRoguishAcrobatProtectorTitle=Acrobate Protecteur
 Feature/&FeatureRoguishAcrobatTrooperDescription=Vous gagnez la possibilité d'utiliser un bâton comme arme de finesse et la portée du bâton passe à 3 mètres.\nLorsque vous effectuez l'action Attaquer avec un bâton, vous pouvez utiliser votre action bonus pour effectuer une attaque de mêlée avec l'extrémité opposée du bâton. arme. Cette attaque utilise le même modificateur de caractéristique que l'attaque principale et inflige 1d4 dégâts contondants.
 Feature/&FeatureRoguishAcrobatTrooperTitle=Soldat acrobate

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=La clase de armadura se reduce en 1.
+Condition/&ConditionAcidClawsDescription=La clase de armadura se reduce en 1.
 Condition/&ConditionAcidClawsTitle=Quemadura de ácido
 Condition/&ConditionMindSpikeDescription=Resta 1d4 de la siguiente tirada de salvación.
 Condition/&ConditionMindSpikeTitle=Pico mental
@@ -40,5 +40,7 @@ Spell/&ThornyVinesDescription=Creas una enredadera larga con forma de látigo cu
 Spell/&ThornyVinesTitle=Vides espinosas
 Spell/&ThunderStrikeDescription=Crea un estallido de sonido atronador que obliga a las criaturas adyacentes a realizar una tirada de salvación de Constitución o recibir 1d6 de daño por trueno.\nEl daño de este hechizo aumenta en 1d6 cuando alcanzas el nivel 5 (2d6), el nivel 11 (3d6) y el nivel 17. nivel (4d6).
 Spell/&ThunderStrikeTitle=Ráfaga de sonido
+Spell/&TollTheDeadDescription=Señalas a una criatura que puedes ver dentro del alcance, y el sonido de una dolorosa campana llena el aire a su alrededor por un momento. El objetivo debe tener éxito en una tirada de salvación de Sabiduría o recibir 1d12 de daño necrótico.\nEl daño de este hechizo aumenta en 1d12 cuando alcanzas el nivel 5 (2d12), el nivel 11 (3d12) y el nivel 17 (4d12).
+Spell/&TollTheDeadTitle=tocar a los muertos
 Spell/&WrackDescription=Desata una ola de dolor paralizante a una criatura dentro del alcance. El objetivo debe hacer una tirada de salvación de Constitución o recibir 1d8 de daño necrótico, y evitar que se desplace o se desenganche.
 Spell/&WrackTitle=Estante

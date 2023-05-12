@@ -2,20 +2,18 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:FeaturePathOfTheReaverCorruptedBlood:6cc62c37-3930-5521-8ef0-18c2df862f1e"
-  ],
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
+  "specialDuration": true,
+  "durationType": "Round",
   "durationParameterDie": "D4",
-  "durationParameter": 1,
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "EndOfSourceTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -86,7 +84,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,14 +125,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionRoguishArcaneScoundrelPossessedTitle",
+    "description": "Condition/&ConditionRoguishArcaneScoundrelPossessedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "5e96eb4d8d8193a4cbddbf7477990f88",
+      "m_SubObjectName": "ConditionPossessed",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f6c1da8c-21ff-5aba-9bbe-00d1cec97b4b",
+  "guid": "5615bb6f-900f-5382-b78f-80e23d2e5c4d",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheReaverCorruptedBlood"
+  "name": "ConditionRoguishArcaneScoundrelPossessed"
 }

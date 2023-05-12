@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=La classe d'armure est réduite de 1.
+Condition/&ConditionAcidClawsDescription=La classe d'armure est réduite de 1.
 Condition/&ConditionAcidClawsTitle=Brûlure à l'acide
 Condition/&ConditionMindSpikeDescription=Soustrait 1d4 au prochain jet de sauvegarde.
 Condition/&ConditionMindSpikeTitle=Pic d'esprit
@@ -40,5 +40,7 @@ Spell/&ThornyVinesDescription=Vous créez une longue vigne ressemblant à un fou
 Spell/&ThornyVinesTitle=Vignes épineuses
 Spell/&ThunderStrikeDescription=Crée une rafale de tonnerre, forçant les créatures adjacentes à effectuer un jet de sauvegarde de Constitution ou à subir 1d6 dégâts de tonnerre.\nLes dégâts de ce sort augmentent de 1d6 lorsque vous atteignez les niveaux 5 (2d6), 11 (3d6) et 17. niveau (4d6).
 Spell/&ThunderStrikeTitle=Rafale sonore
+Spell/&TollTheDeadDescription=Vous pointez une créature que vous pouvez voir à portée, et le son d'une cloche douloureuse emplit l'air autour d'elle pendant un moment. La cible doit réussir un jet de sauvegarde de Sagesse ou subir 1d12 dégâts nécrotiques.\nLes dégâts de ce sort augmentent de 1d12 lorsque vous atteignez le niveau 5 (2d12), le niveau 11 (3d12) et le niveau 17 (4d12).
+Spell/&TollTheDeadTitle=Sonner les morts
 Spell/&WrackDescription=Libère une vague de douleur paralysante sur une créature à portée. La cible doit effectuer un jet de sauvegarde de Constitution ou subir 1d8 dégâts nécrotiques, et l'empêcher de se précipiter ou de se désengager.
 Spell/&WrackTitle=Varech

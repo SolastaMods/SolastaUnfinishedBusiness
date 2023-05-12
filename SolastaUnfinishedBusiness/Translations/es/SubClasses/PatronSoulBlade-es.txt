@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Maldito por un maleficio del alma.
+Condition/&ConditionSoulBladeHexDefenderDescription=Maldito por un maleficio del alma.
 Condition/&ConditionSoulBladeHexDefenderTitle=Maleficio del alma
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Cuenta como mágico y usa el modificador Carisma para las tiradas de ataque y daño.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Alma empoderada

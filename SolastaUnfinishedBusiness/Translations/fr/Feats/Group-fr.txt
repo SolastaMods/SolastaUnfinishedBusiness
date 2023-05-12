@@ -1,4 +1,4 @@
-﻿Feat/&FeatGroupAegisTouchedDescription=Augmentez l'un de vos attributs mentaux de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer le bouclier de la foi, la protection contre le mal et le bien, et la protection contre les sorts de poison une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
+Feat/&FeatGroupAegisTouchedDescription=Augmentez l'un de vos attributs mentaux de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer le bouclier de la foi, la protection contre le mal et le bien, et la protection contre les sorts de poison une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
 Feat/&FeatGroupAegisTouchedTitle=Égide touchée
 Feat/&FeatGroupAgilityCombatDescription={0}
 Feat/&FeatGroupAgilityCombatTitle=Combat : Agilité
@@ -59,7 +59,7 @@ Feat/&FeatGroupMeleeCombatTitle=Combat : Mêlée
 Feat/&FeatGroupPeregrinationTouchedDescription=Augmentez l'un de vos attributs mentaux de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer les sorts de marcheur long, de retraite expéditive et d'escalade d'araignée une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
 Feat/&FeatGroupPeregrinationTouchedTitle=Pérégrination touchée
 Feat/&FeatGroupPiercerDescription=Augmentez votre Force ou votre Dextérité de 1, jusqu'à un maximum de 20.\nLorsque vous touchez une créature avec une attaque qui inflige des dégâts perforants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet. Lorsque vous marquez un coup critique, vous pouvez lancer un dé de dégâts supplémentaire pour déterminer les dégâts perforants supplémentaires subis par la cible.
-Feat/&FeatGroupPiercerTitle=perceur
+Feat/&FeatGroupPiercerTitle=Perceur
 Feat/&FeatGroupPlaneTouchedMagicDescription=Vous êtes touché par un autre plan et pouvez lancer des sorts associés à ce plan.\nL'un de vos attributs mentaux est augmenté de 1 jusqu'à un maximum de 20.
 Feat/&FeatGroupPlaneTouchedMagicTitle=Plan magique
 Feat/&FeatGroupPotentSpellcasterDescription=Vous pouvez ajouter votre modificateur d'attribut de lanceur de sorts aux dégâts que vous infligez avec n'importe quel sort mineur de votre répertoire.

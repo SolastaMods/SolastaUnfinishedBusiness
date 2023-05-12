@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDauntlessPursuerDescription=Du erhältst 2 zusätzliche Bewegungsfelder und ignorierst die Reaktionen des Gegners.
+Condition/&ConditionDauntlessPursuerDescription=Du erhältst 2 zusätzliche Bewegungsfelder und ignorierst die Reaktionen des Gegners.
 Condition/&ConditionDauntlessPursuerTitle=Unerschrockener Verfolger
 Condition/&ConditionScornfulPrayerDescription=Stärke und Gesang verblassen, während sich das Gebet umhüllt. Unter der Wirkung bewirkt das Gebet, dass der Feind bei Angriffswürfen geschwächt und verflucht wird.
 Condition/&ConditionScornfulPrayerTitle=Verachtet

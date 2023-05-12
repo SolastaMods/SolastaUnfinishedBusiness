@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "VoraciousFury",
-  "limitedUsage": "OncePerTurn",
+  "notificationTag": "SneakAttack",
+  "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "AlwaysActive",
-  "requiredProperty": "None",
+  "triggerCondition": "AdvantageOrNearbyAlly",
+  "requiredProperty": "FinesseOrRangeWeapon",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,
@@ -17,22 +17,22 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D1",
-  "damageDiceNumber": 2,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "DamageNecrotic",
+  "damageDieType": "D6",
+  "damageDiceNumber": 1,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "DamageFire",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "ClassLevel",
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -57,72 +57,72 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 7,
-      "diceNumber": 3
+      "diceNumber": 4
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 8,
-      "diceNumber": 3
+      "diceNumber": 4
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
-      "diceNumber": 4
+      "diceNumber": 5
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 4
+      "diceNumber": 5
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 11,
-      "diceNumber": 4
+      "diceNumber": 6
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 12,
-      "diceNumber": 4
+      "diceNumber": 6
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 13,
-      "diceNumber": 5
+      "diceNumber": 7
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 14,
-      "diceNumber": 5
+      "diceNumber": 7
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 15,
-      "diceNumber": 5
+      "diceNumber": 8
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 16,
-      "diceNumber": 5
+      "diceNumber": 8
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 17,
-      "diceNumber": 6
+      "diceNumber": 9
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 18,
-      "diceNumber": 6
+      "diceNumber": 9
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
-      "diceNumber": 6
+      "diceNumber": 10
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 20,
-      "diceNumber": 6
+      "diceNumber": 10
     }
   ],
   "familiesWithAdditionalDice": [],
@@ -134,33 +134,88 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionRoguishArcaneScoundrelPossessed:5615bb6f-900f-5382-b78f-80e23d2e5c4d",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
-  "lightSourceForm": null,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
   "impactParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "12ac73b65d9ab1a44a59fc7c2d12245d",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
-  "acidImpactParticleReference": null,
-  "coldImpactParticleReference": null,
-  "fireImpactParticleReference": null,
-  "lightningImpactParticleReference": null,
-  "poisonImpactParticleReference": null,
+  "acidImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeaturePathOfTheReaverVoraciousFuryTitle",
-    "description": "Feature/&FeaturePathOfTheReaverVoraciousFuryDescription",
+    "title": "Feature/&RogueSneakAttackTitle",
+    "description": "Feature/&RogueSneakAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -175,7 +230,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fec25391-08b5-5663-a4b3-9311e079b5ae",
+  "guid": "965f7546-d02c-5c07-8199-1fdc9f0cd1d3",
   "contentPack": 9999,
-  "name": "AdditionalDamagePathOfTheReaverVoraciousFury"
+  "name": "AdditionalDamageRoguishArcaneScoundrelPossessed"
 }

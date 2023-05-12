@@ -1,4 +1,4 @@
-﻿Condition/&AfterRestIdentifyDescription=Identificando itens mágicos
+Condition/&AfterRestIdentifyDescription=Identificando itens mágicos
 Condition/&AfterRestIdentifyTitle=Identificando
 Condition/&ConditionDistractedByAllyDescription=Esta criatura foi distraída.
 Condition/&ConditionDistractedByAllyTitle=Distraído

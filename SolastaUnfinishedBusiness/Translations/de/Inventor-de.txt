@@ -1,4 +1,4 @@
-﻿Class/&InventorDescription=Erfinder sind Tüftler, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
+Class/&InventorDescription=Erfinder sind Tüftler, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
 Class/&InventorTitle=Erfinder
 Feature/&AdditionalDamageInfusionMajorElementalDescription=Angriffe mit dieser Waffe verursachen zusätzlich 1W4 {0} Schaden.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=Hauptelementar [{0}]

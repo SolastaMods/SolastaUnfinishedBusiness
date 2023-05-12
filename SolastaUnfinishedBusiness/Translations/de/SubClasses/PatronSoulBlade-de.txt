@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Verflucht von einem Seelenhex.
+Condition/&ConditionSoulBladeHexDefenderDescription=Verflucht von einem Seelenhex.
 Condition/&ConditionSoulBladeHexDefenderTitle=Seelen-Hex
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Zählt als magisch und verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Seele ermächtigt

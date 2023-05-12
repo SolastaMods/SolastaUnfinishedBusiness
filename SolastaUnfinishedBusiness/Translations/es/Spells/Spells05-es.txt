@@ -1,4 +1,4 @@
-﻿Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
+Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
 Condition/&ConditionFarStepTitle=Paso lejano
 Feature/&AdditionalDamageBanishingSmiteDescription=Eres golpeado por daño de fuerza.
 Feature/&AdditionalDamageBanishingSmiteTitle=Castigo de destierro

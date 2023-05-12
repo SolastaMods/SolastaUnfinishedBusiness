@@ -444,7 +444,7 @@ internal static partial class SpellBuilders
                 12)
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6, 2)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -453,7 +453,7 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                    .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
             ).Build();
 

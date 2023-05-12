@@ -1,15 +1,31 @@
 ﻿CHANGES:
 
+1.4.33.86:
+
+- fixed Shadow Blade spell not granting advantage when enemy not in bright light
+- fixed Way of the Tempest's gathering storm not applying lightning damage
+- changed Circle of the Eternal Grove's seed of life to a bonus action
+- changed Darkweaver's dark assault to trigger on start of rogue's turn
+- changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
+- changed Weapon Master's momentum to not use a reaction and be once in my turn
+- changed Path of the Reaver for better multiplayer support [RESPEC is required]
+
 1.4.33.85:
 
-- allowed gambits to use highest of str, dex or int on saving difficult ability
-- changed Shadow Blade spell to only grant advantage if target is not on bright light
-- fixed Crusader's Mantle spell preventing hero movement or input
-- fixed Patron Soulblade's hex to also trigger on magical attacks
+- RESPEC REQUIRED: Arcane Scoundrel [>=13th]
+
+- fixed Crusader's Mantle spell soft locking the combat
+- fixed Soulblade hex not triggering on magical attacks
+- added campaign assets to DM Pro sorting setting [locations, npcs, quests, etc.]
+- changed gambits to use highest of str, dex or int on saving difficult ability
+- changed Shadow Blade spell to only grant adv if target is not on bright light
+- removed Splint Armor support in Items & Crafting [drop from hero before upgrade]
+- tweaked Monk subclasses perfection, purity of light, and quivering palm at 17th
+- ungrouped Ape, Black Bear, Brown Bear, Deep Spider and Giant Eagle WS attacks
 
 1.4.33.84:
 
-- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Roguish Duelist [>=13th]
+- RESPEC REQUIRED: Way of Distant Hand [>=3rd] / Duelist [>=13th]
 
 - added Brain Bulwark 4th level spell by [Demonic Duck]
 - fixed a null exception with touch spells cast off combat

@@ -25,7 +25,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.Individuals)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
             .SetParticleEffectParameters(ShockingGrasp)
@@ -328,7 +328,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
             .SetDurationData(DurationType.Hour, 8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
             .SetEffectForms(
@@ -763,7 +763,7 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()

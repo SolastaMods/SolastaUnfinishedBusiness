@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFrightenedFear",
-          "conditionDefinition": "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
+          "conditionDefinitionName": "ConditionFrightened",
+          "conditionDefinition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,

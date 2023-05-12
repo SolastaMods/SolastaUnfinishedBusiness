@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Tu e i tuoi alleati siete parzialmente coperti mentre siete entro 3 metri da un cannone creato con Eldritch Cannon, come risultato di uno scintillante campo di protezione magica che il cannone emette.
+Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=Tu e i tuoi alleati siete parzialmente coperti mentre siete entro 3 metri da un cannone creato con Eldritch Cannon, come risultato di uno scintillante campo di protezione magica che il cannone emette.
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=Posizione fortificata
 Feature/&AutoPreparedSpellsInnovationArtilleristDescription=Impara e preparati sempre:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=Incantesimi Artiglieri

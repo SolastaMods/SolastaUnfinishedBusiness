@@ -533,6 +533,7 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
+                    {
                         if (!canReact)
                         {
                             continue;
@@ -571,6 +572,8 @@ public static class GameLocationBattleManagerPatcher
 
                         totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
                         break;
+                    }
+
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
@@ -591,6 +594,8 @@ public static class GameLocationBattleManagerPatcher
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
                         break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
+                        break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
@@ -598,8 +603,6 @@ public static class GameLocationBattleManagerPatcher
                     case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
-                        break;
-                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
                         break;
                     case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
                         break;
@@ -988,6 +991,9 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
+            
             while (values.MoveNext())
             {
                 yield return values.Current;
@@ -1048,6 +1054,14 @@ public static class GameLocationBattleManagerPatcher
             foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
             {
                 yield return feature.OnAttackFinished(
+                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                    damageAmount);
+            }
+
+            //PATCH: allow custom behavior when physical attack finished on defender
+            foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+            {
+                yield return feature.OnAttackFinishedOnMe(
                     __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                     damageAmount);
             }

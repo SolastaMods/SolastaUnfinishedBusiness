@@ -1,0 +1,2 @@
+Spell/&GravityFissureDescription=Manifiesta un barranco de energía gravitatoria para atraer a los enemigos y aplastarlos.
+Spell/&GravityFissureTitle=Fisura de gravedad

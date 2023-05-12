@@ -48,7 +48,6 @@ internal static class CraftingContext
         { "HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle") },
         { "Ringmail", Gui.Localize("Equipment/&Armor_RingMailTitle") },
         { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
-        { "SplintArmor", Gui.Localize("Equipment/&Armor_SplintTitle") },
         { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") },
         { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },

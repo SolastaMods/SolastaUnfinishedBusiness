@@ -12,6 +12,8 @@ using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -23,7 +25,6 @@ internal static class RaceFeats
     private const string FadeAway = "FadeAway";
     private const string RevenantGreatSword = "RevenantGreatSword";
     private const string SquatNimbleness = "SquatNimbleness";
-    private const string InfernalConstitution = "InfernalConstitution";
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -142,8 +143,7 @@ internal static class RaceFeats
         var attributeModifierFeatRevenantGreatSwordArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatRevenantGreatSwordArmorClass")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.ArmorClass, 1)
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
             .SetSituationalContext(ExtraSituationalContext.HasGreatswordInHands)
             .AddToDB();
 
@@ -216,22 +216,12 @@ internal static class RaceFeats
             .Create("FeatInfernalConstitution")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("FeatInfernalConstitutionASI")
-                    .SetModifier(AttributeModifierOperation.Additive,
-                        AttributeDefinitions.Constitution, 1)
-                    .AddToDB(),
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityAntitoxin,
-                    "FeatInfernalConstitutionSavingThrow")
-                    .AddToDB(),
-                //AffinityAntitoxin isn't a thing anymore?
-                
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonResistance)    
+                AttributeModifierCreed_Of_Arun,
+                SavingThrowAffinityAntitoxin,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityPoisonResistance)
             .SetValidators(ValidatorsFeat.IsTiefling)
-            .SetFeatFamily(InfernalConstitution)
             .AddToDB();
 
         //
@@ -282,12 +272,6 @@ internal static class RaceFeats
             featSquatNimblenessDex,
             featSquatNimblenessStr);
 
-        var featGroupInfernalConstitution = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupInfernalConstitution",
-            InfernalConstitution,
-            ValidatorsFeat.IsTiefling,
-            featInfernalConstitution);
-
         GroupFeats.FeatGroupAgilityCombat.AddFeats(featDragonWings);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
@@ -299,7 +283,6 @@ internal static class RaceFeats
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupRevenantGreatSword,
-            featGroupSquatNimbleness,
-            featGroupInfernalConstitution);
+            featGroupSquatNimbleness);
     }
 }

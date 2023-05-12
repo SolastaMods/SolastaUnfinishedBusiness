@@ -46,7 +46,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -361,9 +361,9 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(new BonusSlotLevelsByClassLevel())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetParticleEffectParameters(Shatter)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
@@ -380,6 +380,7 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
             .SetAttackModeOnly()
             .AddToDB();
 
@@ -399,7 +400,7 @@ internal static partial class SpellBuilders
             )
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
+                .SetParticleEffectParameters(Shatter)
                 .SetTargetProximityData(true, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
                 .SetIgnoreCover()
@@ -468,7 +469,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetIgnoreCover()
                 .SetEffectAdvancement( //this is needed for tooltip
                     EffectIncrementMethod.CasterLevelTable,
@@ -676,9 +677,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    internal static SpellDefinition BuildTolltheDead()
+
+    internal static SpellDefinition BuildTollTheDead()
     {
-        const string NAME = "TolltheDead";
+        const string NAME = "TollTheDead";
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -693,10 +695,10 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
-                .SetEffectForms(
+            .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeNecrotic, dieType: DieType.D12, diceNumber: 1)
+                    .SetDamageForm(DamageTypeNecrotic, dieType: DieType.D12, diceNumber: 1)
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
             ).Build();
 
@@ -715,5 +717,6 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
     #endregion
 }

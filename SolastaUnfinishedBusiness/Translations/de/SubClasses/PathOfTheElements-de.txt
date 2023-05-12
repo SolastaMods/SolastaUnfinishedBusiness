@@ -1,4 +1,4 @@
-﻿Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Du hast Schadensresistenz.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Du hast Schadensresistenz.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Elementarer Segen
 Feature/&AncestryPathOfTheElementsAllDescription=Während du tobst, erleiden alle feindlichen Kreaturen innerhalb von 1,50 m um dich herum am Ende deines Zuges 1W6 {0} Schaden. Dieser Schaden steigt auf 1W10 auf der 6. Stufe, 2W6 auf der 10. Stufe und 2W10 auf der 14. Stufe.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Schneesturm

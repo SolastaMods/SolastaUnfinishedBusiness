@@ -1,17 +1,20 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "ForceIfBetter",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:MagicAffinityAdditionalSpellSlot4:0beab9f2ef8336c478c84971a3b11c49"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
-    "description": "Feature/&FighterExtraAttackDescription",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5a0850ee-0259-53a2-9db7-790ccf015984",
+  "guid": "8e525e1c-ab99-5166-9e82-ffebd11395ea",
   "contentPack": 9999,
-  "name": "AttributeModifierRoguishDarkweaverDarkAssault"
+  "name": "FeatureSetRoguishArcaneScoundrelPremeditationSlot"
 }

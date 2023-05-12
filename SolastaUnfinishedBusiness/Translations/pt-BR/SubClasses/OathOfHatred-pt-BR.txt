@@ -1,4 +1,4 @@
-﻿Condition/&ConditionDauntlessPursuerDescription=Você ganha 2 células de movimento extras e ignora as reações do oponente.
+Condition/&ConditionDauntlessPursuerDescription=Você ganha 2 células de movimento extras e ignora as reações do oponente.
 Condition/&ConditionDauntlessPursuerTitle=Perseguidor destemido
 Condition/&ConditionScornfulPrayerDescription=A força e os vocais desaparecem à medida que a oração se desenvolve. Enquanto estiver sob os efeitos, a oração faz com que o inimigo seja enfraquecido e amaldiçoado nas jogadas de ataque.
 Condition/&ConditionScornfulPrayerTitle=Desprezado

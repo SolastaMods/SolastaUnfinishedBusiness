@@ -12,6 +12,7 @@ ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neusta
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
 ModUi/&AllItemInDm=Alle Artikel in DM
+ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative Sequenzen</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
 ModUi/&AllowAssigningOfficialSpells=Lassen Sie zu, dass offizielle Zaubersprüche auf diesen Listen angezeigt werden
@@ -25,7 +26,6 @@ ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Zustand im Ruheber
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl zulassen, wenn der Zauberspruch <color=#D89555>Kettenblitz</color> gewirkt wird
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
-ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
@@ -99,13 +99,13 @@ ModUi/&EnablePcgRandom=Aktivieren Sie einen besseren Zufallsgeneratoralgorithmus
 ModUi/&EnableRejoinParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um sich der Gruppe um den ausgewählten Helden oder den Anführer wieder anzuschließen, wenn keiner ausgewählt ist <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen ]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
-ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=#F0DAA0>[statt einer exklusiven Auswahl]</color></i>
 ModUi/&EnableSaveByLocation=Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
+ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=#F0DAA0>[statt einer exklusiven Auswahl]</color></i>
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
 ModUi/&Encounters=Begegnungen
 ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Lassen Sie zu, dass Funktionen von Helden in <color=#D89555>Wildgestalt</color> funktionieren
@@ -128,8 +128,8 @@ ModUi/&FormationResetAllSets=Alles zurücksetzen
 ModUi/&FormationResetThisSet=Setzen Sie dies zurück
 ModUi/&FormationSelected=Formationssatz {0} ausgewählt
 ModUi/&FullyControlConjurations=Volle Kontrolle über Beschwörungen <i><color=#F0DAA0>[Tiere, Elementare usw.]</color></i>
-ModUi/&Gameplay=Spielweise
 ModUi/&GameUi=Benutzeroberfläche des Spiels
+ModUi/&Gameplay=Spielweise
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
@@ -185,6 +185,7 @@ ModUi/&RestockCircleOfDanantar=Zirkel von Danantar <i><color=#F0DAA0>[Joriel Fuc
 ModUi/&RestockHelp=. Setzen Sie die Standardeinstellungen außer Kraft, um zu erzwingen, dass alle Lagerbestände des Händlers im Laufe der Zeit wieder aufgefüllt werden <i><color=#F0DAA0>[ausgenommen Handbücher und Wälzer]</color></i>\n. Beachten Sie, dass es bei einigen Artikeln bis zu 7 Spieltage dauern kann, bis sie wieder verfügbar sind
 ModUi/&RestockTowerOfKnowledge=Turm des Wissens <i><color=#F0DAA0>[Maddy Greenisle]</color></i> auffüllen
 ModUi/&Rules=Regeln
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Händlerpreise richtig / genau skalieren <i><color=#F0DAA0>[keine Rundungsfehler mehr beim Umrechnen von Münzwerten]</color></i>
 ModUi/&SelectAll=Wählen Sie Alle
 ModUi/&SelectSuggested=Wählen Sie Vorgeschlagen aus
@@ -204,7 +205,6 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Too
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
 ModUi/&SpellLevelFilter=<b><i><color=white>Zauberstufenfilter</color> <color=#F0DAA0>[-1 zeigt alle an]</color></i></b>
 ModUi/&SpellsMenu=Zauber
-ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Lagern Sie Gorims Laden mit allen nicht magischen Kleidungsstücken <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Lagern Sie Gorims Laden mit allen nicht-magischen Musikinstrumenten <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Lagern Sie Hugos Laden mit <color=#D89555>Arkanem Stab</color>, <color=#D89555>Druidenhals</color>, <color=#D89555>Stab</color> und <color=#D89555>Keule</color> als Fokuselemente gesetzt
@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
+ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen DnD-Vorteils-/Nachteilregeln <i><color=#F0DAA0>[wenn die Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines von beidem haben]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

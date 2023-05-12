@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous regagnez 2 PV au début de votre tour.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous regagnez 2 PV au début de votre tour.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Photosynthèse
 Condition/&ConditionAncientForestRootedDescription=Des vrilles arboricoles poussent à partir de vos pieds et s'enfoncent dans le sol. Vous pouvez lancer enchevêtrement à volonté. Votre vitesse passe à 0 et vous bénéficiez d'un avantage sur tous les jets de sauvegarde pour vous pousser, vous tirer ou vous assommer.
 Condition/&ConditionAncientForestRootedTitle=Enraciné

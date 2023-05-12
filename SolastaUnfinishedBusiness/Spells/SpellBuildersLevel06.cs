@@ -1,21 +1,15 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
     #region LEVEL 06
-    private static SpellDefinition BuildGravityFissure()
+
+    internal static SpellDefinition BuildGravityFissure()
     {
         const string NAME = "GravityFissure";
 
@@ -25,10 +19,11 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(false, AttributeDefinitions.Constitution, true, EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                EffectDifficultyClassComputation.SpellCastingFeature)
             //.SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(LightningBolt.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All,RangeType.Self,0,TargetType.Cube,20,3)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 20, 3)
             //.SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 20, 3)
             .AddEffectForms(
                 EffectFormBuilder
@@ -38,7 +33,7 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D8, diceNumber: 8)
+                    .SetDamageForm(DamageTypeForce, dieType: DieType.D8, diceNumber: 8)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
             ).Build();
 
@@ -57,5 +52,6 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
     #endregion
 }

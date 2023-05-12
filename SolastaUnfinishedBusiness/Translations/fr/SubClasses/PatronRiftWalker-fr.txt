@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Vous ne pouvez pas être retenu.
+Condition/&ConditionAffinityRiftWalkerRestrainedImmunityDescription=Vous ne pouvez pas être retenu.
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Liberté de faille
 Feature/&BonusCantripRiftWalkWardingBondDescription=Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Cape de faille

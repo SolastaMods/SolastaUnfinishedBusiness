@@ -1,4 +1,4 @@
-﻿Condition/&ConditionBrainBulwarkDescription=You have resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
+Condition/&ConditionBrainBulwarkDescription=You have resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 Condition/&ConditionBrainBulwarkTitle=Brain Bulwark
 Feature/&AdditionalDamageStaggeringSmiteDescription=You're hit by psychic damage.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Staggering Smite

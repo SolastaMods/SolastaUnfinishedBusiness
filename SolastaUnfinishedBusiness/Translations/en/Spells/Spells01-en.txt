@@ -1,4 +1,4 @@
-﻿Condition/&AdditionalConditionEnsnaringStrikeDescription=You are entangled in vines preventing movement, disadvantage on Dexterity saving throws, and receiving piercing damage every turn. At end of your turn, make a Strength throwing save to escape the vines.
+Condition/&AdditionalConditionEnsnaringStrikeDescription=You are entangled in vines preventing movement, disadvantage on Dexterity saving throws, and receiving piercing damage every turn. At end of your turn, make a Strength throwing save to escape the vines.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Ensnared
 Condition/&ConditionGravityDescription=Burdened by Gravity
 Condition/&ConditionGravityTitle=Speed is halved for one round.

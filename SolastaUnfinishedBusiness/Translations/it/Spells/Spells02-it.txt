@@ -1,5 +1,7 @@
-﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=Devi effettuare una prova di abilità di Forza per uscire da questa condizione.
+Condition/&ConditionGrappledRestrainedSpellWebDescription=Devi effettuare una prova di abilità di Forza per uscire da questa condizione.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Trattenuto dal web
+Condition/&ConditionIceBoundDescription=Congelato sul posto per un giro.
+Condition/&ConditionIceBoundTitle=Vincolato dal ghiaccio
 Condition/&ConditionMirrorImageDescription=I nemici possono prendere di mira accidentalmente questo duplicato al posto tuo. Se viene colpito il duplicato, scompare.
 Condition/&ConditionMirrorImageTitle=Duplicato speculare
 Feedback/&MirrorImageAttackerHasSense={0} ha {1} e ignora {2}
@@ -8,6 +10,8 @@ Feedback/&MirrorImageRetargetResult={0} sceglierà come target {1}
 Feedback/&MirrorImageRetargetRoll={0} tira {2} dado esca: {1}
 Item/&ItemShadowBladeDescription=Infligge 2d8 danni psichici se colpisce e ha le proprietà delicatezza, luce e lancio.
 Item/&ItemShadowBladeTitle=Lama d'ombra
+Spell/&BindingIceDescription=Un'esplosione di freddo in un cono di 9 metri che congela i nemici sul posto.
+Spell/&BindingIceTitle=Ghiaccio vincolante
 Spell/&ColorBurstDescription=Esplode un cubo luminoso che acceca brevemente chiunque si trovi entro 3 metri. 8d10 è il numero di punti ferita delle creature che questo incantesimo può influenzare.
 Spell/&ColorBurstTitle=Esplosione di colore
 Spell/&MirrorImageDescription=Tre duplicati illusori di te stesso appaiono nel tuo spazio. Fino al termine dell'incantesimo, ogni volta che una creatura ti prende di mira con un attacco, tira un d20 per determinare se l'attacco prende di mira uno dei tuoi duplicati.\nSe hai 3 duplicati, devi tirare un 6 o più per cambiare l'effetto dell'attacco destinazione a un duplicato. Con 2 duplicati, devi ottenere un 8 o più. Con 1 duplicato, devi ottenere un 11 o più.\nLa classe armatura di un duplicato è pari a 10 + il tuo modificatore di Destrezza. Se un attacco colpisce un duplicato, il duplicato viene distrutto. Un duplicato può essere distrutto solo da un attacco che lo colpisce. Ignora tutti gli altri danni ed effetti. L'incantesimo termina quando tutti e tre i duplicati vengono distrutti.\nUna creatura non è influenzata da questo incantesimo se è accecata o ha Blindsight, Truesight o Tremorsense (non si applica se non tocchi terra).

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=Vantaggio su tutti i tiri per colpire, prove di caratteristica e tiri salvezza. Le altre creature hanno svantaggio ai tiri per colpire.
+Condition/&ConditionForesightDescription=Vantaggio su tutti i tiri per colpire, prove di caratteristica e tiri salvezza. Le altre creature hanno svantaggio ai tiri per colpire.
 Condition/&ConditionForesightTitle=Lungimiranza
 Condition/&ConditionTimeStopDescription=Il tempo è congelato per la creatura colpita.
 Condition/&ConditionTimeStopTitle=Il tempo si è fermato

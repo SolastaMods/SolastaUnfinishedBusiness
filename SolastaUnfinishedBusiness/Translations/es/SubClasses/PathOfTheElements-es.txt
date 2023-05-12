@@ -1,4 +1,4 @@
-﻿Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Tienes resistencia al daño.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Tienes resistencia al daño.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Bendición elemental
 Feature/&AncestryPathOfTheElementsAllDescription=Mientras estás en furia, todas las criaturas enemigas a 5 pies de ti al final de tu turno reciben 1d6 {0} de daño. Este daño aumenta a 1d10 en el nivel 6, 2d6 en el nivel 10 y 2d10 en el nivel 14.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Tormenta de nieve

@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityCasterFightingCombatMagic:d97ab358-d6a2-5b95-909f-e18f70293ad3",
+      "featureDefinition": "Definition:MagicAffinityCasterFightingCombatMagicImproved:6f9e66ea-9b90-56c3-943c-41ee1409f8cf",
       "level": 3
     },
     {

@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Puede absorber energía de la luz solar. Mientras estás bajo la luz brillante directa, recuperas 2 HP al comienzo de tu turno.
+Condition/&ConditionAncientForestPhotosynthesisDescription=Puede absorber energía de la luz solar. Mientras estás bajo la luz brillante directa, recuperas 2 HP al comienzo de tu turno.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Fotosíntesis
 Condition/&ConditionAncientForestRootedDescription=Los zarcillos arbóreos crecen de tus pies y se clavan en el suelo. Puedes lanzar enredar a voluntad. Tu velocidad se convierte en 0 y obtienes ventaja en cualquier tirada de salvación para empujarte, jalarte o derribarte.
 Condition/&ConditionAncientForestRootedTitle=Arraigado

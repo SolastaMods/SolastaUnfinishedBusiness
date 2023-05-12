@@ -1,4 +1,4 @@
-﻿Condition/&ConditionMoonlitMoonTouchedDescription=Ihre Schwerkraft wird negiert.
+Condition/&ConditionMoonlitMoonTouchedDescription=Ihre Schwerkraft wird negiert.
 Condition/&ConditionMoonlitMoonTouchedTitle=Mond berührt
 Feature/&BonusCantripsMoonlitDescription=Deine Kontrolle über das Mondlicht hat sich auf ein neues Niveau gesteigert. Du kannst die Zaubersprüche <b>Mondstrahl</b> und <b>Feenfeuer</b> nach Belieben wirken.
 Feature/&BonusCantripsMoonlitTitle=Lichtsteuerung

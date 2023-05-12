@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Du kannst einen zusätzlichen Angriff ausführen, wenn du in deinem Zug zum ersten Mal einen Feind tötest. Außerdem kann jedes Mal, wenn Sie einen Feind töten, Ihr Schleichangriff in derselben Runde wiederverwendet werden.
+Feature/&AdditionalActionRavenKillingSpreeDescription=Du kannst einen zusätzlichen Angriff ausführen, wenn du in deinem Zug zum ersten Mal einen Feind tötest. Außerdem kann jedes Mal, wenn Sie einen Feind töten, Ihr Schleichangriff in derselben Runde wiederverwendet werden.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Amoklauf
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Dein Angriff erleidet einen Malus von -4 auf Treffer.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Herzsuchender Schuss

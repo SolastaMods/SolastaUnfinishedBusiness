@@ -84,7 +84,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.All, RangeType.RangeHit, 12, TargetType.Individuals)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -277,7 +277,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)
@@ -359,11 +359,10 @@ public static class InnovationArtillerist
             .Create($"AdditionalDamage{Name}{ArcaneFirearm}")
             .SetGuiPresentation(ARCANE_FIREARM, Category.Feature)
             .SetNotificationTag(ArcaneFirearm)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .AddToDB();
 
         var featureSetArcaneFirearm = FeatureDefinitionFeatureSetBuilder
@@ -414,7 +413,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)

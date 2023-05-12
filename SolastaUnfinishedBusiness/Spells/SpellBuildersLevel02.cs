@@ -39,14 +39,13 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeCold, dieType: DieType.D8, diceNumber: 3)
+                    .SetDamageForm(DamageTypeCold, dieType: DieType.D8, diceNumber: 3)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(frozen, ConditionForm.ConditionOperation.Add, false, false)
+                    .SetConditionForm(frozen, ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build()
-
             ).Build();
 
         var spell = SpellDefinitionBuilder
@@ -72,9 +71,9 @@ internal static partial class SpellBuilders
                 .AddToDB();
 
             return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionHindered_By_Frost, "ConditionIceBound")
+                .Create(ConditionHindered_By_Frost, "ConditionIceBound")
                 .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
-                .SetSpecialDuration(DurationType.Round,0,TurnOccurenceType.EndOfTurn)
+                .SetSpecialDuration()
                 .SetFeatures(frozen)
                 .AddToDB();
         }
@@ -265,19 +264,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ShadowBlade";
 
-        var conditionShadowBlade = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation($"Item{NAME}", Category.Item)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
-                    .AddToDB())
-            .AddToDB();
-
         var itemShadowBlade = ItemDefinitionBuilder
             .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
@@ -294,12 +280,6 @@ internal static partial class SpellBuilders
         weaponDescription.reachRange = 12;
         weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
         weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
-
-        weaponDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
-                .Build());
 
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
 
@@ -325,6 +305,26 @@ internal static partial class SpellBuilders
         itemPropertyForm.FeatureBySlotLevel[1].level = 3;
         itemPropertyForm.FeatureBySlotLevel[2].level = 5;
         itemPropertyForm.FeatureBySlotLevel[3].level = 7;
+
+        var conditionShadowBlade = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Item{NAME}", Category.Item)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
+                    .AddToDB())
+            .AddToDB();
+
+        spell.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add, true)
+                .Build());
 
         return spell;
     }

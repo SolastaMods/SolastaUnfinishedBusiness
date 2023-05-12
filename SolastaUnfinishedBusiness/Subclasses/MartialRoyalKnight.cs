@@ -80,7 +80,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()
@@ -187,7 +187,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()

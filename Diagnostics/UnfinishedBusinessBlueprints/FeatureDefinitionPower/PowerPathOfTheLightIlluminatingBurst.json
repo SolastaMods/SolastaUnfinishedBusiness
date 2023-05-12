@@ -377,7 +377,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": "Definition:ConditionPathOfTheLightSuppressedIlluminatingBurst:3b33e142-aaaf-57ea-ad7d-a39c908a1aff",
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "OneMinute",
+  "rechargeRate": "TurnStart",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",

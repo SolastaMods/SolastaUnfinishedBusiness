@@ -1,5 +1,7 @@
-﻿Condition/&ConditionGrappledRestrainedSpellWebDescription=You must make a Strength ability check to get off this condition.
+Condition/&ConditionGrappledRestrainedSpellWebDescription=You must make a Strength ability check to get off this condition.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restrained by Web
+Condition/&ConditionIceBoundDescription=Frozen in place for one round.
+Condition/&ConditionIceBoundTitle=Bound by Ice
 Condition/&ConditionMirrorImageDescription=Enemies can accidentally target this duplicate instead of you. If duplicate is hit it disappears.
 Condition/&ConditionMirrorImageTitle=Mirror Duplicate
 Condition/&ConditionIceBoundDescription=Frozen in place for one round.

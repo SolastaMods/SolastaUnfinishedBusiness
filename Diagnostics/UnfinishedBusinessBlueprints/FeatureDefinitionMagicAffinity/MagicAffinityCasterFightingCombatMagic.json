@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "FlatValue",
+  "saveDCModifierType": "None",
   "saveDCModifier": 0,
   "spellAttackModifierType": "None",
   "spellAttackModifier": 0,
@@ -19,7 +19,7 @@
   "somaticWithWeaponOrShield": true,
   "somaticWithWeapon": true,
   "canUseProficientWeaponAsFocus": true,
-  "rangeSpellNoProximityPenalty": true,
+  "rangeSpellNoProximityPenalty": false,
   "targetSelfOverride": null,
   "usesWarList": false,
   "warListSlotBonus": 1,

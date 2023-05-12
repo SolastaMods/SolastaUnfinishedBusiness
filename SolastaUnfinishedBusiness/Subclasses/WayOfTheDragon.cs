@@ -487,6 +487,13 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker == null)
+            {
+                yield break;
+            }
+
             var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
             var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
             var attackerConModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
@@ -496,7 +503,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             var myWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(me.RulesetCharacter
                 .TryGetAttributeValue(AttributeDefinitions.Wisdom));
 
-            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
+            rulesetAttacker.RollSavingThrow(0, AttributeDefinitions.Constitution, null, modifierTrend,
                 advantageTrends, attackerConModifier, 8 + profBonus + myWisModifier, false, out var savingOutcome,
                 out _);
 
@@ -525,7 +532,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeAcid, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -552,7 +558,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeLightning,
@@ -582,7 +587,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfType(ConditionOnFire):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeFire, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -610,7 +614,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 case DamageTypePoison
                     when attacker.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionPoisoned):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypePoison, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt
@@ -633,12 +636,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     yield break;
                 }
                 case DamageTypePoison:
-                    ApplyReactiveHideDebuff(attacker.RulesetCharacter,
-                        ConditionDefinitions.ConditionPoisoned);
+                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
                     yield break;
                 case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost):
                 {
-                    var rulesetAttacker = attacker.RulesetCharacter;
                     var damageForm = new DamageForm
                     {
                         DamageType = DamageTypeCold, DieType = DieType.D1, DiceNumber = 0, BonusDamage = damageInt

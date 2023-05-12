@@ -1,4 +1,4 @@
-﻿Feature/&BonusCantripElementalistMinorElementalDescription=Il tuo controllo sulle energie elementali è aumentato al punto che ora hai il dominio sugli elementali più deboli. Puoi lanciare evocare elementale minore a volontà.
+Feature/&BonusCantripElementalistMinorElementalDescription=Il tuo controllo sulle energie elementali è aumentato al punto che ora hai il dominio sugli elementali più deboli. Puoi lanciare evocare elementale minore a volontà.
 Feature/&BonusCantripElementalistMinorElementalTitle=Serventi elementali
 Feature/&ElementalPatronAirPlane=Aereo aereo
 Feature/&ElementalPatronEarthPlane=Piano Terra

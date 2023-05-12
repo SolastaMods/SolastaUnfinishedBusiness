@@ -29,7 +29,6 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.ItemDefinitions.HalfPlate,
                     DatabaseHelper.ItemDefinitions.Ringmail,
                     DatabaseHelper.ItemDefinitions.ChainMail,
-                    DatabaseHelper.ItemDefinitions.SplintArmor,
                     DatabaseHelper.ItemDefinitions.Plate,
                     DatabaseHelper.ItemDefinitions.SorcererArmor,
                     DatabaseHelper.ItemDefinitions.BarbarianClothes,
