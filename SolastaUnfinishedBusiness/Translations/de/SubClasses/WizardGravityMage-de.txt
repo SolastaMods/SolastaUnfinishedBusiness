@@ -1,0 +1,27 @@
+Action/&WizardGravityMageEventHorizonDescription=Senden Sie ein starkes Feld aus Gravitationsenergie aus, das Feinde im Umkreis von 6 Zellen um Sie herum bewegungsunfähig macht und ihnen Schaden zufügt.
+Action/&WizardGravityMageEventHorizonTitle=Ereignishorizont
+Condition/&ConditionEventHorizonDescription=Geschwindigkeit auf Null reduziert
+Condition/&ConditionEventHorizonSelfDescription=Verursacht in jeder Runde 2W10 Machtschaden und reduziert die Geschwindigkeit von Feinden bei einem fehlgeschlagenen Kraftsparwurf auf Null
+Condition/&ConditionEventHorizonSelfTitle=Ereignishorizont
+Condition/&ConditionEventHorizonTitle=Zerquetscht
+Condition/&ConditionHeavyDescription=Die Geschwindigkeit wurde um 2 verringert. Vorteil bei Stärkewürfen und Rettungswürfen.
+Condition/&ConditionHeavyTitle=Erhöhte Dichte
+Condition/&ConditionLightDescription=Geschwindigkeit um 2 erhöht. Nachteil bei Stärkewürfen und Rettungswürfen.
+Condition/&ConditionLightTitle=Verminderte Dichte
+Condition/&ConditionViolentAttractionDescription=Einmal pro Spielzug verursachen Angriffe mit Waffen zusätzlich 1W10 Schaden.
+Condition/&ConditionViolentAttractionTitle=Gewalttätige Anziehung
+Feature/&WizardGravityMageAdjustDensityDecreaseDescription=Verringern Sie die Dichte eines Ziels, um es schneller zu machen, allerdings auf Kosten von Nachteilen bei Stärkewürfen und Rettungswürfen.
+Feature/&WizardGravityMageAdjustDensityDecreaseTitle=Dichte anpassen (verringern)
+Feature/&WizardGravityMageAdjustDensityIncreaseDescription=Erhöhen Sie die Dichte eines Ziels, wodurch es langsamer wird, Ihnen aber Vorteile bei Stärkeprüfungen und Rettungswürfen verschafft.
+Feature/&WizardGravityMageAdjustDensityIncreaseTitle=Dichte anpassen (erhöhen)
+Feature/&WizardGravityMageGravityWellDescription=Kreaturen, die von deinen Zauberangriffen getroffen werden, werden 1 Zelle von dir weggedrängt.
+Feature/&WizardGravityMageGravityWellTitle=Schwerkraftbrunnen
+Feature/&WizardGravityMageViolentAttractionDescription=Erhöht die Schlagkraft der Waffen eines Verbündeten 1 Minute lang um 1W10.
+Feature/&WizardGravityMageViolentAttractionTitle=Gewalttätige Anziehung
+Feedback/&AdditionalDamageGravityMageViolentAttractionFormat=Gewalttätige Anziehung
+Feedback/&AdditionalDamageGravityMageViolentAttractionLine={0} verursacht mit „Violent Attraction“ zusätzlichen Schaden.
+Feedback/&AdditionalFormat=Gewalttätige Anziehung
+Feedback/&AdditionalLine={0} verursacht mit „Violent Attraction“ zusätzlichen Schaden.Power/&WizardGravityMageEventHorizonDescription=Gibt ein starkes Feld aus Gravitationsenergie ab, das Feinde im Umkreis von 6 Zellen um dich bewegungsunfähig macht und ihnen Schaden zufügt.
+Power/&WizardGravityMageEventHorizonTitle=Ereignishorizont
+Subclass/&TraditionWizardGravityMageDescription=Nach der Katastrophe wurde es zu einem alltäglichen Anblick, Erdpartikel und andere Objekte durch die Badlands zu sehen, die unvorstellbar in der Luft schwebten. Graviturgie-Zauberer versuchen, die anhaltende Magie zu verstehen und zu meistern, die solche Anblicke aufrechterhält. Sie nutzen die gewaltige Energie der Schwerkraft zu ihrem Vorteil und zum schrecklichen Schaden ihrer Feinde.
+Subclass/&TraditionWizardGravityMageTitle=Graviturgiker

@@ -566,6 +566,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionLevitate { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionLevitate");
         internal static FeatureDefinitionMovementAffinity MovementAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityConditionRestrained");
         internal static FeatureDefinitionMovementAffinity MovementAffinityFreedomOfMovement { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityFreedomOfMovement");
+        internal static FeatureDefinitionMovementAffinity MovementAffinityJump { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityJump");
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoClimb { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoClimb");
         internal static FeatureDefinitionMovementAffinity MovementAffinityNoSpecialMoves { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinityNoSpecialMoves");
         internal static FeatureDefinitionMovementAffinity MovementAffinitySixLeaguesBoots { get; } = GetDefinition<FeatureDefinitionMovementAffinity>("MovementAffinitySixLeaguesBoots");
@@ -740,6 +741,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionSavingThrowAffinitys
     {
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityAntitoxin { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityAntitoxin");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBaned { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBaned");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionHasted { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHasted");
@@ -1287,6 +1289,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition CallLightning { get; } = GetDefinition<SpellDefinition>("CallLightning");
         internal static SpellDefinition CalmEmotions { get; } = GetDefinition<SpellDefinition>("CalmEmotions");
         internal static SpellDefinition ChainLightning { get; } = GetDefinition<SpellDefinition>("ChainLightning");
+        internal static SpellDefinition CharmPerson { get; } = GetDefinition<SpellDefinition>("CharmPerson");
         internal static SpellDefinition ChillTouch { get; } = GetDefinition<SpellDefinition>("ChillTouch");
         internal static SpellDefinition CircleOfDeath { get; } = GetDefinition<SpellDefinition>("CircleOfDeath");
         internal static SpellDefinition CloudKill { get; } = GetDefinition<SpellDefinition>("CloudKill");
@@ -1430,6 +1433,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");
+        internal static SpellDefinition ViciousMockery { get; } = GetDefinition<SpellDefinition>("ViciousMockery");
         internal static SpellDefinition WallOfFire { get; } = GetDefinition<SpellDefinition>("WallOfFire");
         internal static SpellDefinition WallOfForce { get; } = GetDefinition<SpellDefinition>("WallOfForce");
         internal static SpellDefinition WallOfThornsWallLine { get; } = GetDefinition<SpellDefinition>("WallOfThornsWallLine");

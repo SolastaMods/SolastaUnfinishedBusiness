@@ -1,0 +1,27 @@
+Action/&WizardGravityMageEventHorizonDescription=Emit a powerful field of gravitational energy, immobilizing and damaging enemies within 6 cells of you.
+Action/&WizardGravityMageEventHorizonTitle=Event Horizon
+Condition/&ConditionEventHorizonDescription=Speed reduced to zero
+Condition/&ConditionEventHorizonSelfDescription=Inflicts 2d10 Force damage each turn and reduces the speed of enemies to zero on a failed Strength saving throw
+Condition/&ConditionEventHorizonSelfTitle=Event Horizon
+Condition/&ConditionEventHorizonTitle=Crushed
+Condition/&ConditionHeavyDescription=Speed decreased by 2. Advantage on Strength checks and saving throws.
+Condition/&ConditionHeavyTitle=Increased Density
+Condition/&ConditionLightDescription=Speed increased by 2. Disadvantage on Strength checks and saving throws.
+Condition/&ConditionLightTitle=Decreased Density
+Condition/&ConditionViolentAttractionDescription=Once per turn, attacks with weapons deal an additional 1d10 damage.
+Condition/&ConditionViolentAttractionTitle=Violent Attraction
+Feature/&WizardGravityMageAdjustDensityDecreaseDescription=Decrease the Density of a target, making it faster at the cost of disdvantage on Strength checks and saving throws.
+Feature/&WizardGravityMageAdjustDensityDecreaseTitle=Adjust Density (Decrease)
+Feature/&WizardGravityMageAdjustDensityIncreaseDescription=Increase the Density of a target, making it slower but granting advantage on Strength checks and saving throws.
+Feature/&WizardGravityMageAdjustDensityIncreaseTitle=Adjust Density (Increase)
+Feature/&WizardGravityMageGravityWellDescription=Creatures hit by your spell attacks are pushed 1 cell away from you.
+Feature/&WizardGravityMageGravityWellTitle=Gravity Well
+Feature/&WizardGravityMageViolentAttractionDescription=Increase the striking power of an ally's weapons by 1d10 for 1 minute.
+Feature/&WizardGravityMageViolentAttractionTitle=Violent Attraction
+Feedback/&AdditionalDamageGravityMageViolentAttractionFormat=Violent Attraction
+Feedback/&AdditionalDamageGravityMageViolentAttractionLine={0} deals extra damage with Violent Attraction.
+Feedback/&AdditionalFormat=Violent Attraction
+Feedback/&AdditionalLine={0} deals extra damage with Violent Attraction.Power/&WizardGravityMageEventHorizonDescription=Emit a powerful field of gravitational energy, immobilizing and damaging enemies within 6 cells of you.
+Power/&WizardGravityMageEventHorizonTitle=Event Horizon
+Subclass/&TraditionWizardGravityMageDescription=In the wake of the Cataclysm it became a common sight to see earthmotes and other objects though the Badlands floating impossibly in the air. Graviturgy wizards seek to understand and master the lingering magic that sustains such sights. They harness the violent energy of gravity to their benefit, and the terrible detriment of ther enemies.
+Subclass/&TraditionWizardGravityMageTitle=Graviturgist

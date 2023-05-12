@@ -3335,6 +3335,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] WizardGravityMage {
+            get {
+                object obj = ResourceManager.GetObject("WizardGravityMage", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] WizardSpellMaster {
             get {
                 object obj = ResourceManager.GetObject("WizardSpellMaster", resourceCulture);
