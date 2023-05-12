@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 
@@ -73,43 +72,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-#if false
-    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackOn))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class AttackOn_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(
-            [NotNull] GameLocationCharacter __instance,
-            GameLocationCharacter target,
-            RuleDefinitions.RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
-            var character = __instance.RulesetCharacter;
-
-            if (character == null)
-            {
-                return;
-            }
-
-            var features = character.GetSubFeaturesByType<IAttackEffectBeforeDamage>();
-
-            foreach (var effect in features)
-            {
-                effect.OnAttackEffectBeforeDamage(__instance, target, outcome, actionParams, attackMode,
-                    attackModifier);
-            }
-
-            //PATCH: registers which weapon types were used so far on attacks
-            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
-        }
-    }
-#endif
-
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackImpactOn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -141,7 +103,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanUseAtLeastOnPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
