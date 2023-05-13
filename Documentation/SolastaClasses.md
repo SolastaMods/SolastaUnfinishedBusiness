@@ -147,7 +147,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-You have advantage on strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, if you choose to end it or if 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
 
 
 ## Level 16
