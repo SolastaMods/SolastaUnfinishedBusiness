@@ -294,6 +294,7 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
                 {
+                    AllowRange = false,
                     AccountAoOImmunity = true,
                     WeaponValidator = validWeapon,
                     BeforeReaction = AddCondition,
