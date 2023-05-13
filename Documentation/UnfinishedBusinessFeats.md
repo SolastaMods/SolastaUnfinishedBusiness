@@ -331,6 +331,13 @@ You can use your armor to deflect strikes that would kill others. Increase your 
 
 Your weapon attacks score a critical hit on a roll of 19 or 20.
 
+# Infernal Constitution
+
+Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:
+• Increase your Constitution score by 1, to a maximum of 20.
+• You have resistance to cold and poison damage.
+• You have advantage on saving throws against being poisoned.
+
 # Infusion Adept
 
 You have studied the art of infusing magic into mundane objects to create temporary magical items, granting you two level 2 or below infusions of your choice from the inventor subclass.

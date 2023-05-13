@@ -169,7 +169,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var featureFatalStrike = FeatureDefinitionBuilder
             .Create($"Feature{Name}FatalStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new AfterDamageFatalStrike())
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedFatalStrike())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -488,15 +488,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
     // Fatal Strike
     //
 
-    private sealed class AfterDamageFatalStrike : IAttackEffectBeforeDamage
+    private sealed class PhysicalAttackInitiatedFatalStrike : IPhysicalAttackInitiated
     {
-        public void OnAttackEffectBeforeDamage(
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
             var battle = Gui.Battle;
             var rulesetDefender = defender.RulesetCharacter;
@@ -506,7 +506,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 rulesetDefender.IsDeadOrDying ||
                 !rulesetDefender.HasAnyConditionOfType(ConditionSurprised))
             {
-                return;
+                yield break;
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
@@ -527,7 +527,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                return;
+                yield break;
             }
 
             attackModifier.attackerDamageMultiplier *= 2;

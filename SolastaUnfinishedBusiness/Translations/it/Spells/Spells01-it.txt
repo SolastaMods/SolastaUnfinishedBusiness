@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di Destrezza e ricevi danni perforanti ogni turno. Alla fine del tuo turno, effettua un tiro salvezza su Forza per sfuggire ai rampicanti.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Intrappolato
+Condition/&ConditionGravityDescription=Appesantito dalla gravità
+Condition/&ConditionGravityTitle=La velocità è dimezzata per un round.
 Condition/&ConditionMuleDescription=La tua velocità non è ridotta da ingombri o armature pesanti. Puoi trasportare 20 sterline in più.
 Condition/&ConditionMuleTitle=Mulo
 Condition/&ConditionSanctuaryDescription=Gli attacchi contro di te devono effettuare un tiro salvezza su Saggezza. In caso di tiro salvezza fallito, l'attacco fallisce. I colpi critici infliggono la metà.
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=Il tuo prossimo colpo intrappola il tuo bersag
 Spell/&EnsnaringStrikeTitle=Colpo Intrappolante
 Spell/&FindFamiliarDescription=Ottieni il servizio di un famiglio. Il famiglio può usare l'azione di aiuto e puoi lanciare qualsiasi incantesimo tocco o colpo in mischia attraverso il famiglio.
 Spell/&FindFamiliarTitle=Trova familiare
+Spell/&MagnifyGravityDescription=Aumenta bruscamente la gravità in una sfera del raggio di 3 metri per schiacciare e rallentare i bersagli.
+Spell/&MagnifyGravityTitle=Ingrandisci Gravità
 Spell/&MuleDescription=Il destinatario di questo incantesimo è in grado di ignorare gli effetti di carichi pesanti o armature sulla velocità di movimento. Possono anche portare un po' più di peso.
 Spell/&MuleTitle=Mulo
 Spell/&RadiantMotesDescription=Scatena uno sciame di 4 proiettili radiosi che infliggono 1d4 danni radiosi ciascuno.\nQuando lanci questo incantesimo usando uno slot incantesimo di 2° livello o superiore, l'incantesimo crea 1 proiettile in più per ogni slot sopra il 1°.

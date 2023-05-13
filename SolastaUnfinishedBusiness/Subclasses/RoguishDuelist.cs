@@ -32,7 +32,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn) // yes Once Per Turn off sneak attack pattern
             .SetCustomSubFeatures(new RogueHolder())
             .AddToDB();
 
@@ -115,7 +115,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
     {
         public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
-    
+
     //
     // Reflexive Party
     //

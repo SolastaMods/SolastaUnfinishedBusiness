@@ -760,7 +760,7 @@ You banish a creature that you can see within range into a labyrinthine demiplan
 
 # Mind Twist
 
-Causes massive psychic damage to hostile creatures around you, and incapacitates them if they fail their INT saving throw.
+Causes massive psychic damage to all creatures around you, and incapacitates them if they fail their INT saving throw.
 
 # Mindfire
 
@@ -1028,7 +1028,7 @@ Emit a wave of force that causes damage and pushes creatures and objects away.
 
 # Tiefling's Hellish Rebuke
 
-When you are damaged by a creature withing range, you can use your reaction to inflict fire damage back. This Tiefling version of the spell is more powerful than the common one but cannot use a higher level Spell Slot to increase damage.
+When you are damaged by a creature withing range, you can use your reaction to inflict fire damage back at them. This tiefling version of the spell is more powerful than the common one but cannot use a higher level Spell Slot to increase damage.
 
 # Tongues
 

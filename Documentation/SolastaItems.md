@@ -1432,7 +1432,7 @@ This enchanted weapon was forged using the ancient knowledge of Manacalon's mast
 
 # Sovereign
 
-This long and fine dagger has been finely crafted and enchanted, following the designs of Manacalon master wizard Exonaïka the Traveler.
+This long, fine dagger has been exquisitely crafted and enchanted, following the designs of Manacalon master wizard Exonaïka the Traveler.
 
 # Spear
 
@@ -1461,10 +1461,6 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 # Spear of Sharpness
 
 Used mostly as a sign of status, this weapon may not have tasted blood during the Manacalon era.
-
-# Splint
-
-This armor is made of narrow, vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible chain mail protects the joints.
 
 # Staff of Fire
 

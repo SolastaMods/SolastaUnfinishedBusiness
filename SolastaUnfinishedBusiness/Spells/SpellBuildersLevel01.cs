@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -412,11 +413,9 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                // ReSharper disable once RedundantArgumentDefaultValue
-                AttributeDefinitions.Constitution)
+                EffectSavingThrowType.None)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -590,7 +589,7 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
@@ -707,10 +706,7 @@ internal static partial class SpellBuilders
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}ArmorClass")
                 .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    30)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 30)
                 .AddToDB())
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
@@ -769,6 +765,103 @@ internal static partial class SpellBuilders
                     .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+#if false
+    internal static SpellDefinition BuildGiftOfAlacrity()
+    {
+        const string NAME = "GiftOfAlacrity";
+
+        var attributeModifierGiftOfAlacrity = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierGiftOfAlacrity")
+            .SetGuiPresentationNoContent(true)
+            // this should be a 1D8 added to initiative instead of a static 4
+            // new IChangeInitiativeRoll interface with a patch on RulesetCharacter.RollInitiative()
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 4)
+            .AddToDB();
+
+        var conditionAlacrity = ConditionDefinitionBuilder
+            .Create(ConditionBlessed, "ConditionAlacrity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetFeatures(attributeModifierGiftOfAlacrity)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, CalmEmotions.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Hour, 8)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Minute1)
+            .SetSpellLevel(1)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
+            .AddToDB();
+
+        return spell;
+    }
+#endif
+
+    internal static SpellDefinition BuildMagnifyGravity()
+    {
+        const string NAME = "MagnifyGravity";
+
+        var spriteReference = Sprites.GetSprite("EarthTremor", Resources.EarthTremor, 128, 128);
+
+        var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
+
+        var conditionGravity = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(movementAffinityMagnifyGravity)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionGravity, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(1)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
         return spell;

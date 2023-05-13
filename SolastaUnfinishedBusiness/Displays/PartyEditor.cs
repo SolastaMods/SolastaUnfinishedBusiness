@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.DataViewer;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -17,29 +16,28 @@ public static class PartyEditor
     private static ToggleChoice _selectedToggle = ToggleChoice.None;
     private static int _selectedCharacterIndex;
     private static RulesetCharacter _selectedCharacter;
-    private static bool _editingFromPool;
-
     private static (string, string) _nameEditState = (null, null);
 
+#if DEBUG
     private static ICharacterPoolService PoolService => ServiceRepository.GetService<ICharacterPoolService>();
+#endif
 
     internal static void OnGUI()
     {
-        Label("Experimental Preview:".Localized().Orange().Bold() + " " +
-              "This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:"
-                  .Localized().Green());
-        LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
-            "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
+        Label("Experimental Preview:".Localized().Orange().Bold() + " " + "PartyEditorMessage".Localized().Green());
+
         var characters = GetCharacterList();
+
         if (characters == null)
         {
-            Label("****** Party Editor unavailable: Please load a save game ******".Localized()
-                .Yellow().Bold());
+            Label("PartyEditorUnavailable".Localized().Yellow().Bold());
         }
         else
         {
             var commandService = ServiceRepository.GetService<ICommandService>();
+
             Space(15);
+
             HStack("Quickies".Localized(), 2,
                 () => ActionButton("Long Rest",
                     () => commandService.StartRest(RuleDefinitions.RestType.LongRest, false),
@@ -54,8 +52,10 @@ public static class PartyEditor
                     AutoWidth()),
                 () => { }
             );
+
             Div();
             Label("Current Party".Localized().Cyan().Bold());
+
             using (VerticalScope())
             {
                 foreach (var ch in characters)
@@ -65,17 +65,20 @@ public static class PartyEditor
                         continue;
                     }
 
-
                     var changed = false;
                     var level = ch.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+
                     using (HorizontalScope())
                     {
                         var name = hero.Name + " " + hero.SurName;
-                        if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
+
+                        if (EditableLabel(ref name, ref _nameEditState, 200,
+                                n => n.Orange().Bold(),
                                 MinWidth(100),
                                 MaxWidth(600)))
                         {
                             var parts = name.Split();
+
                             switch (parts.Length)
                             {
                                 case > 1:
@@ -113,29 +116,36 @@ public static class PartyEditor
                                     $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
                                 .ToArray();
                             var modifiersString = String.Join(" ", modifiers);
+
                             using (HorizontalScope())
                             {
                                 Space(100);
                                 Label(attrName, Width(400f));
                                 Space(25);
+
                                 ActionButton(" < ", () =>
                                 {
                                     attribute.baseValue -= 1;
                                     changed = true;
                                 }, GUI.skin.box, AutoWidth());
+
                                 Space(20);
                                 Label($"{attribute.currentValue}".Orange().Bold(), Width(50f));
+
                                 ActionButton(" > ", () =>
                                 {
                                     attribute.baseValue += 1;
                                     changed = true;
                                 }, GUI.skin.box, AutoWidth());
+
                                 Space(25);
+
                                 ActionIntTextField(ref baseValue, v =>
                                 {
                                     attribute.baseValue = v;
                                     changed = true;
                                 }, Width(75));
+
                                 Space(10);
                                 Label($"{modifiersString}");
                             }
@@ -159,6 +169,7 @@ public static class PartyEditor
                             .Cast<BaseDefinition>();
                         var tools = BlueprintDisplay.GetBlueprints()?.OfType<ToolTypeDefinition>()
                             .Cast<BaseDefinition>();
+
                         if (skills != null && tools != null)
                         {
                             var available = skills.Union(tools);
@@ -168,6 +179,7 @@ public static class PartyEditor
                             var currentSkills = hero.TrainedSkills.Cast<BaseDefinition>();
                             var currentTools = hero.TrainedToolTypes.Cast<BaseDefinition>();
                             var current = currentSkills.Union(currentTools).ToList();
+
                             Browser<RulesetCharacterHero, BaseDefinition, BaseDefinition>.OnGUI(
                                 _selectedToggle.ToString(), ref changed,
                                 hero,
@@ -274,6 +286,7 @@ public static class PartyEditor
                     if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Feats)
                     {
                         var available = BlueprintDisplay.GetBlueprints()?.OfType<FeatDefinition>();
+
                         if (available != null)
                         {
                             Browser<RulesetCharacterHero, FeatDefinition, FeatDefinition>.OnGUI(
@@ -318,8 +331,9 @@ public static class PartyEditor
 
                     if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Invocations)
                     {
-                        var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>()
-                            .Where(x => x is not InvocationDefinitionCustom);
+                        var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>();
+                        //.Where(x => x is not InvocationDefinitionCustom);
+
                         if (available != null)
                         {
                             Browser<RulesetCharacterHero, InvocationDefinition, InvocationDefinition>.OnGUI(
@@ -355,17 +369,6 @@ public static class PartyEditor
                         ch.RefreshAll();
                     }
 
-                    // ReSharper disable once RedundantAssignment
-                    if (changed && _editingFromPool && ch is RulesetCharacterHero h)
-                    {
-                        // ReSharper disable once InvocationIsSkipped
-                        Main.Log(String.Format("Saving Pool Character: " + h.Name));
-                        // ReSharper disable once InvocationIsSkipped
-                        Main.Log(PoolService.SaveCharacter(h));
-                        // h.RefreshAll();
-                        // RefreshPool();
-                    }
-
                     if (_selectedCharacter != GetSelectedCharacter())
                     {
                         _selectedCharacterIndex = GetCharacterList().IndexOf(_selectedCharacter);
@@ -397,8 +400,6 @@ public static class PartyEditor
 
     private static List<RulesetCharacter> GetCharacterList()
     {
-        _editingFromPool = false;
-
 #pragma warning disable IDE0031
         // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
         var chars = Gui.GameCampaign == null
@@ -411,15 +412,16 @@ public static class PartyEditor
         }
 
         chars = CharacterPool;
-        _editingFromPool = true;
 #endif
 #pragma warning restore IDE0031
+
         return chars;
     }
 
     private static RulesetCharacter GetSelectedCharacter()
     {
         var characterList = GetCharacterList();
+
         if (characterList == null || characterList.Count == 0)
         {
             return null;

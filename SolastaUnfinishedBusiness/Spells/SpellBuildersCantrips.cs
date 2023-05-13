@@ -361,9 +361,9 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(new BonusSlotLevelsByClassLevel())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetParticleEffectParameters(Shatter)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
@@ -380,6 +380,7 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D8, 0)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 5)
+            .SetImpactParticleReference(Shatter.EffectDescription.EffectParticleParameters.impactParticleReference)
             .SetAttackModeOnly()
             .AddToDB();
 
@@ -399,7 +400,7 @@ internal static partial class SpellBuilders
             )
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(Thunderwave)
+                .SetParticleEffectParameters(Shatter)
                 .SetTargetProximityData(true, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
                 .SetIgnoreCover()
@@ -671,6 +672,41 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
+
+    internal static SpellDefinition BuildTollTheDead()
+    {
+        const string NAME = "TollTheDead";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D12)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
 

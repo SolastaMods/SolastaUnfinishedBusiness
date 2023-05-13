@@ -1,5 +1,7 @@
 Condition/&AdditionalConditionEnsnaringStrikeDescription=你被藤蔓缠绕而无法移动，在敏捷豁免检定上处于劣势，并且每回合都会受到穿刺伤害。在你的回合结束时，进行一次力量投掷豁免以逃离藤蔓。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=被诱捕
+Condition/&ConditionGravityDescription=重力负担
+Condition/&ConditionGravityTitle=一轮中速度减半。
 Condition/&ConditionMuleDescription=你的速度不会因为阻碍物或重甲而降低。你可以额外携带 20 磅。
 Condition/&ConditionMuleTitle=骡子
 Condition/&ConditionSanctuaryDescription=对你的攻击必须进行一次感知豁免。豁免失败则攻击未命中。暴击率减半。
@@ -34,6 +36,8 @@ Spell/&EnsnaringStrikeDescription=你的下一次攻击将你的目标困在藤�
 Spell/&EnsnaringStrikeTitle=诱捕打击
 Spell/&FindFamiliarDescription=你获得一只为你服务的魔宠。魔宠可以使用帮助动作，你可以通过魔宠施放任何接触或近战命中法术。
 Spell/&FindFamiliarTitle=获得魔宠
+Spell/&MagnifyGravityDescription=在 10 英尺半径的球体中急剧增加重力以粉碎和减慢目标。
+Spell/&MagnifyGravityTitle=放大重力
 Spell/&MuleDescription=该法术的接受者能够忽略重物或盔甲对移动速度的影响。它们还可以承载稍重的重量。
 Spell/&MuleTitle=骡子
 Spell/&RadiantMotesDescription=释放出由 4 个光辉射弹组成的集群，每个光辉射弹造成 1d4 光辉伤害。\n当你使用 2 级或更高法术位施放此法术时，该法术会为高于 1 级的每个法术位多制造 1 个射弹。

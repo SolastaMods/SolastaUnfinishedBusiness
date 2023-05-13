@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
+ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen DnD-Vorteils-/Nachteilregeln <i><color=#F0DAA0>[wenn die Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines von beidem haben]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

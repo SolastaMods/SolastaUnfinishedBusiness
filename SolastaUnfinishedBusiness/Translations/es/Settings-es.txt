@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=Agrega colores de ojos brillantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloquea marcas de origen y tatuajes de <color=#D89555>Hechicero</color> para todos los personajes.
 ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
+ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja de DnD <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

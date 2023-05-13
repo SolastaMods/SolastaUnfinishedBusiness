@@ -82,7 +82,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ModifyAttackModeForWeaponBlessedWarrior(conditionBlessedWarrior))
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedBlessedWarrior(conditionBlessedWarrior))
             .AddToDB();
 
         // Lifebringer
@@ -304,35 +304,30 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // Blessed Warrior
     //
 
-    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IAttackEffectBeforeDamage
+    private sealed class PhysicalAttackInitiatedBlessedWarrior : IPhysicalAttackInitiated
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        public ModifyAttackModeForWeaponBlessedWarrior(ConditionDefinition conditionDefinition)
+        public PhysicalAttackInitiatedBlessedWarrior(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
         }
 
-        public void OnAttackEffectBeforeDamage(
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode)
         {
-            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
             var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender == null ||
                 rulesetDefender.IsDeadOrDyingOrUnconscious ||
                 !rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
-                return;
+                yield break;
             }
 
             var effectDescription = attackMode.EffectDescription;

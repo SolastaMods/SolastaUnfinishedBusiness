@@ -74,8 +74,29 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
+            ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow =>
+                AttackerNextToTargetOrYeomanWithLongbow(contextParams),
+
             _ => def
         };
+    }
+
+    private static bool AttackerNextToTargetOrYeomanWithLongbow(
+        RulesetImplementationDefinitions.SituationalContextParams contextParams)
+    {
+        var source = GameLocationCharacter.GetFromActor(contextParams.source);
+        var target = GameLocationCharacter.GetFromActor(contextParams.target);
+
+        if (source?.RulesetCharacter == null || target == null)
+        {
+            return false;
+        }
+
+        var isMelee = ServiceRepository.GetService<IGameLocationBattleService>().IsWithin1Cell(source, target);
+        var levels = source.RulesetCharacter.GetSubclassLevel(
+            DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
+
+        return isMelee || (levels > 0 && ValidatorsCharacter.HasLongbow(source.RulesetCharacter));
     }
 
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(

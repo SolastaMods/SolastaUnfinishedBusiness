@@ -1,9 +1,23 @@
 ﻿CHANGES:
 
+1.4.33.87:
+
+- added Binding Ice and Gravity Sinkhole spells [beta]
+- added Infernal Constitution feat [need Palace of Ice DLC]
+- added Magnify Gravity, Pulse Wave, and Toll the Dead spells
+- added Wizard Graviturgist subclass [beta]
+- fixed custom features level up panel registering invocations from other heroes
+- fixed Innovation Artillerist's eldritch cannons not offering respective powers
+
 1.4.33.86:
 
-- minor fixes on additional damage frequency
-- last version compatible with 1.4.x game branch
+- fixed Shadow Blade spell not granting advantage when enemy not in bright light
+- fixed Way of the Tempest's gathering storm not applying lightning damage
+- changed Circle of the Eternal Grove's seed of life to a bonus action
+- changed Darkweaver's dark assault to trigger on start of rogue's turn
+- changed Path of the Reaver levels 3rd and 6th with healing and hit points buffs
+- changed Weapon Master's momentum to not use a reaction and be once in my turn
+- changed Path of the Reaver for better multiplayer support [RESPEC is required]
 
 1.4.33.85:
 

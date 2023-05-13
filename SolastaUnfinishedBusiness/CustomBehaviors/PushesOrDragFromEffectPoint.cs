@@ -5,14 +5,14 @@ using TA;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 /**allows marking spells/powers to make push.drag effects from them work relative to target point, not caster position*/
-internal sealed class PushesFromEffectPoint
+internal sealed class PushesOrDragFromEffectPoint
 {
-    private PushesFromEffectPoint()
+    private PushesOrDragFromEffectPoint()
     {
         // Empty
     }
 
-    public static PushesFromEffectPoint Marker { get; } = new();
+    public static PushesOrDragFromEffectPoint Marker { get; } = new();
 
     internal static int SetPositionAndApplyForms(
         IRulesetImplementationService service,
@@ -32,7 +32,7 @@ internal sealed class PushesFromEffectPoint
         var positions = action.ActionParams.Positions;
 
         if (!positions.Empty()
-            && formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<PushesFromEffectPoint>())
+            && formsParams.activeEffect.SourceDefinition.HasSubFeatureOfType<PushesOrDragFromEffectPoint>())
         {
             formsParams.position = positions[0];
         }
@@ -60,7 +60,7 @@ internal sealed class PushesFromEffectPoint
         }
 
         var position = formsParams.position;
-        var active = source.HasSubFeatureOfType<PushesFromEffectPoint>();
+        var active = source.HasSubFeatureOfType<PushesOrDragFromEffectPoint>();
 
         if (!active || position == int3.zero)
         {

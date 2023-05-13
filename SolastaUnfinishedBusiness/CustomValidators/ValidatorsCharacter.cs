@@ -50,6 +50,9 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
 
+    internal static readonly IsCharacterValidHandler HasLongbow = character =>
+        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), LongbowType);
+
     internal static readonly IsCharacterValidHandler HasTwoHandedRangedWeapon = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
             LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);

@@ -16,6 +16,61 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    internal static SpellDefinition BuildBindingIce()
+    {
+        const string NAME = "BindingIce";
+
+        var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
+
+        var movementAffinityIceBound = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinityIceBound")
+            .SetBaseSpeedMultiplicativeModifier(0)
+            .AddToDB();
+
+        var conditionIceBound = ConditionDefinitionBuilder
+            .Create(ConditionHindered_By_Frost, "ConditionIceBound")
+            .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
+            .SetFeatures(movementAffinityIceBound)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionIceBound, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(2)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
     #region Color Burst
 
     internal static SpellDefinition BuildColorBurst()
@@ -201,19 +256,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ShadowBlade";
 
-        var conditionShadowBlade = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation($"Item{NAME}", Category.Item)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
-                    .AddToDB())
-            .AddToDB();
-
         var itemShadowBlade = ItemDefinitionBuilder
             .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
@@ -230,12 +272,6 @@ internal static partial class SpellBuilders
         weaponDescription.reachRange = 12;
         weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
         weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
-
-        weaponDescription.EffectDescription.EffectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
-                .Build());
 
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
 
@@ -261,6 +297,26 @@ internal static partial class SpellBuilders
         itemPropertyForm.FeatureBySlotLevel[1].level = 3;
         itemPropertyForm.FeatureBySlotLevel[2].level = 5;
         itemPropertyForm.FeatureBySlotLevel[3].level = 7;
+
+        var conditionShadowBlade = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetPossessive()
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Item{NAME}", Category.Item)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
+                    .AddToDB())
+            .AddToDB();
+
+        spell.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add, true)
+                .Build());
 
         return spell;
     }
