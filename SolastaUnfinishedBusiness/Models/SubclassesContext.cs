@@ -98,7 +98,7 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardGravityMage());
+        LoadSubclass(new WizardGraviturgist());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring
