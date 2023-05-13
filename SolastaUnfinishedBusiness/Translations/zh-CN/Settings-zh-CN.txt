@@ -226,5 +226,5 @@ ModUi/&UnlockGlowingEyeColors=添加亮色眼睛颜色
 ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
 ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
-ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果情况导致掷骰同时具有两者，则认为您两者都没有]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
