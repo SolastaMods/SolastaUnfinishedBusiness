@@ -1,10 +1,10 @@
-UI/&PartyEditorUnavailable=****** Party Editor indisponible : veuillez charger une sauvegarde ******
 UI/&Add=Add
 UI/&Current Party=Parti actuel
 UI/&Experimental Preview:=Aperçu expérimental <i><color=Yellow>[sauvegarder avant d'utiliser]</color></i> :
 UI/&Expert=Expert
 UI/&PartyEditor=Éditeur de fête
+UI/&PartyEditorMessage=Cet éditeur de groupe simple vous permet de modifier des personnages dans une session de jeu chargée. Veuillez cliquer sur les éléments suivants pour signaler les problèmes :
+UI/&PartyEditorUnavailable=****** Party Editor indisponible : veuillez charger une sauvegarde ******
 UI/&Quickies=Rapides
 UI/&Remove=Retirer
 UI/&Skilled=Qualifié
-UI/&PartyEditorMessage=Cet éditeur de groupe simple vous permet de modifier des personnages dans une session de jeu chargée. Veuillez cliquer sur les éléments suivants pour signaler les problèmes :

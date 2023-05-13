@@ -1,11 +1,11 @@
-Condition/&ConditionWizardGraviturgistEventHorizonDescription=Speed reduced to zero
-Condition/&ConditionWizardGraviturgistEventHorizonSelfDescription=Inflicts 2d10 Force damage on each turn and reduces the speed of enemies to zero on a failed Strength saving throw
-Condition/&ConditionWizardGraviturgistEventHorizonSelfTitle=Event Horizon
-Condition/&ConditionWizardGraviturgistEventHorizonTitle=Crushed
 Condition/&ConditionWizardGraviturgistDensityDecreaseDescription=Speed increased by 2. Disadvantage on Strength checks and saving throws.
 Condition/&ConditionWizardGraviturgistDensityDecreaseTitle=Decreased Density
 Condition/&ConditionWizardGraviturgistDensityIncreaseDescription=Speed decreased by 2. Advantage on Strength checks and saving throws.
 Condition/&ConditionWizardGraviturgistDensityIncreaseTitle=Increased Density
+Condition/&ConditionWizardGraviturgistEventHorizonDescription=Speed reduced to zero
+Condition/&ConditionWizardGraviturgistEventHorizonSelfDescription=Inflicts 2d10 Force damage on each turn and reduces the speed of enemies to zero on a failed Strength saving throw
+Condition/&ConditionWizardGraviturgistEventHorizonSelfTitle=Event Horizon
+Condition/&ConditionWizardGraviturgistEventHorizonTitle=Crushed
 Condition/&ConditionWizardGraviturgistViolentAttractionDescription=Once per turn, attacks with weapons deal an additional 1d10 damage.
 Condition/&ConditionWizardGraviturgistViolentAttractionTitle=Violent Attraction
 Feature/&PowerWizardGraviturgistDensityDecreaseDescription=Decrease the Density of a target, making it faster at the cost of disadvantage on Strength checks and saving throws.
