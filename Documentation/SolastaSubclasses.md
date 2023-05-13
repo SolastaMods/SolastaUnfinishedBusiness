@@ -574,7 +574,7 @@ Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Sh
 
 * Lead by Example
 
-Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take additional damage (of the same damage type as the original damage taken) equal to your proficiency bonus. This extra damage can only trigger once per turn.
+Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take 1d4 additional damage (of the same damage type as the original damage taken).
 
 
 ## Level 18
@@ -621,8 +621,6 @@ Provided you wield a shield, you can shove an opponent as a bonus action.
 * Pack Striker
 
 Starting at level 15, when you are using a shield, you have advantage on melee attack rolls against your target if another enemy of the target is within one cell of it, and if that enemy isn't incapacitated.
-If wielding a shield and targeting an enemy engaged with another creature that is not incapacitated.
-  This creature's attack rolls have advantage
 
 
 ## Level 18
@@ -875,7 +873,7 @@ Starting at the 10th level, you can choose one damage type when you finish a sho
 * Hurl Through Hell
 
 When you hit a creature with an attack, you can banish it to the lower planes until the end of your next turn. The creature suffers 10d10 psychic damage upon returning from this horrific experience.
-You can use Hurl Through Hell once per long rest.
+ You can use Hurl Through Hell once per long rest.
 
 
 
@@ -962,8 +960,8 @@ Starting at the 1st level, whenever you damage an opponent with a spell, they be
 
 * Time Shift
 
-Starting at the 6th level, after you take any damage, you can use your reaction to rewind back a few seconds, negating the damage taken but still taking any additional effects. You are considered banished until the start of your next turn.
- After you use this feature, you can't use it again until you complete a long rest.
+Starting at level 6, after you take any damage, you can use your reaction to rewind a few seconds, negating the damage taken but still taking any additional effects. You are considered banished until the start of your next turn.
+  After you use this feature, you can't use it again until you complete a long rest.
 
 
 ## Level 10
@@ -1376,7 +1374,7 @@ When you are in dim light or darkness outside of the enemy's line of sight, you 
 
 * Dark Assault
 
-Starting at 17th level, when you end your turn in dim light or darkness, you gain an extra attack with your Attack action and additional 15 feet of movement during your next turn.
+Starting at 17th level, when you start your turn in dim light or darkness, you gain an extra attack with your Attack action and additional 15 feet of movement during the turn.
 
 
 

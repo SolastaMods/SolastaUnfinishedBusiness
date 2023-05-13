@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.87:
+
+- added Binding Ice and Gravity Sinkhole spells [beta]
+- added Infernal Constitution feat [need Palace of Ice DLC]
+- added Magnify Gravity, Pulse Wave, and Toll the Dead spells
+- added Wizard Graviturgist subclass [beta]
+- fixed custom features level up panel registering invocations from other heroes
+- fixed Innovation Artillerist's eldritch cannons not offering respective powers
+
 1.4.33.86:
 
 - fixed Shadow Blade spell not granting advantage when enemy not in bright light

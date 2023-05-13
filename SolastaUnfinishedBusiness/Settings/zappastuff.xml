@@ -215,6 +215,7 @@
     <string>WayOfTheTempest</string>
     <string>RangerSurvivalist</string>
     <string>SorcerousFieldManipulator</string>
+    <string>WizardGraviturgist</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -602,6 +603,7 @@
         <ArrayOfString>
           <string>AirBlast</string>
           <string>BurstOfRadiance</string>
+          <string>TollTheDead</string>
           <string>Wrack</string>
           <string>Sanctuary</string>
           <string>ProtectThreshold</string>
@@ -700,6 +702,7 @@
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
+          <string>BindingIce</string>
           <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
@@ -728,6 +731,7 @@
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
+          <string>TollTheDead</string>
           <string>SkinOfRetribution</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
@@ -761,20 +765,25 @@
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
           <string>SwordStorm</string>
+          <string>TollTheDead</string>
           <string>ThunderStrike</string>
           <string>CausticZap</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>FindFamiliar</string>
+          <string>MagnifyGravity</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
+          <string>BindingIce</string>
           <string>ColorBurst</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpellWeb</string>
+          <string>PulseWave</string>
           <string>SpiritShroud</string>
           <string>WinterBreath</string>
           <string>BrainBulwark</string>
+          <string>GravitySinkhole</string>
           <string>FarStep</string>
           <string>SonicBoom</string>
           <string>ReverseGravity</string>

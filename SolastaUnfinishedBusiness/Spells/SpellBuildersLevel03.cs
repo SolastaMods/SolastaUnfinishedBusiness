@@ -425,5 +425,48 @@ internal static partial class SpellBuilders
 
     #endregion
 
+    internal static SpellDefinition BuildPulseWave()
+    {
+        const string NAME = "PulseWave";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, ColorSpray.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Wisdom,
+                    12)
+                .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(3)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
     #endregion
 }

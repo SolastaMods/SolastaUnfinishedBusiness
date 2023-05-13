@@ -678,5 +678,40 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildTollTheDead()
+    {
+        const string NAME = "TollTheDead";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D12)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
+
     #endregion
 }

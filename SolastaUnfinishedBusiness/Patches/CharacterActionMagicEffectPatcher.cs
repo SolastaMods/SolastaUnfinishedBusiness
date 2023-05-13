@@ -270,7 +270,8 @@ public static class CharacterActionMagicEffectPatcher
             // used for Grenadier's force grenades
             // sets position of the formsParams to the first position from ActionParams, when applicable
             var method =
-                typeof(PushesFromEffectPoint).GetMethod(nameof(PushesFromEffectPoint.SetPositionAndApplyForms),
+                typeof(PushesOrDragFromEffectPoint).GetMethod(
+                    nameof(PushesOrDragFromEffectPoint.SetPositionAndApplyForms),
                     BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCall(

@@ -740,6 +740,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionSavingThrowAffinitys
     {
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityAntitoxin { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityAntitoxin");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBaned { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBaned");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionHasted { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionHasted");

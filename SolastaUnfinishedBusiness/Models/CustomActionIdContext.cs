@@ -348,12 +348,6 @@ public static class CustomActionIdContext
         var extra = (ExtraActionId)id;
 
         return extra is ExtraActionId.FarStep
-            or ExtraActionId.BondOfTheTalismanTeleport
-            or ExtraActionId.CannonFlamethrower
-            or ExtraActionId.CannonFlamethrowerBonus
-            or ExtraActionId.CannonProtector
-            or ExtraActionId.CannonProtectorBonus
-            or ExtraActionId.CannonForceBallista
-            or ExtraActionId.CannonForceBallistaBonus;
+            or ExtraActionId.BondOfTheTalismanTeleport;
     }
 }

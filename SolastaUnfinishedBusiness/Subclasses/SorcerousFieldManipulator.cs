@@ -61,7 +61,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesFromEffectPoint.Marker)
+            .SetCustomSubFeatures(new ActionInitiatedDisplacement(), PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         // LEVEL 06

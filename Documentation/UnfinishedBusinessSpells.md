@@ -10,6 +10,10 @@ Fire a blast of focused air at your target.
 
 Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 
+# Binding Ice
+
+A burst of cold in a 30-foot cone that freezes enemies in place.
+
 # Blade Ward
 
 You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
@@ -72,9 +76,17 @@ You gain the service of a familiar. The familiar can use the help action and you
 
 You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 
+# Gravity Sinkhole
+
+Draw enemies together and crush them with gravitational energy.
+
 # Illuminating Sphere
 
 Causes light sources such as torches and mana lamps in the area of effect to light up.
+
+# Magnify Gravity
+
+Sharply increase gravity in a 10-foot-radius sphere to crush and slow targets.
 
 # Mantle of Thorns
 
@@ -126,6 +138,10 @@ You utter a word of power that can compel one creature you can see within range 
 # Protect Threshold
 
 Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
+
+# Pulse Wave
+
+Hurl enemies away with intense gravitational pressure.
 
 # Radiant Motes
 
@@ -248,6 +264,10 @@ On your next hit your weapon rings with thunder and the attack deals an extra 2d
 # Time Stop
 
 You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
+
+# Toll the Dead
+
+You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d12 necrotic damage.
 
 # Web
 

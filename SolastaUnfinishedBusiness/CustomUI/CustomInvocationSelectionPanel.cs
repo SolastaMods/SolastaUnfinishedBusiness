@@ -726,6 +726,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override void OnEndHide()
     {
+        learnedInvocations.Clear();
+
         for (var i = 0; i < spellsByLevelTable.childCount; i++)
         {
             var child = spellsByLevelTable.GetChild(i);

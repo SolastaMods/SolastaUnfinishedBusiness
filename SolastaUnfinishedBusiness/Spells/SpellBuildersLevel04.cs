@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -134,6 +135,49 @@ internal static partial class SpellBuilders
                             .SetConditionForm(conditionBrainBulwark, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    internal static SpellDefinition BuildGravitySinkhole()
+    {
+        const string NAME = "GravitySinkhole";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Darkness.GuiPresentation.SpriteReference)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 5, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(4)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

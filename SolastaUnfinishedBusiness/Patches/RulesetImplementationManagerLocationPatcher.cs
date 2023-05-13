@@ -103,7 +103,7 @@ public static class RulesetImplementationManagerLocationPatcher
             // used for Grenadier's force grenades
             // if effect source definition has marker, and forms params have position, will try to push target from that point
 
-            var useDefaultLogic = PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+            var useDefaultLogic = PushesOrDragFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
 
             if (useDefaultLogic)
             {

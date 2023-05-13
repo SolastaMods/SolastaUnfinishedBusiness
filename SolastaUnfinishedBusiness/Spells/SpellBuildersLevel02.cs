@@ -16,6 +16,61 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    internal static SpellDefinition BuildBindingIce()
+    {
+        const string NAME = "BindingIce";
+
+        var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
+
+        var movementAffinityIceBound = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinityIceBound")
+            .SetBaseSpeedMultiplicativeModifier(0)
+            .AddToDB();
+
+        var conditionIceBound = ConditionDefinitionBuilder
+            .Create(ConditionHindered_By_Frost, "ConditionIceBound")
+            .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
+            .SetFeatures(movementAffinityIceBound)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionIceBound, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(2)
+            .SetVerboseComponent(false)
+            .SetSomaticComponent(true)
+            .SetMaterialComponent(MaterialComponentType.Mundane)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
     #region Color Burst
 
     internal static SpellDefinition BuildColorBurst()

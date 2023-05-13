@@ -153,6 +153,45 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
+# Graviturgist
+
+In the wake of the Cataclysm it became a common sight to see earthmotes and other objects though the Badlands floating impossibly in the air. Graviturgy wizards seek to understand and master the lingering magic that sustains such sights. They harness the violent energy of gravity to their benefit, and the terrible detriment of ther enemies.
+
+
+## Level 2
+
+* Decrease Density
+
+Decrease the Density of a target, making it faster at the cost of disadvantage on Strength checks and saving throws.
+
+* Increase Density
+
+Increase the Density of a target, making it slower at the benefit of advantage on Strength checks and saving throws.
+
+
+## Level 6
+
+* Gravity Well
+
+Creatures hit by your spell attacks are pushed 1 cell away from you.
+
+
+## Level 10
+
+* Violent Attraction
+
+Increase the striking power of an ally's weapons by 1d10 for 1 minute.
+
+
+## Level 14
+
+* Event Horizon
+
+Emit a powerful field of gravitational energy, immobilizing and damaging enemies within 6 cells of you.
+
+
+
+
 # Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
@@ -459,7 +498,7 @@ Starting at 2nd level, whenever you heal a creature using a level 1 healing spel
 
 * Seed of Life
 
-Starting at 6th level, you conjure a magical seed and merge it with the soul of one creature. As an action, select one allied creature. The targeted creature gains the following benefits for one minute:
+Starting at 6th level, you conjure a magical seed and merge it with the soul of one creature. As a bonus action, select one allied creature. The targeted creature gains the following benefits for one minute:
 • At the start of each of the creature's turns, the creature restores a number of hit points equal to your proficiency.
 • If the creature falls to 0 hit points all other effects of Seed of Life also end.
 • If the effect expired naturally after a minute, the creature is healed for 2x your Druid level.
@@ -1081,7 +1120,7 @@ You gain +1 to hit and damage rolls with your specialized weapon type. A Martial
 
 * Momentum
 
-After reducing a creature to 0 hit points with your specialized weapon, you can use your reaction to gain an additional attack.
+Once during your turn, when you reduce a creature to 0 hit points using your Specialized Weapon, you are able to make one additional weapon attack as a part of your attack action.
 
 
 ## Level 10
@@ -1649,14 +1688,14 @@ All Reavers undergo a ritual that involves drinking tainted blood of a dragon, p
 
 * Voracious Fury
 
-Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes additional necrotic damage equal to your proficiency and you regain an equal amount of hit points. Damage and healing are doubled on a critical strike.
+Starting at 3rd level, you can channel your inner corruption into your melee weapon strikes. While you're raging, the first creature you hit on each of your turns with a melee weapon attack takes extra necrotic damage equal to your proficiency bonus and you regain an equal amount of hit points. Additionally, both extra damage and healing of this feature are increased by the same amount when you are below half your maximum hit points or when you critically hit a creature. These bonuses stack.
 
 
 ## Level 6
 
 * Profane Vitality
 
-Starting at 6th level, you gain resistance to necrotic and poison damage.
+Starting at 6th level, you gain resistance to necrotic and poison damage. In addition, your maximum hit points are increased by an amount equal to your barbarian level.
 
 
 ## Level 10

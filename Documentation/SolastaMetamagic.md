@@ -24,7 +24,7 @@ Can cast a main action spell with a bonus action instead, though you can't cast 
 
 # Subtle Spell
 
-When you cast a spell, you can spend 1 sorcery point to cast it without any somatic or verbal components. This is useful to avoid a counterspell from a hostile spellcaster
+When you cast a spell, you can spend 1 sorcery point to cast it without any somatic or verbal components. This is useful to avoid a counterspell from a hostile spellcaster.
 
 # Twinned Spell
 
