@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistDensityDecrease:54c63225-a407-56a3-b385-951e49b831a9",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistDensityIncrease:a05d27e4-6ba1-5ba8-bc28-9bb03d5f7016",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistGravityWell:faf3975c-aac0-5eab-b363-62a253150e4d",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistViolentAttraction:643279dd-430f-5388-95a0-5a31d68ca973",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWizardGraviturgistEventHorizon:dd8800a8-c154-5719-8925-b4fdccd9bef2",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WizardGraviturgistTitle",
+    "description": "Subclass/&WizardGraviturgistDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "69b9e13d-be05-5651-afb6-6a80fd410817",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "33448e88-ee14-59d5-8463-88f09e29098c",
+  "contentPack": 9999,
+  "name": "WizardGraviturgist"
+}

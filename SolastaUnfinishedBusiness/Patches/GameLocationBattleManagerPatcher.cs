@@ -993,7 +993,7 @@ public static class GameLocationBattleManagerPatcher
         {
             //PATCH: registers which weapon types were used so far on attacks
             ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
-            
+
             while (values.MoveNext())
             {
                 yield return values.Current;

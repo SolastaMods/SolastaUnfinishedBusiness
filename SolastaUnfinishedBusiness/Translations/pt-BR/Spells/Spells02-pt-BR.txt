@@ -1,7 +1,7 @@
 Condition/&ConditionGrappledRestrainedSpellWebDescription=Você deve fazer um teste de habilidade de Força para sair dessa condição.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Restringido pela web
 Condition/&ConditionIceBoundDescription=Congelado no lugar por uma rodada.
-Condition/&ConditionIceBoundTitle=limitado pelo gelo
+Condition/&ConditionIceBoundTitle=Limitado pelo gelo
 Condition/&ConditionMirrorImageDescription=Inimigos podem mirar acidentalmente nessa duplicata em vez de você. Se a duplicata for atingida, ela desaparece.
 Condition/&ConditionMirrorImageTitle=Espelho Duplicado
 Feedback/&MirrorImageAttackerHasSense={0} tem {1} e ignora {2}

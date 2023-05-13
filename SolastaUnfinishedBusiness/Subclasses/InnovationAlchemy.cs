@@ -315,7 +315,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombForceSplash", Resources.AlchemyBombForceSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombForceBreath", Resources.AlchemyBombForceBreath, 128);
         particle = WallOfForce.EffectDescription.effectParticleParameters;
@@ -356,7 +356,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombRadiantSplash", Resources.AlchemyBombRadiantSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombRadiantBreath", Resources.AlchemyBombRadiantBreath, 128);
         particle = BurningHands_B.EffectDescription.effectParticleParameters;
@@ -397,7 +397,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombNecroticSplash", Resources.AlchemyBombNecroticSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombNecroticBreath", Resources.AlchemyBombNecroticBreath, 128);
         particle = VampiricTouch.EffectDescription.effectParticleParameters;
@@ -443,7 +443,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombThunderSplash", Resources.AlchemyBombThunderSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombThunderBreath", Resources.AlchemyBombThunderBreath, 128);
         particle = Thunderwave.EffectDescription.effectParticleParameters;
@@ -492,7 +492,7 @@ public static class InnovationAlchemy
         var sprite = Sprites.GetSprite("AlchemyBombPsychicSplash", Resources.AlchemyBombPsychicSplash, 128);
         var particle = splash;
         var powerBombSplash = MakeSplashBombPower(DAMAGE, DIE_TYPE, SAVE, sprite, particle, validator, effect);
-        powerBombSplash.AddCustomSubFeatures(PushesFromEffectPoint.Marker);
+        powerBombSplash.AddCustomSubFeatures(PushesOrDragFromEffectPoint.Marker);
 
         sprite = Sprites.GetSprite("AlchemyBombPsychicBreath", Resources.AlchemyBombPsychicBreath, 128);
         particle = splash; //PhantasmalKiller.EffectDescription.effectParticleParameters;

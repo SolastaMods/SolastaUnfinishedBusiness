@@ -682,36 +682,31 @@ internal static partial class SpellBuilders
     {
         const string NAME = "TollTheDead";
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Wisdom,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeNecrotic, dieType: DieType.D12, diceNumber: 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build()
-            ).Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D12)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
-            .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
 

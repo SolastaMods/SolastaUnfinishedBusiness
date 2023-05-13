@@ -164,7 +164,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
-            .SetCustomSubFeatures(PushesFromEffectPoint.Marker)
+            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;

@@ -37,6 +37,7 @@ internal static class CreditsDisplay
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Sorcerous Divine Heart"),
         ("tivie", "Circle of the Night, Path of the Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
+        ("Kloranger", "feats, spells, Wizard Graviturgist"),
         ("Narria", "modKit, mod UI improvements, Party Editor"),
         ("DreadMaker", "Circle of the Forest Guardian"),
         ("RedOrca", "Path of the Light"),

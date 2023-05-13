@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -7,6 +6,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -250,49 +250,9 @@ internal static partial class SpellBuilders
     }
 
     internal const string OwlFamiliar = "OwlFamiliar";
-    internal const string SnakeFamiliar = "SnakeFamiliar";
 
     internal static SpellDefinition BuildFindFamiliar()
     {
-
-        //var subSpells = new SpellDefinition[2];
-        //var familiarTypes = new[] { OwlFamiliar, SnakeFamiliar };
-        /*
-        var familiarMonster = MonsterDefinitionBuilder
-            .Create(MonsterDefinitions.Poisonous_Snake, SnakeFamiliar)
-            .SetOrUpdateGuiPresentation(Category.Monster)
-            .SetFeatures(
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseBlindSight2,
-                FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
-            .SetMonsterPresentation(
-                MonsterPresentationBuilder.Create()
-                    .SetAllPrefab(MonsterDefinitions.Poisonous_Snake.MonsterPresentation)
-                    .SetPhantom()
-                    .SetModelScale(0.5f)
-                    .SetHasMonsterPortraitBackground(true)
-                    .SetCanGeneratePortrait(true)
-                    .Build())
-            .ClearAttackIterations()
-            .SetArmorClass(13)
-            .SetAbilityScores(2, 16, 11, 1, 10, 2)
-            .SetHitDice(DieType.D4, 1)
-            .SetStandardHitPoints(5)
-            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
-            .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
-            .SetChallengeRating(0)
-            .SetDroppedLootDefinition(null)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
-            .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction(FactionDefinitions.Party)
-            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
-            .AddFeatures(item)
-
-            .AddToDB();
-        */
         var familiarMonster = MonsterDefinitionBuilder
             .Create(MonsterDefinitions.Eagle_Matriarch, OwlFamiliar)
             .SetOrUpdateGuiPresentation(Category.Monster)
@@ -332,7 +292,7 @@ internal static partial class SpellBuilders
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
             .AddToDB();
-        
+
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
@@ -453,11 +413,9 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                // ReSharper disable once RedundantArgumentDefaultValue
-                AttributeDefinitions.Constitution)
+                EffectSavingThrowType.None)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -631,7 +589,7 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+            .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
@@ -748,10 +706,7 @@ internal static partial class SpellBuilders
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}ArmorClass")
                 .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    30)
+                .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 30)
                 .AddToDB())
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
@@ -814,128 +769,102 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    
+
+#if false
     internal static SpellDefinition BuildGiftOfAlacrity()
     {
         const string NAME = "GiftOfAlacrity";
 
-        var alacrity = CreateConditionAlacrity();
+        var attributeModifierGiftOfAlacrity = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierGiftOfAlacrity")
+            .SetGuiPresentationNoContent(true)
+            // this should be a 1D8 added to initiative instead of a static 4
+            // new IChangeInitiativeRoll interface with a patch on RulesetCharacter.RollInitiative()
+            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 4)
+            .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Hour, 8)
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(alacrity, ConditionForm.ConditionOperation.Add, false, false)
-                    .Build()
-                    )
-            .Build();
+        var conditionAlacrity = ConditionDefinitionBuilder
+            .Create(ConditionBlessed, "ConditionAlacrity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetFeatures(attributeModifierGiftOfAlacrity)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, CalmEmotions.GuiPresentation.SpriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Hour, 8)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionAlacrity, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Minute1)
             .SetSpellLevel(1)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolDivination)
             .AddToDB();
 
         return spell;
-
-        static ConditionDefinition CreateConditionAlacrity()
-        {
-            
-            Random rand = new Random();
-            int num = rand.Next(1, 9);
-
-            var alacrity = FeatureDefinitionAttributeModifierBuilder
-            .Create("alacrity")
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,AttributeDefinitions.Initiative, num)
-            //.SetModifiedAttribute(AttributeDefinitions.Initiative)
-            //.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            //.SetModifierValue(num)
-            .AddToDB();
-            
-            return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionBlessed, "ConditionAlacrity")
-                .SetOrUpdateGuiPresentation("ConditionAlacrity", Category.Condition)
-                .SetFeatures(alacrity)
-                //.SetAllowMultipleInstances(false)                
-                //.SetDurationData(DurationType.Hour, 8)
-                .SetSpecialDuration(DurationType.Hour, 8)
-                .AddToDB();
-        }
     }
+#endif
 
     internal static SpellDefinition BuildMagnifyGravity()
     {
         const string NAME = "MagnifyGravity";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.MagnifyGravity, 128, 128);
+        var spriteReference = Sprites.GetSprite("EarthTremor", Resources.EarthTremor, 128, 128);
 
-        var magnifygravity = CreateConditionMagnifyGravity();
+        var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{NAME}")
+            .SetBaseSpeedMultiplicativeModifier(0.5f)
+            .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-
-            .SetDurationData(DurationType.Round, 1)
-            .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(magnifygravity, ConditionForm.ConditionOperation.Add, false, false)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D8, diceNumber: 2)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()         
-
-            ).Build();
+        var conditionGravity = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(movementAffinityMagnifyGravity)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            //.SetGuiPresentation(Category.Spell, spriteReference)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, 2, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build(),
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionGravity, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(1)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
         return spell;
-
-        static ConditionDefinition CreateConditionMagnifyGravity()
-        {
-            var magnifygravity = FeatureDefinitionMovementAffinityBuilder
-                .Create("ConditionMagnifyGravity")
-                .SetBaseSpeedMultiplicativeModifier(0.5f)
-                .AddToDB();
-
-            return ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionEncumbered, "ConditionGravity")
-                .SetOrUpdateGuiPresentation("ConditionGravity", Category.Condition)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetFeatures(magnifygravity)
-                .AddToDB();
-        }
     }
 
     #endregion

@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
@@ -138,51 +139,49 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
     internal static SpellDefinition BuildGravitySinkhole()
     {
         const string NAME = "GravitySinkhole";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.GravitySinkhole, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4, 2)
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D10, diceNumber: 5)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
-            ).Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetGuiPresentation(Category.Spell, Darkness.GuiPresentation.SpriteReference)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Sphere, 4)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetParticleEffectParameters(Shatter.EffectDescription.EffectParticleParameters)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 4)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .AddEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetDamageForm(DamageTypeForce, 5, DieType.D10)
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .Build())
+                    .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(4)
-            .SetRequiresConcentration(false)
-            .SetVerboseComponent(false)
             .SetSomaticComponent(true)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetCustomSubFeatures(PushesOrDragFromEffectPoint.Marker)
             .AddToDB();
 
         return spell;
     }
+
     #endregion
 }
