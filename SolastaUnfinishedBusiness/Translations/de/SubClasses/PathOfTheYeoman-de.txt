@@ -19,4 +19,4 @@ Feature/&PowerPathOfTheYeomanBulwarkTitle=Bollwerk
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Machen Sie sich mit Smith's Tools vertraut.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
 Subclass/&PathOfTheYeomanDescription=Barbaren, die dem Pfad des Yeoman folgen, ignorieren Nahkampfwaffen, um den Langbogen zu beherrschen. Sie sind nicht weniger stark als Barbaren, die andere Wege gehen, ihre Pfeile schlagen selbst die mächtigsten Feinde nieder und ihr zielstrebiger Fokus erhöht ihre ohnehin schon beeindruckende Verteidigung auf unglaubliche Höhen.
-Subclass/&PathOfTheYeomanTitle=Pfad der Wildheit
+Subclass/&PathOfTheYeomanTitle=Pfad der Yeoman

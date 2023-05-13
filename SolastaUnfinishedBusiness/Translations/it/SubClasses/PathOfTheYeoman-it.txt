@@ -19,4 +19,4 @@ Feature/&PowerPathOfTheYeomanBulwarkTitle=Murata
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Acquisisci competenza con gli strumenti di Smith.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
 Subclass/&PathOfTheYeomanDescription=I barbari che seguono il Sentiero dello Yeoman ignorano le armi da mischia per padroneggiare l'arco lungo. Non meno forti dei barbari che seguono altri percorsi, le loro frecce abbattono il più potente dei nemici e la loro concentrazione risoluta aumenta le loro già formidabili difese a livelli incredibili.
-Subclass/&PathOfTheYeomanTitle=Sentiero della Selvaggina
+Subclass/&PathOfTheYeomanTitle=Sentiero del Yeoman

@@ -19,4 +19,4 @@ Feature/&PowerPathOfTheYeomanBulwarkTitle=Bulwark
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Gain proficiency with Smith's Tools.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
 Subclass/&PathOfTheYeomanDescription=Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
-Subclass/&PathOfTheYeomanTitle=Path of the Savagery
+Subclass/&PathOfTheYeomanTitle=Path of the Yeoman

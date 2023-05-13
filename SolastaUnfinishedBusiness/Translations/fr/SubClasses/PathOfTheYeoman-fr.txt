@@ -19,4 +19,4 @@ Feature/&PowerPathOfTheYeomanBulwarkTitle=Rempart
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Maîtrisez Smith's Tools.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
 Subclass/&PathOfTheYeomanDescription=Les barbares qui suivent la Voie du Yeoman ignorent les armes de mêlée pour maîtriser l'arc long. Pas moins forts que les barbares qui suivent d'autres chemins, leurs flèches sont tombées sur les ennemis les plus puissants et leur concentration unique augmente leurs défenses déjà formidables à des hauteurs incroyables.
-Subclass/&PathOfTheYeomanTitle=Chemin de la sauvagerie
+Subclass/&PathOfTheYeomanTitle=Chemin del Yeoman
