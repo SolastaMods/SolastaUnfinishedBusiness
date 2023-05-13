@@ -51,10 +51,6 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
                     (contextParams.source),
 
-            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
-                ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
-                ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source),
-
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
@@ -74,14 +70,14 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
-            ExtraSituationalContext.AttackerNextToTargetOrYeomanWithLongbow =>
-                AttackerNextToTargetOrYeomanWithLongbow(contextParams),
+            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
+                MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
 
             _ => def
         };
     }
 
-    private static bool AttackerNextToTargetOrYeomanWithLongbow(
+    private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(
         RulesetImplementationDefinitions.SituationalContextParams contextParams)
     {
         var source = GameLocationCharacter.GetFromActor(contextParams.source);
@@ -92,11 +88,12 @@ internal static class CustomSituationalContext
             return false;
         }
 
-        var isMelee = ServiceRepository.GetService<IGameLocationBattleService>().IsWithin1Cell(source, target);
+        var mainWeaponIsMeleeOrUnarmed = ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
+                                         ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
         var levels = source.RulesetCharacter.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
 
-        return isMelee || (levels > 0 && ValidatorsCharacter.HasLongbow(source.RulesetCharacter));
+        return mainWeaponIsMeleeOrUnarmed || (levels >= 6 && ValidatorsCharacter.HasLongbow(source.RulesetCharacter));
     }
 
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(

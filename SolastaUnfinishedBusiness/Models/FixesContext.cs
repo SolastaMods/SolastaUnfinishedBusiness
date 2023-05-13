@@ -126,7 +126,7 @@ internal static class FixesContext
     private static void FixRecklessAttackForReachWeapons()
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
+            .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow;
     }
 
     /**

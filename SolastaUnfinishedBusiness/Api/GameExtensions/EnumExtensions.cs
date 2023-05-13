@@ -13,7 +13,7 @@ internal enum ExtraAncestryType
 
 internal enum ExtraSituationalContext
 {
-    MainWeaponIsMeleeOrUnarmed = 1000,
+    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
     TargetIsNotEffectSource = 1003,
@@ -24,8 +24,7 @@ internal enum ExtraSituationalContext
     IsNotInBrightLight = 1008,
     IsRagingAndDualWielding = 1009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
-    TargetIsNotInBrightLight = 1011,
-    AttackerNextToTargetOrYeomanWithLongbow = 1012
+    TargetIsNotInBrightLight = 1011
 }
 
 #if false
