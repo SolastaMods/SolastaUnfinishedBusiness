@@ -80,7 +80,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var featureSwiftWind = FeatureDefinitionBuilder
             .Create($"Feature{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
+            .SetCustomSubFeatures(
+                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D6, DieType.D10), validWeapon))
             .AddToDB();
 
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
