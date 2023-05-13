@@ -20,6 +20,30 @@ internal sealed class WizardGraviturgist : AbstractSubclass
 
         const string POWER_DENSITY_INCREASE = $"Power{Name}DensityIncrease";
 
+        var conditionDensityIncrease = ConditionDefinitionBuilder
+            .Create(ConditionHindered, $"Condition{Name}DensityIncrease")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{Name}DensityIncrease")
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
+                    .SetBaseSpeedAdditiveModifier(-2)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{Name}DensityIncrease")
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.Advantage,
+                        DieType.D8, 0,
+                        (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
+                    .AddToDB(),
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{Name}DensityIncrease")
+                    .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
+                    .SetAffinities(CharacterSavingThrowAffinity.Advantage, false, AttributeDefinitions.Strength)
+                    .AddToDB())
+            .AddToDB();
+
         var powerDensityIncrease = FeatureDefinitionPowerBuilder
             .Create(POWER_DENSITY_INCREASE)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Bane)
@@ -29,38 +53,10 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionHindered, $"Condition{Name}DensityIncrease")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .AddFeatures(
-                                        FeatureDefinitionMovementAffinityBuilder
-                                            .Create($"MovementAffinity{Name}DensityIncrease")
-                                            .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
-                                            .SetBaseSpeedAdditiveModifier(-2)
-                                            .AddToDB(),
-                                        FeatureDefinitionAbilityCheckAffinityBuilder
-                                            .Create($"AbilityCheckAffinity{Name}DensityIncrease")
-                                            .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
-                                            .BuildAndSetAffinityGroups(
-                                                CharacterAbilityCheckAffinity.Advantage,
-                                                DieType.D8, 0,
-                                                (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
-                                            .AddToDB(),
-                                        FeatureDefinitionSavingThrowAffinityBuilder
-                                            .Create($"SavingThrowAffinity{Name}DensityIncrease")
-                                            .SetGuiPresentation(POWER_DENSITY_INCREASE, Category.Feature)
-                                            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
-                                                AttributeDefinitions.Strength)
-                                            .AddToDB())
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionDensityIncrease, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetShowCasting(true)
@@ -72,6 +68,30 @@ internal sealed class WizardGraviturgist : AbstractSubclass
 
         const string POWER_DENSITY_DECREASE = $"Power{Name}DensityDecrease";
 
+        var conditionDensityDecrease = ConditionDefinitionBuilder
+            .Create(ConditionJump, $"Condition{Name}DensityDecrease")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{Name}DensityDecrease")
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
+                    .SetBaseSpeedAdditiveModifier(2)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{Name}DensityDecrease")
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
+                    .BuildAndSetAffinityGroups(
+                        CharacterAbilityCheckAffinity.Disadvantage,
+                        DieType.D8, 0,
+                        (AttributeDefinitions.Strength, SkillDefinitions.Athletics))
+                    .AddToDB(),
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{Name}DensityDecrease")
+                    .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false, AttributeDefinitions.Strength)
+                    .AddToDB())
+            .AddToDB();
+
         var adjustDensityDecrease = FeatureDefinitionPowerBuilder
             .Create(POWER_DENSITY_DECREASE)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Bless)
@@ -81,43 +101,17 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionJump, $"Condition{Name}DensityDecrease")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .AddFeatures(
-                                        FeatureDefinitionMovementAffinityBuilder
-                                            .Create($"MovementAffinity{Name}DensityDecrease")
-                                            .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
-                                            .SetBaseSpeedAdditiveModifier(2)
-                                            .AddToDB(),
-                                        FeatureDefinitionAbilityCheckAffinityBuilder
-                                            .Create($"AbilityCheckAffinity{Name}DensityDecrease")
-                                            .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
-                                            .BuildAndSetAffinityGroups(
-                                                CharacterAbilityCheckAffinity.Disadvantage,
-                                                DieType.D8, 0,
-                                                (AttributeDefinitions.Strength, SkillDefinitions.Athletics)
-                                            )
-                                            .AddToDB(),
-                                        FeatureDefinitionSavingThrowAffinityBuilder
-                                            .Create($"SavingThrowAffinity{Name}DensityDecrease")
-                                            .SetGuiPresentation(POWER_DENSITY_DECREASE, Category.Feature)
-                                            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                                                AttributeDefinitions.Strength)
-                                            .AddToDB())
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionDensityDecrease, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .SetShowCasting(true)
             .AddToDB();
+
+        conditionDensityIncrease.CancellingConditions.Add(conditionDensityDecrease);
+        conditionDensityDecrease.CancellingConditions.Add(conditionDensityIncrease);
 
         //
         // Gravity Well
@@ -126,7 +120,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
         var powerGravityWell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GravityWell")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSpellCast)
+            .SetUsesFixed(ActivationTime.OnAttackSpellHitAutomatic)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -164,6 +158,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                                         FeatureDefinitionAdditionalDamageBuilder
                                             .Create($"AdditionalDamage{Name}ViolentAttraction")
                                             .SetGuiPresentation($"Power{Name}ViolentAttraction", Category.Feature)
+                                            .SetNotificationTag("ViolentAttraction")
                                             .SetDamageDice(DieType.D10, 1)
                                             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                                             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
@@ -178,6 +173,35 @@ internal sealed class WizardGraviturgist : AbstractSubclass
         //
         // Event Horizon
         //
+
+        var conditionEventHorizon = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizon")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{Name}EventHorizon")
+                    .SetBaseSpeedMultiplicativeModifier(0)
+                    .AddToDB())
+            .AddToDB();
+
+        var conditionEventHorizonSaved = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizonSaved")
+            .SetOrUpdateGuiPresentation($"Condition{Name}EventHorizon", Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create($"MovementAffinity{Name}EventHorizonSaved")
+                    .SetBaseSpeedMultiplicativeModifier(0.5f)
+                    .AddToDB())
+            .AddToDB();
+
+        var conditionEventHorizonSelf = ConditionDefinitionBuilder
+            .Create(ConditionSpiritGuardiansSelf, $"Condition{Name}EventHorizonSelf")
+            .SetOrUpdateGuiPresentation(Category.Condition)
+            .AddToDB();
 
         var eventHorizon = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EventHorizon")
@@ -200,28 +224,16 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionProne, $"Condition{Name}EventHorizon")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetSilent(Silent.WhenAddedOrRemoved)
-                                    .SetFeatures(
-                                        FeatureDefinitionMovementAffinityBuilder
-                                            .Create($"MovementAffinity{Name}EventHorizon")
-                                            .SetBaseSpeedMultiplicativeModifier(0)
-                                            .AddToDB())
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfSourceTurn, true)
+                            .SetConditionForm(conditionEventHorizon, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionSpiritGuardiansSelf, $"Condition{Name}EventHorizonSelf")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add, true)
+                            .SetConditionForm(conditionEventHorizonSaved, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionEventHorizonSelf, ConditionForm.ConditionOperation.Add, true)
                             .Build())
                     .Build())
             .AddToDB();

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
+  "notificationTag": "ViolentAttraction",
   "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",

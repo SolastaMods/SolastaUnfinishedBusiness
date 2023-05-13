@@ -2,23 +2,20 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Neutral",
   "features": [
-    "Definition:AbilityCheckAffinityWizardGraviturgistDensityIncrease:64b503f6-282e-58c8-a372-26b0da078f3b",
-    "Definition:MovementAffinityConditionHindered:d8369308deca3fc47a6a9c3ab5518949",
-    "Definition:MovementAffinityWizardGraviturgistDensityIncrease:d0d79e06-f8b4-5aff-b8ee-98a50ddde9d9",
-    "Definition:SavingThrowAffinityWizardGraviturgistDensityIncrease:e5ee932a-76d9-58e2-a623-299b028e39d3"
+    "Definition:MovementAffinityWizardGraviturgistEventHorizonSaved:fed3e079-b87f-5407-b4cf-a9a6428a8e7f"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
-  "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationParameterDie": "D4",
+  "durationParameter": 0,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -28,9 +25,7 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [
-    "Definition:ConditionWizardGraviturgistDensityDecrease:66476f3a-6781-5224-84b8-f3d0d24e8302"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -268,12 +263,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionWizardGraviturgistDensityIncreaseTitle",
-    "description": "Condition/&ConditionWizardGraviturgistDensityIncreaseDescription",
+    "title": "Condition/&ConditionWizardGraviturgistEventHorizonTitle",
+    "description": "Condition/&ConditionWizardGraviturgistEventHorizonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "57125544a666ad64195b2eddc133deb4",
-      "m_SubObjectName": "RayOfFrostConditionHindered",
+      "m_AssetGUID": "c361725f0a278ea4bbef108455b7029d",
+      "m_SubObjectName": "ConditionProne",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -289,7 +284,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "47932b8e-70ad-5c32-bedf-c53abb251ed4",
+  "guid": "e851efa0-9eed-57d2-9c7a-1bb4886678fb",
   "contentPack": 9999,
-  "name": "ConditionWizardGraviturgistDensityIncrease"
+  "name": "ConditionWizardGraviturgistEventHorizonSaved"
 }
