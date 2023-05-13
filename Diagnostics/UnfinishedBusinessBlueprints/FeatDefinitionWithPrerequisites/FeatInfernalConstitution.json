@@ -1,0 +1,48 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
+    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
+    "Definition:SavingThrowAffinityAntitoxin:574119d476facbc4ea88b544113c4869"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatInfernalConstitutionTitle",
+    "description": "Feat/&FeatInfernalConstitutionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f6ce390b-d0b1-541c-9409-868791c80bbe",
+  "contentPack": 9999,
+  "name": "FeatInfernalConstitution"
+}
