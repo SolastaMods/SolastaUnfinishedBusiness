@@ -20,41 +20,48 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BindingIce";
 
-        var frozen = CreateConditionIceBound();
+        var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.WinterBreath, 128);
+        var movementAffinityIceBound = FeatureDefinitionMovementAffinityBuilder
+            .Create("MovementAffinityIceBound")
+            .SetBaseSpeedMultiplicativeModifier(0)
+            .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeCold, dieType: DieType.D8, diceNumber: 3)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(frozen, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build()
-            ).Build();
+        var conditionIceBound = ConditionDefinitionBuilder
+            .Create(ConditionHindered_By_Frost, "ConditionIceBound")
+            .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
+            .SetFeatures(movementAffinityIceBound)
+            .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeCold, 3, DieType.D8)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionIceBound, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(2)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(false)
             .SetSomaticComponent(true)
             .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -62,21 +69,6 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
-
-        static ConditionDefinition CreateConditionIceBound()
-        {
-            var frozen = FeatureDefinitionMovementAffinityBuilder
-                .Create("Frozen")
-                .SetBaseSpeedMultiplicativeModifier(0)
-                .AddToDB();
-
-            return ConditionDefinitionBuilder
-                .Create(ConditionHindered_By_Frost, "ConditionIceBound")
-                .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
-                .SetSpecialDuration()
-                .SetFeatures(frozen)
-                .AddToDB();
-        }
     }
 
     #region Color Burst

@@ -429,42 +429,37 @@ internal static partial class SpellBuilders
     {
         const string NAME = "PulseWave";
 
-        //var spriteReference =
-        //    CustomIcons.CreateAssetReferenceSprite(NAME, Resources.PulseWave, 128, 128);
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Constitution,
-                true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Instantaneous)
-            .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
-            .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
-            ).Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            //.SetGuiPresentation(Category.Spell, spriteReference)
             .SetGuiPresentation(Category.Spell, ColorSpray.GuiPresentation.SpriteReference)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Wisdom,
+                    12)
+                .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
