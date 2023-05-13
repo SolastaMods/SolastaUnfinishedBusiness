@@ -31,7 +31,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
         var attackModifierStrongBow = FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{Name}StrongBow")
-            .SetGuiPresentation(Name, Category.Feat)
+            .SetGuiPresentation(Category.Feature)
             .SetDamageRollModifier(1)
             .SetCustomSubFeatures(
                 new RestrictedContextValidator((_, _, character, _, _, _, _) =>
@@ -75,13 +75,13 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
         var movementAffinityBulwark = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}Bulwark")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedMultiplicativeModifier(0)
             .AddToDB();
 
         var featureBulwark = FeatureDefinitionBuilder
             .Create($"Feature{Name}Bulwark")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new RangedAttackInMeleeDisadvantageRemover(
                     (_, _, character) => ValidatorsCharacter.HasLongbow(character)),
@@ -101,6 +101,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
         var conditionBulwark = ConditionDefinitionBuilder
             .Create($"Condition{Name}Bulwark")
             .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
             .AddFeatures(
                 movementAffinityBulwark,
                 featureBulwark,
@@ -140,7 +141,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheSavagery, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheYeoman, 256))
             .AddFeaturesAtLevel(3, proficiencyFletcher, attackModifierStrongBow)
             .AddFeaturesAtLevel(6, actionAffinityStaggeringBlow, additionalDamageKeenEye)
             .AddFeaturesAtLevel(10, powerBulwark)
