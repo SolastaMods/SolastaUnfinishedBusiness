@@ -29,9 +29,11 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create(ConditionHindered, $"Condition{Name}DensityIncrease")
@@ -78,9 +80,11 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true, EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
                                 ConditionDefinitionBuilder
                                     .Create(ConditionJump, $"Condition{Name}DensityDecrease")
