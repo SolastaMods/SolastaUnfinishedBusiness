@@ -31,7 +31,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Minute",
+    "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -79,9 +79,9 @@
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionPathOfTheYeomanBulwark",
           "conditionDefinition": "Definition:ConditionPathOfTheYeomanBulwark:7d1fcaf0-8b05-5638-9ffb-61bcfc285eb6",
-          "operation": "Add",
+          "operation": "Remove",
           "conditionsList": [],
-          "applyToSelf": true,
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -114,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "5ddcae54a52c6794c8b0206d870eacc2",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -162,7 +162,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3bf98fbc4c56e2645ab1b73fcec9d167",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -289,7 +289,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -304,13 +304,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "AbilityBonusPlusFixed",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Constitution",
-  "fixedUsesPerRecharge": 0,
+  "usesAbilityScoreName": "Charisma",
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -323,12 +323,12 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPathOfTheYeomanBulwarkTitle",
-    "description": "Feature/&PowerPathOfTheYeomanBulwarkDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0d7d7f0c-5dd4-5858-9cd5-68c8c97772da",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e3368fa9-f97e-549c-a13f-f7e13332da2d",
+  "guid": "db95a5fb-e030-5f0a-9849-cd62b3a37a59",
   "contentPack": 9999,
-  "name": "PowerPathOfTheYeomanBulwark"
+  "name": "PowerPathOfTheYeomanBulwarkTurnOff"
 }

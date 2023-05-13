@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "ToolOrExpertise",
   "proficiencies": [
-    "ArtisanToolType"
+    "ArtisanToolSmithToolsType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {

@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeaturePathOfTheYeomanMightyShotTitle",
-    "description": "Feature/&FeaturePathOfTheYeomanMightyShotDescription",
+    "title": "Feature/&FeaturePathOfTheYeomanStrongBowTitle",
+    "description": "Feature/&FeaturePathOfTheYeomanStrongBowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "65c6f5a9-cf9a-5132-a035-8c666e8f1553",
+  "guid": "069d4d4d-287c-544d-990c-e3cf4bc9acff",
   "contentPack": 9999,
-  "name": "FeaturePathOfTheYeomanMightyShot"
+  "name": "FeaturePathOfTheYeomanStrongBow"
 }

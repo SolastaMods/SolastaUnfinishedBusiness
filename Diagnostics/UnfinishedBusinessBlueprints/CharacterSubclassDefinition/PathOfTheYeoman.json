@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttackModifierPathOfTheYeomanStrongBow:ac7d6de2-d362-5a1e-b486-c786e625d668",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyPathOfTheYeomanFletcher:3491a74c-2faa-5f86-afe9-33f967306f21",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamagePathOfTheYeomanKeenEye:cf4a9863-ffc1-5153-9d8c-2c5ae8b423a0",
+      "featureDefinition": "Definition:FeaturePathOfTheYeomanStrongBow:069d4d4d-287c-544d-990c-e3cf4bc9acff",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeaturePathOfTheYeomanKeenEye:662ce458-7354-51f1-9fe1-7aebbf8d11f0",
       "level": 6
     },
     {
@@ -29,6 +29,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeaturePathOfTheYeomanMightyShot:65c6f5a9-cf9a-5132-a035-8c666e8f1553",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerPathOfTheYeomanMightyShot:d0ac6190-172a-51d3-853a-51f6b1cd2ae0",
       "level": 14
     }
   ],
