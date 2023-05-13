@@ -1,5 +1,4 @@
 ﻿#if false
-
 //Spell/&GravityFissureDescription=Manifest a ravine of gravitational energy to draw enemies in and crush them.
 //Spell/&GravityFissureTitle=Gravity Fissure
 

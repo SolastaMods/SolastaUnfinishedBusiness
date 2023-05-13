@@ -129,16 +129,6 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     {
         private readonly FeatureDefinition _featureVoraciousFury;
 
-        private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
-        {
-            var isValid =
-                (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
-                ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
-                ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
-
-            return isValid;
-        }
-
         public PhysicalAttackFinishedVoraciousFury(FeatureDefinition featureVoraciousFury)
         {
             _featureVoraciousFury = featureVoraciousFury;
@@ -204,6 +194,16 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
             EffectHelpers.StartVisualEffect(attacker, defender, VampiricTouch, EffectHelpers.EffectType.Effect);
             InflictDamage(rulesetAttacker, rulesetDefender, totalDamageOrHealing, attackMode.AttackTags);
+        }
+
+        private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        {
+            var isValid =
+                (ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
+                ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
+                ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
+
+            return isValid;
         }
     }
 

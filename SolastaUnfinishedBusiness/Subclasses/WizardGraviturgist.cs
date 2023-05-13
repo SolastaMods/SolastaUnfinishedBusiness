@@ -29,7 +29,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -80,7 +81,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true, EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetSavingThrowData(true, AttributeDefinitions.Strength, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
