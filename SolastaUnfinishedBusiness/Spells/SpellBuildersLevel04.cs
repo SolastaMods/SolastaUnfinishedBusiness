@@ -142,8 +142,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GravitySinkhole";
 
-        //var spriteReference =
-        //    CustomIcons.CreateAssetReferenceSprite(NAME, Resources.GravitySinkhole, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.GravitySinkhole, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -172,7 +171,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Darkness.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(4)

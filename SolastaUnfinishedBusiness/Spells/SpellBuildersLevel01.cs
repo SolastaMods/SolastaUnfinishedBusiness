@@ -250,9 +250,49 @@ internal static partial class SpellBuilders
     }
 
     internal const string OwlFamiliar = "OwlFamiliar";
+    internal const string SnakeFamiliar = "SnakeFamiliar";
 
     internal static SpellDefinition BuildFindFamiliar()
     {
+
+        //var subSpells = new SpellDefinition[2];
+        //var familiarTypes = new[] { OwlFamiliar, SnakeFamiliar };
+        /*
+        var familiarMonster = MonsterDefinitionBuilder
+            .Create(MonsterDefinitions.Poisonous_Snake, SnakeFamiliar)
+            .SetOrUpdateGuiPresentation(Category.Monster)
+            .SetFeatures(
+                FeatureDefinitionSenses.SenseNormalVision,
+                FeatureDefinitionSenses.SenseBlindSight2,
+                FeatureDefinitionMoveModes.MoveModeMove6,
+                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(MonsterDefinitions.Poisonous_Snake.MonsterPresentation)
+                    .SetPhantom()
+                    .SetModelScale(0.5f)
+                    .SetHasMonsterPortraitBackground(true)
+                    .SetCanGeneratePortrait(true)
+                    .Build())
+            .ClearAttackIterations()
+            .SetArmorClass(13)
+            .SetAbilityScores(2, 16, 11, 1, 10, 2)
+            .SetHitDice(DieType.D4, 1)
+            .SetStandardHitPoints(5)
+            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
+            .SetAlignment("Neutral")
+            .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+            .SetChallengeRating(0)
+            .SetDroppedLootDefinition(null)
+            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+            .SetFullyControlledWhenAllied(true)
+            .SetDefaultFaction(FactionDefinitions.Party)
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
+            .AddFeatures(item)
+
+            .AddToDB();
+        */
         var familiarMonster = MonsterDefinitionBuilder
             .Create(MonsterDefinitions.Eagle_Matriarch, OwlFamiliar)
             .SetOrUpdateGuiPresentation(Category.Monster)
@@ -292,7 +332,7 @@ internal static partial class SpellBuilders
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .AddFeatures(CharacterContext.FeatureDefinitionPowerHelpAction)
             .AddToDB();
-
+        
         var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
             .SetGuiPresentation(Category.Spell, AnimalFriendship)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
@@ -774,10 +814,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    /*
-    internal static SpellDefinition BuildGiftofAlacrity()
+    
+    internal static SpellDefinition BuildGiftOfAlacrity()
     {
-        const string NAME = "GiftofAlacrity";
+        const string NAME = "GiftOfAlacrity";
 
         var alacrity = CreateConditionAlacrity();
 
@@ -811,30 +851,32 @@ internal static partial class SpellBuilders
         {
             
             Random rand = new Random();
-            int num = rnd.Next(1, 9);
+            int num = rand.Next(1, 9);
 
             var alacrity = FeatureDefinitionAttributeModifierBuilder
             .Create("alacrity")
-            .SetModifiedAttribute(AttributeDefinitions.Initiative)
-            .SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            .SetModifierValue(num)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,AttributeDefinitions.Initiative, num)
+            //.SetModifiedAttribute(AttributeDefinitions.Initiative)
+            //.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            //.SetModifierValue(num)
             .AddToDB();
             
             return ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionBlessed, "ConditionAlacrity")
                 .SetOrUpdateGuiPresentation("ConditionAlacrity", Category.Condition)
                 .SetFeatures(alacrity)
-                .SetAllowMultipleInstances(false)
-                .SetDuration(DurationType.Hour, 8)
+                //.SetAllowMultipleInstances(false)                
+                //.SetDurationData(DurationType.Hour, 8)
+                .SetSpecialDuration(DurationType.Hour, 8)
                 .AddToDB();
         }
-    }*/
+    }
 
     internal static SpellDefinition BuildMagnifyGravity()
     {
         const string NAME = "MagnifyGravity";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MagnifyGravity, 128, 128);
 
         var magnifygravity = CreateConditionMagnifyGravity();
 
@@ -855,13 +897,13 @@ internal static partial class SpellBuilders
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D8, diceNumber: 2)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build())
+                    .SetConditionForm(magnifygravity, ConditionForm.ConditionOperation.Add, false, false)
+                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(magnifygravity, ConditionForm.ConditionOperation.Add, false, false)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build()
+                    .SetDamageForm(damageType: DamageTypeForce, dieType: DieType.D8, diceNumber: 2)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()         
 
             ).Build();
 

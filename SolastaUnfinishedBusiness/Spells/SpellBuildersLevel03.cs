@@ -429,8 +429,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "PulseWave";
 
-        //var spriteReference =
-        //    CustomIcons.CreateAssetReferenceSprite(NAME, Resources.PulseWave, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.PulseWave, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
@@ -460,7 +459,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             //.SetGuiPresentation(Category.Spell, spriteReference)
-            .SetGuiPresentation(Category.Spell, ColorSpray.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)

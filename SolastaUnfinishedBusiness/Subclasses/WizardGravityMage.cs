@@ -1,7 +1,9 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Drawing;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -10,16 +12,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WizardGravityMage : AbstractSubclass
 {
-    /*private static readonly Guid SubclassNamespace = new("6252c084-d1a8-4c56-991a-ff496314f95a");
-    private readonly CharacterSubclassDefinition Subclass;
-    internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-    {
-        return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-    }
-    internal override CharacterSubclassDefinition GetSubclass()
-    {
-        return Subclass;
-    }*/
     internal WizardGravityMage()
     {
         var adjustDensityIncrease = CreateAdjustDensityIncrease();
@@ -43,8 +35,6 @@ internal sealed class WizardGravityMage : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-
-    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     //Create AdjustDensity Powers
@@ -104,10 +94,7 @@ internal sealed class WizardGravityMage : AbstractSubclass
                     heavyskill,
                     heavysave
                 )
-                //.SetAllowMultipleInstances(false) //Test if allows multiple instances at all or just on the same target
-                //.SetDuration(RuleDefinitions.DurationType.Minute, 1)
                 .SetSpecialDuration(DurationType.Minute, 1)
-                //.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .AddToDB();
         }
     }
@@ -121,7 +108,6 @@ internal sealed class WizardGravityMage : AbstractSubclass
 
         var AdjustDensityLightEffectDescription = EffectDescriptionBuilder
             .Create()
-            //.SetCreatedByCharacter()
             .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
             .SetDurationData(DurationType.Minute, 1)
             .SetNoSavingThrow()
@@ -169,16 +155,14 @@ internal sealed class WizardGravityMage : AbstractSubclass
                     lightsave,
                     FeatureDefinitionMovementAffinitys.MovementAffinityJump
                 )
-                //.SetAllowMultipleInstances(false) //Test if allows multiple instances at all or just on the same target
                 .SetSpecialDuration(DurationType.Minute, 1)
-                //.SetDuration(RuleDefinitions.DurationType.Minute, 1)
-                //.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .AddToDB();
         }
     }
 
     private static FeatureDefinitionPower CreateGravityWell()
     {
+        //This used to work fine in the old codebase, not sure what changed.
         var GravityWellEffectForm = EffectFormBuilder
             .Create()
             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
@@ -192,13 +176,8 @@ internal sealed class WizardGravityMage : AbstractSubclass
         var GravityWell = FeatureDefinitionPowerBuilder
             .Create("WizardGravityMageGravityWell")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesAbilityBonus(ActivationTime.OnSpellCast, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
+            .SetUsesAbilityBonus(ActivationTime.OnAttackSpellHitAutomatic, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
             .SetEffectDescription(GravityWellEffectDescription)
-            /*
-            .Configure(
-                0, RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
-                RuleDefinitions.ActivationTime.OnAttackSpellHitAutomatic, 0, RuleDefinitions.RechargeRate.AtWill,
-                false, false, AttributeDefinitions.Intelligence, GravityWellEffectDescription, false)*/
             .AddToDB();
         return GravityWell;
     }
@@ -235,7 +214,6 @@ internal sealed class WizardGravityMage : AbstractSubclass
                 .SetDamageDice(DieType.D10, 1)
                 .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                 .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-                //.SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                 .AddToDB();
 
             return ConditionDefinitionBuilder
@@ -243,38 +221,39 @@ internal sealed class WizardGravityMage : AbstractSubclass
                 .SetGuiPresentation(Category.Condition, ConditionDivineFavor.GuiPresentation.SpriteReference)
                 .SetOrUpdateGuiPresentation("ConditionViolentAttraction", Category.Condition)
                 .SetFeatures(violentattractionbuff)
-                //.SetAllowMultipleInstances(false)
                 .SetSpecialDuration(DurationType.Minute, 1)
-                //.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .AddToDB();
         }
     }
 
     private static FeatureDefinitionPower CreateEventHorizon()
-        //Repeat saves for damage effect but slow effect seems permenant
-        //Otherwise functional, somewhat awkward without persistant visual effects
+        //Functional, somewhat awkward without accurate visual effects
+        //Some way to scale up Spirit Guardians or Globe of Invulnerability VFX?
+        //Ideally would have Concentration too.
     {
+        //Damage Componenent
         var EventHorizonDamageEffectForm = EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypeForce, 2, DieType.D10)
             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
             .Build();
 
+        //Immobilizing Componenent
         var EventHorizonSlowEffectForm = EffectFormBuilder
             .Create()
             .SetConditionForm(CreateConditionEventHorizon(), ConditionForm.ConditionOperation.Add)
-            //.CanSaveToCancel(RuleDefinitions.TurnOccurenceType.StartOfTurn)
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .Build();
 
+        //Condition to center on self
         var EventHorizonSelfEffectForm = EffectFormBuilder
             .Create()
             .SetConditionForm(CreateConditionEventHorizonSelf(), ConditionForm.ConditionOperation.Add, true, true)
             .Build();
 
+        //Combine components
         var EventHorizonEffectDescription = EffectDescriptionBuilder
             .Create()
-            //.SetCreatedByCharacter()
             .SetParticleEffectParameters(SpellDefinitions.Darkness) //On-Cast Visual Effects line
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
             .SetDurationData(DurationType.Minute, 1)
@@ -282,24 +261,17 @@ internal sealed class WizardGravityMage : AbstractSubclass
                 false,
                 AttributeDefinitions.Strength,
                 true,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Intelligence,
-                12)
+                EffectDifficultyClassComputation.SpellCastingFeature)
             .SetEffectForms(EventHorizonDamageEffectForm, EventHorizonSlowEffectForm, EventHorizonSelfEffectForm)
             .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
             .Build();
 
+        //Condition icon, activation/recharge parameters, call combined Effect
         var EventHorizon = FeatureDefinitionPowerBuilder
             .Create("WizardGravityMageEventHorizon")
             .SetGuiPresentation(Category.Action, SpellDefinitions.DispelEvilAndGood.GuiPresentation.SpriteReference)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            /*.Configure(1, RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Intelligence,
-                    RuleDefinitions.ActivationTime.Action, 1,
-                    RuleDefinitions.RechargeRate.LongRest, false, false,
-                    AttributeDefinitions.Intelligence,
-                    EventHorizonEffectDescription
-                )*/
+            .SetEffectDescription(EventHorizonEffectDescription)
             .AddToDB();
         return EventHorizon;
 
@@ -316,23 +288,19 @@ internal sealed class WizardGravityMage : AbstractSubclass
                     ConditionDefinitions.ConditionProne.GuiPresentation.SpriteReference)
                 .SetOrUpdateGuiPresentation("ConditionEventHorizon", Category.Condition)
                 .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(EventHorizonSlow)
-                //.SetAllowMultipleInstances(false) //With true stacks same condition over and over            
-                .SetSpecialDuration()
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                //.SetSilentWhenAdded(true)
-                //.SetSilentWhenRemoved(true)
-                //.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
+                .SetFeatures(EventHorizonSlow)      
+                .SetSpecialDuration(DurationType.Round,0)
+                .SetSilent(Silent.WhenRemoved)
                 .AddToDB();
         }
 
         static ConditionDefinition CreateConditionEventHorizonSelf()
         {
             return ConditionDefinitionBuilder
-                .Create("EventHorizonSelf") //Or ConditionSpiritGuardiansSelf
+                .Create("EventHorizonSelf")
                 .SetGuiPresentation(Category.Condition, ConditionSpiritGuardiansSelf.GuiPresentation.SpriteReference)
+                .SetConditionParticleReference(ConditionSpiritGuardiansSelf.conditionParticleReference)
                 .SetOrUpdateGuiPresentation("ConditionEventHorizonSelf", Category.Condition)
-                //.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetSpecialDuration(DurationType.Minute, 1)
                 .AddToDB();
         }

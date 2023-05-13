@@ -1,4 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -13,18 +15,16 @@ internal static partial class SpellBuilders
     {
         const string NAME = "GravityFissure";
 
-        //var spriteReference =
-        //    CustomIcons.CreateAssetReferenceSprite(NAME, Resources.GravityFissure, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.GravityFissure, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
             .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                 EffectDifficultyClassComputation.SpellCastingFeature)
-            //.SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(LightningBolt.EffectDescription.EffectParticleParameters)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 20, 3)
-            //.SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 20, 3)
+            //.SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 20, 3)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 20, 3)
             .AddEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -39,7 +39,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, LightningBolt.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(6)

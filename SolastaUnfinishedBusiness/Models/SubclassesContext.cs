@@ -85,6 +85,7 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfTheDiscordance());
         LoadSubclass(new WayOfTheDistantHand());
         LoadSubclass(new WayOfTheDragon());
+        LoadSubclass(new WayOfTheElements());
         LoadSubclass(new WayOfTheSilhouette());
         LoadSubclass(new WayOfTheTempest());
 
@@ -100,7 +101,6 @@ internal static class SubclassesContext
         LoadSubclass(new WizardDeadMaster());
         LoadSubclass(new WizardGravityMage());
         LoadSubclass(new WizardSpellMaster());
-        LoadSubclass(new WizardGravityMage());
 
         // settings paring
         foreach (var name in Main.Settings.SubclassEnabled
