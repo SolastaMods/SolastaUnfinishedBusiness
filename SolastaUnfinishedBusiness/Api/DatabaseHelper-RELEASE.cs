@@ -1117,6 +1117,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition ConjuredOneBeastTiger_Drake { get; } = GetDefinition<MonsterDefinition>("ConjuredOneBeastTiger_Drake");
         internal static MonsterDefinition ConjuredTwoBeast_Direwolf { get; } = GetDefinition<MonsterDefinition>("ConjuredTwoBeast_Direwolf");
         internal static MonsterDefinition CrimsonSpider { get; } = GetDefinition<MonsterDefinition>("CrimsonSpider");
+        internal static MonsterDefinition CubeOfLight { get; } = GetDefinition<MonsterDefinition>("CubeOfLight");
         internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
         internal static MonsterDefinition Eagle_Matriarch { get; } = GetDefinition<MonsterDefinition>("Eagle_Matriarch");
         internal static MonsterDefinition Earth_Elemental { get; } = GetDefinition<MonsterDefinition>("Earth_Elemental");
@@ -1128,6 +1129,7 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition FeyWolf { get; } = GetDefinition<MonsterDefinition>("FeyWolf");
         internal static MonsterDefinition Fire_Elemental { get; } = GetDefinition<MonsterDefinition>("Fire_Elemental");
         internal static MonsterDefinition Fire_Jester { get; } = GetDefinition<MonsterDefinition>("Fire_Jester");
+        internal static MonsterDefinition Fire_Osprey { get; } = GetDefinition<MonsterDefinition>("Fire_Osprey");
         internal static MonsterDefinition Fire_Spider { get; } = GetDefinition<MonsterDefinition>("Fire_Spider");
         internal static MonsterDefinition Ghost { get; } = GetDefinition<MonsterDefinition>("Ghost");
         internal static MonsterDefinition Ghoul { get; } = GetDefinition<MonsterDefinition>("Ghoul");

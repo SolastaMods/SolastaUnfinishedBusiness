@@ -176,6 +176,15 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchMakeLargeWildshapeFormsMedium();
         }
 
+        toggle = Main.Settings.EnableCharactersOnFireToEmitLight;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
         if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {

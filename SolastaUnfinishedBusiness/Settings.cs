@@ -174,6 +174,8 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeLargeWildshapeFormsMedium { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
 
+    public bool EnableCharactersOnFireToEmitLight { get; set; }
+
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }

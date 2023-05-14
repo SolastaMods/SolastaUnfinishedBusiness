@@ -75,6 +75,7 @@ ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart
 ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Zeichenprüfung“ auf dem Hauptbildschirm > Zeichen
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color>, um das Zeichen zu exportieren
+ModUi/&EnableCharactersOnFireToEmitLight=Ermögliche brennenden Charakteren, Licht auszustrahlen <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne]</color></i>ModUi/&EnableCheatMenu=Cheat-Menü aktivieren
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkelloses Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
