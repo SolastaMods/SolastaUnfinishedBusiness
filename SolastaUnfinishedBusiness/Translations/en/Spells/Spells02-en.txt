@@ -1,7 +1,7 @@
-Condition/&ConditionGrappledRestrainedSpellWebDescription=You must make a Strength ability check to get off this condition.
-Condition/&ConditionGrappledRestrainedSpellWebTitle=Restrained by Web
 Condition/&ConditionGrappledRestrainedIceBoundDescription=Frozen in place.
 Condition/&ConditionGrappledRestrainedIceBoundTitle=Bound by Ice
+Condition/&ConditionGrappledRestrainedSpellWebDescription=You must make a Strength ability check to get off this condition.
+Condition/&ConditionGrappledRestrainedSpellWebTitle=Restrained by Web
 Condition/&ConditionMirrorImageDescription=Enemies can accidentally target this duplicate instead of you. If duplicate is hit it disappears.
 Condition/&ConditionMirrorImageTitle=Mirror Duplicate
 Feedback/&MirrorImageAttackerHasSense={0} has {1} and ignores {2}

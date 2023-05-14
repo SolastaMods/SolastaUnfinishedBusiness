@@ -1,7 +1,7 @@
-Condition/&ConditionGrappledRestrainedSpellWebDescription=Um diesen Zustand zu überwinden, müssen Sie eine Fähigkeitsprüfung auf Stärke durchführen.
-Condition/&ConditionGrappledRestrainedSpellWebTitle=Vom Web eingeschränkt
 Condition/&ConditionGrappledRestrainedIceBoundDescription=An Ort und Stelle eingefroren.
 Condition/&ConditionGrappledRestrainedIceBoundTitle=Gebunden durch Eis
+Condition/&ConditionGrappledRestrainedSpellWebDescription=Um diesen Zustand zu überwinden, müssen Sie eine Fähigkeitsprüfung auf Stärke durchführen.
+Condition/&ConditionGrappledRestrainedSpellWebTitle=Vom Web eingeschränkt
 Condition/&ConditionMirrorImageDescription=Feinde können anstelle von Ihnen versehentlich dieses Duplikat anvisieren. Wenn ein Duplikat gefunden wird, verschwindet es.
 Condition/&ConditionMirrorImageTitle=Duplikat spiegeln
 Feedback/&MirrorImageAttackerHasSense={0} hat {1} und ignoriert {2}

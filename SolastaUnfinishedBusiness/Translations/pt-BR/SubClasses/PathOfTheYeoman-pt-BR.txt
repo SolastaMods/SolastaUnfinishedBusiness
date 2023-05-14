@@ -18,6 +18,6 @@ Feature/&PowerPathOfTheYeomanBulwarkDescription=Você pode usar uma ação bônu
 Feature/&PowerPathOfTheYeomanBulwarkTitle=Baluarte
 Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Ganhe proficiência com ferramentas de ferreiro.
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
-Subclass/&PathOfTheYeomanDescription=Os bárbaros que seguem o Caminho do Yeoman ignoram as armas corpo a corpo para dominar o arco longo. Não menos fortes que os bárbaros que seguem outros caminhos, suas flechas derrubam os inimigos mais poderosos e seu foco único aumenta suas já formidáveis ​​defesas a alturas incríveis.
+Subclass/&PathOfTheYeomanDescription=Os bárbaros que seguem o Caminho do Yeoman ignoram as armas corpo a corpo para dominar o arco longo. Não menos fortes que os bárbaros que seguem outros caminhos, suas flechas derrubam os inimigos mais poderosos e seu foco único aumenta suas já formidáveis defesas a alturas incríveis.
 Subclass/&PathOfTheYeomanTitle=Caminho do Yeoman
 Tooltip/&BulwarkConcentration=Desativar Baluarte
