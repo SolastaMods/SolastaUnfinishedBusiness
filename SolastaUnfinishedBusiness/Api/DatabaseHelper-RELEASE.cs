@@ -235,6 +235,7 @@ internal static partial class DatabaseHelper
     internal static class EffectProxyDefinitions
     {
         internal static EffectProxyDefinition ProxyArcaneSword { get; } = GetDefinition<EffectProxyDefinition>("ProxyArcaneSword");
+        internal static EffectProxyDefinition ProxyFlamingSphere { get; } = GetDefinition<EffectProxyDefinition>("ProxyFlamingSphere");
         internal static EffectProxyDefinition ProxyGrease { get; } = GetDefinition<EffectProxyDefinition>("ProxyGrease");
         internal static EffectProxyDefinition ProxyGuardianOfFaith { get; } = GetDefinition<EffectProxyDefinition>("ProxyGuardianOfFaith");
         internal static EffectProxyDefinition ProxyInsectPlague { get; } = GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
@@ -325,12 +326,13 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityBarbarianRecklessAttack { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityBarbarianRecklessAttack");
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRestrained");
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
-        internal static FeatureDefinitionActionAffinity ActionAffinityThiefFastHands { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityThiefFastHands");
+        internal static FeatureDefinitionActionAffinity ActionAffinityGrappled { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityGrappled");
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");
+        internal static FeatureDefinitionActionAffinity ActionAffinityThiefFastHands { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityThiefFastHands");
         internal static FeatureDefinitionActionAffinity ActionAffinityTraditionGreenMageLeafScales { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionGreenMageLeafScales");
         internal static FeatureDefinitionActionAffinity ActionAffinityUncannyDodge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityUncannyDodge");
     }
