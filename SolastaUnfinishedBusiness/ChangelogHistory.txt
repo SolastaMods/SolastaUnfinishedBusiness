@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.88:
+
+- added Path of the Yeoman subclass
+- promoted Wizard Graviturgist subclass from BETA
+
 1.4.33.87:
 
 - added Binding Ice and Gravity Sinkhole spells [beta]

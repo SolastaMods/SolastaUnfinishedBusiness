@@ -1,8 +1,4 @@
 Open Mod UI > Tools and click History for full change details:
 
-- added Binding Ice and Gravity Sinkhole spells [beta]
-- added Infernal Constitution feat [need Palace of Ice DLC]
-- added Magnify Gravity, Pulse Wave, and Toll the Dead spells
-- added Wizard Graviturgist subclass [beta]
-- fixed custom features level up panel registering invocations from other heroes
-- fixed Innovation Artillerist's eldritch cannons not offering respective powers
+- added Path of the Yeoman subclass
+- promoted Wizard Graviturgist subclass from BETA
