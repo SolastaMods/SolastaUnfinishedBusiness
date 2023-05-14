@@ -2,10 +2,11 @@
 
 1.4.33.88:
 
-- added Path of the Yeoman subclass
-- adjusted Merciless fighting style applying endless fear
-- altered Binding Ice and Toll the Dead spells to be like TT
-- took Wizard Graviturgist subclass off beta
+- added "Enable characters on fire to emit light" house rules setting
+- added Path of the Yeoman and Wizard Graviturgist [off beta] subclasses
+- changed Binding Ice and Toll the Dead spells to behave like tabletop
+- fixed Inventor's quick wit feature combat log display
+- fixed Merciless fighting style applying endless fear
 
 1.4.33.87:
 
