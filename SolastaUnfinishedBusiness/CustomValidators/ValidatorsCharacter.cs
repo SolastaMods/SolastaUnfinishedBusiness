@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Models;
@@ -76,16 +77,19 @@ internal static class ValidatorsCharacter
             LocationDefinitions.LightingState.Unlit,
             LocationDefinitions.LightingState.Dim)(character);
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
         return character => conditions.Any(character.HasConditionOfType);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
     {
         return character => !conditions.Any(character.HasConditionOfType);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static IsCharacterValidHandler HasAnyOfLightingStates(
         params LocationDefinitions.LightingState[] lightingStates)
     {
@@ -97,16 +101,19 @@ internal static class ValidatorsCharacter
         };
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasMainHandWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
     {
         return character => ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), weaponTypeDefinition);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasOffhandWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
     {
         return character => ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), weaponTypeDefinition);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
     {
         return character =>
@@ -114,6 +121,7 @@ internal static class ValidatorsCharacter
             ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), weaponTypeDefinition);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsCharacterValidHandler HasUsedWeaponType(WeaponTypeDefinition weaponTypeDefinition)
     {
         return character =>
@@ -125,6 +133,7 @@ internal static class ValidatorsCharacter
         };
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static void RegisterWeaponTypeUsed(
         GameLocationCharacter gameLocationCharacter,
         RulesetAttackMode attackMode)
@@ -146,6 +155,7 @@ internal static class ValidatorsCharacter
     // BOOL VALIDATORS
     //
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetActor character, WeaponDescription weaponDescription)
     {
         var monkWeaponSpecializations = character.GetSubFeaturesByType<CharacterContext.MonkWeaponSpecialization>();
@@ -154,12 +164,14 @@ internal static class ValidatorsCharacter
                monkWeaponSpecializations.Exists(x => x.WeaponType == weaponDescription.WeaponTypeDefinition);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsMonkWeapon(this RulesetCharacter character, ItemDefinition itemDefinition)
     {
         return itemDefinition != null && itemDefinition.IsWeapon &&
                character.IsMonkWeapon(itemDefinition.WeaponDescription);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsFreeOffhandVanilla(RulesetCharacter character)
     {
         var offHand = character.GetOffhandWeapon();
@@ -168,11 +180,13 @@ internal static class ValidatorsCharacter
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool IsFreeOffhand(RulesetCharacter character)
     {
         return character.GetOffhandWeapon() == null;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class
     {
         return character.conditionsByCategory
@@ -180,6 +194,7 @@ internal static class ValidatorsCharacter
                 .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>()));
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool HasArmorCategory(RulesetCharacter character, string category)
     {
         // required for wildshape scenarios
