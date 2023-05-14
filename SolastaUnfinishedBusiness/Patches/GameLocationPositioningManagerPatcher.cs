@@ -5,10 +5,9 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 using TA;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -43,45 +42,7 @@ public static class GameLocationPositioningManagerPatcher
         [UsedImplicitly]
         public static void Postfix(GameLocationCharacter character)
         {
-            if (!Main.Settings.EnableCharactersOnFireToEmitLight)
-            {
-                return;
-            }
-
-            var rulesetCharacter = character.RulesetCharacter;
-
-            if (rulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
-            {
-                return;
-            }
-
-            var monstersThatEmitLight = new List<MonsterDefinition>
-            {
-                DatabaseHelper.MonsterDefinitions.CubeOfLight,
-                DatabaseHelper.MonsterDefinitions.Fire_Elemental,
-                DatabaseHelper.MonsterDefinitions.Fire_Jester,
-                DatabaseHelper.MonsterDefinitions.Fire_Osprey,
-                DatabaseHelper.MonsterDefinitions.Fire_Spider
-            };
-
-            if (!monstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
-            {
-                return;
-            }
-
-            rulesetCharacterMonster.PersonalLightSource = new RulesetLightSource(
-                AdditionalDamageBrandingSmite.LightSourceForm.Color,
-                2,
-                4,
-                AdditionalDamageBrandingSmite.LightSourceForm.GraphicsPrefabAssetGUID,
-                RuleDefinitions.LightSourceType.Basic,
-                rulesetCharacterMonster.MonsterDefinition.Name,
-                rulesetCharacterMonster.Guid);
-
-            rulesetCharacterMonster.PersonalLightSource.Register(true);
-
-            ServiceRepository.GetService<IGameLocationVisibilityService>()?
-                .AddCharacterLightSource(character, rulesetCharacterMonster.PersonalLightSource);
+            SrdAndHouseRulesContext.AddLightSourceIfNeeded(character);
         }
     }
 }

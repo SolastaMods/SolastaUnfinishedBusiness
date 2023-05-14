@@ -75,7 +75,8 @@ ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Re
 ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
 ModUi/&EnableCharacterChecker=Enable the Character Checker button on Main Screen > Characters
 ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
-ModUi/&EnableCharactersOnFireToEmitLight=Enable characters on fire to emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Enable the cheats menu
+ModUi/&EnableCharactersOnFireToEmitLight=Enable characters on fire to emit light <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
+ModUi/&EnableCheatMenu=Enable the cheats menu
 ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
 ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18

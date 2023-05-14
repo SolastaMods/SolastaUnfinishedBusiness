@@ -69,6 +69,15 @@ internal static class SrdAndHouseRulesContext
 
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
+    private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
+    {
+        CubeOfLight,
+        Fire_Elemental,
+        Fire_Jester,
+        Fire_Osprey,
+        Fire_Spider
+    };
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void LateLoad()
@@ -94,6 +103,104 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
+    }
+
+    internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster rulesetCharacterMonster)
+        {
+            return;
+        }
+
+        if (!MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster);
+    }
+
+    internal static void AddLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (rulesetCondition != null && !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (rulesetActor is not RulesetCharacterMonster rulesetCharacterMonster)
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
+
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster);
+    }
+
+    private static void AddLightSource(
+        GameLocationCharacter gameLocationCharacter,
+        RulesetCharacterMonster rulesetCharacterMonster)
+    {
+        var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
+
+        rulesetCharacterMonster.PersonalLightSource = new RulesetLightSource(
+            lightSourceForm.Color,
+            2,
+            4,
+            lightSourceForm.GraphicsPrefabAssetGUID,
+            LightSourceType.Basic,
+            rulesetCharacterMonster.MonsterDefinition.Name,
+            rulesetCharacterMonster.Guid);
+
+        rulesetCharacterMonster.PersonalLightSource.Register(true);
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacterMonster.PersonalLightSource);
+    }
+
+    internal static void RemoveLightSourceIfNeeded(RulesetActor __instance, RulesetCondition rulesetCondition)
+    {
+        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        {
+            return;
+        }
+
+        if (!rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        {
+            return;
+        }
+
+        if (__instance is not RulesetCharacterMonster rulesetCharacterMonster)
+        {
+            return;
+        }
+
+        if (MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        {
+            return;
+        }
+
+        var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
+
+        ServiceRepository.GetService<IGameLocationVisibilityService>()?
+            .RemoveCharacterLightSource(gameLocationMonster, rulesetCharacterMonster.PersonalLightSource);
+
+        rulesetCharacterMonster.PersonalLightSource.Unregister();
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
