@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggeste
 ModUi/&AddToStore=Add to store
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
-ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>
 ModUi/&AllItemInDm=All items in DM
 ModUi/&AllRecipesInDm=All recipes in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
@@ -150,7 +149,7 @@ ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavio
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Items in DM
 ModUi/&Items=<color=#F0DAA0>Items:</color>
-ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
+ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>

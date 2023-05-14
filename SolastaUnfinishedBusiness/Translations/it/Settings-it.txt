@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiatore <i><color=#F0DAA0>[s
 ModUi/&AddToStore=Aggiungi al negozio
 ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia installato questa mod
-ModUi/&Adventure=<color=#F0DAA0>Avventura:</color>
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>

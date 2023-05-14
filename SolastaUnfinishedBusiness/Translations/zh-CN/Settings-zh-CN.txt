@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[建�
 ModUi/&AddToStore=添加到商店
 ModUi/&Advanced=<color=#F0DAA0>高级：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&AdvancedHelp=.<b><color=#C04040E0>注意：</color></b>这些设置将要求玩家安装此模组
-ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
 ModUi/&AllItemInDm=DM中的所有项目
 ModUi/&AllRecipesInDm=冒险中的所有配方
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+允许所有玩家进行叙述序列</i>

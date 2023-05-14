@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furtos <i><color=#F0DAA0>[
 ModUi/&AddToStore=Adicionar à loja
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
-ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
 ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>

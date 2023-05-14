@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[
 ModUi/&AddToStore=Ajouter au magasin
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
-ModUi/&Adventure=<color=#F0DAA0>Aventure :</color>
 ModUi/&AllItemInDm=Tous les articles en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>

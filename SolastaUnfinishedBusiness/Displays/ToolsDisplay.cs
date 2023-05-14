@@ -10,31 +10,16 @@ internal static class ToolsDisplay
 {
     internal const float DefaultFastTimeModifier = 1.5f;
 
-    private static bool DisplayAdventureToggle { get; set; }
-
-    private static bool DisplayFactionRelationsToggle { get; set; }
-
     private static bool DisplaySettingsToggle { get; set; } = true;
 
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
 
-    private static void SetFactionRelation(string name, int value)
-    {
-        var service = ServiceRepository.GetService<IGameFactionService>();
-
-        service?.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
-            value - service.FactionRelations[name], "",
-            null /* this string and monster doesn't matter if we're using "SetValue" */);
-    }
-
     internal static void DisplayTools()
     {
         DisplayGeneral();
         DisplayAdventure();
-        DisplayFactionRelations();
         DisplaySettings();
-
         UI.Label();
     }
 
@@ -125,23 +110,9 @@ internal static class ToolsDisplay
 
     private static void DisplayAdventure()
     {
-        var toggle = DisplayAdventureToggle;
-
         UI.Label();
 
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Adventure"), ref toggle))
-        {
-            DisplayAdventureToggle = toggle;
-        }
-
-        if (!DisplayAdventureToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.NoExperienceOnLevelUp;
+        var toggle = Main.Settings.NoExperienceOnLevelUp;
         if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.NoExperienceOnLevelUp = toggle;
@@ -228,67 +199,6 @@ internal static class ToolsDisplay
             UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width((float)100));
             UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width((float)100));
             UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width((float)100));
-        }
-    }
-
-    private static void DisplayFactionRelations()
-    {
-        var toggle = DisplayFactionRelationsToggle;
-
-        UI.Label();
-
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle))
-        {
-            DisplayFactionRelationsToggle = toggle;
-        }
-
-        if (!DisplayFactionRelationsToggle)
-        {
-            return;
-        }
-
-        UI.Label();
-
-        var flip = true;
-        var gameCampaign = Gui.GameCampaign;
-        var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
-
-        // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-        if (gameFactionService != null && gameCampaign != null &&
-            gameCampaign.CampaignDefinitionName != "UserCampaign")
-        {
-            foreach (var faction in gameFactionService.RegisteredFactions)
-            {
-                if (faction.BuiltIn)
-                {
-                    // These are things like monster factions, generally set to a specific relation and can't be changed.
-                    continue;
-                }
-
-                if (faction.GuiPresentation.Hidden)
-                {
-                    // These are things like Silent Whispers and Church Of Einar that are not fully implemented factions.
-                    continue;
-                }
-
-                var title = faction.FormatTitle();
-
-                title = flip ? title.Khaki() : title.White();
-
-                var intValue = gameFactionService.FactionRelations[faction.Name];
-
-                if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
-                        faction.MaxRelationCap, 0, "", UI.AutoWidth()))
-                {
-                    SetFactionRelation(faction.Name, intValue);
-                }
-
-                flip = !flip;
-            }
-        }
-        else
-        {
-            UI.Label(Gui.Localize("ModUi/&FactionHelp"));
         }
     }
 

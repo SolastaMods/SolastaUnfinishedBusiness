@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA
 ModUi/&AddToStore=Zum Shop hinzufügen
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
-ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative Sequenzen</i>

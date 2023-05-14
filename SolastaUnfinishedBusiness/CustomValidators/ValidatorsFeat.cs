@@ -197,7 +197,7 @@ internal static class ValidatorsFeat
 
             var levels = hero.ClassesHistory.Count;
 
-            return Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels
+            return Main.Settings.DisableLevelPrerequisitesOnModFeats || levels >= minLevels
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
