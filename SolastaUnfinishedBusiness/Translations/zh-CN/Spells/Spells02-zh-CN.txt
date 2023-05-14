@@ -1,7 +1,7 @@
+Condition/&ConditionGrappledRestrainedIceBoundDescription=原地冻结一轮。
+Condition/&ConditionGrappledRestrainedIceBoundTitle=冰封
 Condition/&ConditionGrappledRestrainedSpellWebDescription=你必须进行一次力量豁免，以摆脱蛛网。
 Condition/&ConditionGrappledRestrainedSpellWebTitle=被蛛网捕获
-Condition/&ConditionIceBoundDescription=原地冻结一轮。
-Condition/&ConditionIceBoundTitle=冰封
 Condition/&ConditionMirrorImageDescription=敌人可能会意外地瞄准这个副本而不是你。如果重复被击中，它就会消失。
 Condition/&ConditionMirrorImageTitle=镜像复制
 Feedback/&MirrorImageAttackerHasSense={0} 有 {1} 并忽略 {2}

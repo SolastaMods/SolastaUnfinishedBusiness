@@ -20,3 +20,4 @@ Feature/&ProficiencyPathOfTheYeomanFletcherDescription=获得铁匠工具熟练�
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=箭匠
 Subclass/&PathOfTheYeomanDescription=沿袭自卫军道途的野蛮人放下了近战武器，转而拿起长弓。他们的力量丝毫不逊于其他道途的野蛮人，他们的箭能射杀最强大的敌人，他们一心一意的专注防御，将本已强大的防御能力提升到了令人难以置信的高度。
 Subclass/&PathOfTheYeomanTitle=自卫军道途
+Tooltip/&BulwarkConcentration=禁用壁垒

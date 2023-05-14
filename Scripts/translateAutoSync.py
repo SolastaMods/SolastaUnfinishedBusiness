@@ -93,6 +93,11 @@ def sync_folder(root_folder_name, folder_name, code):
 def main():
     # sync cn language
     sync_folder("en", "en", "zh-CN")
+#     sync_folder("en", "en", "pt")
+#     sync_folder("en", "en", "es")
+#     sync_folder("en", "en", "fr")
+#     sync_folder("en", "en", "de")
+#     sync_folder("en", "en", "it")
 
 if __name__ == "__main__":
     main()
