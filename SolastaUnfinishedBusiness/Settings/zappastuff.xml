@@ -3,12 +3,12 @@
   <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
-  <DisplayRacesToggle>true</DisplayRacesToggle>
-  <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
+  <DisplayRacesToggle>false</DisplayRacesToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>true</DisplayFeatsToggle>
+  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
+  <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
@@ -216,6 +216,7 @@
     <string>RangerSurvivalist</string>
     <string>SorcerousFieldManipulator</string>
     <string>WizardGraviturgist</string>
+    <string>PathOfTheYeoman</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -378,6 +379,7 @@
     <string>FeatRetinueTouchedCha</string>
     <string>FeatRetinueTouchedInt</string>
     <string>FeatRetinueTouchedWis</string>
+    <string>FeatInfernalConstitution</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>

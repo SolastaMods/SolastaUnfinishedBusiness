@@ -1,6 +1,6 @@
 Open Mod UI > Tools and click History for full change details:
 
 - added Path of the Yeoman subclass
-- changed Binding Ice and Toll the Dead to be closer to TT
-- fixed Merciless fighting style applying endless fear
+- adjusted Merciless fighting style applying endless fear
+- altered Binding Ice and Toll the Dead spells to be like TT
 - took Wizard Graviturgist subclass off beta

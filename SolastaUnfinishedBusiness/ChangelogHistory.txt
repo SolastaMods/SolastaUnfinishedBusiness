@@ -3,8 +3,8 @@
 1.4.33.88:
 
 - added Path of the Yeoman subclass
-- changed Binding Ice and Toll the Dead to be closer to TT
-- fixed Merciless fighting style applying endless fear
+- adjusted Merciless fighting style applying endless fear
+- altered Binding Ice and Toll the Dead spells to be like TT
 - took Wizard Graviturgist subclass off beta
 
 1.4.33.87:
