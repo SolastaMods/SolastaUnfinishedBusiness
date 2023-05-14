@@ -188,6 +188,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizon")
+                    .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedMultiplicativeModifier(0)
                     .AddToDB())
             .AddToDB();
@@ -202,6 +203,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizonSaved")
+                    .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedMultiplicativeModifier(0.5f)
                     .AddToDB())
             .AddToDB();

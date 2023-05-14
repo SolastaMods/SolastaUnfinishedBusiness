@@ -819,6 +819,7 @@ internal static partial class SpellBuilders
 
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 
