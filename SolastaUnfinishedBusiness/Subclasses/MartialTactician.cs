@@ -27,11 +27,9 @@ internal sealed class MartialTactician : AbstractSubclass
     internal MartialTactician()
     {
         // BACKWARD COMPATIBILITY
-        BuildTacticalSurge();
-
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolGambitLearn1")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit)
             .AddToDB();
         // END BACKWARD
@@ -45,11 +43,13 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildEverVigilant(), BuildSharpMind(), GambitsBuilders.GambitPool,
                 GambitsBuilders.Learn4Gambit)
             .AddFeaturesAtLevel(7, BuildSharedVigilance(), BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8),
-                GambitsBuilders.Learn2Gambit, unlearn)
+                GambitsBuilders.Learn2Gambit,
+                unlearn)
             .AddFeaturesAtLevel(10, BuildStrategicPlan(), BuildGambitDieSize(DieType.D10),
                 unlearn)
             .AddFeaturesAtLevel(15, BuildBattleClarity(), BuildGambitPoolIncrease(),
-                GambitsBuilders.Learn2Gambit, unlearn)
+                GambitsBuilders.Learn2Gambit,
+                unlearn)
             .AddFeaturesAtLevel(18, BuildTacticalAwareness(), BuildGambitDieSize(DieType.D12),
                 unlearn)
             .AddToDB();
@@ -258,6 +258,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+#if false
     private static void BuildTacticalSurge()
     {
         const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
@@ -283,6 +284,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         feature.SetCustomSubFeatures(new TacticalSurge(GambitsBuilders.GambitPool, feature, condition));
     }
+#endif
 
     private class RefundPowerUseAttackEffectAfterCrit : IAttackEffectAfterDamage
     {
@@ -436,6 +438,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
+#if false
     private class TacticalSurge : IActionFinished
     {
         private readonly ConditionDefinition condition;
@@ -500,6 +503,7 @@ internal sealed class MartialTactician : AbstractSubclass
             character.UpdateUsageForPower(power, charges);
         }
     }
+#endif
 
     private sealed class PhysicalAttackInitiatedTacticalAwareness : IPhysicalAttackInitiated
     {

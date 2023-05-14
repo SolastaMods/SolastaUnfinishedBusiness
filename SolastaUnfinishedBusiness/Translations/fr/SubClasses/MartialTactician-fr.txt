@@ -1,5 +1,3 @@
-Condition/&ConditionTacticianTacticalSurgeDescription=Reconstituez 2 <b>dés Gambit</b> au début de votre tour.
-Condition/&ConditionTacticianTacticalSurgeTitle=Surtension tactique
 Feature/&AttributeModifierTacticianEverVigilantDescription=Gagnez votre bonus de modificateur d'Intelligence (minimum 1) à vos jets d'initiative.
 Feature/&AttributeModifierTacticianEverVigilantTitle=Toujours vigilant
 Feature/&FeatureAdaptiveStrategyDescription=Gagnez un <b>dé de Gambit</b> chaque fois que vous obtenez un échec critique ou un coup critique lors de votre attaque. Ce gain ne peut se produire qu'une seule fois par tour et ne peut pas vous faire dépasser votre limite maximale de dés de gambit.
@@ -22,10 +20,6 @@ Feature/&FeatureTacticianGambitDieSizeD12Description=Votre <b>dé Gambit</b> est
 Feature/&FeatureTacticianGambitDieSizeD12Title=<b>Dé Gambit</b> Taille (d12)
 Feature/&FeatureTacticianGambitDieSizeD8Description=Votre <b>dé Gambit</b> est mis à niveau vers D8.
 Feature/&FeatureTacticianGambitDieSizeD8Title=<b>Dé Gambit</b> Taille (d8)
-Feature/&FeatureTacticianTacticalSurgeDescription=Lorsque vous utilisez <b>Action Surge</b>, vous regagnez 2 <b>dés Gambit</b> et pour la minute suivante, restaurez 1 <b>dé Gambit</b> supplémentaire à chaque fois que votre tour commence.
-Feature/&FeatureTacticianTacticalSurgeTitle=Bataille impromptue
-Feature/&InvocationPoolGambitLearn1Description=Apprenez 1 autre gambit.
-Feature/&InvocationPoolGambitLearn1Title=Gambit supplémentaire
 Feature/&InvocationPoolGambitLearn2Description=Apprenez 2 gambits supplémentaires.
 Feature/&InvocationPoolGambitLearn2Title=Gambits supplémentaires
 Feature/&InvocationPoolGambitLearn4Description=Apprenez 4 gambits - des manœuvres spéciales qui utilisent des <b>dés de gambit</b> et ajoutent généralement le lancer des <b>dés de gambit</b> aux dégâts de l'attaque. Certains des gambits permettent à la cible d'effectuer un jet de sauvegarde pour éviter les effets, le DD de ces gambits est de 8 + votre bonus de compétence + votre modificateur de Force ou de Dextérité ou d'Intelligence, selon le plus élevé.

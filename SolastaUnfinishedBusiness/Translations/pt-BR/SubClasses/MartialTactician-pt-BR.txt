@@ -1,5 +1,3 @@
-Condition/&ConditionTacticianTacticalSurgeDescription=Restaure 2 <b>dados de gambito</b> no início do seu turno.
-Condition/&ConditionTacticianTacticalSurgeTitle=Surto Tático
 Feature/&AttributeModifierTacticianEverVigilantDescription=Ganhe seu bônus modificador de Inteligência (mínimo 1) para suas jogadas de iniciativa.
 Feature/&AttributeModifierTacticianEverVigilantTitle=Sempre vigilante
 Feature/&FeatureAdaptiveStrategyDescription=Ganhe um <b>dado de gambito</b> sempre que obtiver uma falha crítica ou um acerto crítico em seu ataque. Este ganho pode ocorrer apenas uma vez por turno e não pode colocar você acima do seu limite máximo de dados de gambito.
@@ -22,10 +20,6 @@ Feature/&FeatureTacticianGambitDieSizeD12Description=Seu <b>dado de gambito</b> 
 Feature/&FeatureTacticianGambitDieSizeD12Title=<b>dado de aposta</b> Tamanho (d12)
 Feature/&FeatureTacticianGambitDieSizeD8Description=Seu <b>dado de gambito</b> é atualizado para D8.
 Feature/&FeatureTacticianGambitDieSizeD8Title=<b>dado de aposta</b> Tamanho (d8)
-Feature/&FeatureTacticianTacticalSurgeDescription=Ao usar <b>Action Surge</b>, você recupera 2 <b>dados de gambito</b> e, no próximo minuto, restaura mais 1 <b>dado de gambito</b> toda vez que seu turno começar.
-Feature/&FeatureTacticianTacticalSurgeTitle=Batalha improvisada
-Feature/&InvocationPoolGambitLearn1Description=Aprenda mais 1 gambito.
-Feature/&InvocationPoolGambitLearn1Title=Gambito Adicional
 Feature/&InvocationPoolGambitLearn2Description=Aprenda mais 2 gambitos.
 Feature/&InvocationPoolGambitLearn2Title=Gambitos Adicionais
 Feature/&InvocationPoolGambitLearn4Description=Aprenda 4 gambitos - manobras especiais que usam <b>dados de gambito</b> e geralmente adicionam rolagem dos <b>dados de gambito</b> ao dano do ataque. Algumas das artimanhas permitem que o alvo faça um teste de resistência para evitar efeitos, a CD dessas artimanhas é 8 + seu bônus de proficiência + seu modificador de Força ou Destreza ou Inteligência, o que for maior.
