@@ -128,7 +128,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
                     .SetDurationData(DurationType.Instantaneous)
                     .AddEffectForms(
                         EffectFormBuilder
