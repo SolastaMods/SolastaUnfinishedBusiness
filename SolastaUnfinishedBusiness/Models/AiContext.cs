@@ -9,18 +9,19 @@ internal static class AiContext
 {
     internal static void Load()
     {
-        BuildDecisionBreakFreeSpellWeb();
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb");
     }
 
-    private static void BuildDecisionBreakFreeSpellWeb()
+    private static void BuildDecisionBreakFreeFromCondition(string conditionName)
     {
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
         var decisionBreakFree = DecisionDefinitionBuilder
-            .Create(baseDecision, "DecisionBreakFreeSpellWeb")
+            .Create(baseDecision, $"DecisionBreakFree{conditionName}")
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        decisionBreakFree.Decision.activityType = "BreakFreeSpellWeb"; //"BreakFreeSpellWeb";
+        decisionBreakFree.Decision.activityType = "BreakFree";
         decisionBreakFree.Decision.Scorer.considerations.RemoveAll(x =>
             x.consideration.name is "HasEnemyInMeleeRange" or "IsNotFlyingTooHigh");
 
@@ -32,9 +33,8 @@ internal static class AiContext
             return;
         }
 
-        consideration.consideration.name = "HasConditionGrappledRestrainedSpellWeb";
-        consideration.consideration.consideration.stringParameter = "ConditionGrappledRestrainedSpellWeb";
-
+        consideration.consideration.name = $"Has{conditionName}";
+        consideration.consideration.consideration.stringParameter = conditionName;
 
         foreach (var decisionPackageDefinition in DatabaseRepository.GetDatabase<DecisionPackageDefinition>())
         {

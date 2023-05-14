@@ -8,7 +8,7 @@ using SolastaUnfinishedBusiness.Models;
 namespace TA.AI.Activities;
 
 [UsedImplicitly]
-public class BreakFreeSpellWeb : ActivityBase
+public class BreakFree : ActivityBase
 {
     [UsedImplicitly]
     public static ContextType GetContextType(DecisionDefinition _)

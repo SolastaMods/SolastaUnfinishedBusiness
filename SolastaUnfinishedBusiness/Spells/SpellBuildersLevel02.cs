@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
@@ -22,16 +23,13 @@ internal static partial class SpellBuilders
 
         var spriteReference = Sprites.GetSprite("WinterBreath", Resources.WinterBreath, 128);
 
-        var movementAffinityIceBound = FeatureDefinitionMovementAffinityBuilder
-            .Create("MovementAffinityIceBound")
-            .SetBaseSpeedMultiplicativeModifier(0)
+        var conditionGrappledRestrainedIceBound = ConditionDefinitionBuilder
+            .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedIceBound")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .AddToDB();
 
-        var conditionIceBound = ConditionDefinitionBuilder
-            .Create(ConditionHindered_By_Frost, "ConditionIceBound")
-            .SetOrUpdateGuiPresentation("ConditionIceBound", Category.Condition)
-            .SetFeatures(movementAffinityIceBound)
-            .AddToDB();
+        conditionGrappledRestrainedIceBound.specialDuration = false;
+        conditionGrappledRestrainedIceBound.specialInterruptions.Clear();
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -56,7 +54,7 @@ internal static partial class SpellBuilders
                 .AddEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(conditionIceBound, ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionGrappledRestrainedIceBound, ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build())
@@ -68,6 +66,15 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
+        spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+
+        spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
+        
         return spell;
     }
 
@@ -330,6 +337,7 @@ internal static partial class SpellBuilders
         var conditionRestrainedBySpellWeb = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         conditionRestrainedBySpellWeb.specialInterruptions.Clear();
@@ -345,8 +353,7 @@ internal static partial class SpellBuilders
                 .Create(Grease)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 4, 1)
                 .SetDurationData(DurationType.Hour, 1)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,
                     AttributeDefinitions.Dexterity,
