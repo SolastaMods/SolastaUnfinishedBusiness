@@ -218,7 +218,7 @@ internal static class SpellsContext
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
-        // RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
+        RegisterSpell(BuildGiftOfAlacrity(), 0, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMagnifyGravity(), 0, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
