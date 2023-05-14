@@ -123,8 +123,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionIceBound",
-          "conditionDefinition": "Definition:ConditionIceBound:a52cfee4-895e-5b3a-abf7-4176f6fa68d8",
+          "conditionDefinitionName": "ConditionGrappledRestrainedIceBound",
+          "conditionDefinition": "Definition:ConditionGrappledRestrainedIceBound:968f2f49-dd5a-5f60-99e0-fe22f189bad2",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -293,19 +293,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "72457772ad415eb4cb12c64cd8c649c4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "336226270d32b514d976b3c213bd1baa",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "ff72da1aae4219b4c89f7c06d6c7ebe0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
