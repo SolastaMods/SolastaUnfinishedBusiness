@@ -146,7 +146,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Darkness.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.GravitySinkhole, 128))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

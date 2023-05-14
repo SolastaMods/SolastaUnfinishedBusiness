@@ -187,12 +187,12 @@ internal sealed class SentinelFeatMarker : CustomReactionAttack
 
 internal class CanMakeAoOOnReachEntered : CustomReactionAttack
 {
-    public bool AllowRange { get; set; }
-
     public CanMakeAoOOnReachEntered()
     {
         Name = "ReactionAttackAoOEnter";
     }
+
+    public bool AllowRange { get; set; }
 }
 
 internal class CustomReactionAttack

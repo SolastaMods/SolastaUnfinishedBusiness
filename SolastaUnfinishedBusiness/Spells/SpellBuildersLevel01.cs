@@ -817,8 +817,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "MagnifyGravity";
 
-        var spriteReference = Sprites.GetSprite("EarthTremor", Resources.EarthTremor, 128, 128);
-
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
             .SetBaseSpeedMultiplicativeModifier(0.5f)
@@ -833,7 +831,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)

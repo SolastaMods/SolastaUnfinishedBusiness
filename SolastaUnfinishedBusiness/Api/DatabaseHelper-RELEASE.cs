@@ -336,13 +336,13 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionAdditionalActions
     {
-        internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } =
-            GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
+        internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
     }
     internal static class FeatureDefinitionAdditionalDamages
     {
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageConditionRaging { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageConditionRaging");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageDivineFavor { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDivineFavor");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHalfOrcSavageAttacks { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHalfOrcSavageAttacks");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");

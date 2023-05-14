@@ -19,7 +19,7 @@ internal static class CreditsDisplay
             "Fairy, Half-elf, Roguish Acrobat, Roguish Arcane Scoundrel, Roguish Duelist, Roguish Slayer, College of Guts, College of Life, " +
             "Circle of the Ancient Forest, Circle of the Eternal Grove, Wizard Bladedancer, Wizard Deadmaster, Sorcerous Field Manipulator, " +
             "Sorcerous Forceblade, Sorcerous Sorr-Akkath, Oath of Dread, Oath of Hatred, Path of the Elements, Path of the Reaver, " +
-            "Path of the Savagery, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, Martial Royal Knight, " +
+            "Path of the Savagery, Path of the Yeoman, Ranger Hellwalker, Ranger Lightbearer, Ranger Survivalist, Ranger Wildmaster, Martial Royal Knight, " +
             "Martial Weapon Master, Way of the Discordance, Way of the Silhouette, Way of the Tempest, Innovation Artillerist, Level 20, Multiclass"),
         ("TPABOBAP",
             "custom behaviors, game UI, infrastructure, gameplay, rules, quality of life, feats, fighting styles, invocations, metamagic, spells, " +
@@ -43,6 +43,7 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of the Light"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Holic75", "spells, Bolgrif"),
+        ("Earandil", "homebrew design [Path of the Savagery, Path of the Yeoman]"),
         ("Taco",
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",

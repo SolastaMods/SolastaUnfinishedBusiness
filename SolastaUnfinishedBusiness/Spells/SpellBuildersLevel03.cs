@@ -431,7 +431,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, ColorSpray.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Instantaneous)
