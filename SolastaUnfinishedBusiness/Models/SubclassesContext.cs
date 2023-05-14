@@ -30,7 +30,7 @@ internal static class SubclassesContext
         LoadSubclass(new PathOfTheReaver());
         LoadSubclass(new PathOfTheSavagery());
         LoadSubclass(new PathOfTheSpirits());
-        LoadSubclass(new PathOfTheYeoman(), true);
+        LoadSubclass(new PathOfTheYeoman());
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
@@ -99,7 +99,7 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardGraviturgist(), true);
+        LoadSubclass(new WizardGraviturgist());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring
