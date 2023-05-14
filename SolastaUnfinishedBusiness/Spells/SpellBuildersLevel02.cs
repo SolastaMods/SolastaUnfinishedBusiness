@@ -12,6 +12,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -26,6 +28,7 @@ internal static partial class SpellBuilders
         var conditionGrappledRestrainedIceBound = ConditionDefinitionBuilder
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedIceBound")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
             .AddToDB();
 
         conditionGrappledRestrainedIceBound.specialDuration = false;
@@ -67,14 +70,17 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         spell.EffectDescription.EffectParticleParameters.conditionParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionParticleReference;
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
+                .conditionParticleReference;
 
         spell.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionStartParticleReference;
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
+                .conditionStartParticleReference;
 
         spell.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
-            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
-        
+            PowerDomainElementalHeraldOfTheElementsCold.EffectDescription.EffectParticleParameters
+                .conditionEndParticleReference;
+
         return spell;
     }
 
