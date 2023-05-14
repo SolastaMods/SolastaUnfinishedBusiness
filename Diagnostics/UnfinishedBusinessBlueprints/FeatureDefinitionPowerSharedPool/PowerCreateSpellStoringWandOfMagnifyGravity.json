@@ -331,7 +331,7 @@
     "description": "Create a wand that can cast <b>Magnify Gravity (I)</b> spell using your Inventor spell attack modifier and save DC.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e6c4119a-dca8-5e6b-a240-1587de7caef6",
+      "m_AssetGUID": "13c18a25-d293-594f-bfc5-bb0cbb20d552",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

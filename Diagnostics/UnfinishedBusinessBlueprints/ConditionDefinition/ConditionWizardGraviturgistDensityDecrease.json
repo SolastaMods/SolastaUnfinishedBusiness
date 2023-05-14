@@ -10,7 +10,7 @@
     "Definition:SavingThrowAffinityWizardGraviturgistDensityDecrease:5ddbc061-428c-50c8-805f-dd5129b10f29"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
+  "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,

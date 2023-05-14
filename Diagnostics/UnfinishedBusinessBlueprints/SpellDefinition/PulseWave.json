@@ -352,9 +352,9 @@
     "description": "Spell/&PulseWaveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6ebf6e9c2808dcc4c88f388cb6d0acb3",
-      "m_SubObjectName": "ColorSpray",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3c17667a-9e47-5c04-a442-db4edfb29f55",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
