@@ -84,7 +84,7 @@ public static class RulesetCharacterMonsterPatcher
             var unstack = new Action<
                 List<RulesetAttributeModifier>,
                 RulesetCharacterMonster
-            >(ArmorClassStacking.ProcessWildShapeAc).Method;
+            >(MulticlassWildshapeContext.ArmorClassStacking.ProcessWildShapeAc).Method;
 
             return instructions.ReplaceCalls(sort, "RulesetCharacterMonster.RefreshArmorClass",
                 new CodeInstruction(OpCodes.Ldarg_0),

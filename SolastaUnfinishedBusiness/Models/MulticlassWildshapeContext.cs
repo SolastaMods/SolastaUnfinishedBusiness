@@ -245,4 +245,23 @@ internal static class MulticlassWildshapeContext
             }
         }
     }
+
+    internal static class ArmorClassStacking
+    {
+        internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers,
+            RulesetCharacterMonster monster)
+        {
+            //process only for wild-shaped heroes
+            if (monster.OriginalFormCharacter is RulesetCharacterHero)
+            {
+                var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+
+                RefreshWildShapeAcFeatures(monster, ac);
+                UpdateWildShapeAcTrends(modifiers, monster, ac);
+            }
+
+            //sort modifiers, since we replaced this call
+            RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
+        }
+    }
 }
