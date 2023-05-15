@@ -57,8 +57,6 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        // LEVEL 02
-
         // Mana Shield
 
         const string MANA_SHIELD_NAME = $"FeatureSet{Name}ManaShield";
@@ -173,8 +171,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 PowerArcaneFighterEnchantWeapon,
                 featureSetMartialTraining,
-                autoPreparedSpells)
-            .AddFeaturesAtLevel(2,
+                autoPreparedSpells,
                 featureSetManaShield)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
