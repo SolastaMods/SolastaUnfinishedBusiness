@@ -839,10 +839,10 @@ internal static class GameLocationBattleManagerTweaks
                         // This is used to only offer smites on critical hits
                         if (!criticalHit &&
                             // allows EldritchSmite to pass through
-                            featureDefinition is not FeatureDefinitionAdditionalDamage &&
+                            (featureDefinition is not FeatureDefinitionAdditionalDamage ||
                             // allows PaladinSmite to pass through
                             Main.Settings.AddPaladinSmiteToggle &&
-                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)))
                         {
                             break;
                         }
