@@ -935,6 +935,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         StartCoroutine(BlendToLevelGroup(level));
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator BlendToLevelGroup(int level)
     {
         SpellsByLevelGroup group = null;
@@ -943,7 +944,6 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
         foreach (Transform child in spellsByLevelTable)
         {
-            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             var spellByLevelGroup = child.GetComponent<SpellsByLevelGroup>();
 
             if (shouldAssignGroup)

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using UnityEngine;
 using static ActionDefinitions;
+using static FeatureDefinitionAttributeModifier;
 using static FeatureDefinitionFeatureSet;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -68,8 +69,9 @@ internal static class MulticlassWildshapeContext
             {
                 var strikeDefinition = hero.UnarmedStrikeDefinition;
 
-                bonusUnarmedAttack = monster.RefreshAttackMode(ActionType.Bonus, strikeDefinition,
-                    strikeDefinition.WeaponDescription, true, monster.attackModifiers, monster.FeaturesOrigin);
+                bonusUnarmedAttack = monster.RefreshAttackMode(
+                    ActionType.Bonus, strikeDefinition, strikeDefinition.WeaponDescription, true,
+                    monster.attackModifiers, monster.FeaturesOrigin);
                 bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
 
                 if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
@@ -165,35 +167,27 @@ internal static class MulticlassWildshapeContext
         ac.BaseValue = 0;
 
         //basic AC - sets AC to 10
-        var mod = RulesetAttributeModifier.BuildAttributeModifier(
-            FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-            10, TagMonsterBase
-        );
+        var mod = RulesetAttributeModifier.BuildAttributeModifier(AttributeModifierOperation.Set, 10, TagMonsterBase);
 
         ac.AddModifier(mod);
 
         //natural armor of the monster
         mod = RulesetAttributeModifier.BuildAttributeModifier(
-            FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
-            monster.MonsterDefinition.ArmorClass, TagNaturalAc
-        );
+            AttributeModifierOperation.ForceIfBetter, monster.MonsterDefinition.ArmorClass, TagNaturalAc);
 
         ac.AddModifier(mod);
 
         //DEX bonus to AC
         mod = RulesetAttributeModifier.BuildAttributeModifier(
-            FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus,
-            0,
-            AttributeDefinitions.TagAbilityScore,
-            AttributeDefinitions.Dexterity
-        );
+            AttributeModifierOperation.AddAbilityScoreBonus, 0, AttributeDefinitions.TagAbilityScore,
+            AttributeDefinitions.Dexterity);
 
         ac.AddModifier(mod);
     }
 
-    internal static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
+    private static void RefreshWildShapeAcFeatures(RulesetCharacter rulesetCharacter, RulesetAttribute ac)
     {
-        if (monster.OriginalFormCharacter is not RulesetCharacterHero hero)
+        if (rulesetCharacter.OriginalFormCharacter is not RulesetCharacterHero hero)
         {
             return;
         }
@@ -202,46 +196,54 @@ internal static class MulticlassWildshapeContext
 
         ac.RemoveModifiersByTags(TagWildShape);
 
-        monster.FeaturesToBrowse.Clear();
+        rulesetCharacter.FeaturesToBrowse.Clear();
 
         foreach (var pair in hero.ActiveFeatures
                      .Where(pair =>
                          pair.Key.Contains(AttributeDefinitions.TagClass) ||
                          pair.Key.Contains(AttributeDefinitions.TagSubclass)))
         {
-            EnumerateFeaturesToBrowseHierarchicaly<FeatureDefinition>(pair.Value, monster.FeaturesToBrowse,
-                RuleDefinitions.FeatureSourceType.MonsterFeature, null, hero);
+            EnumerateFeaturesToBrowseHierarchicaly<FeatureDefinition>(
+                pair.Value, rulesetCharacter.FeaturesToBrowse, FeatureSourceType.MonsterFeature, null, hero);
         }
 
-        monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
+        rulesetCharacter.RefreshArmorClassInFeatures(
+            ruleset, ac, rulesetCharacter.FeaturesToBrowse, TagWildShape, FeatureSourceType.CharacterFeature,
+            string.Empty);
     }
 
-    internal static void UpdateWildShapeAcTrends(List<RulesetAttributeModifier> modifiers,
-        RulesetCharacterMonster monster, RulesetAttribute ac)
+    private static void UpdateWildShapeAcTrends(
+        List<RulesetAttributeModifier> modifiers,
+        RulesetCharacterMonster monster,
+        RulesetAttribute ac)
     {
         //Add trends for built-in AC mods (base ac, natural armor, dex bonus)
         foreach (var mod in modifiers)
         {
             if (mod.Tags.Contains(TagMonsterBase))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
-                    RuleDefinitions.FeatureSourceType.Base, string.Empty, monster, mod) { additive = false });
+                ac.ValueTrends.Add(
+                    new TrendInfo((int)mod.value, FeatureSourceType.Base, string.Empty, monster, mod)
+                    {
+                        additive = false
+                    });
             }
             else if (mod.Tags.Contains(TagNaturalAc))
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo((int)mod.value,
-                    RuleDefinitions.FeatureSourceType.ExplicitFeature, NaturalAcTitle, monster, mod)
-                {
-                    additive = false
-                });
+                ac.ValueTrends.Add(
+                    new TrendInfo((int)mod.value, FeatureSourceType.ExplicitFeature, NaturalAcTitle, monster, mod)
+                    {
+                        additive = false
+                    });
             }
-            else if (mod.operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddAbilityScoreBonus
-                     && mod.SourceAbility == AttributeDefinitions.Dexterity)
+            else if (mod.operation == AttributeModifierOperation.AddAbilityScoreBonus &&
+                     mod.SourceAbility == AttributeDefinitions.Dexterity)
             {
-                ac.ValueTrends.Add(new RuleDefinitions.TrendInfo(Mathf.RoundToInt(mod.Value),
-                    RuleDefinitions.FeatureSourceType.AbilityScore, mod.SourceAbility, monster,
-                    mod) { additive = true });
+                ac.ValueTrends.Add(
+                    new TrendInfo((int)mod.Value, FeatureSourceType.AbilityScore, mod.SourceAbility, monster, mod)
+                    {
+                        additive = true
+                    });
             }
         }
     }
