@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.89:
+
+- improved "Characters on fire should emit light" to also extend to heroes
+
 1.4.33.88:
 
 - added "Characters on fire should emit light" house rules setting
