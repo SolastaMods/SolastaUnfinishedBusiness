@@ -696,7 +696,7 @@ internal static partial class SpellBuilders
                     AttributeDefinitions.Wisdom,
                     true,
                     EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(CircleOfDeath.EffectDescription.EffectParticleParameters)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
