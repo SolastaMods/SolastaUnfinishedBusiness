@@ -114,8 +114,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetShowCasting(true)
             .AddToDB();
 
-        conditionDensityIncrease.CancellingConditions.Add(conditionDensityDecrease);
-        conditionDensityDecrease.CancellingConditions.Add(conditionDensityIncrease);
+        conditionDensityIncrease.cancellingConditions.Add(conditionDensityDecrease);
+        conditionDensityDecrease.cancellingConditions.Add(conditionDensityIncrease);
 
         //
         // Gravity Well
