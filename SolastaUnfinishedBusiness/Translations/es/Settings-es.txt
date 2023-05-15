@@ -191,7 +191,6 @@ ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
-ModUi/&Settings=<color=#F0DAA0>Configuración:</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo en <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=. Cargar una configuración exportada

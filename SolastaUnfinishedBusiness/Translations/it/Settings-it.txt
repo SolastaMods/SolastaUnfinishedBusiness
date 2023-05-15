@@ -191,7 +191,6 @@ ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura dei Nani</color> <color=white>probabilità che appaia la barba</color>
-ModUi/&Settings=<color=#F0DAA0>Impostazioni:</color>
 ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=. In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n. Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=. Carica un'impostazione esportata
