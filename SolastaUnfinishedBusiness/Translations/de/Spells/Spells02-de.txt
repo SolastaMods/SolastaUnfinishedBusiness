@@ -1,5 +1,5 @@
 Condition/&ConditionGrappledRestrainedIceBoundDescription=An Ort und Stelle eingefroren.
-Condition/&ConditionGrappledRestrainedIceBoundTitle=Gebunden durch Eis
+Condition/&ConditionGrappledRestrainedIceBoundTitle=Von Eis gehalten
 Condition/&ConditionGrappledRestrainedSpellWebDescription=Um diesen Zustand zu überwinden, müssen Sie eine Fähigkeitsprüfung auf Stärke durchführen.
 Condition/&ConditionGrappledRestrainedSpellWebTitle=Vom Web eingeschränkt
 Condition/&ConditionMirrorImageDescription=Feinde können anstelle von Ihnen versehentlich dieses Duplikat anvisieren. Wenn ein Duplikat gefunden wird, verschwindet es.
@@ -11,7 +11,7 @@ Feedback/&MirrorImageRetargetRoll={0} würfelt {2} Lockwürfel: {1}
 Item/&ItemShadowBladeDescription=Es verursacht bei einem Treffer 2W8 psychischen Schaden und verfügt über die Eigenschaften Finesse, Licht und Werfen.
 Item/&ItemShadowBladeTitle=Schattenklinge
 Spell/&BindingIceDescription=Ein Ausbruch kalter Energie geht in einem 30-Fuß-Kegel von Ihnen aus. Jede Kreatur in diesem Bereich muss einen Konstitutionsrettungswurf durchführen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 3W8 Kälteschaden und wird 1 Minute lang durch Eisformationen behindert, oder bis sie eine Aktion ausführt, um das Eis aufzubrechen. Die Geschwindigkeit einer Kreatur, die durch Eis behindert wird, wird auf 0 reduziert. Bei einem erfolgreichen Rettungswurf erleidet die Kreatur halb so viel Schaden und wird nicht durch Eis behindert.
-Spell/&BindingIceTitle=Bindendes Eis
+Spell/&BindingIceTitle=Gebundenes Eis
 Spell/&ColorBurstDescription=Lass einen leuchtenden Würfel platzen, der jeden im Umkreis von 10 Fuß kurzzeitig blendet. 8W10 ist die Anzahl der Trefferpunkte von Kreaturen, die dieser Zauber beeinflussen kann.
 Spell/&ColorBurstTitle=Farbexplosion
 Spell/&MirrorImageDescription=In Ihrem Raum erscheinen drei illusorische Duplikate Ihrer selbst. Bis der Zauber endet, würfeln Sie jedes Mal, wenn eine Kreatur Sie mit einem Angriff angreift, einen W20, um festzustellen, ob der Angriff stattdessen auf eines Ihrer Duplikate abzielt.\nWenn Sie 3 Duplikate haben, müssen Sie eine 6 oder höher würfeln, um die Angriffsstärke zu ändern Ziel auf ein Duplikat. Bei 2 Duplikaten müssen Sie eine 8 oder höher würfeln. Bei 1 Duplikat müssen Sie eine 11 oder höher würfeln.\nDie Rüstungsklasse eines Duplikats entspricht 10 + Ihrem Geschicklichkeitsmodifikator. Trifft ein Angriff ein Duplikat, wird das Duplikat zerstört. Ein Duplikat kann nur durch einen Angriff zerstört werden, der es trifft. Alle anderen Schäden und Effekte werden ignoriert. Der Zauber endet, wenn alle drei Duplikate zerstört sind.\nEine Kreatur ist von diesem Zauber nicht betroffen, wenn sie geblendet ist oder über Blindsicht, Wahrsicht oder Tremorsense verfügt (gilt nicht, wenn Sie den Boden nicht berühren).

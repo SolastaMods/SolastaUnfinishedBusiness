@@ -1,4 +1,9 @@
 Open Mod UI > Tools and click History for full change details:
 
-- improved "Characters on fire should emit light" on heroes
-- improved Wizard Graviturgist special effects on powers
+- changed Sorcerer Forceblade to grant mana shield at level 1
+- changed "Characters on fire should emit light" to also apply on heroes
+- changed Wizard Gravity Mage power and condition effects
+- renamed Binding Ice spell to Ice Holder
+- renamed Toll the Dead cantrip to Ethereal Knell
+- renamed Gift of Alacrity spell to Celerity Boon
+- renamed Wizard Graviturgist to Wizard Gravity Mage
