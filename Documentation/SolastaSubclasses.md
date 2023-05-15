@@ -358,7 +358,7 @@ Whenever you damage an opponent with a spell, they are unable to heal any HP unt
 * Balance of Power
 
 When you reach level 14, you can use your bonus action to grant all allies within 12 cells advantage on attack rolls until the start of your next turn. You and your allies who are under the effect of Balance of Power can be attacked with advantage by all enemies until the start of your next turn.
-You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
+ You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
 
 
 

@@ -12,7 +12,7 @@ Your next hit deals additional 5d10 force damage with your weapon. Additionally,
 
 # Binding Ice
 
-A burst of cold in a 30-foot cone that freezes enemies in place.
+A burst of cold energy emanates from you in a 30-foot cone. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes 3d8 cold damage and is hindered by ice formations for 1 minute, or until it uses an action to break away the ice. A creature hindered by ice has its speed reduced to 0. On a successful save, a creature takes half as much damage and isn’t hindered by ice.
 
 # Blade Ward
 
@@ -267,7 +267,7 @@ You briefly stop the flow of time for everyone but yourself. No time passes for 
 
 # Toll the Dead
 
-You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d12 necrotic damage.
+You point at one creature you can see within range, and the sound of a dolorous bell fills the air around it for a moment. The target must succeed on a Wisdom saving throw or take 1d8 necrotic damage. If the target is missing any of its hit points, it instead takes 1d12 necrotic damage.
 
 # Web
 
