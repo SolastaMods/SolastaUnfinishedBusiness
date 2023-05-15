@@ -191,7 +191,6 @@ ModUi/&SelectAll=全选
 ModUi/&SelectSuggested=选择建议
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>矮人腰带</color><color=white>胡须出现几率</color>
-ModUi/&Settings=<color=#F0DAA0>设置：</color>
 ModUi/&SettingsExport=导出
 ModUi/&SettingsHelp=.作为主机，你可以导出当前配置，打开导出文件夹并轻松与你的联机者共享\n.作为客机，你可以打开导出文件夹，从主机粘贴分享的设置文件并覆盖设置。<b><i><color=#C04040E0>[需要重启生效]</color></i></b>
 ModUi/&SettingsLoad=.加载导出的设置

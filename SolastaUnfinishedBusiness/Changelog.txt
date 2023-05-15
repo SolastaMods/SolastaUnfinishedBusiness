@@ -1,8 +1,8 @@
 Open Mod UI > Tools and click History for full change details:
 
-- added "Enable characters on fire to emit light" house rules setting
-- added Gift of Alacrity and Gravity Sinkhole [off beta] spells
-- added Path of the Yeoman and Wizard Graviturgist [off beta] subclasses
-- changed Binding Ice and Toll the Dead spells to behave like tabletop
+- added "Characters on fire should emit light" house rules setting
+- added Gift of Alacrity and Gravity Sinkhole [from beta] spells
+- added Path of the Yeoman and Wizard Graviturgist [from beta] subclasses
+- fixed Binding Ice and Toll the Dead spells to behave like tabletop
 - fixed Inventor's quick wit feature displaying an incorrect combat log
 - fixed Merciless fighting style applying an endless fear condition

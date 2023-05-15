@@ -10,8 +10,6 @@ internal static class ToolsDisplay
 {
     internal const float DefaultFastTimeModifier = 1.5f;
 
-    private static bool DisplaySettingsToggle { get; set; } = true;
-
     private static string ExportFileName { get; set; } =
         ServiceRepository.GetService<INetworkingService>().GetUserName();
 
@@ -204,20 +202,6 @@ internal static class ToolsDisplay
 
     private static void DisplaySettings()
     {
-        var toggle = DisplaySettingsToggle;
-
-        UI.Label();
-
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Settings"), ref toggle))
-        {
-            DisplaySettingsToggle = toggle;
-        }
-
-        if (!DisplaySettingsToggle)
-        {
-            return;
-        }
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&SettingsHelp"));
         UI.Label();
