@@ -2,7 +2,8 @@
 
 1.4.33.89:
 
-- improved "Characters on fire should emit light" to also extend to heroes
+- improved "Characters on fire should emit light" on heroes
+- improved Wizard Graviturgist special effects on powers
 
 1.4.33.88:
 
