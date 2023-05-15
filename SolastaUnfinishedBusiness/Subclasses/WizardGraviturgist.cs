@@ -26,6 +26,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSilent(Silent.None)
+            .CopyParticleReferences(ConditionSlowed)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityIncrease")
@@ -77,6 +78,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSilent(Silent.None)
+            .CopyParticleReferences(ConditionSlowed)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityDecrease")
@@ -149,6 +151,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
         var conditionViolentAttraction = ConditionDefinitionBuilder
             .Create($"Condition{Name}ViolentAttraction")
             .SetOrUpdateGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{Name}ViolentAttraction")
@@ -170,6 +173,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetParticleEffectParameters(SpellDefinitions.MoonBeam)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
