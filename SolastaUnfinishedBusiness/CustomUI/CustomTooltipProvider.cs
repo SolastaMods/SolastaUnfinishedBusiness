@@ -118,6 +118,7 @@ internal class CustomItemTooltipProvider : CustomTooltipProvider,
 
     public override string TooltipClass => ItemWithPreReqsTooltip;
     public string AmmunitionDescription => _guiItem.AmmunitionDescription;
+    public string BaseDamageType => _guiItem.BaseDamageType;
 
 
     //IArmorParametersProvider

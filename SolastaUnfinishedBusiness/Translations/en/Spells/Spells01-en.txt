@@ -50,7 +50,6 @@ Spell/&MuleTitle=Mule
 Spell/&RadiantMotesDescription=Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.\nWhen you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 Spell/&RadiantMotesTitle=Radiant Motes
 Spell/&SanctuaryDescription=Ward an ally within 30 ft. The ward ends if the warded creature makes an attack or casts a spell that affects an enemy.
-Spell/&SanctuaryTitle=Sanctuary
 Spell/&SearingSmiteDescription=On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.\nAt the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.\n<b>Higher Levels:</b> for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 Spell/&SearingSmiteTitle=Searing Smite
 Spell/&SkinOfRetributionDescription=Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
