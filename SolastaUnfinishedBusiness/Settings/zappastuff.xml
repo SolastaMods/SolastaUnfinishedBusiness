@@ -105,19 +105,36 @@
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
+  <DisableUpdateMessage>false</DisableUpdateMessage>
+  <EnableBetaContent>true</EnableBetaContent>
+  <EnablePcgRandom>true</EnablePcgRandom>
+  <EnableSaveByLocation>true</EnableSaveByLocation>
+  <EnableRespec>true</EnableRespec>
+  <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
+  <DefaultPartyHeroes />
+  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCheatMenu>true</EnableCheatMenu>
+  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
+  <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
+  <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
+  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
+  <OverridePartySize>2</OverridePartySize>
+  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
+  <FasterTimeModifier>1.5</FasterTimeModifier>
+  <EncounterPercentageChance>5</EncounterPercentageChance>
   <AddHelpActionToAllRaces>true</AddHelpActionToAllRaces>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <EnableAlternateHuman>true</EnableAlternateHuman>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
+  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
-  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
+  <ImproveLevelUpFeaturesSelection>true</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
+  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>true</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
@@ -142,6 +159,153 @@
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
   <AllowHornsOnAllRaces>false</AllowHornsOnAllRaces>
+  <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
+  <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+  <IdentifyAfterRest>true</IdentifyAfterRest>
+  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
+  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+  <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
+  <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
+  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
+  <FixEldritchBlastRange>true</FixEldritchBlastRange>
+  <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
+  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
+  <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
+  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
+  <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
+  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+  <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
+  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <FullyControlConjurations>true</FullyControlConjurations>
+  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
+  <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
+  <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
+  <EnableCharactersOnFireToEmitLight>true</EnableCharactersOnFireToEmitLight>
+  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+  <CriticalHitModeAllies>2</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
+  <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
+  <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
+  <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
+  <AddPickPocketableLoot>true</AddPickPocketableLoot>
+  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
+  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+  <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
+  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
+  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
+  <RecipeCost>200</RecipeCost>
+  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
+  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
+  <CraftingInStore>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingInStore>
+  <CraftingItemsInDm>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingItemsInDm>
+  <CraftingRecipesInDm>
+    <string>PrimedItems</string>
+    <string>EnchantingIngredients</string>
+    <string>RelicForgeries</string>
+    <string>LightCrossbow</string>
+    <string>HeavyCrossbow</string>
+    <string>Handaxe</string>
+    <string>Javelin</string>
+    <string>Dart</string>
+    <string>Club</string>
+    <string>Maul</string>
+    <string>Warhammer</string>
+    <string>Quarterstaff</string>
+    <string>Spear</string>
+    <string>Scimitar</string>
+    <string>Rapier</string>
+    <string>Greataxe</string>
+    <string>Greatsword</string>
+    <string>Shield_Wooden</string>
+    <string>Shield</string>
+    <string>HideArmor</string>
+    <string>LeatherDruid</string>
+    <string>StuddedLeather</string>
+    <string>ChainShirt</string>
+    <string>PaddedLeather</string>
+    <string>Leather</string>
+    <string>ScaleMail</string>
+    <string>Breastplate</string>
+    <string>HalfPlate</string>
+    <string>Ringmail</string>
+    <string>ChainMail</string>
+    <string>Plate</string>
+  </CraftingRecipesInDm>
+  <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
+  <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
+  <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
+  <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
+  <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
+  <RestockAntiquarians>true</RestockAntiquarians>
+  <RestockArcaneum>true</RestockArcaneum>
+  <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
+  <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
   <RaceSliderPosition>4</RaceSliderPosition>
   <RaceEnabled>
     <string>RaceBolgrif</string>
@@ -773,6 +937,7 @@
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
           <string>FindFamiliar</string>
+          <string>GiftOfAlacrity</string>
           <string>MagnifyGravity</string>
           <string>Mule</string>
           <string>RadiantMotes</string>
@@ -800,169 +965,6 @@
       </value>
     </item>
   </SpellListSpellEnabled>
-  <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
-  <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
-  <IdentifyAfterRest>true</IdentifyAfterRest>
-  <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
-  <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-  <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
-  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
-  <EnableUpcastConjureElementalAndFey>true</EnableUpcastConjureElementalAndFey>
-  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
-  <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
-  <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
-  <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
-  <FixEldritchBlastRange>true</FixEldritchBlastRange>
-  <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-  <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
-  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
-  <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
-  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-  <FullyControlConjurations>true</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
-  <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
-  <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
-  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
-  <CriticalHitModeAllies>2</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
-  <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
-  <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
-  <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
-  <AddPickPocketableLoot>true</AddPickPocketableLoot>
-  <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
-  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-  <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
-  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-  <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
-  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
-  <RecipeCost>200</RecipeCost>
-  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
-  <CraftingInStore>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingInStore>
-  <CraftingItemsInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingItemsInDm>
-  <CraftingRecipesInDm>
-    <string>PrimedItems</string>
-    <string>EnchantingIngredients</string>
-    <string>RelicForgeries</string>
-    <string>LightCrossbow</string>
-    <string>HeavyCrossbow</string>
-    <string>Handaxe</string>
-    <string>Javelin</string>
-    <string>Dart</string>
-    <string>Club</string>
-    <string>Maul</string>
-    <string>Warhammer</string>
-    <string>Quarterstaff</string>
-    <string>Spear</string>
-    <string>Scimitar</string>
-    <string>Rapier</string>
-    <string>Greataxe</string>
-    <string>Greatsword</string>
-    <string>Shield_Wooden</string>
-    <string>Shield</string>
-    <string>HideArmor</string>
-    <string>LeatherDruid</string>
-    <string>StuddedLeather</string>
-    <string>ChainShirt</string>
-    <string>PaddedLeather</string>
-    <string>Leather</string>
-    <string>ScaleMail</string>
-    <string>Breastplate</string>
-    <string>HalfPlate</string>
-    <string>Ringmail</string>
-    <string>ChainMail</string>
-    <string>Plate</string>
-  </CraftingRecipesInDm>
-  <ScaleMerchantPricesCorrectly>true</ScaleMerchantPricesCorrectly>
-  <StockGorimStoreWithAllNonMagicalClothing>true</StockGorimStoreWithAllNonMagicalClothing>
-  <StockHugoStoreWithAdditionalFoci>true</StockHugoStoreWithAdditionalFoci>
-  <StockGorimStoreWithAllNonMagicalInstruments>true</StockGorimStoreWithAllNonMagicalInstruments>
-  <EnableAdditionalFociInDungeonMaker>true</EnableAdditionalFociInDungeonMaker>
-  <RestockAntiquarians>true</RestockAntiquarians>
-  <RestockArcaneum>true</RestockArcaneum>
-  <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
-  <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
-  <DisableUpdateMessage>false</DisableUpdateMessage>
-  <EnableBetaContent>true</EnableBetaContent>
-  <EnableSaveByLocation>true</EnableSaveByLocation>
-  <EnablePcgRandom>true</EnablePcgRandom>
-  <EnableRespec>true</EnableRespec>
-  <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
-  <EnableCheatMenu>true</EnableCheatMenu>
-  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
-  <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
-  <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
-  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>2</OverridePartySize>
-  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-  <FasterTimeModifier>1.5</FasterTimeModifier>
-  <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -974,7 +976,6 @@
   <HideExitsAndTeleportersGizmosIfNotDiscovered>true</HideExitsAndTeleportersGizmosIfNotDiscovered>
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-  <AddMonsterSwapAttackToggle>true</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>1</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
