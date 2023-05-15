@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiatore <i><color=#F0DAA0>[s
 ModUi/&AddToStore=Aggiungi al negozio
 ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia installato questa mod
-ModUi/&Adventure=<color=#F0DAA0>Avventura:</color>
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllRecipesInDm=Tutte le ricette in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
@@ -76,6 +75,7 @@ ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richie
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
 ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella schermata principale > Personaggi
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
+ModUi/&EnableCharactersOnFireToEmitLight=Abilita i personaggi in fiamme a emettere luce <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>
 ModUi/&EnableEpicPointsAndArray=Abilita un epico sistema di acquisto e array da 35 punti <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
@@ -191,7 +191,6 @@ ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura dei Nani</color> <color=white>probabilità che appaia la barba</color>
-ModUi/&Settings=<color=#F0DAA0>Impostazioni:</color>
 ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=. In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n. Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=. Carica un'impostazione esportata

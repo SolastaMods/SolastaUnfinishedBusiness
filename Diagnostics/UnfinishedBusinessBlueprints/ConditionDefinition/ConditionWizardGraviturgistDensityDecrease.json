@@ -10,7 +10,7 @@
     "Definition:SavingThrowAffinityWizardGraviturgistDensityDecrease:5ddbc061-428c-50c8-805f-dd5129b10f29"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
+  "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -28,7 +28,9 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [],
+  "cancellingConditions": [
+    "Definition:ConditionWizardGraviturgistDensityIncrease:47932b8e-70ad-5c32-bedf-c53abb251ed4"
+  ],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",

@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -49,6 +50,12 @@ public static class RulesetActorPatcher
             }
 
             category = feature.GetForcedCategory(__instance, newCondition, category);
+        }
+
+        [UsedImplicitly]
+        public static void Postfix(RulesetActor __instance, RulesetCondition newCondition)
+        {
+            SrdAndHouseRulesContext.AddLightSourceIfNeeded(__instance, newCondition);
         }
     }
 
@@ -150,6 +157,9 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
+            //PATCH: 
+            SrdAndHouseRulesContext.RemoveLightSourceIfNeeded(__instance, rulesetCondition);
+
             //PATCH: INotifyConditionRemoval
             if (rulesetCondition == null || rulesetCondition.ConditionDefinition == null)
             {

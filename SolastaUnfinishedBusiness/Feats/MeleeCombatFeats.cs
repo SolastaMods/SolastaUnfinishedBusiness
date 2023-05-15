@@ -294,6 +294,7 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
                 {
+                    AllowRange = false,
                     AccountAoOImmunity = true,
                     WeaponValidator = validWeapon,
                     BeforeReaction = AddCondition,
@@ -331,7 +332,7 @@ internal static class MeleeCombatFeats
                     .SetCustomSubFeatures(
                         new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
-                        new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
+                        new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
     }

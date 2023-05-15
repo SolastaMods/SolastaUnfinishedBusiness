@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Classes;
@@ -121,6 +122,7 @@ internal static class ValidatorsFeat
 #endif
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
         [NotNull] BaseDefinition baseDefinition)
     {
@@ -134,6 +136,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
         [NotNull] FeatureDefinition featureDefinition)
     {
@@ -147,6 +150,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeature(
         [NotNull] FeatureDefinition featureDefinition)
     {
@@ -160,6 +164,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
         [NotNull] CharacterClassDefinition characterClassDefinition)
     {
@@ -177,6 +182,7 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
         string description, int minLevels, params CharacterClassDefinition[] characterClassDefinition)
     {
@@ -191,13 +197,14 @@ internal static class ValidatorsFeat
 
             var levels = hero.ClassesHistory.Count;
 
-            return Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels
+            return Main.Settings.DisableLevelPrerequisitesOnModFeats || levels >= minLevels
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
 
     [NotNull]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRace(
         string description, params CharacterRaceDefinition[] characterRaceDefinition)
     {

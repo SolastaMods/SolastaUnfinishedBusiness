@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[
 ModUi/&AddToStore=Ajouter au magasin
 ModUi/&Advanced=<color=#F0DAA0>Avancé :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION :</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
-ModUi/&Adventure=<color=#F0DAA0>Aventure :</color>
 ModUi/&AllItemInDm=Tous les articles en DM
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
@@ -76,6 +75,7 @@ ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Néces
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
+ModUi/&EnableCharactersOnFireToEmitLight=Permettre aux personnages en feu d'émettre de la lumière <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les éléments de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -191,7 +191,6 @@ ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
-ModUi/&Settings=<color=#F0DAA0>Paramètres :</color>
 ModUi/&SettingsExport=Exporter
 ModUi/&SettingsHelp=. En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exportations et partager facilement avec vos pairs\n. En tant qu'invité, vous pouvez ouvrir le dossier des exportations, coller le fichier partagé depuis l'hôte et le charger sur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&SettingsLoad=. Charger un paramètre exporté

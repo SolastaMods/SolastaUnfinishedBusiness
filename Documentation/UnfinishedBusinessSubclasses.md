@@ -155,7 +155,7 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 # Graviturgist
 
-In the wake of the Cataclysm it became a common sight to see earthmotes and other objects though the Badlands floating impossibly in the air. Graviturgy wizards seek to understand and master the lingering magic that sustains such sights. They harness the violent energy of gravity to their benefit, and the terrible detriment of ther enemies.
+Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
 
 ## Level 2
@@ -173,21 +173,21 @@ Increase the Density of a target, making it slower at the benefit of advantage o
 
 * Gravity Well
 
-Creatures hit by your spell attacks are pushed 1 cell away from you.
+Starting at 6th level, creatures hit by your spell attacks are pushed 1 cell away from you.
 
 
 ## Level 10
 
 * Violent Attraction
 
-Increase the striking power of an ally's weapons by 1d10 for 1 minute.
+Starting at 10th level, increase the striking power of an ally's weapons by 1d10 for 1 minute.
 
 
 ## Level 14
 
 * Event Horizon
 
-Emit a powerful field of gravitational energy, immobilizing and damaging enemies within 6 cells of you.
+Starting at 14th level, you can magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and every foot it moves this turn costs 2 extra feet of movement. 
 
 
 
@@ -1788,6 +1788,52 @@ Starting at 10th level, you can summon the protection of your animal spirit to g
 * Honed Animal Aspect
 
 Starting at 14th level, choose an animal to hone your spiritual connection to, gaining more features.
+
+
+
+
+# Path of the Yeoman
+
+Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
+
+
+## Level 3
+
+* Fletcher
+
+Gain proficiency with Smith's Tools.
+
+* Strong Bow
+
+You can use your Strength modifier for attack and damage when wielding a longbow and while raging add your rage damage bonus to attacks using longbows.
+
+
+## Level 6
+
+* Keen Eye
+
+Reckless Attack gives advantage to your attacks using a longbow. When you unlock Brutal Critical, it also applies to your attacks made with longbows.
+
+* Staggering Blow
+
+While raging and wielding a longbow, you may shove as a bonus action.
+
+
+## Level 10
+
+* Bulwark
+
+You may use a bonus action on your turn to assume a braced stance for one minute. The stance only ends early if you fall unconscious. While braced your movement speed is set to 0 and cannot be increased and you gain the following benefits:
+• Enemies adjacent to you do not impose disadvantage on attacks you make with a longbow.
+• Enemy ranged attacks with weapons against you have disadvantage.
+• You may use your reaction to perform an opportunity attack with a longbow against an enemy that moves within within 5 feet of you.
+
+
+## Level 14
+
+* Mighty Shot
+
+Increase the damage dice of longbows from d8 to d12. While raging, when you hit an enemy with an attack from a longbow, enemies within 15 feet of the target must make a Dexterity saving throw or take thunder damage equal to your rage damage bonus plus your Strength modifier.
 
 
 

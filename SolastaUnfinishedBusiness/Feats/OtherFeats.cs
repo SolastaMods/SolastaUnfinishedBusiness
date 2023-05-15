@@ -484,6 +484,7 @@ internal static class OtherFeats
             .SetCustomSubFeatures(
                 new CanMakeAoOOnReachEntered
                 {
+                    AllowRange = false,
                     WeaponValidator = (mode, _, character) =>
                         ModifyWeaponAttackModeFeatAstralArms.ValidWeapon(character, mode)
                 },

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.4.33.87</AssemblyVersion>
+    <AssemblyVersion>1.4.33.88</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Configurations>Debug;Release;Debug Install;Release Install</Configurations>
+    <Configurations>Debug Install;Release Install</Configurations>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -14,6 +14,7 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <Target Name="CheckEnvironmentVars">
@@ -34,57 +35,25 @@
     </PackageReference>
   </ItemGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
+  <PropertyGroup>
     <OutputPath>$(SolastaInstallDir)/Mods/SolastaUnfinishedBusiness/</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>false</Optimize>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
     <Optimize>false</Optimize>
     <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
     <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>true</Optimize>
-    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
     <Optimize>true</Optimize>
     <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
     <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <WarningLevel>5</WarningLevel>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <WarningLevel>5</WarningLevel>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
-    <WarningLevel>5</WarningLevel>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
-    <WarningLevel>5</WarningLevel>
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -132,10 +101,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <Reference Include="Assembly-CSharp">
-      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference> -->
     <Reference Include="Assembly-CSharp">
       <HintPath>$(SolutionDir)lib/Assembly-CSharp_public.dll</HintPath>
       <Private>false</Private>
@@ -285,9 +250,6 @@
     <None Update="ChangelogHistory.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

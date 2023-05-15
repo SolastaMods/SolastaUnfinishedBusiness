@@ -370,7 +370,7 @@ You are descended from a master of the longsword, and some of that mastery has p
 
 # Lunger
 
-While wielding only one melee weapon without the heavy tag, that weapon's range increases to 10 ft.
+While wielding only one melee weapon without the heavy tag and a free offhand, that weapon's range increases to 10 ft.
 
 # Magic Initiate [Bard]
 

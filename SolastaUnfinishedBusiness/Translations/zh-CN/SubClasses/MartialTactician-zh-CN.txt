@@ -1,5 +1,3 @@
-Condition/&ConditionTacticianTacticalSurgeDescription=在你的回合开始时恢复 2 个<b>策略骰</b>。
-Condition/&ConditionTacticianTacticalSurgeTitle=战术激增
 Feature/&AttributeModifierTacticianEverVigilantDescription=在你的先攻骰上获得你的智力修正加值（至少 1）。
 Feature/&AttributeModifierTacticianEverVigilantTitle=时刻警惕
 Feature/&FeatureAdaptiveStrategyDescription=每当你的攻击出现重击未命中或重击时，恢复一个<b>策略骰</b>。每轮一次，且不会超过你的最大的策略骰上限。
@@ -22,10 +20,6 @@ Feature/&FeatureTacticianGambitDieSizeD12Description=你的<b>策略骰</b>升�
 Feature/&FeatureTacticianGambitDieSizeD12Title=<b>策略骰</b> 大小 (d12)
 Feature/&FeatureTacticianGambitDieSizeD8Description=你的 <b>策略骰</b> 已升级到 D8。
 Feature/&FeatureTacticianGambitDieSizeD8Title=<b>策略骰</b> 大小 (d8)
-Feature/&FeatureTacticianTacticalSurgeDescription=当你使用<b>战斗如潮</b>时，你会重新获得2个<b>策略骰</b>，并在接下来的一分钟内，你的回合开始时再恢复1个<b>策略骰</b>。
-Feature/&FeatureTacticianTacticalSurgeTitle=战斗即兴
-Feature/&InvocationPoolGambitLearn1Description=学习 1 个额外策略。
-Feature/&InvocationPoolGambitLearn1Title=额外的策略
 Feature/&InvocationPoolGambitLearn2Description=学习 2 个额外策略。
 Feature/&InvocationPoolGambitLearn2Title=额外的策略
 Feature/&InvocationPoolGambitLearn4Description=学习 4 个额外策略 - 使用 <b>策略骰</b> 的特殊动作，通常将 <b>策略骰</b> 的掷骰添加到攻击的伤害中。有些策略允许目标进行豁免以避免效果，这些策略的 DC 为 8 + 你的熟练加值 + 你的智力调整值。

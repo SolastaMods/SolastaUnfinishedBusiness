@@ -51,10 +51,6 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
                     (contextParams.source),
 
-            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
-                ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
-                ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source),
-
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
@@ -74,8 +70,30 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget =>
                 NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(contextParams),
 
+            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow =>
+                MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(contextParams),
+
             _ => def
         };
+    }
+
+    private static bool MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow(
+        RulesetImplementationDefinitions.SituationalContextParams contextParams)
+    {
+        var source = GameLocationCharacter.GetFromActor(contextParams.source);
+        var target = GameLocationCharacter.GetFromActor(contextParams.target);
+
+        if (source?.RulesetCharacter == null || target == null)
+        {
+            return false;
+        }
+
+        var mainWeaponIsMeleeOrUnarmed = ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
+                                         ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
+        var levels = source.RulesetCharacter.GetSubclassLevel(
+            DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
+
+        return mainWeaponIsMeleeOrUnarmed || (levels >= 6 && ValidatorsCharacter.HasLongbow(source.RulesetCharacter));
     }
 
     private static bool NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget(

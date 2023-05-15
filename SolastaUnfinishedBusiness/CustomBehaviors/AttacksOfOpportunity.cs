@@ -74,7 +74,7 @@ internal static class AttacksOfOpportunity
         foreach (var reaction in unit.RulesetActor.GetSubFeaturesByType<SentinelFeatMarker>()
                      .Where(feature => feature.IsValid(unit, attacker)))
         {
-            yield return reaction.Process(unit, attacker, null, battleManager, actionManager);
+            yield return reaction.Process(unit, attacker, null, battleManager, actionManager, false);
         }
     }
 
@@ -117,7 +117,7 @@ internal static class AttacksOfOpportunity
             foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
                          .Where(feature => feature.IsValid(unit, mover)))
             {
-                yield return brace.Process(unit, mover, movement, battleManager, actionManager);
+                yield return brace.Process(unit, mover, movement, battleManager, actionManager, brace.AllowRange);
             }
         }
     }
@@ -191,6 +191,8 @@ internal class CanMakeAoOOnReachEntered : CustomReactionAttack
     {
         Name = "ReactionAttackAoOEnter";
     }
+
+    public bool AllowRange { get; set; }
 }
 
 internal class CustomReactionAttack
@@ -222,12 +224,16 @@ internal class CustomReactionAttack
                && (ValidateMover?.Invoke(rulesetMover) ?? true);
     }
 
-    public IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
-        (int3 from, int3 to)? movement, GameLocationBattleManager battleManager,
-        GameLocationActionManager actionManager)
+    public IEnumerator Process(
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover,
+        (int3 from, int3 to)? movement,
+        GameLocationBattleManager battleManager,
+        GameLocationActionManager actionManager,
+        bool allowRange)
     {
         if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement?.to, movement?.from,
-                out var mode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
+                out var mode, out var attackModifier, allowRange, battleManager, AccountAoOImmunity, WeaponValidator))
         {
             yield break;
         }

@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionGrappledRestrainedSpellWeb",
+                "stringParameter": "ConditionGrappledRestrainedIceBound",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasConditionGrappledRestrainedSpellWeb"
+              "name": "HasConditionGrappledRestrainedIceBound"
             },
             "weight": 1.0
           },
@@ -56,7 +56,7 @@
       },
       "name": "StopFlyingWhenInMelee"
     },
-    "activityType": "BreakFreeSpellWeb",
+    "activityType": "BreakFree",
     "stringParameter": "",
     "stringSecParameter": "",
     "boolParameter": false,
@@ -88,7 +88,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d99161d-c547-503c-b294-cdc3285db276",
+  "guid": "61e7fc96-8cb5-5c2b-8a67-75fbef4f333a",
   "contentPack": 9999,
-  "name": "DecisionBreakFreeSpellWeb"
+  "name": "DecisionBreakFreeConditionGrappledRestrainedSpellWeb"
 }

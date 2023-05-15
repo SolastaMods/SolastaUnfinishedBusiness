@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furtos <i><color=#F0DAA0>[
 ModUi/&AddToStore=Adicionar à loja
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
-ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
 ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
@@ -76,6 +75,7 @@ ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela principal > Personagens
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
+ModUi/&EnableCharactersOnFireToEmitLight=Habilitar personagens em chamas para emitir luz <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Habilitar o menu de truques
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
@@ -191,7 +191,6 @@ ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturão de Dwarvenkind</color> <color=white>barba aparecendo chances</color>
-ModUi/&Settings=<color=#F0DAA0>Configurações:</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=. Como host, você pode exportar sua configuração atual, abrir a pasta de exportações e compartilhar facilmente com seus colegas\n. Como convidado, você pode abrir a pasta exports, colar o arquivo compartilhado do host e carregá-lo em <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&SettingsLoad=. Carregar uma configuração exportada

@@ -2,13 +2,12 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Models;
 
 // ReSharper disable once CheckNamespace
 namespace TA.AI.Activities;
 
 [UsedImplicitly]
-public class BreakFreeSpellWeb : ActivityBase
+public class BreakFree : ActivityBase
 {
     [UsedImplicitly]
     public static ContextType GetContextType(DecisionDefinition _)
@@ -56,7 +55,6 @@ public class BreakFreeSpellWeb : ActivityBase
             if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
             {
                 checkDC = rulesetCharacterHero.SpellRepertoires
-                    .Where(x => x.SpellCastingFeature.SpellListDefinition.ContainsSpell(SpellsContext.Web))
                     .Select(x => x.SaveDC)
                     .Max();
             }

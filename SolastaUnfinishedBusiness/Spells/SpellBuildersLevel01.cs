@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -770,23 +774,22 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-#if false
     internal static SpellDefinition BuildGiftOfAlacrity()
     {
         const string NAME = "GiftOfAlacrity";
 
-        var attributeModifierGiftOfAlacrity = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierGiftOfAlacrity")
-            .SetGuiPresentationNoContent(true)
-            // this should be a 1D8 added to initiative instead of a static 4
-            // new IChangeInitiativeRoll interface with a patch on RulesetCharacter.RollInitiative()
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Initiative, 4)
+        var featureGiftOfAlacrity = FeatureDefinitionBuilder
+            .Create("FeatureGiftOfAlacrity")
+            .SetGuiPresentation("ConditionGiftOfAlacrity", Category.Condition)
             .AddToDB();
 
+        featureGiftOfAlacrity.SetCustomSubFeatures(new InitiativeEndListenerGiftOfAlacrity(featureGiftOfAlacrity));
+
         var conditionAlacrity = ConditionDefinitionBuilder
-            .Create(ConditionBlessed, "ConditionAlacrity")
+            .Create(ConditionBlessed, "ConditionGiftOfAlacrity")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetFeatures(attributeModifierGiftOfAlacrity)
+            .SetPossessive()
+            .SetFeatures(featureGiftOfAlacrity)
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
@@ -811,16 +814,55 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-#endif
+
+    private sealed class InitiativeEndListenerGiftOfAlacrity : IInitiativeEndListener
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public InitiativeEndListenerGiftOfAlacrity(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public IEnumerator OnInitiativeEnded(GameLocationCharacter locationCharacter)
+        {
+            const string TEXT = "Feedback/&FeatureGiftOfAlacrityLine";
+
+            var gameLocationScreenBattle = Gui.GuiService.GetScreen<GameLocationScreenBattle>();
+
+            if (Gui.Battle == null || gameLocationScreenBattle == null)
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = locationCharacter.RulesetCharacter;
+            var roll = rulesetCharacter.RollDie(DieType.D8, RollContext.None, false, AdvantageType.None, out _, out _);
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Remove, false, false);
+
+            locationCharacter.LastInitiative += roll;
+            Gui.Battle.initiativeSortedContenders.Sort(Gui.Battle);
+
+            gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
+                GameLocationBattle.ContenderModificationMode.Add, false, false);
+
+            GameConsoleHelper.LogCharacterUsedFeature(
+                locationCharacter.RulesetCharacter,
+                _featureDefinition,
+                TEXT,
+                false,
+                (ConsoleStyleDuplet.ParameterType.Initiative, roll.ToString()));
+        }
+    }
 
     internal static SpellDefinition BuildMagnifyGravity()
     {
         const string NAME = "MagnifyGravity";
 
-        var spriteReference = Sprites.GetSprite("EarthTremor", Resources.EarthTremor, 128, 128);
-
         var movementAffinityMagnifyGravity = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{NAME}")
+            .SetGuiPresentationNoContent(true)
             .SetBaseSpeedMultiplicativeModifier(0.5f)
             .AddToDB();
 
@@ -833,7 +875,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Sphere, 2)

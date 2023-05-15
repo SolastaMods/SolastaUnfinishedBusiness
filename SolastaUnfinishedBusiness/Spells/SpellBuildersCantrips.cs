@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -695,11 +696,11 @@ internal static partial class SpellBuilders
                     AttributeDefinitions.Wisdom,
                     true,
                     EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetParticleEffectParameters(Bane.EffectDescription.EffectParticleParameters)
+                .SetParticleEffectParameters(CircleOfDeath.EffectDescription.EffectParticleParameters)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D12)
+                        .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .Build())
@@ -708,9 +709,29 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .SetCustomSubFeatures(new MagicalAttackInitiatedTollTheDead())
             .AddToDB();
 
         return spell;
+    }
+
+    private sealed class MagicalAttackInitiatedTollTheDead : IModifyMagicAttack
+    {
+        public void ModifyMagicAttack(CharacterActionMagicEffect characterActionMagicEffect)
+        {
+            var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
+            var rulesetDefender = gameLocationDefender.RulesetCharacter;
+
+            if (rulesetDefender == null || rulesetDefender.MissingHitPoints == 0)
+            {
+                return;
+            }
+
+            var damageForm =
+                characterActionMagicEffect.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+
+            damageForm.DieType = rulesetDefender.MissingHitPoints == 0 ? DieType.D8 : DieType.D12;
+        }
     }
 
     #endregion

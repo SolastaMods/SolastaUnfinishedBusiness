@@ -4,7 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureTacticianTacticalSurgeTick:7c8241de-f723-54f2-ad86-856d13b82e15"
+    "Definition:CombatAffinityPathOfTheYeomanBulwark:c0655645-a5b8-5af1-9fe9-43a1a46990c2",
+    "Definition:FeaturePathOfTheYeomanBulwark:ec993712-a942-556b-959f-1b5cef38462d",
+    "Definition:MovementAffinityPathOfTheYeomanBulwark:1abd8d9f-8be4-5121-a426-70125bc3d6d4"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,7 +18,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "BattleEnd"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -128,13 +132,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionTacticianTacticalSurgeTitle",
-    "description": "Condition/&ConditionTacticianTacticalSurgeDescription",
+    "title": "Condition/&ConditionPathOfTheYeomanBulwarkTitle",
+    "description": "Condition/&ConditionPathOfTheYeomanBulwarkDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f554d88f62e1e2346a7e7420f554ce64",
+      "m_SubObjectName": "ConditionWarningEncumbered",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1843e9d7-7ca5-533c-9716-a5e50ba7c5fe",
+  "guid": "7d1fcaf0-8b05-5638-9ffb-61bcfc285eb6",
   "contentPack": 9999,
-  "name": "ConditionTacticianTacticalSurge"
+  "name": "ConditionPathOfTheYeomanBulwark"
 }

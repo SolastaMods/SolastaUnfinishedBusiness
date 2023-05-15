@@ -10,7 +10,6 @@ ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sug
 ModUi/&AddToStore=Añadir a la tienda
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
-ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos los artículos en DM
 ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
@@ -76,6 +75,7 @@ ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requie
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
 ModUi/&EnableCharacterChecker=Habilite el botón Verificador de caracteres en la pantalla principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
+ModUi/&EnableCharactersOnFireToEmitLight=Permitir que los personajes en llamas emitan luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego]</color></i>ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -191,7 +191,6 @@ ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
-ModUi/&Settings=<color=#F0DAA0>Configuración:</color>
 ModUi/&SettingsExport=Exportar
 ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo en <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=. Cargar una configuración exportada

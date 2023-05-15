@@ -13,7 +13,7 @@ internal enum ExtraAncestryType
 
 internal enum ExtraSituationalContext
 {
-    MainWeaponIsMeleeOrUnarmed = 1000,
+    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
     TargetIsNotEffectSource = 1003,

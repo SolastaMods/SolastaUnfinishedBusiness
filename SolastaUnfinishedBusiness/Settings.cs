@@ -19,6 +19,7 @@ public class Settings : UnityModManager.ModSettings
     private bool enumerateOriginSubFeatures;
 
     private bool showButtonWithControlledMonsterInfo;
+
     //
     // UI Saved State
     //
@@ -62,8 +63,32 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
 
+
     //
-    // Character - General
+    // Gameplay - Tools
+    //
+
+    // General
+    public bool DisableUpdateMessage { get; set; }
+    public bool EnableBetaContent { get; set; }
+    public bool EnablePcgRandom { get; set; }
+    public bool EnableSaveByLocation { get; set; }
+    public bool EnableRespec { get; set; }
+    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
+    public List<string> DefaultPartyHeroes { get; } = new();
+    public bool EnableCharacterChecker { get; set; }
+    public bool EnableCheatMenu { get; set; }
+    public bool EnableHotkeyDebugOverlay { get; set; }
+    public bool NoExperienceOnLevelUp { get; set; }
+    public bool OverrideMinMaxLevel { get; set; }
+    public int MultiplyTheExperienceGainedBy { get; set; } = 100;
+    public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
+    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
+    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
+    public int EncounterPercentageChance { get; set; } = 5;
+
+    //
+    // Gameplay - General
     //
 
     // Initial Choices
@@ -73,19 +98,18 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
-    public bool DisableClassPrerequisitesOnModFeats { get; set; }
+    public bool DisableLevelPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
-    public bool ImproveLevelUpFeaturesSelection { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    public bool EnableEpicPointsAndArray { get; set; }
+    public bool ImproveLevelUpFeaturesSelection { get; set; }
+    public int TotalFeatsGrantedFirstLevel { get; set; }
 
     public bool EnumerateOriginSubFeatures
     {
         get => enumerateOriginSubFeatures && EnableBetaContent;
         set => enumerateOriginSubFeatures = value;
     }
-
-    public bool EnableEpicPointsAndArray { get; set; }
-    public int TotalFeatsGrantedFirstLevel { get; set; }
 
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
@@ -95,7 +119,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFighterWeaponSpecialization { get; set; }
     public bool EnableMonkWeaponSpecialization { get; set; }
     public bool EnableLevel20 { get; set; }
-
     public bool EnableMulticlass { get; set; }
     public int MaxAllowedClasses { get; set; }
     public bool EnableMinInOutAttributes { get; set; }
@@ -115,6 +138,83 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
     public bool AllowHornsOnAllRaces { get; set; }
+
+    //
+    // Gameplay - Rules
+    //
+
+    // SRD
+    public bool ApplySrdWeightToFoodRations { get; set; }
+    public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    public bool IdentifyAfterRest { get; set; }
+
+    public bool AddBleedingToLesserRestoration { get; set; }
+    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+
+    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
+    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+
+    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
+    public bool FixEldritchBlastRange { get; set; }
+    public bool EnableUpcastConjureElementalAndFey { get; set; }
+    public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
+
+    public bool ChangeSleetStormToCube { get; set; }
+    public bool RemoveRecurringEffectOnEntangle { get; set; }
+    public bool UseHeightOneCylinderEffect { get; set; }
+
+    // House
+    public bool AllowStackedMaterialComponent { get; set; }
+    public bool AllowClubsToBeThrown { get; set; }
+    public bool AllowAnyClassToWearSylvanArmor { get; set; }
+    public bool AllowDruidToWearMetalArmor { get; set; }
+
+    public bool FullyControlConjurations { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
+    public bool MakeLargeWildshapeFormsMedium { get; set; }
+    public bool MakeAllMagicStaveArcaneFoci { get; set; }
+
+    public bool EnableCharactersOnFireToEmitLight { get; set; }
+
+    public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+    public int CriticalHitModeAllies { get; set; }
+    public int CriticalHitModeEnemies { get; set; }
+
+
+    //
+    // Gameplay - Items, Crafting & Merchants
+    //
+
+    // General
+    public bool AddCustomIconsToOfficialItems { get; set; }
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+    public bool AddPickPocketableLoot { get; set; }
+    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
+    public bool RemoveAttunementRequirements { get; set; }
+    public bool RemoveIdentificationRequirements { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
+    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public int RecipeCost { get; set; } = 200;
+    public int TotalCraftingTimeModifier { get; set; }
+    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
+    public int EmpressGarbAppearanceIndex { get; set; }
+
+    // Crafting
+    public List<string> CraftingInStore { get; } = new();
+    public List<string> CraftingItemsInDm { get; } = new();
+    public List<string> CraftingRecipesInDm { get; } = new();
+
+    // Merchants
+    public bool ScaleMerchantPricesCorrectly { get; set; }
+    public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
+    public bool StockHugoStoreWithAdditionalFoci { get; set; }
+    public bool StockGorimStoreWithAllNonMagicalInstruments { get; set; }
+    public bool EnableAdditionalFociInDungeonMaker { get; set; }
+    public bool RestockAntiquarians { get; set; }
+    public bool RestockArcaneum { get; set; }
+    public bool RestockCircleOfDanantar { get; set; }
+    public bool RestockTowerOfKnowledge { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
@@ -159,102 +259,6 @@ public class Settings : UnityModManager.ModSettings
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
 
     //
-    // Gameplay - Rules
-    //
-
-    // SRD
-    public bool ApplySrdWeightToFoodRations { get; set; }
-    public bool UseOfficialAdvantageDisadvantageRules { get; set; }
-    public bool IdentifyAfterRest { get; set; }
-
-    public bool AddBleedingToLesserRestoration { get; set; }
-    public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
-
-    public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
-    public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
-    public bool EnableUpcastConjureElementalAndFey { get; set; }
-    public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
-    public bool RemoveRecurringEffectOnEntangle { get; set; }
-
-    public bool ChangeSleetStormToCube { get; set; }
-    public bool FixEldritchBlastRange { get; set; }
-    public bool UseHeightOneCylinderEffect { get; set; }
-
-    // House
-    public bool AllowStackedMaterialComponent { get; set; }
-    public bool AllowClubsToBeThrown { get; set; }
-    public bool AllowAnyClassToWearSylvanArmor { get; set; }
-    public bool AllowDruidToWearMetalArmor { get; set; }
-
-    public bool FullyControlConjurations { get; set; }
-    public bool IncreaseMaxAttunedItems { get; set; }
-    public bool MakeLargeWildshapeFormsMedium { get; set; }
-    public bool MakeAllMagicStaveArcaneFoci { get; set; }
-
-    public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
-    public int CriticalHitModeAllies { get; set; }
-    public int CriticalHitModeEnemies { get; set; }
-
-    //
-    // Gameplay - Items, Crafting & Merchants
-    //
-
-    // General
-    public bool AddCustomIconsToOfficialItems { get; set; }
-    public bool AddNewWeaponsAndRecipesToShops { get; set; }
-    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
-    public bool AddPickPocketableLoot { get; set; }
-    public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
-    public bool RemoveAttunementRequirements { get; set; }
-    public bool RemoveIdentificationRequirements { get; set; }
-    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
-    public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
-    public int TotalCraftingTimeModifier { get; set; }
-    public int RecipeCost { get; set; } = 200;
-    public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
-    public int EmpressGarbAppearanceIndex { get; set; }
-
-    // Crafting
-    public List<string> CraftingInStore { get; } = new();
-    public List<string> CraftingItemsInDm { get; } = new();
-    public List<string> CraftingRecipesInDm { get; } = new();
-
-    // Merchants
-    public bool ScaleMerchantPricesCorrectly { get; set; }
-    public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
-    public bool StockHugoStoreWithAdditionalFoci { get; set; }
-    public bool StockGorimStoreWithAllNonMagicalInstruments { get; set; }
-    public bool EnableAdditionalFociInDungeonMaker { get; set; }
-    public bool RestockAntiquarians { get; set; }
-    public bool RestockArcaneum { get; set; }
-    public bool RestockCircleOfDanantar { get; set; }
-    public bool RestockTowerOfKnowledge { get; set; }
-
-    //
-    // Gameplay - Tools
-    //
-
-    // General
-    public bool DisableUpdateMessage { get; set; }
-    public bool EnableBetaContent { get; set; }
-    public bool EnableSaveByLocation { get; set; }
-    public bool EnablePcgRandom { get; set; }
-    public bool EnableRespec { get; set; }
-    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
-    public bool EnableCharacterChecker { get; set; }
-    public bool EnableCheatMenu { get; set; }
-    public bool EnableHotkeyDebugOverlay { get; set; }
-    public bool NoExperienceOnLevelUp { get; set; }
-    public bool OverrideMinMaxLevel { get; set; }
-    public int MultiplyTheExperienceGainedBy { get; set; } = 100;
-    public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
-    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
-    public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    public int EncounterPercentageChance { get; set; } = 5;
-    public List<string> DefaultPartyHeroes { get; } = new();
-
-    //
     // Interface - Game UI
     //
 
@@ -270,7 +274,6 @@ public class Settings : UnityModManager.ModSettings
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool AddMonsterSwapAttackToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
 
     public int[][][] FormationGridSets { get; set; } =

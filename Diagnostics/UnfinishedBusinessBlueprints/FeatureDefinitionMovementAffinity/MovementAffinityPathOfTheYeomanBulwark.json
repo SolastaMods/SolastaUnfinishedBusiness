@@ -29,9 +29,14 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
-    "spriteReference": null,
+    "title": "Feature/&MovementAffinityPathOfTheYeomanBulwarkTitle",
+    "description": "Feature/&MovementAffinityPathOfTheYeomanBulwarkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -45,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7d0eec3c-812b-5f9c-8639-7e656940991b",
+  "guid": "1abd8d9f-8be4-5121-a426-70125bc3d6d4",
   "contentPack": 9999,
-  "name": "MovementAffinityIceBound"
+  "name": "MovementAffinityPathOfTheYeomanBulwark"
 }

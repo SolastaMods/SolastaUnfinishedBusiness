@@ -54,10 +54,10 @@ internal static class CharacterDisplay
         UI.Label();
 
 
-        toggle = Main.Settings.DisableClassPrerequisitesOnModFeats;
+        toggle = Main.Settings.DisableLevelPrerequisitesOnModFeats;
         if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.DisableClassPrerequisitesOnModFeats = toggle;
+            Main.Settings.DisableLevelPrerequisitesOnModFeats = toggle;
         }
 
 

@@ -195,6 +195,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerBulwark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerBulwark.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/ElementalForm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
@@ -257,6 +262,21 @@
   </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/WinterBreath.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="GravitySinkhole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/GravitySinkhole.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="PulseWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/PulseWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
+  <data name="MagnifyGravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/MagnifyGravity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
@@ -1397,6 +1417,11 @@
   </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="PathOfTheYeoman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PathOfTheYeoman.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
