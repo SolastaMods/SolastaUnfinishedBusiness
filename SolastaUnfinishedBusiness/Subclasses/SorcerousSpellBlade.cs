@@ -210,7 +210,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     {
         public PowerVisibilityModifierManaShieldPoints(FeatureDefinitionPower powerManaShield) :
             base((character, _, _) =>
-                character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
+                !character.CanUsePower(powerManaShield) && character.RemainingSorceryPoints >= 2)
         {
         }
     }

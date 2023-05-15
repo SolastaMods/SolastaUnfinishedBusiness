@@ -1,3 +1,4 @@
 Open Mod UI > Tools and click History for full change details:
 
-- improved "Characters on fire should emit light" to also extend to heroes
+- improved "Characters on fire should emit light" on heroes
+- improved Wizard Graviturgist special effects on powers
