@@ -775,7 +775,7 @@ internal static class Level20SubclassesContext
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }

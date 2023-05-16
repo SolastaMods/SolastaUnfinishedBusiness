@@ -861,8 +861,7 @@ internal static class MeleeCombatFeats
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null ||
-                rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }
@@ -1005,7 +1004,7 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
@@ -1086,7 +1085,7 @@ internal static class MeleeCombatFeats
                 true,
                 out _);
 
-            if (outcome is not RollOutcome.CriticalSuccess)
+            if (outcome is not RollOutcome.CriticalSuccess || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
@@ -1182,7 +1181,7 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null)
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

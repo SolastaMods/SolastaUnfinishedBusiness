@@ -722,7 +722,7 @@ internal static partial class SpellBuilders
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.MissingHitPoints == 0)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

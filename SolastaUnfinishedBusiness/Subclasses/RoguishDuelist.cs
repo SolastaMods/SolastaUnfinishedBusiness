@@ -149,7 +149,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDying ||
+                rulesetDefender.HasAnyConditionOfType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
@@ -206,8 +208,12 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _power = power;
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
             var rulesetDefender = me.RulesetCharacter;

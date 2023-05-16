@@ -843,7 +843,7 @@ internal static class OtherFeats
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

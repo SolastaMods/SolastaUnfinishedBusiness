@@ -274,7 +274,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetAttacker == null)
+            if (rulesetDefender == null || rulesetAttacker == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }
