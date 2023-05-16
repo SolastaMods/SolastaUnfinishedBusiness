@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "CloseQuarters",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken the Beast, Blessed Soul, Call for Charge, Close Quarters, Cunning Escape, Expand the Hunt, Exploiter, Hardy, Natural Fluidity, Poison Expert, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity",
+    "title": "Feat/&FeatGroupCloseQuartersTitle",
+    "description": "You are experienced with fighting in close quarters and gain the following benefits:\n• Your Dexterity or Intelligence increases by 1, to a maximum of 20.\n• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c98daa86-03c4-5550-86f8-80178d6ec6f5",
+  "guid": "94abe162-6e43-5da9-8f5e-a61ac972df8e",
   "contentPack": 9999,
-  "name": "FeatGroupClassBound"
+  "name": "FeatGroupCloseQuarters"
 }

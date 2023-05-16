@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword, Squat Nimbleness",
+    "description": "Dragon Wings, Elven Accuracy, Fade Away, Infernal Constitution, Revenant Great Sword, Squat Nimbleness",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
