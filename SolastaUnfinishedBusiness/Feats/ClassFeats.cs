@@ -34,7 +34,6 @@ internal static class ClassFeats
     {
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
-        var featDevastatingStrikes = BuildDevastatingStrikes();
         var featExpandTheHunt = BuildExpandTheHunt();
         var featExploiter = BuildExploiter();
         var featNaturalFluidity = BuildNaturalFluidity();
@@ -52,7 +51,6 @@ internal static class ClassFeats
         feats.AddRange(
             featCallForCharge,
             featCunningEscape,
-            featDevastatingStrikes,
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
@@ -73,7 +71,6 @@ internal static class ClassFeats
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
             featCunningEscape,
-            featDevastatingStrikes,
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
@@ -1282,161 +1279,6 @@ internal static class ClassFeats
             var repertoire = character.GetClassSpellRepertoire(Ranger);
 
             repertoire?.SpendSpellSlot(level);
-        }
-    }
-
-    #endregion
-
-    #region Devastating Strikes
-
-    private static FeatDefinition BuildDevastatingStrikes()
-    {
-        const string NAME = "FeatDevastatingStrikes";
-
-        var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
-
-        var feat = FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(
-                new AttackEffectAfterDamageFeatDevastatingStrikes(weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter(
-                    $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
-            .AddToDB();
-
-        return feat;
-    }
-
-    private sealed class AttackEffectAfterDamageFeatDevastatingStrikes : IAttackEffectAfterDamage
-    {
-        private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesTitle";
-        private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesDescription";
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-
-        public AttackEffectAfterDamageFeatDevastatingStrikes(params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
-            {
-                return;
-            }
-
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetAttacker == null || rulesetDefender == null)
-            {
-                return;
-            }
-
-            var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-
-            if (attackModifier.AttackAdvantageTrend <= 0)
-            {
-                return;
-            }
-
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                return;
-            }
-
-            var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-            var lowOutcome =
-                GameLocationBattleManagerTweaks.GetAttackResult(lowerRoll, modifier, rulesetDefender);
-
-            Gui.Game.GameConsole.AttackRolled(
-                rulesetAttacker,
-                rulesetDefender,
-                attackMode.SourceDefinition,
-                lowOutcome,
-                lowerRoll + modifier,
-                lowerRoll,
-                modifier,
-                attackModifier.AttacktoHitTrends,
-                new List<TrendInfo>());
-
-            if (lowOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                return;
-            }
-
-            var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-            var dexterity = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-            var dexterityMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
-
-            if (strengthMod <= 0 && dexterityMod <= 0)
-            {
-                return;
-            }
-
-            GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
-                //TODO: move this feedback term to others-en.txt
-                DevastatingStrikesTitle, "Feedback/&FeatFeatFellHandedDisadvantage",
-                tooltipContent: DevastatingStrikesDescription);
-
-            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (originalDamageForm == null)
-            {
-                return;
-            }
-
-            var damage = new DamageForm
-            {
-                DamageType = originalDamageForm.DamageType,
-                DieType = DieType.D1,
-                DiceNumber = 0,
-                BonusDamage = Math.Max(strengthMod, dexterityMod)
-            };
-
-            RulesetActor.InflictDamage(
-                strengthMod,
-                damage,
-                DamageTypeBludgeoning,
-                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                rulesetDefender,
-                false,
-                attacker.Guid,
-                false,
-                attackMode.AttackTags,
-                new RollInfo(DieType.D1, new List<int>(), strengthMod),
-                true,
-                out _);
-
-            if (outcome is not RollOutcome.CriticalSuccess)
-            {
-                return;
-            }
-
-            var advantageType = attackModifier.AttackAdvantageTrend switch
-            {
-                > 0 => AdvantageType.Advantage,
-                < 0 => AdvantageType.Disadvantage,
-                _ => AdvantageType.None
-            };
-
-            var dieRoll = RollDie(originalDamageForm.DieType, advantageType, out var _, out var _);
-
-            rulesetDefender.SustainDamage(
-                dieRoll,
-                originalDamageForm.DamageType,
-                false,
-                attacker.Guid,
-                new RollInfo(originalDamageForm.DieType, new List<int> { dieRoll }, 0),
-                out _);
         }
     }
 
