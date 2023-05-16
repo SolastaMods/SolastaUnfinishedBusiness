@@ -1,4 +1,4 @@
-# Dragonborn
+# 1. - Dragonborn
 
 The Dragonborn came into being as the fruit of the dalliances of polymorphed dragons with humanoid lineages. Well accepted in the Manacalon Empire, they became secretive and reclusive after the Cataclysm, self-reliant but keeping to themselves.
 
@@ -36,7 +36,7 @@ Select an additional feat for your character.
 
 
 
-# Dwarf
+# 2. - Dwarf
 
 One of the ancient dwellers of Solasta, dwarves are naturally skilled miners and craftsmen. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
@@ -75,7 +75,7 @@ Select an additional feat for your character.
 
 
 
-# Elf
+# 3. - Elf
 
 Elves are some of the most ancient dwellers on Solasta, and used to rule a powerful empire before the Cataclysm. They are naturally gifted with magic, agile, and fast. They have innate resistances and keen senses.
 
@@ -114,7 +114,7 @@ Select an additional feat for your character.
 
 
 
-# Gnome
+# 4. - Gnome
 
 Originating from the mountains bordering the Inner Sea, gnomes
  are by preference underground-dwellers. Where dwarves have mastered dourness
@@ -152,7 +152,7 @@ Select an additional feat for your character.
 
 
 
-# Half-Elf
+# 5. - Half-Elf
 
 Offspring of the human refugees from Tirmar and the Solastan elves, <#B5D3DE>half-elves</color> have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
@@ -195,7 +195,7 @@ Select an additional feat for your character.
 
 
 
-# Halfling
+# 6. - Halfling
 
 The original halflings evolved in the marshes on the northeastern part of Solasta, before spreading south, following the river, and reaching the sea. They are short and nimble, and known for their bravery despite their size.
 
@@ -233,7 +233,7 @@ Select an additional feat for your character.
 
 
 
-# Half-Orc
+# 7. - Half-Orc
 
 Offspring of humans and orcs, half-orcs often have a history of violence rather than romance. Rejected by both their parent's families, they tend to rely on strength to get on in life.
 
@@ -275,7 +275,7 @@ Select an additional feat for your character.
 
 
 
-# High Elf
+# 8. - High Elf
 
 <#B5D3DE>High elves</color> are the descendants of the people who ruled Solasta for centuries. They are trained to use magic very early, and have a gift for languages. They receive the traditional martial training of their people with swords and bows.
 
@@ -305,7 +305,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# Hill Dwarf
+# 9. - Hill Dwarf
 
 <#B5D3DE>Hill dwarves</color> are naturally skilled miners and craftsmen, gifted with keen senses, deep intuition, and remarkable resilience. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
@@ -331,7 +331,7 @@ Common, Dwarvish
 
 
 
-# Human
+# 10. - Human
 
 Originally born on Tirmar and brought to Solasta before the Cataclysm, <#B5D3DE>humans</color> have adapted to their new world thanks to their unique talents. Able to live anywhere and take any job, they are versatile above all else.
 
@@ -365,7 +365,7 @@ Choose any skill
 
 
 
-# Island Halfling
+# 11. - Island Halfling
 
 <#B5D3DE>Island halflings</color> are the children of adventurous halflings who left the Northern Marshes to venture south and settle in the sunny islands. Discreet and brave, they are inclined to be affable and get along well with others.
 
@@ -387,7 +387,7 @@ Advantage on Dexterity checks (Acrobatics)
 
 
 
-# Marsh Halfling
+# 12. - Marsh Halfling
 
 <#B5D3DE>Marsh halflings</color> have lived in the tradition of their ancestors, who used to move, fight, and even sleep in swamp terrain. They are particularly sturdy compared to their island cousins, while being generally less likable and certainly no less courageous.
 
@@ -413,7 +413,7 @@ Areas with marshes and ponds and a humid atmosphere are considered swamp terrain
 
 
 
-# Rock Gnome
+# 13. - Rock Gnome
 
 Living inside mountains made of rock, gnomes are hardy and inventive. They
 can live under the sky, but underground is home.
@@ -436,7 +436,7 @@ You have proficiency with artisan's tools (smith's tools). Using these tools, yo
 
 
 
-# Shadow Gnome
+# 14. - Shadow Gnome
 
 While rock gnomes chose to settle underground, shadow gnomes used a natural ability to hide in plain sight. As such, they weathered the Cataclysm in improbable places. Seemingly shy and aloof, their talent for stealth makes them feared practical jokers.
 
@@ -458,7 +458,7 @@ You know the Annoying Bee cantrip. Intelligence is your spellcasting ability for
 
 
 
-# Snow Dwarf
+# 15. - Snow Dwarf
 
 <#B5D3DE>Snow dwarves</color> are sturdy and adventurous, adapted to harsh terrain and low temperatures. Blocky, agile, and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
@@ -496,7 +496,7 @@ Immune to the effects of moderately cold weather.
 
 
 
-# Sylvan Elf
+# 16. - Sylvan Elf
 
 Born and raised in the eastern forests of Solasta, <#B5D3DE>sylvan elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf cousins, they are trained to fight with swords and bows since childhood.
 
@@ -527,7 +527,7 @@ Advantage on Survival when hunting
 
 
 
-# Tiefling
+# 17. - Tiefling
 
 One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
 

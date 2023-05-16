@@ -1,4 +1,4 @@
-# Barbarian
+# 1. - Barbarian
 
 Barbarians are fierce warriors from the edge of civilization. Their battle rage makes them dangerous combatants.
 
@@ -147,7 +147,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
 
 
 ## Level 16
@@ -203,7 +203,7 @@ At 20th level, you embody the power of the wilds. Your Strength and Constitution
 
 
 
-# Bard
+# 2. - Bard
 
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
 
@@ -371,7 +371,7 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 
 
 
-# Cleric
+# 3. - Cleric
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
 
@@ -525,7 +525,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# Druid
+# 4. - Druid
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
 
@@ -639,7 +639,7 @@ You can use your Wildshape an unlimited number of times. Additionally, you can i
 
 
 
-# Fighter
+# 5. - Fighter
 
 Fighters are trained in the arts of combat. They are adept with most weapons, but often choose to specialize. All fighters can use armor, shields, and ranged weapons.
 
@@ -812,7 +812,7 @@ You can attack twice, rather than once, when you use the attack or shove actions
 
 
 
-# Monk
+# 6. - Monk
 
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
 
@@ -974,14 +974,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Tongue of the Sun and Moon
 
-Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
 ## Level 14
 
 * Diamond Soul
 
-Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
+Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
 
 
 ## Level 15
@@ -1028,7 +1028,7 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 
 
 
-# Paladin
+# 7. - Paladin
 
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
 
@@ -1159,7 +1159,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Cleansing Touch
 
-Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
 ## Level 16
@@ -1193,7 +1193,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# Ranger
+# 8. - Ranger
 
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
 
@@ -1317,7 +1317,7 @@ Gain advantage on ability checks towards this creature type, and additional dama
 
 * Vanish
 
-Starting at level 14, you can use the Hide action as a bonus action on your turn.
+Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
 
 
 ## Level 16
@@ -1354,7 +1354,7 @@ You become an unparalleled hunter of your enemies. All your attacks deal additio
 
 
 
-# Rogue
+# 9. - Rogue
 
 Rogues are versatile first and foremost. They use their natural talents to master various skills and find their own way to thrive. Generally resourceful, they are known for their cunning and their ability to launch deadly sneak attacks.
 
@@ -1476,14 +1476,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Blindsense
 
-You are aware of the location of any hidden or invisible creature within 2 cells of you.
+You are aware of the location of any hidden or invisible creature within 10 ft of you.
 
 
 ## Level 15
 
 * Slippery Mind
 
-You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16
@@ -1520,7 +1520,7 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 
 
 
-# Sorcerer
+# 10. - Sorcerer
 
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
 
@@ -1643,7 +1643,7 @@ Regain 4 sorcery points during a short rest.
 
 
 
-# Warlock
+# 11. - Warlock
 
 Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
@@ -1808,7 +1808,7 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-# Wizard
+# 12. - Wizard
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
 

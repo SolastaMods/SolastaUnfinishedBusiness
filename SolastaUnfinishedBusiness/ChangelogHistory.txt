@@ -6,7 +6,7 @@
 - changed Sorcerer Forceblade to grant mana shield at level 1
 - changed "characters on fire should emit light" to also apply to heroes
 - changed Wizard Graviturgist powers and related condition effects
-- simplified feats and feat groups offering on mod UI 
+- simplified feats and feat groups offering on mod UI [re-selection required]
 
 1.4.33.88:
 

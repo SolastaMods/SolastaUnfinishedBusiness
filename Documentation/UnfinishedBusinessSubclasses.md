@@ -1,4 +1,4 @@
-# Arcane Fighter
+# 1. - Arcane Fighter
 
 Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
 
@@ -45,7 +45,7 @@ Once per turn, your weapon attacks deal an extra 1d8 damage.
 
 
 
-# Blade Dancer
+# 2. - Blade Dancer
 
 Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 
@@ -93,7 +93,7 @@ You add a +5 to the damage of your weapon attacks while your blade dance is acti
 
 
 
-# Deadmaster
+# 3. - Deadmaster
 
 Deadmasters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 
@@ -153,7 +153,7 @@ You can use your action a number of times a day equal to your proficiency bonus,
 
 
 
-# Graviturgist
+# 4. - Graviturgist
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
 
@@ -192,7 +192,7 @@ Starting at 14th level, you can magically emit a powerful field of gravitational
 
 
 
-# Spellmaster
+# 5. - Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -239,7 +239,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-# College of Guts
+# 6. - College of Guts
 
 Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 
@@ -275,7 +275,7 @@ You can use your bonus action to attack using the weapon in your main hand after
 
 
 
-# College of Harlequin
+# 7. - College of Harlequin
 
 College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 
@@ -323,7 +323,7 @@ You strike down your enemies in a magnificent way that inspired fear in those wh
 
 
 
-# College of Life
+# 8. - College of Life
 
 Masters of manipulating both matter and life energy.
 
@@ -359,7 +359,7 @@ You have immunity to necrotic damage, and your hit point maximum can't be reduce
 
 
 
-# College of War Dancer
+# 9. - College of War Dancer
 
 College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 
@@ -398,7 +398,7 @@ Starting at 14th level, you can use your Charisma attribute on concentration sav
 
 
 
-# Circle of the Ancient Forest
+# 10. - Circle of the Ancient Forest
 
 You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 
@@ -467,7 +467,7 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 
 
-# Circle of the Eternal Grove
+# 11. - Circle of the Eternal Grove
 
 The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every lifeform in the natural cycle, be it large or small, and that every one of them is worth saving.
 
@@ -521,7 +521,7 @@ Starting at 14th level, all healing spells you cast count as being cast at one s
 
 
 
-# Circle of the Forest Guardian
+# 12. - Circle of the Forest Guardian
 
 Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 
@@ -579,7 +579,7 @@ Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Ad
 
 
 
-# Circle of the Night
+# 13. - Circle of the Night
 
 Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 
@@ -630,7 +630,7 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 
 
-# Armorer
+# 14. - Armorer
 
 Armorers focus their studies on magical armors and how to use them effectively.
 
@@ -680,7 +680,7 @@ You have learned how to use your artificer infusions to specially modify armors 
 
 
 
-# Artillerist
+# 15. - Artillerist
 
 An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield. This destructive power is valued by armies in the wars on many different worlds.
 
@@ -738,7 +738,7 @@ Starting at 15th level, you're a master at forming well-defended emplacements us
 
 
 
-# Grenadier
+# 16. - Grenadier
 
 Grenadiers study unstable substances and their use in creating explosions of various types.
 
@@ -805,7 +805,7 @@ You can spend 3 additional charges when creating a bomb to make it more potent. 
 
 
 
-# Weaponsmith
+# 17. - Weaponsmith
 
 Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 
@@ -864,7 +864,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-# Marshal
+# 18. - Marshal
 
 Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 
@@ -918,7 +918,7 @@ Your knowledge and experience with creatures allows you to better defend yoursel
 
 
 
-# Royal Knight
+# 19. - Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -960,7 +960,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-# Spell Shield
+# 20. - Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -1010,7 +1010,7 @@ When an attacker that you can see hits you with a ranged attack or spell, you ca
 
 
 
-# Tactician
+# 21. - Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -1095,7 +1095,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-# Weapon Master
+# 22. - Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -1146,7 +1146,7 @@ Your focused strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# Way of Discordance
+# 23. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -1181,7 +1181,7 @@ Starting at 17th level, when a creature receives damage from your Discordance fe
 
 
 
-# Way of Distant Hand
+# 24. - Way of Distant Hand
 
 Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 
@@ -1230,7 +1230,7 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-# Way of Dragon
+# 25. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -1273,7 +1273,7 @@ Spend 4 Ki points to take flight. Gain the abilities of the fly spell without co
 
 
 
-# Way of Silhouette
+# 26. - Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -1316,7 +1316,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-# Way of Tempest
+# 27. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -1351,7 +1351,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-# The Elementalist
+# 28. - The Elementalist
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -1403,7 +1403,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-# The Moonlit
+# 29. - The Moonlit
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -1469,7 +1469,7 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-# The Riftwalker
+# 30. - The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -1531,7 +1531,7 @@ Your control of rift portals has increased to the point than you can now grant t
 
 
 
-# The Soulblade
+# 31. - The Soulblade
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -1592,7 +1592,7 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-# Path of the Elements
+# 32. - Path of the Elements
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -1636,7 +1636,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-# Path of the Light
+# 33. - Path of the Light
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -1679,7 +1679,7 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-# Path of the Reaver
+# 34. - Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -1714,7 +1714,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-# Path of the Savagery
+# 35. - Path of the Savagery
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -1753,7 +1753,7 @@ Starting at 14th level, while you are raging, whenever you roll a Dexterity savi
 
 
 
-# Path Of the Spirits
+# 36. - Path Of the Spirits
 
 Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -1792,7 +1792,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-# Path of the Yeoman
+# 37. - Path of the Yeoman
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -1838,7 +1838,7 @@ Increase the damage dice of longbows from d8 to d12. While raging, when you hit 
 
 
 
-# Arcanist
+# 38. - Arcanist
 
 The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 
@@ -1893,7 +1893,7 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-# Hellwalker
+# 39. - Hellwalker
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
 
@@ -1950,7 +1950,7 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-# Lightbearer
+# 40. - Lightbearer
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 
@@ -2003,7 +2003,7 @@ You can use your holy light to temporarily blind assailants. When a creature wit
 
 
 
-# Survivalist
+# 41. - Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2062,7 +2062,7 @@ Gain proficiency in Wisdom saving throws.
 
 
 
-# Wildmaster
+# 42. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 
@@ -2108,7 +2108,7 @@ The Spirit Beast can now act independently, cannot be surprised and use Eyebite 
 
 
 
-# Acrobat
+# 43. - Acrobat
 
 The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, the Acrobat sees a means to a very specific end: Performance!
 
@@ -2162,7 +2162,7 @@ If an attack roll would have successfully hit you, you may use your reaction to 
 
 
 
-# Arcane Scoundrel
+# 44. - Arcane Scoundrel
 
 With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 
@@ -2218,7 +2218,7 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-# Duelist
+# 45. - Duelist
 
 Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 
@@ -2257,7 +2257,7 @@ Your mastery of the blade lets you turn failure into success in combat. If you m
 
 
 
-# Opportunist
+# 46. - Opportunist
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 
@@ -2292,7 +2292,7 @@ Starting at 17th level, any attack against a creature that fails the saving thro
 
 
 
-# Raven
+# 47. - Raven
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 
@@ -2335,7 +2335,7 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-# Slayer
+# 48. - Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -2370,7 +2370,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-# Oath of Altruism
+# 49. - Oath of Altruism
 
 Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 
@@ -2416,7 +2416,7 @@ As a bonus action, spend a Channel Divinity to exchange hit points with an ally.
 
 
 
-# Oath of Ancients
+# 50. - Oath of Ancients
 
 An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 
@@ -2460,7 +2460,7 @@ When you are reduced to 0 hit points but not killed outright, you drop to 1 hit 
 
 
 
-# Oath of Dread
+# 51. - Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
 
@@ -2506,7 +2506,7 @@ When a creature under the effect of your Mark of Castigation or frighten conditi
 
 
 
-# Oath of Hatred
+# 52. - Oath of Hatred
 
 An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 
@@ -2554,7 +2554,7 @@ Your hate grants you resistance to bludgeoning, piercing and slashing damage.
 
 
 
-# Divine Heart
+# 53. - Divine Heart
 
 Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 
@@ -2601,7 +2601,7 @@ As a Bonus Action, you can restore 70 hit points to yourself and remove blindnes
 
 
 
-# Field Manipulator
+# 54. - Field Manipulator
 
 Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 
@@ -2653,7 +2653,7 @@ Beginning at 18th level, you can use your bonus action to teleport to a place of
 
 
 
-# Forceblade
+# 55. - Forceblade
 
 Forceblades combine martial prowess with inborn magical talents to outmatch their enemies.
 
@@ -2681,16 +2681,13 @@ When active on a weapon, its attacks count as magical and you use your spell cas
 
 
 
+* Mana Shield
+
+You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. Starting from 2nd level, if you are out of uses, you can spend two sorcery points instead.
+
 * Martial Training
 
 You gain proficiency with light armor, medium armor, and martial weapons.
-
-
-## Level 2
-
-* Mana Shield
-
-You can use your bonus action to gain temporary hit points equal to your sorcerer level + Charisma modifier for one minute, a number of times per long rest equal to your proficiency bonus. If you are out of uses, you can spend two sorcery points instead.
 
 
 ## Level 6
@@ -2720,7 +2717,7 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-# Sorr-Akkath
+# 56. - Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 

@@ -1,4 +1,4 @@
-# Court Mage
+# 1. - Court Mage
 
 Court mages are the magical equivalent of elite bodyguards. Highly prized during the Manacalon era when society was ruled by magic, this tradition has slowly resurfaced in more recent years.
 
@@ -37,7 +37,7 @@ At level 14, you can create a spell shield around an extra ally. You can now cas
 
 
 
-# Greenmage
+# 2. - Greenmage
 
 Greenmages are the heirs to the ancient traditions of the sylvan elves. They are wardens of the forest, specialized in nature magic and also reliable bowmen, trained to survive without spells if need be - as they had to in the wake of the Cataclysm.
 
@@ -100,7 +100,7 @@ At level 14, when hit by Entangling Shot, the target has disadvantage on all sav
 
 
 
-# Loremaster
+# 3. - Loremaster
 
 Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They know the old Empire had superior magic and they long to learn more about the lost spells and rituals. Their magic is focused on gathering all possible knowledge.
 
@@ -137,7 +137,7 @@ At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slo
 
 
 
-# Shock Arcanist
+# 4. - Shock Arcanist
 
 Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings have survived the Cataclysm to become a renowned and feared magical tradition, taught in every major magic school.
 
@@ -178,7 +178,7 @@ You can use this feature once per long rest.
 
 
 
-# College of Heroism
+# 5. - College of Heroism
 
 Some bards inflame their audience, or a crowd, using words, music, or song! Bards of the College of Heroism sing the song of battle and dance the dance of death, inspiring crowds with their deeds.
 
@@ -210,7 +210,7 @@ When an ally you can see within 12 cells is reduced to 0 hit points, you can use
 
 
 
-# College of Hope
+# 6. - College of Hope
 
 The bards of the College of Hope are bringers of comfort and dispellers of fear. Their songs raise the spirits of those who hear them, healing bodies as well as soothing fears.
 
@@ -251,7 +251,7 @@ Starting on your next turn, as an action, you will be able to sing a song of hop
 
 
 
-# College of Lore
+# 7. - College of Lore
 
 The College of Lore has gathered knowledge from all over the world, from ancient ballads, peasant folktales, scholarly tomes, and more. They pursue truth and beauty with unending devotion.
 
@@ -283,7 +283,7 @@ You can now cast Bardic Inspiration on yourself.
 
 
 
-# College of Traditions
+# 8. - College of Traditions
 
 The College of Traditions is descended from an order of song-wizards who served the Manacalon empire. While their allegiance has changed, their fascination with magic has not - and neither has their skill.
 
@@ -315,7 +315,7 @@ Once per long rest, as a bonus action, grant yourself and an ally the benefits o
 
 
 
-# Circle of Balance
+# 9. - Circle of Balance
 
 Some say that druids from the Circle of Balance are gentle healers, while others tell of merciless executioners. The truth is, both are right: nature giveth, and nature taketh away.
 
@@ -363,7 +363,7 @@ When you reach level 14, you can use your bonus action to grant all allies withi
 
 
 
-# Circle of the Kindred Spirit
+# 10. - Circle of the Kindred Spirit
 
 At the beginning of time, there was harmony between animals and sentient beings. Some of them even forged an unbreakable bond, melding two minds and souls in two bodies so that the two bodies shared their bond. This ancient bond has been preserved in the Circle of the Kindred Spirits, an order of druids preserving this sacred bond.
 
@@ -417,7 +417,7 @@ You can use Spirit Rage a number of times equal to your proficiency bonus per lo
 
 
 
-# Circle of the Land
+# 11. - Circle of the Land
 
 The Circle of the Land is made up of mystics and sages who safeguard the ancient knowledge of the Old Faith. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.
 
@@ -463,7 +463,7 @@ When you reach level 14, whenever you deal damage to an enemy with a spell of le
 
 
 
-# Circle of Winds
+# 12. - Circle of Winds
 
 Druids from this circle draw their strength from the winds. As the Cataclysm raged, the connection druids felt to nature frayed. But not so for the Circle of the Winds. They felt the mana currents carried by the winds and through them a connection to nature. Through this, they were able to protect nature from the worst of the cataclysm-born depredations.
 
@@ -498,7 +498,7 @@ Upon reaching level 14, you are constantly under the effect of Freedom of Moveme
 
 
 
-# Champion
+# 13. - Champion
 
 Champions focus on the raw physical power, honed to deadly perfection. Those who model themselves on this archetype combine rigorous training with physical excellence to deal devastating blows.
 
@@ -540,7 +540,7 @@ You attain the pinnacle of resilience in battle. At the start of each of your tu
 
 
 
-# Commander
+# 14. - Commander
 
 Commanders lead their troops to victory through discipline and rigorous training. They can bolster their allies both offensively and defensively, and aren't shy to take matters into their own hands.
 
@@ -586,7 +586,7 @@ Starting at 18th level, any ally affected by Rousing Shout also gains advantage 
 
 
 
-# Mountaineer
+# 15. - Mountaineer
 
 Mountaineers are trained to fight in difficult terrain and confined spaces. They are capable skirmishers and know how to take advantage of small spaces, given the right equipment.
 
@@ -632,7 +632,7 @@ Starting at 18th level, your Tunnel Fighter feature also provides its benefits w
 
 
 
-# Spellblade
+# 16. - Spellblade
 
 Spellblades are as skilled with arcane magic as with their weapons. This versatility is a weapon in itself, often surprising enemies who tend to think an armored fighter cannot cast spells.
 
@@ -678,7 +678,7 @@ You can replace one of your attacks with a cantrip.
 
 
 
-# Way of Freedom
+# 17. - Way of Freedom
 
 This style of fighting was developed by Manacalon slaves, who were forbidden weapons by their masters. Emphasizing speed and balance, the Way of Freedom lets its followers evade blows and dart inside enemy defenses.
 
@@ -713,7 +713,7 @@ You can attack three times, instead of twice, whenever you take the Attack actio
 
 
 
-# Way of Light
+# 18. - Way of Light
 
 The Way of Light was developed by former worshippers of Einar, who devoted their faith to the luminous aspect of the deity in his fight against darkness. After generations, the religious face of their creed disappeared leave space for the discipline of self-perfection in the purity of light.
 
@@ -752,7 +752,7 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-# Way of Survival
+# 19. - Way of Survival
 
 In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
 
@@ -789,7 +789,7 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-# Way of the Open Hand
+# 20. - Way of the Open Hand
 
 The monks of the Way of the Open Hand devote themselves to the arts of combat. Dangerous with or without weapons, they throw or trip their opponents, using the mystical force of Ki to protect and heal themselves.
 
@@ -827,7 +827,7 @@ Starting at 17th level, you gain the ability to set up lethal vibrations in some
 
 
 
-# The Fiend
+# 21. - The Fiend
 
 A fiend is a dangerous patron whose power comes at a cost. A denizen of the lower planes of existence, your patron's aims are evil, and although you may strive against those aims, your patron still desires the corruption or destruction of all things, ultimately including you.
 
@@ -878,7 +878,7 @@ When you hit a creature with an attack, you can banish it to the lower planes un
 
 
 
-# The Hive
+# 22. - The Hive
 
 The insects known as redeemers were developed by the Manacalon Empire as living weapons controlled by hive intelligence. With the fall of the Empire, that intelligence became self-willed and powerful - and curious about others. The Hive studies its warlocks as well as empowering them.
 
@@ -928,7 +928,7 @@ Starting at level 14, you have advantage on saving throws against spells and mag
 
 
 
-# The Timekeeper
+# 23. - The Timekeeper
 
 Time is eternal, just a long flow. And yet, it longs for more than this endless flow; it longs to feel the meaning of a single moment. The Timekeepers fulfill this longing and can even sometimes manipulate the flow, a boon granted to agents of Time.
 
@@ -982,7 +982,7 @@ Starting at the 14th level, on your turn, you can take one additional action on 
 
 
 
-# The Tree
+# 24. - The Tree
 
 The Tree stands at the heart of the Forest of Colthannin. To the sylvan elves - and more recently, to others - it is the soul of the forest. Its roots probe the depths, its branches touch the sky - and its warlocks travel the world between, informing and enacting its labyrinthine plans.
 
@@ -1032,7 +1032,7 @@ You gain a +2 AC bonus, and you are always considered under the effect of half-c
 
 
 
-# Path of the Berserker
+# 25. - Path of the Berserker
 
 The Path of the Berserker is a path of untrammeled fury, slick with blood. As you  enter the berserker's rage, you thrill in the chaos of battle, heedless of your own   health or well-being.
 
@@ -1067,7 +1067,7 @@ Whenever an opponent attacks you from a nearby cell, you are granted an immediat
 
 
 
-# Path of the Claw
+# 26. - Path of the Claw
 
 It is an open secret that Barbarians of the Path of the Claw are the descendants of an old clan that mingled with dragons. Whenever they enter a rage, their ancestry comes rushing out and takes over their senses, allowing them to perform incredible feats of power.
 
@@ -1106,7 +1106,7 @@ While raging, the first creature you hit with a melee attack each turn must make
 
 
 
-# Path of the Magebane
+# 27. - Path of the Magebane
 
 Followers of this path have developed a profound hatred for magic and magic-users. For them, physical prowess is the only decent way. They despise and distrust magic and magic-users.
 
@@ -1141,7 +1141,7 @@ When raging, you can dispel a magical effect on a creature or object as an actio
 
 
 
-# Path of the Stone
+# 28. - Path of the Stone
 
 Barbarians following this path draw their strength from their connection to stone. They are known for their doggedness. They never give up in the face of adversity and thrive in hostile environments.
 
@@ -1176,7 +1176,7 @@ You gain a bonus to your melee weapon damage roll equal to your proficiency.
 
 
 
-# Hunter
+# 29. - Hunter
 
 Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
 
@@ -1211,7 +1211,7 @@ Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
 
 
 
-# Marksman
+# 30. - Marksman
 
 Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta. 
 
@@ -1254,7 +1254,7 @@ At level 15, you can attack three times whenever you take the Attack action on y
 
 
 
-# Shadow Tamer
+# 31. - Shadow Tamer
 
 Shadow Tamers are used to wandering the desolate lands beyond the Marches. They know the lore and languages of darkness and the hazards and customs of those dreadful caves inhabited by monsters.
 
@@ -1297,7 +1297,7 @@ At level 15, you have proficiency with all saving throws while in dim light or d
 
 
 
-# Swift Blade
+# 32. - Swift Blade
 
 Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
 
@@ -1336,7 +1336,7 @@ At level 15, you become extremely hard to pin down. Whenever you take any damage
 
 
 
-# Darkweaver
+# 33. - Darkweaver
 
 Darkweavers are trained by a secret society that extends throughout the kingdoms. They have developed techniques to improve their mobility in all three dimensions, and mastered the art of poison crafting.
 
@@ -1379,7 +1379,7 @@ Starting at 17th level, when you start your turn in dim light or darkness, you g
 
 
 
-# Hoodlum
+# 34. - Hoodlum
 
 When heads need crackin' and people need beatin', hoodlums are those you turn to. These brutes may not be professional soldiers, but honor doesn't win you fights - violence does.
 
@@ -1424,7 +1424,7 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-# Shadowcaster
+# 35. - Shadowcaster
 
 Shadowcasters are trained in arcane magic as well as in roguish abilities. They are tricksters who use magic to make their moves even more unpredictable and unstoppable. Some believe they don't really exist.
 
@@ -1466,7 +1466,7 @@ At 17th level, you can use your bonus action to magically transform yourself int
 
 
 
-# Thief
+# 36. - Thief
 
 Thieves have honed their skills in the larcenous arts. In addition to improving their agility and stealth, they learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items they normally couldn't employ.
 
@@ -1505,7 +1505,7 @@ Starting at 17th level, you have become adept at laying ambushes and quickly esc
 
 
 
-# Oath of Devotion
+# 37. - Oath of Devotion
 
 Paladins who swear the Oath of Devotion uphold the loftiest ideals of justice, virtue, and order. They act with honor in pursuit of the greater good, hold themselves to the highest standards of conduct, and some, for better or worse, hold the rest of the world to the same standards.
 
@@ -1549,7 +1549,7 @@ Starting at level 15, you are always under the effects of a protection from evil
 
 
 
-# Oath of Judgement
+# 38. - Oath of Judgement
 
 Paladins who swear the Oath of Judgement believe that no sin should be overlooked, no matter how small - although the punishment must also fit the crime. They are relentless in their pursuit of justice, and those who decide to stand in their way had better be prepared!
 
@@ -1593,7 +1593,7 @@ Starting at level 15, whenever an enemy within 6 cells deals damage to you, you 
 
 
 
-# Oath of the Motherland
+# 39. - Oath of the Motherland
 
 Paladins who swear the Oath of the Motherland dedicate their lives to restoring the pre-Cataclysm world, undoing the land's decay, and bringing life back, despite its violent and volcanic nature. They reject the term "Badlands" in favor of "Motherland."
 
@@ -1637,7 +1637,7 @@ Starting at level 15, you are immune to fire and your skin covers with stone sca
 
 
 
-# Oath of Tirmar
+# 40. - Oath of Tirmar
 
 Paladins who swear the Oath of Tirmar belong to an old order descended from the Tirmarian Inquisition. Obsessed with their arch-enemies, the legendary Sorr-Akkath, they conduct their rituals in the old language of Tirmar, and hold grudges from the time of the Cataclysm a thousand years ago.
 
@@ -1685,7 +1685,7 @@ Starting at level 15, when you use a melee attack to strike an opponent who has 
 
 
 
-# Child of the Rift
+# 41. - Child of the Rift
 
 Another effect of the Rift and its cataclysmic closing was that some people around it were affected in their blood, gaining an innate ability to cast spells, but in an instinctive way. The very nature of the Rift also changed them deeply, as they are not only flesh and blood, but also mana, light, and shadow.
 
@@ -1734,7 +1734,7 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 
 
-# Draconic Bloodline
+# 42. - Draconic Bloodline
 
 Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their descent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might even have claimed a dragon parent.
 
@@ -1788,7 +1788,7 @@ At level 14, you obtain the ability to sprout a pair of Dragon Wings from your b
 
 
 
-# Haunted Soul
+# 43. - Haunted Soul
 
 Haunted souls are sorcerers whose innate abilities draw malevolent spirits to them. Those who survive the ordeal learn to form a symbiotic relationship with them, harnessing their power in exchange for having their soul being slowly drained away.
 
@@ -1834,7 +1834,7 @@ At level 14, once per turn when you kill one or more creatures with a spell of l
 
 
 
-# Mana Painter
+# 44. - Mana Painter
 
 Born out of the mana starvation that followed the cataclysm, certain dwellers of Solasta learned to drain magic from all that surrounded them, locations, objects and even people. They learned to channel scarce mana to cast spells, create potions or scrolls. Whereas their enemies call them mana stealers, they are truly artists of magic.
 

@@ -1,4 +1,4 @@
-# Inventor
+# 1. - Inventor
 
 Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 

@@ -223,7 +223,7 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"{counter++}. {klass.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {klass.FormatTitle()}\n\n");
             outString.Append(klass.FormatDescription());
             outString.Append("\n\n");
 
@@ -243,7 +243,8 @@ internal static class BootContext
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
                 outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
-                outString.Append($"{description}\n\n");
+                outString.Append(description);
+                outString.Append("\n\n");
             }
 
             outString.Append("\n\n\n");
@@ -256,42 +257,37 @@ internal static class BootContext
     private static void DumpSubclasses(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
-        var db = DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>();
         var counter = 1;
 
-        foreach (var subclassChoices in db
+        foreach (var subclass in DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
+                     .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            foreach (var subclass in subclassChoices.Subclasses
-                         .Select(DatabaseHelper.GetDefinition<CharacterSubclassDefinition>)
-                         .Where(x => filter(x))
-                         .OrderBy(x => x.FormatTitle()))
+            outString.Append($"# {counter++}. - {subclass.FormatTitle()}\n\n");
+            outString.Append(subclass.FormatDescription());
+            outString.Append("\n\n");
+
+            var level = 0;
+
+            foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
+                         .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
+                         .OrderBy(x => x.level))
             {
-                outString.Append($"{counter++}. {subclass.FormatTitle()}\n\n");
-                outString.Append(subclass.FormatDescription());
-                outString.Append("\n\n");
-
-                var level = 0;
-
-                foreach (var featureUnlockByLevel in subclass.FeatureUnlocks
-                             .Where(x => !x.FeatureDefinition.GuiPresentation.hidden)
-                             .OrderBy(x => x.level))
+                if (level != featureUnlockByLevel.level)
                 {
-                    if (level != featureUnlockByLevel.level)
-                    {
-                        outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
-                        level = featureUnlockByLevel.level;
-                    }
-
-                    var featureDefinition = featureUnlockByLevel.FeatureDefinition;
-                    var description = LazyManStripXml(featureDefinition.FormatDescription());
-
-                    outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
-                    outString.Append($"{description}\n\n");
+                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    level = featureUnlockByLevel.level;
                 }
 
-                outString.Append("\n\n\n");
+                var featureDefinition = featureUnlockByLevel.FeatureDefinition;
+                var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append(description);
+                outString.Append("\n\n");
             }
+
+            outString.Append("\n\n\n");
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Subclasses.md");
@@ -307,7 +303,7 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"{counter++}. {race.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {race.FormatTitle()}\n\n");
             outString.Append(race.FormatDescription());
             outString.Append("\n\n");
 
@@ -327,7 +323,8 @@ internal static class BootContext
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
                 outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
-                outString.Append($"{description}\n\n");
+                outString.Append(description);
+                outString.Append("\n\n");
             }
 
             outString.Append("\n\n\n");
@@ -343,12 +340,14 @@ internal static class BootContext
         var db = DatabaseRepository.GetDatabase<T>();
         var counter = 1;
 
-        foreach (var subclass in db
+        foreach (var featureDefinition in db
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"{counter++}. {subclass.FormatTitle()}\n\n");
-            outString.Append(subclass.FormatDescription());
+            var description = LazyManStripXml(featureDefinition.FormatDescription());
+
+            outString.Append($"# {counter++}. - {featureDefinition.FormatTitle()}\n\n");
+            outString.Append(description);
             outString.Append("\n\n");
         }
 
