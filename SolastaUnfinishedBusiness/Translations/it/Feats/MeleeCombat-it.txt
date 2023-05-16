@@ -48,7 +48,6 @@ Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Mentre impug
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finezza della spada lunga
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Padronanza della lama
 Feature/&ModifyAttackModeFeatFellHandedTitle=Caduto con le mani
-Feature/&PowerFeatFellHandedAdvantageDescription=Ogni volta che hai vantaggio su un tiro per colpire in mischia e colpisci, fai cadere il bersaglio prono se anche il più basso dei due tiri di d20 colpirebbe il bersaglio.
 Feature/&PowerFeatFellHandedDisadvantageDescription=Ogni volta che si ha svantaggio su un tiro per colpire in mischia e si manca, il bersaglio subisce danni contundenti pari al proprio modificatore di Forza.
 Feature/&PowerFeatSpearMasteryChargeDescription=Puoi rinforzare la tua lancia per intercettare i nemici in avvicinamento. Puoi usare la reazione per eseguire un attacco di opportunità con una lancia sul nemico che entra nella tua portata e infliggere un dado extra di danno se quell'attacco va a segno.
 Feature/&PowerFeatSpearMasteryChargeTitle=Tutore di lancia

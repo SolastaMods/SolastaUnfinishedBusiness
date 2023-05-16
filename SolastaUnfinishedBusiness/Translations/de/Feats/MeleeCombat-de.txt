@@ -48,7 +48,6 @@ Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Während Sie
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse des Langschwerts
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Klingenbeherrschung
 Feature/&ModifyAttackModeFeatFellHandedTitle=Fiel übergeben
-Feature/&PowerFeatFellHandedAdvantageDescription=Immer wenn Sie einen Vorteil bei einem Nahkampfangriffswurf haben und treffen, werfen Sie das Ziel zu Boden, wenn der niedrigere der beiden W20-Würfe das Ziel ebenfalls treffen würde.
 Feature/&PowerFeatFellHandedDisadvantageDescription=Immer wenn du bei einem Nahkampfangriffswurf einen Nachteil hast und verfehlst, erleidet das Ziel Wuchtschaden in Höhe deines Stärkemodifikators.
 Feature/&PowerFeatSpearMasteryChargeDescription=Sie können Ihren Speer anspannen, um sich nähernde Feinde abzufangen. Sie können die Reaktion verwenden, um einen Gelegenheitsangriff mit einem Speer auf einen Feind durchzuführen, der in Ihre Reichweite gelangt, und zusätzlichen Schadenswürfel verursachen, wenn dieser Angriff trifft.
 Feature/&PowerFeatSpearMasteryChargeTitle=Speerklammer

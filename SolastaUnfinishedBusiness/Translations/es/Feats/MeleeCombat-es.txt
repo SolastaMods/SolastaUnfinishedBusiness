@@ -48,7 +48,6 @@ Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Mientras sos
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Delicadeza con la espada larga
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Dominio de la espada
 Feature/&ModifyAttackModeFeatFellHandedTitle=Cayó con las manos
-Feature/&PowerFeatFellHandedAdvantageDescription=Cada vez que tienes ventaja en una tirada de ataque cuerpo a cuerpo y aciertas, derribas al objetivo si la menor de las dos tiradas d20 también da en el blanco.
 Feature/&PowerFeatFellHandedDisadvantageDescription=Siempre que tengas desventaja en una tirada de ataque cuerpo a cuerpo y falles, el objetivo sufre un daño contundente igual a tu modificador de Fuerza.
 Feature/&PowerFeatSpearMasteryChargeDescription=Puedes preparar tu lanza para interceptar a los enemigos que se acerquen. Puedes usar la reacción para realizar un ataque de oportunidad con una lanza en el enemigo que entre en tu alcance y causar un daño extra si ese ataque golpea.
 Feature/&PowerFeatSpearMasteryChargeTitle=Brazalete de lanza
