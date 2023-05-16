@@ -45,6 +45,22 @@ internal static class FeatsContext
         feats.ForEach(LoadFeat);
         GroupFeats.Load(LoadFeatGroup);
 
+        // tweak the groups to make display simpler on mod UI
+        Feats.RemoveWhere(x => x.FormatTitle().Contains("["));
+
+        foreach (var featGroup in FeatGroups
+                     .Where(featGroup => !string.IsNullOrEmpty(featGroup.FamilyTag))
+                     .ToList())
+        {
+            Feats.Add(featGroup);
+            FeatGroups.Remove(featGroup);
+
+            var groupedFeat = featGroup.GetFirstSubFeatureOfType<GroupedFeat>();
+
+            groupedFeat?.GetSubFeats(true).ForEach(x =>
+                x.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featGroup.Name));
+        }
+
         // sorting
         Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         FeatGroups = FeatGroups.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -83,7 +99,13 @@ internal static class FeatsContext
 
     private static void UpdateFeatsVisibility([NotNull] BaseDefinition featDefinition)
     {
-        featDefinition.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
+        var hidden = !Main.Settings.FeatEnabled.Contains(featDefinition.Name);
+
+        featDefinition.GuiPresentation.hidden = hidden;
+
+        var groupedFeat = featDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        groupedFeat?.GetSubFeats(true).ForEach(x => x.GuiPresentation.hidden = hidden);
     }
 
     private static void UpdateFeatGroupsVisibility([NotNull] BaseDefinition featDefinition)
