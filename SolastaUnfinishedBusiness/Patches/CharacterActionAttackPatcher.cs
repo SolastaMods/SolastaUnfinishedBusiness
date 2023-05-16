@@ -25,12 +25,9 @@ public static class CharacterActionAttackPatcher
             //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
             var actingCharacter = __instance.ActingCharacter;
             var character = actingCharacter.RulesetCharacter;
-            var found = false;
-
-            GameLocationCharacter defender = null;
-
             var outcome = RollOutcome.Neutral;
-
+            var found = false;
+            GameLocationCharacter defender = null;
             CharacterActionParams actionParams = null;
             RulesetAttackMode mode = null;
             ActionModifier modifier = null;
@@ -95,7 +92,7 @@ public static class CharacterActionAttackPatcher
                 yield break;
             }
 
-            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side))
+            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side).ToList())
             {
                 var allyFeatures =
                     gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
@@ -116,7 +113,8 @@ public static class CharacterActionAttackPatcher
                          .Where(x =>
                              (x.RulesetCharacter != null &&
                               x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
-                             x.Side == actingCharacter.Side))
+                             x.Side == actingCharacter.Side)
+                         .ToList())
             {
                 var allyFeatures =
                     gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
