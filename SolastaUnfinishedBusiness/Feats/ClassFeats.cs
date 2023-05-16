@@ -157,12 +157,13 @@ internal static class ClassFeats
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Solasta)
             .SetValidators(ValidatorsFeat.IsPaladinLevel4)
+            .SetFeatFamily("BlessedSoul")
             .AddToDB();
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
 
         return GroupFeats.MakeGroup(
-            "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
+            "FeatGroupBlessedSoul", "BlessedSoul", blessedSoulCleric, blessedSoulPaladin);
     }
 
     #endregion
@@ -826,13 +827,14 @@ internal static class ClassFeats
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
                 .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
                 .SetValidators(validator)
+                .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
 
             potentSpellcasterFeats.Add(featPotentSpellcaster);
         }
 
         var potentSpellcasterGroup = GroupFeats.MakeGroup(
-            "FeatGroupPotentSpellcaster", null, potentSpellcasterFeats);
+            "FeatGroupPotentSpellcaster", "PotentSpellcaster", potentSpellcasterFeats);
 
         feats.AddRange(potentSpellcasterFeats);
 

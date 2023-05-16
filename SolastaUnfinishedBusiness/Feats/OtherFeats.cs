@@ -546,12 +546,14 @@ internal static class OtherFeats
                     .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
                     .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalAdept")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalAdept", "ElementalAdept", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -616,13 +618,15 @@ internal static class OtherFeats
                         .SetDamageType(damageType)
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalMaster")
                 .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalMaster", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalMaster", "ElementalMaster", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
