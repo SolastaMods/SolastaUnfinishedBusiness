@@ -132,7 +132,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .Build())
             .AddToDB();
     }

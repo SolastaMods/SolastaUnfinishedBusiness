@@ -84,7 +84,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create(EldritchBlast)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.All, RangeType.RangeHit, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(EldritchBlast)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -277,7 +277,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)
@@ -413,7 +413,7 @@ public static class InnovationArtillerist
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                     .SetRestrictedCreatureFamilies(InventorClass.InventorConstructFamily)
                     .SetParticleEffectParameters(Counterspell)

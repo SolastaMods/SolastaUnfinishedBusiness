@@ -55,7 +55,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .SetEffectForms(
@@ -107,7 +107,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetParticleEffectParameters(PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(
@@ -133,7 +133,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetParticleEffectParameters(SpellDefinitions.EldritchBlast)
                     .AddEffectForms(
@@ -172,7 +172,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(SpellDefinitions.MoonBeam)
                     .SetEffectForms(
                         EffectFormBuilder

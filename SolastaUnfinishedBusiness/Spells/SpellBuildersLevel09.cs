@@ -24,7 +24,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 8)
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetConditionForm(
@@ -63,7 +63,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Individuals, 6)
+            .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.IndividualsUnique, 6)
             .SetEffectForms(EffectFormBuilder
                 .Create()
                 .SetHealingForm(
@@ -139,7 +139,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -191,7 +191,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

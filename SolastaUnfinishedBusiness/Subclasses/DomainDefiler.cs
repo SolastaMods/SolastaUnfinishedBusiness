@@ -291,7 +291,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Charisma,

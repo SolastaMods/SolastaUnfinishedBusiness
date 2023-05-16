@@ -23,7 +23,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
             .SetCanBePlacedOnCharacter(false)
             .SetDurationData(DurationType.Round, 3)
             .SetSpeed(SpeedType.Instant, 11f)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

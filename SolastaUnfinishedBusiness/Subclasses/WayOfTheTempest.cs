@@ -197,7 +197,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency)

@@ -136,7 +136,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     // .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                     //     EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(

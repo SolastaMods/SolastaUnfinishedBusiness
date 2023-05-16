@@ -595,7 +595,7 @@ public static class InnovationAlchemy
                 InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalTargetsPerIncrement: 1)
                 .SetParticleEffectParameters(particleParameters)
                 .SetDurationData(DurationType.Instantaneous)

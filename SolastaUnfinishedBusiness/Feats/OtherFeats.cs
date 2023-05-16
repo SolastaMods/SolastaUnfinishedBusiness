@@ -170,7 +170,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteMedKit)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetHealingForm(
@@ -193,7 +193,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
                     TargetFilteringTag.No,

@@ -52,7 +52,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -82,7 +82,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -105,7 +105,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -122,7 +122,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.UntilAnyRest)
                     .SetEffectForms(
                         EffectFormBuilder

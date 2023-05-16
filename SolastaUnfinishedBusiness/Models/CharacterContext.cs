@@ -271,7 +271,7 @@ internal static class CharacterContext
         var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128);
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1)
             .Build();
 

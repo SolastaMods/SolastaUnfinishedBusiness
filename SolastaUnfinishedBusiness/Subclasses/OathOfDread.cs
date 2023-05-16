@@ -69,7 +69,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(BestowCurseOnAttackRoll)
                     .SetEffectForms(
                         EffectFormBuilder

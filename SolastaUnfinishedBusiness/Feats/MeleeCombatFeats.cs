@@ -966,7 +966,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
                     .Build())

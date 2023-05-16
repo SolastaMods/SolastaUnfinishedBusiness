@@ -149,7 +149,7 @@ internal static class CustomWeaponsContext
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
-                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.Individuals)
+                            .SetTargetingData(Side.All, RangeType.Distance, 3, TargetType.IndividualsUnique)
                             .ExcludeCaster()
                             .SetSavingThrowData(
                                 true,

@@ -75,7 +75,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -111,7 +111,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
                     .SetRestrictedCreatureFamilies(
                         DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
                             .Where(x => x != CharacterFamilyDefinitions.Construct &&

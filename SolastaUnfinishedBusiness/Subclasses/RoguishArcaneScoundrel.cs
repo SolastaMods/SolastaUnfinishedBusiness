@@ -200,7 +200,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(

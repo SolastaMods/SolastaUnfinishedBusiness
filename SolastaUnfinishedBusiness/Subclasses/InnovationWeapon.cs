@@ -459,7 +459,7 @@ public static class InnovationWeapon
             .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeForce, 2, DieType.D6)

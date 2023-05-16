@@ -52,7 +52,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -92,7 +92,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetDurationData(DurationType.Round, 3)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
