@@ -470,7 +470,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetIgnoreCover()
                 .SetEffectAdvancement( //this is needed for tooltip
                     EffectIncrementMethod.CasterLevelTable,
