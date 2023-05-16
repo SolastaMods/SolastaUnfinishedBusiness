@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -27,7 +29,7 @@ public static class CharacterActionAttackPatcher
 
             GameLocationCharacter defender = null;
 
-            var outcome = RuleDefinitions.RollOutcome.Neutral;
+            var outcome = RollOutcome.Neutral;
 
             CharacterActionParams actionParams = null;
             RulesetAttackMode mode = null;
@@ -37,7 +39,7 @@ public static class CharacterActionAttackPatcher
             void AttackImpactStartHandler(
                 GameLocationCharacter _attacker,
                 GameLocationCharacter _defender,
-                RuleDefinitions.RollOutcome _outcome,
+                RollOutcome _outcome,
                 CharacterActionParams _params,
                 RulesetAttackMode _mode,
                 ActionModifier _modifier)
@@ -110,7 +112,11 @@ public static class CharacterActionAttackPatcher
                 }
             }
 
-            foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(actingCharacter.Side))
+            foreach (var gameLocationAlly in Gui.Battle.AllContenders
+                         .Where(x =>
+                             (x.RulesetCharacter != null &&
+                              x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
+                             x.Side == actingCharacter.Side))
             {
                 var allyFeatures =
                     gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
