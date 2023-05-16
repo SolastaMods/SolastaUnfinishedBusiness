@@ -282,16 +282,30 @@ internal static class ClassFeats
     {
         const string Name = "FeatExploiter";
 
+        var featureExploiter = FeatureDefinitionBuilder
+            .Create("FeatureExploiter")
+            .SetGuiPresentation("FeatExploiter", Category.Feat)
+            .AddToDB();
+
+        featureExploiter.SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter(featureExploiter));
+
         return FeatDefinitionWithPrerequisitesBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter())
+            .AddFeatures(featureExploiter)
             .SetValidators(ValidatorsFeat.IsRogueLevel5)
             .AddToDB();
     }
 
     private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
     {
+        private readonly FeatureDefinition _featureExploiter;
+
+        public ReactToAttackOnMeOrAllyFinishedFeatExploiter(FeatureDefinition featureExploiter)
+        {
+            _featureExploiter = featureExploiter;
+        }
+
         public IEnumerator HandleReactToAttackOnEnemyFinished(
             GameLocationCharacter ally,
             GameLocationCharacter me,
@@ -306,7 +320,9 @@ internal static class ClassFeats
                 yield break;
             }
 
-            if (!me.CanReact() || me == ally)
+            var rulesetEnemy = enemy.RulesetCharacter;
+
+            if (!me.CanReact() || me == ally || rulesetEnemy == null || rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
@@ -341,6 +357,13 @@ internal static class ClassFeats
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(me.RulesetCharacter, _featureExploiter);
         }
     }
 

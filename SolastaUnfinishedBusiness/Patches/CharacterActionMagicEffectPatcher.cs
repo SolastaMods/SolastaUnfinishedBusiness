@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -279,6 +280,63 @@ public static class CharacterActionMagicEffectPatcher
                 -1, "CharacterActionMagicEffect.ApplyForms",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionMagicEffect),
+        nameof(CharacterActionMagicEffect.HandlePostApplyMagicEffectOnZoneOrTargets))]
+    [UsedImplicitly]
+    public static class HandlePostApplyMagicEffectOnZoneOrTargets_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            [NotNull] IEnumerator values,
+            CharacterActionMagicEffect __instance,
+            IGameLocationBattleService battleService,
+            GameLocationCharacter target)
+        {
+            if (!battleService.IsBattleInProgress)
+            {
+                yield break;
+            }
+
+            var attacker = __instance.ActingCharacter;
+            var rulesetEffect = __instance.ActionParams.RulesetEffect;
+
+            if (rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.MeleeHit &&
+                rulesetEffect.EffectDescription.RangeType != RuleDefinitions.RangeType.RangeHit)
+            {
+                yield break;
+            }
+
+            foreach (var gameLocationAlly in Gui.Battle.AllContenders
+                         .Where(x =>
+                             (x.RulesetCharacter != null &&
+                              x.RulesetCharacter.HasAnyConditionOfType(RuleDefinitions
+                                  .ConditionMindControlledByCaster)) ||
+                             x.Side == attacker.Side)
+                         .ToList())
+            {
+                var allyFeatures =
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+
+                if (allyFeatures == null)
+                {
+                    continue;
+                }
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnEnemyFinished(
+                        attacker,
+                        gameLocationAlly,
+                        target,
+                        __instance.AttackRollOutcome,
+                        __instance.ActionParams,
+                        null,
+                        null); //TODO: need to find a good way to pass the magic attack modifier here
+                }
+            }
         }
     }
 }

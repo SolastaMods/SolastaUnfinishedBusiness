@@ -523,7 +523,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
                 new AttackComputeModifierFeatBladeMastery(weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatBladeMasteryTitle", weaponTypes))
             .AddToDB();
     }
 
@@ -969,14 +969,13 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
                 new AttackEffectAfterDamageFeatDevastatingStrikes(weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter(
-                    $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatDevastatingStrikesTitle", weaponTypes))
             .AddToDB();
 
         return feat;
     }
 
-    private sealed class AttackEffectAfterDamageFeatDevastatingStrikes : IAttackEffectAfterDamage
+    private sealed class AttackEffectAfterDamageFeatDevastatingStrikes : IAttackEffectAfterDamage, IIgnoreDamageAffinity
     {
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
@@ -1053,7 +1052,8 @@ internal static class MeleeCombatFeats
 
             GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
                 //TODO: move this feedback term to others-en.txt
-                DevastatingStrikesTitle, "Feedback/&FeatFeatFellHandedDisadvantage",
+                DevastatingStrikesTitle,
+                "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
 
             var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
@@ -1074,7 +1074,7 @@ internal static class MeleeCombatFeats
             RulesetActor.InflictDamage(
                 strengthMod,
                 damage,
-                DamageTypeBludgeoning,
+                damage.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                 rulesetDefender,
                 false,
@@ -1101,11 +1101,16 @@ internal static class MeleeCombatFeats
 
             rulesetDefender.SustainDamage(
                 dieRoll,
-                originalDamageForm.DamageType,
+                damage.DamageType,
                 false,
                 attacker.Guid,
                 new RollInfo(originalDamageForm.DieType, new List<int> { dieRoll }, 0),
                 out _);
+        }
+
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        {
+            return Global.CriticalHit;
         }
     }
 
@@ -1136,8 +1141,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
                 new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter(
-                    $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatFellHandedTitle", weaponTypes))
             .AddToDB();
 
         return feat;
