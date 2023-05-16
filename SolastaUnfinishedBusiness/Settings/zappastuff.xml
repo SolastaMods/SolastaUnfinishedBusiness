@@ -544,6 +544,10 @@
     <string>FeatRetinueTouchedInt</string>
     <string>FeatRetinueTouchedWis</string>
     <string>FeatInfernalConstitution</string>
+    <string>FeatCloseQuartersDex</string>
+    <string>FeatCloseQuartersInt</string>
+    <string>FeatDevastatingStrikes</string>
+    <string>FeatExploiter</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -601,6 +605,7 @@
     <string>FeatGroupAegisTouched</string>
     <string>FeatGroupPeregrinationTouched</string>
     <string>FeatGroupRetinueTouched</string>
+    <string>FeatGroupCloseQuarters</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>

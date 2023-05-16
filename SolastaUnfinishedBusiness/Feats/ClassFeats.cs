@@ -23,8 +23,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
-using static SolastaUnfinishedBusiness.Feats.FeatHelpers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
