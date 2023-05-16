@@ -34,6 +34,7 @@ internal static class ClassFeats
     {
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
+        var featDevastatingStrikes = BuildDevastatingStrikes();
         var featExpandTheHunt = BuildExpandTheHunt();
         var featExploiter = BuildExploiter();
         var featNaturalFluidity = BuildNaturalFluidity();
@@ -51,6 +52,7 @@ internal static class ClassFeats
         feats.AddRange(
             featCallForCharge,
             featCunningEscape,
+            featDevastatingStrikes,
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
@@ -71,6 +73,7 @@ internal static class ClassFeats
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
             featCunningEscape,
+            featDevastatingStrikes,
             featExpandTheHunt,
             featExploiter,
             featNaturalFluidity,
