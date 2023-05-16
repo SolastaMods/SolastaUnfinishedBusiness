@@ -19,6 +19,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Feats.FeatHelpers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -371,42 +372,6 @@ internal static class MeleeCombatFeats
                 modifyAttackModeFinesse)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
-    }
-
-    #endregion
-
-    #region Helpers
-
-    private sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
-    {
-        private readonly string _sourceName;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-
-        public ModifyWeaponAttackModeTypeFilter(string sourceName,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _sourceName = sourceName;
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
-        }
     }
 
     #endregion

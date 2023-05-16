@@ -48,6 +48,7 @@ Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Enquanto est
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Espada Longa Refinamento
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Domínio da Lâmina
 Feature/&ModifyAttackModeFeatFellHandedTitle=Caiu de mãos dadas
+Feature/&PowerFeatFellHandedAdvantageDescription=Sempre que você tiver vantagem em uma jogada de ataque corpo a corpo e acertar, você derrubará o alvo se a menor das duas jogadas de d20 também acertar o alvo.
 Feature/&PowerFeatFellHandedDisadvantageDescription=Sempre que você tiver desvantagem em uma jogada de ataque corpo a corpo e errar, o alvo sofre dano de concussão igual ao seu modificador de Força.
 Feature/&PowerFeatSpearMasteryChargeDescription=Você pode preparar sua lança para interceptar os inimigos que se aproximam. Você pode usar a reação para realizar um ataque de oportunidade com uma lança no inimigo que entrar em seu alcance e causar dano extra se o ataque acertar.
 Feature/&PowerFeatSpearMasteryChargeTitle=Braçadeira

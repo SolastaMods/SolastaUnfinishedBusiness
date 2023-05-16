@@ -48,6 +48,7 @@ Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Tant que vou
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassTitle=Finesse de l'épée longue
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Maîtrise de la lame
 Feature/&ModifyAttackModeFeatFellHandedTitle=Tombé à la main
+Feature/&PowerFeatFellHandedAdvantageDescription=Chaque fois que vous avez un avantage sur un jet d'attaque au corps à corps et que vous touchez, vous renversez la cible si le plus faible des deux jets de d20 touche également la cible.
 Feature/&PowerFeatFellHandedDisadvantageDescription=Chaque fois que vous avez un désavantage lors d'un jet d'attaque au corps à corps et que vous le ratez, la cible subit des dégâts contondants égaux à votre modificateur de Force.
 Feature/&PowerFeatSpearMasteryChargeDescription=Vous pouvez préparer votre lance pour intercepter les ennemis qui approchent. Vous pouvez utiliser la réaction pour effectuer une attaque d'opportunité avec une lance sur l'ennemi qui entre dans votre portée et infliger des dégâts supplémentaires si cette attaque touche.
 Feature/&PowerFeatSpearMasteryChargeTitle=Attelle de lance
