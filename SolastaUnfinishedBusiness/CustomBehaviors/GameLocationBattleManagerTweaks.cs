@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
@@ -203,10 +202,20 @@ internal static class GameLocationBattleManagerTweaks
             // additionalDamageForm.DieType = provider.DamageDieType;
 
             //Get die type from features if applicable
+            var rulesetCharacter = attacker.RulesetCharacter;
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
 
-            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ??
-                                           provider.DamageDieType;
+            additionalDamageForm.DieType =
+                dieTypeProvider?.Invoke(rulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
+
+            //Mainly to support Closer Quarters feat
+            foreach (var damageDieProviderFromCharacter in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
+            {
+                additionalDamageForm.DieType = damageDieProviderFromCharacter.Invoke(
+                    featureDefinition as FeatureDefinitionAdditionalDamage, additionalDamageForm, attacker, defender);
+            }
+
 
             /*
              * Support for damage die progression
@@ -688,26 +697,6 @@ internal static class GameLocationBattleManagerTweaks
         {
             var provider = featureDefinition as IAdditionalDamageProvider;
             var additionalDamage = provider as FeatureDefinitionAdditionalDamage;
-
-            /*
-             * ######################################
-             * [CE] EDIT START
-             * Support for IModifyAdditionalDamage
-             */
-
-            foreach (var damage in attacker.RulesetCharacter
-                         .GetSubFeaturesByType<IModifyAdditionalDamage>())
-            {
-                provider = damage.ModifyAdditionalDamage(instance, additionalDamage, attacker, defender,
-                    attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect,
-                    criticalHit, firstTarget);
-            }
-
-            /*
-             * Supports for IModifyAdditionalDamage
-             * [CE] EDIT END
-             * ######################################
-             */
 
             // Some additional damage only work with attack modes (Hunter's Mark)
             if (provider.AttackModeOnly && attackMode == null)
@@ -1203,16 +1192,6 @@ internal static class GameLocationBattleManagerTweaks
             var validUses = true;
             var additionalDamage = feature.Provider as FeatureDefinitionAdditionalDamage;
             var provider = feature.Provider;
-
-            // BEGIN - Support for IModifyAdditionalDamage
-            foreach (var damage in attacker.RulesetCharacter
-                         .GetSubFeaturesByType<IModifyAdditionalDamage>())
-            {
-                provider = damage.ModifyAdditionalDamage(instance, additionalDamage, attacker, defender,
-                    attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect,
-                    criticalHit, firstTarget);
-            }
-            // END - Support for IModifyAdditionalDamage
 
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
             {

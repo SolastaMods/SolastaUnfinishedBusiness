@@ -232,65 +232,46 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        DieType UpgradeCloseQuartersDice(
+            FeatureDefinitionAdditionalDamage additionalDamage,
+            DamageForm damageForm,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService == null ||
+                !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+                !gameLocationBattleService.IsWithin1Cell(attacker, defender))
+            {
+                return damageForm.DieType;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
+
+            return DieType.D8;
+        }
+
+        featureCloseQuarters.SetCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+
         var closeQuartersDex = FeatDefinitionBuilder
             .Create($"{Name}Dex")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
             .SetFeatFamily(Family)
-            .SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters))
             .AddToDB();
 
         var closeQuartersInt = FeatDefinitionBuilder
             .Create($"{Name}Int")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Einar)
             .SetFeatFamily(Family)
-            .SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters))
             .AddToDB();
 
         feats.AddRange(closeQuartersDex, closeQuartersInt);
 
         return GroupFeats.MakeGroup(
             "FeatGroupCloseQuarters", Family, closeQuartersDex, closeQuartersInt);
-    }
-
-    private sealed class ModifyAdditionalDamageFeatCloseQuarters : IModifyAdditionalDamage
-    {
-        private readonly FeatureDefinition _featureCloseQuarters;
-
-        public ModifyAdditionalDamageFeatCloseQuarters(FeatureDefinition featureCloseQuarters)
-        {
-            _featureCloseQuarters = featureCloseQuarters;
-        }
-
-        public FeatureDefinitionAdditionalDamage ModifyAdditionalDamage(
-            GameLocationBattleManager gameLocationBattleManager,
-            FeatureDefinitionAdditionalDamage additionalDamage,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack, AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
-            // not the best pattern to replace the blueprint directly but best I could do here
-            // as on this scenario it's guaranteed all sneak dice are D6 so covered on else
-            if (additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) &&
-                gameLocationBattleManager.IsWithin1Cell(attacker, defender))
-            {
-                additionalDamage.damageDieType = DieType.D8;
-                GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, _featureCloseQuarters);
-            }
-            else
-            {
-                additionalDamage.damageDieType = DieType.D6;
-            }
-
-            return additionalDamage;
-        }
     }
 
     #endregion

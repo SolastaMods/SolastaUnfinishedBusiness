@@ -390,9 +390,12 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
 
             var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+
+            // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
+            // we might need to change this to a proper interface if others start using it
             var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
-                .GetSubFeaturesByType<IModifyAdditionalDamage>()
-                .Any(x => x.GetType().Name.EndsWith("FeatCloseQuarters"));
+                .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
+                .Any();
 
             if (!hasSneakAttackDieTypeChange)
             {
