@@ -6,6 +6,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -32,6 +33,7 @@ internal static class ClassFeats
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
+        var featExploiter = BuildExploiter();
         var featNaturalFluidity = BuildNaturalFluidity();
         var featPoisoner = BuildPoisoner();
         var featSlayTheEnemies = BuildSlayTheEnemies();
@@ -39,6 +41,7 @@ internal static class ClassFeats
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
+        var closeQuartersGroup = BuildCloseQuarters(feats);
         var hardyGroup = BuildHardy(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var primalRageGroup = BuildPrimalRage(feats);
@@ -47,6 +50,7 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
@@ -66,12 +70,14 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
+            closeQuartersGroup,
             hardyGroup,
             potentSpellcasterGroup,
             primalRageGroup);
@@ -209,6 +215,158 @@ internal static class ClassFeats
                 CharacterContext.InvocationPoolRangerTerrainType)
             .SetValidators(ValidatorsFeat.IsRangerLevel4)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Close Quarters
+
+    private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
+    {
+        const string Family = "CloseQuarters";
+        const string Name = "FeatCloseQuarters";
+
+        var featureCloseQuarters = FeatureDefinitionBuilder
+            .Create("FeatureCloseQuarters")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        featureCloseQuarters.SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters));
+
+        var closeQuartersDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Misaye)
+            .SetFeatFamily(Family)
+            .SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters))
+            .AddToDB();
+
+        var closeQuartersInt = FeatDefinitionBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(AttributeModifierCreed_Of_Einar)
+            .SetFeatFamily(Family)
+            .SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters))
+            .AddToDB();
+
+        feats.AddRange(closeQuartersDex, closeQuartersInt);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupCloseQuarters", Family, closeQuartersDex, closeQuartersInt);
+    }
+
+    private sealed class ModifyAdditionalDamageFeatCloseQuarters : IModifyAdditionalDamage
+    {
+        private readonly FeatureDefinition _featureCloseQuarters;
+
+        public ModifyAdditionalDamageFeatCloseQuarters(FeatureDefinition featureCloseQuarters)
+        {
+            _featureCloseQuarters = featureCloseQuarters;
+        }
+
+        public FeatureDefinitionAdditionalDamage ModifyAdditionalDamage(
+            GameLocationBattleManager gameLocationBattleManager,
+            FeatureDefinitionAdditionalDamage additionalDamage,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack, AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            // not the best pattern to replace the blueprint directly but best I could do here
+            // as on this scenario it's guaranteed all sneak dice are D6 so covered on else
+            if (additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) &&
+                gameLocationBattleManager.IsWithin1Cell(attacker, defender))
+            {
+                additionalDamage.damageDieType = DieType.D8;
+                GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, _featureCloseQuarters);
+            }
+            else
+            {
+                additionalDamage.damageDieType = DieType.D6;
+            }
+
+            return additionalDamage;
+        }
+    }
+
+    #endregion
+
+    #region Exploiter
+
+    private static FeatDefinition BuildExploiter()
+    {
+        const string Name = "FeatExploiter";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter())
+            .SetValidators(ValidatorsFeat.IsRogueLevel5)
+            .AddToDB();
+    }
+
+    private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
+    {
+        public IEnumerator HandleReactToAttackOnEnemyFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            GameLocationCharacter ally,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
+        {
+            if (!me.CanReact())
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
+
+            if (retaliationMode == null)
+            {
+                (retaliationMode, retaliationModifier) = me.GetFirstRangedModeThatCanAttack(attacker);
+
+                if (retaliationMode == null)
+                {
+                    yield break;
+                }
+            }
+
+            if (!battle.IsWithin1Cell(me, attacker))
+            {
+                yield break;
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.StringParameter = ally.Name;
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+        }
     }
 
     #endregion
@@ -368,7 +526,7 @@ internal static class ClassFeats
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new ActionFinishedFeatCunningEscape())
-            .SetValidators(ValidatorsFeat.IsRogueLevel4)
+            .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
 
