@@ -217,12 +217,13 @@ internal static class BootContext
     private static void DumpClasses(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
+        var counter = 1;
 
         foreach (var klass in DatabaseRepository.GetDatabase<CharacterClassDefinition>()
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {klass.FormatTitle()}\n\n");
+            outString.Append($"{counter++}. {klass.FormatTitle()}\n\n");
             outString.Append(klass.FormatDescription());
             outString.Append("\n\n");
 
@@ -256,6 +257,7 @@ internal static class BootContext
     {
         var outString = new StringBuilder();
         var db = DatabaseRepository.GetDatabase<FeatureDefinitionSubclassChoice>();
+        var counter = 1;
 
         foreach (var subclassChoices in db
                      .OrderBy(x => x.FormatTitle()))
@@ -265,7 +267,7 @@ internal static class BootContext
                          .Where(x => filter(x))
                          .OrderBy(x => x.FormatTitle()))
             {
-                outString.Append($"# {subclass.FormatTitle()}\n\n");
+                outString.Append($"{counter++}. {subclass.FormatTitle()}\n\n");
                 outString.Append(subclass.FormatDescription());
                 outString.Append("\n\n");
 
@@ -299,12 +301,13 @@ internal static class BootContext
     private static void DumpRaces(string groupName, Func<BaseDefinition, bool> filter)
     {
         var outString = new StringBuilder();
+        var counter = 1;
 
         foreach (var race in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {race.FormatTitle()}\n\n");
+            outString.Append($"{counter++}. {race.FormatTitle()}\n\n");
             outString.Append(race.FormatDescription());
             outString.Append("\n\n");
 
@@ -338,12 +341,13 @@ internal static class BootContext
     {
         var outString = new StringBuilder();
         var db = DatabaseRepository.GetDatabase<T>();
+        var counter = 1;
 
         foreach (var subclass in db
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {subclass.FormatTitle()}\n\n");
+            outString.Append($"{counter++}. {subclass.FormatTitle()}\n\n");
             outString.Append(subclass.FormatDescription());
             outString.Append("\n\n");
         }
