@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBuilders;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
@@ -688,6 +689,26 @@ internal static class GameLocationBattleManagerTweaks
             var provider = featureDefinition as IAdditionalDamageProvider;
             var additionalDamage = provider as FeatureDefinitionAdditionalDamage;
 
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for IModifyAdditionalDamage
+             */
+
+            foreach (var damage in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<IModifyAdditionalDamage>())
+            {
+                provider = damage.ModifyAdditionalDamage(instance, additionalDamage, attacker, defender,
+                    attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect,
+                    criticalHit, firstTarget);
+            }
+
+            /*
+             * Supports for IModifyAdditionalDamage
+             * [CE] EDIT END
+             * ######################################
+             */
+
             // Some additional damage only work with attack modes (Hunter's Mark)
             if (provider.AttackModeOnly && attackMode == null)
             {
@@ -840,9 +861,9 @@ internal static class GameLocationBattleManagerTweaks
                         if (!criticalHit &&
                             // allows EldritchSmite to pass through
                             (featureDefinition is not FeatureDefinitionAdditionalDamage ||
-                            // allows PaladinSmite to pass through
-                            Main.Settings.AddPaladinSmiteToggle &&
-                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)))
+                             // allows PaladinSmite to pass through
+                             (Main.Settings.AddPaladinSmiteToggle &&
+                              !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))))
                         {
                             break;
                         }
@@ -1180,8 +1201,18 @@ internal static class GameLocationBattleManagerTweaks
         foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
         {
             var validUses = true;
-            var featureDefinition = feature.Provider as FeatureDefinitionAdditionalDamage;
+            var additionalDamage = feature.Provider as FeatureDefinitionAdditionalDamage;
             var provider = feature.Provider;
+
+            // BEGIN - Support for IModifyAdditionalDamage
+            foreach (var damage in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<IModifyAdditionalDamage>())
+            {
+                provider = damage.ModifyAdditionalDamage(instance, additionalDamage, attacker, defender,
+                    attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect,
+                    criticalHit, firstTarget);
+            }
+            // END - Support for IModifyAdditionalDamage
 
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
             {
@@ -1189,10 +1220,10 @@ internal static class GameLocationBattleManagerTweaks
                 switch (provider.LimitedUsage)
                 {
                     case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name) ||
                              (instance.Battle != null && instance.Battle.ActiveContender != attacker):
                     case RuleDefinitions.FeatureLimitedUsage.OncePerTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name):
                         validUses = false;
                         break;
 
