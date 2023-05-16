@@ -36,7 +36,7 @@ public static class CharacterActionAttackPatcher
 
             // ReSharper disable InconsistentNaming
             void AttackImpactStartHandler(
-                GameLocationCharacter _,
+                GameLocationCharacter _attacker,
                 GameLocationCharacter _defender,
                 RuleDefinitions.RollOutcome _outcome,
                 CharacterActionParams _params,
@@ -107,6 +107,22 @@ public static class CharacterActionAttackPatcher
                 foreach (var feature in allyFeatures)
                 {
                     yield return feature.HandleReactToAttackOnAllyFinished(
+                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
+                }
+            }
+            
+            foreach (var gameLocationAlly in Gui.Battle.GetMyContenders(actingCharacter.Side))
+            {
+                var allyFeatures = gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+
+                if (allyFeatures == null)
+                {
+                    continue;
+                }
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnEnemyFinished(
                         actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
                 }
             }
