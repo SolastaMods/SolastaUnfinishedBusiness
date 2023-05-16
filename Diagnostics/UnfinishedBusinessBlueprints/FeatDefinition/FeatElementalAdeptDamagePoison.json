@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "ElementalAdept",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:DieRollModifierDamageTypeDependentFeatElementalAdeptDamagePoison:9bca2e0a-acb2-568a-919b-b5b9cd522149"

@@ -2,6 +2,6 @@ Open Mod UI > Tools and click History for full change details:
 
 - added Close Quarters, Exploiter, and Devastating Strikes feats
 - changed Sorcerer Forceblade to grant mana shield at level 1
-- changed "Characters on fire should emit light" to also apply to heroes
+- changed "characters on fire should emit light" to also apply to heroes
 - changed Wizard Graviturgist powers and related condition effects
-- replaced feats offering duplicates on mod UI in favor of family selection
+- simplified feats and feat groups offering on mod UI 
