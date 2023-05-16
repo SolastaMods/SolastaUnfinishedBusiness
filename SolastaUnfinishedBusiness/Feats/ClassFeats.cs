@@ -314,15 +314,15 @@ internal static class ClassFeats
     private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
     {
         public IEnumerator HandleReactToAttackOnEnemyFinished(
-            GameLocationCharacter attacker,
-            GameLocationCharacter me,
             GameLocationCharacter ally,
+            GameLocationCharacter me,
+            GameLocationCharacter enemy,
             RollOutcome outcome,
             CharacterActionParams actionParams,
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
-            if (!me.CanReact())
+            if (!me.CanReact() || me == ally)
             {
                 yield break;
             }
@@ -335,19 +335,9 @@ internal static class ClassFeats
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(attacker);
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
 
             if (retaliationMode == null)
-            {
-                (retaliationMode, retaliationModifier) = me.GetFirstRangedModeThatCanAttack(attacker);
-
-                if (retaliationMode == null)
-                {
-                    yield break;
-                }
-            }
-
-            if (!battle.IsWithin1Cell(me, attacker))
             {
                 yield break;
             }
@@ -356,7 +346,7 @@ internal static class ClassFeats
 
             var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
 
-            reactionParams.TargetCharacters.Add(attacker);
+            reactionParams.TargetCharacters.Add(enemy);
             reactionParams.StringParameter = ally.Name;
             reactionParams.ActionModifiers.Add(retaliationModifier);
             reactionParams.AttackMode = retaliationMode;
@@ -366,7 +356,7 @@ internal static class ClassFeats
 
             manager.AddInterruptRequest(reactionRequest);
 
-            yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
         }
     }
 
