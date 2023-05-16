@@ -232,8 +232,6 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureCloseQuarters.SetCustomSubFeatures(new ModifyAdditionalDamageFeatCloseQuarters(featureCloseQuarters));
-
         var closeQuartersDex = FeatDefinitionBuilder
             .Create($"{Name}Dex")
             .SetGuiPresentation(Category.Feat)
@@ -322,6 +320,11 @@ internal static class ClassFeats
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
             if (!me.CanReact() || me == ally)
             {
                 yield break;
