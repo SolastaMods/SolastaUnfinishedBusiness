@@ -1097,7 +1097,7 @@ internal static class MeleeCombatFeats
                 _ => AdvantageType.None
             };
 
-            var dieRoll = RollDie(originalDamageForm.DieType, advantageType, out var _, out var _);
+            var dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
 
             rulesetDefender.SustainDamage(
                 dieRoll,
