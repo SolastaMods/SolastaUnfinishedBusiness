@@ -505,7 +505,7 @@ internal static class MulticlassGameUiContext
             }
         }
 
-        var autoPrepareTag = string.Empty;
+        var tagBySpell = new Dictionary<SpellDefinition, string>();
 
         group.autoPreparedSpells.Clear();
 
@@ -520,14 +520,13 @@ internal static class MulticlassGameUiContext
                 var maxLevel =
                     LevelUpContext.GetMaxAutoPrepSpellsLevel(localHeroCharacter, featureDefinitionAutoPreparedSpells);
 
-                autoPrepareTag = featureDefinitionAutoPreparedSpells.AutoPreparedTag;
-
                 foreach (var spells in featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
                              .SelectMany(preparedSpellsGroup => preparedSpellsGroup.SpellsList
                                  .Where(spell => spell.SpellLevel <= maxLevel)
                                  .Where(spell => spell.SpellLevel == group.SpellLevel)))
                 {
                     group.autoPreparedSpells.Add(spells);
+                    tagBySpell.TryAdd(spells, featureDefinitionAutoPreparedSpells.AutoPreparedTag);
                 }
 
                 foreach (var autoPreparedSpell in group.autoPreparedSpells
@@ -566,12 +565,13 @@ internal static class MulticlassGameUiContext
         group.autoPreparedSpells.AddRange(keys);
 
         group.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
-            allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, autoPrepareTag,
+            allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, tagBySpell,
             group.extraSpellsMap, tooltipAnchor, anchorMode);
 
         if (unlearn)
         {
-            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag,
+            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, new List<SpellDefinition>(),
+                spellTag,
                 canAcquireSpells && spellLevel > 0);
         }
         else

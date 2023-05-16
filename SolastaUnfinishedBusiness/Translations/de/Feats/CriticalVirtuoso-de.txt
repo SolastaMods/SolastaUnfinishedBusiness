@@ -1,2 +1,1 @@
 Feature/&MartialChampionSuperiorCriticalDescription=Deine Waffenangriffe erzielen einen kritischen Treffer bei einem Wurf von 18, 19 oder 20.
-Feature/&MartialChampionSuperiorCriticalTitle=Überlegen kritisch
