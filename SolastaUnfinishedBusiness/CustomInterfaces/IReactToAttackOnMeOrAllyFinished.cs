@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReactToAttackOnAllyFinished
+public interface IReactToAttackOnMeOrAllyFinished
 {
     [UsedImplicitly]
     public IEnumerator HandleReactToAttackOnAllyFinished(

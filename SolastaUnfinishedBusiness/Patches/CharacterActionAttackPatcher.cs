@@ -94,11 +94,10 @@ public static class CharacterActionAttackPatcher
                 yield break;
             }
 
-            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side)
-                         .Where(x => x != defender))
+            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side))
             {
                 var allyFeatures =
-                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
 
                 if (allyFeatures == null)
                 {
