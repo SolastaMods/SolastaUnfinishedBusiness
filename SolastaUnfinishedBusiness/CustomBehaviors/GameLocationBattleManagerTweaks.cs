@@ -212,10 +212,10 @@ internal static class GameLocationBattleManagerTweaks
             foreach (var damageDieProviderFromCharacter in attacker.RulesetCharacter
                          .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
             {
-                additionalDamageForm.DieType = damageDieProviderFromCharacter.Invoke(
-                    featureDefinition as FeatureDefinitionAdditionalDamage, additionalDamageForm, attacker, defender);
+                additionalDamageForm.DieType =
+                    damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
+                        additionalDamageForm, attacker, defender);
             }
-
 
             /*
              * Support for damage die progression
