@@ -660,7 +660,17 @@ internal sealed class PathOfTheElements : AbstractSubclass
             RulesetAttackMode mode,
             ActionModifier modifier)
         {
-            if (!me.CanReact())
+            //do not trigger on my own turn, so won't retaliate on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }

@@ -308,7 +308,12 @@ internal sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                me == ally ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }

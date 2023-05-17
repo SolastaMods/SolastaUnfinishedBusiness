@@ -244,7 +244,7 @@ internal static class ClassFeats
                 !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
                 !gameLocationBattleService.IsWithin1Cell(attacker, defender))
             {
-                return damageForm.DieType;
+                return additionalDamage.DamageDieType;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
@@ -320,9 +320,18 @@ internal static class ClassFeats
                 yield break;
             }
 
+            //do not trigger on my own turn, so won't exploit on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
             var rulesetEnemy = enemy.RulesetCharacter;
 
-            if (!me.CanReact() || me == ally || rulesetEnemy == null || rulesetEnemy.IsDeadOrDying)
+            if (!me.CanReact() ||
+                me == ally ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
