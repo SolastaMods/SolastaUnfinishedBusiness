@@ -311,12 +311,39 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: support for `IDefenderBeforeAttackHitConfirmed`
-            var character = defender.RulesetCharacter;
-
-            if (character != null)
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnEnemy`
+            if (attacker.CanAct())
             {
-                foreach (var extra in character
+                var rulesetAttacker = attacker.RulesetCharacter;
+
+                foreach (var extra in rulesetAttacker
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>()
+                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
+                                 __instance,
+                                 attacker,
+                                 defender,
+                                 attackModifier,
+                                 attackMode,
+                                 rangedAttack,
+                                 advantageType,
+                                 actualEffectForms,
+                                 rulesetEffect,
+                                 criticalHit,
+                                 firstTarget)))
+                {
+                    while (extra.MoveNext())
+                    {
+                        yield return extra.Current;
+                    }
+                }
+            }
+            
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
+            if (defender.CanAct())
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+
+                foreach (var extra in rulesetDefender
                              .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>()
                              .Select(feature => feature.OnAttackBeforeHitConfirmed(
                                  __instance,
