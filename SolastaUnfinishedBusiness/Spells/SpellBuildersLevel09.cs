@@ -176,7 +176,7 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("PowerWordHeal")
             .SetGuiPresentation(Category.Spell, HealingWord)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
@@ -327,7 +327,7 @@ internal static partial class SpellBuilders
         return SpellDefinitionBuilder
             .Create("Weird")
             .SetGuiPresentation(Category.Spell, PhantasmalKiller)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
             .SetSomaticComponent(false)
