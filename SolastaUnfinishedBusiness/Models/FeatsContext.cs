@@ -52,13 +52,8 @@ internal static class FeatsContext
                      .Where(featGroup => !string.IsNullOrEmpty(featGroup.FamilyTag))
                      .ToList())
         {
-            Feats.Add(featGroup);
             FeatGroups.Remove(featGroup);
-
-            var groupedFeat = featGroup.GetFirstSubFeatureOfType<GroupedFeat>();
-
-            groupedFeat?.GetSubFeats(true).ForEach(x =>
-                x.GuiPresentation.hidden = !Main.Settings.FeatEnabled.Contains(featGroup.Name));
+            LoadFeat(featGroup);
         }
 
         // sorting
