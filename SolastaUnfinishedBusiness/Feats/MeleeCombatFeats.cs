@@ -955,7 +955,6 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-
     #region Devastating Strikes
 
     private static FeatDefinition BuildDevastatingStrikes()
@@ -964,26 +963,54 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { GreatswordType, GreataxeType, MaulType };
 
+        var featureDevastatingStrikes = FeatureDefinitionBuilder
+            .Create("FeatureDevastatingStrikes")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new IgnoreDamageAffinityDevastatingStrikes())
+            .AddToDB();
+
+        var conditionDevastatingStrikes = ConditionDefinitionBuilder
+            .Create("ConditionDevastatingStrikes")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(featureDevastatingStrikes)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AttackEffectAfterDamageFeatDevastatingStrikes(weaponTypes),
+                new CustomBehaviorFeatDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
                 new ModifyWeaponAttackModeTypeFilter("Feat/&FeatDevastatingStrikesTitle", weaponTypes))
             .AddToDB();
 
         return feat;
     }
 
-    private sealed class AttackEffectAfterDamageFeatDevastatingStrikes : IAttackEffectAfterDamage, IIgnoreDamageAffinity
+    private sealed class IgnoreDamageAffinityDevastatingStrikes : IIgnoreDamageAffinity
+    {
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        {
+            return provider.DamageAffinityType == DamageAffinityType.Resistance;
+        }
+    }
+
+    private sealed class CustomBehaviorFeatDevastatingStrikes :
+        IAttackEffectAfterDamage, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
         private const string DevastatingStrikesDescription = "Feat/&FeatDevastatingStrikesDescription";
         private const string DevastatingStrikesTitle = "Feat/&FeatDevastatingStrikesTitle";
+        private readonly ConditionDefinition _conditionBypassResistance;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public AttackEffectAfterDamageFeatDevastatingStrikes(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public CustomBehaviorFeatDevastatingStrikes(
+            ConditionDefinition conditionBypassResistance,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+            _conditionBypassResistance = conditionBypassResistance;
         }
 
         public void OnAttackEffectAfterDamage(
@@ -1063,6 +1090,8 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            var dieRoll = 0;
+            var rolls = new List<int>();
             var damage = new DamageForm
             {
                 DamageType = originalDamageForm.DamageType,
@@ -1071,8 +1100,23 @@ internal static class MeleeCombatFeats
                 BonusDamage = Math.Max(strengthMod, dexterityMod)
             };
 
+            if (outcome is RollOutcome.CriticalSuccess)
+            {
+                var advantageType = attackModifier.AttackAdvantageTrend switch
+                {
+                    > 0 => AdvantageType.Advantage,
+                    < 0 => AdvantageType.Disadvantage,
+                    _ => AdvantageType.None
+                };
+
+                dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
+                damage.DieType = originalDamageForm.DieType;
+                damage.DiceNumber = 1;
+                rolls.Add(dieRoll);
+            }
+
             RulesetActor.InflictDamage(
-                strengthMod,
+                dieRoll + strengthMod,
                 damage,
                 damage.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
@@ -1081,36 +1125,50 @@ internal static class MeleeCombatFeats
                 attacker.Guid,
                 false,
                 attackMode.AttackTags,
-                new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                new RollInfo(damage.DieType, rolls, strengthMod),
                 true,
-                out _);
-
-            if (outcome is not RollOutcome.CriticalSuccess || rulesetDefender.IsDeadOrDying)
-            {
-                return;
-            }
-
-            var advantageType = attackModifier.AttackAdvantageTrend switch
-            {
-                > 0 => AdvantageType.Advantage,
-                < 0 => AdvantageType.Disadvantage,
-                _ => AdvantageType.None
-            };
-
-            var dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
-
-            rulesetDefender.SustainDamage(
-                dieRoll,
-                damage.DamageType,
-                false,
-                attacker.Guid,
-                new RollInfo(originalDamageForm.DieType, new List<int> { dieRoll }, 0),
                 out _);
         }
 
-        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
         {
-            return Global.CriticalHit;
+            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!criticalHit || !attacker.CanAct())
+            {
+                yield break;
+            }
+
+            rulesetCharacter.InflictCondition(
+                _conditionBypassResistance.Name,
+                _conditionBypassResistance.DurationType,
+                _conditionBypassResistance.DurationParameter,
+                _conditionBypassResistance.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
         }
     }
 
