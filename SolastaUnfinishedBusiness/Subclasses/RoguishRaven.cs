@@ -278,9 +278,9 @@ internal sealed class RoguishRaven : AbstractSubclass
             ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var rulesetDefender = me.RulesetCharacter;
+            var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
+            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
             {
                 yield break;
             }
@@ -308,7 +308,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            rulesetDefender.RollAttack(
+            rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
@@ -326,7 +326,7 @@ internal sealed class RoguishRaven : AbstractSubclass
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _power);
         }
     }
 }

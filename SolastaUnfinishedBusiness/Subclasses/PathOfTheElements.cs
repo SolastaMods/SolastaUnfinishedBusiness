@@ -682,7 +682,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!me.CanAct() || !rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 yield break;
             }

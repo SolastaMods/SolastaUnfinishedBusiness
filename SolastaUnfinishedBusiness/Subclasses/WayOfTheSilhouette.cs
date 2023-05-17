@@ -170,10 +170,15 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            if (!me.CanAct())
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
-            if (rulesetMe == null || !rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }

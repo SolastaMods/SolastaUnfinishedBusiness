@@ -178,9 +178,14 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
+            if (!me.CanAct())
+            {
+                yield break;
+            }
+
             var rulesetDefender = me.RulesetCharacter;
 
-            rulesetDefender?.InflictCondition(
+            rulesetDefender.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
@@ -217,9 +222,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
             ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var rulesetDefender = me.RulesetCharacter;
+            var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
             {
                 yield break;
             }
@@ -247,7 +252,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            rulesetDefender.RollAttack(
+            rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
@@ -264,7 +269,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
             action.AttackRollOutcome = outcome;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _power);
         }
     }
 }
