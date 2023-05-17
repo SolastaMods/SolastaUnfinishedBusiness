@@ -485,7 +485,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     opposingContender != defender && opposingContender.RulesetCharacter is
                     {
                         IsDeadOrDyingOrUnconscious: false
-                    } && opposingContender.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available &&
+                    } && opposingContender.CanReact() &&
                     __instance.IsWithinXCells(opposingContender, defender, 6) &&
                     opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
                     ActionStatus.Available)

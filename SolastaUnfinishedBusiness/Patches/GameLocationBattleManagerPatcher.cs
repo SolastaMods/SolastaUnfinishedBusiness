@@ -485,9 +485,7 @@ public static class GameLocationBattleManagerPatcher
                     continue;
                 }
 
-                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious &&
-                               defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                               ActionDefinitions.ActionStatus.Available;
+                var canReact = defender.CanReact();
 
                 //TODO: add ability to specify whether this feature can reduce magic damage
                 var damageTypes = feature.DamageTypes;

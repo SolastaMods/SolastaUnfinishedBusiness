@@ -422,19 +422,14 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
 
-                if (gameLocationMonster.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                    ActionDefinitions.ActionStatus.Available
-                    && !gameLocationMonster.Prone)
+                if (gameLocationMonster.CanReact())
                 {
                     allies.Add(gameLocationMonster);
                 }
             }
 
             allies.AddRange(characterService.PartyCharacters
-                .Where(partyCharacter =>
-                    partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == 0 &&
-                    !partyCharacter.Prone)
-                .Where(partyCharacter => partyCharacter != me));
+                .Where(partyCharacter => partyCharacter.CanReact() && partyCharacter != me));
 
             var reactions = new List<CharacterActionParams>();
 

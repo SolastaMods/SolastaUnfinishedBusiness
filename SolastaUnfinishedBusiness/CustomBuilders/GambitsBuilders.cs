@@ -914,7 +914,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
@@ -1241,7 +1245,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
