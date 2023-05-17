@@ -37,16 +37,14 @@ internal static class DefensiveStrikeAttack
         }
 
         var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+            .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
+            .ToList();
 
         //Process other participants of the battle
-        foreach (var unit in units)
+        foreach (var unit in units
+                     .Where(unit => attacker != unit && defender != unit))
         {
-            if (attacker != unit && defender != unit)
-            {
-                yield return ActiveDefensiveStrike(unit, attacker, defender, battleManager);
-            }
+            yield return ActiveDefensiveStrike(unit, attacker, defender, battleManager);
         }
     }
 

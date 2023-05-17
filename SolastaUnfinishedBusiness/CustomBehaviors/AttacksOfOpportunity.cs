@@ -46,7 +46,7 @@ internal static class AttacksOfOpportunity
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             .ToArray();
 
         //Process other participants of the battle
@@ -101,8 +101,8 @@ internal static class AttacksOfOpportunity
         }
 
         var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            .ToList();
 
         //Process other participants of the battle
         foreach (var unit in units)

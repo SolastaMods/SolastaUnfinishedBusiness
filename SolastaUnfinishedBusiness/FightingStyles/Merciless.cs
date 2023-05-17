@@ -93,9 +93,9 @@ internal sealed class Merciless : AbstractFightingStyle
             };
 
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .ToList()
-                         .Where(x => x != null && !x.RulesetCharacter.IsDeadOrDying)
-                         .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance)))
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDying: false })
+                         .Where(enemy => gameLocationBattleService.IsWithinXCells(downedCreature, enemy, distance))
+                         .ToList())
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }

@@ -49,8 +49,8 @@ internal static class GuardianAuraHpSwap
         }
 
         var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-            .ToArray();
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            .ToList();
 
         foreach (var unit in units)
         {

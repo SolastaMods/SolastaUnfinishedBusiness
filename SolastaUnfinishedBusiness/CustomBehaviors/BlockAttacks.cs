@@ -41,7 +41,7 @@ internal static class BlockAttacks
         }
 
         var units = battle.AllContenders
-            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
+            .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
             .ToArray();
 
         foreach (var unit in units)

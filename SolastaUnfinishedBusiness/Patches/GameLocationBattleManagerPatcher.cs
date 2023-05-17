@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
@@ -977,8 +976,8 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: Allow attack of opportunity on target that failed saving throw
             //Process other participants of the battle
             foreach (var unit in __instance.Battle.AllContenders
-                         .Where(x => x is not { RulesetCharacter.IsDeadOrUnconscious: true })
-                         .ToArray())
+                         .Where(x => x is { RulesetCharacter.IsDeadOrUnconscious: false })
+                         .ToList())
             {
                 if (unit == defender || unit == attacker)
                 {

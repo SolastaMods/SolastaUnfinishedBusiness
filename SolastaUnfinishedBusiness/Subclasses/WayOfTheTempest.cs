@@ -642,7 +642,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             foreach (var defender in battleService.Battle.AllContenders
                          .Where(x =>
-                             x.RulesetCharacter is not { IsDeadOrDying: true } &&
+                             x.RulesetCharacter is { IsDeadOrDying: false } &&
                              x.IsOppositeSide(attacker.Side) &&
                              x.RulesetCharacter.AllConditions
                                  .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
