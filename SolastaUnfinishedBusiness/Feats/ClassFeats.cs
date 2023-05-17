@@ -346,7 +346,7 @@ internal static class ClassFeats
 
             var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
 
-            if (retaliationMode == null)
+            if (retaliationMode == null || retaliationMode.ranged)
             {
                 yield break;
             }
