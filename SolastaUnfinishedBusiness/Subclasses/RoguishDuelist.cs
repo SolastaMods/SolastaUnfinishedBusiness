@@ -72,7 +72,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         actionAffinityReflexiveParry.SetCustomSubFeatures(
-            new PhysicalAttackBeforeHitConfirmedReflexiveParty(actionAffinityReflexiveParry, conditionReflexiveParry));
+            new PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(actionAffinityReflexiveParry,
+                conditionReflexiveParry));
 
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
@@ -120,13 +121,13 @@ internal sealed class RoguishDuelist : AbstractSubclass
     // Reflexive Party
     //
 
-    private sealed class PhysicalAttackBeforeHitConfirmedReflexiveParty : IPhysicalAttackBeforeHitConfirmed,
+    private sealed class PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty : IPhysicalAttackBeforeHitConfirmedOnMe,
         IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public PhysicalAttackBeforeHitConfirmedReflexiveParty(
+        public PhysicalAttackBeforeHitConfirmedOnMeReflexiveParty(
             FeatureDefinition featureDefinition,
             ConditionDefinition conditionDefinition)
         {
@@ -149,7 +150,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
         {
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.HasAnyConditionOfType(
+            if (rulesetDefender == null ||
+                rulesetDefender.IsDeadOrDyingOrUnconscious ||
+                rulesetDefender.HasAnyConditionOfType(
                     _conditionDefinition.Name,
                     ConditionDefinitions.ConditionIncapacitated.Name,
                     ConditionDefinitions.ConditionShocked.Name,
@@ -206,8 +209,12 @@ internal sealed class RoguishDuelist : AbstractSubclass
             _power = power;
         }
 
-        public IEnumerator OnAttackTryAlterOutcome(GameLocationBattleManager battle, CharacterAction action,
-            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
             var rulesetDefender = me.RulesetCharacter;

@@ -280,6 +280,7 @@ internal static class RaceFeats
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featDragonWings,
+            featInfernalConstitution,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupRevenantGreatSword,

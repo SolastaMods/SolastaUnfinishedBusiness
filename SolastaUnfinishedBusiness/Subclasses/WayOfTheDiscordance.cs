@@ -294,7 +294,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-                if (rulesetDefender == null)
+                if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
                 {
                     continue;
                 }
@@ -367,7 +367,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDyingOrUnconscious)
+            if (rulesetAttacker == null || rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -200,7 +201,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                     .SetParticleEffectParameters(FeatureDefinitionPowers.PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(
@@ -363,7 +364,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorEssenceTheft : IActionFinished, IFilterTargetingMagicEffect
+    private sealed class CustomBehaviorEssenceTheft : IActionInitiated, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionPossessed;
         private readonly FeatureDefinitionPower _powerEssenceTheft;
@@ -376,7 +377,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             _conditionPossessed = conditionPossessed;
         }
 
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        public IEnumerator OnActionInitiated(CharacterAction characterAction)
         {
             if (characterAction is not CharacterActionUsePower characterActionUsePower ||
                 characterActionUsePower.activePower.PowerDefinition != _powerEssenceTheft)
@@ -387,6 +388,22 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             var actingCharacter = characterAction.ActingCharacter;
 
             actingCharacter.UsedSpecialFeatures.TryAdd(_powerEssenceTheft.Name, 1);
+
+            var damage = characterAction.ActionParams.RulesetEffect.EffectDescription.FindFirstDamageForm();
+
+            // this currently works as there is only one feature in game using DamageDieProviderFromCharacter
+            // we might need to change this to a proper interface if others start using it
+            var hasSneakAttackDieTypeChange = actingCharacter.RulesetCharacter
+                .GetSubFeaturesByType<DamageDieProviderFromCharacter>()
+                .Any();
+
+            if (!hasSneakAttackDieTypeChange)
+            {
+                damage.dieType = DieType.D6;
+                yield break;
+            }
+
+            damage.dieType = DieType.D8;
         }
 
         public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)

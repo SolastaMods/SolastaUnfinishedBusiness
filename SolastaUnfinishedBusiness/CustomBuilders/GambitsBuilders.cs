@@ -130,7 +130,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Constitution, false,
@@ -191,7 +191,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Strength, false,
@@ -254,7 +254,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Strength, false,
@@ -322,7 +322,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -382,7 +382,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Constitution, false,
@@ -450,7 +450,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -608,7 +608,7 @@ internal static class GambitsBuilders
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .ExcludeCaster()
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetEffectForms(
@@ -672,7 +672,7 @@ internal static class GambitsBuilders
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.IndividualsUnique)
                     .ExcludeCaster()
                     .SetSavingThrowData(true,
                         AttributeDefinitions.Dexterity, false,
@@ -914,7 +914,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }
@@ -1203,7 +1207,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class Parry : IPhysicalAttackBeforeHitConfirmed
+    private sealed class Parry : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
@@ -1241,7 +1245,11 @@ internal static class GambitsBuilders
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }

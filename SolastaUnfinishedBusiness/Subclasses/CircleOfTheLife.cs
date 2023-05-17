@@ -98,7 +98,7 @@ internal sealed class CircleOfTheLife : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.EndOfSourceTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(HealingWord)
                     .SetEffectForms(
                         EffectFormBuilder

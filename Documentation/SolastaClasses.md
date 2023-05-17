@@ -1,4 +1,4 @@
-# Barbarian
+# 1. - Barbarian
 
 Barbarians are fierce warriors from the edge of civilization. Their battle rage makes them dangerous combatants.
 
@@ -33,17 +33,9 @@ When you are not wearing armor, your Armor Class equals 10 + your Dexterity modi
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Danger Sense
 
 You have advantage on Dexterity saving throws for effects and spells, as long as you are not blinded or incapacitated.
-
-* Fighting Style
-
-Choose a fighting style as a specialty.
 
 * Reckless Attack
 
@@ -111,13 +103,6 @@ Increase your rage damage by +1
 You can roll one additional weapon damage die when determining the extra  damage for a critical hit with a melee attack.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 11
 
 * Relentless Rage
@@ -147,7 +132,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
 
 
 ## Level 16
@@ -178,10 +163,6 @@ Add another damage die to critical hits.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Indomitable Might
 
 If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
@@ -203,7 +184,7 @@ At 20th level, you embody the power of the wilds. Your Strength and Constitution
 
 
 
-# Bard
+# 2. - Bard
 
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
 
@@ -240,10 +221,6 @@ Cast bard spells.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Jack of All Trades
 
@@ -299,10 +276,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Bard Expertise
 
 At the 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At the 10th level, you can choose another two skill proficiencies to gain this benefit.
@@ -346,10 +319,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Magical Secrets
 
 Choose two spells from any class and include them in your spell list.
@@ -371,7 +340,7 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 
 
 
-# Cleric
+# 3. - Cleric
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
 
@@ -412,10 +381,6 @@ Can cast spells from the Cleric Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Channel Divinity
 
@@ -460,13 +425,6 @@ Channel Divinity to force undead creatures within 6 cells who can see you to fle
 Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 11
 
 * Turn Undead (Destroy)
@@ -507,10 +465,6 @@ Undead creatures with a challenge rating of 4 or lower that fail the saving thro
 
 ## Level 18
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Channel Divinity (increased)
 
 +1 Channel Divinity use between rests.
@@ -525,7 +479,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# Druid
+# 4. - Druid
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
 
@@ -564,10 +518,6 @@ Can cast spells from the Druid Spells list
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Druid Circle
 
 At 2nd level, you choose a Druid Circle that further expresses your relationship to Nature.
@@ -591,13 +541,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 12
 
 * Ability Score Choice
@@ -613,10 +556,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Beast Spells
 
@@ -639,7 +578,7 @@ You can use your Wildshape an unlimited number of times. Additionally, you can i
 
 
 
-# Fighter
+# 5. - Fighter
 
 Fighters are trained in the arts of combat. They are adept with most weapons, but often choose to specialize. All fighters can use armor, shields, and ranged weapons.
 
@@ -676,10 +615,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Action Surge
 
@@ -720,23 +655,12 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
-* Weapon Specialization
-
-You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 15th.
-
 
 ## Level 9
 
 * Indomitable
 
 You can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 11
@@ -773,10 +697,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 Choose between increasing your ability scores or gaining a bonus feat.
 
-* Weapon Specialization
-
-You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 15th.
-
 
 ## Level 17
 
@@ -787,13 +707,6 @@ Regain a main action immediately. Take a short or long rest to recover this powe
 * Indomitable (advanced)
 
 You can use Indomitable resistance one additional time between long rests.
-
-
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 19
@@ -812,7 +725,7 @@ You can attack twice, rather than once, when you use the attack or shove actions
 
 
 
-# Monk
+# 6. - Monk
 
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
 
@@ -850,10 +763,6 @@ When you are not wearing armor, your armor class equals 10 + your dexterity modi
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Flurry of Blows
 
 After the Attack action has been used on your turn, you can spend 1 Ki point to make two unarmed strikes as a bonus action.
@@ -861,10 +770,6 @@ After the Attack action has been used on your turn, you can spend 1 Ki point to 
 * Ki Points
 
 Starting at the 2nd level, your training allows you to harness the mystic energy of Ki. Your access to this energy is represented by a number of Ki points. Your monk level determines the number of points you have (2 at level 2, 3 at level 3, etc.)
-
-* Monk Weapon Specialization
-
-Select a new weapon type to become a monk weapon for you.
 
 * Patient Defense
 
@@ -947,20 +852,9 @@ Starting at the 9th level, climbing becomes second nature to you. Climbing no lo
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Purity of Body
 
 At the 10th level, your mastery of the Ki flowing through you makes you immune to disease and poison.
-
-
-## Level 11
-
-* Monk Weapon Specialization
-
-Select a new weapon type to become a monk weapon for you.
 
 
 ## Level 12
@@ -974,14 +868,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Tongue of the Sun and Moon
 
-Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
 ## Level 14
 
 * Diamond Soul
 
-Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
+Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
 
 
 ## Level 15
@@ -1002,10 +896,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Empty Body
 
@@ -1028,7 +918,7 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 
 
 
-# Paladin
+# 7. - Paladin
 
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
 
@@ -1073,10 +963,6 @@ Wisdom, Charisma
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Divine Smite
 
@@ -1132,10 +1018,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Aura of Courage
 
 You and allies within 2 cells cannot be frightened while you are conscious. At the 18th level, the range becomes 6 cells.
@@ -1159,7 +1041,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Cleansing Touch
 
-Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
 ## Level 16
@@ -1170,10 +1052,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Improved Aura of Courage
 
@@ -1193,7 +1071,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-# Ranger
+# 8. - Ranger
 
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
 
@@ -1230,10 +1108,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Fighting Style
 
@@ -1289,10 +1163,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Hide in Plain Sight
 
 You can spend 1 minute creating camouflage for yourself. Once camouflaged, you gain +10 DEX (Stealth) while you are standing against a wall. You have to restart the camouflage every time you rest or move to another location.
@@ -1317,7 +1187,7 @@ Gain advantage on ability checks towards this creature type, and additional dama
 
 * Vanish
 
-Starting at level 14, you can use the Hide action as a bonus action on your turn.
+Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
 
 
 ## Level 16
@@ -1328,10 +1198,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Feral Senses
 
@@ -1354,7 +1220,7 @@ You become an unparalleled hunter of your enemies. All your attacks deal additio
 
 
 
-# Rogue
+# 9. - Rogue
 
 Rogues are versatile first and foremost. They use their natural talents to master various skills and find their own way to thrive. Generally resourceful, they are known for their cunning and their ability to launch deadly sneak attacks.
 
@@ -1395,10 +1261,6 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Cunning Action
 
@@ -1449,10 +1311,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 2 Bonus Feats
-
-Select 2 additional feats for your character.
-
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
@@ -1476,14 +1334,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Blindsense
 
-You are aware of the location of any hidden or invisible creature within 2 cells of you.
+You are aware of the location of any hidden or invisible creature within 10 ft of you.
 
 
 ## Level 15
 
 * Slippery Mind
 
-You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16
@@ -1491,13 +1349,6 @@ You have acquired greater mental strength. You gain proficiency in Wisdom saving
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
-
-
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 19
@@ -1520,7 +1371,7 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 
 
 
-# Sorcerer
+# 10. - Sorcerer
 
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
 
@@ -1554,10 +1405,6 @@ Can cast spells from the Sorcerer Spells list
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Flexible Casting
 
 Allows the conversion of spell slots into sorcery points and vice versa, as a bonus action.
@@ -1590,10 +1437,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Additional Metamagic
 
 Learn another metamagic option
@@ -1620,13 +1463,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Learn another metamagic option
 
 
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 19
 
 * Ability Score Choice
@@ -1643,7 +1479,7 @@ Regain 4 sorcery points during a short rest.
 
 
 
-# Warlock
+# 11. - Warlock
 
 Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
@@ -1676,10 +1512,6 @@ Can cast spells from the Warlock Spells list
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Eldritch Invocations
 
@@ -1726,13 +1558,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Eldritch Invocation
 
 Learn an additional Eldritch Invocation
-
-
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 
 ## Level 11
@@ -1785,13 +1610,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose one spell of the specified level from the warlock spell list as this arcanum. You can cast this arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
 
 
-## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 19
 
 * Ability Score Choice
@@ -1808,7 +1626,7 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-# Wizard
+# 12. - Wizard
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
 
@@ -1842,10 +1660,6 @@ Can cast spells from the Wizard Spells list
 
 ## Level 2
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Arcane Recovery
 
 Once per day when you complete a short rest, you can recover a number of expended spell slots (max 5th level) up to half of your wizard level, rounded up.
@@ -1869,13 +1683,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 Choose between increasing your ability scores or gaining a bonus feat.
 
 
-## Level 10
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
-
 ## Level 12
 
 * Ability Score Choice
@@ -1895,10 +1702,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Spell Mastery
 

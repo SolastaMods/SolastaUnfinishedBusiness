@@ -1,4 +1,4 @@
-# Inventor
+# 1. - Inventor
 
 Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
@@ -39,10 +39,6 @@ Can cast spells from the Inventor Spells list. You can use item that bears your 
 
 
 ## Level 2
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Infusions
 
@@ -99,10 +95,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 ## Level 10
 
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
-
 * Infusion Limit Increase
 
 You can have 1 more item infused at a time.
@@ -157,10 +149,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 ## Level 18
-
-* 1 Bonus Feats
-
-Select 1 additional feats for your character.
 
 * Infusion Limit Increase
 

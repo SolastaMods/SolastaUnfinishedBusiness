@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>1</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>true</DisplayRacesToggle>
@@ -105,19 +105,36 @@
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
   <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
+  <DisableUpdateMessage>false</DisableUpdateMessage>
+  <EnableBetaContent>false</EnableBetaContent>
+  <EnablePcgRandom>false</EnablePcgRandom>
+  <EnableSaveByLocation>false</EnableSaveByLocation>
+  <EnableRespec>false</EnableRespec>
+  <EnableTogglesToOverwriteDefaultTestParty>false</EnableTogglesToOverwriteDefaultTestParty>
+  <DefaultPartyHeroes />
+  <EnableCharacterChecker>false</EnableCharacterChecker>
+  <EnableCheatMenu>false</EnableCheatMenu>
+  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
+  <NoExperienceOnLevelUp>false</NoExperienceOnLevelUp>
+  <OverrideMinMaxLevel>false</OverrideMinMaxLevel>
+  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
+  <OverridePartySize>4</OverridePartySize>
+  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
+  <FasterTimeModifier>1.5</FasterTimeModifier>
+  <EncounterPercentageChance>5</EncounterPercentageChance>
   <AddHelpActionToAllRaces>false</AddHelpActionToAllRaces>
   <DisableSenseDarkVisionFromAllRaces>false</DisableSenseDarkVisionFromAllRaces>
   <DisableSenseSuperiorDarkVisionFromAllRaces>false</DisableSenseSuperiorDarkVisionFromAllRaces>
   <EnableAlternateHuman>false</EnableAlternateHuman>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
-  <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
+  <DisableLevelPrerequisitesOnModFeats>false</DisableLevelPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
-  <EnumerateOriginSubFeatures>false</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
+  <ImproveLevelUpFeaturesSelection>false</ImproveLevelUpFeaturesSelection>
   <TotalFeatsGrantedFirstLevel>0</TotalFeatsGrantedFirstLevel>
+  <EnumerateOriginSubFeatures>false</EnumerateOriginSubFeatures>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
   <EnableFeatsAtEveryFourLevels>false</EnableFeatsAtEveryFourLevels>
   <EnableFeatsAtEveryFourLevelsMiddle>false</EnableFeatsAtEveryFourLevelsMiddle>
@@ -142,6 +159,57 @@
   <UnlockSkinColors>false</UnlockSkinColors>
   <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
   <AllowHornsOnAllRaces>false</AllowHornsOnAllRaces>
+  <ApplySrdWeightToFoodRations>false</ApplySrdWeightToFoodRations>
+  <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
+  <IdentifyAfterRest>false</IdentifyAfterRest>
+  <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
+  <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
+  <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
+  <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
+  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
+  <FixEldritchBlastRange>false</FixEldritchBlastRange>
+  <EnableUpcastConjureElementalAndFey>false</EnableUpcastConjureElementalAndFey>
+  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
+  <ChangeSleetStormToCube>false</ChangeSleetStormToCube>
+  <RemoveRecurringEffectOnEntangle>false</RemoveRecurringEffectOnEntangle>
+  <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
+  <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
+  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
+  <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
+  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <FullyControlConjurations>false</FullyControlConjurations>
+  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
+  <MakeLargeWildshapeFormsMedium>false</MakeLargeWildshapeFormsMedium>
+  <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
+  <EnableCharactersOnFireToEmitLight>false</EnableCharactersOnFireToEmitLight>
+  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+  <CriticalHitModeAllies>0</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
+  <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
+  <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
+  <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
+  <AddPickPocketableLoot>false</AddPickPocketableLoot>
+  <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
+  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
+  <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
+  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
+  <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
+  <RecipeCost>200</RecipeCost>
+  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
+  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
+  <CraftingInStore />
+  <CraftingItemsInDm />
+  <CraftingRecipesInDm />
+  <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
+  <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
+  <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
+  <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
+  <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
+  <RestockAntiquarians>false</RestockAntiquarians>
+  <RestockArcaneum>false</RestockArcaneum>
+  <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
+  <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
   <RaceSliderPosition>4</RaceSliderPosition>
   <RaceEnabled />
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
@@ -327,72 +395,6 @@
       </value>
     </item>
   </SpellListSpellEnabled>
-  <ApplySrdWeightToFoodRations>false</ApplySrdWeightToFoodRations>
-  <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
-  <IdentifyAfterRest>false</IdentifyAfterRest>
-  <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
-  <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
-  <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
-  <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
-  <EnableUpcastConjureElementalAndFey>false</EnableUpcastConjureElementalAndFey>
-  <OnlyShowMostPowerfulUpcastConjuredElementalOrFey>false</OnlyShowMostPowerfulUpcastConjuredElementalOrFey>
-  <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
-  <RemoveRecurringEffectOnEntangle>false</RemoveRecurringEffectOnEntangle>
-  <ChangeSleetStormToCube>false</ChangeSleetStormToCube>
-  <FixEldritchBlastRange>false</FixEldritchBlastRange>
-  <UseHeightOneCylinderEffect>false</UseHeightOneCylinderEffect>
-  <AllowStackedMaterialComponent>false</AllowStackedMaterialComponent>
-  <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
-  <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
-  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-  <FullyControlConjurations>false</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
-  <MakeLargeWildshapeFormsMedium>false</MakeLargeWildshapeFormsMedium>
-  <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
-  <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
-  <CriticalHitModeAllies>0</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
-  <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
-  <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
-  <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
-  <AddPickPocketableLoot>false</AddPickPocketableLoot>
-  <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
-  <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
-  <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
-  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
-  <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
-  <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
-  <RecipeCost>200</RecipeCost>
-  <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
-  <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
-  <CraftingInStore />
-  <CraftingItemsInDm />
-  <CraftingRecipesInDm />
-  <ScaleMerchantPricesCorrectly>false</ScaleMerchantPricesCorrectly>
-  <StockGorimStoreWithAllNonMagicalClothing>false</StockGorimStoreWithAllNonMagicalClothing>
-  <StockHugoStoreWithAdditionalFoci>false</StockHugoStoreWithAdditionalFoci>
-  <StockGorimStoreWithAllNonMagicalInstruments>false</StockGorimStoreWithAllNonMagicalInstruments>
-  <EnableAdditionalFociInDungeonMaker>false</EnableAdditionalFociInDungeonMaker>
-  <RestockAntiquarians>false</RestockAntiquarians>
-  <RestockArcaneum>false</RestockArcaneum>
-  <RestockCircleOfDanantar>false</RestockCircleOfDanantar>
-  <RestockTowerOfKnowledge>false</RestockTowerOfKnowledge>
-  <EnableBetaContent>false</EnableBetaContent>
-  <EnableSaveByLocation>false</EnableSaveByLocation>
-  <EnablePcgRandom>false</EnablePcgRandom>
-  <EnableRespec>false</EnableRespec>
-  <EnableTogglesToOverwriteDefaultTestParty>false</EnableTogglesToOverwriteDefaultTestParty>
-  <EnableCharacterChecker>false</EnableCharacterChecker>
-  <EnableCheatMenu>false</EnableCheatMenu>
-  <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
-  <NoExperienceOnLevelUp>false</NoExperienceOnLevelUp>
-  <OverrideMinMaxLevel>false</OverrideMinMaxLevel>
-  <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>4</OverridePartySize>
-  <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-  <FasterTimeModifier>1.5</FasterTimeModifier>
-  <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>false</ShowChannelDivinityOnPortrait>
@@ -403,9 +405,7 @@
   <MarkInvisibleTeleportersOnLevelMap>false</MarkInvisibleTeleportersOnLevelMap>
   <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
   <AllowMoreRealStateOnRestPanel>false</AllowMoreRealStateOnRestPanel>
-  <AddMonkKiPointsToggle>false</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-  <AddMonsterSwapAttackToggle>false</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>0</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
@@ -621,7 +621,4 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

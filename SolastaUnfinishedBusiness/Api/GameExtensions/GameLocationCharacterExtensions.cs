@@ -155,19 +155,36 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    internal static bool CanAct(this GameLocationCharacter instance)
     {
         var character = instance.RulesetCharacter;
 
-        if (character == null)
+        return character is { IsDeadOrDyingOrUnconscious: false }
+               && !character.HasConditionOfType(RuleDefinitions.ConditionProne)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionIncapacitated)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionStunned)
+               && !character.HasConditionOfType(RuleDefinitions.ConditionParalyzed);
+    }
+
+    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
+    {
+        if (!instance.CanAct())
         {
             return false;
         }
 
-        if (character.HasConditionOfType(RuleDefinitions.ConditionProne)
-            || character.HasConditionOfType(RuleDefinitions.ConditionIncapacitated)
-            || character.HasConditionOfType(RuleDefinitions.ConditionStunned)
-            || character.HasConditionOfType(RuleDefinitions.ConditionParalyzed))
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+
+        if (actionService == null)
+        {
+            return false;
+        }
+
+        var hasReactionInQueue = actionService.PendingReactionRequestGroups
+            .SelectMany(x => x.Requests)
+            .Any(x => x.Character == instance);
+
+        if (hasReactionInQueue)
         {
             return false;
         }

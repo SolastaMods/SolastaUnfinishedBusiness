@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 //Can add similar interfaces in future for after hit confirmed and/or for attacker
-public interface IPhysicalAttackBeforeHitConfirmed
+public interface IPhysicalAttackBeforeHitConfirmedOnMe
 {
     [UsedImplicitly]
     IEnumerator OnAttackBeforeHitConfirmed(

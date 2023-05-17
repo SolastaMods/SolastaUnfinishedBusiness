@@ -41,6 +41,6 @@ Spell/&ThornyVinesTitle=Videiras espinhosas
 Spell/&ThunderStrikeDescription=Crie uma explosão de som trovejante, forçando as criaturas adjacentes a você a fazerem um teste de resistência de Constituição ou sofrerão 1d6 de dano trovejante.\nO dano dessa magia aumenta em 1d6 quando você atinge o 5º nível (2d6), 11º nível (3d6) e 17º nível (4d6).
 Spell/&ThunderStrikeTitle=Explosão de som
 Spell/&TollTheDeadDescription=Você aponta para uma criatura que pode ver dentro do alcance, e o som de um sino doloroso preenche o ar ao seu redor por um momento. O alvo deve ter sucesso em um teste de resistência de Sabedoria ou sofrerá 1d8 de dano necrótico. Se o alvo estiver perdendo algum de seus pontos de vida, ele sofre 1d12 de dano necrótico.
-Spell/&TollTheDeadTitle=Toll the Dead
+Spell/&TollTheDeadTitle=Dobre Etéreo
 Spell/&WrackDescription=Desencadeie uma onda de dor incapacitante em uma criatura dentro do alcance. O alvo deve fazer um teste de resistência de Constituição ou sofrerá 1d8 de dano necrótico, impedindo-o de correr ou se desengajar.
 Spell/&WrackTitle=Naufrágio

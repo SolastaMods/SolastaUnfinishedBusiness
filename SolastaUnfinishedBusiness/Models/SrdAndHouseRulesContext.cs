@@ -122,7 +122,7 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        AddLightSource(gameLocationCharacter, rulesetCharacterMonster);
+        AddLightSource(gameLocationCharacter, rulesetCharacterMonster, "ShouldEmitLightFromMonster");
     }
 
     internal static void AddLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -137,40 +137,46 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        if (rulesetActor is not RulesetCharacterMonster rulesetCharacterMonster)
+        if (rulesetActor is not RulesetCharacter rulesetCharacter)
         {
             return;
         }
 
-        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
         if (gameLocationCharacter == null)
         {
             return;
         }
 
-        AddLightSource(gameLocationCharacter, rulesetCharacterMonster);
+        AddLightSource(gameLocationCharacter, rulesetCharacter, "ShouldEmitLightFromCondition");
     }
 
     private static void AddLightSource(
         GameLocationCharacter gameLocationCharacter,
-        RulesetCharacterMonster rulesetCharacterMonster)
+        RulesetCharacter rulesetCharacter,
+        string name)
     {
+        if (rulesetCharacter.PersonalLightSource != null)
+        {
+            return;
+        }
+
         var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
 
-        rulesetCharacterMonster.PersonalLightSource = new RulesetLightSource(
+        rulesetCharacter.PersonalLightSource = new RulesetLightSource(
             lightSourceForm.Color,
             2,
             4,
             lightSourceForm.GraphicsPrefabAssetGUID,
             LightSourceType.Basic,
-            rulesetCharacterMonster.MonsterDefinition.Name,
-            rulesetCharacterMonster.Guid);
+            name,
+            rulesetCharacter.Guid);
 
-        rulesetCharacterMonster.PersonalLightSource.Register(true);
+        rulesetCharacter.PersonalLightSource.Register(true);
 
         ServiceRepository.GetService<IGameLocationVisibilityService>()?
-            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacterMonster.PersonalLightSource);
+            .AddCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
     }
 
     internal static void RemoveLightSourceIfNeeded(RulesetActor __instance, RulesetCondition rulesetCondition)
@@ -190,7 +196,7 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        if (MonstersThatEmitLight.Contains(rulesetCharacterMonster.MonsterDefinition))
+        if (rulesetCharacterMonster.PersonalLightSource is not { SourceName: "ShouldEmitLightFromCondition" })
         {
             return;
         }
@@ -621,7 +627,10 @@ internal static class SrdAndHouseRulesContext
             hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand));
     }
 
-    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main,
+    internal static bool IsHandCrossbowUseInvalid(
+        RulesetItem item,
+        RulesetCharacterHero hero,
+        RulesetItem main,
         RulesetItem off)
     {
         if (Main.Settings.IgnoreHandXbowFreeHandRequirements)
@@ -691,24 +700,6 @@ internal static class SrdAndHouseRulesContext
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
-    }
-}
-
-internal static class ArmorClassStacking
-{
-    internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
-    {
-        //process only for wild-shaped heroes
-        if (monster.OriginalFormCharacter is RulesetCharacterHero)
-        {
-            var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
-
-            MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
-            MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
-        }
-
-        //sort modifiers, since we replaced this call
-        RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }
 

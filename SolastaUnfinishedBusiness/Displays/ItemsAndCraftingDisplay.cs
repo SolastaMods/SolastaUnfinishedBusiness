@@ -185,6 +185,7 @@ internal static class ItemsAndCraftingDisplay
             UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width((float)325));
 
             intValue = Main.Settings.EmpressGarbAppearanceIndex;
+            // ReSharper disable once InvertIf
             if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
                     ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width((float)440)))
             {
@@ -505,6 +506,7 @@ internal static class ItemsAndCraftingDisplay
         }
 
         toggle = Main.Settings.RestockTowerOfKnowledge;
+        // ReSharper disable once InvertIf
         if (UI.Toggle(Gui.Localize("ModUi/&RestockTowerOfKnowledge"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RestockTowerOfKnowledge = toggle;

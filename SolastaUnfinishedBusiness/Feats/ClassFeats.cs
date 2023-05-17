@@ -6,6 +6,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -32,6 +33,7 @@ internal static class ClassFeats
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
+        var featExploiter = BuildExploiter();
         var featNaturalFluidity = BuildNaturalFluidity();
         var featPoisoner = BuildPoisoner();
         var featSlayTheEnemies = BuildSlayTheEnemies();
@@ -39,6 +41,7 @@ internal static class ClassFeats
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
+        var closeQuartersGroup = BuildCloseQuarters(feats);
         var hardyGroup = BuildHardy(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var primalRageGroup = BuildPrimalRage(feats);
@@ -47,6 +50,7 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
@@ -66,12 +70,14 @@ internal static class ClassFeats
             featCallForCharge,
             featCunningEscape,
             featExpandTheHunt,
+            featExploiter,
             featNaturalFluidity,
             featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
+            closeQuartersGroup,
             hardyGroup,
             potentSpellcasterGroup,
             primalRageGroup);
@@ -151,12 +157,13 @@ internal static class ClassFeats
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Solasta)
             .SetValidators(ValidatorsFeat.IsPaladinLevel4)
+            .SetFeatFamily("BlessedSoul")
             .AddToDB();
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
 
         return GroupFeats.MakeGroup(
-            "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
+            "FeatGroupBlessedSoul", "BlessedSoul", blessedSoulCleric, blessedSoulPaladin);
     }
 
     #endregion
@@ -209,6 +216,164 @@ internal static class ClassFeats
                 CharacterContext.InvocationPoolRangerTerrainType)
             .SetValidators(ValidatorsFeat.IsRangerLevel4)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Close Quarters
+
+    private static FeatDefinition BuildCloseQuarters(List<FeatDefinition> feats)
+    {
+        const string Family = "CloseQuarters";
+        const string Name = "FeatCloseQuarters";
+
+        var featureCloseQuarters = FeatureDefinitionBuilder
+            .Create("FeatureCloseQuarters")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        DieType UpgradeCloseQuartersDice(
+            FeatureDefinitionAdditionalDamage additionalDamage,
+            DamageForm damageForm,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender)
+        {
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService == null ||
+                !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+                !gameLocationBattleService.IsWithin1Cell(attacker, defender))
+            {
+                return additionalDamage.DamageDieType;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
+
+            return DieType.D8;
+        }
+
+        featureCloseQuarters.SetCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
+
+        var closeQuartersDex = FeatDefinitionBuilder
+            .Create($"{Name}Dex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
+            .SetFeatFamily(Family)
+            .AddToDB();
+
+        var closeQuartersInt = FeatDefinitionBuilder
+            .Create($"{Name}Int")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Einar)
+            .SetFeatFamily(Family)
+            .AddToDB();
+
+        feats.AddRange(closeQuartersDex, closeQuartersInt);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupCloseQuarters", Family, closeQuartersDex, closeQuartersInt);
+    }
+
+    #endregion
+
+    #region Exploiter
+
+    private static FeatDefinition BuildExploiter()
+    {
+        const string Name = "FeatExploiter";
+
+        var featureExploiter = FeatureDefinitionBuilder
+            .Create("FeatureExploiter")
+            .SetGuiPresentation("FeatExploiter", Category.Feat)
+            .AddToDB();
+
+        featureExploiter.SetCustomSubFeatures(new ReactToAttackOnMeOrAllyFinishedFeatExploiter(featureExploiter));
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .AddFeatures(featureExploiter)
+            .SetValidators(ValidatorsFeat.IsRogueLevel5)
+            .AddToDB();
+    }
+
+    private class ReactToAttackOnMeOrAllyFinishedFeatExploiter : IReactToAttackOnEnemyFinished
+    {
+        private readonly FeatureDefinition _featureExploiter;
+
+        public ReactToAttackOnMeOrAllyFinishedFeatExploiter(FeatureDefinition featureExploiter)
+        {
+            _featureExploiter = featureExploiter;
+        }
+
+        public IEnumerator HandleReactToAttackOnEnemyFinished(
+            GameLocationCharacter ally,
+            GameLocationCharacter me,
+            GameLocationCharacter enemy,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
+        {
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                yield break;
+            }
+
+            //do not trigger on my own turn, so won't exploit on AoO
+            if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
+            {
+                yield break;
+            }
+
+            var rulesetEnemy = enemy.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                me == ally ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (manager == null || battle == null)
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeModeThatCanAttack(enemy);
+
+            if (retaliationMode == null)
+            {
+                yield break;
+            }
+
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
+
+            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+
+            reactionParams.TargetCharacters.Add(enemy);
+            reactionParams.StringParameter = ally.Name;
+            reactionParams.ActionModifiers.Add(retaliationModifier);
+            reactionParams.AttackMode = retaliationMode;
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("Exploiter", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(me.RulesetCharacter, _featureExploiter);
+        }
     }
 
     #endregion
@@ -368,7 +533,7 @@ internal static class ClassFeats
             .Create("FeatCunningEscape")
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(new ActionFinishedFeatCunningEscape())
-            .SetValidators(ValidatorsFeat.IsRogueLevel4)
+            .SetValidators(ValidatorsFeat.IsRogueLevel3)
             .AddToDB();
     }
 
@@ -668,13 +833,14 @@ internal static class ClassFeats
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
                 .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
                 .SetValidators(validator)
+                .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
 
             potentSpellcasterFeats.Add(featPotentSpellcaster);
         }
 
         var potentSpellcasterGroup = GroupFeats.MakeGroup(
-            "FeatGroupPotentSpellcaster", null, potentSpellcasterFeats);
+            "FeatGroupPotentSpellcaster", "PotentSpellcaster", potentSpellcasterFeats);
 
         feats.AddRange(potentSpellcasterFeats);
 

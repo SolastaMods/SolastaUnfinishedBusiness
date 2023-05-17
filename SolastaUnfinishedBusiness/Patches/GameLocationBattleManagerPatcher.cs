@@ -311,13 +311,40 @@ public static class GameLocationBattleManagerPatcher
             bool criticalHit,
             bool firstTarget)
         {
-            //PATCH: support for `IDefenderBeforeAttackHitConfirmed`
-            var character = defender.RulesetCharacter;
-
-            if (character != null)
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnEnemy`
+            if (attacker.CanAct())
             {
-                foreach (var extra in character
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmed>()
+                var rulesetAttacker = attacker.RulesetCharacter;
+
+                foreach (var extra in rulesetAttacker
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnEnemy>()
+                             .Select(feature => feature.OnAttackBeforeHitConfirmedOnEnemy(
+                                 __instance,
+                                 attacker,
+                                 defender,
+                                 attackModifier,
+                                 attackMode,
+                                 rangedAttack,
+                                 advantageType,
+                                 actualEffectForms,
+                                 rulesetEffect,
+                                 criticalHit,
+                                 firstTarget)))
+                {
+                    while (extra.MoveNext())
+                    {
+                        yield return extra.Current;
+                    }
+                }
+            }
+            
+            //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
+            if (defender.CanAct())
+            {
+                var rulesetDefender = defender.RulesetCharacter;
+
+                foreach (var extra in rulesetDefender
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>()
                              .Select(feature => feature.OnAttackBeforeHitConfirmed(
                                  __instance,
                                  attacker,
@@ -485,9 +512,7 @@ public static class GameLocationBattleManagerPatcher
                     continue;
                 }
 
-                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious &&
-                               defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                               ActionDefinitions.ActionStatus.Available;
+                var canReact = defender.CanReact();
 
                 //TODO: add ability to specify whether this feature can reduce magic damage
                 var damageTypes = feature.DamageTypes;
@@ -862,7 +887,7 @@ public static class GameLocationBattleManagerPatcher
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }

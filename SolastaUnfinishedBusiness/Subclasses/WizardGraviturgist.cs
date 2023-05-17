@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -25,6 +26,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSilent(Silent.None)
+            .CopyParticleReferences(ConditionSlowed)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityIncrease")
@@ -53,8 +55,9 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(PowerSpellBladeSpellTyrant)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -75,6 +78,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetPossessive()
             .SetSilent(Silent.None)
+            .CopyParticleReferences(ConditionSlowed)
             .AddFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}DensityDecrease")
@@ -103,8 +107,9 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(PowerRoguishHoodlumDirtyFighting)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -128,8 +133,9 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
+                    .SetParticleEffectParameters(SpellDefinitions.EldritchBlast)
                     .AddEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -145,6 +151,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
         var conditionViolentAttraction = ConditionDefinitionBuilder
             .Create($"Condition{Name}ViolentAttraction")
             .SetOrUpdateGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .SetPossessive()
             .SetFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{Name}ViolentAttraction")
@@ -165,7 +172,8 @@ internal sealed class WizardGraviturgist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(SpellDefinitions.MoonBeam)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -185,6 +193,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetPossessive()
             .SetSilent(Silent.None)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .CopyParticleReferences(ConditionHitByDirtyFighting)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder
                     .Create($"MovementAffinity{Name}EventHorizon")
@@ -199,6 +208,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .CopyParticleReferences(ConditionHitByDirtyFighting)
             .SetCancellingConditions(conditionEventHorizon)
             .SetFeatures(
                 FeatureDefinitionMovementAffinityBuilder

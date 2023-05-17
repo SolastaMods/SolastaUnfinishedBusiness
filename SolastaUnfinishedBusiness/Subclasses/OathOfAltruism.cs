@@ -78,7 +78,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 5,
-                        RuleDefinitions.TargetType.Individuals)
+                        RuleDefinitions.TargetType.IndividualsUnique)
                     .Build())
             .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
             .AddToDB();

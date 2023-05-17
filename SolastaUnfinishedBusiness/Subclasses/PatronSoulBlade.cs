@@ -111,7 +111,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var effectDescriptionHex = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
@@ -274,7 +274,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             var rulesetDefender = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetAttacker == null)
+            if (rulesetDefender == null || rulesetAttacker == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }

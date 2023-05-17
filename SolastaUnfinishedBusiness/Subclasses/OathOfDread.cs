@@ -69,7 +69,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique)
                     .SetParticleEffectParameters(BestowCurseOnAttackRoll)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -163,7 +163,7 @@ internal sealed class OathOfDread : AbstractSubclass
         var featureHarrowingCrusade = FeatureDefinitionBuilder
             .Create($"Feature{Name}{HARROWING_CRUSADE}")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackOnMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
+            .SetCustomSubFeatures(new ReactToAttackOnMeOrMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
 
         // MAIN
@@ -275,11 +275,11 @@ internal sealed class OathOfDread : AbstractSubclass
     // Harrowing Crusade
     //
 
-    private class ReactToAttackOnMeFinishedHarrowingCrusade : IReactToAttackOnMeFinished, IReactToAttackOnAllyFinished
+    private class ReactToAttackOnMeOrMeFinishedHarrowingCrusade : IReactToAttackOnMeOrAllyFinished
     {
         private readonly ConditionDefinition _conditionMarkOfTheSubmission;
 
-        public ReactToAttackOnMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
+        public ReactToAttackOnMeOrMeFinishedHarrowingCrusade(ConditionDefinition conditionMarkOfTheSubmission)
         {
             _conditionMarkOfTheSubmission = conditionMarkOfTheSubmission;
         }
@@ -292,25 +292,6 @@ internal sealed class OathOfDread : AbstractSubclass
             CharacterActionParams actionParams,
             RulesetAttackMode mode,
             ActionModifier modifier)
-        {
-            yield return HandleReactToAttack(attacker, me, ally);
-        }
-
-        public IEnumerator HandleReactToAttackOnMeFinished(
-            GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode mode,
-            ActionModifier modifier)
-        {
-            yield return HandleReactToAttack(attacker, me, me);
-        }
-
-        private IEnumerator HandleReactToAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter me,
-            GameLocationCharacter ally)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
@@ -327,7 +308,12 @@ internal sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReact())
+            var rulesetEnemy = attacker.RulesetCharacter;
+
+            if (!me.CanReact() ||
+                me == ally ||
+                rulesetEnemy == null ||
+                rulesetEnemy.IsDeadOrDying)
             {
                 yield break;
             }

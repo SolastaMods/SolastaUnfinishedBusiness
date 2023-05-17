@@ -202,10 +202,20 @@ internal static class GameLocationBattleManagerTweaks
             // additionalDamageForm.DieType = provider.DamageDieType;
 
             //Get die type from features if applicable
+            var rulesetCharacter = attacker.RulesetCharacter;
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
 
-            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ??
-                                           provider.DamageDieType;
+            additionalDamageForm.DieType =
+                dieTypeProvider?.Invoke(rulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
+
+            //Mainly to support Closer Quarters feat
+            foreach (var damageDieProviderFromCharacter in attacker.RulesetCharacter
+                         .GetSubFeaturesByType<DamageDieProviderFromCharacter>())
+            {
+                additionalDamageForm.DieType =
+                    damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
+                        additionalDamageForm, attacker, defender);
+            }
 
             /*
              * Support for damage die progression
@@ -839,10 +849,10 @@ internal static class GameLocationBattleManagerTweaks
                         // This is used to only offer smites on critical hits
                         if (!criticalHit &&
                             // allows EldritchSmite to pass through
-                            featureDefinition is not FeatureDefinitionAdditionalDamage &&
-                            // allows PaladinSmite to pass through
-                            Main.Settings.AddPaladinSmiteToggle &&
-                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+                            (featureDefinition is not FeatureDefinitionAdditionalDamage ||
+                             // allows PaladinSmite to pass through
+                             (Main.Settings.AddPaladinSmiteToggle &&
+                              !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))))
                         {
                             break;
                         }
@@ -1180,7 +1190,7 @@ internal static class GameLocationBattleManagerTweaks
         foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
         {
             var validUses = true;
-            var featureDefinition = feature.Provider as FeatureDefinitionAdditionalDamage;
+            var additionalDamage = feature.Provider as FeatureDefinitionAdditionalDamage;
             var provider = feature.Provider;
 
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
@@ -1189,10 +1199,10 @@ internal static class GameLocationBattleManagerTweaks
                 switch (provider.LimitedUsage)
                 {
                     case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name) ||
                              (instance.Battle != null && instance.Battle.ActiveContender != attacker):
                     case RuleDefinitions.FeatureLimitedUsage.OncePerTurn
-                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
+                        when attacker.UsedSpecialFeatures.ContainsKey(additionalDamage.Name):
                         validUses = false;
                         break;
 

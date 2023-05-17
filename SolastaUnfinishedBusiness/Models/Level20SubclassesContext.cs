@@ -322,7 +322,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Dexterity)
@@ -348,7 +348,7 @@ internal static class Level20SubclassesContext
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetParticleEffectParameters(Bane)
                     .SetEffectForms(
@@ -775,7 +775,7 @@ internal static class Level20SubclassesContext
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }

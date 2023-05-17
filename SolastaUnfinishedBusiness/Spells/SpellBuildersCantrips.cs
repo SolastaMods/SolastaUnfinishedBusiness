@@ -47,7 +47,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -90,7 +90,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -211,7 +211,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetParticleEffectParameters(Bane)
@@ -284,7 +284,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetParticleEffectParameters(Bane)
             .SetSavingThrowData(
                 false,
@@ -330,7 +330,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(0)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                 .SetDurationData(DurationType.Hour, 1)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
@@ -363,7 +363,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(Shatter)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
@@ -470,7 +470,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetParticleEffectParameters(ScorchingRay)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetIgnoreCover()
                 .SetEffectAdvancement( //this is needed for tooltip
                     EffectIncrementMethod.CasterLevelTable,
@@ -562,7 +562,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
@@ -651,7 +651,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
             .SetEffectForms(
                 EffectFormBuilder
@@ -688,7 +688,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, Bane.GuiPresentation.SpriteReference)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
@@ -722,7 +722,7 @@ internal static partial class SpellBuilders
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.MissingHitPoints == 0)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }

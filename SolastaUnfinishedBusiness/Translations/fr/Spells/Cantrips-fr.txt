@@ -41,6 +41,6 @@ Spell/&ThornyVinesTitle=Vignes épineuses
 Spell/&ThunderStrikeDescription=Crée une rafale de tonnerre, forçant les créatures adjacentes à effectuer un jet de sauvegarde de Constitution ou à subir 1d6 dégâts de tonnerre.\nLes dégâts de ce sort augmentent de 1d6 lorsque vous atteignez les niveaux 5 (2d6), 11 (3d6) et 17. niveau (4d6).
 Spell/&ThunderStrikeTitle=Rafale sonore
 Spell/&TollTheDeadDescription=Vous pointez une créature que vous pouvez voir à portée, et le son d'une cloche douloureuse emplit l'air autour d'elle pendant un moment. La cible doit réussir un jet de sauvegarde de Sagesse ou subir 1d8 dégâts nécrotiques. S'il manque à la cible l'un de ses points de vie, elle subit à la place 1d12 dégâts nécrotiques.
-Spell/&TollTheDeadTitle=Sonner les morts
+Spell/&TollTheDeadTitle=Glas éthéré
 Spell/&WrackDescription=Libère une vague de douleur paralysante sur une créature à portée. La cible doit effectuer un jet de sauvegarde de Constitution ou subir 1d8 dégâts nécrotiques, et l'empêcher de se précipiter ou de se désengager.
 Spell/&WrackTitle=Varech

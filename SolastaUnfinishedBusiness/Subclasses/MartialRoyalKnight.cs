@@ -80,7 +80,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()
@@ -187,7 +187,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Round, 1)
                     .SetParticleEffectParameters(PowerFighterActionSurge)
                     .ExcludeCaster()
@@ -246,8 +246,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 return false;
             }
 
-            return helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
-                ActionDefinitions.ActionStatus.Available && action.RolledSaveThrow;
+            return helper.CanReact() && action.RolledSaveThrow;
         }
 
         internal override bool TryModifyRoll(

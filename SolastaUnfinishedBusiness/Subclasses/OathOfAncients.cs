@@ -51,7 +51,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 10)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 8, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 8, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

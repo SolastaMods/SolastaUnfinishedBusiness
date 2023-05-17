@@ -29,7 +29,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.RangeHit, 18, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
             .SetParticleEffectParameters(ShockingGrasp)
@@ -94,7 +94,7 @@ internal static partial class SpellBuilders
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetEffectForms(EffectFormBuilder.Create()
                         .SetDamageForm(damageType, 3, DieType.D8)
@@ -122,7 +122,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                     additionalDicePerIncrement: 1)
@@ -332,7 +332,7 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Hour, 8)
             .SetParticleEffectParameters(ExpeditiousRetreat)
             .SetEffectForms(
@@ -574,7 +574,7 @@ internal static partial class SpellBuilders
             .Create($"Power{NAME}Push")
             .SetGuiPresentationNoContent(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
@@ -742,7 +742,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
-                new SanctuaryBeforeHitConfirmed(conditionSanctuaryDamageResistance))
+                new PhysicalAttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
             .AddToDB();
 
         var conditionSanctuary = ConditionDefinitionBuilder
@@ -762,7 +762,7 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
@@ -798,7 +798,7 @@ internal static partial class SpellBuilders
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Hour, 8)
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()

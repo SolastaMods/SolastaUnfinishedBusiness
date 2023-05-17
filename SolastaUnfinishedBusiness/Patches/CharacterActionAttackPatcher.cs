@@ -5,12 +5,14 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class CharacterActionAttackPatcher
 {
+    //PATCH: Adds support to IReactToAttackOnEnemyFinished, IReactToMyAttackFinished, IReactToAttackOnMeFinished, IReactToAttackOnMeOrAllyFinished
     [HarmonyPatch(typeof(CharacterActionAttack), nameof(CharacterActionAttack.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -21,24 +23,20 @@ public static class CharacterActionAttackPatcher
             [NotNull] IEnumerator values,
             [NotNull] CharacterActionAttack __instance)
         {
-            //PATCH: adds support for `IReactToAttackFinished` by calling `HandleReactToAttackFinished` on features
             var actingCharacter = __instance.ActingCharacter;
             var character = actingCharacter.RulesetCharacter;
+            var outcome = RollOutcome.Neutral;
             var found = false;
-
             GameLocationCharacter defender = null;
-
-            var outcome = RuleDefinitions.RollOutcome.Neutral;
-
             CharacterActionParams actionParams = null;
             RulesetAttackMode mode = null;
             ActionModifier modifier = null;
 
             // ReSharper disable InconsistentNaming
             void AttackImpactStartHandler(
-                GameLocationCharacter _,
+                GameLocationCharacter _attacker,
                 GameLocationCharacter _defender,
-                RuleDefinitions.RollOutcome _outcome,
+                RollOutcome _outcome,
                 CharacterActionParams _params,
                 RulesetAttackMode _mode,
                 ActionModifier _modifier)
@@ -61,10 +59,14 @@ public static class CharacterActionAttackPatcher
 
             actingCharacter.AttackImpactStart -= AttackImpactStartHandler;
 
-            if (!found)
+            if (!found || Gui.Battle == null)
             {
                 yield break;
             }
+
+            //
+            // IReactToMyAttackFinished
+            //
 
             var attackerFeatures = character?.GetSubFeaturesByType<IReactToMyAttackFinished>();
 
@@ -77,6 +79,40 @@ public static class CharacterActionAttackPatcher
                 }
             }
 
+            //
+            // IReactToAttackOnEnemyFinished
+            //
+
+            foreach (var gameLocationAlly in Gui.Battle.AllContenders
+                         .Where(x =>
+                             (x.RulesetCharacter != null &&
+                              x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
+                             x.Side == actingCharacter.Side)
+                         .ToList())
+            {
+                var allyFeatures =
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
+
+                if (allyFeatures == null)
+                {
+                    continue;
+                }
+
+                foreach (var feature in allyFeatures)
+                {
+                    yield return feature.HandleReactToAttackOnEnemyFinished(
+                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
+
+                    if (Gui.Battle == null)
+                    {
+                        yield break;
+                    }
+                }
+            }
+
+            //
+            // IReactToAttackOnMeFinished
+            //
             var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
             if (defenderFeatures != null)
@@ -88,17 +124,13 @@ public static class CharacterActionAttackPatcher
                 }
             }
 
-            // this happens on battle end
-            if (Gui.Battle == null)
-            {
-                yield break;
-            }
-
-            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side)
-                         .Where(x => x != defender))
+            //
+            // IReactToAttackOnMeOrAllyFinished
+            //
+            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side).ToList())
             {
                 var allyFeatures =
-                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnAllyFinished>();
+                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
 
                 if (allyFeatures == null)
                 {

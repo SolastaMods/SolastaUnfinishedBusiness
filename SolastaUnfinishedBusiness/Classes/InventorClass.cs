@@ -875,8 +875,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             return false;
         }
 
-        if (helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-            ActionDefinitions.ActionStatus.Available)
+        if (!helper.CanReact())
         {
             return false;
         }

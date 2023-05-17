@@ -297,7 +297,7 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 yield break;
             }
@@ -337,11 +337,11 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class SanctuaryBeforeHitConfirmed : IPhysicalAttackBeforeHitConfirmed
+    private sealed class PhysicalAttackBeforeHitConfirmedOnMeSanctuary : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private readonly ConditionDefinition _conditionSanctuaryBuff;
 
-        internal SanctuaryBeforeHitConfirmed(ConditionDefinition conditionSanctuaryBuff)
+        internal PhysicalAttackBeforeHitConfirmedOnMeSanctuary(ConditionDefinition conditionSanctuaryBuff)
         {
             _conditionSanctuaryBuff = conditionSanctuaryBuff;
         }

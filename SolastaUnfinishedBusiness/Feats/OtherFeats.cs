@@ -170,7 +170,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteMedKit)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetHealingForm(
@@ -193,7 +193,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.IndividualsUnique)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
                     TargetFilteringTag.No,
@@ -546,12 +546,14 @@ internal static class OtherFeats
                     .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
                     .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalAdept")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalAdept", "ElementalAdept", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -616,13 +618,15 @@ internal static class OtherFeats
                         .SetDamageType(damageType)
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily("ElementalMaster")
                 .SetKnownFeatsPrerequisite($"FeatElementalAdept{damageType}")
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
         }
 
-        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalMaster", null, elementalAdeptFeats);
+        var elementalAdeptGroup =
+            GroupFeats.MakeGroup("FeatGroupElementalMaster", "ElementalMaster", elementalAdeptFeats);
 
         feats.AddRange(elementalAdeptFeats);
 
@@ -843,7 +847,7 @@ internal static class OtherFeats
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
