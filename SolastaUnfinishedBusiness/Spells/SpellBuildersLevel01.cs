@@ -742,7 +742,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
                 new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
-                new SanctuaryBeforeHitConfirmed(conditionSanctuaryDamageResistance))
+                new PhysicalAttackBeforeHitConfirmedOnMeSanctuary(conditionSanctuaryDamageResistance))
             .AddToDB();
 
         var conditionSanctuary = ConditionDefinitionBuilder

@@ -317,7 +317,7 @@ public static class GameLocationBattleManagerPatcher
             if (character != null)
             {
                 foreach (var extra in character
-                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmed>()
+                             .GetSubFeaturesByType<IPhysicalAttackBeforeHitConfirmedOnMe>()
                              .Select(feature => feature.OnAttackBeforeHitConfirmed(
                                  __instance,
                                  attacker,

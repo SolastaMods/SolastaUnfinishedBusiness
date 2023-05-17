@@ -1207,7 +1207,7 @@ internal static class GambitsBuilders
         }
     }
 
-    private sealed class Parry : IPhysicalAttackBeforeHitConfirmed
+    private sealed class Parry : IPhysicalAttackBeforeHitConfirmedOnMe
     {
         private const string Format = "Reaction/&CustomReactionGambitParryDescription";
         private const string Line = "Feedback/&GambitParryDamageReduction";
