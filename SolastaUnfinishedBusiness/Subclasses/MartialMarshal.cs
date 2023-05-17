@@ -613,7 +613,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             var rulesetMe = defender.RulesetCharacter;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetMe == null || rulesetAttacker == null)
+            if (rulesetMe == null || rulesetAttacker == null || rulesetAttacker.IsDeadOrDying)
             {
                 yield break;
             }

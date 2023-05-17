@@ -250,11 +250,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 multiplier += 1;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var totalDamageOrHealing = proficiencyBonus * multiplier;
 
             ReceiveHealing(attacker, totalDamageOrHealing);
+
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {

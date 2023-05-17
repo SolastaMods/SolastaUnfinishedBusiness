@@ -641,10 +641,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var defender in battleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(attacker.Side))
-                         .Where(x => x.RulesetCharacter.AllConditions
-                             .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
-                                       y.SourceGuid == rulesetCharacter.Guid)))
+                         .Where(x =>
+                             x.RulesetCharacter is not { IsDeadOrDying: true } &&
+                             x.IsOppositeSide(attacker.Side) &&
+                             x.RulesetCharacter.AllConditions
+                                 .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
+                                           y.SourceGuid == rulesetCharacter.Guid))
+                         .ToList())
             {
                 EffectHelpers.StartVisualEffect(
                     attacker, defender, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);

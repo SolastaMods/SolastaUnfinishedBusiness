@@ -372,7 +372,12 @@ internal static partial class SpellBuilders
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            rulesetDefender?.InflictCondition(
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
                 _conditionSanctuaryBuff.Name,
                 DurationType.Round,
                 1,
