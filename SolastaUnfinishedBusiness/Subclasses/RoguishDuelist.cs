@@ -252,7 +252,21 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            rulesetAttacker.RollAttack(
+            var totalRoll = action.AttackRoll + attackMode.ToHitBonus;
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&RollCheckFailureTitle";
+
+            GameConsoleHelper.LogCharacterUsedPower(
+                rulesetAttacker,
+                _power,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, action.AttackRoll.ToString()),
+                (ConsoleStyleDuplet.ParameterType.Base, attackMode.ToHitBonus.ToString()),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, $"({totalRoll}) {Gui.Localize(rollCaption)}"));
+
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
@@ -260,16 +274,17 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 attackModifier.ignoreAdvantage,
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
                 attackMode.ranged,
-                false, // check this
+                false,
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out _,
+                out var successDelta,
                 -1,
-                false);
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
 
             action.AttackRollOutcome = outcome;
-
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _power);
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 }

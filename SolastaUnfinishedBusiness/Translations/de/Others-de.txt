@@ -54,6 +54,7 @@ Feature/&ToolGainChoicesSingleDescription=Wählen Sie eines dieser Tools aus: {1
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} ergibt einen Bonus von {1}, neues Ergebnis ist {2} (DC: {3})
 Feedback/&ReturningWeaponActivates={1} kehrt zu {0} zurück!
 Feedback/&TriggerFeatureLine={0} löst {1} aus
+Feedback/&TriggerRerollLine={0} aktiviert die Kraft {1}, um {2} + {3} = {4} erneut zu würfeln.
 Format/&LevelAndExperienceFormat=Level: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Level {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat=Level: {0}\nErfahrung: {1}\nmaximales Level erreicht
 Message/&CharacterExportDuplicateNameErrorDescription=Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
