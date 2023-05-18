@@ -83,13 +83,14 @@ internal static class CustomSituationalContext
         var source = GameLocationCharacter.GetFromActor(contextParams.source);
         var target = GameLocationCharacter.GetFromActor(contextParams.target);
 
-        if (source?.RulesetCharacter == null || target == null)
+        if (source == null || target == null)
         {
             return false;
         }
 
-        var mainWeaponIsMeleeOrUnarmed = ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
-                                         ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
+        var mainWeaponIsMeleeOrUnarmed =
+            ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
+            ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source);
         var levels = source.RulesetCharacter.GetSubclassLevel(
             DatabaseHelper.CharacterClassDefinitions.Barbarian, PathOfTheYeoman.Name);
 
@@ -143,11 +144,9 @@ internal static class CustomSituationalContext
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var locationCharacter in locationCharacterList)
             {
-                if (locationCharacter.RulesetCharacter == null ||
+                if (!locationCharacter.CanAct() ||
                     locationCharacter == character ||
-                    locationCharacter.Side != Side.Ally ||
-                    locationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious ||
-                    locationCharacter.RulesetCharacter.HasConditionOfType(ConditionIncapacitated))
+                    locationCharacter.Side != Side.Ally)
                 {
                     continue;
                 }
