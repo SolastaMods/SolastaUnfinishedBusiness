@@ -995,7 +995,7 @@ Starting at 13th level, once per turn while you aren't incapacitated, shocked or
 
 * Master Duelist
 
-Your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. Once you do so, you can't use this feature again until you finish a short or long rest.
+Starting at 17th level, your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. You can use this feature twice per short rest.
 
 
 
@@ -1882,7 +1882,7 @@ You reroll any 1s when rolling for damage. You must keep the second roll.
 
 * Deadly Aim
 
-You can reroll one ranged weapon attack you have just missed and must use the new result. You can use this feature once per short rest.
+Starting at 13th level, if you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest. 
 
 
 ## Level 17
