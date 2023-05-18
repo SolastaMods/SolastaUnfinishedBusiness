@@ -132,7 +132,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
+For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
 
 
 ## Level 16
@@ -180,7 +180,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Primal Champion
 
 At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
-
 
 
 
@@ -339,7 +338,6 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 
 
 
-
 # 3. - Cleric
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
@@ -478,7 +476,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-
 # 4. - Druid
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
@@ -574,7 +571,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Arch Druid
 
 You can use your Wildshape an unlimited number of times. Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wildshape.
-
 
 
 
@@ -724,7 +720,6 @@ You can attack twice, rather than once, when you use the attack or shove actions
 
 
 
-
 # 6. - Monk
 
 Despite their name, not all monks live a contemplative, religious life. However, all have devoted themselves to training their minds and bodies to near perfection, enabling them to perform feats that leave others speechless with awe.
@@ -868,14 +863,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Tongue of the Sun and Moon
 
-Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
 ## Level 14
 
 * Diamond Soul
 
-Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
+Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
 
 
 ## Level 15
@@ -914,7 +909,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Perfect Self
 
 When you start battle and have no Ki points remaining, you regain 4 Ki points.
-
 
 
 
@@ -1041,7 +1035,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Cleansing Touch
 
-Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
 ## Level 16
@@ -1067,7 +1061,6 @@ You and your allies within 30ft cannot be frightened.
 * Ability Score Choice
 
 Choose between increasing your ability scores or gaining a bonus feat.
-
 
 
 
@@ -1187,7 +1180,7 @@ Gain advantage on ability checks towards this creature type, and additional dama
 
 * Vanish
 
-Starting at level 14, you can use the Hide action as a bonus action on your turn.
+Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
 
 
 ## Level 16
@@ -1216,7 +1209,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Foe Slayer
 
 You become an unparalleled hunter of your enemies. All your attacks deal additional damage equal to your Wisdom modifier.
-
 
 
 
@@ -1334,14 +1326,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Blindsense
 
-You are aware of the location of any hidden or invisible creature within 2 cells of you.
+You are aware of the location of any hidden or invisible creature within 10 ft of you.
 
 
 ## Level 15
 
 * Slippery Mind
 
-You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16
@@ -1367,7 +1359,6 @@ You are so evasive that attackers rarely gain the upper hand against you. No att
 * Stroke of Luck
 
 You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit.
-
 
 
 
@@ -1475,7 +1466,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Sorcerous Restoration
 
 Regain 4 sorcery points during a short rest.
-
 
 
 
@@ -1625,7 +1615,6 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-
 # 12. - Wizard
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
@@ -1720,7 +1709,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Signature Spells
 
 You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
-
 
 
 
