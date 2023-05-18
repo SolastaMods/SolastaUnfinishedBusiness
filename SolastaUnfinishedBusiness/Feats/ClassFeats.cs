@@ -235,13 +235,15 @@ internal static class ClassFeats
         DieType UpgradeCloseQuartersDice(
             FeatureDefinitionAdditionalDamage additionalDamage,
             DamageForm damageForm,
+            RulesetAttackMode attackMode,
             GameLocationCharacter attacker,
             GameLocationCharacter defender)
         {
             var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-            if (gameLocationBattleService == null ||
+            if (attackMode.Ranged ||
                 !additionalDamage.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag) ||
+                gameLocationBattleService == null ||
                 !gameLocationBattleService.IsWithin1Cell(attacker, defender))
             {
                 return additionalDamage.DamageDieType;
