@@ -54,7 +54,7 @@ Feature/&ToolGainChoicesSingleDescription=Choisissez l'un de ces outils : {1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} donne un bonus de {1}, le nouveau résultat est {2} (DC : {3})
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
 Feedback/&TriggerFeatureLine={0} déclencheurs {1}
-Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} + {3} = {4}
+Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat=Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
 Message/&CharacterExportDuplicateNameErrorDescription=Exportation annulée :\n\nUn héros portant ce nom existe déjà dans le pool.\nVeuillez essayer un autre nom.
