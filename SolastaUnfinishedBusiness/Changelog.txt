@@ -1,7 +1,7 @@
 Open Mod UI > Tools and click History for full change details:
 
-- added Close Quarters, Exploiter, and Devastating Strikes feats
-- changed Sorcerer Forceblade to grant mana shield at level 1
-- changed "characters on fire should emit light" to also apply to heroes
-- changed Wizard Graviturgist powers and related condition effects
-- simplified feats and feat groups offering on mod UI and improved docs dump
+- added Monsters documentation dumper under Interfaces > Dungeon Maker
+- fixed Close Quarters and Devastating Strikes not ignoring ranged
+- fixed Deadeye and Master Duelist combat log attack retry outcome
+- fixed spells with incorrect assigned sprites and schools of magic
+- changed Duelist's master duelist to allow 2 usages per short rest
