@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=Você está ciente da localização de qualq
 Feature/&RogueBlindsenseTitle=Sentido cego
 Feature/&RogueSlipperyMindDescription=Você adquiriu maior Força mental. Você ganha proficiência em testes de resistência de Sabedoria.
 Feature/&RogueSlipperyMindTitle=Mente escorregadia
+Tooltip/&TagMagicalEffectTitle=Efeito Mágico
+Tooltip/&TagMagicalWeaponTitle=Arma mágica
+Feature/&MartialChampionSuperiorCriticalTitle=Crítico Superior

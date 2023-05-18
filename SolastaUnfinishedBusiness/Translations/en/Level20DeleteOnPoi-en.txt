@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=You are aware of the location of any hidden 
 Feature/&RogueBlindsenseTitle=Blindsense
 Feature/&RogueSlipperyMindDescription=You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
 Feature/&RogueSlipperyMindTitle=Slippery Mind
+Tooltip/&TagMagicalEffectTitle=Magic Effect
+Tooltip/&TagMagicalWeaponTitle=Magic Weapon
+Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical
