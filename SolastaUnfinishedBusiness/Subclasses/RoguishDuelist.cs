@@ -78,7 +78,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
             .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 2)
             .AddToDB();
 
         var featureMasterDuelist = FeatureDefinitionBuilder
@@ -252,26 +252,27 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            var totalRoll = action.AttackRoll + attackMode.ToHitBonus;
+            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
             var rollCaption = action.AttackRoll == 1
                 ? "Feedback/&RollCheckCriticalFailureTitle"
-                : "Feedback/&RollCheckFailureTitle";
+                : "Feedback/&CriticalAttackFailureOutcome";
 
             GameConsoleHelper.LogCharacterUsedPower(
                 rulesetAttacker,
                 _power,
                 "Feedback/&TriggerRerollLine",
                 false,
-                (ConsoleStyleDuplet.ParameterType.Base, action.AttackRoll.ToString()),
-                (ConsoleStyleDuplet.ParameterType.Base, attackMode.ToHitBonus.ToString()),
-                (ConsoleStyleDuplet.ParameterType.FailedRoll, $"({totalRoll}) {Gui.Localize(rollCaption)}"));
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
 
             var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                attackModifier.ignoreAdvantage,
+                false,
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
                 attackMode.ranged,
                 false,
@@ -282,6 +283,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 // testMode true avoids the roll to display on combat log as the original one will get there with altered results
                 true);
 
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.attackAdvantageTrends =
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
             action.AttackRoll = roll;
