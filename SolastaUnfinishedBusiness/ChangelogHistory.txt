@@ -2,7 +2,7 @@
 
 1.4.33.90:
 
-- added Monsters documentation dumper under Interfaces > Dungeon Maker
+- added Monsters documentation under Interfaces > Dungeon Maker
 - fixed Close Quarters and Devastating Strikes not ignoring ranged
 - fixed Deadeye and Master Duelist combat log attack retry outcome
 - fixed spells with incorrect assigned sprites and schools of magic

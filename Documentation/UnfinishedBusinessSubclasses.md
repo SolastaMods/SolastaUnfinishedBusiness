@@ -51,7 +51,6 @@ If an attack roll would have successfully hit you, you may use your reaction to 
 
 
 
-
 # 2. - Arcane Fighter
 
 Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
@@ -95,7 +94,6 @@ You can cast a spell after defeating an enemy with your weapon attacks.
 * Magically Powered Attacks
 
 Once per turn, your weapon attacks deal an extra 1d8 damage.
-
 
 
 
@@ -154,7 +152,6 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-
 # 4. - Arcanist
 
 The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
@@ -209,7 +206,6 @@ Starting at 7th level, you can cause an eruption of arcane energy at a range of 
 
 
 
-
 # 5. - Armorer
 
 Armorers focus their studies on magical armors and how to use them effectively.
@@ -256,7 +252,6 @@ You can attack twice, rather than once, whenever you take the Attack action on y
 * Armor Modification
 
 You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
-
 
 
 
@@ -317,7 +312,6 @@ Starting at 15th level, you're a master at forming well-defended emplacements us
 
 
 
-
 # 7. - Blade Dancer
 
 Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
@@ -362,7 +356,6 @@ You can direct your magic to absorb damage while your blade dance is active. Whe
 * Dance of Victory
 
 You add a +5 to the damage of your weapon attacks while your blade dance is active.
-
 
 
 
@@ -434,7 +427,6 @@ Cast Wall of Thorns a number of times a day equal to your proficiency bonus.
 
 
 
-
 # 9. - Circle of the Eternal Grove
 
 The Circle of the Eternal Grove strives to protect and preserve as many living beings as it can. These druids understand the significance of every lifeform in the natural cycle, be it large or small, and that every one of them is worth saving.
@@ -485,7 +477,6 @@ Starting at 10th level, creatures affected by Verdancy or Seed of Life gain adva
 * Harmonious Bloom
 
 Starting at 14th level, all healing spells you cast count as being cast at one slot level higher.
-
 
 
 
@@ -546,7 +537,6 @@ Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Ad
 
 
 
-
 # 11. - Circle of the Night
 
 Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
@@ -597,7 +587,6 @@ Your Combat Healing now heals you for 4d8 hit points.
 
 
 
-
 # 12. - College of Guts
 
 Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
@@ -630,7 +619,6 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 * War Magic
 
 You can use your bonus action to attack using the weapon in your main hand after casting a spell.
-
 
 
 
@@ -681,7 +669,6 @@ You strike down your enemies in a magnificent way that inspired fear in those wh
 
 
 
-
 # 14. - College of Life
 
 Masters of manipulating both matter and life energy.
@@ -714,7 +701,6 @@ You can use your action a number of times a day equal to your proficiency bonus,
 * Harden to Necrotic
 
 You have immunity to necrotic damage, and your hit point maximum can't be reduced.
-
 
 
 
@@ -753,7 +739,6 @@ Starting at 6th level, you can also cast cantrips with your momentum.
 * Focused War Dance
 
 Starting at 14th level, you can use your Charisma attribute on concentration saving throws during a war dance.
-
 
 
 
@@ -813,7 +798,6 @@ You have immunity to necrotic damage, and your hit point maximum can't be reduce
 * Command Undead
 
 You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC equals to 8 + your proficiency bonus + your spellcaster attribute modifier) or be controlled for 1 minute.
-
 
 
 
@@ -913,7 +897,6 @@ Unleash a wave of necrotic energy around you. Each non undead creature in a 15' 
 
 
 
-
 # 18. - Divine Heart
 
 Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
@@ -960,7 +943,6 @@ As a Bonus Action, you can restore 70 hit points to yourself and remove blindnes
 
 
 
-
 # 19. - Duelist
 
 Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
@@ -996,7 +978,6 @@ Starting at 13th level, once per turn while you aren't incapacitated, shocked or
 * Master Duelist
 
 Starting at 17th level, your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. You can use this feature twice per short rest.
-
 
 
 
@@ -1048,7 +1029,6 @@ Starting at 14th level, gain proficiency in Intelligence and Wisdom saving throw
 * Forceful Step
 
 Beginning at 18th level, you can use your bonus action to teleport to a place of your choice within 60 feet. Any enemy creature within 10 feet of the destination you arrive at must pass a Strength saving throw against your spell DC or receive 3d10 force damage and become prone and knocked back by 10 feet. You can use this feature three times per long rest, and you can pay 4 sorcery points if you are out of uses.
-
 
 
 
@@ -1115,7 +1095,6 @@ Your armor class increases by 2, and you gain proficiency in Dexterity saving th
 
 
 
-
 # 22. - Graviturgist
 
 Understanding and mastering the forces that draw bodies of matter together or drive them apart, the students of the Graviturgy arcane tradition learn to further bend and manipulate the violent energy of gravity to their benefit, and the terrible detriment of their enemies.
@@ -1151,7 +1130,6 @@ Starting at 10th level, increase the striking power of an ally's weapons by 1d10
 * Event Horizon
 
 Starting at 14th level, you can magically emit a powerful field of gravitational energy that tugs at other creatures for up to 1 minute. For the duration, whenever a creature hostile to you starts its turn within 30 feet of you, it must make a Strength saving throw against your spell save DC. On a failed save, it takes 2d10 force damage, and its speed is reduced to 0 until the start of its next turn. On a successful save, it takes half as much damage, and every foot it moves this turn costs 2 extra feet of movement. 
-
 
 
 
@@ -1221,7 +1199,6 @@ You can spend 3 additional charges when creating a bomb to make it more potent. 
 
 
 
-
 # 24. - Hellwalker
 
 You are a Hellwalker, a ranger that is cloaked in the magic of the Lower Planes. How you came to be associated with this magic only you yourself know. Perhaps your great ancestor was of demonic origin, or maybe your bloodline carries a demonic curse. Whatever the reason, the magic is now inextricably bound to you, your own presence forever tied to the hellish beings below.
@@ -1278,7 +1255,6 @@ Your hellish magic has granted you limited command over the dammed creatures tha
 
 
 
-
 # 25. - Lightbearer
 
 The Lightbearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
@@ -1328,7 +1304,6 @@ You are able to briefly transform into a holy form. As an action, for up to 1 mi
 * Warding Light
 
 You can use your holy light to temporarily blind assailants. When a creature within 30 ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
-
 
 
 
@@ -1385,7 +1360,6 @@ Your knowledge and experience with creatures allows you to better defend yoursel
 
 
 
-
 # 27. - Oath of Altruism
 
 Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
@@ -1428,7 +1402,6 @@ Starting at 7th level, you can shield others from harm at the cost of your own h
 * Channel Divinity: Take the Pain
 
 As a bonus action, spend a Channel Divinity to exchange hit points with an ally. You gain temporary hit points equal to twice your proficiency bonus plus your Charisma modifier.
-
 
 
 
@@ -1475,7 +1448,6 @@ When you are reduced to 0 hit points but not killed outright, you drop to 1 hit 
 
 
 
-
 # 29. - Oath of Dread
 
 Paladins who swear the Oath of Dread are zealous warriors who channel their divine powers to either terrorize foes into submission, or make them scatter.
@@ -1518,7 +1490,6 @@ Starting at 7th level, you constantly emanate a menacing aura to all enemies wit
 * Harrowing Crusade
 
 When a creature under the effect of your Mark of Castigation or frighten condition makes an attack, you can use your reaction to make a weapon attack against that creature if it is within range.
-
 
 
 
@@ -1569,7 +1540,6 @@ Your hate grants you resistance to bludgeoning, piercing and slashing damage.
 
 
 
-
 # 31. - Opportunist
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
@@ -1601,7 +1571,6 @@ Starting at 13th level, when an enemy fails a saving throw and it is not your tu
 * Exposing Weakness
 
 Starting at 17th level, any attack against a creature that fails the saving throw of your Debilitating Strike feature is made with advantage.
-
 
 
 
@@ -1648,7 +1617,6 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-
 # 33. - Path of the Light
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
@@ -1691,7 +1659,6 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-
 # 34. - Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
@@ -1723,7 +1690,6 @@ Starting at 10th level, while you are raging, whenever you reduce a creature to 
 * Corrupted Blood
 
 Starting at 14th level, your blood becomes permanently corrupted, damaging creatures that come in contact with it. Whenever a creature within 5 feet strikes you with a melee attack, that creature suffers necrotic damage equal to your Constitution modifier.
-
 
 
 
@@ -1765,7 +1731,6 @@ Starting at 14th level, while you are raging, whenever you roll a Dexterity savi
 
 
 
-
 # 36. - Path Of the Spirits
 
 Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
@@ -1801,7 +1766,6 @@ Starting at 10th level, you can summon the protection of your animal spirit to g
 * Honed Animal Aspect
 
 Starting at 14th level, choose an animal to hone your spiritual connection to, gaining more features.
-
 
 
 
@@ -1850,7 +1814,6 @@ Increase the damage dice of longbows from d8 to d12. While raging, when you hit 
 
 
 
-
 # 38. - Raven
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
@@ -1890,7 +1853,6 @@ Starting at 13th level, if you miss with a ranged weapon attack roll, you can ro
 * Perfect Shot
 
 You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
-
 
 
 
@@ -1935,7 +1897,6 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-
 # 40. - Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
@@ -1967,7 +1928,6 @@ Starting at 13th level, you can use your bonus action to become invisible for 1 
 * Fatal Strike
 
 Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature.
-
 
 
 
@@ -2060,7 +2020,6 @@ Once per long rest, you may reinforce a non magical piece of armor or shield. Th
 
 
 
-
 # 42. - Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
@@ -2120,7 +2079,6 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 
 
-
 # 43. - Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
@@ -2170,7 +2128,6 @@ When an attacker that you can see hits you with a ranged attack or spell, you ca
 
 
 
-
 # 44. - Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
@@ -2214,7 +2171,6 @@ Prepare Intelligence modifier additional spells so you always have what you need
 * Spell Resistance
 
 Your training with magic gives you advantage on saving throws against spells.
-
 
 
 
@@ -2273,7 +2229,6 @@ Gain advantage on ability checks towards this creature type, and additional dama
 * Unmatched Experience
 
 Gain proficiency in Wisdom saving throws.
-
 
 
 
@@ -2361,7 +2316,6 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-
 # 47. - The Elementalist
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
@@ -2410,7 +2364,6 @@ You can switch between enhanced elemental forms a number of times equal to your 
 * Elemental Minions
 
 Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
-
 
 
 
@@ -2479,7 +2432,6 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-
 # 49. - The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
@@ -2538,7 +2490,6 @@ Briefly surrounded by the energy of the rift, you teleport to an unoccupied spac
 * Rift Cloak
 
 Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
-
 
 
 
@@ -2602,7 +2553,6 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-
 # 51. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
@@ -2634,7 +2584,6 @@ At 11th level, you gain the ability to cause an eruption of accumulated negative
 * Profound Turmoil
 
 Starting at 17th level, when a creature receives damage from your Discordance feature, it must succeed on Charisma saving throw or receive Turmoil condition for up to one minute. If a creature succeeds at the saving throw or the effect expires, the creature is immune to further effects of Turmoil.
-
 
 
 
@@ -2686,7 +2635,6 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-
 # 53. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
@@ -2726,7 +2674,6 @@ Gain the ability to imbue your unarmed strikes with your draconic damage.
 * Draconic Ascension
 
 Spend 4 Ki points to take flight. Gain the abilities of the fly spell without concentration and +2 AC for 1 minute.
-
 
 
 
@@ -2772,7 +2719,6 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-
 # 55. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
@@ -2804,7 +2750,6 @@ Starting at 11th level, after using your attack action, you can pay 2 ki to use 
 * Eye of the Storm
 
 Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 3d10 lightning damage and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
-
 
 
 
@@ -2855,7 +2800,6 @@ Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 * Perfect Strikes
 
 Your focused strikes also grants you advantage on all damage rolls while attacking with your specialized weapon.
-
 
 
 
@@ -2917,7 +2861,6 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-
 # 58. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
@@ -2960,7 +2903,6 @@ The Spirit Beast can now fully use all attacks available and also gains your pro
 * Free Will
 
 The Spirit Beast can now act independently, cannot be surprised and use Eyebite like powers.
-
 
 
 

@@ -27,7 +27,6 @@ You can use your action to exhale destructive energy based on your draconic ance
 
 
 
-
 # 2. - Dwarf
 
 One of the ancient dwellers of Solasta, dwarves are naturally skilled miners and craftsmen. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
@@ -55,7 +54,6 @@ Unaffected by heavy armor penalties.
 * Move
 
 5◎
-
 
 
 
@@ -89,7 +87,6 @@ Proficient with the Perception skill.
 
 
 
-
 # 4. - Gnome
 
 Originating from the mountains bordering the Inner Sea, gnomes
@@ -116,7 +113,6 @@ You have advantage on all Intelligence, Wisdom, and Charisma saving throws again
 * Move
 
 5◎
-
 
 
 
@@ -154,7 +150,6 @@ Common, Elvish, and one language of your choice
 
 
 
-
 # 6. - Halfling
 
 The original halflings evolved in the marshes on the northeastern part of Solasta, before spreading south, following the river, and reaching the sea. They are short and nimble, and known for their bravery despite their size.
@@ -181,7 +176,6 @@ When you roll a 1 on an attack roll, ability check, or saving throw, reroll and 
 * Move
 
 5◎
-
 
 
 
@@ -218,7 +212,6 @@ When you score a critical hit with a melee weapon attack, you can roll one of th
 
 
 
-
 # 8. - High Elf
 
 <#B5D3DE>High elves</color> are the descendants of the people who ruled Solasta for centuries. They are trained to use magic very early, and have a gift for languages. They receive the traditional martial training of their people with swords and bows.
@@ -248,7 +241,6 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-
 # 9. - Hill Dwarf
 
 <#B5D3DE>Hill dwarves</color> are naturally skilled miners and craftsmen, gifted with keen senses, deep intuition, and remarkable resilience. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
@@ -274,7 +266,6 @@ Common, Dwarvish
 
 
 
-
 # 10. - Human
 
 Originally born on Tirmar and brought to Solasta before the Cataclysm, <#B5D3DE>humans</color> have adapted to their new world thanks to their unique talents. Able to live anywhere and take any job, they are versatile above all else.
@@ -296,7 +287,6 @@ Common and one language of your choice.
 
 
 
-
 # 11. - Island Halfling
 
 <#B5D3DE>Island halflings</color> are the children of adventurous halflings who left the Northern Marshes to venture south and settle in the sunny islands. Discreet and brave, they are inclined to be affable and get along well with others.
@@ -315,7 +305,6 @@ Common, Halfling, and one language of your choice
 * Rope Dancing
 
 Advantage on Dexterity checks (Acrobatics)
-
 
 
 
@@ -344,7 +333,6 @@ Areas with marshes and ponds and a humid atmosphere are considered swamp terrain
 
 
 
-
 # 13. - Rock Gnome
 
 Living inside mountains made of rock, gnomes are hardy and inventive. They
@@ -367,7 +355,6 @@ You have proficiency with artisan's tools (smith's tools). Using these tools, yo
 
 
 
-
 # 14. - Shadow Gnome
 
 While rock gnomes chose to settle underground, shadow gnomes used a natural ability to hide in plain sight. As such, they weathered the Cataclysm in improbable places. Seemingly shy and aloof, their talent for stealth makes them feared practical jokers.
@@ -386,7 +373,6 @@ You have stealth proficiency.
 * Illusion Trickster
 
 You know the Annoying Bee cantrip. Intelligence is your spellcasting ability for it.
-
 
 
 
@@ -427,7 +413,6 @@ Immune to the effects of moderately cold weather.
 
 
 
-
 # 16. - Sylvan Elf
 
 Born and raised in the eastern forests of Solasta, <#B5D3DE>sylvan elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf cousins, they are trained to fight with swords and bows since childhood.
@@ -455,7 +440,6 @@ Common, Elvish, Dwarvish, and Halfling
 
 Proficient with Survival and Athletics.
 Advantage on Survival when hunting
-
 
 
 
@@ -489,7 +473,6 @@ You have resistance to fire damage.
 * Infernal Legacy
 
 You know the Produce Flame cantrip. When you reach level 3, you can cast the Hellish Rebuke spell as a level 2 spell once with this trait, and regain the ability to do so again when you finish a long rest. When you reach level 5, you can cast the Darkness spell once with this trait, and regain the ability to do so again when you finish a long rest. Charisma is your spellcasting ability for these spells.
-
 
 
 

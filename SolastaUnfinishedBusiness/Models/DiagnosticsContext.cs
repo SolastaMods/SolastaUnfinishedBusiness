@@ -163,7 +163,7 @@ internal static class DiagnosticsContext
     }
 
     /// <summary>
-    /// Export all TA definitions with any modifications made by CE.
+    ///     Export all TA definitions with any modifications made by CE.
     /// </summary>
     internal static void ExportTaDefinitionsAfterCeLoaded()
     {

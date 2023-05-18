@@ -68,7 +68,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 2. - Champion
 
 Champions focus on the raw physical power, honed to deadly perfection. Those who model themselves on this archetype combine rigorous training with physical excellence to deal devastating blows.
@@ -107,7 +106,6 @@ Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 * Survivor
 
 You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
-
 
 
 
@@ -159,7 +157,6 @@ At level 14, as a bonus action, you can teleport up to 6 cells to any unoccupied
 
 
 
-
 # 4. - Circle of Balance
 
 Some say that druids from the Circle of Balance are gentle healers, while others tell of merciless executioners. The truth is, both are right: nature giveth, and nature taketh away.
@@ -204,7 +201,6 @@ Whenever you damage an opponent with a spell, they are unable to heal any HP unt
 
 When you reach level 14, you can use your bonus action to grant all allies within 12 cells advantage on attack rolls until the start of your next turn. You and your allies who are under the effect of Balance of Power can be attacked with advantage by all enemies until the start of your next turn.
  You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
-
 
 
 
@@ -261,7 +257,6 @@ You can use Spirit Rage a number of times equal to your proficiency bonus per lo
 
 
 
-
 # 6. - Circle of the Land
 
 The Circle of the Land is made up of mystics and sages who safeguard the ancient knowledge of the Old Faith. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.
@@ -307,7 +302,6 @@ When you reach level 14, whenever you deal damage to an enemy with a spell of le
 
 
 
-
 # 7. - Circle of Winds
 
 Druids from this circle draw their strength from the winds. As the Cataclysm raged, the connection druids felt to nature frayed. But not so for the Circle of the Winds. They felt the mana currents carried by the winds and through them a connection to nature. Through this, they were able to protect nature from the worst of the cataclysm-born depredations.
@@ -342,7 +336,6 @@ Upon reaching level 14, you are constantly under the effect of Freedom of Moveme
 
 
 
-
 # 8. - College of Heroism
 
 Some bards inflame their audience, or a crowd, using words, music, or song! Bards of the College of Heroism sing the song of battle and dance the dance of death, inspiring crowds with their deeds.
@@ -371,7 +364,6 @@ Whenever you grant a Bardic Inspiration to an ally, the closest enemy within 12 
 * At Road's End
 
 When an ally you can see within 12 cells is reduced to 0 hit points, you can use your reaction to make them fall to 1 hit point instead. You can use this feature once per short or long rest.
-
 
 
 
@@ -415,7 +407,6 @@ Starting on your next turn, as an action, you will be able to sing a song of hop
 
 
 
-
 # 10. - College of Lore
 
 The College of Lore has gathered knowledge from all over the world, from ancient ballads, peasant folktales, scholarly tomes, and more. They pursue truth and beauty with unending devotion.
@@ -447,7 +438,6 @@ You can now cast Bardic Inspiration on yourself.
 
 
 
-
 # 11. - College of Traditions
 
 The College of Traditions is descended from an order of song-wizards who served the Manacalon empire. While their allegiance has changed, their fascination with magic has not - and neither has their skill.
@@ -476,7 +466,6 @@ As a reaction, after a creature you can see within 12 cells damages you, you can
 * Manacalon Perfection
 
 Once per long rest, as a bonus action, grant yourself and an ally the benefits of a bardic inspiration die without spending one of its uses. It will always roll its maximum value.
-
 
 
 
@@ -525,7 +514,6 @@ Starting at 18th level, any ally affected by Rousing Shout also gains advantage 
 
 
 
-
 # 13. - Court Mage
 
 Court mages are the magical equivalent of elite bodyguards. Highly prized during the Manacalon era when society was ruled by magic, this tradition has slowly resurfaced in more recent years.
@@ -561,7 +549,6 @@ Creatures under the effect of spell shield now also gain advantage on all saving
 * Expanded Spell Shield
 
 At level 14, you can create a spell shield around an extra ally. You can now cast spell shield around you and allies you can see within 12 cells of you.
-
 
 
 
@@ -604,7 +591,6 @@ When you are in dim light or darkness outside of the enemy's line of sight, you 
 * Dark Assault
 
 Starting at 17th level, when you start your turn in dim light or darkness, you gain an extra attack with your Attack action and additional 15 feet of movement during the turn.
-
 
 
 
@@ -658,7 +644,6 @@ When dealing spell damage that matches your draconic ancestry, you add your char
 * Dragon Wings
 
 At level 14, you obtain the ability to sprout a pair of Dragon Wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn.
-
 
 
 
@@ -728,7 +713,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 17. - Elemental (Ice)
 
 The Elemental domain allows a cleric to become one with the elements. The ice sub-domain makes you less vulnerable to cold damage and grants you ice-based attacks.
@@ -792,7 +776,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Divine Intervention
 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
-
 
 
 
@@ -862,7 +845,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 19. - Greenmage
 
 Greenmages are the heirs to the ancient traditions of the sylvan elves. They are wardens of the forest, specialized in nature magic and also reliable bowmen, trained to survive without spells if need be - as they had to in the wake of the Cataclysm.
@@ -925,7 +907,6 @@ At level 14, when hit by Entangling Shot, the target has disadvantage on all sav
 
 
 
-
 # 20. - Haunted Soul
 
 Haunted souls are sorcerers whose innate abilities draw malevolent spirits to them. Those who survive the ordeal learn to form a symbiotic relationship with them, harnessing their power in exchange for having their soul being slowly drained away.
@@ -968,7 +949,6 @@ You can use a bonus action to call forth the spirits inside you for up to 1 minu
 * Soul Drain
 
 At level 14, once per turn when you kill one or more creatures with a spell of level 1 or higher, you regain 1 sorcery point. Soul Drain does not work on creatures of CR 1/2 or lower.
-
 
 
 
@@ -1016,7 +996,6 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-
 # 22. - Hunter
 
 Emulating the Hunter archetype means accepting your place as a bulwark between civilization and the terrors of the wilderness. As you walk the Hunter's path, you learn specialized techniques for fighting the threats you face.
@@ -1048,7 +1027,6 @@ Select one of the multiattack options: Volley or Whirlwind Attack
 * Superior Hunter's Defense
 
 Select one of the options: Stand Against the Tide, Evasion, or Uncanny Dodge.
-
 
 
 
@@ -1115,7 +1093,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 * Divine Intervention
 
 You attempt to request the help of your deity, with a success chance of 1% per cleric level.
-
 
 
 
@@ -1191,7 +1168,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 25. - Life
 
 The Life domain focuses on the vibrant positive energy - one of the fundamental forces of the universe - that sustains all life, and grants unrivaled healing abilities.
@@ -1258,7 +1234,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 26. - Loremaster
 
 Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They know the old Empire had superior magic and they long to learn more about the lost spells and rituals. Their magic is focused on gathering all possible knowledge.
@@ -1292,7 +1267,6 @@ You can add your Proficiency Bonus to the number of spells you can memorize. You
 * Arcane Professor
 
 At level 14, you gain one extra level 1, level 2, level 3, and level 4 spell slots. Additionally, you learn 4 cantrips from any classes. The chosen cantrips count as wizard spells for you.
-
 
 
 
@@ -1344,7 +1318,6 @@ At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point
 
 
 
-
 # 28. - Marksman
 
 Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta. 
@@ -1384,7 +1357,6 @@ If you are using a ranged weapon against an enemy, your bonus action can be used
 * Extra Attack (2)
 
 At level 15, you can attack three times whenever you take the Attack action on your turn.
-
 
 
 
@@ -1456,7 +1428,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 30. - Mountaineer
 
 Mountaineers are trained to fight in difficult terrain and confined spaces. They are capable skirmishers and know how to take advantage of small spaces, given the right equipment.
@@ -1499,7 +1470,6 @@ Starting at level 15, when you are using a shield, you have advantage on melee a
 * Position of Strength
 
 Starting at 18th level, your Tunnel Fighter feature also provides its benefits when within 5 feet of any ally (no diagonals). You have a permanent aura that grants +1 AC to you and all allies within 5 ft.
-
 
 
 
@@ -1546,7 +1516,6 @@ Starting at level 15, you are always under the effects of a protection from evil
 
 
 
-
 # 32. - Oath of Judgement
 
 Paladins who swear the Oath of Judgement believe that no sin should be overlooked, no matter how small - although the punishment must also fit the crime. They are relentless in their pursuit of justice, and those who decide to stand in their way had better be prepared!
@@ -1590,7 +1559,6 @@ Starting at level 15, whenever an enemy within 6 cells deals damage to you, you 
 
 
 
-
 # 33. - Oath of the Motherland
 
 Paladins who swear the Oath of the Motherland dedicate their lives to restoring the pre-Cataclysm world, undoing the land's decay, and bringing life back, despite its violent and volcanic nature. They reject the term "Badlands" in favor of "Motherland."
@@ -1631,7 +1599,6 @@ Friendly creatures in the aura gain fire resistance and +1 to AC.
 * Heart of Lava
 
 Starting at level 15, you are immune to fire and your skin covers with stone scales when you are in danger, reducing slashing/bludgeoning/piercing damage that you take by 5.
-
 
 
 
@@ -1679,7 +1646,6 @@ Friendly creatures in the aura gain superior darkvision and +2 perception.
 * Sorak's Bane
 
 Starting at level 15, when you use a melee attack to strike an opponent who has either natural darkvision or natural shapeshifting, you can use your bonus action to deal an additional melee attack, adding your Charisma bonus to the damage dealt.
-
 
 
 
@@ -1753,7 +1719,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 36. - Path of the Berserker
 
 The Path of the Berserker is a path of untrammeled fury, slick with blood. As you  enter the berserker's rage, you thrill in the chaos of battle, heedless of your own   health or well-being.
@@ -1785,7 +1750,6 @@ Frighten a creature until the end of your next turn if it fails a WIS check oppo
 * Retaliation
 
 Whenever an opponent attacks you from a nearby cell, you are granted an immediate melee attack against that opponent.
-
 
 
 
@@ -1827,7 +1791,6 @@ While raging, the first creature you hit with a melee attack each turn must make
 
 
 
-
 # 38. - Path of the Magebane
 
 Followers of this path have developed a profound hatred for magic and magic-users. For them, physical prowess is the only decent way. They despise and distrust magic and magic-users.
@@ -1862,7 +1825,6 @@ When raging, you can dispel a magical effect on a creature or object as an actio
 
 
 
-
 # 39. - Path of the Stone
 
 Barbarians following this path draw their strength from their connection to stone. They are known for their doggedness. They never give up in the face of adversity and thrive in hostile environments.
@@ -1894,7 +1856,6 @@ While raging, you gain +1 to AC per hostile opponent that you can see within one
 * Last Stand
 
 You gain a bonus to your melee weapon damage roll equal to your proficiency.
-
 
 
 
@@ -1940,7 +1901,6 @@ At level 15, you have proficiency with all saving throws while in dim light or d
 
 
 
-
 # 41. - Shadowcaster
 
 Shadowcasters are trained in arcane magic as well as in roguish abilities. They are tricksters who use magic to make their moves even more unpredictable and unstoppable. Some believe they don't really exist.
@@ -1982,7 +1942,6 @@ At 17th level, you can use your bonus action to magically transform yourself int
 
 
 
-
 # 42. - Shock Arcanist
 
 Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings have survived the Cataclysm to become a renowned and feared magical tradition, taught in every major magic school.
@@ -2020,7 +1979,6 @@ Constitution
 
 Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Shock and make a CON saving throw DC 16 first, taking 7D6 psychic damage on a failure, or half of the damage on a success. Until the end of your turn, the spells you cast will have all the maximum possible damage dice roll values.
 You can use this feature once per long rest.
-
 
 
 
@@ -2066,7 +2024,6 @@ Whenever you cast a spell on your turn, your speed increases by 3 cells until th
 * Cantrip Attack
 
 You can replace one of your attacks with a cantrip.
-
 
 
 
@@ -2140,7 +2097,6 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 
 
-
 # 45. - Swift Blade
 
 Swift blades are fast, silent, and deadly. They are able to take down targets in a matter of seconds, and then rush out of combat and disappear into the wilderness without a trace.
@@ -2176,7 +2132,6 @@ You can attack twice, rather than once, when you use the attack or shove actions
 * Uncatchable
 
 At level 15, you become extremely hard to pin down. Whenever you take any damage, you can use your reaction to become invisible until you attack, cast a spell, or at the end of your next turn (whichever comes first). You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
-
 
 
 
@@ -2230,7 +2185,6 @@ When you hit a creature with an attack, you can banish it to the lower planes un
 
 
 
-
 # 47. - The Hive
 
 The insects known as redeemers were developed by the Manacalon Empire as living weapons controlled by hive intelligence. With the fall of the Empire, that intelligence became self-willed and powerful - and curious about others. The Hive studies its warlocks as well as empowering them.
@@ -2277,7 +2231,6 @@ Starting at the 10th level, whenever you take damage from a spell or magic effec
 * Antimagic Chitin
 
 Starting at level 14, you have advantage on saving throws against spells and magic effects.
-
 
 
 
@@ -2334,7 +2287,6 @@ Starting at the 14th level, on your turn, you can take one additional action on 
 
 
 
-
 # 49. - The Tree
 
 The Tree stands at the heart of the Forest of Colthannin. To the sylvan elves - and more recently, to others - it is the soul of the forest. Its roots probe the depths, its branches touch the sky - and its warlocks travel the world between, informing and enacting its labyrinthine plans.
@@ -2384,7 +2336,6 @@ You gain a +2 AC bonus, and you are always considered under the effect of half-c
 
 
 
-
 # 50. - Thief
 
 Thieves have honed their skills in the larcenous arts. In addition to improving their agility and stealth, they learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items they normally couldn't employ.
@@ -2423,7 +2374,6 @@ Starting at 17th level, you have become adept at laying ambushes and quickly esc
 
 
 
-
 # 51. - Way of Freedom
 
 This style of fighting was developed by Manacalon slaves, who were forbidden weapons by their masters. Emphasizing speed and balance, the Way of Freedom lets its followers evade blows and dart inside enemy defenses.
@@ -2455,7 +2405,6 @@ Starting at the 11th level, when you use Flurry of Blows, you can make up to one
 * Purity of Light
 
 You can attack three times, instead of twice, whenever you take the Attack action on your turn.
-
 
 
 
@@ -2497,7 +2446,6 @@ Starting at 17th level, you gain the following benefits:
 
 
 
-
 # 53. - Way of Survival
 
 In the aftermath of the Cataclysm, isolated communities developed physical and mental techniques that allowed them to push the limits of their strength and endurance to the utmost. Surviving while their neighbors perished, the followers of the Way of Survival are as tough as the harsh times that forged them.
@@ -2531,7 +2479,6 @@ Starting at the 11th level, you now add your CON modifier to the damage rolls of
 Starting at 17th level, you gain the following benefits:
 • While you have less than half your maximum hit points, healing of your Unbreakable Body feature is doubled.
 • When you are reduced to 0 hit points, you can pay 1 ki to restore 10 hit points.
-
 
 
 
@@ -2569,7 +2516,6 @@ At level 11, when you are about to be hit by an attack or single target spell, y
 * Quivering Palm
 
 Starting at 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for 24 hours. The vibrations are harmless unless you use your action to end them. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 1 hit point and becomes stunned until the start of their next turn. If it succeeds, it takes 10d10 necrotic damage.
-
 
 
 

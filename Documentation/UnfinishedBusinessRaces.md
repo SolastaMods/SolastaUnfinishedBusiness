@@ -15,7 +15,6 @@ You know the Dancing Lights cantrip. At 3rd level you learn Hellish Rebuke and a
 
 
 
-
 # 2. - Bolgrif
 
 Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
@@ -50,7 +49,6 @@ As a bonus action, you can magically turn invisible for 1 round. This invisibili
 * Druidic Magic
 
 You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
-
 
 
 
@@ -91,7 +89,6 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-
 # 4. - Dark Kobold
 
 Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
@@ -117,7 +114,6 @@ A creature with Pack Tactics has advantage on an attack roll against a creature 
 
 
 
-
 # 5. - Draconic Kobold
 
 Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
@@ -136,7 +132,6 @@ As a bonus action, you let out a cry at your enemies within 10 ft of you. Until 
 * Kobold Magic
 
 You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
-
 
 
 
@@ -170,7 +165,6 @@ Common, Elvish
 * Fairy Magic
 
 You know the Burst of Radiance cantrip. At 3rd level you learn Faerie Fire and at 5th level, Color Burst. Both can be used once per long rest.
-
 
 
 
@@ -208,7 +202,6 @@ Common, Gnomish.
 * Natural Illusionist
 
 You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it.
-
 
 
 
@@ -255,7 +248,6 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-
 # 9. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
@@ -270,7 +262,6 @@ Half-Dark elves are descendants of elves that have been changed over time by liv
 * Dark Elf Magic
 
 You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
-
 
 
 
@@ -300,7 +291,6 @@ Common, Elvish, and one language of your choice
 
 
 
-
 # 11. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
@@ -318,7 +308,6 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-
 # 12. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
@@ -329,7 +318,6 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 * Move
 
 7◎
-
 
 
 
@@ -354,7 +342,6 @@ Common, Draconic.
 
 
 
-
 # 14. - Mephistopheles
 
 Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
@@ -369,7 +356,6 @@ Dexterity +1
 * Mephistopheles Magic
 
 You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th level, Flame Blade. Both can be used once per long rest.
-
 
 
 
@@ -402,7 +388,6 @@ Charisma +2
 
 
 
-
 # 16. - Zariel
 
 Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
@@ -417,7 +402,6 @@ Strength +1
 * Zariel Magic
 
 You know the Sunlit Blade cantrip. At 3rd level you learn Searing Smite and at 5th level, Branding Smite. Both can be used once per long rest.
-
 
 
 

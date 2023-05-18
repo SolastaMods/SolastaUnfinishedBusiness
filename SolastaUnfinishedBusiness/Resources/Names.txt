@@ -1,4 +1,4 @@
-﻿﻿Dwarf	Female	Abagtha
+﻿Dwarf	Female	Abagtha
 Dwarf	Female	Bera
 Dwarf	Female	Birsha
 Dwarf	Female	Brallesyl
