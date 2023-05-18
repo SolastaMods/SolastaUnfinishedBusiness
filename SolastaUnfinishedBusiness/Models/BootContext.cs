@@ -157,9 +157,18 @@ internal static class BootContext
                 Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
             }
 
-            DumpMonsters("DungeonMakerMonsters", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster);
-            DumpMonsters("DungeonMakerNPCs", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.NPC);
-            DumpMonsters("DungeonMakerNotAvail", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None);
+            foreach (var characterFamilyDefinition in DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
+                         .Where(x => x.Name != "Giant_Rugan" && x.Name != "Ooze"))
+            {
+                if (characterFamilyDefinition.ContentPack == CeContentPackContext.CeContentPack)
+                {
+                    continue;
+                }
+
+                DumpMonsters($"SolastaMonsters{characterFamilyDefinition.Name}",
+                    x => x.CharacterFamily == characterFamilyDefinition.Name && x.DefaultFaction == "HostileMonsters");
+            }
+
             DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
@@ -396,7 +405,7 @@ internal static class BootContext
         var outString = new StringBuilder();
 
         outString.AppendLine(
-            $"# {counter++}. - {monsterDefinition.FormatTitle()} [DM: {monsterDefinition.DungeonMakerPresence}]");
+            $"# {counter++}. - {monsterDefinition.FormatTitle()}");
         outString.AppendLine();
 
         var description = monsterDefinition.FormatDescription();
@@ -409,12 +418,22 @@ internal static class BootContext
         outString.AppendLine();
         outString.AppendLine($"Alignment: *{monsterDefinition.Alignment.SplitCamelCase()}* ");
 
-        outString.AppendLine("| AC | HD | CR |");
-        outString.AppendLine("| -- | -- | -- |");
+        var inDungeonMaker = monsterDefinition.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None
+            ? "NO"
+            : "YES";
 
-        outString.Append($"| {monsterDefinition.ArmorClass} ");
-        outString.Append($"| {monsterDefinition.HitDice}{monsterDefinition.HitDiceType} ");
-        outString.Append($"| {monsterDefinition.ChallengeRating} ");
+        outString.AppendLine();
+        outString.AppendLine($"Dungeon Maker: *{inDungeonMaker}* ");
+
+        outString.AppendLine();
+        outString.AppendLine($"Size: *{monsterDefinition.SizeDefinition.FormatTitle()}* ");
+
+        outString.AppendLine("|  AC  |   HD   |  CR  |");
+        outString.AppendLine("| ---- | ------ | ---- |");
+
+        outString.Append($"|  {monsterDefinition.ArmorClass:0#}  ");
+        outString.Append($"| {monsterDefinition.HitDice:0#} {monsterDefinition.HitDiceType} ");
+        outString.Append($"| {monsterDefinition.ChallengeRating:0#.0} ");
         outString.Append('|');
         outString.AppendLine();
 
@@ -422,12 +441,12 @@ internal static class BootContext
         outString.AppendLine("| Str | Dex | Con | Int | Wis | Cha |");
         outString.AppendLine("| --- | --- | --- | --- | --- | --- |");
 
-        outString.Append($"| {monsterDefinition.AbilityScores[0]:0#} ");
-        outString.Append($"| {monsterDefinition.AbilityScores[1]:0#} ");
-        outString.Append($"| {monsterDefinition.AbilityScores[2]:0#} ");
-        outString.Append($"| {monsterDefinition.AbilityScores[3]:0#} ");
-        outString.Append($"| {monsterDefinition.AbilityScores[4]:0#} ");
-        outString.Append($"| {monsterDefinition.AbilityScores[5]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[0]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[1]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[2]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[3]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[4]:0#} ");
+        outString.Append($"|  {monsterDefinition.AbilityScores[5]:0#} ");
         outString.Append('|');
         outString.AppendLine();
 
@@ -437,6 +456,7 @@ internal static class BootContext
         FeatureDefinitionCastSpell featureDefinitionCastSpell = null;
 
         foreach (var featureDefinition in monsterDefinition.Features
+                     .Where(x => x != null)
                      .OrderBy(x => x.Name))
         {
             switch (featureDefinition)
@@ -557,11 +577,6 @@ internal static class BootContext
 
                 break;
             default:
-                if (featureDefinition == null)
-                {
-                    break;
-                }
-
                 var title = featureDefinition.FormatTitle();
 
                 if (title == "None")
@@ -777,13 +792,10 @@ internal static class BootContext
 
     private static void DisplayUpdateMessage()
     {
-        const string MESSAGE =
-            "\n\nDedico este mod a galera que me introduziu ao D&D nos bons anos 80:\n\nDentinho, Dumbo, Jelly, Leo & Dani, Marcio, Marcelo Padeiro e tantos outros\n[Colegios Andrews / Santo Agostinho, Rio de Janeiro 1986-1988]";
-
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.{MESSAGE}",
+            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.",
             "Changelog",
             "Message/&MessageOkTitle",
             OpenChangeLog,
