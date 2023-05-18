@@ -672,7 +672,7 @@ internal static class GameLocationBattleManagerTweaks
         {
             if (attackMode?.SourceObject is RulesetItem weapon)
             {
-                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(instance.featuresToBrowseItem);
+                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(instance.featuresToBrowseItem, attacker.Name);
                 instance.featuresToBrowseReaction.AddRange(instance.featuresToBrowseItem);
                 instance.featuresToBrowseItem.Clear();
             }

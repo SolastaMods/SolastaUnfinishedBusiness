@@ -18,34 +18,35 @@ public static class SpellBoxPatcher
 
         [UsedImplicitly]
         public static void Prefix(
-            ref string autoPreparedTag,
-            ref string extraSpellTag)
+            ref bool autoPrepared,
+            ref bool extraSpell,
+            ref string tag)
         {
-            if (string.IsNullOrEmpty(extraSpellTag))
+            if (string.IsNullOrEmpty(tag))
             {
                 return;
             }
 
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on level up
-            if (extraSpellTag.StartsWith(LevelUpContext.ExtraClassTag)
-                || extraSpellTag.StartsWith(LevelUpContext.ExtraSubclassTag))
+            if (tag.StartsWith(LevelUpContext.ExtraClassTag)
+                || tag.StartsWith(LevelUpContext.ExtraSubclassTag))
             {
                 //store original extra tag and reset both - actual texts would be handled on Postfix for this case
-                _extraTag = extraSpellTag;
-                autoPreparedTag = null;
-                extraSpellTag = null;
+                _extraTag = tag;
+                autoPrepared = false;
+                extraSpell = false;
                 return;
             }
 
             //PATCH: if extra spell tag has no translation, but auto prepared translation for same tag exists - use that one.
-            if (TranslatorContext.HasTranslation($"Screen/&{extraSpellTag}ExtraSpellTitle")
-                || !TranslatorContext.HasTranslation($"Screen/&{extraSpellTag}SpellTitle"))
+            if (TranslatorContext.HasTranslation($"Screen/&{tag}ExtraSpellTitle")
+                || !TranslatorContext.HasTranslation($"Screen/&{tag}SpellTitle"))
             {
                 return;
             }
 
-            autoPreparedTag = extraSpellTag;
-            extraSpellTag = null;
+            autoPrepared = true;
+            extraSpell = false;
         }
 
         [UsedImplicitly]
