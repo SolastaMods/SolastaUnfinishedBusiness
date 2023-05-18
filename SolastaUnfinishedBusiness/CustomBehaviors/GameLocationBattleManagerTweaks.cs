@@ -214,7 +214,7 @@ internal static class GameLocationBattleManagerTweaks
             {
                 additionalDamageForm.DieType =
                     damageDieProviderFromCharacter.Invoke(featureDefinition as FeatureDefinitionAdditionalDamage,
-                        additionalDamageForm, attacker, defender);
+                        additionalDamageForm, attackMode, attacker, defender);
             }
 
             /*

@@ -12,5 +12,6 @@ internal delegate RuleDefinitions.DieType DamageDieProvider(RulesetCharacter cha
 internal delegate RuleDefinitions.DieType DamageDieProviderFromCharacter(
     FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage,
     DamageForm damageForm,
+    RulesetAttackMode attackMode,
     GameLocationCharacter attacker,
     GameLocationCharacter defender);
