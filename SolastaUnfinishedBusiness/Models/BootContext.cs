@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -155,6 +157,7 @@ internal static class BootContext
                 Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
             }
 
+            DumpMonsters();
             DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
@@ -205,7 +208,7 @@ internal static class BootContext
     {
         return input
             .Replace("<color=#add8e6ff>", string.Empty)
-            .Replace("<#57BCF4>", "\n\t")
+            .Replace("<#57BCF4>", "\r\n\t")
             .Replace("</color>", string.Empty)
             .Replace("<b>", string.Empty)
             .Replace("<i>", string.Empty)
@@ -222,9 +225,9 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {klass.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {klass.FormatTitle()}\r\n\r\n");
             outString.Append(klass.FormatDescription());
-            outString.Append("\n\n");
+            outString.Append("\r\n\r\n");
 
             var level = 0;
 
@@ -234,19 +237,19 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
                 outString.Append(description);
-                outString.Append("\n\n");
+                outString.Append("\r\n\r\n");
             }
 
-            outString.Append("\n\n\n");
+            outString.Append("\r\n\r\n\r\n");
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Classes.md");
@@ -262,9 +265,9 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {subclass.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {subclass.FormatTitle()}\r\n\r\n");
             outString.Append(subclass.FormatDescription());
-            outString.Append("\n\n");
+            outString.Append("\r\n\r\n");
 
             var level = 0;
 
@@ -274,19 +277,19 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
                 outString.Append(description);
-                outString.Append("\n\n");
+                outString.Append("\r\n\r\n");
             }
 
-            outString.Append("\n\n\n");
+            outString.Append("\r\n\r\n\r\n");
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Subclasses.md");
@@ -302,9 +305,9 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {race.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {race.FormatTitle()}\r\n\r\n");
             outString.Append(race.FormatDescription());
-            outString.Append("\n\n");
+            outString.Append("\r\n\r\n");
 
             var level = 0;
 
@@ -314,19 +317,19 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\n## Level {featureUnlockByLevel.level}\n\n");
+                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\n\n");
+                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
                 outString.Append(description);
-                outString.Append("\n\n");
+                outString.Append("\r\n\r\n");
             }
 
-            outString.Append("\n\n\n");
+            outString.Append("\r\n\r\n\r\n");
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Races.md");
@@ -345,13 +348,199 @@ internal static class BootContext
         {
             var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-            outString.Append($"# {counter++}. - {featureDefinition.FormatTitle()}\n\n");
+            outString.Append($"# {counter++}. - {featureDefinition.FormatTitle()}\r\n\r\n");
             outString.Append(description);
-            outString.Append("\n\n");
+            outString.Append("\r\n\r\n");
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
         sw.WriteLine(outString.ToString());
+    }
+
+    private static void DumpMonsters()
+    {
+        var outString = new StringBuilder();
+        var counter = 1;
+
+        foreach (var monsterDefinition in DatabaseRepository.GetDatabase<MonsterDefinition>()
+                     .OrderBy(x => x.FormatTitle()))
+        {
+            outString.Append(GetMonsterBlock(monsterDefinition, ref counter));
+        }
+
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/SolastaMonsters.md");
+        sw.WriteLine(outString.ToString());
+    }
+
+    private static string GetMonsterBlock([NotNull] MonsterDefinition monsterDefinition, ref int counter)
+    {
+        var outString = new StringBuilder();
+
+        outString.AppendLine(
+            $"# {counter++}. - {monsterDefinition.FormatTitle()} [DM: {monsterDefinition.DungeonMakerPresence}]");
+        outString.AppendLine();
+
+        var description = monsterDefinition.FormatDescription();
+
+        if (!string.IsNullOrEmpty(description))
+        {
+            outString.AppendLine(monsterDefinition.FormatDescription());
+        }
+
+        outString.AppendLine();
+        outString.AppendLine($"Alignment: *{monsterDefinition.Alignment.SplitCamelCase()}* ");
+
+        outString.AppendLine("| AC | HD | CR |");
+        outString.AppendLine("| -- | -- | -- |");
+
+        outString.Append($"| {monsterDefinition.ArmorClass} ");
+        outString.Append($"| {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType} ");
+        outString.Append($"| {monsterDefinition.ChallengeRating} ");
+        outString.Append('|');
+        outString.AppendLine();
+
+        outString.AppendLine();
+        outString.AppendLine("| Str | Dex | Con | Int | Wis | Cha |");
+        outString.AppendLine("| --- | --- | --- | --- | --- | --- |");
+
+        outString.Append($"| {monsterDefinition.AbilityScores[0]:0#} ");
+        outString.Append($"| {monsterDefinition.AbilityScores[1]:0#} ");
+        outString.Append($"| {monsterDefinition.AbilityScores[2]:0#} ");
+        outString.Append($"| {monsterDefinition.AbilityScores[3]:0#} ");
+        outString.Append($"| {monsterDefinition.AbilityScores[4]:0#} ");
+        outString.Append($"| {monsterDefinition.AbilityScores[5]:0#} ");
+        outString.Append('|');
+        outString.AppendLine();
+
+        outString.AppendLine();
+        outString.AppendLine("*Features:*");
+
+        FeatureDefinitionCastSpell featureDefinitionCastSpell = null;
+
+        foreach (var featureDefinition in monsterDefinition.Features)
+        {
+            switch (featureDefinition)
+            {
+                case FeatureDefinitionCastSpell definitionCastSpell:
+                    featureDefinitionCastSpell = definitionCastSpell;
+                    break;
+                default:
+                    outString.Append(GetMonsterFeatureBlock(featureDefinition));
+                    break;
+            }
+        }
+
+        if (featureDefinitionCastSpell != null)
+        {
+            outString.AppendLine();
+            outString.AppendLine("*Spells:*");
+            outString.AppendLine("| Level | Spell | Description |");
+            outString.AppendLine("| ----- | ----- | ----------- |");
+
+            foreach (var spellsByLevelDuplet in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel)
+            {
+                foreach (var spell in spellsByLevelDuplet.Spells)
+                {
+                    outString.AppendLine(
+                        $"| {spellsByLevelDuplet.level} | {spell.FormatTitle()} | {spell.FormatDescription()} |");
+                }
+            }
+
+            outString.AppendLine();
+        }
+
+        outString.AppendLine();
+        outString.AppendLine("*Attacks:*");
+        outString.AppendLine("| Type | Reach | Hit Bonus | Max Uses |");
+        outString.AppendLine("| ---- | ----- | --------- | -------- |");
+
+        foreach (var attackIteration in monsterDefinition.AttackIterations)
+        {
+            var title = attackIteration.MonsterAttackDefinition.FormatTitle();
+
+            if (title == "None")
+            {
+                title = attackIteration.MonsterAttackDefinition.name.SplitCamelCase();
+            }
+
+            outString.Append($"| {title} ");
+            outString.Append($"| {attackIteration.MonsterAttackDefinition.ReachRange} ");
+            outString.Append($"| {attackIteration.MonsterAttackDefinition.ToHitBonus} ");
+            outString.Append(attackIteration.MonsterAttackDefinition.MaxUses < 0
+                ? "| 1 "
+                : $"| {attackIteration.MonsterAttackDefinition.MaxUses} ");
+            outString.Append('|');
+            outString.AppendLine();
+        }
+
+        outString.AppendLine();
+        outString.AppendLine("*Battle Decisions:*");
+        outString.AppendLine("| Name | Weight | Cooldown |");
+        outString.AppendLine("| ---- | ------ | -------- |");
+
+        foreach (var weightedDecision in monsterDefinition.DefaultBattleDecisionPackage.Package.WeightedDecisions)
+        {
+            var name = weightedDecision.DecisionDefinition.ToString()
+                .Replace("_", string.Empty)
+                .Replace("(TA.AI.DecisionDefinition)", string.Empty)
+                .SplitCamelCase();
+
+            outString.AppendLine($"| {name} | {weightedDecision.Weight} | {weightedDecision.Cooldown} |");
+        }
+
+        outString.AppendLine();
+        outString.AppendLine();
+
+        return outString.ToString();
+    }
+
+    private static string GetMonsterFeatureBlock(BaseDefinition featureDefinition)
+    {
+        var outString = new StringBuilder();
+
+        switch (featureDefinition)
+        {
+            case FeatureDefinitionFeatureSet featureDefinitionFeatureSet:
+            {
+                foreach (var featureDefinitionFromSet in featureDefinitionFeatureSet.FeatureSet)
+                {
+                    outString.Append(GetMonsterFeatureBlock(featureDefinitionFromSet));
+                }
+
+                break;
+            }
+            case FeatureDefinitionMoveMode featureDefinitionMoveMode:
+                outString.Append("* ");
+                outString.Append(featureDefinitionMoveMode.MoveMode);
+                outString.Append(' ');
+                outString.Append(featureDefinitionMoveMode.Speed);
+                outString.AppendLine();
+
+                break;
+            case FeatureDefinitionLightAffinity featureDefinitionLightAffinity:
+                foreach (var lightingEffectAndCondition in
+                         featureDefinitionLightAffinity.LightingEffectAndConditionList)
+                {
+                    outString.AppendLine(
+                        $"* {lightingEffectAndCondition.condition.FormatTitle()} - {lightingEffectAndCondition.lightingState}");
+                }
+
+                break;
+            default:
+                var title = featureDefinition.FormatTitle();
+
+                if (title == "None")
+                {
+                    title = featureDefinition.Name.SplitCamelCase();
+                }
+
+                outString.Append("* ");
+                outString.AppendLine(title);
+
+                break;
+        }
+
+        return outString.ToString();
     }
 
     private static void ExpandColorTables()
@@ -524,7 +713,7 @@ internal static class BootContext
         }
         catch
         {
-            message = $"Cannot fetch update payload. Try again or download from:\n{url}.";
+            message = $"Cannot fetch update payload. Try again or download from:\r\n{url}.";
         }
 
         Gui.GuiService.ShowMessage(
@@ -553,10 +742,13 @@ internal static class BootContext
 
     private static void DisplayUpdateMessage()
     {
+        const string MESSAGE =
+            "\n\nDedico este mod a galera que me introduziu ao D&D nos bons anos 80:\n\nDentinho, Dumbo, Jelly, Leo & Dani, Marcio, Marcelo Padeiro e tantos outros\n[Colegios Andrews / Santo Agostinho, Rio de Janeiro 1986-1988]";
+
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.",
+            $"Version {LatestVersion} is now available. Open Mod UI > Gameplay > Tools to update.{MESSAGE}",
             "Changelog",
             "Message/&MessageOkTitle",
             OpenChangeLog,

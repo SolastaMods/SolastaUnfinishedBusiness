@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -30,6 +32,10 @@ internal static class DungeonMakerDisplay
         {
             Main.Settings.UnleashEnemyAsNpc = toggle;
         }
+
+        UI.Label();
+        UI.ActionButton("Solasta Monsters docs".Bold().Khaki(),
+            () => BootContext.OpenDocumentation("SolastaMonsters.md"), UI.Width((float)200));
 
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&Advanced"));
