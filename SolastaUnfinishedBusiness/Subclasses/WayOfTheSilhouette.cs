@@ -216,9 +216,10 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             var effect = new RulesetEffectPower(rulesetMe, usablePower);
 
-            rulesetMe.UsePower(usablePower);
             effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
             actualEffectForms.Clear();
             attackMode.EffectDescription.EffectForms.Clear();

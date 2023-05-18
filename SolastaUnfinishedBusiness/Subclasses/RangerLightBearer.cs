@@ -413,6 +413,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
+            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
 
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
@@ -426,8 +428,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
-
-            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
         }
     }
 
