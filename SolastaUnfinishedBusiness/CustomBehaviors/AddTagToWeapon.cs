@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 /**
- * Adds tag to the weapon to be processed by IsValidContextForRestrictedContextProvider and RefreshAttackMode 
+ * Adds tag to the weapon to be processed by IsValidContextForRestrictedContextProvider and RefreshAttackMode
  */
 public class AddTagToWeapon
 {
