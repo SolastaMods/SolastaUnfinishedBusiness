@@ -527,6 +527,11 @@ internal static class BootContext
 
                 break;
             default:
+                if (featureDefinition == null)
+                {
+                    break;
+                }
+
                 var title = featureDefinition.FormatTitle();
 
                 if (title == "None")
