@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -278,9 +279,9 @@ internal sealed class RoguishRaven : AbstractSubclass
             ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var rulesetDefender = me.RulesetCharacter;
+            var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
+            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0 || !attackMode.ranged)
             {
                 yield break;
             }
@@ -308,25 +309,43 @@ internal sealed class RoguishRaven : AbstractSubclass
                 yield break;
             }
 
-            rulesetDefender.RollAttack(
+            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&CriticalAttackFailureOutcome";
+
+            GameConsoleHelper.LogCharacterUsedPower(
+                rulesetAttacker,
+                _power,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                attackModifier.ignoreAdvantage,
-                attackModifier.attackAdvantageTrends,
+                false,
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
                 attackMode.ranged,
                 false,
                 attackModifier.attackRollModifier,
                 out var outcome,
                 out var successDelta,
                 -1,
-                false);
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
 
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.attackAdvantageTrends =
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
             action.AttackRollOutcome = outcome;
             action.AttackSuccessDelta = successDelta;
-
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
+            action.AttackRoll = roll;
         }
     }
 }

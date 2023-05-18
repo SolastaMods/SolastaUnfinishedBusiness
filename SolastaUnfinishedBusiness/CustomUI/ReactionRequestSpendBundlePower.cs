@@ -45,8 +45,8 @@ internal sealed class ReactionRequestSpendBundlePower : ReactionRequest
     [NotNull] public override string SuboptionTag => "PowerBundle";
 
     public override bool IsStillValid =>
-        ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-            .Contains(target) && !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+        ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(target) &&
+        !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
 
     private void BuildSuboptions()
     {

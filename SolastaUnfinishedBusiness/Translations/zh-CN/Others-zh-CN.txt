@@ -54,6 +54,7 @@ Feature/&ToolGainChoicesSingleDescription=选择以下工具之一：{1}
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} 奖励 {1}，新结果为 {2}（DC：{3}）
 Feedback/&ReturningWeaponActivates={1} 返回 {0}！
 Feedback/&TriggerFeatureLine={0} 触发器 {1}
+Feedback/&TriggerRerollLine={0} 激活 {1} 重投 {2} + {3} = {4} 的力量
 Format/&LevelAndExperienceFormat=等级：{0}\n经验：达到等级 {3} 所需的 {1}\n{2} 分
 Format/&LevelAndExperienceMaxedFormat=等级：{0}\n经验：{1}\n已达到最高等级
 Message/&CharacterExportDuplicateNameErrorDescription=导出已取消：\n\n池中已存在同名的英雄。\n请尝试其他名称。
@@ -137,8 +138,6 @@ Tooltip/&PreReqIsWithLevel={0} 级 {1}
 Tooltip/&PreReqLevelFormat=最低角色等级 {0}
 Tooltip/&PreReqMustKnow=需要已知 {0}
 Tooltip/&Tag9000Title=自定义效果
-Tooltip/&TagMagicalEffectTitle=魔法效果
-Tooltip/&TagMagicalWeaponTitle=法宝
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业
 UI/&CustomFeatureSelectionStageDescription=为你的职业/子职业选择额外的功能。
 UI/&CustomFeatureSelectionStageFeatures=特征

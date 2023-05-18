@@ -432,9 +432,9 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return;
             }
 
-            var target = defender.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
 
-            if (target == null)
+            if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {
                 return;
             }
@@ -452,7 +452,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                              attacker.Guid,
                              attacker.RulesetCharacter.CurrentFaction.Name)))
             {
-                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                rulesetDefender.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
         }
     }

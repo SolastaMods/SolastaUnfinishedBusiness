@@ -477,7 +477,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x)))
+                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
+                         .ToList())
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
@@ -597,7 +599,8 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x)))
+                             gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
+                         .ToList())
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var modifierTrend = rulesetDefender.actionModifier.savingThrowModifierTrends;
@@ -682,7 +685,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
 
             var rulesetAttacker = me.RulesetCharacter;
 
-            if (!rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            if (!me.CanAct() || !rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 yield break;
             }

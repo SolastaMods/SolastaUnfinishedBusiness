@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -228,15 +229,14 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetParticleEffectParameters(SpellDefinitions.ShockingGrasp)
+                    .SetParticleEffectParameters(ShockingGrasp)
                     .SetDurationData(DurationType.Instantaneous)
                     .Build())
             .AddToDB();
 
         powerEyeOfTheStorm.SetCustomSubFeatures(
             ValidatorsPowerUse.InCombat,
-            new ActionFinishedEyeOfTheStorm(
-                powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
+            new ActionFinishedEyeOfTheStorm(powerEyeOfTheStorm, powerEyeOfTheStormLeap, conditionEyeOfTheStorm));
 
         var featureSetEyeOfTheStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}EyeOfTheStorm")
@@ -449,7 +449,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                             y.DamageType != DamageTypeLightning)) ??
                     targets.First();
 
-                EffectHelpers.StartVisualEffect(attacker, target, SpellDefinitions.ShockingGrasp,
+                EffectHelpers.StartVisualEffect(attacker, target, ShockingGrasp,
                     EffectHelpers.EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
                 targets.Remove(target);
@@ -641,10 +641,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var defender in battleService.Battle.AllContenders
-                         .Where(x => x.IsOppositeSide(attacker.Side))
-                         .Where(x => x.RulesetCharacter.AllConditions
-                             .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
-                                       y.SourceGuid == rulesetCharacter.Guid)))
+                         .Where(x =>
+                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x.IsOppositeSide(attacker.Side) &&
+                             x.RulesetCharacter.AllConditions
+                                 .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
+                                           y.SourceGuid == rulesetCharacter.Guid))
+                         .ToList())
             {
                 EffectHelpers.StartVisualEffect(
                     attacker, defender, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);

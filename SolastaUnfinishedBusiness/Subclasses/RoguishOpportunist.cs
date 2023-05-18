@@ -177,14 +177,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             bool hasHitVisual,
             bool hasBorrowedLuck)
         {
-            if (target.RulesetCharacter == null)
-            {
-                yield break;
-            }
-
-            if (target.Side == me.Side || me == target ||
-                me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-                ActionDefinitions.ActionStatus.Available)
+            if (target.Side == me.Side || !me.CanReact())
             {
                 yield break;
             }

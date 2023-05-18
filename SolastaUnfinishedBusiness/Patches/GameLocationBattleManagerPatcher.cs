@@ -337,7 +337,7 @@ public static class GameLocationBattleManagerPatcher
                     }
                 }
             }
-            
+
             //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
             if (defender.CanAct())
             {
@@ -973,13 +973,11 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            // PATCH: Allow attack of opportunity on target that failed saving throw
-            var units = __instance.Battle.AllContenders
-                .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
-                .ToArray();
-
+            //PATCH: Allow attack of opportunity on target that failed saving throw
             //Process other participants of the battle
-            foreach (var unit in units)
+            foreach (var unit in __instance.Battle.AllContenders
+                         .Where(x => x is { RulesetCharacter.IsDeadOrUnconscious: false })
+                         .ToList())
             {
                 if (unit == defender || unit == attacker)
                 {
@@ -988,8 +986,8 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var feature in unit.RulesetCharacter.GetSubFeaturesByType<IOnDefenderFailedSavingThrow>())
                 {
-                    yield return feature.OnDefenderFailedSavingThrow(__instance, action, unit, defender, saveModifier,
-                        hasHitVisual, hasBorrowedLuck);
+                    yield return feature.OnDefenderFailedSavingThrow(
+                        __instance, action, unit, defender, saveModifier, hasHitVisual, hasBorrowedLuck);
                 }
             }
         }

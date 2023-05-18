@@ -3,7 +3,7 @@
   "spellsBundle": false,
   "subspellsList": [],
   "implemented": true,
-  "schoolOfMagic": "SchoolTransmutation",
+  "schoolOfMagic": "SchoolEnchantment",
   "spellLevel": 9,
   "ritual": false,
   "uniqueInstance": false,

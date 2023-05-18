@@ -183,7 +183,6 @@ At 20th level, you embody the power of the wilds. Your Strength and Constitution
 
 
 
-
 # 2. - Bard
 
 While they are capable fighters, the true power of bards lies in their words and music. They can inspire those who hear them, raise their spirits, and affect their minds in other ways. They are well-versed in lore and magic, as well.
@@ -339,7 +338,6 @@ When you roll initiative and have no uses of Bardic Inspiration left, you regain
 
 
 
-
 # 3. - Cleric
 
 Clerics are the servants of their chosen deity. In exchange for their faith and service they are granted miraculous powers, as long as they constrain themselves to following their god's creed and perform their religion's rituals.
@@ -478,7 +476,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-
 # 4. - Druid
 
 Druids are part of an ancient order dedicated to nature. Their powers and spells are attuned to animals, plants and the elemental forces.
@@ -574,7 +571,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Arch Druid
 
 You can use your Wildshape an unlimited number of times. Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wildshape.
-
 
 
 
@@ -721,7 +717,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Extra Attack
 
 You can attack twice, rather than once, when you use the attack or shove actions.
-
 
 
 
@@ -917,7 +912,6 @@ When you start battle and have no Ki points remaining, you regain 4 Ki points.
 
 
 
-
 # 7. - Paladin
 
 Paladins are elite warriors who have sworn unbreakable holy oaths to fight evil. In addition to their weapons and armor, they wield divine powers and clerical spells.
@@ -1070,7 +1064,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 
 
-
 # 8. - Ranger
 
 Wanderers of Solasta's wilderness, rangers are trained survivalists, fierce in battle, and stealthy hunters. Excellent trackers and archers, they also have some spellcasting ability.
@@ -1216,7 +1209,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Foe Slayer
 
 You become an unparalleled hunter of your enemies. All your attacks deal additional damage equal to your Wisdom modifier.
-
 
 
 
@@ -1370,7 +1362,6 @@ You have an uncanny knack for succeeding when you need to. If your attack misses
 
 
 
-
 # 10. - Sorcerer
 
 Sorcerers have an innate ability to channel arcane magic, usually through a supernatural origin. Sorcerers are also able to alter the fabric of magic using sorcery points.
@@ -1475,7 +1466,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Sorcerous Restoration
 
 Regain 4 sorcery points during a short rest.
-
 
 
 
@@ -1625,7 +1615,6 @@ You can draw on your inner reserve of mystical power while entreating your patro
 
 
 
-
 # 12. - Wizard
 
 Wizards spend their lives studying magic, learning more and more powerful and wondrous spells. Despite their weakness in physical combat, their magical abilities make them dangerous foes.
@@ -1720,7 +1709,6 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Signature Spells
 
 You gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
-
 
 
 

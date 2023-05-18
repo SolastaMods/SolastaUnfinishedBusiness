@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=Sie sind sich der Position jeder versteckten
 Feature/&RogueBlindsenseTitle=Blindsinn
 Feature/&RogueSlipperyMindDescription=Sie haben eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
 Feature/&RogueSlipperyMindTitle=Schlüpfriger Geist
+Tooltip/&TagMagicalEffectTitle=Magischer Effekt
+Tooltip/&TagMagicalWeaponTitle=Magische Waffe
+Feature/&MartialChampionSuperiorCriticalTitle=Überlegen kritisch

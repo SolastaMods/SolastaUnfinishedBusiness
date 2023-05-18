@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=Eres consciente de la ubicación de cualquie
 Feature/&RogueBlindsenseTitle=Sentido ciego
 Feature/&RogueSlipperyMindDescription=Has adquirido mayor Fuerza mental. Obtienes competencia en las tiradas de salvación de Sabiduría.
 Feature/&RogueSlipperyMindTitle=Mente resbaladiza
+Tooltip/&TagMagicalEffectTitle=Efecto magico
+Tooltip/&TagMagicalWeaponTitle=Arma Mágica
+Feature/&MartialChampionSuperiorCriticalTitle=Crítico Superior

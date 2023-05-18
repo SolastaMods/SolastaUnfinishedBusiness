@@ -265,7 +265,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                 yield break;
             }
 
-            rulesetMe.UsePower(usablePower);
+            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             attackModifier.damageRollReduction = Int32.MaxValue;
         }
     }

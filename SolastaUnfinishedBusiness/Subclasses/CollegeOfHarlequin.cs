@@ -266,7 +266,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             foreach (var enemy in battle.AllContenders
                          .Where(unit => attacker.IsOppositeSide(unit.Side))
-                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3)))
+                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3))
+                         .ToList())
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }

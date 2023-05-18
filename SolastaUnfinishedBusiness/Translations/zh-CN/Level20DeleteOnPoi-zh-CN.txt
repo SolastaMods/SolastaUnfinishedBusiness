@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=你可以察觉10尺内任何隐藏或隐形
 Feature/&RogueBlindsenseTitle=盲感
 Feature/&RogueSlipperyMindDescription=你获得了更大的精神力量。你获得感知豁免的熟练度。
 Feature/&RogueSlipperyMindTitle=心智灵活
+Tooltip/&TagMagicalEffectTitle=魔法效果
+Tooltip/&TagMagicalWeaponTitle=法宝
+Feature/&MartialChampionSuperiorCriticalTitle=高等重击

@@ -223,7 +223,6 @@ internal sealed class OathOfDread : AbstractSubclass
 
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
-                .ToList()
                 .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
 
             if (locationCharacterAttacker == null)

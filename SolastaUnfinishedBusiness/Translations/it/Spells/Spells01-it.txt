@@ -50,7 +50,6 @@ Spell/&MuleTitle=Mulo
 Spell/&RadiantMotesDescription=Scatena uno sciame di 4 proiettili radiosi che infliggono 1d4 danni radiosi ciascuno.\nQuando lanci questo incantesimo usando uno slot incantesimo di 2° livello o superiore, l'incantesimo crea 1 proiettile in più per ogni slot sopra il 1°.
 Spell/&RadiantMotesTitle=Granelli radianti
 Spell/&SanctuaryDescription=Proteggi un alleato entro 9 metri. La protezione termina se la creatura protetta effettua un attacco o lancia un incantesimo che colpisce un nemico.
-Spell/&SanctuaryTitle=Santuario
 Spell/&SearingSmiteDescription=Al tuo prossimo colpo, la tua arma divampa con un'intensità incandescente e l'attacco infligge 1d6 danni da fuoco extra al bersaglio e lo fa prendere fuoco tra le fiamme.\nAll'inizio di ciascuno dei suoi turni il bersaglio deve effettuare un riuscito il tiro salvezza su Costituzione per smettere di bruciare o subire 1d6 danni da fuoco.\n<b>Livelli più alti:</b> per ogni livello dello slot sopra il 1°, il danno extra iniziale inflitto dall'attacco aumenta di 1d6.
 Spell/&SearingSmiteTitle=Punizione Bruciante
 Spell/&SkinOfRetributionDescription=Scegli un tipo: acido, freddo, fuoco, fulmine, veleno o tuono. Una pelle elementale protettiva ti avvolge, coprendo te e il tuo equipaggiamento. Ottieni 5 punti ferita temporanei per livello dell'incantesimo per la durata. Inoltre, se una creatura ti colpisce con un attacco in mischia mentre hai questi punti ferita temporanei, la creatura subisce 5 danni del tipo scelto per livello dell'incantesimo.

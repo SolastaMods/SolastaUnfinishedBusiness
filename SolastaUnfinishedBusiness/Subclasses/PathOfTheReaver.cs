@@ -160,6 +160,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             yield break;
         }
 
+        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+
         var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
         var totalHealing = 2 * classLevel;
         var reactionParams =
@@ -180,8 +182,6 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         {
             yield break;
         }
-
-        rulesetAttacker.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
 
         GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, featureDefinitionPower);
         ReceiveHealing(attacker, totalHealing);
@@ -250,11 +250,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 multiplier += 1;
             }
 
-            var rulesetDefender = defender.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var totalDamageOrHealing = proficiencyBonus * multiplier;
 
             ReceiveHealing(attacker, totalDamageOrHealing);
+
+            var rulesetDefender = defender.RulesetCharacter;
 
             if (rulesetDefender == null || rulesetDefender.IsDeadOrDying)
             {

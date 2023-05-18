@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=Sei a conoscenza della posizione di qualsias
 Feature/&RogueBlindsenseTitle=Senso cieco
 Feature/&RogueSlipperyMindDescription=Hai acquisito una maggiore forza mentale. Ottieni competenza nei tiri salvezza di Saggezza.
 Feature/&RogueSlipperyMindTitle=Mente scivolosa
+Tooltip/&TagMagicalEffectTitle=Effetto magico
+Tooltip/&TagMagicalWeaponTitle=Arma magica
+Feature/&MartialChampionSuperiorCriticalTitle=Critico Superiore

@@ -78,7 +78,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
         var powerMasterDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{MasterDuelist}")
             .SetGuiPresentation($"FeatureSet{Name}MasterDuelist", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 2)
             .AddToDB();
 
         var featureMasterDuelist = FeatureDefinitionBuilder
@@ -178,9 +178,14 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
+            if (!me.CanAct())
+            {
+                yield break;
+            }
+
             var rulesetDefender = me.RulesetCharacter;
 
-            rulesetDefender?.InflictCondition(
+            rulesetDefender.InflictCondition(
                 _conditionDefinition.Name,
                 _conditionDefinition.DurationType,
                 _conditionDefinition.DurationParameter,
@@ -217,9 +222,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
             ActionModifier attackModifier)
         {
             var attackMode = action.actionParams.attackMode;
-            var rulesetDefender = me.RulesetCharacter;
+            var rulesetAttacker = me.RulesetCharacter;
 
-            if (rulesetDefender == null || rulesetDefender.GetRemainingPowerCharges(_power) <= 0)
+            if (rulesetAttacker == null || rulesetAttacker.GetRemainingPowerCharges(_power) <= 0)
             {
                 yield break;
             }
@@ -247,24 +252,43 @@ internal sealed class RoguishDuelist : AbstractSubclass
                 yield break;
             }
 
-            rulesetDefender.RollAttack(
+            rulesetAttacker.UpdateUsageForPower(_power, _power.CostPerUse);
+
+            var totalRoll = (action.AttackRoll + attackMode.ToHitBonus).ToString();
+            var rollCaption = action.AttackRoll == 1
+                ? "Feedback/&RollCheckCriticalFailureTitle"
+                : "Feedback/&CriticalAttackFailureOutcome";
+
+            GameConsoleHelper.LogCharacterUsedPower(
+                rulesetAttacker,
+                _power,
+                "Feedback/&TriggerRerollLine",
+                false,
+                (ConsoleStyleDuplet.ParameterType.Base, $"{action.AttackRoll}+{attackMode.ToHitBonus}"),
+                (ConsoleStyleDuplet.ParameterType.FailedRoll, Gui.Format(rollCaption, totalRoll)));
+
+            var roll = rulesetAttacker.RollAttack(
                 attackMode.toHitBonus,
                 target.RulesetCharacter,
                 attackMode.sourceDefinition,
                 attackModifier.attackToHitTrends,
-                attackModifier.ignoreAdvantage,
+                false,
                 new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) },
                 attackMode.ranged,
-                false, // check this
+                false,
                 attackModifier.attackRollModifier,
                 out var outcome,
-                out _,
+                out var successDelta,
                 -1,
-                false);
+                // testMode true avoids the roll to display on combat log as the original one will get there with altered results
+                true);
 
+            attackModifier.ignoreAdvantage = false;
+            attackModifier.attackAdvantageTrends =
+                new List<TrendInfo> { new(1, FeatureSourceType.CharacterFeature, _power.Name, _power) };
             action.AttackRollOutcome = outcome;
-
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _power);
+            action.AttackSuccessDelta = successDelta;
+            action.AttackRoll = roll;
         }
     }
 }

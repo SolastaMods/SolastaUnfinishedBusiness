@@ -85,7 +85,7 @@ public static class CharacterActionAttackPatcher
 
             foreach (var gameLocationAlly in Gui.Battle.AllContenders
                          .Where(x =>
-                             (x.RulesetCharacter != null &&
+                             (x.RulesetCharacter is { IsDeadOrUnconscious: false } &&
                               x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
                              x.Side == actingCharacter.Side)
                          .ToList())

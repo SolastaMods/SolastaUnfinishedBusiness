@@ -13,3 +13,6 @@ Feature/&RogueBlindsenseDescription=Vous êtes conscient de l'emplacement de tou
 Feature/&RogueBlindsenseTitle=Sens aveugle
 Feature/&RogueSlipperyMindDescription=Vous avez acquis une plus grande force mentale. Vous maîtrisez les jets de sauvegarde de Sagesse.
 Feature/&RogueSlipperyMindTitle=Esprit glissant
+Tooltip/&TagMagicalEffectTitle=Effet magique
+Tooltip/&TagMagicalWeaponTitle=Arme magique
+Feature/&MartialChampionSuperiorCriticalTitle=Critique supérieur

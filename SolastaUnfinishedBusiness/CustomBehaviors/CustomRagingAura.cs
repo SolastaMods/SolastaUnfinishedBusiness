@@ -191,7 +191,7 @@ public class CustomRagingAura :
                          .Where(x =>
                              x.Side == sourceLocationCharacter.Side &&
                              x != sourceLocationCharacter &&
-                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2)))
             {
                 var allyCharacter = allyLocationCharacter.RulesetCharacter;
@@ -217,7 +217,7 @@ public class CustomRagingAura :
                          .Where(x =>
                              x.Side != sourceLocationCharacter.Side &&
                              x != sourceLocationCharacter &&
-                             !x.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 2) &&
                              sourceLocationCharacter.RulesetCharacter.HasConditionOfCategory(ConditionRaging)))
             {

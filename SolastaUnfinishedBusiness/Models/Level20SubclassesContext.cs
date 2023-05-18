@@ -954,10 +954,10 @@ internal static class Level20SubclassesContext
 
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .ToList()
                          .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                             x != gameLocationDefender))
+                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x != gameLocationDefender)
+                         .ToList())
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions

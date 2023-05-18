@@ -359,6 +359,11 @@ internal sealed class MartialTactician : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
+            if (downedCreature.RulesetCharacter is not { IsDeadOrDying: false })
+            {
+                yield break;
+            }
+
             if (downedCreature.RulesetCharacter.HasConditionOfType(MarkDamagedByGambit))
             {
                 Main.Info("OvercomingStrategy: enemy is marked. exiting.");

@@ -311,7 +311,7 @@ public static class CharacterActionMagicEffectPatcher
 
             foreach (var gameLocationAlly in Gui.Battle.AllContenders
                          .Where(x =>
-                             (x.RulesetCharacter != null &&
+                             (x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                               x.RulesetCharacter.HasAnyConditionOfType(RuleDefinitions
                                   .ConditionMindControlledByCaster)) ||
                              x.Side == attacker.Side)

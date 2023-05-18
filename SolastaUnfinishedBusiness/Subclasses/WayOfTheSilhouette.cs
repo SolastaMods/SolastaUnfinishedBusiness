@@ -170,10 +170,15 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            if (!me.CanAct())
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetMe);
 
-            if (rulesetMe == null || !rulesetMe.CanUsePower(_featureDefinitionPower))
+            if (!rulesetMe.CanUsePower(_featureDefinitionPower))
             {
                 yield break;
             }
@@ -211,9 +216,10 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
                 yield break;
             }
 
+            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+
             var effect = new RulesetEffectPower(rulesetMe, usablePower);
 
-            rulesetMe.UsePower(usablePower);
             effect.ApplyEffectOnCharacter(rulesetMe, true, me.LocationPosition);
             actualEffectForms.Clear();
             attackMode.EffectDescription.EffectForms.Clear();
