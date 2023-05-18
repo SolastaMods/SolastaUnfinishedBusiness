@@ -34,14 +34,24 @@ internal static class DungeonMakerDisplay
         }
 
         UI.Label();
-        UI.ActionButton("Solasta Monsters docs".Bold().Khaki(),
-            () => BootContext.OpenDocumentation("SolastaMonsters.md"), UI.Width((float)200));
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("DM Monsters docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("DungeonMakerMonsters.md"), UI.Width((float)200));
+            UI.ActionButton("DM NPCs docs".Bold().Khaki(),
+                () => BootContext.OpenDocumentation("DungeonMakerNPCs.md"), UI.Width((float)200));
+        }
 
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&Advanced"));
         UI.Label();
 
         UI.Label(Gui.Localize("ModUi/&AdvancedHelp"));
+        UI.Label();
+
+        UI.ActionButton("DM Unlocked Monsters docs".Bold().Khaki(),
+            () => BootContext.OpenDocumentation("DungeonMakerNotAvail.md"), UI.Width((float)200));
         UI.Label();
 
         toggle = Main.Settings.UnleashNpcAsEnemy;

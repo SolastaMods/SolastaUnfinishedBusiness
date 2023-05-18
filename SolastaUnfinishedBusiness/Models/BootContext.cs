@@ -157,7 +157,9 @@ internal static class BootContext
                 Directory.CreateDirectory($"{Main.ModFolder}/Documentation");
             }
 
-            DumpMonsters();
+            DumpMonsters("DungeonMakerMonsters", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster);
+            DumpMonsters("DungeonMakerNPCs", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.NPC);
+            DumpMonsters("DungeonMakerNotAvail", x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None);
             DumpClasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
             DumpClasses("Solasta", x => x.ContentPack != CeContentPackContext.CeContentPack);
             DumpSubclasses("UnfinishedBusiness", x => x.ContentPack == CeContentPackContext.CeContentPack);
@@ -225,9 +227,10 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {klass.FormatTitle()}\r\n\r\n");
-            outString.Append(klass.FormatDescription());
-            outString.Append("\r\n\r\n");
+            outString.AppendLine($"# {counter++}. - {klass.FormatTitle()}");
+            outString.AppendLine();
+            outString.AppendLine(klass.FormatDescription());
+            outString.AppendLine();
 
             var level = 0;
 
@@ -237,19 +240,23 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
+                    outString.AppendLine();
+                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                    outString.AppendLine();
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
-                outString.Append(description);
-                outString.Append("\r\n\r\n");
+                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
+                outString.AppendLine();
+                outString.AppendLine(description);
+                outString.AppendLine();
             }
 
-            outString.Append("\r\n\r\n\r\n");
+            outString.AppendLine();
+            outString.AppendLine();
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Classes.md");
@@ -265,9 +272,10 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {subclass.FormatTitle()}\r\n\r\n");
-            outString.Append(subclass.FormatDescription());
-            outString.Append("\r\n\r\n");
+            outString.AppendLine($"# {counter++}. - {subclass.FormatTitle()}");
+            outString.AppendLine();
+            outString.AppendLine(subclass.FormatDescription());
+            outString.AppendLine();
 
             var level = 0;
 
@@ -277,19 +285,23 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
+                    outString.AppendLine();
+                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                    outString.AppendLine();
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
-                outString.Append(description);
-                outString.Append("\r\n\r\n");
+                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
+                outString.AppendLine();
+                outString.AppendLine(description);
+                outString.AppendLine();
             }
 
-            outString.Append("\r\n\r\n\r\n");
+            outString.AppendLine();
+            outString.AppendLine();
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Subclasses.md");
@@ -305,9 +317,10 @@ internal static class BootContext
                      .Where(x => filter(x))
                      .OrderBy(x => x.FormatTitle()))
         {
-            outString.Append($"# {counter++}. - {race.FormatTitle()}\r\n\r\n");
-            outString.Append(race.FormatDescription());
-            outString.Append("\r\n\r\n");
+            outString.AppendLine($"# {counter++}. - {race.FormatTitle()}");
+            outString.AppendLine();
+            outString.AppendLine(race.FormatDescription());
+            outString.AppendLine();
 
             var level = 0;
 
@@ -317,19 +330,23 @@ internal static class BootContext
             {
                 if (level != featureUnlockByLevel.level)
                 {
-                    outString.Append($"\r\n## Level {featureUnlockByLevel.level}\r\n\r\n");
+                    outString.AppendLine();
+                    outString.AppendLine($"## Level {featureUnlockByLevel.level}");
+                    outString.AppendLine();
                     level = featureUnlockByLevel.level;
                 }
 
                 var featureDefinition = featureUnlockByLevel.FeatureDefinition;
                 var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-                outString.Append($"* {featureDefinition.FormatTitle()}\r\n\r\n");
-                outString.Append(description);
-                outString.Append("\r\n\r\n");
+                outString.AppendLine($"* {featureDefinition.FormatTitle()}");
+                outString.AppendLine();
+                outString.AppendLine(description);
+                outString.AppendLine();
             }
 
-            outString.Append("\r\n\r\n\r\n");
+            outString.AppendLine();
+            outString.AppendLine();
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}Races.md");
@@ -348,27 +365,29 @@ internal static class BootContext
         {
             var description = LazyManStripXml(featureDefinition.FormatDescription());
 
-            outString.Append($"# {counter++}. - {featureDefinition.FormatTitle()}\r\n\r\n");
-            outString.Append(description);
-            outString.Append("\r\n\r\n");
+            outString.AppendLine($"# {counter++}. - {featureDefinition.FormatTitle()}");
+            outString.AppendLine();
+            outString.AppendLine(description);
+            outString.AppendLine();
         }
 
         using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 
-    private static void DumpMonsters()
+    private static void DumpMonsters(string groupName, Func<MonsterDefinition, bool> filter)
     {
         var outString = new StringBuilder();
         var counter = 1;
 
         foreach (var monsterDefinition in DatabaseRepository.GetDatabase<MonsterDefinition>()
+                     .Where(filter)
                      .OrderBy(x => x.FormatTitle()))
         {
             outString.Append(GetMonsterBlock(monsterDefinition, ref counter));
         }
 
-        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/SolastaMonsters.md");
+        using var sw = new StreamWriter($"{Main.ModFolder}/Documentation/{groupName}.md");
         sw.WriteLine(outString.ToString());
     }
 
@@ -394,7 +413,7 @@ internal static class BootContext
         outString.AppendLine("| -- | -- | -- |");
 
         outString.Append($"| {monsterDefinition.ArmorClass} ");
-        outString.Append($"| {monsterDefinition.HitDice:0#}{monsterDefinition.HitDiceType} ");
+        outString.Append($"| {monsterDefinition.HitDice}{monsterDefinition.HitDiceType} ");
         outString.Append($"| {monsterDefinition.ChallengeRating} ");
         outString.Append('|');
         outString.AppendLine();
@@ -417,7 +436,8 @@ internal static class BootContext
 
         FeatureDefinitionCastSpell featureDefinitionCastSpell = null;
 
-        foreach (var featureDefinition in monsterDefinition.Features)
+        foreach (var featureDefinition in monsterDefinition.Features
+                     .OrderBy(x => x.Name))
         {
             switch (featureDefinition)
             {
@@ -454,7 +474,8 @@ internal static class BootContext
         outString.AppendLine("| Type | Reach | Hit Bonus | Max Uses |");
         outString.AppendLine("| ---- | ----- | --------- | -------- |");
 
-        foreach (var attackIteration in monsterDefinition.AttackIterations)
+        foreach (var attackIteration in monsterDefinition.AttackIterations
+                     .OrderBy(x => x.MonsterAttackDefinition.Name))
         {
             var title = attackIteration.MonsterAttackDefinition.FormatTitle();
 
@@ -473,12 +494,21 @@ internal static class BootContext
             outString.AppendLine();
         }
 
+        if (!Main.Settings.EnableBetaContent)
+        {
+            outString.AppendLine();
+            outString.AppendLine();
+
+            return outString.ToString();
+        }
+
         outString.AppendLine();
         outString.AppendLine("*Battle Decisions:*");
         outString.AppendLine("| Name | Weight | Cooldown |");
         outString.AppendLine("| ---- | ------ | -------- |");
 
-        foreach (var weightedDecision in monsterDefinition.DefaultBattleDecisionPackage.Package.WeightedDecisions)
+        foreach (var weightedDecision in monsterDefinition.DefaultBattleDecisionPackage.Package.WeightedDecisions
+                     .OrderBy(x => x.Weight))
         {
             var name = weightedDecision.DecisionDefinition.ToString()
                 .Replace("_", string.Empty)
