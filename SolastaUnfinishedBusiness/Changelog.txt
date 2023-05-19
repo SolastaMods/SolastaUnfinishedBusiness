@@ -5,8 +5,3 @@ LAST VERSION UNTIL POI RELEASE DATE. WHAT YOU SHOULD EXPECT:
 3. don't accept the update until you have game version 1.5.x
 4. update to mod version 1.5.x is mandatory as many patches broke
 5. you should be able to import modded campaigns in POI ;-)
-
-CHANGES:
-
-- added +1 AC to Hand-and-a-Half
-- improved some translation terms
