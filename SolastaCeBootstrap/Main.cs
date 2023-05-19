@@ -165,20 +165,26 @@ namespace SolastaCeBootstrap
 
             foreach (var category in languageSourceData.GetCategories())
             {
-                if (category.Contains(":"))
+                var cat = category;
+                
+                if (cat.Contains(":") || cat.Contains("&"))
                 {
                     continue;
                 }
 
-                var fixedCategory = FixCategory(category);
+                var fixedCategory = FixCategory(cat);
                 var outputFilename = $@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/Translations-{code}/{fixedCategory}-{code}.txt";
 
                 using (var sw = new StreamWriter(outputFilename))
                 {
-                    foreach (var termName in languageSourceData.GetTermsList(category))
+                    foreach (var termName in languageSourceData.GetTermsList(cat))
                     {
                         var term = languageSourceData.GetTermData(termName);
 
+                        if (term == null)
+                        {
+                            continue;
+                        }
                         sw.WriteLine($"{term.Term}={term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                     }
                 }
