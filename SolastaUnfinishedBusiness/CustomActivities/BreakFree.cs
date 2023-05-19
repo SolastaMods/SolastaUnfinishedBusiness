@@ -32,7 +32,7 @@ public class BreakFree : ActivityBase
         RulesetCondition restrainingCondition = null;
 
         var gameLocationCharacter = character.GameLocationCharacter;
-        var rulesetCharacter = gameLocationCharacter?.RulesetCharacter;
+        var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
 
         if (rulesetCharacter == null)
         {
@@ -46,10 +46,21 @@ public class BreakFree : ActivityBase
             restrainingCondition = rulesetCharacter.FindFirstConditionHoldingFeature(definitionActionAffinity);
         }
 
-        if (restrainingCondition != null)
+        if (restrainingCondition == null)
+        {
+            yield break;
+        }
+
+        var success = true;
+
+        // no ability check
+        if (!decisionDefinitionParam.Decision.boolParameter)
+        {
+            rulesetCharacter.RemoveCondition(restrainingCondition);
+        }
+        else
         {
             var checkDC = 10;
-
             var sourceGuid = restrainingCondition.SourceGuid;
 
             if (RulesetEntity.TryGetEntity(sourceGuid, out RulesetCharacterHero rulesetCharacterHero))
@@ -71,17 +82,18 @@ public class BreakFree : ActivityBase
                 AttributeDefinitions.Strength, string.Empty, checkDC, RuleDefinitions.AdvantageType.None, actionMod,
                 false, -1, out var outcome, out _, true);
 
-            if (outcome == RuleDefinitions.RollOutcome.Success)
+            success = outcome is RuleDefinitions.RollOutcome.Success or RuleDefinitions.RollOutcome.CriticalSuccess;
+
+            if (success)
             {
                 rulesetCharacter.RemoveCondition(restrainingCondition);
             }
-
-            var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
-
-            breakFreeExecuted?.Invoke(rulesetCharacter, outcome == RuleDefinitions.RollOutcome.Success);
-            gameLocationCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
         }
 
-        yield return null;
+        gameLocationCharacter.SpendActionType(ActionDefinitions.ActionType.Main);
+
+        var breakFreeExecuted = rulesetCharacter.BreakFreeExecuted;
+
+        breakFreeExecuted?.Invoke(rulesetCharacter, success);
     }
 }

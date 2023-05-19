@@ -9,11 +9,12 @@ internal static class AiContext
 {
     internal static void Load()
     {
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", false);
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb");
     }
 
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName)
+    // boolParameter false won't do any ability check
+    private static void BuildDecisionBreakFreeFromCondition(string conditionName, bool boolParameter = true)
     {
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
         var decisionBreakFree = DecisionDefinitionBuilder
@@ -24,6 +25,7 @@ internal static class AiContext
         decisionBreakFree.Decision.activityType = "BreakFree";
         decisionBreakFree.Decision.Scorer.considerations.RemoveAll(x =>
             x.consideration.name is "HasEnemyInMeleeRange" or "IsNotFlyingTooHigh");
+        decisionBreakFree.Decision.boolParameter = boolParameter;
 
         var consideration = decisionBreakFree.Decision.Scorer.considerations.FirstOrDefault(x =>
             x.consideration.name == "HasConditionFlying");
