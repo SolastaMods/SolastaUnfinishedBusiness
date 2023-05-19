@@ -1,7 +1,12 @@
-Open Mod UI > Tools and click History for full change details:
+LAST VERSION UNTIL POI RELEASE DATE. WHAT YOU SHOULD EXPECT:
 
-- added Monsters documentation under Interfaces > Dungeon Maker
-- fixed Close Quarters and Devastating Strikes not ignoring ranged
-- fixed Deadeye and Master Duelist combat log attack retry outcome
-- fixed spells with incorrect assigned sprites and schools of magic
-- changed Duelist's master duelist to allow 2 usages per short rest
+1. this version can boot in POI all the way to the game screen
+2. UB will get an update a few hours before the official release
+3. don't accept the update until you have game version 1.5.x
+4. update to mod version 1.5.x is mandatory as many patches broke
+5. you should be able to import modded campaigns in POI ;-)
+
+CHANGES:
+
+- added +1 AC to Hand-and-a-Half
+- improved some translation terms
