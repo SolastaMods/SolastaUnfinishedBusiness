@@ -27,9 +27,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(
-                        ConditionDefinitions.ConditionOnFire1D4,
-                        ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(ConditionDefinitions.ConditionOnFire1D4, ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
                     .Build())
             .SetSavingThrowData(
