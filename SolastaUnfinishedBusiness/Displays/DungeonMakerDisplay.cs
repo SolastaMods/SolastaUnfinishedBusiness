@@ -37,49 +37,49 @@ internal static class DungeonMakerDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Aberrations docs".Bold().Khaki(),
+            UI.ActionButton("Aberrations".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersAberration.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Beasts docs".Bold().Khaki(),
+            UI.ActionButton("Beasts".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersBeast.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Celestial docs".Bold().Khaki(),
+            UI.ActionButton("Celestials".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersCelestial.md"), UI.Width((float)200));
         }
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Constructs docs".Bold().Khaki(),
+            UI.ActionButton("Constructs".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersConstruct.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Dragons docs".Bold().Khaki(),
+            UI.ActionButton("Dragons".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersDragon.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Elementals docs".Bold().Khaki(),
+            UI.ActionButton("Elementals".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersElemental.md"), UI.Width((float)200));
         }
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Fey docs".Bold().Khaki(),
+            UI.ActionButton("Fey".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersFey.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Fiend docs".Bold().Khaki(),
+            UI.ActionButton("Fiend".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersFiend.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Giants docs".Bold().Khaki(),
+            UI.ActionButton("Giants".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersGiant.md"), UI.Width((float)200));
         }
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Humanoids docs".Bold().Khaki(),
+            UI.ActionButton("Humanoids".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersHumanoid.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Monstrosities docs".Bold().Khaki(),
+            UI.ActionButton("Monstrosities".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersMonstrosity.md"), UI.Width((float)200));
             20.Space();
-            UI.ActionButton("Undead docs".Bold().Khaki(),
+            UI.ActionButton("Undead".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersUndead.md"), UI.Width((float)200));
         }
 
