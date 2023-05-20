@@ -240,11 +240,24 @@ internal static class FixesContext
 
     private static void FixWildshapeGroupAttacks()
     {
-        WildShapeApe.groupAttacks = false;
-        WildshapeBlackBear.groupAttacks = false;
-        WildShapeBrownBear.groupAttacks = false;
-        WildshapeDeepSpider.groupAttacks = false;
-        WildShapeGiant_Eagle.groupAttacks = false;
+        var monsters = new List<MonsterDefinition>()
+        {
+            WildShapeApe,
+            WildshapeBlackBear,
+            WildShapeBrownBear,
+            WildshapeDeepSpider,
+            WildShapeGiant_Eagle
+        };
+
+        foreach (var monster in monsters)
+        {
+            monster.groupAttacks = false;
+
+            foreach (var attackIterations in monster.AttackIterations)
+            {
+                attackIterations.number = 2;
+            }
+        }
     }
 
     // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
