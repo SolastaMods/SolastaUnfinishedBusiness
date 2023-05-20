@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=Soul Missing - Gate Inactive
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=Soul Linked - Gate Ready
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=Sacrifice ready

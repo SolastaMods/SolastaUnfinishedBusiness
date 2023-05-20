@@ -77,3 +77,7 @@ Caption/&TargetArcSubtargetMultipleCaption=<#B0B0B0>The effect will arc to {0} a
 Caption/&ShapeWallLineInvalidCaption=The start and end of the wall must be at the same level.
 Caption/&PositionMustBeOnSolidSurfaceCaption=This spell can only be cast on a solid surface.
 Caption/&TargetRequiredMetalArmorCaption=Target must wear metal armor
+Caption/&CampaignMapNewNodePlacementCaption=Select a position for this new Campaign Map Node.
+Caption/&CampaignMapStartSegmentCaption=Select a node as a starting point for this new segment.
+Caption/&CampaignMapEndSegmentCaption=Select an end node for this segment. Must be different from the start node.
+Caption/&ShapeAreaOfEffectCenteredCaption=Confirm the area of effect

@@ -24,3 +24,5 @@ EffectProxy/&ProxyMoonBeamDescription=Moves the moon beam up to 12 cells.
 EffectProxy/&ProxyCallLightningTitle=Call Lightning
 EffectProxy/&ProxyCallLightningDescription=Strike all targets within 1 cell of the impact with lightning damage.
 EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription=Move the Vengeful Spirits to a different location.
+EffectProxy/&DelayedBlastFireballTitle=Delayed Blast Fireball
+EffectProxy/&DelayedBlastFireballDefinition=A fireball that will detonate on your command, or whenever the spell is ended or interrupted.

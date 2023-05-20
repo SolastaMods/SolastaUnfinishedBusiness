@@ -15,3 +15,5 @@ LootPack/&1MagicArmorPlus2=1 Magic Armor +2
 LootPack/&1MagicWeaponPlus1=1 Magic Weapon +1
 LootPack/&1MagicWeaponPlus2=1 Magic Weapon +2
 LootPack/&RandomAmmo=Random Ammunition
+LootPack/&1MagicWeaponPlus3=1 Magic Weapon +3
+LootPack/&1MagicArmorPlus3=1 Magic Armor +3
