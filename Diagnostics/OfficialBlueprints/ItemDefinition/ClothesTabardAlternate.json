@@ -186,6 +186,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ClothesTabardAlternate",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -199,6 +200,8 @@
       "Keep",
       "Keep",
       "Keep",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -215,17 +218,16 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "ClothesTabard",
-    "description": "Tabard",
+    "title": "Equipment/&Tabard_Base_Title",
+    "description": "Equipment/&Tabard_Council_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b4557cb8b7113be459d1cd9bd14769c6",
-      "m_SubObjectName": "ScholarOutfit_male",
+      "m_AssetGUID": "6841e33714055cc42b85ec408f6a0ad6",
+      "m_SubObjectName": "ScholarOutfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

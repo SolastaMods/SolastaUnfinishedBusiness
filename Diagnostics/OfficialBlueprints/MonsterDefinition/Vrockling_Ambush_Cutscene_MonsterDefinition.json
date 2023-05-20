@@ -64,7 +64,7 @@
   ],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 75.0,
   "challengeRating": 3.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Vrock_loot_drop:755f5f2c3a5b7674981eaf3d3d2c4c33",
@@ -73,7 +73,7 @@
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
     "Definition:MoveModeFly10:983b70804daf71d42a2bc3e844c00987",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseDarkvision24:a7a21553e478546448413923e8dd948e",
     "Definition:DamageAffinityBludgeoningResistance:956f9745b15c6904d87322861723d5c7",
     "Definition:DamageAffinitySlashingResistance:2345f12303c12854fad8b09556da53d6",
     "Definition:DamageAffinityPiercingResistance:b6c93ec66a0ec9747b5c02f9db3091ff",
@@ -84,7 +84,8 @@
     "Definition:CombatAffinityFlyby:a5d877d885f31944fbae4bbaa2bb5d6c",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
-    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544"
+    "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580"
   ],
   "attackIterations": [
     {
@@ -111,8 +112,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:Vrockling_MonsterDefinition:2c9a9e00d9b34464f9598c08214b7766",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
@@ -178,18 +179,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 0.9,
+    "maleModelScale": 0.35,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3f4ea7931d5f6ba4e96caace01b265b7",
+      "m_AssetGUID": "0669fac81c11caa4da0126a3328f3efb",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.9,
+    "femaleModelScale": 0.35,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

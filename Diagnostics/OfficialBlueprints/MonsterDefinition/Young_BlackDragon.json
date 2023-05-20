@@ -173,7 +173,7 @@
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 10.0,
-    "z": -60.0
+    "z": -55.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {

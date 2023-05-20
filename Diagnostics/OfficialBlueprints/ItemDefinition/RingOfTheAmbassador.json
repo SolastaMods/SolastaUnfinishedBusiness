@@ -30,10 +30,10 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": true,
-  "requiresIdentification": true,
+  "requiresAttunement": false,
+  "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Rare",
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -194,6 +194,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -202,8 +203,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -229,6 +229,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "bcc9cc1ec14ac1046bca09843bb92be7",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "RingOfTheAmbassador"
 }

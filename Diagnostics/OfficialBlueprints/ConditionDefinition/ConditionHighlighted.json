@@ -4,12 +4,13 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityTrueStrike:fbe1bf0aba1a9d54abeb4422b2480d90",
+    "Definition:CombatAffinityHighlighted:3d2ca64e322b55646b516fdd397d92f3",
     "Definition:PerceptionAffinityConditionHighlighted:a53ea28fb20a32742b8c881c764e877f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

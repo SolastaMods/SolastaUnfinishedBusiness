@@ -1,6 +1,6 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": false,
+  "inDungeonEditor": true,
   "parentCondition": null,
   "conditionType": "Neutral",
   "features": [
@@ -8,11 +8,13 @@
     "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
     "Definition:CombatAffinityBlinded:e91ffcd9df635c940a6db3fe07a27fd5",
     "Definition:SavingThrowAffinityConditionBlinded:83e5202a11865fa48ae4eccb125d0873",
-    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5"
+    "Definition:PerceptionAffinityConditionBlinded:f393b86164c3026418e191264bcca4d5",
+    "Definition:MagicAffinityCantConcentrate:054b51a209a98f340ae1e96dc75b7079"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

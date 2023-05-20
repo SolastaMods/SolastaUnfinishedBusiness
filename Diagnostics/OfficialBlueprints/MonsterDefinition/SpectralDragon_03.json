@@ -311,8 +311,8 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a9d92c00bf86e4d44955cbf0cb60ba78",
-      "m_SubObjectName": "CustomPortrait_SpectralDragon_03",
+      "m_AssetGUID": "1dc8560caf0727f4ba4a8ac1869c710d",
+      "m_SubObjectName": "CustomPortrait_SpectralDragon_01",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

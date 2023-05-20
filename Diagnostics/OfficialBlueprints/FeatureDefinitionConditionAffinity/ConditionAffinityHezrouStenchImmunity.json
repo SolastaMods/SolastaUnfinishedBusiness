@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MonsterPower_HezrouStench_ConditionImmunity_Title",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&MonsterPower_GhastStench_ConditionImmunity_Title",
+    "description": "Feature/&MonsterPower_HezrouStench_ConditionImmunity_Title",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

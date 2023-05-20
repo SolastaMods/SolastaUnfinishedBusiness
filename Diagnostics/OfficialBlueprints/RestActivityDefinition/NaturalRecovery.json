@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "ShortRest",
   "condition": "CanUsePower",
+  "requiresMissingClassSpellSlots": true,
   "functor": "UsePower",
   "stringParameter": "PowerCircleLandNaturalRecovery",
   "checkConsciousness": true,

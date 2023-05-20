@@ -22,6 +22,7 @@ internal static class FixesContext
         // REQUIRED FIXES
         FixAttackBuffsAffectingSpellDamage();
         FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
+        FixDivineStrikeRestrictions();
         FixDivineSmiteRestrictions();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
@@ -52,6 +53,20 @@ internal static class FixesContext
             IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    /**
+     * Makes Divine Strike trigger only from melee attacks.
+     */
+    private static void FixDivineStrikeRestrictions()
+    {
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+    }
+    
     /**
      * Makes Divine Smite trigger only from melee attacks.
      * This wasn't relevant until we changed how SpendSpellSlot trigger works.

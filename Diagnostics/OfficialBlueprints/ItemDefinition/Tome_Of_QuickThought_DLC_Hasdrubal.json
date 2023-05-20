@@ -16,7 +16,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    5000,
+    20000,
     0,
     0,
     0
@@ -90,7 +90,13 @@
   "isDocument": false,
   "isFood": false,
   "isFactionRelic": false,
-  "personalityFlagOccurences": [],
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 50,
+      "personalityFlag": "HasdrubalFlag"
+    }
+  ],
   "soundEffectDescriptionOverride": {
     "$type": "SoundEffectDescription, Assembly-CSharp",
     "startEvent": {
@@ -212,6 +218,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -222,8 +229,7 @@
     ],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

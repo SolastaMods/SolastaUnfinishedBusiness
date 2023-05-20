@@ -25,7 +25,7 @@
   "verbalComponent": "Full",
   "somaticComponent": "Full",
   "materialComponent": "Full",
-  "randomnessMode": "TrueRandom",
+  "randomnessMode": "NiceDice",
   "forceCritEveryFewRolls": false,
   "forceSuccessOnDialogRolls": false,
   "alwaysDisplayDialogChances": false,

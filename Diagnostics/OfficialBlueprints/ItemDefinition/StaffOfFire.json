@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    8000,
+    10000,
     0,
     0,
     0
@@ -27,7 +27,9 @@
   "itemTags": [
     "Wood"
   ],
-  "activeTags": [],
+  "activeTags": [
+    "Flaming"
+  ],
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": true,
@@ -99,6 +101,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -362,8 +365,8 @@
     "rechargeDie": "D6",
     "rechargeBonus": 4,
     "outOfChargesConsequence": "DestroyOnRoll1",
-    "magicAttackBonus": 5,
-    "saveDC": 13,
+    "magicAttackBonus": 9,
+    "saveDC": 17,
     "deviceFunctions": [
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
@@ -552,6 +555,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -560,8 +564,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

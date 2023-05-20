@@ -4,7 +4,7 @@
   "groundLowPlacement": true,
   "groundHighPlacement": false,
   "wallPlacement": false,
-  "openingPlacement": false,
+  "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": false,
@@ -90,6 +90,26 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "f8a9f4ad6a2517641ace4c4210d11d19",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "a61597c636dabe04cb2c61d2cec03190",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "eeecad2a6727ce64b82e5ac2e2e24368",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

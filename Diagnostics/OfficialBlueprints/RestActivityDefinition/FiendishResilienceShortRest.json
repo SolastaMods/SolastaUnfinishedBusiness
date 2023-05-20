@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "ShortRest",
   "condition": "HasFeatureSet",
+  "requiresMissingClassSpellSlots": false,
   "functor": "SelectPower",
   "stringParameter": "FeatureSetPatronFiendFiendishResilience",
   "checkConsciousness": true,

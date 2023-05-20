@@ -62,7 +62,8 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {

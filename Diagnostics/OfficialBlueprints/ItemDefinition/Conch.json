@@ -1,7 +1,7 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
-  "merchantCategory": "All",
+  "merchantCategory": "Adventuring",
   "weight": 1.0,
   "slotTypes": [
     "UtilitySlot",
@@ -195,6 +195,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -203,8 +204,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -230,6 +230,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "19130550f8db2a74e95cdeb4e4ca6210",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "Conch"
 }

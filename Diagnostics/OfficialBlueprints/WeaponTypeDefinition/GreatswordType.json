@@ -3,6 +3,7 @@
   "weaponCategory": "MartialWeaponCategory",
   "weaponProximity": "Melee",
   "isBow": false,
+  "isCrossbow": false,
   "isAttachedToBone": "Prop1",
   "animationTag": "GreatSword",
   "secondaryAnimationTag": "NoWeapon",

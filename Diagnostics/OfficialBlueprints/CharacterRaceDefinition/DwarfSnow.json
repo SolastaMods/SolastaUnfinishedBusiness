@@ -37,6 +37,16 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
       "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+      "level": 1
     }
   ],
   "subRaces": [],
@@ -50,7 +60,10 @@
     "bodyAssetPrefix": "",
     "armorAssetPrefix": "",
     "helmetAssetPrefix": "",
-    "morphotypeAssetPrefix": "",
+    "faceShapeAssetPrefix": "",
+    "hairShapeAssetPrefix": "",
+    "beardShapeAssetPrefix": "",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [],
     "femaleNameOptions": [],
     "hasSurName": false,
@@ -106,7 +119,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 0.8
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.8,
+    "raceAnimationTag": "Dwarf"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

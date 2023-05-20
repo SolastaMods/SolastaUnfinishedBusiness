@@ -48,6 +48,7 @@
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -299,7 +300,20 @@
     "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
     "switchOnHit": {
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": null,
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Bite",
+        "id": 1645043423,
+        "guid": "46E28CEC-4B37-486B-B67E-2D6A15692B3C",
+        "name": "46E28CEC-4B37-486B-B67E-2D6A15692B3C"
+      },
       "groupIdInternal": 0,
       "groupGuidInternal": {
         "$type": "System.Byte[], mscorlib",
@@ -312,6 +326,7 @@
       }
     }
   },
+  "priority": 0,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -60,6 +60,36 @@
       "floatDefaultValue": 0.0,
       "requiresNonEmpty": true,
       "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "CustomDuration",
+      "type": "CustomDuration",
+      "conditionalDisplay": false,
+      "conditionalParameter": "",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 0.0,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
+    },
+    {
+      "$type": "GadgetParameterDescription, Assembly-CSharp",
+      "name": "LoreDurationSeconds",
+      "type": "LoreDurationSeconds",
+      "conditionalDisplay": true,
+      "conditionalParameter": "CustomDuration",
+      "conditionalMatch": true,
+      "intDefaultValue": 0,
+      "intMinValue": 0,
+      "intMaxValue": 0,
+      "boolDefaultValue": false,
+      "floatDefaultValue": 1.5,
+      "requiresNonEmpty": true,
+      "gadgetExecutionFilter": ""
     }
   ],
   "interactionNodes": [],

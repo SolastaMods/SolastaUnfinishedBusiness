@@ -153,7 +153,7 @@
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "1a12723215fba7242847fff4ea512a90",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

@@ -122,6 +122,11 @@
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
       "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Dagger:aeadb51b8cb69ff46833a030333b0fcc"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Dagger:aeadb51b8cb69ff46833a030333b0fcc"
     }
   ],
   "sneakStance": "Stealth",
@@ -248,7 +253,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": false,
+  "groupAttacks": true,
   "isUnique": true,
   "uniqueNameId": "Lorson",
   "guiPresentation": {

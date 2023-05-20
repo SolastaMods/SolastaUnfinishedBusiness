@@ -1,12 +1,12 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": "Definition:IdleGuard_NoIntercept:81e247c4ebe23c741800c91fd18c473e",
   "characterFamily": "Dragon",
   "creatureTags": [],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
-  "sizeDefinition": "Definition:DragonSize:b051c53e1c238714d855fd6f175ad7b5",
+  "sizeDefinition": "Definition:Huge:5b85854ce261190429aabf462c72ea0d",
   "alignment": "ChaoticEvil",
   "armorClass": 19,
   "armor": "",
@@ -112,7 +112,7 @@
   "audioRaceRTPCValue": 38.0,
   "challengeRating": 8.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:Feral_Dragon_loot_drop:73d0e1eb0aea65c48a312b2d19dacf74",
+  "droppedLootDefinition": "Definition:DLC3_Feral_Dragon_loot_drop:73d0e1eb0aea65c48a312b2d19dacf74",
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
@@ -156,13 +156,13 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
-    "z": -35.0
+    "z": -55.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
@@ -302,6 +302,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "48eb540ec2f24204cb35e100b44df155",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "FeralDragon_Green"
 }

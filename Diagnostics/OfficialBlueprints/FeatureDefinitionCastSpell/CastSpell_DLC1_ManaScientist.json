@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellList_DLC1_ManaScientist:21c33a207bc700e4f8bcc8dbce26629f",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 1,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     0,
@@ -358,6 +360,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

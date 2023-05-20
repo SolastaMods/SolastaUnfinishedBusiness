@@ -199,8 +199,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "SHOULDNOTBEUSED",
-    "description": "SHOULDNOTBEUSED",
+    "title": "Equipment/&WarningLineContent",
+    "description": "Equipment/&WarningLineContent",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

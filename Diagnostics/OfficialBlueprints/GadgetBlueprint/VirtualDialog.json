@@ -58,7 +58,7 @@
       "orientation": "North"
     }
   ],
-  "canBeActivated": true,
+  "canBeActivated": false,
   "customizableDimensions": false,
   "minCustomizableDimensions": {
     "$type": "UnityEngine.Vector2Int, UnityEngine.CoreModule"

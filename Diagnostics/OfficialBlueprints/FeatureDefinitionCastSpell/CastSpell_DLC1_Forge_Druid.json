@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellList_DLC1_Forge_Druid:7298740ff49100f43b3279cc44c77f06",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 9,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,
@@ -358,6 +360,7 @@
   ],
   "focusType": "Druidic",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

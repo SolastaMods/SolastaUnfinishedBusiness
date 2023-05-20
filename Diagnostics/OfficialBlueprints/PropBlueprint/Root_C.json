@@ -7,7 +7,7 @@
   "openingPlacement": true,
   "openingLowPlacement": true,
   "openingHighPlacement": false,
-  "propPlacement": false,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Obstacle",
   "dimensions": {

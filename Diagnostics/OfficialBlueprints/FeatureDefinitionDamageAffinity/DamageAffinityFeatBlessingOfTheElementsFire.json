@@ -23,7 +23,6 @@
   "knockOutDCAttribute": "RelentlessRageDC",
   "knockOutAddDC": 5,
   "instantDeathImmunity": false,
-  "activatePowerWhenDamaged": "Definition:PowerFeatBlessingOfTheElements:3a581696a8442aa468d9a9735a656073",
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

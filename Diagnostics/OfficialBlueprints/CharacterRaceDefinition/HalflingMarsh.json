@@ -45,7 +45,10 @@
     "bodyAssetPrefix": "",
     "armorAssetPrefix": "",
     "helmetAssetPrefix": "",
-    "morphotypeAssetPrefix": "",
+    "faceShapeAssetPrefix": "",
+    "hairShapeAssetPrefix": "",
+    "beardShapeAssetPrefix": "",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [],
     "femaleNameOptions": [],
     "hasSurName": false,
@@ -101,7 +104,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 0.7
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.7,
+    "raceAnimationTag": "Halfling"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

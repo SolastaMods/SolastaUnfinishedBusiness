@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1000,
+    3000,
     0,
     0,
     0
@@ -30,7 +30,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": false,
+  "requiresAttunement": true,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
@@ -217,8 +217,9 @@
     "armorAddressableName": "LeatherDruid",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "LeatherDruid_Forest",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -232,6 +233,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -244,13 +247,14 @@
       "Armor",
       "Armor",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -276,6 +280,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "4ce2695b3d17313408462d006c22b7b7",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Enchanted_Druid_Armor_Of_The_Forest"
 }

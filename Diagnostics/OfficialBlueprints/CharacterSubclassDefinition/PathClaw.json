@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamagePathClawDragonsBlessing:085b98be97f2cd44283d2a8be22e9bd8",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageBarbarianClawFrightfulStrike:8c690a9783ed66341b0ab88e59d55e80",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [
@@ -49,7 +54,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 3,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

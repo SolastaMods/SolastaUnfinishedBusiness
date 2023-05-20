@@ -1,7 +1,7 @@
 {
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
-  "merchantCategory": "Adventuring",
+  "merchantCategory": "Ingredient",
   "weight": 2.0,
   "slotTypes": [
     "ContainerSlot"
@@ -16,12 +16,13 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    5,
+    300,
     0,
     0,
     0
   ],
   "itemTags": [
+    "Ingredient",
     "Leather"
   ],
   "activeTags": [],
@@ -30,7 +31,7 @@
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [],
   "isArmor": false,
@@ -174,6 +175,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -182,8 +184,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -209,6 +210,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "0d1dec4ed811cb94498fe533ea3fa8da",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Ingredient_Mutant_DireWolf_Pelt"
 }

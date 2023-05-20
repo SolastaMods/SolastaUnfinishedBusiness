@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    4500,
+    10000,
     0,
     0,
     0
@@ -50,7 +50,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Truth:5c5383a16e58d8b45a79f8473d75eb25",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     },
     {
       "$type": "ItemPropertyDescription, Assembly-CSharp",
@@ -58,7 +58,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AdditionalDamage_Weapon_Truth2:28b8aea4053e4574a895103b14b4a716",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndHidden"
+      "knowledgeAffinity": "InactiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -120,6 +120,7 @@
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
       "savingThrowAffinitiesByFamily": [],
+      "damageAffinitiesByFamily": [],
       "advantageForEnemies": false,
       "canBeDispersed": false,
       "hasVelocity": false,
@@ -508,6 +509,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -516,8 +518,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -543,6 +544,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "1584d8d016a8fd5499f815cbde4c8ef2",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Magic_Shortbow_Truth"
 }

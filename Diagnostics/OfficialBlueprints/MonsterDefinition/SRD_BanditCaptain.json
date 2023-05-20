@@ -93,6 +93,11 @@
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Scimitar:ff7c34c7c6da7964786849aca3dce98a"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
       "monsterAttackDefinition": "Definition:Attack_BanditCaptain_Dagger:aeadb51b8cb69ff46833a030333b0fcc"
     }
   ],
@@ -229,7 +234,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": false,
+  "groupAttacks": true,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {

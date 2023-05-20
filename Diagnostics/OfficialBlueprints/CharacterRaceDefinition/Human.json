@@ -50,7 +50,10 @@
     "bodyAssetPrefix": "Human",
     "armorAssetPrefix": "Human",
     "helmetAssetPrefix": "Human",
-    "morphotypeAssetPrefix": "Human",
+    "faceShapeAssetPrefix": "Human",
+    "hairShapeAssetPrefix": "Human",
+    "beardShapeAssetPrefix": "Human",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [
       "Race/&HumanMaleName1Title",
       "Race/&HumanMaleName2Title",
@@ -142,7 +145,13 @@
       "FaceShape_NPC_Talbut_the_Grey",
       "FaceShape_NPC_Ron",
       "FaceShape_NPC_Marin_Ving",
-      "FaceShape_NPC_Citizen"
+      "FaceShape_NPC_Citizen",
+      "FaceShape_NPC_Rivers",
+      "FaceShape_NPC_Rassell",
+      "FaceShape_NPC_GallivanOfficer",
+      "FaceShape_AF_G",
+      "FaceShape_AS_G",
+      "FaceShape_CA_G"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_CA_D",
@@ -171,7 +180,11 @@
       "FaceShape_NPC_Atima_Bladeburn",
       "FaceShape_NPC_Lisbath_Townsend",
       "FaceShape_NPC_Priestess_of_Pakri",
-      "FaceShape_NPC_Sima_Temple"
+      "FaceShape_NPC_Sima_Temple",
+      "FaceShape_NPC_EsmaBlunt",
+      "FaceShape_AF_G",
+      "FaceShape_AS_G",
+      "FaceShape_CA_G"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -276,7 +289,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 1.0
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Human"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
