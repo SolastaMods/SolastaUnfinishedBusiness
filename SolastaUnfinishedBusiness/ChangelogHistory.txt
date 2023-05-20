@@ -9,10 +9,11 @@ LAST VERSION UNTIL POI RELEASE DATE. WHAT YOU SHOULD EXPECT:
 3. don't accept the update until you have game version 1.5.x
 4. update to mod version 1.5.x is mandatory as patches got broken
 
-- added support to import modded campaigns in POI
 - added immunity to condition restrained by web to all spiders
+- added support to import modded campaigns in POI
 - changed Hand-and-a-Half to also grant +1 AC
-- fixed Bounden Ice Ice doing an ability check on break free action
+- fixed Bounden Ice forcing an ability check on break free action
+- fixed heroes getting DEX or STR choice on break free from web or bounded ice
 
 1.4.33.90:
 
