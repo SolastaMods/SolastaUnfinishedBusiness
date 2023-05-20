@@ -59,7 +59,7 @@
     "activityType": "BreakFree",
     "stringParameter": "",
     "stringSecParameter": "",
-    "boolParameter": false,
+    "boolParameter": true,
     "boolSecParameter": false,
     "floatParameter": 3.0,
     "enumParameter": 1

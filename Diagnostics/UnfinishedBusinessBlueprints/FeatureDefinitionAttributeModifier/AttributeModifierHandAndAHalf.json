@@ -1,10 +1,12 @@
 {
-  "$type": "FightingStyleDefinition, Assembly-CSharp",
-  "features": [
-    "Definition:AttackModifierHandAndAHalf:d39a2a64-26af-5ef5-8355-6ec9092b4e41",
-    "Definition:AttributeModifierHandAndAHalf:1d4acff8-789d-5676-bb0d-f19f4fa79368"
-  ],
-  "condition": "RangedWeaponAttack",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "ArmorClass",
+  "modifierOperation": "Additive",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": 1012,
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -12,7 +14,7 @@
     "description": "FightingStyle/&HandAndAHalfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2c603e75-2abc-541d-a0d2-93054ef8daa6",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -29,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d3fd48d-ae29-598e-b4d0-5202a9b35d9c",
+  "guid": "1d4acff8-789d-5676-bb0d-f19f4fa79368",
   "contentPack": 9999,
-  "name": "HandAndAHalf"
+  "name": "AttributeModifierHandAndAHalf"
 }

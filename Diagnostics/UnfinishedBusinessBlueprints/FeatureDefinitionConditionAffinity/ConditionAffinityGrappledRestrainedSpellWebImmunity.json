@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
+  "conditionType": "ConditionGrappledRestrainedSpellWeb",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "conditionAffinityType": "Immunity",
+  "silent": false,
+  "rerollSaveWhenGained": false,
+  "rerollAdvantageType": "None",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1dbd0da8-d0cc-5aa1-a257-3046578f53bd",
+  "contentPack": 9999,
+  "name": "ConditionAffinityGrappledRestrainedSpellWebImmunity"
+}
