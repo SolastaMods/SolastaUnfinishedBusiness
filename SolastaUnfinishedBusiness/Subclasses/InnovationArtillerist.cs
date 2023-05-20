@@ -1042,7 +1042,7 @@ public static class InnovationArtillerist
         {
             var status = locationCharacter.GetActionStatus(Id.PowerBonus, ActionScope.Battle);
 
-            if (status != ActionStatus.Available)
+            if (status != ActionStatus.Available || !HasCannon(locationCharacter.RulesetCharacter))
             {
                 return;
             }

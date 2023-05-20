@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -347,6 +348,19 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         conditionRestrainedBySpellWeb.specialInterruptions.Clear();
+
+        var conditionAffinityGrappledRestrainedSpellWebImmunity = FeatureDefinitionConditionAffinityBuilder
+            .Create("ConditionAffinityGrappledRestrainedSpellWebImmunity")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionType(conditionRestrainedBySpellWeb)
+            .SetConditionAffinityType(ConditionAffinityType.Immunity)
+            .AddToDB();
+
+        foreach (var monsterDefinition in DatabaseRepository.GetDatabase<MonsterDefinition>()
+                     .Where(x => x.Name.Contains("Spider") || x.Name.Contains("spider")))
+        {
+            monsterDefinition.Features.Add(conditionAffinityGrappledRestrainedSpellWebImmunity);
+        }
 
         var spell = SpellDefinitionBuilder
             .Create("SpellWeb")

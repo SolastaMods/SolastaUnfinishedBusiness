@@ -265,4 +265,43 @@ public static class CharacterActionPanelPatcher
             }
         }
     }
+
+    //PATCH: don't display the break free selection panel if restrained by web or or ice bound
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectBreakFreeMode))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class SelectBreakFreeMode_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(CharacterActionPanel __instance)
+        {
+            var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+
+            RulesetCondition restrainingCondition = null;
+
+            rulesetCharacter.EnumerateFeaturesToBrowse<FeatureDefinitionActionAffinity>(
+                rulesetCharacter.FeaturesToBrowse);
+
+            foreach (var definitionActionAffinity in rulesetCharacter.FeaturesToBrowse
+                         .Cast<FeatureDefinitionActionAffinity>()
+                         .Where(definitionActionAffinity => definitionActionAffinity.AuthorizedActions
+                             .Contains(ActionDefinitions.Id.BreakFree)))
+            {
+                restrainingCondition = rulesetCharacter.FindFirstConditionHoldingFeature(definitionActionAffinity);
+            }
+
+            if (restrainingCondition?.ConditionDefinition.Name is not
+                ("ConditionGrappledRestrainedIceBound" or "ConditionGrappledRestrainedSpellWeb"))
+            {
+                return true;
+            }
+
+            __instance.actionParams.BreakFreeMode = ActionDefinitions.BreakFreeMode.Athletics;
+
+            ServiceRepository.GetService<ICommandService>()?
+                .ExecuteAction(__instance.actionParams.Clone(), __instance.ActionExecuted, false);
+
+            return false;
+        }
+    }
 }

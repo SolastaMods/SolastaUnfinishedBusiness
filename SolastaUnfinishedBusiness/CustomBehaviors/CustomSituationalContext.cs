@@ -51,6 +51,9 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
                     (contextParams.source),
 
+            ExtraSituationalContext.HasTwoHandedVersatileWeapon => ValidatorsCharacter
+                .HasTwoHandedVersatileWeapon(contextParams.source),
+
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
                  ValidatorsCharacter.HasLightArmor(contextParams.source)) &&

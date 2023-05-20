@@ -569,7 +569,7 @@ You gain the ability to cast the healing word, cure wounds and lesser restoratio
 FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Close Quarters, Cunning Escape, Expand the Hunt, Exploiter, Hardy, Natural Fluidity, Poison Expert, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity'.
 FeatGroupCloseQuarters	Description='You are experienced with fighting in close quarters and gain the following benefits:
 • Your Dexterity or Intelligence increases by 1, to a maximum of 20.
-• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks.'.
+• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks, and rogue features that scale off of sneak dice.'.
 FeatGroupCreed	Description='Creed of Arun, Creed of Einar, Creed of Maraike, Creed of Misaye, Creed of Pakri, Creed of Solasta'.
 FeatGroupCriticalVirtuoso	Description='Improved Critical, Superior Critical'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.

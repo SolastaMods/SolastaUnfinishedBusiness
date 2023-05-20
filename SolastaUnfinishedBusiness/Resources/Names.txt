@@ -573,7 +573,7 @@ RaceFairy	Male	Aeghal
 RaceFairy	Male	Stone
 RaceFairy	Male	Lucky
 RaceFairy	Male	Nightfall
-RaceFairy	Male	Canyon
+RaceFairy	Male	Maeradok
 RaceFairy	Male	Wurrael
 RaceFairy	Male	Tamadylyc
 RaceFairy	Female	Sylmoira
@@ -598,3 +598,12 @@ RaceFairy	Sur	Rhubarb
 RaceFairy	Sur	Rock
 RaceFairy	Sur	Magna
 RaceFairy	Sur	Crator
+RaceFairy	Sur	Rock
+RaceFairy	Sur	Magna
+RaceFairy	Sur	Crator
+RaceFairy	Sur	Maeradok
+RaceFairy	Sur	Magna
+RaceFairy	Sur	Crator
+RaceFairy	Sur	Nightfall
+RaceFairy	Sur	Twilight
+RaceFairy	Sur	Jade
