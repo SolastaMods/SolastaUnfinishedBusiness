@@ -265,7 +265,7 @@ public static class CharacterActionPanelPatcher
             }
         }
     }
-    
+
     //PATCH: don't display the break free selection panel if restrained by web or or ice bound
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectBreakFreeMode))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

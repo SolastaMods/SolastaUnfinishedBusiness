@@ -351,6 +351,7 @@ internal static partial class SpellBuilders
 
         var conditionAffinityGrappledRestrainedSpellWebImmunity = FeatureDefinitionConditionAffinityBuilder
             .Create("ConditionAffinityGrappledRestrainedSpellWebImmunity")
+            .SetGuiPresentationNoContent(true)
             .SetConditionType(conditionRestrainedBySpellWeb)
             .SetConditionAffinityType(ConditionAffinityType.Immunity)
             .AddToDB();

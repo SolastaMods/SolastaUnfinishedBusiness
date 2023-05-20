@@ -49,16 +49,13 @@ internal static class GuardianAuraHpSwap
         }
 
         var units = battle.AllContenders
-            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+            .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && attacker != u && defender != u)
             .ToList();
 
         foreach (var unit in units)
         {
-            if (attacker != unit && defender != unit)
-            {
-                yield return ActiveHealthSwap(
-                    unit, attacker, defender, battleManager, attackerAttackMode, rulesetEffect, damageAmount);
-            }
+            yield return ActiveHealthSwap(
+                unit, attacker, defender, battleManager, attackerAttackMode, rulesetEffect, damageAmount);
         }
     }
 
