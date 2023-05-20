@@ -26,3 +26,5 @@ Merchant/&DLC1_GiantTrader_StoreTitle=comerciante gigante
 Merchant/&DLC_Armorer_Title=Arsenal
 Merchant/&Yasmin_Mask_Title=Máscara Comerciante Secreto
 Merchant/&DLC1_Hanno_StoreTitle=Comerciante de forja
+Merchant/&DungeonMakerMagicSmith=Herrero mágico
+Merchant/&DungeonMakerWanderingMerchant=Mercader errante

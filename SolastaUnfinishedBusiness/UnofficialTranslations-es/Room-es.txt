@@ -1,6 +1,6 @@
 Room/&Corner_12CTitle=Esquina
 Room/&Crossroad_12CTitle=Cruce de caminos
-Room/&Hallway_12CTitle=Vestíbulo
+Room/&Hallway_12CTitle=Pasillo
 Room/&Line_12CTitle=Línea
 Room/&Room_Big_24CTitle=Habitación grande
 Room/&Room_Small_24CTitle=Habitación pequeña

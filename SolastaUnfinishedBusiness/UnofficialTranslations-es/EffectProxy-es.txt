@@ -24,3 +24,5 @@ EffectProxy/&ProxyMoonBeamDescription=Mueve el rayo de luna hasta 12 celdas.
 EffectProxy/&ProxyCallLightningTitle=Llamar Rayo
 EffectProxy/&ProxyCallLightningDescription=Golpea a todos los objetivos dentro de 1 celda del impacto con daño de rayo.
 EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription=Mueve los espíritus vengativos a una ubicación diferente.
+EffectProxy/&DelayedBlastFireballTitle=Bola de fuego de explosión retardada
+EffectProxy/&DelayedBlastFireballDefinition=Una bola de fuego que detonará a tu orden, o cuando el hechizo finalice o se interrumpa.

@@ -14,3 +14,5 @@ ContentPack/&LostValleyTitle=La Valle Perduta
 ContentPack/&LostValleyDescription=Una nuova avventura nel mondo di Solasta.
 ContentPack/&InnerStrengthTitle=Forza interiore
 ContentPack/&InnerStrengthDescription=Nuovi avventurieri si uniscono al gioco, introducendo le classi Monk, Bard e Warlock, così come l'ascendenza Dragonborn
+ContentPack/&PalaceOfIceTitle=Palazzo del Ghiaccio
+ContentPack/&PalaceOfIceDescription=Una nuova avventura di alto livello, che segue gli eventi della campagna Crown of the Magister, in cui gli avventurieri esploreranno i confini settentrionali di Solasta e affronteranno minacce vecchie e nuove.

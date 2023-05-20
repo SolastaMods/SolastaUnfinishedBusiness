@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=Falta el alma - Puerta inactiva
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=Vinculado al alma - Listo para la puerta
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=Sacrificio listo

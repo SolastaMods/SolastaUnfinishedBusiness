@@ -77,3 +77,7 @@ Caption/&TargetArcSubtargetMultipleCaption=<#B0B0B0>L'effetto si estenderà a {0
 Caption/&ShapeWallLineInvalidCaption=L'inizio e la fine del muro devono essere allo stesso livello.
 Caption/&PositionMustBeOnSolidSurfaceCaption=Questo incantesimo può essere lanciato solo su una superficie solida.
 Caption/&TargetRequiredMetalArmorCaption=Il bersaglio deve indossare un'armatura di metallo
+Caption/&CampaignMapNewNodePlacementCaption=Seleziona una posizione per questo nuovo nodo della mappa della campagna.
+Caption/&CampaignMapStartSegmentCaption=Seleziona un nodo come punto di partenza per questo nuovo segmento.
+Caption/&CampaignMapEndSegmentCaption=Seleziona un nodo finale per questo segmento. Deve essere diverso dal nodo iniziale.
+Caption/&ShapeAreaOfEffectCenteredCaption=Conferma l'area di effetto

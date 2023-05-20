@@ -27,3 +27,5 @@ Format/&RevealedMagicalTitle=Magia rilevata
 Format/&RevealedPoisonTitle=Velenoso
 Format/&WorldDistanceFormat={0} miglia
 Format/&ItemIdentifiedNothingNewTitle=Non è stato trovato altro sull'elemento {0}
+Format/&RevealedNonDetectionTitle=Non rilevamento
+Format/&RevealedShapechangerTitle=Cambiaforma

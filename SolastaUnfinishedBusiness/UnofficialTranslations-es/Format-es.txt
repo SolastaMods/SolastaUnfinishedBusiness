@@ -1,5 +1,5 @@
 Format/&CurrentAndTemporaryHitPointsDescription=Los puntos de golpe actuales de esta criatura + los puntos de golpe temporales. Los puntos de vida temporales se pierden primero.
-Format/&CurrentHitPointsDescription=Los puntos de golpe actuales de esta criatura.
+Format/&CurrentHitPointsDescription=Los puntos de vida actuales de esta criatura.
 Format/&DifficultyEasyFormat=Fácil
 Format/&DifficultyHardFormat=Duro
 Format/&DifficultyMediumFormat=Medio
@@ -27,3 +27,5 @@ Format/&RevealedMagicalTitle=magia detectada
 Format/&RevealedPoisonTitle=Venenoso
 Format/&WorldDistanceFormat={0} millas
 Format/&ItemIdentifiedNothingNewTitle=No se encontró nada más en el elemento {0}
+Format/&RevealedNonDetectionTitle=No detectado
+Format/&RevealedShapechangerTitle=Cambiador de figura
