@@ -41,7 +41,7 @@ internal static class DungeonMakerDisplay
                 () => BootContext.OpenDocumentation("SolastaMonstersAberration.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Beasts docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaMonstersBeasts.md"), UI.Width((float)200));
+                () => BootContext.OpenDocumentation("SolastaMonstersBeast.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Celestial docs".Bold().Khaki(),
                 () => BootContext.OpenDocumentation("SolastaMonstersCelestial.md"), UI.Width((float)200));
