@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed_Warhammer:e492559642e89ae43a31931a27ff2ce1",
   "stackCount": 1,
   "craftingHours": 8,

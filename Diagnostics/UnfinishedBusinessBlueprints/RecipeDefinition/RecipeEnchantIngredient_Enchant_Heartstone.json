@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Heartstone:c7e4bf02a2980cc40b824c07c82abe2b",
   "stackCount": 1,
   "craftingHours": 16,

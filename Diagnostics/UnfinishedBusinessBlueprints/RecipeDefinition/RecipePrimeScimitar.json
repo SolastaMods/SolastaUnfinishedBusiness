@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Scimitar:f905b0c4355525d44a49c9af95b3ba76",
   "stackCount": 1,
   "craftingHours": 8,

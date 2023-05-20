@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListInventor:84923b43-712b-53d0-8395-b5775b13831f",
   "restrictedSchools": [],
   "spellKnowledge": "WholeList",
+  "fixedSpellTag": null,
   "spellReadyness": "Prepared",
   "spellPreparationCount": "AbilityBonusPlusHalfLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     2,
     2,
@@ -429,6 +431,7 @@
   ],
   "focusType": "Universal",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

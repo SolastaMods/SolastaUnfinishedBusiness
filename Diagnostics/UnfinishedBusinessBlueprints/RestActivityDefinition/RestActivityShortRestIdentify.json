@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "ShortRest",
   "condition": "None",
+  "requiresMissingClassSpellSlots": false,
   "functor": "UseCustomRestPower",
   "stringParameter": "PowerAfterRestIdentify",
   "checkConsciousness": false,

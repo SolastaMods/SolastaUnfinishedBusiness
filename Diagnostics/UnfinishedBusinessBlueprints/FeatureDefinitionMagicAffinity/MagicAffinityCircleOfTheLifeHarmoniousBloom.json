@@ -37,7 +37,8 @@
     "PrayerOfHealing",
     "MassHealingWord",
     "MassCureWounds",
-    "Heal"
+    "Heal",
+    "Regenerate"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",

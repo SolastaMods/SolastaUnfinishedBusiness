@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CaerLem_Gate_Plaque:bedfde5a8fec8d447a72a2a0a07a867c",
   "stackCount": 1,
   "craftingHours": 16,

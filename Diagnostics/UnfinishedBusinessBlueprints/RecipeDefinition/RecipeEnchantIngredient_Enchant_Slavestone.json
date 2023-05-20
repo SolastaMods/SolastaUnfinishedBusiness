@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Slavestone:b9c2c46851e33f04184235fed2db6dc3",
   "stackCount": 1,
   "craftingHours": 16,

@@ -36,7 +36,10 @@
     "bodyAssetPrefix": "Elf",
     "armorAssetPrefix": "Elf",
     "helmetAssetPrefix": "Elf",
-    "morphotypeAssetPrefix": "Elf",
+    "faceShapeAssetPrefix": "Elf",
+    "hairShapeAssetPrefix": "Elf",
+    "beardShapeAssetPrefix": "Elf",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [],
     "femaleNameOptions": [],
     "hasSurName": true,
@@ -96,7 +99,14 @@
       "FaceShape_NPC_Serafiel_Anfarel",
       "FaceShape_NPC_Lysantir",
       "FaceShape_NPC_Esfalad_Graymas",
-      "FaceShape_NPC_Telerien_Purevoice"
+      "FaceShape_NPC_Telerien_Purevoice",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_Dyssalim",
+      "FaceShape_NPC_Estorgath",
+      "FaceShape_NPC_Graybear",
+      "FaceShape_NPC_RhuadSwiftHand"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_D",
@@ -115,7 +125,11 @@
       "FaceShape_NPC_Ellaria_Anfarel",
       "FaceShape_NPC_Finaliel_SharpMind",
       "FaceShape_NPC_Malariel_Brogarad",
-      "FaceShape_NPC_Samko_Flint"
+      "FaceShape_NPC_Samko_Flint",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_LeralynGhost"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -219,7 +233,13 @@
       "minValue": 0,
       "maxValue": 24
     },
-    "musicalInstrumentScale": 1.0
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Elf"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

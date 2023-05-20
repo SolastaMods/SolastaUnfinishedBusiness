@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_LifeStone:fe44147b00fe32445bdc2bb69579a39b",
   "stackCount": 1,
   "craftingHours": 16,

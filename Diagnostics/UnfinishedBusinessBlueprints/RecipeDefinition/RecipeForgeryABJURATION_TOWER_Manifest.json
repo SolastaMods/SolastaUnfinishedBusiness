@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ABJURATION_TOWER_Manifest:51619054e6694d348ae175d8cc000e0d",
   "stackCount": 1,
   "craftingHours": 16,

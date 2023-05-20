@@ -55,7 +55,10 @@
     "bodyAssetPrefix": "Dwarf",
     "armorAssetPrefix": "Dwarf",
     "helmetAssetPrefix": "Dwarf",
-    "morphotypeAssetPrefix": "Dwarf",
+    "faceShapeAssetPrefix": "Dwarf",
+    "hairShapeAssetPrefix": "Dwarf",
+    "beardShapeAssetPrefix": "Dwarf",
+    "hornsTailAssetPrefix": "",
     "maleNameOptions": [],
     "femaleNameOptions": [],
     "hasSurName": true,
@@ -90,16 +93,29 @@
       "Origin_NonHuman"
     ],
     "maleFaceShapeOptions": [
-      "FaceShape_E",
-      "FaceShape_F",
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
       "FaceShape_NPC_Priest_of_Arun",
       "FaceShape_NPC_Ceannard",
       "FaceShape_NPC_Galar_Goldentongue",
       "FaceShape_NPC_Gromnir_Stonefist",
-      "FaceShape_NPC_Joris_Nikannen"
+      "FaceShape_NPC_Joris_Nikannen",
+      "FaceShape_NPC_GormTheWise",
+      "FaceShape_NPC_MardukStrongHeart",
+      "FaceShape_NPC_ValdiBoldHand",
+      "FaceShape_NPC_RolfStrongHeart",
+      "FaceShape_NPC_ThadeosCobblestone",
+      "FaceShape_NPC_SanderKainnonen",
+      "FaceShape_NPC_Stig",
+      "FaceShape_NPC_Hergrunn",
+      "FaceShape_NPC_Brodir"
     ],
     "femaleFaceShapeOptions": [
       "FaceShape_D",
@@ -113,7 +129,17 @@
       "FaceShape_NPC_Gorim_Ironsoot",
       "FaceShape_NPC_Cafrain_Shadow",
       "FaceShape_NPC_Reya_Schildberg",
-      "FaceShape_NPC_Karelia_Snowfox"
+      "FaceShape_NPC_Karelia_Snowfox",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_Misouk",
+      "FaceShape_A",
+      "FaceShape_NPC_KaraWiseHead",
+      "FaceShape_NPC_Grimhild",
+      "FaceShape_NPC_Ragnhild",
+      "FaceShape_NPC_Daisy",
+      "FaceShape_NPC_Vigdis"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -225,7 +251,13 @@
       "minValue": 35,
       "maxValue": 41
     },
-    "musicalInstrumentScale": 0.8
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 0.8,
+    "raceAnimationTag": "Dwarf"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

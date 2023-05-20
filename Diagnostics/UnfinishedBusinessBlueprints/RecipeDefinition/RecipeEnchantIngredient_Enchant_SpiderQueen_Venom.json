@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_SpiderQueen_Venom:d4837cc6a3c181142b498c3011ae5e8b",
   "stackCount": 1,
   "craftingHours": 16,
@@ -20,8 +21,8 @@
     "description": "Equipment/&Ingredient_Enchant_SpiderQueen_Venom_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0ac2731880a565d4991f989466ff011a",
-      "m_SubObjectName": "Spider_Queen_Venom_Gland",
+      "m_AssetGUID": "4a572075d985f3c4db9be9216506825c",
+      "m_SubObjectName": "SpiderQueenVenom",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

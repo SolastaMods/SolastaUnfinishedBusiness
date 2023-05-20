@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Shortbow:f1cfe01f030799e43b4c096dc16635d8",
   "stackCount": 1,
   "craftingHours": 8,

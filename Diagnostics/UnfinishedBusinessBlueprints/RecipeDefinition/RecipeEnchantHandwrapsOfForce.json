@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:HandwrapsOfForce:fd4c1520-fb0e-56f5-ba86-4ef7ad9b0b70",
   "stackCount": 1,
   "craftingHours": 48,

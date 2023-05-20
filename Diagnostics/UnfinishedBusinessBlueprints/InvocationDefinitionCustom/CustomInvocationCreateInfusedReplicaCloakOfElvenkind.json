@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Cloak of Elvenkind",
-    "description": "Create replica <b>Cloak of Elvenkind</b>:\nCrafted in Colthannin for human allies of the Realm protecting its borders.",
+    "description": "Create replica <b>Cloak of Elvenkind</b>:\nCrafted in Colthannin for the human allies of the Realm protecting its borders. Grants advantage to stealth checks, and cancels an enemy's perception check advantage to spot you when you're attacking it in stealth mode.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3124142bf93da194aa3445e39c3730a2",

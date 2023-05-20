@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Cloud_Diamond:0628b557ed40b7c448824b81c07a93bc",
   "stackCount": 1,
   "craftingHours": 16,

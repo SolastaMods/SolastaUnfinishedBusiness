@@ -31,10 +31,10 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": true,
+  "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Common",
+  "itemRarity": "Uncommon",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -43,7 +43,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AbilityCheckAffinityBootsOfElvenkind:17eca78aa96076a49868007a5f2669a5",
       "conditionDefinition": null,
-      "knowledgeAffinity": "ActiveAndVisible"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,
@@ -207,10 +207,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -226,8 +229,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

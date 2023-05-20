@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CEHalberdPrimed:427fd7f7-e936-570e-9b69-7cf96e9cf5b9",
   "stackCount": 1,
   "craftingHours": 8,

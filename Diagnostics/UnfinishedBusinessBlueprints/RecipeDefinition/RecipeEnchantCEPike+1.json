@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CEPike+1:a320f51a-8030-5665-b979-2ca9629c0106",
   "stackCount": 1,
   "craftingHours": 24,

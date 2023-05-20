@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_PrimordialLavaStones:7d79576058568e54296eca2ebd5b405a",
   "stackCount": 1,
   "craftingHours": 16,

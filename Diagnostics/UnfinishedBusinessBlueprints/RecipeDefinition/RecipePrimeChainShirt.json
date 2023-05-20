@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed ChainShirt:b0fb4b95b6cb56b4688f4e1f9aac72f9",
   "stackCount": 1,
   "craftingHours": 8,

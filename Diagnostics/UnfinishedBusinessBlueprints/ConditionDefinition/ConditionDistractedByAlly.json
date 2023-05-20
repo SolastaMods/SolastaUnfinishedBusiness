@@ -3,12 +3,11 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityTrueStrike:fbe1bf0aba1a9d54abeb4422b2480d90"
-  ],
-  "allowMultipleInstances": false,
+  "features": [],
+  "allowMultipleInstances": true,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -16,9 +15,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "Attacked"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -223,7 +220,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -269,8 +266,8 @@
     "description": "Condition/&ConditionDistractedByAllyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
-      "m_SubObjectName": "ConditionGuided",
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

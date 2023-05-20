@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed_Longsword:fedb8a0303ddee5418483cd9eaa8fb3f",
   "stackCount": 1,
   "craftingHours": 8,
