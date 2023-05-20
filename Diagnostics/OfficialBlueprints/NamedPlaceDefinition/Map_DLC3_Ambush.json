@@ -1,0 +1,31 @@
+{
+  "$type": "NamedPlaceDefinition, Assembly-CSharp",
+  "namedPlaceType": "PointOfInterest",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NamedPlace/&DLC3_Ambush_Title",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "5a2348b8bc9fe234b9f177cf97b6bfcb",
+  "contentPack": "BaseGame",
+  "name": "Map_DLC3_Ambush"
+}

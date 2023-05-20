@@ -1,0 +1,36 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "type": "Event",
+  "challengeRating": 2,
+  "locationOverride": "Definition:DLC3_Ambush_LocationDB:12f8dc518b00db44eb22e7d9e9824a2b",
+  "locationBlacklist": [],
+  "monsterOccurences": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_Ambush_EventTitle",
+    "description": "Encounter/&DLC3_Ambush_EventDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "4faef9c8acacb2e419ef1fb7a72f59a4",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Ambush_Event"
+}

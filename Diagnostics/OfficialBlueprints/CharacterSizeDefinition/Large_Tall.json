@@ -1,0 +1,46 @@
+{
+  "$type": "CharacterSizeDefinition, Assembly-CSharp",
+  "wieldingSize": "Large",
+  "carryingSize": "Large",
+  "minExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "maxExtent": {
+    "$type": "TA.int3, Assembly-CSharp",
+    "x": 1,
+    "y": 2,
+    "z": 1
+  },
+  "visionHeightFactor": 0.93,
+  "bestiaryScaleFactor": 0.5,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Size/&LargeTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "08917edea859e8b4bad3f3eb9be6360b",
+  "contentPack": "BaseGame",
+  "name": "Large_Tall"
+}

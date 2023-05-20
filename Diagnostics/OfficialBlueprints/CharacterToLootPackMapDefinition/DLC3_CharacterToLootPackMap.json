@@ -1,0 +1,93 @@
+{
+  "$type": "CharacterToLootPackMapDefinition, Assembly-CSharp",
+  "mappingMode": "Class",
+  "characterClassToLootPackMappings": [
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Barbarian",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Barbarian:c1618a42a414fd941a7b6d91cbfbfd81"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Bard",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Bard:e27a7012cfa51ea4387fe23267c7f46f"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Cleric",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Cleric:d6fd0c1a8fba4064485480415d83b3d1"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Druid",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Druid:12dd4e71e06e5aa49b261efb3f8538e6"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Fighter",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Fighter:7c46e55e577305b4ba093e6355ee1499"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Monk",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Monk:aa6e402fd74e695459413dd31cedb2fd"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Paladin",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Paladin:e1d7bc7e237bfee43b87b8ded8d7e977"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Ranger",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Ranger:b11ea7c972bb40e4f839ce62d7063adb"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Rogue",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Rogue:b444bc31c62d85c439c8caf4dbbbe6f0"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Sorcerer",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Sorcerer:dd5a9ed0ea7c40340bd7efb5f3b40937"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Warlock",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Warlock:36e1f6c5dc7401642950477efbf1f164"
+    },
+    {
+      "$type": "CharacterToLootPackMapDefinition+CharacterClassToLootPackMapping, Assembly-CSharp",
+      "className": "Wizard",
+      "lootPack": "Definition:DLC3_Class_Lootpack_BasicChest_Wizard:a8230d844fd12c34881760cda06a6efc"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fffdc0c90bd2656479b226923e46be2c",
+  "contentPack": "BaseGame",
+  "name": "DLC3_CharacterToLootPackMap"
+}

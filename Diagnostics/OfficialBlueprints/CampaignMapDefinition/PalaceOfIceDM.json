@@ -1,0 +1,58 @@
+{
+  "$type": "CampaignMapDefinition, Assembly-CSharp",
+  "largeBackgroundImage": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "fc32731d3638fba41b0e55931c0ba118",
+    "m_SubObjectName": "CampaignMapsDM_POI_Large",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4b1b3e7f02497854e96e48bc7e9adcf9",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "graphicsCampaignMapReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "2d1bd9639780d4b479341d90cdd75277",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "graphicsCampaignMapBounds": {
+    "$type": "UnityEngine.Bounds, UnityEngine.CoreModule"
+  },
+  "decalTextureReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "777b4ff099f466d4f8a3872ec6d86faf",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Campaign/&DLC3_Title",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "20d077bad9bdf6f4a963358f3382e7fa",
+      "m_SubObjectName": "CampaignMapsDM_POI_Small",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1e18cd488977eba4eb095be7046e13c1",
+  "contentPack": "BaseGame",
+  "name": "PalaceOfIceDM"
+}
