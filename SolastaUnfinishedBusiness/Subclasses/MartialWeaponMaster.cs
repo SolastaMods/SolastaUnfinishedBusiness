@@ -40,7 +40,6 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         var featureSpecializationDisadvantage = FeatureDefinitionBuilder
             .Create($"Feature{Name}{Specialization}Disadvantage")
             .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature, hidden: true)
-            .SetCustomSubFeatures()
             .AddToDB();
 
         featureSpecializationDisadvantage.SetCustomSubFeatures(
@@ -279,7 +278,13 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var bonus = IsWeaponMaster(character) && characterLevel >= 15 ? 2 : 1;
+            var bonus = !IsWeaponMaster(character)
+                ? 0
+                : characterLevel >= 17
+                    ? 3
+                    : characterLevel >= 9
+                        ? 2
+                        : 1;
 
             attackMode.ToHitBonus += bonus;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
