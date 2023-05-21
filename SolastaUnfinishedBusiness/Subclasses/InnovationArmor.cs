@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,8 +10,10 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static ConditionForm;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
@@ -210,6 +211,27 @@ public static class InnovationArmor
 
     private static FeatureDefinition BuildPerfectedArmor()
     {
+        var guardian = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorArmorerPerfectedArmorGuardian")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
+            {
+                if (mode.sourceDefinition is not ItemDefinition weapon)
+                {
+                    return false;
+                }
+
+                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
+            }))
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add))
+                .Build())
+            .AddToDB();
+
         var infiltrator = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageInventorArmorerPerfectedArmorInfiltrator")
             .SetGuiPresentation(Category.Feature)
@@ -260,6 +282,7 @@ public static class InnovationArmor
             .Create("FeatureSetInventorArmorerPerfectedArmor")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
+                guardian,
                 infiltrator
             )
             .AddToDB();
