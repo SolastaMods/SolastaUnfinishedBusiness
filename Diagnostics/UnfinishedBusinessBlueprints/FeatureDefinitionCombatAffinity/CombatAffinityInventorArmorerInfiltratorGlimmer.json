@@ -21,7 +21,7 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": 1003,
+  "situationalContext": "TargetIsEffectSource",
   "requiredCondition": null,
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],
@@ -37,12 +37,7 @@
     "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
-    "spriteReference": {
-      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    },
+    "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -56,7 +51,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "04d5a49c-802c-5f48-97ca-4d42b9e6b4c6",
+  "guid": "061b6e96-3e0d-5452-8935-e9d22e5e8291",
   "contentPack": 9999,
-  "name": "CombatAffinityThunderGauntletDistract"
+  "name": "CombatAffinityInventorArmorerInfiltratorGlimmer"
 }

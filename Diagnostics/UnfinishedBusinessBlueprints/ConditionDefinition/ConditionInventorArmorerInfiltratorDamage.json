@@ -2,20 +2,24 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [],
+  "conditionType": "Detrimental",
+  "features": [
+    "Definition:CombatAffinityInventorArmorerInfiltratorDamage:9b9db198-5bd5-5bc0-9736-c5b259e972eb"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [],
+  "turnOccurence": "EndOfTurn",
+  "specialInterruptions": [
+    9000
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -25,11 +29,11 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
-  "additionalDamageWhenHit": false,
+  "additionalDamageWhenHit": true,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "",
-  "additionalDamageQuantity": "AbilityBonus",
-  "additionalDamageDieType": "D1",
+  "additionalDamageType": "DamageLightning",
+  "additionalDamageQuantity": "Dice",
+  "additionalDamageDieType": "D6",
   "additionalDamageDieNumber": 1,
   "additionalConditionWhenHit": false,
   "additionalCondition": null,
@@ -85,7 +89,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -126,14 +130,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Condition/&ConditionInventorArmorerInfiltratorDamageTitle",
+    "description": "Condition/&ConditionInventorArmorerInfiltratorDamageDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -148,7 +152,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "775d0214-8c91-57fc-b816-5946397e5dae",
+  "guid": "512a908e-0f20-5338-947e-b3b4e21435f5",
   "contentPack": 9999,
-  "name": "ConditionLauncherAttackMarker"
+  "name": "ConditionInventorArmorerInfiltratorDamage"
 }

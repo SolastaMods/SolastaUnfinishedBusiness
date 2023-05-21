@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerUseModifierInventorInfusionPoolArmorModification:8c89aae6-509c-5fd8-8b20-b8675387acbc",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetInventorArmorerPerfectedArmor:2db0484b-1b42-59cc-a851-aa3c1546c2df",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],
