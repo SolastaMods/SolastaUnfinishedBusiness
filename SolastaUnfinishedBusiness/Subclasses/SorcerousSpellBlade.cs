@@ -38,11 +38,10 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
             .AddToDB();
 
-        var featureEnchantWeapon = FeatureDefinitionPowerBuilder
+        var featureEnchantWeapon = FeatureDefinitionBuilder
             .Create($"Feature{Name}EnchantWeapon")
             .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
-                Hidden.Marker,
                 new CanUseAttribute(AttributeDefinitions.Charisma, ValidatorsWeapon.IsWeaponInMainHand))
             .AddToDB();
 
