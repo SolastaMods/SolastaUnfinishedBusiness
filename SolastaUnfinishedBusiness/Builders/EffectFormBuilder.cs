@@ -302,6 +302,17 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal static EffectForm LightSourceForm(LightSourceType lightSourceType,
+        int brightRange,
+        int dimAdditionalRange,
+        Color color,
+        AssetReference graphicsPrefabReference = null)
+    {
+        return Create()
+            .SetLightSourceForm(lightSourceType, brightRange, dimAdditionalRange, color, graphicsPrefabReference)
+            .Build();
+    }
+
     internal EffectFormBuilder SetLightSourceForm(
         LightSourceType lightSourceType,
         int brightRange,
