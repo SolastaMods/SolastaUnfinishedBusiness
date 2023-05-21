@@ -253,6 +253,7 @@ public static class InnovationArmor
                     //.AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
                     .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
+                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorGlimmer", Category.Condition)
                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                         .SetSituationalContext(SituationalContext.TargetIsEffectSource)
                         .AddToDB())
@@ -266,6 +267,7 @@ public static class InnovationArmor
                     .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
                     .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                         .Create("CombatAffinityInventorArmorerInfiltratorDamage")
+                        .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage", Category.Condition)
                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                         .AddToDB())
                     .AddToDB(), ConditionOperation.Add))
