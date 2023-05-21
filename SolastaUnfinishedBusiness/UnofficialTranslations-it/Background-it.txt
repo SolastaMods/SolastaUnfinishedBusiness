@@ -31,4 +31,4 @@ Background/&Artist_Description=Hai un talento creativo, innato o sviluppato in a
 Background/&Occultist_Title=Occultista
 Background/&Occultist_Description=Hai dedicato la tua vita allo studio della conoscenza nascosta e proibita. Dove gli altri seguono percorsi accademici ben battuti, ti imbatti nell'ignoto intellettuale, che è sorprendente e pericoloso come qualsiasi natura selvaggia letterale.
 Background/&Aescetic_Title=Asceta
-Background/&Aescetic_Description=Eviti il ​​mondo e le sue preoccupazioni materiali, dedicandoti alla perfezione spirituale e intellettuale. Il lusso e persino il comfort sono un anatema per te, perché addolciscono lo spirito e distraggono la mente da ciò che è veramente importante.
+Background/&Aescetic_Description=Eviti il mondo e le sue preoccupazioni materiali, dedicandoti alla perfezione spirituale e intellettuale. Il lusso e persino il comfort sono un anatema per te, perché addolciscono lo spirito e distraggono la mente da ciò che è veramente importante.

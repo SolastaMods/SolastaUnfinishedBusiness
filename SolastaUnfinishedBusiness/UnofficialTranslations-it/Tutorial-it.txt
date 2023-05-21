@@ -17,4 +17,4 @@ Tutorials/&Tutorial_DLC_ShootTree_Description=La maggior parte di questi oggetti
 Tutorials/&Tutorial_DLC_HiddenMinorGate_Title=Porta Minore Nascosta
 Tutorials/&Tutorial_DLC_HiddenMinorGate_Description=La Porta Minore è nascosta tra questo fogliame. Distruggi il fogliame per accedere al cancello e usalo.
 Tutorials/&Tuto_Attack_Neutral_Title=Attaccare i personaggi neutrali
-Tutorials/&Tuto_Attack_Neutral_Description=Per attaccare un personaggio neutrale, metti il ​​tuo gruppo in modalità cauta, avvicinati al bersaglio e seleziona un'opzione di attacco o un incantesimo. Mira al personaggio bersaglio, quindi conferma. Se il bersaglio è amichevole, la tua relazione sarà danneggiata e quel personaggio potrebbe odiarti abbastanza da vendicarti.
+Tutorials/&Tuto_Attack_Neutral_Description=Per attaccare un personaggio neutrale, metti il tuo gruppo in modalità cauta, avvicinati al bersaglio e seleziona un'opzione di attacco o un incantesimo. Mira al personaggio bersaglio, quindi conferma. Se il bersaglio è amichevole, la tua relazione sarà danneggiata e quel personaggio potrebbe odiarti abbastanza da vendicarti.

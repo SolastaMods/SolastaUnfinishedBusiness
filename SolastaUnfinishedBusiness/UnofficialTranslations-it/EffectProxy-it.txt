@@ -23,6 +23,6 @@ EffectProxy/&ProxyMoonBeamTitle=Raggio di Luna
 EffectProxy/&ProxyMoonBeamDescription=Sposta il raggio lunare fino a 12 celle.
 EffectProxy/&ProxyCallLightningTitle=Chiama Fulmine
 EffectProxy/&ProxyCallLightningDescription=Colpisci tutti i bersagli entro 1 casella dall'impatto con danni da fulmine.
-EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription=Sposta gli Spiriti vendicativi in ​​una posizione diversa.
+EffectProxy/&ProxyHauntedSoulVengefulSpiritsDescription=Sposta gli Spiriti vendicativi in una posizione diversa.
 EffectProxy/&DelayedBlastFireballTitle=Palla di fuoco esplosiva ritardata
 EffectProxy/&DelayedBlastFireballDefinition=Una palla di fuoco che esploderà al tuo comando o ogni volta che l'incantesimo viene terminato o interrotto.

@@ -21,6 +21,6 @@ Class/&DruidTitle=druida
 Class/&WarlockTitle=Brujo
 Class/&WarlockDescription=Donde los magos extraen su poder mágico del estudio y los hechiceros de las líneas de sangre mágicas, los brujos obtienen poder a través de un pacto con un patrón poderoso: un demonio, tal vez, o alguna otra entidad poderosa. La naturaleza de los poderes de un brujo varía según la naturaleza del patrón y los detalles del pacto.
 Class/&BardTitle=Bardo
-Class/&BardDescription=Si bien son luchadores capaces, el verdadero poder de los bardos radica en sus palabras y su música. Pueden inspirar a quienes los escuchan, levantarles el ánimo y afectar sus mentes de otras maneras. También están bien versados ​​​​en la tradición y la magia.
+Class/&BardDescription=Si bien son luchadores capaces, el verdadero poder de los bardos radica en sus palabras y su música. Pueden inspirar a quienes los escuchan, levantarles el ánimo y afectar sus mentes de otras maneras. También están bien versados en la tradición y la magia.
 Class/&MonkTitle=Monje
 Class/&MonkDescription=A pesar de su nombre, no todos los monjes viven una vida religiosa contemplativa. Sin embargo, todos se han dedicado a entrenar sus mentes y cuerpos casi a la perfección, lo que les permite realizar hazañas que dejan a los demás sin habla con asombro.
