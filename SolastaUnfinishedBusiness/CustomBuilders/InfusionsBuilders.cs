@@ -23,6 +23,7 @@ internal static class InventorInfusions
     private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
     private const int UpgradeLevel = 10;
+    private static readonly ICustomUnicityTag MagicalDamage = new CustomUnicityTag("MagicalDamage");
 
     public static void Build()
     {
@@ -149,6 +150,7 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
@@ -181,6 +183,7 @@ internal static class InventorInfusions
         BuildInfuseItemPowerInvocation(6, name, sprite, IsWeapon, FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{name}")
             .SetGuiPresentation(name, Category.Feature)
+            .SetCustomSubFeatures(MagicalDamage)
             .SetNotificationTag(name)
             .SetDamageDice(DieType.D6, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
@@ -252,6 +255,7 @@ internal static class InventorInfusions
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create($"AdditionalDamage{name}{element}")
                     .SetGuiPresentation(title, description, ConditionDefinitions.ConditionProtectedFromEnergyLightning)
+                    .SetCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
                     .SetSpecificDamageType(element)

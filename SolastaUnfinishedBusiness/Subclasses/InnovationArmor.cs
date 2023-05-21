@@ -8,10 +8,13 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
+using UnityEngine;
+using static ConditionForm;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -28,6 +31,7 @@ public static class InnovationArmor
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddFeaturesAtLevel(9, BuildArmorModification())
+            .AddFeaturesAtLevel(15, BuildPerfectedArmor())
             .AddToDB();
     }
 
@@ -126,12 +130,8 @@ public static class InnovationArmor
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Remove, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Add, true)
-                        .Build()
+                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
+                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true)
                 )
                 .Build())
             .AddToDB();
@@ -152,12 +152,8 @@ public static class InnovationArmor
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Remove, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Add, true)
-                        .Build())
+                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
+                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
                 .Build())
             .AddToDB();
 
@@ -201,6 +197,87 @@ public static class InnovationArmor
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(ArmorerInfusions.Marker)
             .SetFixedValue(InventorClass.InfusionPool, 2)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildPerfectedArmor()
+    {
+        var guardian = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorArmorerPerfectedArmorGuardian")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
+            {
+                if (mode.sourceDefinition is not ItemDefinition weapon)
+                {
+                    return false;
+                }
+
+                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.ThunderGauntletType.Name;
+            }))
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add))
+                .Build())
+            .AddToDB();
+
+        var infiltrator = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
+            .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
+            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
+            {
+                if (mode.sourceDefinition is not ItemDefinition weapon)
+                {
+                    return false;
+                }
+
+                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
+            }))
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetNoSavingThrow()
+                .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
+                    new Color(0.9f, 0.78f, 0.62f),
+                    FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm
+                        .graphicsPrefabReference))
+                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                    .Create("ConditionInventorArmorerInfiltratorGlimmer")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                    .Detrimental()
+                    .SetPossessive()
+                    //.AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
+                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
+                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                        .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+                        .AddToDB())
+                    .AddToDB(), ConditionOperation.Add))
+                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                    .Create("ConditionInventorArmorerInfiltratorDamage")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+                    .Detrimental()
+                    .SetPossessive()
+                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                    .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
+                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityInventorArmorerInfiltratorDamage")
+                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                        .AddToDB())
+                    .AddToDB(), ConditionOperation.Add))
+                .Build())
+            .AddToDB();
+
+        return FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetInventorArmorerPerfectedArmor")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                guardian,
+                infiltrator
+            )
             .AddToDB();
     }
 
@@ -319,7 +396,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            var modes = new List<RulesetAttackMode> { attackMode };
+            var modes = new List<RulesetAttackMode> {attackMode};
 
             var main = hero.GetMainWeapon();
             var off = hero.GetOffhandWeapon();
@@ -411,7 +488,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 

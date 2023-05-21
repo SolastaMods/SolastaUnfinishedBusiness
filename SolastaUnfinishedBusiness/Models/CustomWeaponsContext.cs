@@ -519,6 +519,7 @@ internal static class CustomWeaponsContext
 
         ProducedFlameDart = BuildWeapon("CEProducedFlameDart", ItemDefinitions.Dart, 0, true, Common,
             flame.ItemPresentation, icon: ProducedFlameThrow);
+        ProducedFlameDart.inDungeonEditor = false;
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
@@ -576,7 +577,7 @@ internal static class CustomWeaponsContext
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentation(CONDITION_NAME, Category.Condition)
+                    .SetGuiPresentationNoContent()
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
@@ -615,6 +616,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true)
             .Build());
