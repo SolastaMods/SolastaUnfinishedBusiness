@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
@@ -35,6 +36,14 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .AddPreparedSpellGroup(7, FireShield)
             .AddPreparedSpellGroup(9, MindTwist)
             .AddPreparedSpellGroup(11, GlobeOfInvulnerability)
+            .AddToDB();
+
+        var featureEnchantWeapon = FeatureDefinitionPowerBuilder
+            .Create($"Feature{Name}EnchantWeapon")
+            .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
+            .SetCustomSubFeatures(
+                Hidden.Marker,
+                new CanUseAttribute(AttributeDefinitions.Charisma, ValidatorsWeapon.IsWeaponInMainHand))
             .AddToDB();
 
         var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
@@ -169,7 +178,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("SorcererSpellBlade", Resources.SorcererSpellBlade, 256))
             .AddFeaturesAtLevel(1,
-                PowerArcaneFighterEnchantWeapon,
+                featureEnchantWeapon,
                 featureSetMartialTraining,
                 autoPreparedSpells,
                 featureSetManaShield)
