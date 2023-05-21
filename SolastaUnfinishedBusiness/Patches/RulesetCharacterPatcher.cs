@@ -136,16 +136,9 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static void Postfix([CanBeNull] RulesetCharacter target)
         {
-            if (target == null) { return;}
-            
             //PATCH: Allows condition interruption after target was attacked
-            target.ProcessConditionsMatchingInterruption(
+            target?.ProcessConditionsMatchingInterruption(
                 (RuleDefinitions.ConditionInterruption)ExtraConditionInterruption.AfterWasAttacked);
-
-            foreach (var condition in target.conditionsByCategory.SelectMany(k => k.Value))
-            {
-                AddMarkerToCondition.RemoveMarker(condition, MarkAsRemoveAfterAttacked.MARK);
-            }
         }
     }
 
