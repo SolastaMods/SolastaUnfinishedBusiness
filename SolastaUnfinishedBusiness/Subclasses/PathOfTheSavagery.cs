@@ -79,6 +79,7 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
+            .CopyParticleReferences(ConditionDefinitions.ConditionStunned)
             .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
             .AddFeatures(ConditionDefinitions.ConditionIncapacitated.Features.ToArray())
             .AddToDB();
@@ -103,6 +104,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                             .Build())
                     .Build())
             .AddToDB();
+
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionEndParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionStartParticleReference;
 
         var featureWrathAndFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}WrathAndFury")
