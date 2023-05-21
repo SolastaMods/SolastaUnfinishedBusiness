@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
@@ -224,50 +223,52 @@ public static class InnovationArmor
                 .Build())
             .AddToDB();
 
-        var infiltrator = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageInventorArmorerPerfectedArmorInfiltrator")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new RestrictedContextValidator(((_, _, _, item, _, _, _) => (
-                OperationType.Set,
-                item.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name))))
-            .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
-            .AddLightSourceForm(new LightSourceForm
+        var infiltrator = FeatureDefinitionPowerBuilder
+            .Create("PowerInventorArmorerPerfectedArmorInfiltrator")
+            .SetGuiPresentationNoContent() //since this power has no saving throw payer won't see it anywhere
+            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
             {
-                brightRange = 0,
-                dimAdditionalRange = 1,
-                lightSourceType = LightSourceType.Basic,
-                color = new Color(0.9f, 0.78f, 0.62f),
-                graphicsPrefabReference = FeatureDefinitionAdditionalDamages
-                    .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
-            })
-            .AddCondition(ConditionDefinitionBuilder
-                .Create("ConditionInventorArmorerInfiltratorGlimmer")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                .Detrimental()
-                .SetPossessive()
-                .AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
-                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
-                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                    .SetSituationalContext(SituationalContext.TargetIsEffectSource)
-                    .AddToDB())
-                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .AddToDB())
-            .AddCondition(ConditionDefinitionBuilder
-                .Create("ConditionInventorArmorerInfiltratorDamage")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
-                .Detrimental()
-                .SetPossessive()
-                .AllowMultipleInstances()
-                .SetCustomSubFeatures(MarkAsRemoveAfterAttacked.Instance)
-                .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
-                .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
-                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityInventorArmorerInfiltratorDamage")
-                    .SetAttackOnMeAdvantage(AdvantageType.Advantage)
-                    .AddToDB())
-                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
-                .AddToDB())
+                if (mode.sourceDefinition is not ItemDefinition weapon)
+                {
+                    return false;
+                }
+
+                return weapon.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name;
+            }))
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetNoSavingThrow()
+                .AddEffectForms(EffectFormBuilder.LightSourceForm(LightSourceType.Basic, 0, 1,
+                    new Color(0.9f, 0.78f, 0.62f),
+                    FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.LightSourceForm
+                        .graphicsPrefabReference))
+                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                    .Create("ConditionInventorArmorerInfiltratorGlimmer")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                    .Detrimental()
+                    .SetPossessive()
+                    //.AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
+                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityInventorArmorerInfiltratorGlimmer")
+                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                        .SetSituationalContext(SituationalContext.TargetIsEffectSource)
+                        .AddToDB())
+                    .AddToDB(), ConditionOperation.Add))
+                .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
+                    .Create("ConditionInventorArmorerInfiltratorDamage")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+                    .Detrimental()
+                    .SetPossessive()
+                    .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
+                    .AdditionalDiceDamageWhenHit(1, DieType.D6, AdditionalDamageType.Specific, DamageTypeLightning)
+                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                        .Create("CombatAffinityInventorArmorerInfiltratorDamage")
+                        .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                        .AddToDB())
+                    .AddToDB(), ConditionOperation.Add))
+                .Build())
             .AddToDB();
 
         return FeatureDefinitionFeatureSetBuilder
