@@ -519,6 +519,7 @@ internal static class CustomWeaponsContext
 
         ProducedFlameDart = BuildWeapon("CEProducedFlameDart", ItemDefinitions.Dart, 0, true, Common,
             flame.ItemPresentation, icon: ProducedFlameThrow);
+        ProducedFlameDart.inDungeonEditor = false;
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
