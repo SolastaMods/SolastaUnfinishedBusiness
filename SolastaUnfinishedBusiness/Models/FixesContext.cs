@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -6,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -20,6 +22,7 @@ internal static class FixesContext
     internal static void LateLoad()
     {
         // REQUIRED FIXES
+        FixColorTables();
         FixAttackBuffsAffectingSpellDamage();
         FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
         FixDivineStrikeRestrictions();
@@ -35,6 +38,9 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixWildshapeGroupAttacks();
+
+        // avoid folks tweaking max party size directly on settings as we don't need to stress cloud servers
+        Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
 
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
@@ -53,6 +59,16 @@ internal static class FixesContext
             IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    private static void FixColorTables()
+    {
+        //BUGFIX: expand color tables
+        for (var i = 21; i < 33; i++)
+        {
+            Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
+            Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
+        }
+    }
+
     /**
      * Makes Divine Strike trigger only from melee attacks.
      */
@@ -66,7 +82,7 @@ internal static class FixesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
     }
-    
+
     /**
      * Makes Divine Smite trigger only from melee attacks.
      * This wasn't relevant until we changed how SpendSpellSlot trigger works.
@@ -240,7 +256,7 @@ internal static class FixesContext
 
     private static void FixWildshapeGroupAttacks()
     {
-        var monsters = new List<MonsterDefinition>()
+        var monsters = new List<MonsterDefinition>
         {
             WildShapeApe,
             WildshapeBlackBear,
