@@ -51,8 +51,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature)
+            // trick to keep it hidden on UI
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetCustomSubFeatures(
-                Hidden.Marker,
                 new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered))
             .AddToDB();
 
