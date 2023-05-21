@@ -576,7 +576,7 @@ internal static class CustomWeaponsContext
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentation(CONDITION_NAME, Category.Condition)
+                    .SetGuiPresentationNoContent()
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())

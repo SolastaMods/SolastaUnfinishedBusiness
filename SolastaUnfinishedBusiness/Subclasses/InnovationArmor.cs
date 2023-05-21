@@ -131,12 +131,8 @@ public static class InnovationArmor
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Remove, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Add, true)
-                        .Build()
+                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Remove, true),
+                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Add, true)
                 )
                 .Build())
             .AddToDB();
@@ -157,12 +153,8 @@ public static class InnovationArmor
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Remove, true)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Add, true)
-                        .Build())
+                    EffectFormBuilder.ConditionForm(guardianMarker, ConditionOperation.Remove, true),
+                    EffectFormBuilder.ConditionForm(infiltratorMarker, ConditionOperation.Add, true))
                 .Build())
             .AddToDB();
 
@@ -234,7 +226,7 @@ public static class InnovationArmor
 
         var infiltrator = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageInventorArmorerPerfectedArmorInfiltrator")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new RestrictedContextValidator(((_, _, _, item, _, _, _) => (
                 OperationType.Set,
                 item.weaponDefinition?.WeaponType == CustomWeaponsContext.LightningLauncherType.Name))))
@@ -245,12 +237,12 @@ public static class InnovationArmor
                 dimAdditionalRange = 1,
                 lightSourceType = LightSourceType.Basic,
                 color = new Color(0.9f, 0.78f, 0.62f),
-                graphicsPrefabReference = DatabaseHelper.FeatureDefinitionAdditionalDamages
+                graphicsPrefabReference = FeatureDefinitionAdditionalDamages
                     .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
             })
             .AddCondition(ConditionDefinitionBuilder
                 .Create("ConditionInventorArmorerInfiltratorGlimmer")
-                .SetGuiPresentation(Category.Condition, DatabaseHelper.ConditionDefinitions.ConditionDazzled)
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
                 .Detrimental()
                 .SetPossessive()
                 .AllowMultipleInstances() //TODO: add a way to make only last condition from same source active on same target
@@ -263,7 +255,7 @@ public static class InnovationArmor
                 .AddToDB())
             .AddCondition(ConditionDefinitionBuilder
                 .Create("ConditionInventorArmorerInfiltratorDamage")
-                .SetGuiPresentation(Category.Condition, DatabaseHelper.ConditionDefinitions.ConditionBranded)
+                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
                 .Detrimental()
                 .SetPossessive()
                 .AllowMultipleInstances()
