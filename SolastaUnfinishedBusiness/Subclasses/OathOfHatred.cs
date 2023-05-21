@@ -1,5 +1,10 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -134,6 +139,54 @@ internal sealed class OathOfHatred : AbstractSubclass
                 FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
             .AddToDB();
 
+        //
+        // Level 20
+        //
+
+        var featureHatredArdentHate = FeatureDefinitionBuilder
+            .Create("FeatureHatredArdentHate")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var savingThrowAffinityHatredArdentHate = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create("SavingThrowAffinityHatredArdentHate")
+            .SetGuiPresentation("PowerHatredArdentHate", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Advantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionHatredArdentHate = ConditionDefinitionBuilder
+            .Create("ConditionHatredArdentHate")
+            .SetGuiPresentation(Category.Condition, ConditionDispellingEvilAndGood)
+            .SetPossessive()
+            .AddFeatures(featureHatredArdentHate, savingThrowAffinityHatredArdentHate)
+            .AddToDB();
+
+        var powerHatredArdentHate = FeatureDefinitionPowerBuilder
+            .Create("PowerHatredArdentHate")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerArdentHate", Resources.PowerArdentHate, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHatredArdentHate, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        featureHatredArdentHate.SetCustomSubFeatures(new CustomBehaviorArdentHate(powerHatredArdentHate));
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("OathOfHatred")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfHatred", Resources.OathOfHatred, 256))
@@ -144,6 +197,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                 powerHatredScornfulPrayer)
             .AddFeaturesAtLevel(7, featureDauntlessPursuer)
             .AddFeaturesAtLevel(15, featureSetHatredResistance)
+            .AddFeaturesAtLevel(20, powerHatredArdentHate)
             .AddToDB();
     }
 
@@ -197,6 +251,69 @@ internal sealed class OathOfHatred : AbstractSubclass
                 0,
                 0,
                 0);
+        }
+    }
+
+    private sealed class CustomBehaviorArdentHate : IIgnoreDamageAffinity, IPhysicalAttackTryAlterOutcome
+    {
+        private readonly FeatureDefinitionPower _power;
+
+        public CustomBehaviorArdentHate(FeatureDefinitionPower power)
+        {
+            _power = power;
+        }
+
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor)
+        {
+            return provider.DamageAffinityType == DamageAffinityType.Resistance;
+        }
+
+        public IEnumerator OnAttackTryAlterOutcome(
+            GameLocationBattleManager battle,
+            CharacterAction action,
+            GameLocationCharacter me,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            var rulesetAttacker = me.RulesetCharacter;
+
+            if (rulesetAttacker == null || me.UsedSpecialFeatures.ContainsKey(_power.Name))
+            {
+                yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            var guiMe = new GuiCharacter(me);
+            var guiTarget = new GuiCharacter(target);
+
+            var reactionParams = new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+            {
+                StringParameter = Gui.Format("Reaction/&CustomReactionHatredArdentHateDescription",
+                    guiMe.Name,
+                    guiTarget.Name)
+            };
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("HatredArdentHate", reactionParams);
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            me.UsedSpecialFeatures.TryAdd(_power.Name, 1);
+            action.AttackRoll += -action.AttackSuccessDelta;
+            action.AttackSuccessDelta = 0;
+            action.AttackRollOutcome = RollOutcome.Success;
         }
     }
 }
