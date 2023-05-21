@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierTraditionLightPurityOfLightTitle",
-    "description": "Feature/&AttributeModifierTraditionLightPurityOfLightDescription",
+    "title": "Feature/&AttributeModifierTraditionFreedomFluidStrikesTitle",
+    "description": "Feature/&AttributeModifierTraditionFreedomFluidStrikesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c896033-11b5-5ba0-a63a-9477e39c5855",
+  "guid": "2f4ab8ff-7f89-531d-9e0d-66c4e100e317",
   "contentPack": 9999,
-  "name": "AttributeModifierTraditionLightPurityOfLight"
+  "name": "AttributeModifierTraditionFreedomFluidStrikes"
 }

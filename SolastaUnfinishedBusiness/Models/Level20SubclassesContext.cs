@@ -244,13 +244,13 @@ internal static class Level20SubclassesContext
         // Freedom
         //
 
-        var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierTraditionLightPurityOfLight")
+        var attributeModifierTraditionFreedomFluidStrikes = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierTraditionFreedomFluidStrikes")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
-        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionLightPurityOfLight, 17));
+        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionFreedomFluidStrikes, 17));
 
         //
         // Light
