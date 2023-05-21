@@ -65,11 +65,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         // Wrath and Fury
 
-        var combatAffinityGrievousWound = FeatureDefinitionCombatAffinityBuilder
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}GrievousWound")
             .SetGuiPresentation($"Condition{Name}GrievousWound", Category.Condition)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
+        // END BACKWARD COMPATIBILITY
 
         var conditionGrievousWound = ConditionDefinitionBuilder
             .Create($"Condition{Name}GrievousWound")
@@ -77,7 +79,8 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(combatAffinityGrievousWound)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
+            .AddFeatures(ConditionDefinitions.ConditionIncapacitated.Features.ToArray())
             .AddToDB();
 
         var powerGrievousWound = FeatureDefinitionPowerBuilder
