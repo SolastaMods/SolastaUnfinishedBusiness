@@ -242,7 +242,7 @@ internal class EffectDescriptionBuilder
             advantageForEnemies,
             savingThrowAffinitiesBySense);
     }
-    
+
     internal EffectDescriptionBuilder HasSavingThrow(
         string savingThrowAbility,
         EffectDifficultyClassComputation difficultyClassComputation = EffectDifficultyClassComputation.FixedValue,

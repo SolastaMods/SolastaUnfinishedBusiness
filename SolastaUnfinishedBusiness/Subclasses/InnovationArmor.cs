@@ -219,7 +219,8 @@ public static class InnovationArmor
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add))
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add))
                 .Build())
             .AddToDB();
 
@@ -396,7 +397,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            var modes = new List<RulesetAttackMode> {attackMode};
+            var modes = new List<RulesetAttackMode> { attackMode };
 
             var main = hero.GetMainWeapon();
             var off = hero.GetOffhandWeapon();
@@ -488,7 +489,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
     }
 

@@ -123,7 +123,7 @@ internal class EffectFormBuilder
         effectForm.ConditionForm = conditionForm;
         return this;
     }
-    
+
     internal static EffectForm ConditionForm(
         ConditionDefinition condition,
         ConditionForm.ConditionOperation operation,

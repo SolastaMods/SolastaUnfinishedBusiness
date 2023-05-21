@@ -177,7 +177,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.lightSourceForm = form;
         return this;
     }
-    
+
     internal FeatureDefinitionAdditionalDamageBuilder AddLightSourceForm(LightSourceForm form)
     {
         Definition.addLightSource = true;

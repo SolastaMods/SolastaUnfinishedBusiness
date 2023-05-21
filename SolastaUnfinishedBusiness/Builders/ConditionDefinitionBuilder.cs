@@ -69,7 +69,8 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder AdditionalDiceDamageWhenHit(
         int dieNumber = 0,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
-        RuleDefinitions.AdditionalDamageType damageTypeDetermination = RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
+        RuleDefinitions.AdditionalDamageType damageTypeDetermination =
+            RuleDefinitions.AdditionalDamageType.SameAsBaseDamage,
         string damageType = null
     )
     {
@@ -111,7 +112,7 @@ internal class ConditionDefinitionBuilder
         Definition.conditionType = value;
         return this;
     }
-    
+
     internal ConditionDefinitionBuilder Detrimental()
     {
         return SetConditionType(RuleDefinitions.ConditionType.Detrimental);

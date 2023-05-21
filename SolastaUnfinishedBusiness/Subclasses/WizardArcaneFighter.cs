@@ -28,6 +28,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
+        // END BACKWARD COMPATIBILITY
 
         // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder

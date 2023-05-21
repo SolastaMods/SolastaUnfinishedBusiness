@@ -31,7 +31,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit)
             .AddToDB();
-        // END BACKWARD
+        // END BACKWARD COMPATIBILITY
 
         var unlearn = BuildUnlearn();
 
