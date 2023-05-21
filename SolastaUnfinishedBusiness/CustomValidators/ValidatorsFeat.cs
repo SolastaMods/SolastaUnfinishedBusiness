@@ -187,18 +187,23 @@ internal static class ValidatorsFeat
     [NotNull]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
-        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinition)
+        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinitions)
     {
         return (_, hero) =>
         {
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            if (characterClassDefinition.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinition).Any())
+            if (characterClassDefinitions.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinitions).Any())
             {
                 return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
             }
 
             var levels = hero.ClassesHistory.Count;
+
+            if (characterClassDefinitions.Length > 0)
+            {
+                levels = characterClassDefinitions.Max(x => hero.ClassesAndLevels[x]);
+            }
 
             return Main.Settings.DisableLevelPrerequisitesOnModFeats || levels >= minLevels
                 ? (true, guiFormat)
