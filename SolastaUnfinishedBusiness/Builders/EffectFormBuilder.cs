@@ -123,6 +123,18 @@ internal class EffectFormBuilder
         effectForm.ConditionForm = conditionForm;
         return this;
     }
+    
+    internal static EffectForm ConditionForm(
+        ConditionDefinition condition,
+        ConditionForm.ConditionOperation operation,
+        bool applyToSelf = false,
+        bool forceOnSelf = false,
+        params ConditionDefinition[] conditionsList)
+    {
+        return Create()
+            .SetConditionForm(condition, operation, applyToSelf, forceOnSelf, conditionsList)
+            .Build();
+    }
 
     internal EffectFormBuilder OverrideSavingThrowInfo(
         string savingThrowAbility,
