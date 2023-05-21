@@ -682,7 +682,7 @@ FeatureSetPathOfTheElementsElementalBurst	Description='Starting at 10th level, y
 FeatureSetPathOfTheElementsElementalConduit	Description='Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
 • <b>Storm</b>: While you are raging, you gain flying speed equal to your walking speed.
 • <b>Blizzard</b>: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.
-• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to half your barbarian level.'.
+• <b>Wildfire</b>:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to your barbarian level.'.
 InfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 InfusedReplicaBackpack_Bag_Of_Holding	Title='Replica Bag of Holding'.
 InfusedReplicaBeltOfGiantHillStrength	Title='Replica Belt of Giant Strength (Hill)'.
