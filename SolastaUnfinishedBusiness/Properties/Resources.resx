@@ -236,6 +236,11 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
+  <data name="PowerArdentHate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Powers/PowerArdentHate.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
+  </data>
   <data name="Entry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Map/Entry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
