@@ -47,6 +47,7 @@ InvocationDefinition
 ItemDefinition
 ItemFlagDefinition
 LanguageDefinition
+LootPackDefinition
 MetamagicOptionDefinition
 MonsterAttackDefinition
 MonsterDefinition
