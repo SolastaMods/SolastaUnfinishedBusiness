@@ -33,7 +33,7 @@ internal static class CustomWeaponsContext
     private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
+    internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
 
     internal static void Load()
     {
