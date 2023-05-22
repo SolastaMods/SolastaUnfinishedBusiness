@@ -1,3 +1,5 @@
+Condition/&ConditionOathOfDreadAspectOfDreadDescription=恐惧面相
+Condition/&ConditionOathOfDreadAspectOfDreadTitle=恐惧面相
 Condition/&ConditionOathOfDreadAuraOfDominationDescription=如果你感到害怕或恐惧，你的速度会降低到 0，并且你会受到等同于发射者圣武士等级一半的心灵伤害。
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=征服灵光
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=标记在针对你的攻击检定上具有优势。
@@ -6,12 +8,16 @@ Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=当一个被你的惩戒�
 Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=恐惧征伐
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=作为一个附赠动作，你可以使用你的引导神力惩戒 10 尺内的敌方生物。你在对该生物的攻击检定上获得优势，持续 1 分钟。
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=引导神力：惩戒威仪
+Feature/&PowerOathOfDreadAspectOfDreadDescription=作为一个动作，您在一分钟内获得以下好处：\n• 您可以抵抗所有伤害。\n• 您的所有武器攻击造成额外的 1d8 精神伤害。\n\n一旦您使用此功能，在你完成一次长休之前你不能再次使用它。
+Feature/&PowerOathOfDreadAspectOfDreadTitle=恐惧面相
 Feature/&PowerOathOfDreadAuraOfDomination18Description=你的支配光环范围增加到 30 英尺。
 Feature/&PowerOathOfDreadAuraOfDomination18Title=Improved Aura of DominationFeature/&PowerOathOfDreadAuraOfDominationDescription=从第 7 级开始，当你没有失能时，你不断地向 10 英尺内的所有敌人散发出威胁的光环。如果一个生物受到惊吓或恐惧，并在你的光环中开始它的回合，它的速度将降低为 0，并且该生物受到等同于你的圣武士等级一半的心灵伤害。在 18 级时，此光环的范围增加到 30 英尺。
 Feature/&PowerOathOfDreadAuraOfDominationDescription=从第 7 级开始，当你没有失能时，你不断地向 10 尺内的所有敌人散发出威胁的光环。如果一个生物受到惊吓或恐惧，并在你的光环中开始它的回合，它的速度将降低为 0，并且该生物受到等同于你的圣武士等级一半的心灵伤害。在 18 级时，此光环的范围增加到 30 尺。
 Feature/&PowerOathOfDreadAuraOfDominationTitle=征服灵光
 Feature/&PowerOathOfDreadDreadfulPresenceDescription=作为一个动作，你可以使用你的引导神力散发出可怕的气息。 30 尺内的每个敌方生物都必须成功进行感知豁免，否则会惊恐 1 分钟。每个受惊的生物都可以在其回合结束时重复豁免检定，成功则结束对自身的影响。
 Feature/&PowerOathOfDreadDreadfulPresenceTitle=引导神性：恐怖存在
+Feedback/&AdditionalDamageAspectOfDreadFormat=恐惧之相！
+Feedback/&AdditionalDamageAspectOfDreadLine={0} 对 {1} (+{2}) 进行恐惧攻击
 Reaction/&ReactionAttackHarrowingCrusadeDescription={0} 攻击了 {1}。你可以使用你的反应对其进行近战武器攻击。
 Reaction/&ReactionAttackHarrowingCrusadeReactDescription=用你的反应来攻击。
 Reaction/&ReactionAttackHarrowingCrusadeReactTitle=攻击

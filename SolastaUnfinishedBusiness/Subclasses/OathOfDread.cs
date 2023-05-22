@@ -170,6 +170,8 @@ internal sealed class OathOfDread : AbstractSubclass
         // LEVEL 18
         //
 
+        // Improved Aura of Domination
+
         var effectAuraOfDomination18 = new EffectDescription();
 
         effectAuraOfDomination18.Copy(powerAuraOfDomination.EffectDescription);
@@ -180,6 +182,56 @@ internal sealed class OathOfDread : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(effectAuraOfDomination18)
             .SetOverriddenPower(powerAuraOfDomination)
+            .AddToDB();
+
+        //
+        // LEVEL 20
+        //
+
+        // Aspect of Dread
+
+        var additionalDamageAspectOfDread = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}AspectOfDread")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("AspectOfDread")
+            .SetDamageDice(DieType.D8, 1)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .AddToDB();
+
+        var conditionAspectOfDread = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
+            .AddFeatures(additionalDamageAspectOfDread)
+            .AddToDB();
+
+        foreach (var damage in DatabaseRepository.GetDatabase<DamageDefinition>())
+        {
+            var damageAffinityAspectOfDread = FeatureDefinitionDamageAffinityBuilder
+                .Create($"DamageAffinity{Name}AspectOfDread{damage.Name}")
+                .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+                .SetDamageType(damage.Name)
+                .SetDamageAffinityType(DamageAffinityType.Resistance)
+                .AddToDB();
+
+            conditionAspectOfDread.Features.Add(damageAffinityAspectOfDread);
+        }
+
+        var powerAspectOfDread = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionAspectOfDread, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         // MAIN
@@ -197,6 +249,8 @@ internal sealed class OathOfDread : AbstractSubclass
                 featureHarrowingCrusade)
             .AddFeaturesAtLevel(18,
                 powerAuraOfDomination18)
+            .AddFeaturesAtLevel(20,
+                powerAspectOfDread)
             .AddToDB();
     }
 

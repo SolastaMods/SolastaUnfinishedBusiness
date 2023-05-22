@@ -1,3 +1,5 @@
+Condition/&ConditionOathOfDreadAspectOfDreadDescription=Aspect of Dread
+Condition/&ConditionOathOfDreadAspectOfDreadTitle=Aspect of Dread
 Condition/&ConditionOathOfDreadAuraOfDominationDescription=If you are frightened or feared, your speed is reduced to 0, and you take psychic damage equal to half the emanator's paladin level.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura of Domination
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=The marker has advantage on attack rolls against you.
@@ -6,11 +8,16 @@ Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=When a creature under the
 Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Harrowing Crusade
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=As a bonus action, you can castigate an enemy creature within 10 feet of, using your Channel Divinity. You gain advantage on attack rolls against the creature for 1 minute.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Channel Divinity: Mark of Castigation
+Feature/&PowerOathOfDreadAspectOfDreadDescription=As an action, you gain the following benefits for one minute:\n• You have resistance to all damage.\n• All your weapon attacks deal an additional 1d8 psychic damage.\n\nOnce you use this feature, you can't use it again until you finish a long rest.
+Feature/&PowerOathOfDreadAspectOfDreadTitle=Aspect of Dread
 Feature/&PowerOathOfDreadAuraOfDomination18Description=Your Aura of Domination range increased to 30 ft.
-Feature/&PowerOathOfDreadAuraOfDomination18Title=Improved Aura of DominationFeature/&PowerOathOfDreadAuraOfDominationDescription=Starting at 7th level, you constantly emanate a menacing aura to all enemies within 10 feet while you are not incapacitated. If a creature is frightened or feared, and starts its turn in your aura, its speed is reduced to 0 and that creature takes psychic damage equal to half your paladin level. At 18th level, the range of this aura increases to 30 feet.
+Feature/&PowerOathOfDreadAuraOfDomination18Title=Improved Aura of Domination
+Feature/&PowerOathOfDreadAuraOfDominationDescription=Starting at 7th level, you constantly emanate a menacing aura to all enemies within 10 feet while you are not incapacitated. If a creature is frightened or feared, and starts its turn in your aura, its speed is reduced to 0 and that creature takes psychic damage equal to half your paladin level. At 18th level, the range of this aura increases to 30 feet.
 Feature/&PowerOathOfDreadAuraOfDominationTitle=Aura of Domination
 Feature/&PowerOathOfDreadDreadfulPresenceDescription=You can use your Channel Divinity to exude a terrifying presence as an action. Each enemy creature within 30 feet must succeed on Wisdom saving throw or become frightened for 1 minute. Each frightened creature can repeat the saving throw at the end of its turn, ending the effect on itself on a success.
 Feature/&PowerOathOfDreadDreadfulPresenceTitle=Channel Divinity: Dreadful Presence
+Feedback/&AdditionalDamageAspectOfDreadFormat=Aspect of Dread!
+Feedback/&AdditionalDamageAspectOfDreadLine={0} performs an aspect of dread attack on {1} (+{2})
 Reaction/&ReactionAttackHarrowingCrusadeDescription={0} attacked {1}. You can use your reaction to make a melee weapon attack against it.
 Reaction/&ReactionAttackHarrowingCrusadeReactDescription=Use your reaction to attack.
 Reaction/&ReactionAttackHarrowingCrusadeReactTitle=Attack
