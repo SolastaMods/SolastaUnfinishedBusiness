@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,14 +12,14 @@
   "familyTag": "CloseQuarters",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
     "Definition:FeatureCloseQuarters:597d8262-667f-58d3-a9c8-b03cfcc74631"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCloseQuartersDexTitle",
-    "description": "Feat/&FeatCloseQuartersDexDescription",
+    "title": "Feat/&FeatCloseQuartersIntTitle",
+    "description": "Feat/&FeatCloseQuartersIntDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ac3a33e5-87d6-58a0-9247-65f77e47f669",
+  "guid": "578a619f-76e2-5b9d-b990-785f863abad0",
   "contentPack": 9999,
-  "name": "FeatCloseQuartersDex"
+  "name": "FeatCloseQuartersInt"
 }
