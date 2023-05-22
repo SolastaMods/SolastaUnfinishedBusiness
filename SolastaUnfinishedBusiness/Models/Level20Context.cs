@@ -76,8 +76,7 @@ internal static class Level20Context
             typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding),
             typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
             typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
-            typeof(HigherLevelFeaturesModal).GetMethod("Bind"),
-            typeof(InvocationSubPanel).GetMethod("SetState"),
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"), typeof(InvocationSubPanel).GetMethod("SetState"),
             typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
             typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
             typeof(RulesetEntity).GetMethod("SerializeElements"),
@@ -337,9 +336,7 @@ internal static class Level20Context
         var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
 
         effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
-        effectPowerPaladinAuraOfCourage18.targetParameter = 6;
-        effectPowerPaladinAuraOfCourage18.rangeParameter = 0;
-        effectPowerPaladinAuraOfCourage18.requiresTargetProximity = false;
+        effectPowerPaladinAuraOfCourage18.targetParameter = 13;
 
         var powerPaladinAuraOfCourage18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
@@ -351,9 +348,7 @@ internal static class Level20Context
         var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
 
         effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
-        effectPowerPaladinAuraOfProtection18.targetParameter = 6;
-        effectPowerPaladinAuraOfProtection18.rangeParameter = 0;
-        effectPowerPaladinAuraOfProtection18.requiresTargetProximity = false;
+        effectPowerPaladinAuraOfProtection18.targetParameter = 13;
 
         var powerPaladinAuraOfProtection18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")

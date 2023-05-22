@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityOathOfAncientsUndyingSentinel:dae155b3-de0c-588e-9de3-c36d5af6a91f",
       "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfAncientsAuraWarding18:2c4a051c-c973-54c2-ad59-3094f747a2fa",
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],

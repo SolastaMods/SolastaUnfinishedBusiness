@@ -161,6 +161,22 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Feature)
             .AddToDB();
 
+        //
+        // Level 18
+        //
+
+        var effectPowerAuraWarding18 = new EffectDescription();
+
+        effectPowerAuraWarding18.Copy(powerAuraWarding.EffectDescription);
+        effectPowerAuraWarding18.targetParameter = 13;
+
+        var powerAuraWarding18 = FeatureDefinitionPowerBuilder
+            .Create(powerAuraWarding, $"Power{NAME}AuraWarding18")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(effectPowerAuraWarding18)
+            .SetOverriddenPower(powerAuraWarding)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAncients", Resources.OathOfAncients, 256))
@@ -170,6 +186,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                 powerTurnFaithless)
             .AddFeaturesAtLevel(7, powerAuraWarding)
             .AddFeaturesAtLevel(15, damageAffinityUndyingSentinel)
+            .AddFeaturesAtLevel(18, powerAuraWarding18)
             .AddToDB();
     }
 

@@ -83,6 +83,18 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
             .AddToDB();
 
+        var effectPowerAuraOfTheGuardian18 = new EffectDescription();
+
+        effectPowerAuraOfTheGuardian18.Copy(powerAuraOfTheGuardian.EffectDescription);
+        effectPowerAuraOfTheGuardian18.targetParameter = 13;
+
+        var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
+            .Create(powerAuraOfTheGuardian, $"Power{Name}AuraOfTheGuardian18")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(effectPowerAuraOfTheGuardian18)
+            .SetOverriddenPower(powerAuraOfTheGuardian)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAltruism", Resources.OathOfAltruism, 256))
@@ -92,6 +104,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
                 featureSpiritualShielding)
             .AddFeaturesAtLevel(7, powerAuraOfTheGuardian)
             .AddFeaturesAtLevel(15, powerTakeThePain)
+            .AddFeaturesAtLevel(18, powerAuraOfTheGuardian18)
             .AddToDB();
     }
 

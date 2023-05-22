@@ -69,17 +69,17 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
+        "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionHeraldOfBattle",
-          "conditionDefinition": "Definition:ConditionAuraOfProtection:ad5fe4bb560fde04989c0085fb01a17a",
+          "conditionDefinitionName": "ConditionOathOfAltruismAuraOfTheGuardian",
+          "conditionDefinition": "Definition:ConditionOathOfAltruismAuraOfTheGuardian:4a66b77f-1f5d-5b37-ba7e-4d57922e2e0c",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,13 +321,13 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPaladinAuraOfCourage:679171cbb80e38d41b4626aa3da0e72b",
+  "overriddenPower": "Definition:PowerOathOfAltruismAuraOfTheGuardian:e2757560-390e-5633-99a5-aaeef4af6db7",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPaladinAuraOfProtection18Title",
-    "description": "Feature/&PowerPaladinAuraOfProtection18Description",
+    "title": "Feature/&PowerOathOfAltruismAuraOfTheGuardian18Title",
+    "description": "Feature/&PowerOathOfAltruismAuraOfTheGuardian18Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f6cd166-f6e1-5a8b-ade7-55b3164b7450",
+  "guid": "c71ab607-77da-5c55-9993-f20d38362b61",
   "contentPack": 9999,
-  "name": "PowerPaladinAuraOfProtection18"
+  "name": "PowerOathOfAltruismAuraOfTheGuardian18"
 }

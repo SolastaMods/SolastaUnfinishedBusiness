@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureOathOfDreadHarrowingCrusade:2f23444c-7dad-5392-af85-bbcc9b0659b3",
       "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfDreadAuraOfDomination18:fe1d859b-f117-5441-bf42-f0c4942955dc",
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],

@@ -2,6 +2,8 @@ Condition/&ConditionOathOfAncientsAuraWardingDescription=获得对法术伤害�
 Condition/&ConditionOathOfAncientsAuraWardingTitle=被保护
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=当你的生命值降为 0 但没有被彻底杀死时，你的生命值会降为 1。在你完成一次长休之前，你不能再次从这个特性中获益。
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=不死哨兵
+Feature/&PowerOathOfAncientsAuraWarding18Description=你的守护光环范围增加到 30 英尺。
+Feature/&PowerOathOfAncientsAuraWarding18Title=改进的 WardingFeature/&PowerOathOfAncientsAuraWardingDescription=从第 7 级开始，远古魔法对你的影响如此之大，以至于它形成了一个可怕的结界。你和你周围 10 英尺内的友方生物对法术伤害具有抵抗力。
 Feature/&PowerOathOfAncientsAuraWardingDescription=从第 7 级开始，远古魔法对你的影响如此之大，以至于它形成了一个 eldritch 结界。你和你周围 10 尺内的友方生物对法术伤害具有抵抗力。
 Feature/&PowerOathOfAncientsAuraWardingTitle=守护光环
 Feature/&PowerOathOfAncientsNaturesWrathDescription=你可以使用你的通灵神力来召唤原始力量来诱捕敌人。作为一个动作，你可以使幽灵藤蔓出现并伸向你周围 10 尺内你能看到的一个生物。该生物必须成功通过一次力量豁免，否则将被束缚。当被藤蔓束缚时，该生物在其每个回合结束时重复一次豁免检定。成功后，它会自行释放并且藤蔓会消失。

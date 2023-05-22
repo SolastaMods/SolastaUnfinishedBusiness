@@ -79,7 +79,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionHeraldOfBattle",
-          "conditionDefinition": "Definition:ConditionAuraOfProtection:ad5fe4bb560fde04989c0085fb01a17a",
+          "conditionDefinition": "Definition:ConditionOathOfMotherlandVolcanicAura:110f154c57c04a3489b7358631d416c5",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,13 +321,13 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPaladinAuraOfCourage:679171cbb80e38d41b4626aa3da0e72b",
+  "overriddenPower": "Definition:PowerOathOfMotherlandVolcanicAura:c58699f6437f9eb46a57201baa87193c",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPaladinAuraOfProtection18Title",
-    "description": "Feature/&PowerPaladinAuraOfProtection18Description",
+    "title": "Feature/&PowerOathOfMotherlandVolcanicAura18Title",
+    "description": "Feature/&PowerOathOfMotherlandVolcanicAura18Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f6cd166-f6e1-5a8b-ade7-55b3164b7450",
+  "guid": "e190189e-0986-5fa4-aeb1-a82c2c1bd9ca",
   "contentPack": 9999,
-  "name": "PowerPaladinAuraOfProtection18"
+  "name": "PowerOathOfMotherlandVolcanicAura18"
 }

@@ -6,7 +6,7 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "Sphere",
     "itemSelectionType": "Equiped",
     "targetParameter": 13,
     "targetParameter2": 2,
@@ -79,7 +79,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionHeraldOfBattle",
-          "conditionDefinition": "Definition:ConditionAuraOfProtection:ad5fe4bb560fde04989c0085fb01a17a",
+          "conditionDefinition": "Definition:ConditionOathOfTirmarAuraOfTruth:61b5fd9c8bf25834bbd11a4326b80d0f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,13 +321,13 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPaladinAuraOfCourage:679171cbb80e38d41b4626aa3da0e72b",
+  "overriddenPower": "Definition:PowerOathOfTirmarAuraTruth:55def8290fdc0f04bb4982538a8d8f9e",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPaladinAuraOfProtection18Title",
-    "description": "Feature/&PowerPaladinAuraOfProtection18Description",
+    "title": "Feature/&PowerOathOfTirmarAuraTruth18Title",
+    "description": "Feature/&PowerOathOfTirmarAuraTruth18Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f6cd166-f6e1-5a8b-ade7-55b3164b7450",
+  "guid": "5cd82cbc-7340-53f8-8994-176d77ab8c46",
   "contentPack": 9999,
-  "name": "PowerPaladinAuraOfProtection18"
+  "name": "PowerOathOfTirmarAuraTruth18"
 }

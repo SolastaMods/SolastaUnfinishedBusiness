@@ -79,7 +79,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionHeraldOfBattle",
-          "conditionDefinition": "Definition:ConditionAuraOfProtection:ad5fe4bb560fde04989c0085fb01a17a",
+          "conditionDefinition": "Definition:ConditionOathOfDevotionAuraOfDevotion:4548b25f187274e4dbd82df2c2e55ac8",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,13 +321,13 @@
   "uniqueInstance": false,
   "showCasting": false,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerPaladinAuraOfCourage:679171cbb80e38d41b4626aa3da0e72b",
+  "overriddenPower": "Definition:PowerOathOfDevotionAuraDevotion:efd92accd1ccf2e4e9f00de4a07bd694",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPaladinAuraOfProtection18Title",
-    "description": "Feature/&PowerPaladinAuraOfProtection18Description",
+    "title": "Feature/&PowerOathOfDevotionAuraDevotion18Title",
+    "description": "Feature/&PowerOathOfDevotionAuraDevotion18Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0f6cd166-f6e1-5a8b-ade7-55b3164b7450",
+  "guid": "2bf3d215-d31b-5daa-b7c7-cde1dc5e1e65",
   "contentPack": 9999,
-  "name": "PowerPaladinAuraOfProtection18"
+  "name": "PowerOathOfDevotionAuraDevotion18"
 }

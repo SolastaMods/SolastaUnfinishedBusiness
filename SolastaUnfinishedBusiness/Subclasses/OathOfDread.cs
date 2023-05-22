@@ -166,6 +166,22 @@ internal sealed class OathOfDread : AbstractSubclass
             .SetCustomSubFeatures(new ReactToAttackOnMeOrMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
             .AddToDB();
 
+        //
+        // LEVEL 18
+        //
+
+        var effectAuraOfDomination18 = new EffectDescription();
+
+        effectAuraOfDomination18.Copy(powerAuraOfDomination.EffectDescription);
+        effectAuraOfDomination18.targetParameter = 13;
+
+        var powerAuraOfDomination18 = FeatureDefinitionPowerBuilder
+            .Create(powerAuraOfDomination, $"Power{Name}AuraOfDomination18")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(effectAuraOfDomination18)
+            .SetOverriddenPower(powerAuraOfDomination)
+            .AddToDB();
+
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -179,6 +195,8 @@ internal sealed class OathOfDread : AbstractSubclass
                 powerAuraOfDomination)
             .AddFeaturesAtLevel(15,
                 featureHarrowingCrusade)
+            .AddFeaturesAtLevel(18,
+                powerAuraOfDomination18)
             .AddToDB();
     }
 
