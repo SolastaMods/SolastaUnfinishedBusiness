@@ -219,13 +219,15 @@ internal sealed class OathOfDread : AbstractSubclass
 
         var powerAspectOfDread = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AspectOfDread")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Sprites
+                .GetSprite("PowerArdentHate", Resources.PowerArdentHate, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -379,12 +381,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
-
-            if (!me.CanReact() ||
-                me == ally ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            if (!me.CanReact())
             {
                 yield break;
             }

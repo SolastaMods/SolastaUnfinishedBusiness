@@ -175,6 +175,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

@@ -93,6 +93,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(effectPowerAuraOfTheGuardian18)
             .SetOverriddenPower(powerAuraOfTheGuardian)
+            .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
             .AddToDB();
 
         var magicAffinityExaltedProtector = FeatureDefinitionMagicAffinityBuilder
