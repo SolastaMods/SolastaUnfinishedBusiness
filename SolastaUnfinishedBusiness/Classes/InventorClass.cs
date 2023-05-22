@@ -381,7 +381,35 @@ internal static class InventorClass
 
         BuildCancelAllInfusionsRestActivity();
 
+        RegisterPoILoot();
+
         return Class;
+    }
+
+    /**Adds starting chest loot for PoI for Inventor class*/
+    private static void RegisterPoILoot()
+    {
+        var loot = LootPackDefinitionBuilder
+            .Create("UB_DLC3_Class_Lootpack_BasicChest_Inventor")
+            .AddExplicitItem(ItemDefinitions.SpearPlus2)
+            .AddExplicitItem(ItemDefinitions.ShieldPlus1)
+            .AddExplicitItem(CustomWeaponsContext.HandXbowAcid)
+            .AddExplicitItem(ItemDefinitions.Bolt, 40)
+            .AddExplicitItem(ItemDefinitions.BreastplatePlus1)
+            .AddExplicitItem(ItemDefinitions.StuddedLeather_plus_one)
+            .AddExplicitItem(ItemDefinitions.Backpack_Handy_Haversack)
+            .AddExplicitItem(ItemDefinitions.WandOfWarMagePlus1)
+            .AddExplicitItem(ItemDefinitions.RingDetectInvisible)
+            .AddToDB();
+        
+        if (TryGetDefinition<CharacterToLootPackMapDefinition>("DLC3_CharacterToLootPackMap", out var map))
+        {
+            map.characterClassToLootPackMappings.Add(
+                new CharacterToLootPackMapDefinition.CharacterClassToLootPackMapping()
+                {
+                    className = ClassName, lootPack = loot
+                });
+        }
     }
 
     private static FeatureDefinition BuildToolExpertise()

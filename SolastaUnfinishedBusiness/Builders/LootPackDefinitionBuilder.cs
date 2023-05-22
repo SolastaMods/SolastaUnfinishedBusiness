@@ -13,6 +13,20 @@ internal class LootPackDefinitionBuilder : DefinitionBuilder<LootPackDefinition,
         return this;
     }
 
+    internal LootPackDefinitionBuilder AddExplicitItem(ItemDefinition item, int diceNumber = 1,
+        RuleDefinitions.DieType diceType = RuleDefinitions.DieType.D1, int bonus = 0)
+    {
+        Definition.ItemOccurencesList.Add(new ItemOccurence
+        {
+            itemMode = ItemOccurence.SelectionMode.Explicit,
+            itemDefinition = item,
+            diceNumber = diceNumber,
+            diceType = diceType,
+            additiveModifier = bonus
+        });
+        return this;
+    }
+
     #region Constructors
 
     protected LootPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
