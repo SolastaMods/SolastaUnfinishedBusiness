@@ -1,5 +1,7 @@
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianDescription=Este personagem está ao alcance das reações da Aura do Guardião.
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianTitle=Aura do Guardião
+Condition/&ConditionOathOfAltruismExaltedProtectorDescription=Protetor Exaltado
+Condition/&ConditionOathOfAltruismExaltedProtectorTitle=Protetor Exaltado
 Feature/&FeatureOathOfAltruismDefensiveStrikeDescription=Quando uma criatura amiga que você pode ver é atingida por um ataque, você pode gastar o uso de Canalizar Divindade para projetar uma onda de vontade inabalável naquela criatura - ela imediatamente usa sua reação para fazer um ataque de arma corpo a corpo, adicionando seu modificador de Carisma a ambos jogadas de ataque e dano.
 Feature/&FeatureOathOfAltruismDefensiveStrikeTitle=Canalizar Divindade: Ataque Defensivo
 Feature/&FeatureOathOfAltruismSpiritualShieldingDescription=Quando uma criatura amigável que você pode ver está prestes a ser atingida por um ataque, você pode usar Canalizar Divindade para aplicar o efeito do feitiço Escudo (+5 AC por rodada) nela.
@@ -8,6 +10,8 @@ Feature/&PowerOathOfAltruismAuraOfTheGuardian18Description=O alcance da sua Aura
 Feature/&PowerOathOfAltruismAuraOfTheGuardian18Title=Aura do Guardião Aprimorada
 Feature/&PowerOathOfAltruismAuraOfTheGuardianDescription=A partir do 7º nível, você pode proteger os outros de danos ao custo de sua própria saúde. Quando uma criatura a até 3 metros de você sofrer dano, você pode usar sua reação para receber esse dano magicamente, em vez da criatura sofrer. Esse recurso não transfere nenhum outro efeito que possa acompanhar o dano, e esse dano não pode ser reduzido de forma alguma.
 Feature/&PowerOathOfAltruismAuraOfTheGuardianTitle=Aura do Guardião
+Feature/&PowerOathOfAltruismExaltedProtectorDescription=Você concede passivamente os seguintes benefícios:\n• Você e criaturas aliadas a até 9 metros de você estão sob os efeitos do feitiço Bênção que não requer concentração.\n• Você e todos os aliados a até 9 metros de você têm vantagem em todos os testes de concentração.\n• Todos os aliados a até 9 metros de você têm vantagem em todos os testes de resistência contra a morte.
+Feature/&PowerOathOfAltruismExaltedProtectorTitle=Protetor Exaltado
 Feature/&PowerOathOfAltruismTakeThePainDescription=Como uma ação bônus, gaste um Canalizar Divindade para trocar pontos de vida com um aliado. Você ganha pontos de vida temporários iguais ao dobro de seu bônus de proficiência mais seu modificador de Carisma.
 Feature/&PowerOathOfAltruismTakeThePainTitle=Canalizar Divindade: Leve a Dor
 Feedback/&GuardianAuraHeal={0} cura um aliado por meio da Aura do Guardião.

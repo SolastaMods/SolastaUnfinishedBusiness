@@ -1,5 +1,7 @@
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianDescription=该角色在守护者光环反应的范围内。
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianTitle=守护者光环
+Condition/&ConditionOathOfAltruismExaltedProtectorDescription=尊贵保护者
+Condition/&ConditionOathOfAltruismExaltedProtectorTitle=尊贵保护者
 Feature/&FeatureOathOfAltruismDefensiveStrikeDescription=当一个你能看到的友方生物被攻击击中时，你可以使用引导神力向该生物投射一股坚定的意志——它立即使用它的反应进行一次近战武器攻击，将你的魅力调整值添加到两个攻击和伤害掷骰。
 Feature/&FeatureOathOfAltruismDefensiveStrikeTitle=引导神力：防御打击
 Feature/&FeatureOathOfAltruismSpiritualShieldingDescription=当一个你能看到的友方生物即将被攻击击中时，你可以使用引导神力对其施加盾牌法术效果（+5 护甲等级(AC) 一轮）。
@@ -8,6 +10,8 @@ Feature/&PowerOathOfAltruismAuraOfTheGuardian18Description=你的守护者光环
 Feature/&PowerOathOfAltruismAuraOfTheGuardian18Title=强化守护者光环
 Feature/&PowerOathOfAltruismAuraOfTheGuardianDescription=从第 7 级开始，你可以以牺牲自己的健康为代价来保护他人免受伤害。当你 10 尺内的一个生物受到伤害时，你可以使用你的反应魔法地承受伤害，而不是由那个生物承受伤害。此功能不会转移可能伴随伤害的任何其他效果，并且无法以任何方式减少此伤害。
 Feature/&PowerOathOfAltruismAuraOfTheGuardianTitle=守护者光环
+Feature/&PowerOathOfAltruismExaltedProtectorDescription=您被动地获得以下好处：\n• 您和您周围 30 英尺内的友方生物处于不需要专注的祝福法术的影响下。\n• 您和您周围 30 英尺内的所有盟友在所有注意力检查。\n• 您周围 30 英尺内的所有盟友在所有死亡豁免检定中都具有优势。
+Feature/&PowerOathOfAltruismExaltedProtectorTitle=尊贵保护者
 Feature/&PowerOathOfAltruismTakeThePainDescription=作为附赠动作，花费引导神力与盟友交换生命值。你获得的临时生命值等于你的熟练加值的两倍加上你的魅力调整值。
 Feature/&PowerOathOfAltruismTakeThePainTitle=引导神性：承受痛苦
 Feedback/&GuardianAuraHeal={0} 通过守护者光环治疗盟友。

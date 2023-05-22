@@ -1,5 +1,7 @@
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianDescription=Questo personaggio è nel raggio delle reazioni dell'Aura del Guardiano.
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianTitle=Aura del Guardiano
+Condition/&ConditionOathOfAltruismExaltedProtectorDescription=Eccelso Protettore
+Condition/&ConditionOathOfAltruismExaltedProtectorTitle=Eccelso Protettore
 Feature/&FeatureOathOfAltruismDefensiveStrikeDescription=Quando una creatura amica che puoi vedere viene colpita da un attacco, puoi spendere l'uso di Incanalare Divinità per proiettare un'ondata di ferma volontà in quella creatura: usa immediatamente la sua reazione per effettuare un attacco con un'arma da mischia, aggiungendo il tuo modificatore di Carisma sia al tiri di attacco e danno.
 Feature/&FeatureOathOfAltruismDefensiveStrikeTitle=Channel Divinity: colpo difensivo
 Feature/&FeatureOathOfAltruismSpiritualShieldingDescription=Quando una creatura amica che puoi vedere sta per essere colpita da un attacco, puoi spendere l'uso di Incanalare Divinità per applicare l'effetto dell'incantesimo Scudo (+5 CA per un round) su di essa.
@@ -8,6 +10,8 @@ Feature/&PowerOathOfAltruismAuraOfTheGuardian18Description=La portata dell'Aura 
 Feature/&PowerOathOfAltruismAuraOfTheGuardian18Title=Aura del guardiano migliorata
 Feature/&PowerOathOfAltruismAuraOfTheGuardianDescription=A partire dal 7° livello, puoi proteggere gli altri dai danni a scapito della tua stessa salute. Quando una creatura entro 3 metri da te subisce danni, puoi usare la tua reazione per subire magicamente quel danno, invece di farlo subire a quella creatura. Questa caratteristica non trasferisce altri effetti che potrebbero accompagnare il danno e questo danno non può essere ridotto in alcun modo.
 Feature/&PowerOathOfAltruismAuraOfTheGuardianTitle=Aura del Guardiano
+Feature/&PowerOathOfAltruismExaltedProtectorDescription=Concedi passivamente i seguenti benefici:\n• Tu e le creature amiche entro 9 metri da te siete sotto gli effetti dell'incantesimo Benedizione che non richiede concentrazione.\n• Tu e tutti gli alleati entro 9 metri da te avete vantaggio su tutti i controlli di concentrazione.\n• Tutti gli alleati entro 9 metri da te hanno vantaggio su tutti i tiri salvezza contro la morte.
+Feature/&PowerOathOfAltruismExaltedProtectorTitle=Eccelso Protettore
 Feature/&PowerOathOfAltruismTakeThePainDescription=Come azione bonus, spendi Incanalare Divinità per scambiare punti ferita con un alleato. Ottieni punti ferita temporanei pari al doppio del tuo bonus di competenza più il tuo modificatore di Carisma.
 Feature/&PowerOathOfAltruismTakeThePainTitle=Channel Divinity: prendi il dolore
 Feedback/&GuardianAuraHeal={0} cura un alleato tramite l'Aura del Guardiano.

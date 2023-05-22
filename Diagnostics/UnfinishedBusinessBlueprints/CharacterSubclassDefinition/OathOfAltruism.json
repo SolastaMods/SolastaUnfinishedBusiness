@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfAltruismAuraOfTheGuardian18:c71ab607-77da-5c55-9993-f20d38362b61",
       "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfAltruismExaltedProtector:81792165-d00a-5139-b6ac-ce55a5902c38",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],
