@@ -771,6 +771,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSense SenseSeeInvisible16 { get; } = GetDefinition<FeatureDefinitionSense>("SenseSeeInvisible16");
         internal static FeatureDefinitionSense SenseSuperiorDarkvision { get; } = GetDefinition<FeatureDefinitionSense>("SenseSuperiorDarkvision");
     }
+    internal static class FeatureDefinitionDeathSavingThrowAffinitys
+    {
+        internal static FeatureDefinitionDeathSavingThrowAffinity DeathSavingThrowAffinityBeaconOfHope { get; } = GetDefinition<FeatureDefinitionDeathSavingThrowAffinity>("DeathSavingThrowAffinityBeaconOfHope");
+    }
     internal static class FeatureDefinitionSubclassChoices
     {
         internal static FeatureDefinitionSubclassChoice SubclassChoiceBarbarianPrimalPath { get; } = GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBarbarianPrimalPath");
