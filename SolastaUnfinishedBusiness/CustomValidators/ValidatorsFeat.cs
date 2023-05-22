@@ -202,7 +202,14 @@ internal static class ValidatorsFeat
 
             if (characterClassDefinitions.Length > 0)
             {
-                levels = characterClassDefinitions.Max(x => hero.ClassesAndLevels[x]);
+                levels = characterClassDefinitions
+                    .Select(x =>
+                    {
+                        hero.ClassesAndLevels.TryGetValue(x, out var val);
+
+                        return val;
+                    })
+                    .Max();
             }
 
             return Main.Settings.DisableLevelPrerequisitesOnModFeats || levels >= minLevels
