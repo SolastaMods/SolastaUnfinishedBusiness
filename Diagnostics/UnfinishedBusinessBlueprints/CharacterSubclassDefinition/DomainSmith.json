@@ -60,6 +60,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainSmithReinforceArmor16:3b1c199e-f105-5a1d-a3c7-362f4ba19749",
       "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainSmithBlessedMetal:1fedd24e-136e-56ec-84a4-870340f13a59",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

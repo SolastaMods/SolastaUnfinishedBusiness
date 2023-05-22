@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -279,6 +280,54 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
+        //
+        // 17
+        //
+
+        const string BLESSED_METAL = $"FeatureSet{NAME}BlessedMetal";
+
+        var damageAffinityBlessedMetalFireImmunity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalFireImmunity")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeFire)
+            .SetDamageAffinityType(DamageAffinityType.Immunity)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalBludgeoningResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalBludgeoningResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeBludgeoning)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalPiercingResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalPiercingResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypePiercing)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalSlashingResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalSlashingResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeSlashing)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasHeavyArmor)
+            .AddToDB();
+
+        var featureSetBlessedMetal = FeatureDefinitionFeatureSetBuilder
+            .Create(BLESSED_METAL)
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                damageAffinityBlessedMetalFireImmunity,
+                damageAffinityBlessedMetalBludgeoningResistance,
+                damageAffinityBlessedMetalPiercingResistance,
+                damageAffinityBlessedMetalSlashingResistance)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainDefiler, 256))
@@ -290,6 +339,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddFeaturesAtLevel(11, powerReinforceArmor11)
             .AddFeaturesAtLevel(14, additionalDamageDivineStrike14)
             .AddFeaturesAtLevel(16, powerReinforceArmor16)
+            .AddFeaturesAtLevel(17, featureSetBlessedMetal)
             .AddToDB();
     }
 
