@@ -488,20 +488,25 @@ internal static class CharacterContext
             Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
+#if false
         if (Main.Settings.AllowHornsOnAllRaces)
         {
             foreach (var race in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
             {
                 var racePresentation = race.racePresentation;
 
-                if (racePresentation.availableMorphotypeCategories.Contains(MorphotypeElementDefinition.ElementCategory
-                        .Horns))
+                if (racePresentation.availableMorphotypeCategories.Contains(
+                        MorphotypeElementDefinition.ElementCategory.Horns))
                 {
                     continue;
                 }
 
-                racePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
-                racePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
+                racePresentation.maleHornsOptions = new List<string>();
+                racePresentation.maleHornsOptions.AddRange(Dragonborn.RacePresentation.maleHornsOptions);
+                racePresentation.maleHornsOptions.AddRange(Tiefling.RacePresentation.maleHornsOptions);
+                racePresentation.femaleHornsOptions = new List<string>();
+                racePresentation.femaleHornsOptions.AddRange(Dragonborn.RacePresentation.femaleHornsOptions);
+                racePresentation.femaleHornsOptions.AddRange(Tiefling.RacePresentation.femaleHornsOptions);
 
                 var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
                     racePresentation.availableMorphotypeCategories)
@@ -512,6 +517,7 @@ internal static class CharacterContext
                 racePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
             }
         }
+#endif
 
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {

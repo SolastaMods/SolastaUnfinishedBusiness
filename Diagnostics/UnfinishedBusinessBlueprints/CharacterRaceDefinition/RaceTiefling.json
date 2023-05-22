@@ -1,13 +1,18 @@
 {
   "$type": "CharacterRaceDefinition, Assembly-CSharp",
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
-  "defaultAlignement": "ChaoticGood",
+  "defaultAlignement": "Neutral",
   "dualSex": true,
-  "minimalAge": 120,
-  "maximalAge": 0,
-  "baseHeight": 63,
-  "baseWeight": 90,
+  "minimalAge": 18,
+  "maximalAge": 105,
+  "baseHeight": 57,
+  "baseWeight": 110,
   "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierTieflingAbilityScoreIncreaseCha:ee857308581b2d0438b3d0f75d5c0447",
+      "level": 1
+    },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
@@ -15,12 +20,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityTieflingHellishResistance:b327548a-c0d2-568b-a086-347672b98872",
+      "featureDefinition": "Definition:FeatureSetTieflingHellishResistance:ad681cc5b1544ab4e930bfc412e104c5",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyTieflingLanguages:0292b37f-7697-5552-8eb3-ca6125a9944a",
+      "featureDefinition": "Definition:ProficiencyTieflingStaticLanguages:8bd5b5d595078304981b5d982dbebdfd",
       "level": 1
     },
     {
@@ -32,73 +37,97 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
       "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierTieflingCharismaAbilityScoreIncrease:668e6c8b-a169-5c6b-aa49-a0735e0499d0",
-      "level": 1
     }
   ],
   "subRaces": [
-    "Definition:RaceTieflingAsmodeus:c925d6c0-0613-5531-b380-727cca75a1ab",
     "Definition:RaceTieflingMephistopheles:3510889d-228b-545d-b345-e2156da11282",
     "Definition:RaceTieflingZariel:740e7892-8b56-5708-bee2-fd16b2b73bd8"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
-  "personalityFlagOccurences": [
-    {
-      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 2,
-      "personalityFlag": "GpSpellcaster"
-    }
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [
+    "Language_Common",
+    "Language_Elvish",
+    "Language_Halfling",
+    "Language_Dwarvish",
+    "Language_Gnomish"
   ],
-  "languageAutolearnPreference": [],
   "audioSwitches": [],
-  "audioRaceRTPCValue": 3.0,
+  "audioRaceRTPCValue": 6.0,
   "racePresentation": {
     "$type": "RacePresentation, Assembly-CSharp",
-    "bodyAssetPrefix": "Elf",
+    "bodyAssetPrefix": "Tiefling",
     "armorAssetPrefix": "Elf",
-    "helmetAssetPrefix": "Elf",
-    "faceShapeAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Tiefling",
+    "faceShapeAssetPrefix": "Tiefling",
     "hairShapeAssetPrefix": "Elf",
     "beardShapeAssetPrefix": "Elf",
-    "hornsTailAssetPrefix": "",
-    "maleNameOptions": [],
-    "femaleNameOptions": [],
+    "hornsTailAssetPrefix": "Tiefling",
+    "maleNameOptions": [
+      "Race/&TieflingMaleName1Title",
+      "Race/&TieflingMaleName2Title",
+      "Race/&TieflingMaleName3Title",
+      "Race/&TieflingMaleName4Title",
+      "Race/&TieflingMaleName5Title",
+      "Race/&TieflingMaleName6Title",
+      "Race/&TieflingMaleName7Title",
+      "Race/&TieflingMaleName8Title",
+      "Race/&TieflingMaleName9Title",
+      "Race/&TieflingMaleName10Title",
+      "Race/&TieflingMaleName11Title",
+      "Race/&TieflingMaleName12Title",
+      "Race/&TieflingMaleName13Title",
+      "Race/&TieflingMaleName14Title",
+      "Race/&TieflingMaleName15Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&TieflingFemaleName1Title",
+      "Race/&TieflingFemaleName2Title",
+      "Race/&TieflingFemaleName3Title",
+      "Race/&TieflingFemaleName4Title",
+      "Race/&TieflingFemaleName5Title",
+      "Race/&TieflingFemaleName6Title",
+      "Race/&TieflingFemaleName7Title",
+      "Race/&TieflingFemaleName8Title",
+      "Race/&TieflingFemaleName9Title",
+      "Race/&TieflingFemaleName10Title",
+      "Race/&TieflingFemaleName11Title",
+      "Race/&TieflingFemaleName12Title",
+      "Race/&TieflingFemaleName13Title",
+      "Race/&TieflingFemaleName14Title",
+      "Race/&TieflingFemaleName15Title"
+    ],
     "hasSurName": true,
-    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameTitle": "Race/&TieflingSurNameTitle",
     "surNameOptions": [
-      "Race/&HumanSurName1Title",
-      "Race/&HumanSurName2Title",
-      "Race/&HumanSurName3Title",
-      "Race/&HumanSurName4Title",
-      "Race/&HumanSurName5Title",
-      "Race/&HumanSurName6Title",
-      "Race/&HumanSurName7Title",
-      "Race/&HumanSurName8Title",
-      "Race/&HumanSurName9Title",
-      "Race/&HumanSurName10Title",
-      "Race/&HumanSurName11Title",
-      "Race/&HumanSurName12Title",
-      "Race/&HumanSurName13Title"
+      "Race/&TieflingNickname1Title",
+      "Race/&TieflingNickname2Title",
+      "Race/&TieflingNickname3Title",
+      "Race/&TieflingNickname4Title",
+      "Race/&TieflingNickname5Title",
+      "Race/&TieflingNickname6Title",
+      "Race/&TieflingNickname7Title",
+      "Race/&TieflingNickname8Title",
+      "Race/&TieflingNickname9Title",
+      "Race/&TieflingNickname10Title"
     ],
     "availableMorphotypeCategories": [
       "FaceShape",
       "Skin",
-      "HairShape",
-      "BeardShape",
       "BodyDecoration",
-      "HairColor",
       "EyeColor",
-      "Age",
       "Voice",
       "Backstory",
       "Pronoun",
-      "BodyDecorationColor",
       "Scars",
-      "Musculature",
-      "Horns"
+      "Horns",
+      "Tail",
+      "HairShape",
+      "Age",
+      "HairColor",
+      "BodyDecorationColor",
+      "TailLength",
+      "BeardShape"
     ],
     "needBeard": false,
     "defaultMusculature": 0,
@@ -106,54 +135,18 @@
       "Origin_NonHuman"
     ],
     "maleFaceShapeOptions": [
-      "FaceShape_D",
-      "FaceShape_E",
-      "FaceShape_F",
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
-      "FaceShape_NPC_Daliat_Sunbird",
-      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
-      "FaceShape_NPC_Iolair_Faisech",
-      "FaceShape_NPC_Llygath_Steelmind",
-      "FaceShape_NPC_Mardracht",
-      "FaceShape_NPC_Medwal_Strongfire",
-      "FaceShape_NPC_Nobleman",
-      "FaceShape_NPC_Orenetis",
-      "FaceShape_NPC_Serafiel_Anfarel",
-      "FaceShape_NPC_Lysantir",
-      "FaceShape_NPC_Esfalad_Graymas",
-      "FaceShape_NPC_Telerien_Purevoice",
-      "FaceShape_G",
-      "FaceShape_H",
-      "FaceShape_I",
-      "FaceShape_NPC_Dyssalim",
-      "FaceShape_NPC_Estorgath",
-      "FaceShape_NPC_Graybear",
-      "FaceShape_NPC_RhuadSwiftHand"
+      "FaceShape_D",
+      "FaceShape_E"
     ],
     "femaleFaceShapeOptions": [
-      "FaceShape_D",
-      "FaceShape_E",
-      "FaceShape_F",
       "FaceShape_A",
       "FaceShape_B",
       "FaceShape_C",
-      "FaceShape_NPC_Ceiwad_Silverflower",
-      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
-      "FaceShape_NPC_Idriel_Fair_Brow",
-      "FaceShape_NPC_Joriel_Fox_Eye",
-      "FaceShape_NPC_Kiaradth_BrightSpark",
-      "FaceShape_NPC_Kythaela_Wildspring",
-      "FaceShape_NPC_Lizzaria_of_Grimhold",
-      "FaceShape_NPC_Ellaria_Anfarel",
-      "FaceShape_NPC_Finaliel_SharpMind",
-      "FaceShape_NPC_Malariel_Brogarad",
-      "FaceShape_NPC_Samko_Flint",
-      "FaceShape_G",
-      "FaceShape_H",
-      "FaceShape_I",
-      "FaceShape_NPC_LeralynGhost"
+      "FaceShape_D",
+      "FaceShape_E"
     ],
     "maleHairShapeOptions": [
       "HairShape_A",
@@ -212,35 +205,61 @@
       "HairShape_None"
     ],
     "maleHornsOptions": [
+      "Horns_None",
       "Horns_A",
       "Horns_B",
       "Horns_C",
       "Horns_D",
       "Horns_E",
-      "Horns_None"
+      "Horns_F"
     ],
     "femaleHornsOptions": [
+      "Horns_None",
       "Horns_A",
       "Horns_B",
       "Horns_C",
       "Horns_D",
       "Horns_E",
-      "Horns_None"
+      "Horns_F"
     ],
     "maleTailOptions": [
-      "Tail_None"
+      "Tail_None",
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_F",
+      "Tail_G"
     ],
     "femaleTailOptions": [
-      "Tail_None"
+      "Tail_None",
+      "Tail_A",
+      "Tail_B",
+      "Tail_C",
+      "Tail_D",
+      "Tail_E",
+      "Tail_F",
+      "Tail_G"
     ],
-    "maleBeardShapeOptions": [],
-    "showHelmet": true,
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
+      "BeardShape_C"
+    ],
+    "showHelmet": false,
     "showGauntlets": true,
     "showShoes": true,
     "hasGenderRelatedBodyDecoration": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
-    "femaleVoiceDefinition": "FEM2",
+    "femaleVoiceDefinition": "FEM1",
     "portraitShieldOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.02,
@@ -249,31 +268,31 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 16,
-      "maxValue": 19
+      "minValue": 0,
+      "maxValue": 2
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 0,
-      "maxValue": 24
+      "maxValue": 0
     },
     "tailLengthScale": {
       "$type": "TA.RangedFloat, Assembly-CSharp",
       "minValue": 0.75,
-      "maxValue": 1.25
+      "maxValue": 1.0
     },
     "musicalInstrumentScale": 1.0,
-    "raceAnimationTag": "Elf"
+    "raceAnimationTag": "Tiefling"
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceTieflingTitle",
-    "description": "Race/&RaceTieflingDescription",
+    "title": "Race/&TieflingTitle",
+    "description": "Race/&TieflingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8f1b44be9da2c1946a7d26baa71cf663",
-      "m_SubObjectName": "Human",
+      "m_AssetGUID": "3062ae828f76e3c4988135b29ea6ecd9",
+      "m_SubObjectName": "Tiefling",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -290,6 +309,6 @@
   },
   "contentCopyright": "UserContent",
   "guid": "31027206-c934-50e9-a6c2-20b8d4f2f86c",
-  "contentPack": 9999,
+  "contentPack": "PalaceOfIce",
   "name": "RaceTiefling"
 }

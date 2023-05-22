@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
-using TA;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Races.DarkelfSubraceBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
 
@@ -22,25 +22,9 @@ internal static class TieflingRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
-        var tieflingRacePresentation = Elf.RacePresentation.DeepCopy();
-        var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
-            tieflingRacePresentation.availableMorphotypeCategories)
-        {
-            MorphotypeElementDefinition.ElementCategory.Horns
-        };
-
-        tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
-        tieflingRacePresentation.femaleNameOptions = new List<string>(); // names are added from names.txt resources
-        tieflingRacePresentation.maleNameOptions = new List<string>(); // names are added from names.txt resources
-        tieflingRacePresentation.surNameOptions = Human.RacePresentation.surNameOptions;
-        tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
-        tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
-        tieflingRacePresentation.preferedSkinColors = new RangedInt(16, 19);
-
         #region subraces
 
-        // var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.Tiefling, 1024, 512);
-
+        // BACKWARD COMPATIBILITY
         var attributeModifierTieflingIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingIntelligenceAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
@@ -69,13 +53,20 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
-            .Create(SubraceDarkelf, "RaceTieflingAsmodeus")
-            .SetGuiPresentation(Category.Race, Human)
-            .SetGuiPresentation(Category.Race)
+            .Create(Tiefling, "RaceTieflingAsmodeus")
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingAsmodeus)
             .AddToDB();
+
+        raceTieflingAsmodeus.GuiPresentation.hidden = true;
+        raceTieflingAsmodeus.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
+        // END BACKWARD COMPATIBILITY
+
+        //
+        // Mephistopheles
+        //
 
         var attributeModifierTieflingDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingDexterityAbilityScoreIncrease")
@@ -105,13 +96,17 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "RaceTieflingMephistopheles")
-            .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race, Human)
+            .Create(Tiefling, "RaceTieflingMephistopheles")
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingDexterityAbilityScoreIncrease,
                 castSpellTieflingMephistopheles)
             .AddToDB();
+
+        raceTieflingMephistopheles.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
+        //
+        // Zariel
+        //
 
         var attributeModifierTieflingStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingStrengthAbilityScoreIncrease")
@@ -141,61 +136,56 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
-            .Create(ElfSylvan, "RaceTieflingZariel")
-            .SetRacePresentation(tieflingRacePresentation)
-            .SetGuiPresentation(Category.Race, Human)
+            .Create(Tiefling, "RaceTieflingZariel")
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingStrengthAbilityScoreIncrease,
                 castSpellTieflingZariel)
             .AddToDB();
 
+        raceTieflingZariel.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
+
         #endregion
 
-        #region Main Race
-
-        var attributeModifierTieflingCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingCharismaAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Charisma, 2)
             .AddToDB();
 
-        var damageAffinityTieflingHellishResistance = FeatureDefinitionDamageAffinityBuilder
+        _ = FeatureDefinitionDamageAffinityBuilder
             .Create("DamageAffinityTieflingHellishResistance")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
-        var languageInfernal = LanguageDefinitionBuilder
+        _ = LanguageDefinitionBuilder
             .Create("LanguageInfernal")
             .SetGuiPresentation(Category.Language)
             .AddToDB();
 
-        var proficiencyTieflingLanguages = FeatureDefinitionProficiencyBuilder
+        _ = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyTieflingLanguages")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Language, "Language_Common", languageInfernal.Name)
+            .SetProficiencies(ProficiencyType.Language, "Language_Common", "LanguageInfernal")
             .AddToDB();
-
-        #endregion
+        // END BACKWARD COMPATIBILITY
 
         var raceTiefling = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "RaceTiefling")
-            .SetGuiPresentation(Category.Race, Human)
-            .SetRacePresentation(tieflingRacePresentation)
-            .SetSizeDefinition(CharacterSizeDefinitions.Medium)
-            .SetMinimalAge(20)
-            .SetMaximalAge(120)
+            .Create(Tiefling, "RaceTiefling")
+            .SetOrUpdateGuiPresentation("Tiefling", Category.Race)
             .SetFeaturesAtLevel(1,
                 MoveModeMove6,
                 SenseNormalVision,
                 SenseDarkvision,
-                proficiencyTieflingLanguages,
-                attributeModifierTieflingCharismaAbilityScoreIncrease,
-                damageAffinityTieflingHellishResistance)
+                FeatureSetTieflingHellishResistance,
+                AttributeModifierTieflingAbilityScoreIncreaseCha,
+                ProficiencyTieflingStaticLanguages)
             .AddToDB();
 
-        raceTiefling.subRaces.SetRange(raceTieflingAsmodeus, raceTieflingMephistopheles, raceTieflingZariel);
+        raceTiefling.subRaces.SetRange(raceTieflingMephistopheles, raceTieflingZariel);
+        raceTiefling.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         return raceTiefling;
     }

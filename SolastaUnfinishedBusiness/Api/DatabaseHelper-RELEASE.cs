@@ -66,6 +66,7 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition HalflingIsland { get; } = GetDefinition<CharacterRaceDefinition>("HalflingIsland");
         internal static CharacterRaceDefinition HalflingMarsh { get; } = GetDefinition<CharacterRaceDefinition>("HalflingMarsh");
         internal static CharacterRaceDefinition Human { get; } = GetDefinition<CharacterRaceDefinition>("Human");
+        internal static CharacterRaceDefinition Tiefling { get; } = GetDefinition<CharacterRaceDefinition>("Tiefling");
     }
     internal static class CharacterSizeDefinitions
     {
@@ -138,6 +139,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDazzled { get; } = GetDefinition<ConditionDefinition>("ConditionDazzled");
         internal static ConditionDefinition ConditionDead { get; } = GetDefinition<ConditionDefinition>("ConditionDead");
         internal static ConditionDefinition ConditionDisengaging { get; } = GetDefinition<ConditionDefinition>("ConditionDisengaging");
+        internal static ConditionDefinition ConditionDispellingEvilAndGood { get; } = GetDefinition<ConditionDefinition>("ConditionDispellingEvilAndGood");
         internal static ConditionDefinition ConditionDistracted { get; } = GetDefinition<ConditionDefinition>("ConditionDistracted");
         internal static ConditionDefinition ConditionDivineFavor { get; } = GetDefinition<ConditionDefinition>("ConditionDivineFavor");
         internal static ConditionDefinition ConditionDodging { get; } = GetDefinition<ConditionDefinition>("ConditionDodging");
@@ -410,6 +412,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsBase");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseCha { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseCha");
     }
     internal static class FeatureDefinitionAutoPreparedSpellss
     {
@@ -530,6 +533,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
         internal static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
+        internal static FeatureDefinitionFeatureSet FeatureSetTieflingHellishResistance { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTieflingHellishResistance");
         internal static FeatureDefinitionFeatureSet FeatureSetTraditionLightRadiantStrikes { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetTraditionLightRadiantStrikes");
         internal static FeatureDefinitionFeatureSet TerrainTypeAffinityRangerNaturalExplorerChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("TerrainTypeAffinityRangerNaturalExplorerChoice");
     }
@@ -720,6 +724,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencySorcererSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencySorcererSavingThrow");
         internal static FeatureDefinitionProficiency ProficiencySorcererWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencySorcererWeapon");
         internal static FeatureDefinitionProficiency ProficiencySpySkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencySpySkills");
+        internal static FeatureDefinitionProficiency ProficiencyTieflingStaticLanguages { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyTieflingStaticLanguages");
         internal static FeatureDefinitionProficiency ProficiencyWandererSkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererSkills");
         internal static FeatureDefinitionProficiency ProficiencyWandererTools { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools");
         internal static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow");
