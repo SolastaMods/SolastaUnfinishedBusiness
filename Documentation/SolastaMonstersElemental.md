@@ -344,6 +344,7 @@ Size: *Medium*
 *Features:*
 * Action Affinity Nimble Escape
 * Condition Affinity Grappled Immunity
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Petrified Immunity
 * Condition Affinity Poison Immunity
 * Condition Affinity Prone Immunity

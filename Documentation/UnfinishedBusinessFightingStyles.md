@@ -12,7 +12,7 @@ You add your proficiency bonus to damage against creatures that are blinded, fri
 
 # 4. - Hand-and-a-Half
 
-You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
+You gain +1 to AC, +1 to hit, and +1 to damage rolls when you use a versatile weapon in two hands.
 
 # 5. - Lunger
 

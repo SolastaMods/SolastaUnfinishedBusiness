@@ -353,6 +353,10 @@ Whenever you make an Intelligence (History) check, you can add twice your profic
 
 You have proficiency with artisan's tools (smith's tools). Using these tools, you spend a quarter of the normal time to craft a basic item, and your proficiency bonus is doubled when making the roll to determine whether your crafting progresses.
 
+* Ability Score Increase
+
+Constitution + 1
+
 
 
 # 14. - Shadow Gnome
@@ -473,6 +477,82 @@ You have resistance to fire damage.
 * Infernal Legacy
 
 You know the Produce Flame cantrip. When you reach level 3, you can cast the Hellish Rebuke spell as a level 2 spell once with this trait, and regain the ability to do so again when you finish a long rest. When you reach level 5, you can cast the Darkness spell once with this trait, and regain the ability to do so again when you finish a long rest. Charisma is your spellcasting ability for these spells.
+
+
+
+# 18. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Asmodeus Attribute Increase
+
+Intelligence +1
+
+* Asmodeus Magic
+
+You know the Dancing Lights cantrip. At 3rd level you learn Hellish Rebuke and at 5th level, Darkness. Both can be used once per long rest.
+
+
+
+# 19. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Mephistopheles Attribute Increase
+
+Dexterity +1
+
+* Mephistopheles Magic
+
+You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th level, Flame Blade. Both can be used once per long rest.
+
+
+
+# 20. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Zariel Attribute Increase
+
+Strength +1
+
+* Zariel Magic
+
+You know the Sunlit Blade cantrip. At 3rd level you learn Searing Smite and at 5th level, Branding Smite. Both can be used once per long rest.
+
+
+
+# 21. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Charisma + 2
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Hellish Resistance
+
+You have resistance to fire damage.
+
+* Move
+
+6◎
 
 
 

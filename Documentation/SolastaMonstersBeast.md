@@ -170,6 +170,7 @@ Size: *Small*
 |  08 |  18 |  10 |  02 |  11 |  04 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Movement Affinity No Special Moves
 * Movement Affinity Spider Climb
@@ -201,6 +202,7 @@ Size: *Small*
 |  08 |  18 |  10 |  02 |  11 |  04 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Movement Affinity No Special Moves
 * Movement Affinity Spider Climb
@@ -380,6 +382,7 @@ Size: *Large*
 |  14 |  16 |  12 |  02 |  11 |  04 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Light Sensitive - Bright
 * Movement Affinity No Special Moves
@@ -414,6 +417,7 @@ Size: *Medium*
 |  14 |  16 |  12 |  02 |  11 |  04 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Light Sensitive - Bright
 * Movement Affinity No Special Moves

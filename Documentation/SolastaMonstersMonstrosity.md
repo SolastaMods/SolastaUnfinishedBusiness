@@ -93,6 +93,7 @@ Size: *Large*
 |  20 |  16 |  16 |  06 |  06 |  08 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Acid Immunity
 * Damage Affinity Slashing Resistance
@@ -129,6 +130,7 @@ Size: *Large*
 |  20 |  16 |  16 |  06 |  06 |  08 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Acid Immunity
 * Damage Affinity Slashing Resistance
@@ -165,6 +167,7 @@ Size: *Medium*
 |  12 |  12 |  16 |  16 |  06 |  06 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Damage Affinity Acid Immunity
 * Damage Affinity Slashing Resistance
@@ -668,6 +671,7 @@ Size: *Medium*
 |  15 |  15 |  12 |  06 |  10 |  06 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Movement Affinity No Special Moves
 * Movement Affinity Spider Climb
 * Walk 6
@@ -1048,6 +1052,7 @@ Size: *Huge*
 * Condition Affinity Charm Immunity
 * Condition Affinity Charm Immunity Hypnotic Pattern
 * Condition Affinity Frightened Immunity
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * MIND CONTROLLED IMMUNITY
 * Condition Affinity Paralyzedmmunity
 * Condition Affinity Poison Immunity
@@ -1091,6 +1096,7 @@ Size: *Medium*
 
 *Features:*
 * Light Sensitive
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Movement Affinity No Special Moves
 * Movement Affinity Spider Climb

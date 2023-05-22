@@ -254,6 +254,15 @@ You can attack twice, rather than once, whenever you take the Attack action on y
 You have learned how to use your artificer infusions to specially modify armors - now you can put weapon enhancement infusions on armor and they will affect built-in Thunder Gauntlet and Lightning Launcher weapons. In addition, the maximum number of items you can infuse at once increases by 2.
 
 
+## Level 15
+
+* Perfected Armor
+
+You improve your armor modes:
+• Guardian:  Creatures attacked by your Thunder Gauntlet are Slowed until the start of your next turn, unless they succeed CON saving throw against inventor's spellcasting DC.
+• Infiltrator: Creatures attacked by your Lightning Launcher glimmer with magical light until the start of your next turn. The glimmering creature sheds dim light in a 5-foot radius, and it has disadvantage on attack rolls against you, as the light jolts it if it attacks you. In addition, the next attack roll against it has advantage, and if that attack hits, the target takes an extra 1d6 lightning damage.
+
+
 
 # 6. - Artillerist
 
@@ -1404,6 +1413,23 @@ Starting at 7th level, you can shield others from harm at the cost of your own h
 As a bonus action, spend a Channel Divinity to exchange hit points with an ally. You gain temporary hit points equal to twice your proficiency bonus plus your Charisma modifier.
 
 
+## Level 18
+
+* Improved Aura of the Guardian
+
+Your Aura of the Guardian range increased to 30 ft.
+
+
+## Level 20
+
+* Exalted Protector
+
+You passively grant the following benefits:
+• You and friendly creatures within 30 feet of you are under the effects of the Bless spell that does not require concentration.
+• You and all allies within 30 feet of you have advantage on all concentration checks.
+• All allies within 30 feet of you have advantage on all death saving throws.
+
+
 
 # 28. - Oath of Ancients
 
@@ -1445,6 +1471,13 @@ Starting at 7th level, ancient magic lies so heavily upon you that it forms an e
 * Undying Sentinel
 
 When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
+
+
+## Level 18
+
+* Improved Aura of Warding
+
+Your Aura of Warding range increased to 30 ft.
 
 
 
@@ -1492,6 +1525,24 @@ Starting at 7th level, you constantly emanate a menacing aura to all enemies wit
 When a creature under the effect of your Mark of Castigation or frighten condition makes an attack, you can use your reaction to make a weapon attack against that creature if it is within range.
 
 
+## Level 18
+
+* Improved Aura of Domination
+
+Your Aura of Domination range increased to 30 ft.
+
+
+## Level 20
+
+* Aspect of Dread
+
+As an action, you gain the following benefits for one minute:
+• You have resistance to all damage.
+• All your weapon attacks deal an additional 1d8 psychic damage.
+
+Once you use this feature, you can't use it again until you finish a long rest.
+
+
 
 # 30. - Oath of Hatred
 
@@ -1537,6 +1588,18 @@ On a successful opportunity attack, gain 2 extra movement cells and a free disen
 * Relentless Hate
 
 Your hate grants you resistance to bludgeoning, piercing and slashing damage.
+
+
+## Level 20
+
+* Ardent Hate
+
+As a bonus action, you gain the following benefits for one minute:
+• You have advantage on all saving throws.
+• Your weapon attacks ignore target's resistances to damage.
+• Once per round when you make a weapon attack and miss, you can cause that attack to hit instead.
+
+Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
@@ -1613,7 +1676,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 Starting at 10th level, you gain additional powers depending on the elemental calamity chosen at 3rd level.
 • Storm: While you are raging, you gain flying speed equal to your walking speed.
 • Blizzard: While you are raging, any creature damaged by blizzard 3rd level feature must pass a Strength saving throw or have their movement speed be reduced to 0, until the end of their next turn.
-• Wildfire:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to half your barbarian level.
+• Wildfire:  While you are raging, whenever an enemy creature hits you with an attack, you can use your reaction to force that creature to make a Dexterity saving throw. On a failed save, the creature takes fire damage equal to your barbarian level.
 
 
 
@@ -1713,7 +1776,7 @@ Starting at 3rd level, you can dual-wield non-light melee weapons as well as add
 
 * Wrath and Fury
 
-Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Additionally, dealing a critical hit with a melee weapon attack imposes a Constitution saving throw on that creature, with DC being 8 + proficiency + your Strength modifier. If the creature fails it, it has disadvantage on all attacks until the end of your next turn.
+Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Additionally, dealing a critical hit with a melee weapon attack imposes a Constitution saving throw on that creature, with DC being 8 + proficiency + your Strength modifier. If the creature fails it, it becomes incapacitated until the end of your next turn.
 
 
 ## Level 10
@@ -1913,7 +1976,7 @@ Starting at 3rd level, you are at your deadliest when you get the drop on your e
 
 * Chain of Execution
 
-Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Starting at 9th level, whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by half your total sneak dice (rounded up), until the end of your next turn.
 
 
 ## Level 13
@@ -2017,6 +2080,15 @@ Once per turn, deal +2d8 fire damage on weapon attacks.
 * Reinforce Armor
 
 Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +4 AC.
+
+
+## Level 17
+
+* Blessed Metal
+
+Your blessed affinity with fire and metal becomes more powerful. While wearing armor, you gain the following benefits:
+• You gain immunity to fire damage.
+• You have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.
 
 
 
@@ -2521,7 +2593,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 * Soul Empower
 
-You can empower a weapon with souls. It counts as magical and uses Charisma modifier for attack and damage rolls.
+Your main weapon single handed attacks count as magical and you use your spell casting modifier on attack and damage rolls. You lift the restriction on single handed if you take Pact of Blade, and you lift the restriction on main attack if you take the Two Weapon fighting style.
 
 * Soul Hex
 
@@ -2771,7 +2843,7 @@ Your weapon attacks score a critical hit on a roll of 19 or 20.
 
 * Weapon Specialization
 
-You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 15th.
+You gain +1 to hit and damage rolls with your specialized weapon type. A Martial Weapon Master will have disadvantage to attack with all other weapon types but gets a +2 bonus starting at level 9th, and a +3 starting at level 17th.
 
 
 ## Level 7

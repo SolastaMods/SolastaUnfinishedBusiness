@@ -1,21 +1,4 @@
-# 1. - Asmodeus
-
-The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
-
-
-## Level 1
-
-* Asmodeus Attribute Increase
-
-Intelligence +1
-
-* Asmodeus Magic
-
-You know the Dancing Lights cantrip. At 3rd level you learn Hellish Rebuke and at 5th level, Darkness. Both can be used once per long rest.
-
-
-
-# 2. - Bolgrif
+# 1. - Bolgrif
 
 Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 
@@ -52,7 +35,7 @@ You know one cantrip of your choice from the Druid spell list. Wisdom is your sp
 
 
 
-# 3. - Dark Elf
+# 2. - Dark Elf
 
 Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 
@@ -89,7 +72,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 4. - Dark Kobold
+# 3. - Dark Kobold
 
 Dark Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -114,7 +97,7 @@ A creature with Pack Tactics has advantage on an attack roll against a creature 
 
 
 
-# 5. - Draconic Kobold
+# 4. - Draconic Kobold
 
 Draconic Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -135,7 +118,7 @@ You know one cantrip of your choice from the Sorcerer spell list. Charisma is yo
 
 
 
-# 6. - Fairy
+# 5. - Fairy
 
 The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends. The first fairies spoke Elvish, Goblin, or Sylvan, and encounters with human visitors prompted many of them to learn Common as well.
 
@@ -168,7 +151,7 @@ You know the Burst of Radiance cantrip. At 3rd level you learn Faerie Fire and a
 
 
 
-# 7. - Gnome
+# 6. - Gnome
 
 A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 
@@ -205,7 +188,7 @@ You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier fo
 
 
 
-# 8. - Gray Dwarf
+# 7. - Gray Dwarf
 
 The Gray Dwarves are dwarves who have been changed after only a few generations of exposure to the mysterious magics of the Badlands. They are largely nocturnal and dwell mostly in buried ruins. Their skin color tends toward gray or even coal-black. Unlike most dwarves, they do not grow beards.
 
@@ -248,7 +231,7 @@ You can magically turn invisible for up to 1 minute. This invisibility breaks if
 
 
 
-# 9. - Half-Dark Elf
+# 8. - Half-Dark Elf
 
 Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 
@@ -265,7 +248,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 
 
-# 10. - Half-Elf
+# 9. - Half-Elf
 
 Offspring of the human refugees from Tirmar and the Solastan elves, <#B5D3DE>half-elves</color> have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
@@ -291,7 +274,7 @@ Common, Elvish, and one language of your choice
 
 
 
-# 11. - Half-High Elf
+# 10. - Half-High Elf
 
 Half-High elves are trained to use magic very early.
 
@@ -308,7 +291,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 
 
-# 12. - Half-Sylvan Elf
+# 11. - Half-Sylvan Elf
 
 Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 
@@ -321,7 +304,7 @@ Half-Sylvan elves are trained to survive in the wilds and are particularly apt t
 
 
 
-# 13. - Kobold
+# 12. - Kobold
 
 Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
 
@@ -339,69 +322,6 @@ Common, Draconic.
 * Move
 
 6◎
-
-
-
-# 14. - Mephistopheles
-
-Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
-
-
-## Level 1
-
-* Mephistopheles Attribute Increase
-
-Dexterity +1
-
-* Mephistopheles Magic
-
-You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th level, Flame Blade. Both can be used once per long rest.
-
-
-
-# 15. - Tiefling
-
-To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.
-
-
-## Level 1
-
-* Darkvision
-
-See normally in dim light, and in natural darkness as if in dim light.
-
-* Hellish Resistance
-
-You have resistance to fire damage.
-
-* Languages
-
-Common, Infernal.
-
-* Move
-
-6◎
-
-* Tiefling Attribute Increase
-
-Charisma +2
-
-
-
-# 16. - Zariel
-
-Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
-
-
-## Level 1
-
-* Zariel Attribute Increase
-
-Strength +1
-
-* Zariel Magic
-
-You know the Sunlit Blade cantrip. At 3rd level you learn Searing Smite and at 5th level, Branding Smite. Both can be used once per long rest.
 
 
 

@@ -1133,6 +1133,7 @@ Size: *Medium*
 |  10 |  16 |  13 |  02 |  11 |  04 |
 
 *Features:*
+* Condition Affinity Grappled Restrained Spell Web Immunity
 * Condition Affinity Prone Immunity
 * Resistant to cold weather.
 * Resistant to cold weather.

@@ -1515,6 +1515,13 @@ Friendly creatures in the aura cannot be charmed while you are conscious.
 Starting at level 15, you are always under the effects of a protection from evil and good spell.
 
 
+## Level 18
+
+* Improved Aura of Devotion
+
+Your Aura of Devotion range increased to 30 ft.
+
+
 
 # 32. - Oath of Judgement
 
@@ -1558,6 +1565,13 @@ You constantly emanate a 2-cell-wide aura while not incapacitated. Allies (inclu
 Starting at level 15, whenever an enemy within 6 cells deals damage to you, you can use your reaction to chastise them. They must make a Wisdom saving throw against you spellcasting ability, taking 2d8 + CHA mod psychic damage, or half on a success.
 
 
+## Level 18
+
+* Improved Aura of Rightenousness
+
+Your Aura of Rightenousness range increased to 30 ft.
+
+
 
 # 33. - Oath of the Motherland
 
@@ -1599,6 +1613,13 @@ Friendly creatures in the aura gain fire resistance and +1 to AC.
 * Heart of Lava
 
 Starting at level 15, you are immune to fire and your skin covers with stone scales when you are in danger, reducing slashing/bludgeoning/piercing damage that you take by 5.
+
+
+## Level 18
+
+* Improved Volcanic Aura
+
+Your Volcanic Aura range increased to 30 ft.
 
 
 
@@ -1646,6 +1667,13 @@ Friendly creatures in the aura gain superior darkvision and +2 perception.
 * Sorak's Bane
 
 Starting at level 15, when you use a melee attack to strike an opponent who has either natural darkvision or natural shapeshifting, you can use your bonus action to deal an additional melee attack, adding your Charisma bonus to the damage dealt.
+
+
+## Level 18
+
+* Improved Aura of Truth
+
+Your Aura of Truth range increased to 30 ft.
 
 
 
@@ -2402,7 +2430,7 @@ Starting at the 11th level, when you use Flurry of Blows, you can make up to one
 
 ## Level 17
 
-* Purity of Light
+* Fluid Strikes
 
 You can attack three times, instead of twice, whenever you take the Attack action on your turn.
 
