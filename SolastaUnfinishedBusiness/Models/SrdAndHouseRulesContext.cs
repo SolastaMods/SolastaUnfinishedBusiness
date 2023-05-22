@@ -191,22 +191,22 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        if (__instance is not RulesetCharacterMonster rulesetCharacterMonster)
+        if (__instance is not RulesetCharacter rulesetCharacter)
         {
             return;
         }
 
-        if (rulesetCharacterMonster.PersonalLightSource is not { SourceName: "ShouldEmitLightFromCondition" })
+        if (rulesetCharacter.PersonalLightSource is not { SourceName: "ShouldEmitLightFromCondition" })
         {
             return;
         }
 
-        var gameLocationMonster = GameLocationCharacter.GetFromActor(rulesetCharacterMonster);
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
         ServiceRepository.GetService<IGameLocationVisibilityService>()?
-            .RemoveCharacterLightSource(gameLocationMonster, rulesetCharacterMonster.PersonalLightSource);
+            .RemoveCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
 
-        rulesetCharacterMonster.PersonalLightSource.Unregister();
+        rulesetCharacter.PersonalLightSource.Unregister();
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
