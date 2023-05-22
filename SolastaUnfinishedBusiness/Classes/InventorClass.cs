@@ -405,7 +405,7 @@ internal static class InventorClass
         if (TryGetDefinition<CharacterToLootPackMapDefinition>("DLC3_CharacterToLootPackMap", out var map))
         {
             map.characterClassToLootPackMappings.Add(
-                new CharacterToLootPackMapDefinition.CharacterClassToLootPackMapping()
+                new CharacterToLootPackMapDefinition.CharacterClassToLootPackMapping
                 {
                     className = ClassName, lootPack = loot
                 });

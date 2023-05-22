@@ -98,6 +98,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
             new ConditionOperationDescription { operation = operation, conditionDefinition = condition });
     }
 
+#if false
     internal FeatureDefinitionAdditionalDamageBuilder AddCondition(ConditionDefinition condition)
     {
         return AddConditionOperation(new ConditionOperationDescription
@@ -105,6 +106,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
             operation = ConditionOperationDescription.ConditionOperation.Add, conditionDefinition = condition
         });
     }
+#endif
 
     internal FeatureDefinitionAdditionalDamageBuilder SetTargetCondition(
         ConditionDefinition requiredCondition,
@@ -178,12 +180,14 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionAdditionalDamageBuilder AddLightSourceForm(LightSourceForm form)
     {
         Definition.addLightSource = true;
         Definition.lightSourceForm = form;
         return this;
     }
+#endif
 
     internal FeatureDefinitionAdditionalDamageBuilder SetRequiredCharacterFamily(CharacterFamilyDefinition value)
     {
