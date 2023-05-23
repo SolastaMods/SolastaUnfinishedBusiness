@@ -19,7 +19,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 {
     private const string Name = "OathOfAncients";
 
-    internal static readonly ConditionDefinition ConditionElderChampionEnemy = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionElderChampionEnemy = ConditionDefinitionBuilder
         .Create($"Condition{Name}ElderChampionEnemy")
         .SetGuiPresentation($"Condition{Name}ElderChampion", Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
@@ -278,8 +278,22 @@ internal sealed class OathOfAncients : AbstractSubclass
         RulesetActor target,
         BaseDefinition sourceDefinition)
     {
-        if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+        if (sourceDefinition is not ItemDefinition &&
+            sourceDefinition is not FeatureDefinitionAdditionalDamage &&
+            sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
             sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+        {
+            return;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
+
+        if (gameLocationCaster == null ||
+            gameLocationTarget == null ||
+            gameLocationBattleService == null ||
+            !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
         {
             return;
         }

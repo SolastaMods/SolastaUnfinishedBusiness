@@ -23,7 +23,7 @@ internal sealed class OathOfDread : AbstractSubclass
 {
     private const string Name = "OathOfDread";
 
-    internal static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
+    private static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
         .Create($"Condition{Name}AspectOfDreadEnemy")
         .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition)
         .SetSilent(Silent.WhenAddedOrRemoved)
@@ -294,8 +294,22 @@ internal sealed class OathOfDread : AbstractSubclass
         RulesetActor target,
         BaseDefinition sourceDefinition)
     {
-        if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+        if (sourceDefinition is not ItemDefinition && // for smite spells but can bleed
+            sourceDefinition is not FeatureDefinitionAdditionalDamage && // for smite spells but can bleed
+            sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
             sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+        {
+            return;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
+
+        if (gameLocationCaster == null ||
+            gameLocationTarget == null ||
+            gameLocationBattleService == null ||
+            !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
         {
             return;
         }
