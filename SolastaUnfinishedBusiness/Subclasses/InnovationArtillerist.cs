@@ -97,7 +97,7 @@ public static class InnovationArtillerist
                             .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new MagicalEffectInitiatedForceBallista())
+            .SetCustomSubFeatures(new ModifyMagicEffectOnActionStartForceBallista())
             .AddToDB();
 
         var powerProtector = FeatureDefinitionPowerBuilder
@@ -869,9 +869,9 @@ public static class InnovationArtillerist
         return monster;
     }
 
-    private sealed class MagicalEffectInitiatedForceBallista : IMagicalEffectInitiated
+    private sealed class ModifyMagicEffectOnActionStartForceBallista : IModifyMagicEffectOnActionStart
     {
-        public void OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
+        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
         {
             var rulesetCharacter = characterActionMagicEffect.ActingCharacter.RulesetCharacter;
             var rulesetCondition = rulesetCharacter.AllConditions.FirstOrDefault(x =>

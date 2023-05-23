@@ -709,15 +709,15 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(true)
             .SetSomaticComponent(true)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetCustomSubFeatures(new MagicalAttackInitiatedTollTheDead())
+            .SetCustomSubFeatures(new ModifyMagicAttackOnActionStartTollTheDead())
             .AddToDB();
 
         return spell;
     }
 
-    private sealed class MagicalAttackInitiatedTollTheDead : IMagicalEffectInitiated
+    private sealed class ModifyMagicAttackOnActionStartTollTheDead : IModifyMagicEffectOnActionStart
     {
-        public void OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
+        public void OnMagicalEffectActionStarted(CharacterActionMagicEffect characterActionMagicEffect)
         {
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
