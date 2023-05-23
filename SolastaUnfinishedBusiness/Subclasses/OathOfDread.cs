@@ -272,7 +272,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 featureHarrowingCrusade)
             .AddFeaturesAtLevel(18,
                 powerAuraOfDomination18)
-            .AddFeaturesAtLevel(3,
+            .AddFeaturesAtLevel(20,
                 powerAspectOfDread)
             .AddToDB();
     }

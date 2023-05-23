@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfDreadAspectOfDread:6ac1d025-0a20-5897-af18-462bbf4e35ab",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfDreadDreadfulPresence:8661c069-88b8-5a6f-8391-475daf176a35",
       "level": 3
     },
@@ -35,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfDreadAuraOfDomination18:fe1d859b-f117-5441-bf42-f0c4942955dc",
       "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfDreadAspectOfDread:6ac1d025-0a20-5897-af18-462bbf4e35ab",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],
