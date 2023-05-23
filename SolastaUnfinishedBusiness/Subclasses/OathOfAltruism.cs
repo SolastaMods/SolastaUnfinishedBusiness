@@ -83,19 +83,15 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .SetCustomSubFeatures(new AfterActionFinishedTakeThePain())
             .AddToDB();
 
-        var effectPowerAuraOfTheGuardian18 = new EffectDescription();
-
-        effectPowerAuraOfTheGuardian18.Copy(powerAuraOfTheGuardian.EffectDescription);
-        effectPowerAuraOfTheGuardian18.targetParameter = 13;
-
         var powerAuraOfTheGuardian18 = FeatureDefinitionPowerBuilder
             .Create(powerAuraOfTheGuardian, $"Power{Name}AuraOfTheGuardian18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerAuraOfTheGuardian18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerAuraOfTheGuardian)
             .SetCustomSubFeatures(GuardianAuraHpSwap.AuraGuardianUserMarker)
             .AddToDB();
 
+        powerAuraOfTheGuardian18.EffectDescription.targetParameter = 13;
+        
         var magicAffinityExaltedProtector = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ExaltedProtector")
             .SetGuiPresentation($"Power{Name}ExaltedProtector", Category.Feature)

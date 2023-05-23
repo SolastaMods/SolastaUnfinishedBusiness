@@ -333,30 +333,22 @@ internal static class Level20Context
 
     private static void PaladinLoad()
     {
-        var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
-
-        effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
-        effectPowerPaladinAuraOfCourage18.targetParameter = 13;
-
         var powerPaladinAuraOfCourage18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerPaladinAuraOfCourage)
             .AddToDB();
 
-        var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
-
-        effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
-        effectPowerPaladinAuraOfProtection18.targetParameter = 13;
+        powerPaladinAuraOfCourage18.EffectDescription.targetParameter = 13;
 
         var powerPaladinAuraOfProtection18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
-            .SetOverriddenPower(PowerPaladinAuraOfCourage)
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerPaladinAuraOfProtection)
             .AddToDB();
 
+        powerPaladinAuraOfProtection18.EffectDescription.targetParameter = 13;
+        
         Paladin.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),

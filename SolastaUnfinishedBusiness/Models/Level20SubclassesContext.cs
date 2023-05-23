@@ -444,18 +444,14 @@ internal static class Level20SubclassesContext
         // Oath of Devotion
         //
 
-        var effectPowerOathOfDevotionAuraDevotion18 = new EffectDescription();
-
-        effectPowerOathOfDevotionAuraDevotion18.Copy(PowerOathOfDevotionAuraDevotion.EffectDescription);
-        effectPowerOathOfDevotionAuraDevotion18.targetParameter = 13;
-
         var powerOathOfDevotionAuraDevotion18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfDevotionAuraDevotion, "PowerOathOfDevotionAuraDevotion18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerOathOfDevotionAuraDevotion18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerOathOfDevotionAuraDevotion)
             .AddToDB();
 
+        powerOathOfDevotionAuraDevotion18.EffectDescription.targetParameter = 13;
+        
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
 
         AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
@@ -465,18 +461,14 @@ internal static class Level20SubclassesContext
         // Oath of Judgement
         //
 
-        var effectPowerOathOfJugementAuraRightenousness18 = new EffectDescription();
-
-        effectPowerOathOfJugementAuraRightenousness18.Copy(PowerOathOfJugementAuraRightenousness.EffectDescription);
-        effectPowerOathOfJugementAuraRightenousness18.targetParameter = 13;
-
         var powerOathOfJugementAuraRightenousness18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfJugementAuraRightenousness, "PowerOathOfJugementAuraRightenousness18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerOathOfJugementAuraRightenousness18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerOathOfJugementAuraRightenousness)
             .AddToDB();
 
+        powerOathOfJugementAuraRightenousness18.EffectDescription.targetParameter = 13;
+        
         OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
 
         AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
@@ -486,18 +478,14 @@ internal static class Level20SubclassesContext
         // Oath of Motherland
         //
 
-        var effectPowerOathOfMotherlandVolcanicAura18 = new EffectDescription();
-
-        effectPowerOathOfMotherlandVolcanicAura18.Copy(PowerOathOfMotherlandVolcanicAura.EffectDescription);
-        effectPowerOathOfMotherlandVolcanicAura18.targetParameter = 13;
-
         var powerOathOfMotherlandVolcanicAura18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfMotherlandVolcanicAura, "PowerOathOfMotherlandVolcanicAura18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerOathOfMotherlandVolcanicAura18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerOathOfMotherlandVolcanicAura)
             .AddToDB();
 
+        powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
+        
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
 
         AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
@@ -507,18 +495,14 @@ internal static class Level20SubclassesContext
         // Oath of Tirmar
         //
 
-        var effectPowerOathOfTirmarAuraTruth18 = new EffectDescription();
-
-        effectPowerOathOfTirmarAuraTruth18.Copy(PowerOathOfTirmarAuraTruth.EffectDescription);
-        effectPowerOathOfTirmarAuraTruth18.targetParameter = 13;
-
         var powerOathOfTirmarAuraTruth18 = FeatureDefinitionPowerBuilder
             .Create(PowerOathOfTirmarAuraTruth, "PowerOathOfTirmarAuraTruth18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerOathOfTirmarAuraTruth18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerOathOfTirmarAuraTruth)
             .AddToDB();
 
+        powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
+        
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
 
         AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(

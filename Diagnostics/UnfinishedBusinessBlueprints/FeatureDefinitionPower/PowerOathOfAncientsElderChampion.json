@@ -330,7 +330,7 @@
     "description": "Feature/&PowerOathOfAncientsElderChampionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "598ec44d-efbf-55d6-aec2-a8e679299c46",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

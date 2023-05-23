@@ -192,17 +192,13 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Improved Aura of Domination
 
-        var effectAuraOfDomination18 = new EffectDescription();
-
-        effectAuraOfDomination18.Copy(powerAuraOfDomination.EffectDescription);
-        effectAuraOfDomination18.targetParameter = 13;
-
         var powerAuraOfDomination18 = FeatureDefinitionPowerBuilder
             .Create(powerAuraOfDomination, $"Power{Name}AuraOfDomination18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectAuraOfDomination18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerAuraOfDomination)
             .AddToDB();
+
+        powerAuraOfDomination18.EffectDescription.targetParameter = 13;
 
         //
         // LEVEL 20

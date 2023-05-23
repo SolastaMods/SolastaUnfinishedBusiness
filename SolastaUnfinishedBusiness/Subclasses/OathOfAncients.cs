@@ -186,18 +186,14 @@ internal sealed class OathOfAncients : AbstractSubclass
         // Level 18
         //
 
-        var effectPowerAuraWarding18 = new EffectDescription();
-
-        effectPowerAuraWarding18.Copy(powerAuraWarding.EffectDescription);
-        effectPowerAuraWarding18.targetParameter = 13;
-
         var powerAuraWarding18 = FeatureDefinitionPowerBuilder
             .Create(powerAuraWarding, $"Power{Name}AuraWarding18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerAuraWarding18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(powerAuraWarding)
             .AddToDB();
 
+        powerAuraWarding18.EffectDescription.targetParameter = 13;
+        
         //
         // Level 20
         //
@@ -244,7 +240,6 @@ internal sealed class OathOfAncients : AbstractSubclass
                             .SetConditionForm(conditionElderChampion, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
