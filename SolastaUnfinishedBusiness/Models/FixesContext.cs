@@ -24,7 +24,7 @@ internal static class FixesContext
         // REQUIRED FIXES
         FixColorTables();
         FixAttackBuffsAffectingSpellDamage();
-        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
+        FixSmitesAndStrikesDiceProgression();
         FixDivineStrikeRestrictions();
         FixDivineSmiteRestrictions();
         FixFightingStyleArchery();
@@ -92,19 +92,29 @@ internal static class FixesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
     /**
      * Makes Divine Smite use correct number of dice when spending slot level 5+.
      * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
      */
-    private static void FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots()
+    private static void FixSmitesAndStrikesDiceProgression()
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
 
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.diceByRankTable =
+            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.diceByRankTable =
+            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
     }
 
     /**

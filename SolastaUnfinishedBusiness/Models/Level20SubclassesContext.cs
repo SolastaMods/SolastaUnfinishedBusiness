@@ -454,9 +454,6 @@ internal static class Level20SubclassesContext
         
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
 
-        AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
-
         //
         // Oath of Judgement
         //
@@ -470,9 +467,6 @@ internal static class Level20SubclassesContext
         powerOathOfJugementAuraRightenousness18.EffectDescription.targetParameter = 13;
         
         OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
-
-        AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, Banishment, Blight));
 
         //
         // Oath of Motherland
@@ -488,9 +482,6 @@ internal static class Level20SubclassesContext
         
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
 
-        AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, WallOfFire, FireShield));
-
         //
         // Oath of Tirmar
         //
@@ -504,9 +495,6 @@ internal static class Level20SubclassesContext
         powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
         
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
-
-        AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
     }
 
     private static void RogueLoad()
