@@ -47,7 +47,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-            .SetMaxAttacksNumber(-1)
             .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 

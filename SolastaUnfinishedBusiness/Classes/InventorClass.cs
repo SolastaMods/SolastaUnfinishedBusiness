@@ -401,7 +401,7 @@ internal static class InventorClass
             .AddExplicitItem(ItemDefinitions.WandOfWarMagePlus1)
             .AddExplicitItem(ItemDefinitions.RingDetectInvisible)
             .AddToDB();
-        
+
         if (TryGetDefinition<CharacterToLootPackMapDefinition>("DLC3_CharacterToLootPackMap", out var map))
         {
             map.characterClassToLootPackMappings.Add(
