@@ -715,9 +715,9 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    private sealed class MagicalAttackInitiatedTollTheDead : IModifyMagicAttack
+    private sealed class MagicalAttackInitiatedTollTheDead : IMagicalEffectInitiated
     {
-        public void ModifyMagicAttack(CharacterActionMagicEffect characterActionMagicEffect)
+        public void OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
         {
             var gameLocationDefender = characterActionMagicEffect.ActionParams.TargetCharacters[0];
             var rulesetDefender = gameLocationDefender.RulesetCharacter;
