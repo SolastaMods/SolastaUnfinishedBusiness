@@ -391,6 +391,7 @@ internal static class InventorClass
     {
         var loot = LootPackDefinitionBuilder
             .Create("UB_DLC3_Class_Lootpack_BasicChest_Inventor")
+            .SetGuiPresentationNoContent(true)
             .AddExplicitItem(ItemDefinitions.SpearPlus2)
             .AddExplicitItem(ItemDefinitions.ShieldPlus1)
             .AddExplicitItem(CustomWeaponsContext.HandXbowAcid)
