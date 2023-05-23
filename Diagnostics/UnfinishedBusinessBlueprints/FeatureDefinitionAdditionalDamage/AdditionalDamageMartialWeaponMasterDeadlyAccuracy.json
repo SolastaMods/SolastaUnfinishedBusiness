@@ -26,7 +26,7 @@
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": false,
+  "ignoreCriticalDoubleDice": true,
   "hasSavingThrow": false,
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
@@ -47,9 +47,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AdditionalDamageMartialWeaponMasterDeadlyAccuracyTitle",
-    "description": "Feature/&AdditionalDamageMartialWeaponMasterDeadlyAccuracyDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

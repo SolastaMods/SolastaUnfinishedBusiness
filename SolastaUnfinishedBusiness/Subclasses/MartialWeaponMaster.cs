@@ -157,6 +157,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("DeadlyAccuracy")
             .SetDamageDice(DieType.D6, 2)
+            .SetIgnoreCriticalDoubleDice(true)
             .AddToDB();
 
         var featureDeadlyAccuracy = FeatureDefinitionBuilder
