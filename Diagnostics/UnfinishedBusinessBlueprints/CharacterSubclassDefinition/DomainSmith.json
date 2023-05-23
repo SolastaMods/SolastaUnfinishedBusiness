@@ -63,7 +63,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetDomainSmithBlessedMetal:1fedd24e-136e-56ec-84a4-870340f13a59",
+      "featureDefinition": "Definition:FeatureDomainSmithBlessedMetal:af616884-6e4e-54ea-93ec-6e13d7e5a730",
       "level": 17
     }
   ],
