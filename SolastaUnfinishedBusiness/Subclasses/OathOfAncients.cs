@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -18,17 +17,36 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class OathOfAncients : AbstractSubclass
 {
+    private const string Name = "OathOfAncients";
+
+    internal static readonly ConditionDefinition ConditionElderChampionEnemy = ConditionDefinitionBuilder
+        .Create($"Condition{Name}ElderChampionEnemy")
+        .SetGuiPresentation($"Condition{Name}ElderChampion", Category.Condition)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}ElderChampionEnemy")
+            .SetGuiPresentation($"Power{Name}ElderChampion", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB())
+        .AddToDB();
+
     internal OathOfAncients()
     {
-        const string NAME = "OathOfAncients";
-
         //
         // LEVEL 03
         //
 
         //Based on Oath of the Ancients prepared spells though changed Planet Growth to Spirit Guardians.
         var autoPreparedSpellsOathAncients = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create($"AutoPreparedSpells{NAME}")
+            .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation("Subclass/&OathOfAncientsTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
@@ -40,14 +58,14 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{NAME}NaturesWrath")
+            .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{Name}NaturesWrath")
             .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters
                 .conditionParticleReference)
             .AddToDB();
 
         //Free single target entangle on Channel Divinity use
         var powerNaturesWrath = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}NaturesWrath")
+            .Create($"Power{Name}NaturesWrath")
             .SetGuiPresentation(Category.Feature, Entangle)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
@@ -75,7 +93,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         //AoE Turned on failed Wisdom saving throw for Fey and the 0 Fiends in game.
         var powerTurnFaithless = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}TurnFaithless")
+            .Create($"Power{Name}TurnFaithless")
             .SetGuiPresentation(Category.Feature, PowerWindShelteringBreeze)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
@@ -112,7 +130,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         //
 
         var conditionAuraWardingResistance = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}AuraWardingResistance")
+            .Create($"Condition{Name}AuraWardingResistance")
             .SetGuiPresentationNoContent(true)
             .AddFeatures(DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -132,20 +150,20 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         var featureAuraWarding = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}AuraWarding")
+            .Create($"Feature{Name}AuraWarding")
             .SetCustomSubFeatures(new AuraWardingModifyMagic(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         var conditionAuraWarding = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}AuraWarding")
-            .SetGuiPresentation($"Power{NAME}AuraWarding", Category.Feature, ConditionDefinitions.ConditionBlessed)
+            .Create($"Condition{Name}AuraWarding")
+            .SetGuiPresentation($"Power{Name}AuraWarding", Category.Feature, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(featureAuraWarding)
             .AddToDB();
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
-            .Create(PowerPaladinAuraOfProtection, $"Power{NAME}AuraWarding")
+            .Create(PowerPaladinAuraOfProtection, $"Power{Name}AuraWarding")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -160,7 +178,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         //
 
         var damageAffinityUndyingSentinel = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{NAME}UndyingSentinel")
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{Name}UndyingSentinel")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .AddToDB();
 
@@ -174,7 +192,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         effectPowerAuraWarding18.targetParameter = 13;
 
         var powerAuraWarding18 = FeatureDefinitionPowerBuilder
-            .Create(powerAuraWarding, $"Power{NAME}AuraWarding18")
+            .Create(powerAuraWarding, $"Power{Name}AuraWarding18")
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(effectPowerAuraWarding18)
             .SetOverriddenPower(powerAuraWarding)
@@ -184,58 +202,36 @@ internal sealed class OathOfAncients : AbstractSubclass
         // Level 20
         //
 
-        var savingThrowAffinityElderChampionEnemy = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{NAME}ElderChampionEnemy")
-            .SetGuiPresentation($"Power{NAME}ElderChampion", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var conditionElderChampionEnemy = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ElderChampionEnemy")
-            .SetGuiPresentation($"Condition{NAME}ElderChampion", Category.Condition)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(savingThrowAffinityElderChampionEnemy)
-            .AddToDB();
-
         var additionalActionElderChampion = FeatureDefinitionAdditionalActionBuilder
-            .Create($"AdditionalAction{NAME}ElderChampion")
+            .Create($"AdditionalAction{Name}ElderChampion")
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
             .AddToDB();
 
         var conditionElderChampionAdditionalAttack = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ElderChampionAdditionalAttack")
+            .Create($"Condition{Name}ElderChampionAdditionalAttack")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(additionalActionElderChampion)
             .AddToDB();
 
         var featureElderChampion = FeatureDefinitionBuilder
-            .Create($"Feature{NAME}ElderChampion")
+            .Create($"Feature{Name}ElderChampion")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionEnemy,
-                conditionElderChampionAdditionalAttack))
+            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionAdditionalAttack))
             .AddToDB();
 
         var conditionElderChampion = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}ElderChampion")
+            .Create($"Condition{Name}ElderChampion")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
             .SetPossessive()
             .SetFeatures(featureElderChampion)
             .AddToDB();
 
         var powerElderChampion = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}ElderChampion")
-            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerElderChampion, 256, 128))
+            .Create($"Power{Name}ElderChampion")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(Name, Resources.PowerElderChampion, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -252,7 +248,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(NAME)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAncients", Resources.OathOfAncients, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsOathAncients,
@@ -272,6 +268,41 @@ internal sealed class OathOfAncients : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Elder Champion
+    //
+
+    internal static void OnRollSavingThrowElderChampion(
+        RulesetCharacter caster,
+        RulesetActor target,
+        BaseDefinition sourceDefinition)
+    {
+        if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+        {
+            return;
+        }
+
+        if (!caster.HasAnyConditionOfType($"Condition{Name}ElderChampion"))
+        {
+            return;
+        }
+
+        target.InflictCondition(
+            ConditionElderChampionEnemy.Name,
+            ConditionElderChampionEnemy.DurationType,
+            ConditionElderChampionEnemy.DurationParameter,
+            ConditionElderChampionEnemy.TurnOccurence,
+            AttributeDefinitions.TagCombat,
+            caster.guid,
+            caster.CurrentFaction.Name,
+            1,
+            null,
+            0,
+            0,
+            0);
+    }
 
     private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
     {
@@ -311,21 +342,12 @@ internal sealed class OathOfAncients : AbstractSubclass
         }
     }
 
-    //
-    // Elder Champion
-    //
-
-    private sealed class CustomBehaviorElderChampion :
-        IMagicalEffectInitiated, ICharacterTurnStartListener, IActionFinished
+    private sealed class CustomBehaviorElderChampion : ICharacterTurnStartListener, IActionFinished
     {
         private readonly ConditionDefinition _conditionElderChampionAdditionalAttack;
-        private readonly ConditionDefinition _conditionElderChampionEnemy;
 
-        public CustomBehaviorElderChampion(
-            ConditionDefinition conditionAspectOfDreadEnemy,
-            ConditionDefinition conditionElderChampionAdditionalAttack)
+        public CustomBehaviorElderChampion(ConditionDefinition conditionElderChampionAdditionalAttack)
         {
-            _conditionElderChampionEnemy = conditionAspectOfDreadEnemy;
             _conditionElderChampionAdditionalAttack = conditionElderChampionAdditionalAttack;
         }
 
@@ -364,48 +386,6 @@ internal sealed class OathOfAncients : AbstractSubclass
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             locationCharacter.RulesetCharacter.ReceiveHealing(10, true, locationCharacter.Guid);
-        }
-
-        public IEnumerator OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
-        {
-            var definition = characterActionMagicEffect.GetBaseDefinition();
-
-            if (definition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-                definition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterActionMagicEffect.ActingCharacter;
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
-
-            foreach (var rulesetDefender in characterActionMagicEffect.ActionParams.TargetCharacters
-                         .Where(x =>
-                             gameLocationBattleService.IsWithinXCells(actingCharacter, x, 2) &&
-                             x.RulesetCharacter is { IsDeadOrDying: false })
-                         .Select(x => x.RulesetCharacter))
-            {
-                rulesetDefender.InflictCondition(
-                    _conditionElderChampionEnemy.Name,
-                    _conditionElderChampionEnemy.DurationType,
-                    _conditionElderChampionEnemy.DurationParameter,
-                    _conditionElderChampionEnemy.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
         }
     }
 }

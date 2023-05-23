@@ -23,6 +23,25 @@ internal sealed class OathOfDread : AbstractSubclass
 {
     private const string Name = "OathOfDread";
 
+    internal static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
+        .Create($"Condition{Name}AspectOfDreadEnemy")
+        .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
+            .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB())
+        .AddToDB();
+
     internal OathOfDread()
     {
         //
@@ -191,27 +210,6 @@ internal sealed class OathOfDread : AbstractSubclass
 
         // Aspect of Dread
 
-        var savingThrowAffinityAspectOfDreadEnemy = FeatureDefinitionSavingThrowAffinityBuilder
-            .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
-            .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
-            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
-                AttributeDefinitions.Strength,
-                AttributeDefinitions.Dexterity,
-                AttributeDefinitions.Constitution,
-                AttributeDefinitions.Intelligence,
-                AttributeDefinitions.Wisdom,
-                AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var conditionAspectOfDreadEnemy = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AspectOfDreadEnemy")
-            .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(savingThrowAffinityAspectOfDreadEnemy)
-            .AddToDB();
-
         var additionalDamageAspectOfDread = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}AspectOfDread")
             .SetGuiPresentationNoContent(true)
@@ -219,8 +217,6 @@ internal sealed class OathOfDread : AbstractSubclass
             .SetDamageDice(DieType.D8, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetCustomSubFeatures(
-                new ModifyMagicEffectOnActionStartAspectOfDread(powerDreadfulPresence, conditionAspectOfDreadEnemy))
             .AddToDB();
 
         var conditionAspectOfDread = ConditionDefinitionBuilder
@@ -288,6 +284,41 @@ internal sealed class OathOfDread : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Aspect of Dread
+    //
+
+    internal static void OnRollSavingThrowAspectOfDread(
+        RulesetCharacter caster,
+        RulesetActor target,
+        BaseDefinition sourceDefinition)
+    {
+        if (sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+        {
+            return;
+        }
+
+        if (!caster.HasAnyConditionOfType($"Condition{Name}AspectOfDread"))
+        {
+            return;
+        }
+
+        target.InflictCondition(
+            ConditionAspectOfDreadEnemy.Name,
+            ConditionAspectOfDreadEnemy.DurationType,
+            ConditionAspectOfDreadEnemy.DurationParameter,
+            ConditionAspectOfDreadEnemy.TurnOccurence,
+            AttributeDefinitions.TagCombat,
+            caster.guid,
+            caster.CurrentFaction.Name,
+            1,
+            null,
+            0,
+            0,
+            0);
+    }
 
     //
     // Aura of Domination
@@ -452,66 +483,6 @@ internal sealed class OathOfDread : AbstractSubclass
             manager.AddInterruptRequest(reactionRequest);
 
             yield return battle.WaitForReactions(attacker, manager, previousReactionCount);
-        }
-    }
-
-    //
-    // Aspect of Dread
-    //
-
-    private sealed class ModifyMagicEffectOnActionStartAspectOfDread : IMagicalEffectInitiated
-    {
-        private readonly ConditionDefinition _conditionAspectOfDreadEnemy;
-        private readonly FeatureDefinitionPower _powerDreadfulPresence;
-
-        public ModifyMagicEffectOnActionStartAspectOfDread(
-            FeatureDefinitionPower powerDreadfulPresence,
-            ConditionDefinition conditionAspectOfDreadEnemy)
-        {
-            _powerDreadfulPresence = powerDreadfulPresence;
-            _conditionAspectOfDreadEnemy = conditionAspectOfDreadEnemy;
-        }
-
-        public IEnumerator OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
-        {
-            var definition = characterActionMagicEffect.GetBaseDefinition();
-
-            if (definition is not SpellDefinition { castingTime: ActivationTime.Action } &&
-                definition != _powerDreadfulPresence)
-            {
-                yield break;
-            }
-
-            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-            if (gameLocationBattleService == null)
-            {
-                yield break;
-            }
-
-            var actingCharacter = characterActionMagicEffect.ActingCharacter;
-            var rulesetAttacker = actingCharacter.RulesetCharacter;
-
-            foreach (var rulesetDefender in characterActionMagicEffect.ActionParams.TargetCharacters
-                         .Where(x =>
-                             gameLocationBattleService.IsWithinXCells(actingCharacter, x, 2) &&
-                             x.RulesetCharacter is { IsDeadOrDying: false })
-                         .Select(x => x.RulesetCharacter))
-            {
-                rulesetDefender.InflictCondition(
-                    _conditionAspectOfDreadEnemy.Name,
-                    _conditionAspectOfDreadEnemy.DurationType,
-                    _conditionAspectOfDreadEnemy.DurationParameter,
-                    _conditionAspectOfDreadEnemy.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-            }
         }
     }
 }

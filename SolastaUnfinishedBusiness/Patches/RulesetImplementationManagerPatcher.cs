@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -669,10 +670,18 @@ public static class RulesetImplementationManagerPatcher
             }
         }
 
-        //PATCH: supports IChangeSavingThrowAttribute interface
         [UsedImplicitly]
-        public static void Prefix(RulesetActor target, ref string savingThrowAbility)
+        public static void Prefix(
+            RulesetCharacter caster,
+            RulesetActor target,
+            string savingThrowAbility,
+            BaseDefinition sourceDefinition)
         {
+            //TODO: convert to an interface
+            OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
+            OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+
+            //PATCH: supports IChangeSavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);
         }
 
