@@ -152,6 +152,19 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         // Superior Critical from vanilla Martial Champion
 
+        var additionalDamageDeadlyAccuracy = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}DeadlyAccuracy")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("DeadlyAccuracy")
+            .SetDamageDice(DieType.D6, 2)
+            .AddToDB();
+
+        var featureDeadlyAccuracy = FeatureDefinitionBuilder
+            .Create($"Feature{Name}DeadlyAccuracy")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new CustomAdditionalDamageDeadlyAccuracy(additionalDamageDeadlyAccuracy))
+            .AddToDB();
+
         // LEVEL 18
 
         var featurePerfectStrikes = FeatureDefinitionBuilder
@@ -176,6 +189,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 featureBattleStance)
             .AddFeaturesAtLevel(15,
+                featureDeadlyAccuracy,
                 FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical)
             .AddFeaturesAtLevel(18,
                 featurePerfectStrikes)
@@ -208,12 +222,18 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             out var characterSubclassDefinition) && characterSubclassDefinition.Name == Name;
     }
 
-    internal static IEnumerable<WeaponTypeDefinition> GetSpecializedWeaponTypes(RulesetActor rulesetCharacter)
+    internal static bool HasSpecializedWeapon(
+        RulesetCharacter rulesetCharacter,
+        RulesetAttackMode rulesetAttackMode = null)
     {
-        return rulesetCharacter
+        var specializedWeapons = rulesetCharacter
             .GetSubFeaturesByType<ModifyWeaponAttackModeSpecialization>()
             .Select(x => x.WeaponTypeDefinition)
             .ToList();
+
+        return rulesetAttackMode != null
+            ? specializedWeapons.Any(x => ValidatorsWeapon.IsOfWeaponType(x)(rulesetAttackMode, null, null))
+            : specializedWeapons.Any(x => ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter));
     }
 
     //
@@ -236,10 +256,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            var specializedWeapons = GetSpecializedWeaponTypes(myself);
-
-            if (attackMode is not { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } ||
-                specializedWeapons.Any(x => x == itemDefinition.WeaponDescription.WeaponTypeDefinition))
+            if (!HasSpecializedWeapon(myself, attackMode))
             {
                 return;
             }
@@ -271,8 +288,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                sourceDefinition.WeaponDescription.WeaponTypeDefinition != WeaponTypeDefinition)
+            if (!HasSpecializedWeapon(character, attackMode))
             {
                 return;
             }
@@ -316,10 +332,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            var specializedWeapons = GetSpecializedWeaponTypes(myself);
-
-            if (attackMode is not { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } ||
-                specializedWeapons.All(x => x != itemDefinition.WeaponDescription.WeaponTypeDefinition))
+            if (!HasSpecializedWeapon(myself, attackMode))
             {
                 return;
             }
@@ -366,9 +379,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var specializedWeapons = GetSpecializedWeaponTypes(rulesetAttacker);
 
-            if (specializedWeapons.All(x => !ValidatorsWeapon.IsOfWeaponType(x)(attackMode, null, null)))
+            if (!HasSpecializedWeapon(rulesetAttacker, attackMode))
             {
                 yield break;
             }
@@ -422,9 +434,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            var specializedWeapons = GetSpecializedWeaponTypes(rulesetCharacter);
-
-            if (specializedWeapons.All(x => !ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter)))
+            if (!HasSpecializedWeapon(rulesetCharacter))
             {
                 return;
             }
@@ -458,6 +468,36 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     }
 
     //
+    // Deadly Accuracy
+    //
+
+    private sealed class CustomAdditionalDamageDeadlyAccuracy : CustomAdditionalDamage
+    {
+        public CustomAdditionalDamageDeadlyAccuracy(IAdditionalDamageProvider provider) : base(provider)
+        {
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            return criticalHit && HasSpecializedWeapon(attacker.RulesetCharacter, attackMode);
+        }
+    }
+
+    //
     // Perfect Strikes
     //
 
@@ -474,10 +514,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RollContext rollContext,
             RulesetCharacter rulesetCharacter)
         {
-            var specializedWeapons = GetSpecializedWeaponTypes(rulesetCharacter);
-
-            return rollContext == RollContext.AttackDamageValueRoll &&
-                   specializedWeapons.Any(x => ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter));
+            return rollContext == RollContext.AttackDamageValueRoll && HasSpecializedWeapon(rulesetCharacter);
         }
 
         public void BeforeRoll(

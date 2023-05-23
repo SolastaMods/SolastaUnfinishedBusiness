@@ -22,14 +22,6 @@ internal static class CustomSituationalContext
             RulesetEntity.TryGetEntity(contextParams.sourceEffectId, out effectSource);
         }
 
-        // supports Martial Weapon Master use case
-        static bool HasSpecializedWeaponInHands(RulesetCharacter rulesetCharacter)
-        {
-            var specializedWeapons = MartialWeaponMaster.GetSpecializedWeaponTypes(rulesetCharacter);
-
-            return specializedWeapons.Any(x => ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter));
-        }
-
         return (ExtraSituationalContext)context switch
         {
             ExtraSituationalContext.IsRagingAndDualWielding =>
@@ -41,7 +33,8 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.TargetIsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(
                 contextParams.target),
 
-            ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
+            ExtraSituationalContext.HasSpecializedWeaponInHands => MartialWeaponMaster.HasSpecializedWeapon(
+                contextParams.source),
 
             ExtraSituationalContext.HasLongswordInHands =>
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
