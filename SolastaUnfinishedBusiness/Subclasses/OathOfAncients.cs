@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -177,6 +180,77 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetOverriddenPower(powerAuraWarding)
             .AddToDB();
 
+        //
+        // Level 20
+        //
+
+        var savingThrowAffinityElderChampionEnemy = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{NAME}ElderChampionEnemy")
+            .SetGuiPresentation($"Power{NAME}ElderChampion", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var conditionElderChampionEnemy = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ElderChampionEnemy")
+            .SetGuiPresentation($"Condition{NAME}ElderChampion", Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(savingThrowAffinityElderChampionEnemy)
+            .AddToDB();
+
+        var additionalActionElderChampion = FeatureDefinitionAdditionalActionBuilder
+            .Create($"AdditionalAction{NAME}ElderChampion")
+            .SetGuiPresentationNoContent(true)
+            .SetActionType(ActionDefinitions.ActionType.Main)
+            .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .AddToDB();
+
+        var conditionElderChampionAdditionalAttack = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ElderChampionAdditionalAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalActionElderChampion)
+            .AddToDB();
+
+        var featureElderChampion = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}ElderChampion")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new CustomBehaviorElderChampion(conditionElderChampionEnemy,
+                conditionElderChampionAdditionalAttack))
+            .AddToDB();
+
+        var conditionElderChampion = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ElderChampion")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
+            .SetPossessive()
+            .SetFeatures(featureElderChampion)
+            .AddToDB();
+
+        var powerElderChampion = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}ElderChampion")
+            .SetGuiPresentation(Category.Feature, Sprites.GetSprite(NAME, Resources.PowerElderChampion, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionElderChampion, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAncients", Resources.OathOfAncients, 256))
@@ -187,6 +261,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddFeaturesAtLevel(7, powerAuraWarding)
             .AddFeaturesAtLevel(15, damageAffinityUndyingSentinel)
             .AddFeaturesAtLevel(18, powerAuraWarding18)
+            .AddFeaturesAtLevel(20, powerElderChampion)
             .AddToDB();
     }
 
@@ -233,6 +308,104 @@ internal sealed class OathOfAncients : AbstractSubclass
                 0);
 
             return effect;
+        }
+    }
+
+    //
+    // Elder Champion
+    //
+
+    private sealed class CustomBehaviorElderChampion :
+        IMagicalEffectInitiated, ICharacterTurnStartListener, IActionFinished
+    {
+        private readonly ConditionDefinition _conditionElderChampionAdditionalAttack;
+        private readonly ConditionDefinition _conditionElderChampionEnemy;
+
+        public CustomBehaviorElderChampion(
+            ConditionDefinition conditionAspectOfDreadEnemy,
+            ConditionDefinition conditionElderChampionAdditionalAttack)
+        {
+            _conditionElderChampionEnemy = conditionAspectOfDreadEnemy;
+            _conditionElderChampionAdditionalAttack = conditionElderChampionAdditionalAttack;
+        }
+
+        public IEnumerator OnActionFinished(CharacterAction characterAction)
+        {
+            if (characterAction.ActionType != ActionDefinitions.ActionType.Main ||
+                characterAction is not CharacterActionCastSpell)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterAction.ActingCharacter;
+
+            if (!actingCharacter.CanAct())
+            {
+                yield break;
+            }
+
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
+
+            rulesetCharacter.InflictCondition(
+                _conditionElderChampionAdditionalAttack.Name,
+                _conditionElderChampionAdditionalAttack.DurationType,
+                _conditionElderChampionAdditionalAttack.DurationParameter,
+                _conditionElderChampionAdditionalAttack.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetCharacter.guid,
+                rulesetCharacter.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            locationCharacter.RulesetCharacter.ReceiveHealing(10, true, locationCharacter.Guid);
+        }
+
+        public IEnumerator OnMagicalEffectInitiated(CharacterActionMagicEffect characterActionMagicEffect)
+        {
+            var definition = characterActionMagicEffect.GetBaseDefinition();
+
+            if (definition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+                definition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+            {
+                yield break;
+            }
+
+            var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+            if (gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
+            var actingCharacter = characterActionMagicEffect.ActingCharacter;
+            var rulesetAttacker = actingCharacter.RulesetCharacter;
+
+            foreach (var rulesetDefender in characterActionMagicEffect.ActionParams.TargetCharacters
+                         .Where(x =>
+                             gameLocationBattleService.IsWithinXCells(actingCharacter, x, 2) &&
+                             x.RulesetCharacter is { IsDeadOrDying: false })
+                         .Select(x => x.RulesetCharacter))
+            {
+                rulesetDefender.InflictCondition(
+                    _conditionElderChampionEnemy.Name,
+                    _conditionElderChampionEnemy.DurationType,
+                    _conditionElderChampionEnemy.DurationParameter,
+                    _conditionElderChampionEnemy.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetAttacker.guid,
+                    rulesetAttacker.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+            }
         }
     }
 }

@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOathOfAncientsAuraWarding18:2c4a051c-c973-54c2-ad59-3094f747a2fa",
       "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfAncientsElderChampion:f33b655c-ff32-587c-b40b-3f354e9f6470",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],
