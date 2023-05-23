@@ -1387,7 +1387,7 @@ When a friendly creature you can see is about to be hit by attack you can spend 
 * Oath of Altruism
 
 In your list and always prepared: 
-
+ 
 	I	Healing Word, Shield of Faith
 
 	II	Calm Emotions, Hold Person
@@ -1449,7 +1449,7 @@ You can use your Channel Divinity to utter ancient words that are painful for fe
 * Oath of Ancients
 
 In your list and always prepared: 
-
+ 
 	I	Ensnaring Strike, Animal Friendship
 
 	II	Moon Beam, Misty Step
@@ -1480,6 +1480,18 @@ When you are reduced to 0 hit points but not killed outright, you drop to 1 hit 
 Your Aura of Warding range increased to 30 ft.
 
 
+## Level 20
+
+* Elder Champion
+
+As an action, you gain the following benefits for one minute:
+• At the start of each of your turns, you regain 10 hit points.
+• Whenever you cast a paladin spell that has a casting time of 1 action, you can make two weapon attacks as a part of the same action.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Channel Divinity options.
+
+Once you use this feature, you can't use it again until you finish a long rest.
+
+
 
 # 29. - Oath of Dread
 
@@ -1499,7 +1511,7 @@ As a bonus action, you can castigate an enemy creature within 10 feet of, using 
 * Oath of Dread
 
 In your list and always prepared: 
-
+ 
 	I	Bane, Shield of Faith
 
 	II	Hold Person, See Invisibility
@@ -1539,6 +1551,7 @@ Your Aura of Domination range increased to 30 ft.
 As an action, you gain the following benefits for one minute:
 • You have resistance to all damage.
 • All your weapon attacks deal an additional 1d8 psychic damage.
+• Enemy creatures within 10 feet of you have disadvantage on saving throws against your paladin spells and Dreadful Presence.
 
 Once you use this feature, you can't use it again until you finish a long rest.
 
@@ -1566,7 +1579,7 @@ As you take your Oath of Hate, choose a favored foe to hate dealing extra damage
 * Oath of Hatred
 
 In your list and always prepared: 
-
+ 
 	I	Bane, Hunter's Mark
 
 	II	Hold Person, Misty Step
@@ -2850,17 +2863,21 @@ You gain +1 to hit and damage rolls with your specialized weapon type. A Martial
 
 * Momentum
 
-Once during your turn, when you reduce a creature to 0 hit points using your Specialized Weapon, you are able to make one additional weapon attack as a part of your attack action.
+Once during your turn, you are able to make one additional weapon attack as a part of your attack action, after you reduce a creature to 0 hit points using your specialized weapon.
 
 
 ## Level 10
 
 * Battle Stance
 
-Gain temporary hit points equal to your weapon master level + proficiency bonus + Constitution modifier after a battle starts and you have your specialized weapon equipped.
+After a battle starts, gain temporary hit points equal to your weapon master level + proficiency bonus + Constitution modifier if you have your specialized weapon equipped.
 
 
 ## Level 15
+
+* Deadly Accuracy
+
+Whenever you score a critical hit with your specialized weapon, you deal an additional 2d6 damage.
 
 * Superior Critical
 

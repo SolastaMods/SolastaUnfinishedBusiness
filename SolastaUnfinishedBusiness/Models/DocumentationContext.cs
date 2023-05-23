@@ -67,6 +67,7 @@ internal static class DocumentationContext
         return input
             .Replace("<color=#add8e6ff>", string.Empty)
             .Replace("<#57BCF4>", "\r\n\t")
+            .Replace("<#B5D3DE>", string.Empty)
             .Replace("</color>", string.Empty)
             .Replace("<b>", string.Empty)
             .Replace("<i>", string.Empty)
@@ -85,7 +86,7 @@ internal static class DocumentationContext
         {
             outString.AppendLine($"# {counter++}. - {klass.FormatTitle()}");
             outString.AppendLine();
-            outString.AppendLine(klass.FormatDescription());
+            outString.AppendLine(LazyManStripXml(klass.FormatDescription()));
             outString.AppendLine();
 
             var level = 0;
@@ -130,7 +131,7 @@ internal static class DocumentationContext
         {
             outString.AppendLine($"# {counter++}. - {subclass.FormatTitle()}");
             outString.AppendLine();
-            outString.AppendLine(subclass.FormatDescription());
+            outString.AppendLine(LazyManStripXml(subclass.FormatDescription()));
             outString.AppendLine();
 
             var level = 0;
@@ -175,7 +176,7 @@ internal static class DocumentationContext
         {
             outString.AppendLine($"# {counter++}. - {race.FormatTitle()}");
             outString.AppendLine();
-            outString.AppendLine(race.FormatDescription());
+            outString.AppendLine(LazyManStripXml(race.FormatDescription()));
             outString.AppendLine();
 
             var level = 0;
@@ -255,7 +256,7 @@ internal static class DocumentationContext
             $"# {counter++}. - {monsterDefinition.FormatTitle()}");
         outString.AppendLine();
 
-        var description = monsterDefinition.FormatDescription();
+        var description = LazyManStripXml(monsterDefinition.FormatDescription());
 
         if (!string.IsNullOrEmpty(description))
         {

@@ -879,7 +879,7 @@ Size: *Large*
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
 * Walk 8
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -922,7 +922,7 @@ Size: *Large*
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
 * Walk 8
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -969,7 +969,7 @@ Size: *Large*
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
 * Walk 8
-* Moonbeam weakness
+* Moonbeam Weakness
 * Advantage on saving throws against spells
 * Normal Vision
 * Superior Darkvision
@@ -1018,7 +1018,7 @@ Size: *Large*
 * Prophet of Darkness - Darkness
 * Prophet of Darkness - Unlit
 * Walk 8
-* Moonbeam weakness
+* Moonbeam Weakness
 * Advantage on saving throws against spells
 * Normal Vision
 * Superior Darkvision
@@ -1133,7 +1133,7 @@ Size: *Medium*
 * Damage Affinity Werewolf _ Piercing Immunity
 * Damage Affinity Werewolf _ Slashing Immunity
 * Walk 8
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 
 *Attacks:*

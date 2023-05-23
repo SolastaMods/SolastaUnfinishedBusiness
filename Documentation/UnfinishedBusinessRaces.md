@@ -250,7 +250,7 @@ You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5
 
 # 9. - Half-Elf
 
-Offspring of the human refugees from Tirmar and the Solastan elves, <#B5D3DE>half-elves</color> have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
+Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
 
 ## Level 1
@@ -266,7 +266,7 @@ See normally in dim light, and in natural darkness as if in dim light.
 * Fey Ancestry
 
 Saving throw advantage against Charm
-Immunity to magical sleep
+ Immunity to magical sleep
 
 * Languages
 

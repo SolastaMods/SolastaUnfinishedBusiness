@@ -8,7 +8,7 @@ An incredibly well-crafted suit of armor, further reinforced with adamantine. Wh
 
 # 3. - Adamantine Plate Armor
 
-The first bearer of this armor was Ketil Strongshield, champion of the Snow Alliance against Manacalon. The toughness of his armor led to ever deeper digging from Alliance miners to equip their best fighters. 
+The first bearer of this armor was Ketil Strongshield, champion of the Snow Alliance against Manacalon. The toughness of his armor led to ever deeper digging from Alliance miners to equip their best fighters.
 
 # 4. - Adventuring Wizard's Clothing
 
@@ -24,7 +24,7 @@ This strange weapon was made by master smith Krzystaff Flinthall as an experimen
 
 # 7. - Arcane Shieldstaff
 
-Shield staves are rare artifacts from ages long past. Crafted by an ancient mage during wartime, this staff promises to keep its user safe and free to focus on other magical pursuits, leaving defense to the staff.
+Shield staves are rare artifacts from ages long past. Crafted by an ancient mage during wartime, this staff promises to keep its user safe and free to focus on other magical pursuits, leaving defense to the staff.
 
 # 8. - Armor of the Forest
 
@@ -128,7 +128,7 @@ Made of interlocking metal rings, chain mail includes a layer of quilted fabric 
 
 # 33. - Chain Mail of Robustness
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Its design was created by Ildurial Stronghand, for the personal guard of the Empress. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Its design was created by Ildurial Stronghand, for the personal guard of the Empress.
 
 # 34. - Chain Mail of Sturdiness
 
@@ -144,7 +144,7 @@ This enchanted armor was created using the ancient knowledge of Manacalon's mast
 
 # 37. - Chainmail +2
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Its design was created by Ildurial Stronghand, for the personal guard of the Empress. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Its design was created by Ildurial Stronghand, for the personal guard of the Empress.
 
 # 38. - Chainmail +3
 
@@ -316,11 +316,11 @@ Half plate consists of shaped metal plates that cover most of the wearer's body.
 
 # 80. - Dwarven Plate
 
-Fighting underground led the dwarves to create this armor to avoid being pushed over stone bridges. 
+Fighting underground led the dwarves to create this armor to avoid being pushed over stone bridges.
 
 # 81. - Dwarven Plate
 
-Fighting underground led the dwarves to create this armor to avoid being pushed over stone bridges. 
+Fighting underground led the dwarves to create this armor to avoid being pushed over stone bridges.
 
 # 82. - Dwarven Thrower
 
@@ -468,7 +468,7 @@ Half plate consists of shaped metal plates that cover most of the wearer's body.
 
 # 118. - Half Plate +1
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 119. - Half Plate +1
 
@@ -476,7 +476,7 @@ This magical armor was made for a knight of Gallivan. His name is engraved under
 
 # 120. - Half Plate +2
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 121. - Half Plate +3
 
@@ -488,11 +488,11 @@ This incredible armor was created using the combined knowledge of the Snow Allia
 
 # 123. - Half Plate of Robustness
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 124. - Half Plate of Sturdiness
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 125. - Handaxe
 
@@ -748,7 +748,7 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 
 # 188. - Longbow of Sharpshooting
 
-This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given those shortbows, the creation of Defineth Sharpsight. 
+This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given those shortbows, the creation of Defineth Sharpsight.
 
 # 189. - Longsword
 
@@ -1004,7 +1004,7 @@ This incredible armor was created using the combined knowledge of the Snow Allia
 
 # 252. - Plate Armor of Robustness
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 253. - Plate Armor of Sturdiness
 
@@ -1152,7 +1152,7 @@ Enchanted by a Manacalon master smith, this weapon is made of a magical alloy. I
 
 # 289. - Punisher Battleaxe
 
-This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and a Slavestone gave this axe incredible piercing power. 
+This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and a Slavestone gave this axe incredible piercing power.
 
 # 290. - Purity
 
@@ -1248,7 +1248,7 @@ This enchanted armor was forged using the ancient knowledge of Manacalon's maste
 
 # 313. - Scale Armor of Robustness
 
-This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard. 
+This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 
 # 314. - Scale Armor of Sturdiness
 
@@ -1376,7 +1376,7 @@ This powerful weapon was created using the combined knowledge of the Snow Allian
 
 # 345. - Shortbow of Sharpshooting
 
-This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given those shortbows, the creation of Defineth Sharpsight. 
+This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given those shortbows, the creation of Defineth Sharpsight.
 
 # 346. - Shortbow+1
 
@@ -1468,11 +1468,11 @@ Used mostly as a sign of status, this weapon may not have tasted blood during th
 
 # 368. - Staff of Fire
 
-Another creation of Lanathir Goldenfire, no mere trinket but a mighty weapon in the right hands. 
+Another creation of Lanathir Goldenfire, no mere trinket but a mighty weapon in the right hands.
 
 # 369. - Staff of Healing
 
-Life priests of Maraike often expend their last strength imbuing a staff of healing, so that life springs eternal. 
+Life priests of Maraike often expend their last strength imbuing a staff of healing, so that life springs eternal.
 
 # 370. - Staff of Metis
 
