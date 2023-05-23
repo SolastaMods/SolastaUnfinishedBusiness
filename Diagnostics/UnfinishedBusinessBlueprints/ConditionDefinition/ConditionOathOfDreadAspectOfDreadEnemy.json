@@ -18,7 +18,7 @@
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "AnyBattleTurnEnd"
+    "SavingThrow"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

@@ -330,7 +330,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Amulet of Health",
-    "description": "Create replica <b>Amulet of Health</b>:\nThis amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. ",
+    "description": "Create replica <b>Amulet of Health</b>:\nThis amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a0767cd40b4795e4f8e2ad54cd9485ce",

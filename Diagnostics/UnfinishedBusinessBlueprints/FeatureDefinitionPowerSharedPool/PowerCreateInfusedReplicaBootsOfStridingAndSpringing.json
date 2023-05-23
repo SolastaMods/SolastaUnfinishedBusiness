@@ -330,7 +330,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Boots of Striding and Springing",
-    "description": "Create replica <b>Boots of Striding and Springing</b>:\nDefineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds. ",
+    "description": "Create replica <b>Boots of Striding and Springing</b>:\nDefineth Sharpeye created these boots after watching his cat bounce around, seemingly defying gravity in her pursuit of mice and birds.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "996298a6ee823934faf7eff18218a09b",

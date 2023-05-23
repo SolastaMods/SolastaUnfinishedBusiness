@@ -330,7 +330,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Gem of Seeing",
-    "description": "Create replica <b>Gem of Seeing</b>:\nSuch gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals. ",
+    "description": "Create replica <b>Gem of Seeing</b>:\nSuch gems are usually found as holy relics in the temples of Einar, as they can help detect shapechangers. They are used on Einar's holy days for various rituals.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6779a7540e7f6a4409a3364a9345d833",

@@ -330,7 +330,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Cloak of Protection",
-    "description": "Create replica <b>Cloak of Protection</b>:\nAn exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon. ",
+    "description": "Create replica <b>Cloak of Protection</b>:\nAn exquisitely tailored cloak, very much sought after by shock arcanists. A lost secret of Manacalon.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d8bf9f8290ecfb34fa89c1da6584b36c",

@@ -120,7 +120,6 @@ ConditionAffinityDruidCircleLandNaturesSanctuaryImmunity	Description='Feature/&C
 ConditionAffinityFrightenedByDragonImmunity	Title='Feature/&MonsterPower_DragonFrighten_ConditionImmunity_Title'.
 ConditionAffinityResistanceToShine	Title='Feature/&ConditionAffinityCircleLandLandsStrideTitle'.
 ConditionAffinityResistanceToShine	Description='Feature/&ConditionAffinityCircleLandLandsStrideDescription'.
-ConditionCursedByMummyRot	Title='Rules/&ConditionCursedByMummyRotTitle'.
 ConditionDemonGreaseFiendSlayingIncreasedAC	Title='Rules/&ConditionIncreasedACTitle'.
 ConditionDemonGreaseFiendSlayingIncreasedAC	Description='Rules/&ConditionIncreasedACDescription'.
 CR4_DLC1_MutatedApeRange_x1_x2_x1	Title='Encounter/&CR3_AgressiveGorillas_Title '.
