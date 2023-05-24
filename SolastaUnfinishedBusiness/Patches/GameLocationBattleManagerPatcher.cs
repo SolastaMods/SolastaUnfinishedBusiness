@@ -15,7 +15,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -662,7 +661,7 @@ public static class GameLocationBattleManagerPatcher
             BattleDefinitions.AttackEvaluationParams attackParams,
             bool __result,
             GameLocationBattleManager __instance
-            )
+        )
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
@@ -671,7 +670,7 @@ public static class GameLocationBattleManagerPatcher
             ApplyCustomModifiers(attackParams, __result);
 
             //PATCH: add a rule to grant adv to attacks that the target unable to see
-            PatchIlluminationBasedAdvantage(attackParams, __result, __instance);
+            PatchIlluminationBasedAdvantage(__instance, __result, attackParams);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -703,25 +702,27 @@ public static class GameLocationBattleManagerPatcher
             }
         }
 
-        private static void PatchIlluminationBasedAdvantage(BattleDefinitions.AttackEvaluationParams attackParams, bool __result, GameLocationBattleManager __instance)
+        private static void PatchIlluminationBasedAdvantage(
+            GameLocationBattleManager __instance,
+            bool __result,
+            BattleDefinitions.AttackEvaluationParams attackParams)
         {
-            if (!__result)
+            if (!__result || !Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
             {
                 return;
             }
 
-            var attackerChr = attackParams.attacker.RulesetCharacter;
-            var defenderChr = attackParams.defender.RulesetCharacter;
+            var attackerLoc = attackParams.attacker;
+            var defenderLoc = attackParams.defender;
+            var attackerChr = attackerLoc.RulesetCharacter;
+            var defenderChr = defenderLoc.RulesetCharacter;
 
             if (attackerChr == null || defenderChr == null)
             {
                 return;
             }
 
-            GameLocationCharacter attackerLoc = attackParams.attacker;
-
             // It seems that we don't need to find the controller of the attacker or the defender
-
             //RulesetCharacterEffectProxy rulesetCharacterEffectProxy;
             //if ((rulesetCharacterEffectProxy = (attackerLoc.RulesetCharacter as RulesetCharacterEffectProxy)) != null)
             //{
@@ -732,38 +733,31 @@ public static class GameLocationBattleManagerPatcher
             //    }
             //}
 
-            GameLocationCharacter defenderLoc = attackParams.defender;
-
-            Vector3 attackerGravityCenter = __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
-            Vector3 defenderGravityCenter = __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
+            var attackerGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
+            var defenderGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
 
             IIlluminable attacker = attackerLoc;
-            LocationDefinitions.LightingState lightingState = attacker.LightingState;
-            float distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
+            var lightingState = attackerLoc.LightingState;
+            var distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
+            var flag = defenderLoc.RulesetCharacter.SenseModes
+                .Where(senseMode => distance <= senseMode.SenseRange)
+                .Any(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState));
 
-            bool flag = false;
-
-            foreach (SenseMode senseMode in defenderLoc.RulesetCharacter.SenseModes)
+            if (flag)
             {
-                if (distance > (float)senseMode.SenseRange) { }
-                else
-                {
-                    if (SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
-                    {
-                        flag = true;
-                        break;
-                    }
-                }
-            }
-            if (!flag)
-            {
-                attackParams.attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), attacker.TargetSource, (string)null));
-                attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), attacker.TargetSource, (string)null));
+                return;
             }
 
+            attackParams.attackModifier.AttackAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
+            attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
         }
     }
-
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleAdditionalDamageOnCharacterAttackHitConfirmed))]

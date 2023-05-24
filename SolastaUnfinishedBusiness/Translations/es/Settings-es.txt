@@ -28,6 +28,7 @@ ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marc
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
+ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Los atacantes con <color=#D89555>Darkvision</color> tienen ventaja sobre los defensores sin
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
 ModUi/&BackgroundsAndRaces=Fondos y razas
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>

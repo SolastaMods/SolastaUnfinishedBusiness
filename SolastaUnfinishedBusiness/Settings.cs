@@ -153,6 +153,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
+    public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
 
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
