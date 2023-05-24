@@ -659,6 +659,17 @@ internal static class Level20Context
                 });
             }
         }
+
+        CastSpellGnomeShadow.slotsPerLevels.AddRange(CastSpellElfHigh.slotsPerLevels);
+
+        for (var level = 17; level <= 20; level++)
+        {
+            CastSpellTiefling.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level,
+                Slots = CastSpellTiefling.slotsPerLevels[15].slots
+            });
+        }
     }
 
     //

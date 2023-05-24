@@ -429,11 +429,13 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpellCleric { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellCleric");
         internal static FeatureDefinitionCastSpell CastSpellDruid { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellDruid");
         internal static FeatureDefinitionCastSpell CastSpellElfHigh { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellElfHigh");
+        internal static FeatureDefinitionCastSpell CastSpellGnomeShadow { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellGnomeShadow");
         internal static FeatureDefinitionCastSpell CastSpellMartialSpellBlade { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellMartialSpellBlade");
         internal static FeatureDefinitionCastSpell CastSpellPaladin { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellPaladin");
         internal static FeatureDefinitionCastSpell CastSpellRanger { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellRanger");
         internal static FeatureDefinitionCastSpell CastSpellShadowcaster { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellShadowcaster");
         internal static FeatureDefinitionCastSpell CastSpellSorcerer { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorcerer");
+        internal static FeatureDefinitionCastSpell CastSpellTiefling { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellTiefling    ");
         internal static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight");
         internal static FeatureDefinitionCastSpell CastSpellWarlock { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellWarlock");
         internal static FeatureDefinitionCastSpell CastSpellWizard { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellWizard");

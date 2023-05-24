@@ -16,7 +16,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative s
 ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
 ModUi/&AllowAssigningOfficialSpells=Allow official spells to display on these lists
 ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
-ModUi/&AllowClubsToBeThrown=Allow clubs to be thrown like daggers or hand axes
+ModUi/&AllowClubsToBeThrown=Allow <color=#D89555>clubs</color> to be thrown like <color=#D89555>daggers</color> or <color=#D89555>hand axes</color>
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
@@ -26,7 +26,7 @@ ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
+ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of <color=#D89555>food ration</color> to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Attackers with <color=#D89555>Darkvision</color> have advantage over defenders without
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
@@ -136,8 +136,8 @@ ModUi/&GeneralMenu=General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House=<color=#F0DAA0>House:</color>
-ModUi/&IdentifyAfterRest=Add a power to identify magic items over a short or long rest
-ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use Hand Crossbows
+ModUi/&IdentifyAfterRest=Add a power to <color=#D89555>identify magic items</color> over a short or long rest
+ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use <color=#D89555>Hand Crossbows</color>
 ModUi/&ImproveLevelUpFeaturesSelection=Improve level up features selection <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n<i><color=#F0DAA0>[impacts <color=#D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast, <color=#D89555>Barbarian</color> Path of the Elements and subclasses Draconic choices]</color></i>
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th

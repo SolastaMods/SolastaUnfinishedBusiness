@@ -217,6 +217,7 @@ internal sealed class OathOfDread : AbstractSubclass
 
         var featureAspectOfDread = FeatureDefinitionBuilder
             .Create($"Feature{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder
