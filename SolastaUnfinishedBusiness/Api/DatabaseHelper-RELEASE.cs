@@ -418,13 +418,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierTieflingAbilityScoreIncreaseCha { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierTieflingAbilityScoreIncreaseCha");
     }
-    internal static class FeatureDefinitionAutoPreparedSpellss
-    {
-        internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfDevotion { get; } = GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfDevotion");
-        internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfJugement { get; } = GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfJugement");
-        internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfMotherland { get; } = GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfMotherland");
-        internal static FeatureDefinitionAutoPreparedSpells AutoPreparedSpellsOathOfTirmar { get; } = GetDefinition<FeatureDefinitionAutoPreparedSpells>("AutoPreparedSpellsOathOfTirmar");
-    }
     internal static class FeatureDefinitionCampAffinitys
     {
         internal static FeatureDefinitionCampAffinity CampAffinityDomainOblivionPeacefulRest { get; } = GetDefinition<FeatureDefinitionCampAffinity>("CampAffinityDomainOblivionPeacefulRest");
@@ -675,6 +668,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerPatronHiveReactiveCarapace { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronHiveReactiveCarapace");
         internal static FeatureDefinitionPower PowerPatronTimekeeperTimeShift { get; } = GetDefinition<FeatureDefinitionPower>("PowerPatronTimekeeperTimeShift");
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
+        internal static FeatureDefinitionPower PowerRangerSwiftBladeBattleFocus { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerSwiftBladeBattleFocus");
         internal static FeatureDefinitionPower PowerRoguishHoodlumDirtyFighting { get; } = GetDefinition<FeatureDefinitionPower>("PowerRoguishHoodlumDirtyFighting");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
         internal static FeatureDefinitionPower PowerShadowTamerRopeGrapple { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowTamerRopeGrapple");
