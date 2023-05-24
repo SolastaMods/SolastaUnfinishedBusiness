@@ -1,4 +1,4 @@
-Condition/&ConditionWayOfTheDistantHandDistractDescription=Tiene desventaja en el próximo ataque.
+Condition/&ConditionWayOfTheDistantHandDistractDescription=Tiene desventaja en el siguiente ataque.
 Condition/&ConditionWayOfTheDistantHandDistractTitle=Distraído
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractDescription=Tiene desventaja en todos los ataques.
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractTitle=Distraído
@@ -10,7 +10,7 @@ Feature/&FeatureWayOfTheDistantHandCombatDescription=Adquiera competencia con lo
 Feature/&FeatureWayOfTheDistantHandCombatTitle=Combate manual a distancia
 Feature/&FeatureWayOfTheDistantHandKiPoweredArrowsDescription=Tus ataques con arco cuentan como mágicos a efectos de superar la resistencia y la inmunidad a los ataques y daños no mágicos.
 Feature/&FeatureWayOfTheDistantHandKiPoweredArrowsTitle=Flechas potenciadas por Ki
-Feature/&FeatureWayOfTheDistantHandZenArcherStunningArrowsDescription=Puedes interferir con el flujo de Ki en el cuerpo de un oponente. Cuando golpeas a otra criatura que no está aturdida con un ataque de flecha, puedes gastar 1 punto de Ki para intentar un golpe aturdidor. El objetivo debe tener éxito en una tirada de salvación de Constitución o quedará aturdido hasta el final de tu próximo turno.
+Feature/&FeatureWayOfTheDistantHandZenArcherStunningArrowsDescription=Puedes interferir con el flujo de Ki en el cuerpo de un oponente. Cuando golpeas a otra criatura que no está aturdida con un ataque de flecha, puedes gastar 1 punto Ki para intentar un golpe aturdidor. El objetivo debe tener éxito en una tirada de salvación de Constitución o quedará aturdido hasta el final de tu próximo turno.
 Feature/&FeatureWayOfTheDistantHandZenArcherStunningArrowsTitle=Flechas impresionantes
 Feature/&PowerWayOfTheDistantHandUpgradedDistractDescription=El objetivo debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en todos los ataques hasta el final de su próximo turno.
 Feature/&PowerWayOfTheDistantHandUpgradedDistractTitle=Distraer

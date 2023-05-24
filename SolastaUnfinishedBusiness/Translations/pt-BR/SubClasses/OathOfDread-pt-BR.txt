@@ -1,6 +1,6 @@
 Condition/&ConditionOathOfDreadAspectOfDreadDescription=Você tem resistência a todos os danos.\n• Todos os seus ataques com armas causam 1d8 de dano psíquico adicional.\n• Criaturas inimigas a até 3 metros de você têm desvantagem em testes de resistência contra seus feitiços de paladino e Presença Terrível.
 Condition/&ConditionOathOfDreadAspectOfDreadTitle=Aspecto do Pavor
-Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se você estiver amedrontado ou com medo, sua velocidade é reduzida a 0 e você sofre dano psíquico igual à metade do nível de paladino do emanador.
+Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se você estiver amedrontado ou com medo, seu deslocamento é reduzido a 0 e você sofre dano psíquico igual à metade do nível de paladino do emanador.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de Dominação
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=O marcador tem vantagem nas jogadas de ataque contra você.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marca de Castigo

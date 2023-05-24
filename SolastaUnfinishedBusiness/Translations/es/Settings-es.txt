@@ -55,7 +55,7 @@ ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: duplica el daño total d
 ModUi/&Deities=<color=#F0DAA0>Deidades</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas proporcionadas por este mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las hazañas proporcionadas por este mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las proezas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><color=#F0DAA0>[usuarios de la píldora azul, esta es su última oportunidad]</color></i>
@@ -70,14 +70,14 @@ ModUi/&EnableAdditionalBackstoryDisplay=Habilite la visualización de antecedent
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite íconos adicionales para campamentos, salidas y teletransportadores en el mapa de nivel
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
-ModUi/&EnableBarbarianFightingStyle=Habilita la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
+ModUi/&EnableBarbarianFightingStyle=Activa la opción <color=#D89555>Bárbaro</color> <b>Estilo de lucha</b> en el nivel 2
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
 ModUi/&EnableCharacterChecker=Habilite el botón Verificador de caracteres en la pantalla principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
-ModUi/&EnableCharactersOnFireToEmitLight=Permitir que los personajes en llamas emitan luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego]</color></i>ModUi/&EnableCheatMenu=Habilitar el menú de trucos
+ModUi/&EnableCharactersOnFireToEmitLight=Los personajes en llamas deberían emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y la familia de personas en llamas]</color></i>
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
-ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
@@ -88,7 +88,7 @@ ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> p
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la pantalla HUD
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtrado y clasificación de inventario
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tiñe de rojo cualquier elemento con el que el héroe no sea competente
-ModUi/&EnableInventoryTintKnownRecipesRed=Tinte rojo recetas conocidas
+ModUi/&EnableInventoryTintKnownRecipesRed=Tinte de rojo las recetas conocidas
 ModUi/&EnableInvisibleCrownOfTheMagister=Oculta la <color=#D89555>Corona del Magister</color> en la IU del juego
 ModUi/&EnableLevel20=Habilite el nivel 20 <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la consola de juegos durante las secuencias narrativas
@@ -150,7 +150,7 @@ ModUi/&InvertAltBehaviorOnTooltips=Invertir el comportamiento de la tecla <color
 ModUi/&Invocations=<color=#F0DAA0>Invocaciones</color>
 ModUi/&ItemInDm=Artículos en DM
 ModUi/&Items=<color=#F0DAA0>Objetos:</color>
-ModUi/&ItemsCraftingMerchants=Objetos, Fabricación y Comerciantes
+ModUi/&ItemsCraftingMerchants=Fabricación, artículos y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
@@ -197,9 +197,9 @@ ModUi/&SettingsLoad=. Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar
 ModUi/&SettingsRemove=Eliminar
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botón que abre información sobre monstruos controlados <i><color=#F0DAA0>[druidas salvajes, invocaciones, seguidores NPC, etc.]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botón que abre información sobre monstruos controlados <i><color=#F0DAA0>[druidas salvajes, invocaciones, seguidores NPC, etc. ]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Muestra cuántos usos de <color=#D89555>Channel Divinity</color> tiene un héroe en su retrato, similar a los puntos de hechicería
-ModUi/&ShowCraftedItemOnRecipeIcon=Muestre el ícono del artículo elaborado cerca del artículo de la receta en la tienda y el inventario <i><color=#F0DAA0>[Al pasar el cursor sobre él, se mostrará información sobre herramientas para el artículo creado]</color></i>
+ModUi/&ShowCraftedItemOnRecipeIcon=Muestra el icono del artículo elaborado cerca del artículo de la receta en la tienda y el inventario <i><color=#F0DAA0>[Al pasar el cursor sobre él, se mostrará información sobre herramientas para el artículo elaborado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información detallada sobre herramientas
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <color=#F0DAA0>[-1 muestra todo]</color></i></b>

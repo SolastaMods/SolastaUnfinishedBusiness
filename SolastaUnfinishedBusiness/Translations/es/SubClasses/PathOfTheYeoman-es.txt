@@ -20,4 +20,4 @@ Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Gana competencia con las 
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Flechero
 Subclass/&PathOfTheYeomanDescription=Los bárbaros que siguen el Camino del Yeoman ignoran las armas cuerpo a cuerpo para dominar el arco largo. No menos fuertes que los bárbaros que siguen otros caminos, sus flechas cayeron sobre los enemigos más poderosos y su enfoque decidido aumenta sus ya formidables defensas a alturas increíbles.
 Subclass/&PathOfTheYeomanTitle=Camino del Yeoman
-Tooltip/&BulwarkConcentration=Deshabilitar baluarte
+Tooltip/&BulwarkConcentration=Deshabilitar Baluarte

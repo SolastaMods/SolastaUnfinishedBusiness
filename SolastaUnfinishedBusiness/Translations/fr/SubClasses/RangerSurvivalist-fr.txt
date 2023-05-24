@@ -1,5 +1,5 @@
 Condition/&ConditionRangerSurvivalistDisablingStrikeDescription=-2 pour la vitesse de déplacement.
-Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Frappe de désactivation
+Condition/&ConditionRangerSurvivalistDisablingStrikeTitle=Désactivation de la grève
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeDescription=-2 à la classe d'armure et à la vitesse de déplacement.
 Condition/&ConditionRangerSurvivalistImprovedDisablingStrikeTitle=Frappe de désactivation améliorée
 Feature/&AdditionalDamageRangerSurvivalistDisablingStrikeDescription=La première fois que vous touchez une créature avec une attaque avec une arme à chacun de vos tours, elle doit effectuer un jet de sauvegarde de Dextérité contre le DD de votre sort de rôdeur ou être gênée pendant une minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet en cas de réussite.

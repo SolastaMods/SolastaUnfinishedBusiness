@@ -1,7 +1,7 @@
-Condition/&ConditionCircleOfTheLifeRevitalizingBoonDescription=Ottieni vantaggio sui tiri salvezza di Costituzione e resistenza ai danni necrotici.
+Condition/&ConditionCircleOfTheLifeRevitalizingBoonDescription=Ottieni vantaggio sui tiri salvezza di Costituzione e sulla resistenza ai danni necrotici.
 Condition/&ConditionCircleOfTheLifeRevitalizingBoonTitle=Dono Rivitalizzante
 Condition/&ConditionCircleOfTheLifeSeedOfLifeDescription=Ripristina un numero di punti ferita pari al bonus di competenza dell'incantatore, all'inizio del proprio turno, per 1 minuto. Sei guarito per 2 volte il livello dell'incantatore alla fine di questo.
-Condition/&ConditionCircleOfTheLifeSeedOfLifeTitle=Seme della Vita
+Condition/&ConditionCircleOfTheLifeSeedOfLifeTitle=Seme della vita
 Condition/&ConditionCircleOfTheLifeVerdancyDescription=Ripristina un numero di punti ferita pari al livello di lancio dell'incantesimo, all'inizio del turno del Druido, per 3 round.
 Condition/&ConditionCircleOfTheLifeVerdancyTitle=Verdeggiante
 Feature/&FeatureCircleOfTheLifeRevitalizingBoonDescription=A partire dal 10° livello, le creature influenzate da Verdancy o Seed of Life ottengono vantaggio ai tiri salvezza su Costituzione e resistenza ai danni necrotici.
@@ -11,6 +11,6 @@ Feature/&FeatureCircleOfTheLifeVerdancyTitle=Verdeggiante
 Feature/&MagicAffinityCircleOfTheLifeHarmoniousBloomDescription=A partire dal 14° livello, tutti gli incantesimi curativi che lanci contano come lanciati a uno slot di livello superiore.
 Feature/&MagicAffinityCircleOfTheLifeHarmoniousBloomTitle=Fioritura armoniosa
 Feature/&PowerCircleOfTheLifeSeedOfLifeDescription=A partire dal 6° livello, evochi un seme magico e lo fondi con l'anima di una creatura. Come azione bonus, seleziona una creatura alleata. La creatura bersagliata ottiene i seguenti benefici per un minuto:\n• All'inizio di ogni turno della creatura, la creatura ripristina un numero di punti ferita pari alla tua competenza.\n• Se la creatura scende a 0 punti ferita terminano anche tutti gli altri effetti di Seme della Vita.\n• Se l'effetto termina naturalmente dopo un minuto, la creatura viene curata per il doppio del tuo livello da Druido.\nPuoi usare questa caratteristica due volte per ogni riposo lungo.
-Feature/&PowerCircleOfTheLifeSeedOfLifeTitle=Seme della Vita
+Feature/&PowerCircleOfTheLifeSeedOfLifeTitle=Seme della vita
 Subclass/&CircleOfTheLifeDescription=Il Circolo del Bosco Eterno si sforza di proteggere e preservare quanti più esseri viventi possibile. Questi druidi comprendono il significato di ogni forma di vita nel ciclo naturale, sia essa grande o piccola, e che vale la pena salvarla.
 Subclass/&CircleOfTheLifeTitle=Circolo del Bosco Eterno

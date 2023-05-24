@@ -1,4 +1,4 @@
-Background/&PointPoolBackgroundSkillSelect2Description=Seleziona 2 abilità.
+Background/&PointPoolBackgroundSkillSelect2Description=Seleziona 2 competenze nelle abilità.
 Background/&PointPoolBackgroundSkillSelect2Title=Competenze
 Background/&PointPoolBackgroundSkillSelect3Description=Seleziona 3 abilità.
 Background/&PointPoolBackgroundSkillSelect3Title=Competenze

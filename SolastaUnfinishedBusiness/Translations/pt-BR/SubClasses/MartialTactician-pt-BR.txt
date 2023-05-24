@@ -1,6 +1,6 @@
 Feature/&AttributeModifierTacticianEverVigilantDescription=Ganhe seu bônus modificador de Inteligência (mínimo 1) para suas jogadas de iniciativa.
 Feature/&AttributeModifierTacticianEverVigilantTitle=Sempre vigilante
-Feature/&FeatureAdaptiveStrategyDescription=Ganhe um <b>dado de gambito</b> sempre que obtiver uma falha crítica ou um acerto crítico em seu ataque. Este ganho pode ocorrer apenas uma vez por turno e não pode colocar você acima do seu limite máximo de dados de gambito.
+Feature/&FeatureAdaptiveStrategyDescription=Ganhe um <b>dado de gambito</b> sempre que obtiver erro crítico ou acerto crítico em seu ataque. Este ganho pode ocorrer apenas uma vez por turno e não pode colocar você acima do seu limite máximo de dados de gambito.
 Feature/&FeatureAdaptiveStrategyTitle=Estratégia: Adaptar
 Feature/&FeatureImproviseStrategyDescription=Aumente seu máximo de dados de Gambit em 2.
 Feature/&FeatureImproviseStrategyTitle=Estratégia: improvisar
@@ -40,7 +40,7 @@ Feedback/&AdditionalDamageTacticalAwarenessFormat=Consciência Tática!
 Feedback/&AdditionalDamageTacticalAwarenessLine={0} realiza um ataque tático em {1} (+{2})
 Screen/&GambitDieDescription=Seu <b>dado de aposta</b> é um {0} e você tem {1} usos restantes.
 Screen/&InvocationPoolGambitHeader=Gambitos
-Subclass/&MartialTacticianDescription=O Estrategista usa seu conhecimento e poder no campo de batalha para executar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e realizar contra-ataques mortais contra seus inimigos.
+Subclass/&MartialTacticianDescription=O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e realizar contra-ataques mortais contra seus inimigos.
 Subclass/&MartialTacticianTitle=Tático
-Tooltip/&CustomPortraitPoolPowerPoolTacticianGambit=<b>jogar dados</b>
+Tooltip/&CustomPortraitPoolPowerPoolTacticianGambit=<b>jogo de dados</b>
 UI/&CustomFeatureSelectionTooltipTypeGambit=Estratégia

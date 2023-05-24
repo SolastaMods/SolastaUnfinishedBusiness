@@ -1,8 +1,8 @@
-Condition/&AfterRestIdentifyDescription=Magische Gegenstände erkennen
+Condition/&AfterRestIdentifyDescription=Identifizieren magischer Gegenstände
 Condition/&AfterRestIdentifyTitle=Identifizieren
 Condition/&ConditionDistractedByAllyDescription=Diese Kreatur wurde abgelenkt.
 Condition/&ConditionDistractedByAllyTitle=Abgelenkt
-Condition/&ConditionLightSensitivityDescription=Du hast einen Nachteil bei Fertigkeitswürfen für Weisheit (Wahrnehmung) bei hellem Licht und erleidest einen Malus von -1W4 auf Angriffswürfe.
+Condition/&ConditionLightSensitivityDescription=Du hast bei hellem Licht einen Nachteil bei Prüfungen auf Weisheit (Wahrnehmung) und erleidest einen Abzug von -1W4 auf Angriffswürfe.
 Condition/&ConditionLightSensitivityTitle=Lichtempfindlichkeit
 Condition/&ConditionStopMovementDescription=Bewegungsunfähig. Geschwindigkeit auf 0 gesetzt.
 Condition/&ConditionStopMovementTitle=Gestoppt
