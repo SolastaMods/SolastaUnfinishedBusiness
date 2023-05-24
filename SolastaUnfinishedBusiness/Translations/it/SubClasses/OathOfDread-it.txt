@@ -1,11 +1,15 @@
-Condition/&ConditionOathOfDreadAspectOfDreadDescription=Aspetto del terrore
+Condition/&ConditionOathOfDreadAspectOfDreadDescription=Hai resistenza a tutti i danni.\n• Tutti i tuoi attacchi con le armi infliggono 1d8 danni psichici aggiuntivi.\n• Le creature nemiche entro 3 metri da te hanno svantaggio ai tiri salvezza contro i tuoi incantesimi da paladino e Presenza Terrificante.
 Condition/&ConditionOathOfDreadAspectOfDreadTitle=Aspetto del terrore
 Condition/&ConditionOathOfDreadAuraOfDominationDescription=Se sei spaventato o temuto, la tua velocità viene ridotta a 0 e subisci danni psichici pari alla metà del livello da paladino dell'emanatore.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura di dominio
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Il segnalino ha vantaggio sui tiri per colpire contro di te.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marchio di castigo
+Feature/&FeatureOathOfDreadAspectOfDreadDescription=Le creature nemiche entro 3 metri da te hanno svantaggio ai tiri salvezza contro i tuoi incantesimi da paladino e Presenza Terrificante.
+Feature/&FeatureOathOfDreadAspectOfDreadTitle=Terribile svantaggio
 Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=Quando una creatura sotto l'effetto del tuo Marchio di Castigo o della tua condizione di Spavento effettua un attacco, puoi usare la tua reazione per effettuare un attacco con un'arma contro quella creatura se si trova entro la gittata.
 Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Crociata Straziante
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceDescription=Hai resistenza a tutti i danni.
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceTitle=Resistenza al terrore
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Come azione bonus, puoi castigare una creatura nemica entro 3 metri da essa, usando Incanalare Divinità. Ottieni vantaggio ai tiri per colpire contro la creatura per 1 minuto.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Incanalare Divinità: Marchio di Castigo
 Feature/&PowerOathOfDreadAspectOfDreadDescription=Come azione, ottieni i seguenti benefici per un minuto:\n• Hai resistenza a tutti i danni.\n• Tutti i tuoi attacchi con le armi infliggono 1d8 danni psichici aggiuntivi.\n• Le creature nemiche entro 3 metri da te avere uno svantaggio ai tiri salvezza contro gli incantesimi da paladino e Presenza Terrificante.\n\nUna volta utilizzato questo privilegio, non potrai utilizzarlo di nuovo finché non avrai terminato un riposo lungo.

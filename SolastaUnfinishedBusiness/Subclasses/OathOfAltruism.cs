@@ -91,7 +91,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .AddToDB();
 
         powerAuraOfTheGuardian18.EffectDescription.targetParameter = 13;
-        
+
         var magicAffinityExaltedProtector = FeatureDefinitionMagicAffinityBuilder
             .Create($"MagicAffinity{Name}ExaltedProtector")
             .SetGuiPresentation($"Power{Name}ExaltedProtector", Category.Feature)

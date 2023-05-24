@@ -675,11 +675,20 @@ public static class RulesetImplementationManagerPatcher
             RulesetCharacter caster,
             RulesetActor target,
             string savingThrowAbility,
+            List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
+            //PATCH: supports Oath of Ancients / Oath of Dread level 20 powers
             //TODO: convert to an interface
-            OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
-            OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+            var hasSmiteCondition = effectForms.Any(x =>
+                x.FormType == EffectForm.EffectFormType.Condition &&
+                x.ConditionForm.ConditionDefinition.Name.Contains("Smite"));
+
+            if (hasSmiteCondition)
+            {
+                OathOfAncients.OnRollSavingThrowElderChampion(caster, target, sourceDefinition);
+                OathOfDread.OnRollSavingThrowAspectOfDread(caster, target, sourceDefinition);
+            }
 
             //PATCH: supports IChangeSavingThrowAttribute interface
             GetBestSavingThrowAbilityScore(target, ref savingThrowAbility);

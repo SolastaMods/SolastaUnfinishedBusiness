@@ -1,11 +1,15 @@
-Condition/&ConditionOathOfDreadAspectOfDreadDescription=Aspecto del pavor
+Condition/&ConditionOathOfDreadAspectOfDreadDescription=Tienes resistencia a todo el daño.\n• Todos tus ataques con armas infligen 1d8 de daño psíquico adicional.\n• Las criaturas enemigas a 10 pies de ti tienen desventaja en las tiradas de salvación contra tus hechizos de paladín y Presencia espantosa.
 Condition/&ConditionOathOfDreadAspectOfDreadTitle=Aspecto del pavor
 Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si estás asustado o temeroso, tu velocidad se reduce a 0 y recibes daño psíquico igual a la mitad del nivel de paladín del emanador.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de dominación
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=El marcador tiene ventaja en las tiradas de ataque contra ti.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marca de castigo
+Feature/&FeatureOathOfDreadAspectOfDreadDescription=Las criaturas enemigas a 10 pies de ti tienen desventaja en las tiradas de salvación contra tus hechizos de paladín y Presencia espantosa.
+Feature/&FeatureOathOfDreadAspectOfDreadTitle=Desventaja del pavor
 Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=Cuando una criatura bajo el efecto de tu Marca de Castigación o condición de miedo realiza un ataque, puedes usar tu reacción para realizar un ataque con arma contra esa criatura si está dentro del alcance.
 Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Cruzada desgarradora
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceDescription=Tienes resistencia a todo daño.
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceTitle=Resistencia al terror
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Como acción adicional, puedes castigar a una criatura enemiga en un radio de 10 pies usando tu Canalizar divinidad. Obtienes ventaja en las tiradas de ataque contra la criatura durante 1 minuto.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Canalizar Divinidad: Marca de Castigación
 Feature/&PowerOathOfDreadAspectOfDreadDescription=Como acción, obtienes los siguientes beneficios durante un minuto:\n• Tienes resistencia a todo el daño.\n• Todos tus ataques con armas infligen 1d8 de daño psíquico adicional.\n• Criaturas enemigas a 10 pies de ti tienes desventaja en las tiradas de salvación contra tus hechizos de paladín y Presencia espantosa.\n\nUna vez que usas esta función, no puedes volver a usarla hasta que termines un descanso prolongado.

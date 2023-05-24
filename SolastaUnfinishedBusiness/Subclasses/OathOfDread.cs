@@ -215,23 +215,33 @@ internal sealed class OathOfDread : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .AddToDB();
 
+        var featureAspectOfDread = FeatureDefinitionBuilder
+            .Create($"Feature{Name}AspectOfDread")
+            .AddToDB();
+
+        var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AspectOfDreadDamageResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         var conditionAspectOfDread = ConditionDefinitionBuilder
             .Create($"Condition{Name}AspectOfDread")
             .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
             .SetPossessive()
-            .AddFeatures(additionalDamageAspectOfDread)
+            .AddFeatures(additionalDamageAspectOfDread, featureAspectOfDread, featureSetAspectOfDread)
             .AddToDB();
 
         foreach (var damage in DatabaseRepository.GetDatabase<DamageDefinition>())
         {
+            var title = Gui.Localize($"Rules/&{damage.Name}Title");
             var damageAffinityAspectOfDread = FeatureDefinitionDamageAffinityBuilder
                 .Create($"DamageAffinity{Name}AspectOfDread{damage.Name}")
-                .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+                .SetGuiPresentation(title, Gui.Format("Feature/&DamageResistanceFormat", title))
                 .SetDamageType(damage.Name)
                 .SetDamageAffinityType(DamageAffinityType.Resistance)
                 .AddToDB();
 
-            conditionAspectOfDread.Features.Add(damageAffinityAspectOfDread);
+            featureSetAspectOfDread.FeatureSet.Add(damageAffinityAspectOfDread);
         }
 
         var powerAspectOfDread = FeatureDefinitionPowerBuilder
@@ -347,8 +357,8 @@ internal sealed class OathOfDread : AbstractSubclass
         {
             var rulesetDefender = locationCharacter.RulesetCharacter;
 
-            if (!rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionFrightened) &&
-                !rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionFrightenedFear))
+            if (!rulesetDefender.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
+                !rulesetDefender.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightenedFear))
             {
                 return;
             }
@@ -361,16 +371,8 @@ internal sealed class OathOfDread : AbstractSubclass
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
-                .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
-
-            if (locationCharacterAttacker == null)
-            {
-                return;
-            }
-
-            var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
 
             rulesetDefender.InflictCondition(
                 CustomConditionsContext.StopMovement.Name,
@@ -434,8 +436,8 @@ internal sealed class OathOfDread : AbstractSubclass
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightened) &&
-                !rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightenedFear) &&
+            if (!rulesetAttacker.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
+                !rulesetAttacker.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightenedFear) &&
                 !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
             {
                 yield break;

@@ -1,11 +1,15 @@
-Condition/&ConditionOathOfDreadAspectOfDreadDescription=Aspect d'effroi
+Condition/&ConditionOathOfDreadAspectOfDreadDescription=Vous avez une résistance à tous les dégâts.\n• Toutes vos attaques avec une arme infligent 1d8 dégâts psychiques supplémentaires.\n• Les créatures ennemies à moins de 3 mètres de vous ont un désavantage aux jets de sauvegarde contre vos sorts de paladin et Présence terrifiante.
 Condition/&ConditionOathOfDreadAspectOfDreadTitle=Aspect d'effroi
 Condition/&ConditionOathOfDreadAuraOfDominationDescription=Si vous êtes effrayé ou effrayé, votre vitesse est réduite à 0 et vous subissez des dégâts psychiques égaux à la moitié du niveau de paladin de l'émanateur.
 Condition/&ConditionOathOfDreadAuraOfDominationTitle=Aura de domination
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionDescription=Le marqueur a un avantage sur les jets d'attaque contre vous.
 Condition/&ConditionOathOfDreadMarkOfTheSubmissionTitle=Marque de châtiment
+Feature/&FeatureOathOfDreadAspectOfDreadDescription=Les créatures ennemies situées dans un rayon de 3 mètres autour de vous ont un désavantage aux jets de sauvegarde contre vos sorts de paladin et votre Présence terrifiante.
+Feature/&FeatureOathOfDreadAspectOfDreadTitle=Inconvénient de la terreur
 Feature/&FeatureOathOfDreadHarrowingCrusadeDescription=Lorsqu'une créature sous l'effet de votre marque de châtiment ou de votre état d'effroi effectue une attaque, vous pouvez utiliser votre réaction pour effectuer une attaque avec une arme contre cette créature si elle est à portée.
 Feature/&FeatureOathOfDreadHarrowingCrusadeTitle=Croisade déchirante
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceDescription=Vous avez la résistance à tous les dégâts.
+Feature/&FeatureSetOathOfDreadAspectOfDreadDamageResistanceTitle=Résistance à l'effroi
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionDescription=Par une action bonus, vous pouvez châtier une créature ennemie à moins de 3 mètres de vous en utilisant votre Canalisation divine. Vous bénéficiez d'un avantage aux jets d'attaque contre la créature pendant 1 minute.
 Feature/&FeatureSetOathOfDreadMarkOfTheSubmissionTitle=Channel Divinity : Marque de châtiment
 Feature/&PowerOathOfDreadAspectOfDreadDescription=Par une action, vous gagnez les avantages suivants pendant une minute :\n• Vous avez une résistance à tous les dégâts.\n• Toutes vos attaques avec une arme infligent 1d8 dégâts psychiques supplémentaires.\n• Les créatures ennemies à moins de 3 mètres de vous ont un désavantage aux jets de sauvegarde contre vos sorts de paladin et votre Présence terrifiante.\n\nUne fois que vous avez utilisé cette fonctionnalité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos long.
