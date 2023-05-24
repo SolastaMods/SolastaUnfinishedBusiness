@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -659,13 +660,18 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static void Postfix(
             BattleDefinitions.AttackEvaluationParams attackParams,
-            bool __result)
+            bool __result,
+            GameLocationBattleManager __instance
+            )
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
+
+            //PATCH: add a rule to grant adv to attacks that the target unable to see
+            PatchIlluminationBasedAdvantage(attackParams, __result, __instance);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -696,7 +702,68 @@ public static class GameLocationBattleManagerPatcher
                     ref attackParams.attackModifier);
             }
         }
+
+        private static void PatchIlluminationBasedAdvantage(BattleDefinitions.AttackEvaluationParams attackParams, bool __result, GameLocationBattleManager __instance)
+        {
+            if (!__result)
+            {
+                return;
+            }
+
+            var attackerChr = attackParams.attacker.RulesetCharacter;
+            var defenderChr = attackParams.defender.RulesetCharacter;
+
+            if (attackerChr == null || defenderChr == null)
+            {
+                return;
+            }
+
+            GameLocationCharacter attackerLoc = attackParams.attacker;
+
+            // It seems that we don't need to find the controller of the attacker or the defender
+
+            //RulesetCharacterEffectProxy rulesetCharacterEffectProxy;
+            //if ((rulesetCharacterEffectProxy = (attackerLoc.RulesetCharacter as RulesetCharacterEffectProxy)) != null)
+            //{
+            //    RulesetActor rulesetActor = null;
+            //    if (RulesetEntity.TryGetEntity<RulesetActor>(rulesetCharacterEffectProxy.ControllerGuid, out rulesetActor))
+            //    {
+            //        attackerLoc = GameLocationCharacter.GetFromActor(rulesetActor);
+            //    }
+            //}
+
+            GameLocationCharacter defenderLoc = attackParams.defender;
+
+            Vector3 attackerGravityCenter = __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
+            Vector3 defenderGravityCenter = __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
+
+            IIlluminable attacker = attackerLoc;
+            LocationDefinitions.LightingState lightingState = attacker.LightingState;
+            float distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
+
+            bool flag = false;
+
+            foreach (SenseMode senseMode in defenderLoc.RulesetCharacter.SenseModes)
+            {
+                if (distance > (float)senseMode.SenseRange) { }
+                else
+                {
+                    if (SenseMode.ValidForLighting(senseMode.SenseType, lightingState))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+            if (!flag)
+            {
+                attackParams.attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), attacker.TargetSource, (string)null));
+                attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(), attacker.TargetSource, (string)null));
+            }
+
+        }
     }
+
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleAdditionalDamageOnCharacterAttackHitConfirmed))]
