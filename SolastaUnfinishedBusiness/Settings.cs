@@ -41,12 +41,14 @@ public class Settings : UnityModManager.ModSettings
     //public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
-    public bool DisplayFeatsToggle { get; set; } = true;
-    public bool DisplayFeatGroupsToggle { get; set; } = true;
-    public bool DisplayFightingStylesToggle { get; set; } = true;
-    public bool DisplayInvocationsToggle { get; set; } = true;
-    public bool DisplayMetamagicToggle { get; set; } = true;
+    public bool DisplayFeatsToggle { get; set; }
+    public bool DisplayFeatGroupsToggle { get; set; }
+    public bool DisplayFightingStylesToggle { get; set; }
+    public bool DisplayInvocationsToggle { get; set; }
+    public bool DisplayMetamagicToggle { get; set; }
     public bool DisplayCraftingToggle { get; set; }
+    public bool DisplayFactionRelationsToggle { get; set; }
+    public bool DisplayItemsToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; }
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
@@ -169,6 +171,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
 
     public bool FullyControlConjurations { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
@@ -194,7 +197,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
-    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }

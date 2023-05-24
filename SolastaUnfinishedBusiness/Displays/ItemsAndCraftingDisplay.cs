@@ -64,10 +64,6 @@ internal static class ItemsAndCraftingDisplay
 
     private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
 
-    private static bool DisplayFactionRelationsToggle { get; set; }
-
-    private static bool DisplayItemsToggle { get; set; }
-
     internal static void DisplayItemsAndCrafting()
     {
         DisplayGeneral();
@@ -271,16 +267,16 @@ internal static class ItemsAndCraftingDisplay
 
     private static void DisplayFactionRelations()
     {
-        var toggle = DisplayFactionRelationsToggle;
+        var toggle = Main.Settings.DisplayFactionRelationsToggle;
 
         UI.Label();
 
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle))
         {
-            DisplayFactionRelationsToggle = toggle;
+            Main.Settings.DisplayFactionRelationsToggle = toggle;
         }
 
-        if (!DisplayFactionRelationsToggle)
+        if (!Main.Settings.DisplayFactionRelationsToggle)
         {
             return;
         }
@@ -332,16 +328,16 @@ internal static class ItemsAndCraftingDisplay
 
     private static void DisplayItems()
     {
-        var toggle = DisplayItemsToggle;
+        var toggle = Main.Settings.DisplayItemsToggle;
 
         UI.Label();
 
         if (UI.DisclosureToggle(Gui.Localize("ModUi/&Items"), ref toggle))
         {
-            DisplayItemsToggle = toggle;
+            Main.Settings.DisplayItemsToggle = toggle;
         }
 
-        if (!DisplayItemsToggle)
+        if (!Main.Settings.DisplayItemsToggle)
         {
             return;
         }
