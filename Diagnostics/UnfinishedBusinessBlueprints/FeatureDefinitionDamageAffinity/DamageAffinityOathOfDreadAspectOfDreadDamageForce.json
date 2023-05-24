@@ -28,8 +28,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfDreadAspectOfDreadTitle",
-    "description": "Feature/&PowerOathOfDreadAspectOfDreadDescription",
+    "title": "Force",
+    "description": "Resistance to Force: damage is halved",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
