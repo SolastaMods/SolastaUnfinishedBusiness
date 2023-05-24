@@ -30,7 +30,7 @@ internal static class ToolsDisplay
         {
             UI.ActionButton("Update".Bold().Khaki(), () => UpdateContext.UpdateMod(), UI.Width((float)200));
             UI.ActionButton("Rollback".Bold().Khaki(), UpdateContext.DisplayRollbackMessage, UI.Width((float)200));
-            UI.ActionButton("History".Bold().Khaki(), UpdateContext.OpenChangeLog, UI.Width((float)200));
+            UI.ActionButton("Changelog".Bold().Khaki(), UpdateContext.OpenChangeLog, UI.Width((float)200));
         }
 
         UI.Label();
