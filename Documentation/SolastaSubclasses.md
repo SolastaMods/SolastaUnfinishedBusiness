@@ -1498,7 +1498,7 @@ In your list and always prepared:
 
 	III	Dispel Magic, Revivify
 
-	IV	Guardian of Faith, Freedom of Movement, Guardian of Faith, Freedom of Movement
+	IV	Guardian of Faith, Freedom of Movement
 
 
 ## Level 7
@@ -1548,7 +1548,7 @@ In your list and always prepared:
 
 	III	Hypnotic Pattern, Haste
 
-	IV	Banishment, Blight, Banishment, Blight
+	IV	Banishment, Blight
 
 
 ## Level 7
@@ -1598,7 +1598,7 @@ In your list and always prepared:
 
 	III	Fireball, Dispel Magic
 
-	IV	Wall of Fire, Fire Shield, Wall of Fire, Fire Shield
+	IV	Wall of Fire, Fire Shield
 
 
 ## Level 7
@@ -1652,7 +1652,7 @@ In your list and always prepared:
 
 	III	Daylight, Slow
 
-	IV	Dreadful Omen, Phantasmal Killer, Dreadful Omen, Phantasmal Killer
+	IV	Dreadful Omen, Phantasmal Killer
 
 
 ## Level 7
