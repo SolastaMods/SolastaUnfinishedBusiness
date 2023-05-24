@@ -164,7 +164,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, $"Power{Name}AuraWarding")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionAuraDevotion)
             .AddToDB();
 
         // keep it simple and ensure it'll follow any changes from Aura of Protection
@@ -193,7 +193,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         powerAuraWarding18.EffectDescription.targetParameter = 13;
-        
+
         //
         // Level 20
         //
