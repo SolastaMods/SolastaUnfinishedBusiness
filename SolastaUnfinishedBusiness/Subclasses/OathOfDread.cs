@@ -356,13 +356,6 @@ internal sealed class OathOfDread : AbstractSubclass
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetDefender = locationCharacter.RulesetCharacter;
-
-            if (!rulesetDefender.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
-                !rulesetDefender.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightenedFear))
-            {
-                return;
-            }
-
             var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
                 x.ConditionDefinition == _conditionAuraOfDomination);
 
@@ -372,6 +365,16 @@ internal sealed class OathOfDread : AbstractSubclass
             }
 
             var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var hasFrightenedFromSource = rulesetDefender.AllConditions.Any(x =>
+                x.SourceGuid == rulesetAttacker.Guid &&
+                (x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
+                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened)));
+
+            if (!hasFrightenedFromSource)
+            {
+                return;
+            }
+
             var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
 
             rulesetDefender.InflictCondition(
@@ -435,10 +438,11 @@ internal sealed class OathOfDread : AbstractSubclass
             ActionModifier modifier)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
+                x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
+                x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
 
-            if (!rulesetAttacker.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightened) &&
-                !rulesetAttacker.HasConditionOfTypeOrSubType(RuleDefinitions.ConditionFrightenedFear) &&
-                !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
+            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
             {
                 yield break;
             }

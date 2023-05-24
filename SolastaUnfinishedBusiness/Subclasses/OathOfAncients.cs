@@ -59,8 +59,6 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{Name}NaturesWrath")
-            .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters
-                .conditionParticleReference)
             .AddToDB();
 
         //Free single target entangle on Channel Divinity use
@@ -73,6 +71,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 10)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 8, TargetType.IndividualsUnique)
+                    .SetParticleEffectParameters(Entangle)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -234,6 +233,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 1)
+                    .SetParticleEffectParameters(PowerRangerSwiftBladeBattleFocus)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
