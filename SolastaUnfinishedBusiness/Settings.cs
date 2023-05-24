@@ -38,7 +38,7 @@ public class Settings : UnityModManager.ModSettings
     //
     public bool DisplayRacesToggle { get; set; } = true;
     public bool DisplayBackgroundsToggle { get; set; } = true;
-    public bool DisplayDeitiesToggle { get; set; } = true;
+    //public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; } = true;
@@ -47,7 +47,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayInvocationsToggle { get; set; } = true;
     public bool DisplayMetamagicToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
-    public bool DisplayMerchantsToggle { get; set; } = true;
+    public bool DisplayMerchantsToggle { get; set; }
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
 
     //

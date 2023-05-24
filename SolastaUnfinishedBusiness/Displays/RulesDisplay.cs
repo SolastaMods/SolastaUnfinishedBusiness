@@ -154,6 +154,12 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
         }
 
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.FullyControlConjurations;

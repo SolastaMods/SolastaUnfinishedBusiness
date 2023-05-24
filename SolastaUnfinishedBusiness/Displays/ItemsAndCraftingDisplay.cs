@@ -137,12 +137,6 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.RemoveIdentificationRequirements = toggle;
         }
 
-        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
