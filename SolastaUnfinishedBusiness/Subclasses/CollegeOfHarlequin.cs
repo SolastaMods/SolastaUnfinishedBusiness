@@ -26,6 +26,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddFeatures(ConditionDefinitions.ConditionFrightened.Features.ToArray())
             .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
+            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .AddToDB();
 
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder

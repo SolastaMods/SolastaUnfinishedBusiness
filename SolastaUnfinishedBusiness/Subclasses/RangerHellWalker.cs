@@ -118,6 +118,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPoisoned)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
+            .SetParentCondition(ConditionDefinitions.ConditionFrightened)
             .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
             .SetFeatures(ConditionDefinitions.ConditionFrightened.Features)
             .SetRecurrentEffectForms(
