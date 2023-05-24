@@ -17,11 +17,11 @@ Size: *Medium*
 
 *Features:*
 * Condition Affinity Poison Immunity
-* Damage Affinity Bludgeoning Immunity _except _magical
-* Damage Affinity Piercing Immunity _except _magical
+* Damage Affinity Bludgeoning Immunity Except Magical
+* Damage Affinity Piercing Immunity Except Magical
 * Damage Affinity Psychic Immunity
 * Damage Affinity Radiant Resistance
-* Damage Affinity Slashing Immunity _except _magical
+* Damage Affinity Slashing Immunity Except Magical
 * Fly 12
 * Walk 6
 * Constrict
