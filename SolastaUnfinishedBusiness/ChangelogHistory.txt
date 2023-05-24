@@ -1,6 +1,6 @@
 ﻿CHANGES:
 
-1.5.47.0:
+1.5.46.0:
 
 ATTENTION: only accept this after you update your base game to 1.5.x
 
@@ -19,6 +19,7 @@ ATTENTION: only accept this after you update your base game to 1.5.x
 - fixed class level dependent feats using character level on checks
 - fixed Eldritch Smite only triggering on critical hits
 - fixed Element Conduit using strength instead of dexterity on saving DC
+- fixed Wight Lord's retaliate power allowing infinite number of uses
 - updated Flexible Races to support new gnomes and tiefling
 
 1.4.33.91:

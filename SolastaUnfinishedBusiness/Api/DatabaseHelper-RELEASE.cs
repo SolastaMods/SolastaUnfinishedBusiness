@@ -682,6 +682,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionLightLuminousKi { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionLightLuminousKi");
         internal static FeatureDefinitionPower PowerTraditionSurvivalUnbreakableBody { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionSurvivalUnbreakableBody");
         internal static FeatureDefinitionPower PowerWightLord_CircleOfDeath { get; } = GetDefinition<FeatureDefinitionPower>("PowerWightLord_CircleOfDeath");
+        internal static FeatureDefinitionPower PowerWightLordRetaliate { get; } = GetDefinition<FeatureDefinitionPower>("PowerWightLordRetaliate");
         internal static FeatureDefinitionPower PowerWindShelteringBreeze { get; } = GetDefinition<FeatureDefinitionPower>("PowerWindShelteringBreeze");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
     }
