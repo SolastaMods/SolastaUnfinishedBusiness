@@ -619,7 +619,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
                 case DamageTypePoison
-                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionDefinitions.ConditionPoisoned.Name):
+                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(
+                        ConditionDefinitions.ConditionPoisoned.Name):
                 {
                     var damageForm = new DamageForm
                     {
@@ -645,7 +646,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 case DamageTypePoison:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionDefinitions.ConditionPoisoned);
                     yield break;
-                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionHindered_By_Frost.Name):
+                case DamageTypeCold
+                    when attacker.RulesetCharacter.HasConditionOfTypeOrSubType(ConditionHindered_By_Frost.Name):
                 {
                     var damageForm = new DamageForm
                     {

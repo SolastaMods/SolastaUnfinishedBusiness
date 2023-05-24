@@ -348,7 +348,7 @@ internal static class Level20Context
             .AddToDB();
 
         powerPaladinAuraOfProtection18.EffectDescription.targetParameter = 13;
-        
+
         Paladin.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),

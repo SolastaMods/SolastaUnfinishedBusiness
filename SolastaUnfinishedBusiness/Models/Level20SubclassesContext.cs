@@ -19,11 +19,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -451,7 +449,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerOathOfDevotionAuraDevotion18.EffectDescription.targetParameter = 13;
-        
+
         OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
 
         //
@@ -465,7 +463,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerOathOfJugementAuraRightenousness18.EffectDescription.targetParameter = 13;
-        
+
         OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
 
         //
@@ -479,7 +477,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
-        
+
         OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
 
         //
@@ -493,7 +491,7 @@ internal static class Level20SubclassesContext
             .AddToDB();
 
         powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
-        
+
         OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
     }
 
