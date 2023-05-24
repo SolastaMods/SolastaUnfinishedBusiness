@@ -208,7 +208,9 @@ internal sealed class OathOfAncients : AbstractSubclass
             .Create($"Condition{Name}ElderChampionAdditionalAttack")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetFeatures(additionalActionElderChampion)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var featureElderChampion = FeatureDefinitionBuilder
