@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListBerylStonebeard:e466ee0c21ad86540b7e0c82e4328874",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 2,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -264,6 +266,7 @@
   ],
   "focusType": "Arcane",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

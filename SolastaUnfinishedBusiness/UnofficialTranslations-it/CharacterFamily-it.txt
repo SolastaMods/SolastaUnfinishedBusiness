@@ -1,6 +1,6 @@
 CharacterFamily/&AberrationDescription=Le aberrazioni sono esseri completamente alieni. Molti di loro hanno abilità magiche innate tratte dalla mente aliena della creatura piuttosto che dalle forze mistiche del mondo.
 CharacterFamily/&AberrationTitle=Aberrazione
-CharacterFamily/&BeastDescription=Le bestie sono creature non umanoidi che sono una parte naturale dell'ecologia fantasy. Alcuni di loro hanno poteri magici, ma la maggior parte sono poco intelligenti e privi di qualsiasi società o linguaggio.
+CharacterFamily/&BeastDescription=Le bestie sono creature non umanoidi che sono una parte naturale dell'ecologia fantasy. Alcuni di loro hanno poteri magici, ma la maggior parte non è intelligente e manca di qualsiasi società o linguaggio.
 CharacterFamily/&BeastTitle=Bestia
 CharacterFamily/&CelestialDescription=I celestiali sono creature originarie dei Piani Superiori. Molti di loro sono servitori di divinità, impiegati come messaggeri o agenti nel regno dei mortali e in tutti i piani. I celestiali sono buoni per natura, quindi il celestiale eccezionale che si allontana da un buon allineamento è un'orribile rarità.
 CharacterFamily/&CelestialTitle=Celeste

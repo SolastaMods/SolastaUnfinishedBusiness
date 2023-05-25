@@ -28,18 +28,18 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Update".Bold().Khaki(), () => BootContext.UpdateMod(), UI.Width((float)200));
-            UI.ActionButton("Rollback".Bold().Khaki(), BootContext.DisplayRollbackMessage, UI.Width((float)200));
-            UI.ActionButton("History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width((float)200));
+            UI.ActionButton("Update".Bold().Khaki(), () => UpdateContext.UpdateMod(), UI.Width((float)200));
+            UI.ActionButton("Rollback".Bold().Khaki(), UpdateContext.DisplayRollbackMessage, UI.Width((float)200));
+            UI.ActionButton("Changelog".Bold().Khaki(), UpdateContext.OpenChangeLog, UI.Width((float)200));
         }
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), BootContext.OpenDonateGithub, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), UpdateContext.OpenDonateGithub, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), UpdateContext.OpenDonatePatreon, UI.Width((float)200));
+            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), UpdateContext.OpenDonatePayPal, UI.Width((float)200));
         }
 
         UI.Label();

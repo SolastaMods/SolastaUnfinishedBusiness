@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:WandOfBlight:36b4da9e904ddd4428eb45a62a3af4f4",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 17,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -20,6 +21,11 @@
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_Enchant_SwampOpal:ae4b9f7455cfe3c42add07fe46334d16"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_TrollsTongue:7b8b0c2236b27b64b90ca1239713f6f6"
     }
   ],
   "spellDefinition": null,

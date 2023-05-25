@@ -1,6 +1,8 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -279,6 +281,59 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetDamageType(DamageTypeFire)
             .AddToDB();
 
+        //
+        // 17
+        //
+
+        const string BLESSED_METAL = $"Feature{NAME}BlessedMetal";
+
+        var damageAffinityBlessedMetalFireImmunity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalFireImmunity")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeFire)
+            .SetDamageAffinityType(DamageAffinityType.Immunity)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalBludgeoningResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalBludgeoningResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeBludgeoning)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalPiercingResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalPiercingResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypePiercing)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .AddToDB();
+
+        var damageAffinityBlessedMetalSlashingResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}BlessedMetalSlashingResistance")
+            .SetGuiPresentation(BLESSED_METAL, Category.Feature)
+            .SetDamageType(DamageTypeSlashing)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .AddToDB();
+
+        var conditionBlessedMetal = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}BlessedMetal")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetFeatures(
+                damageAffinityBlessedMetalFireImmunity,
+                damageAffinityBlessedMetalBludgeoningResistance,
+                damageAffinityBlessedMetalPiercingResistance,
+                damageAffinityBlessedMetalSlashingResistance)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var featureBlessedMetal = FeatureDefinitionBuilder
+            .Create(BLESSED_METAL)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new PhysicalAttackInitiatedOnMeBlessedMetal(conditionBlessedMetal))
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(NAME, Resources.DomainDefiler, 256))
@@ -290,6 +345,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .AddFeaturesAtLevel(11, powerReinforceArmor11)
             .AddFeaturesAtLevel(14, additionalDamageDivineStrike14)
             .AddFeaturesAtLevel(16, powerReinforceArmor16)
+            .AddFeaturesAtLevel(17, featureBlessedMetal)
             .AddToDB();
     }
 
@@ -309,5 +365,45 @@ internal sealed class DomainSmith : AbstractSubclass
         }
 
         return !definition.Magical;
+    }
+
+    private sealed class PhysicalAttackInitiatedOnMeBlessedMetal : IPhysicalAttackInitiatedOnMe
+    {
+        private readonly ConditionDefinition _conditionBlessedMetal;
+
+        public PhysicalAttackInitiatedOnMeBlessedMetal(ConditionDefinition conditionBlessedMetal)
+        {
+            _conditionBlessedMetal = conditionBlessedMetal;
+        }
+
+        public IEnumerator OnAttackInitiatedOnMe(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!defender.RulesetCharacter.IsWearingArmor())
+            {
+                yield break;
+            }
+
+            rulesetDefender.InflictCondition(
+                _conditionBlessedMetal.Name,
+                _conditionBlessedMetal.DurationType,
+                _conditionBlessedMetal.DurationParameter,
+                _conditionBlessedMetal.TurnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetDefender.guid,
+                rulesetDefender.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
     }
 }

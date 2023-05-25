@@ -69,6 +69,8 @@ public static class GameLocationBattleManagerPatcher
                         ActionDefinitions.Id, // actionId,
                         bool, // getWithMostAttackNb,
                         bool, // onlyIfRemainingUses,
+                        bool, // onlyIfCanUseAction
+                        ActionDefinitions.ReadyActionType, // readyActionType
                         RulesetAttackMode //result
                     >(FindActionAttackMode)
                     .Method;
@@ -92,12 +94,16 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter character,
             ActionDefinitions.Id actionId,
             bool getWithMostAttackNb,
-            bool onlyIfRemainingUses
+            bool onlyIfRemainingUses,
+            bool onlyIfCanUseAction,
+            ActionDefinitions.ReadyActionType readyActionType
         )
         {
-            var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
+            var attackMode =
+                character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses, onlyIfCanUseAction,
+                    readyActionType);
 
-            if (character.ReadiedAction != ActionDefinitions.ReadyActionType.Ranged)
+            if (readyActionType != ActionDefinitions.ReadyActionType.Ranged)
             {
                 return attackMode;
             }
@@ -653,13 +659,18 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static void Postfix(
             BattleDefinitions.AttackEvaluationParams attackParams,
-            bool __result)
+            bool __result,
+            GameLocationBattleManager __instance
+        )
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
+
+            //PATCH: add a rule to grant adv to attacks that the target unable to see
+            PatchIlluminationBasedAdvantage(__instance, __result, attackParams);
         }
 
         //TODO: move this somewhere else and maybe split?
@@ -689,6 +700,62 @@ public static class GameLocationBattleManagerPatcher
                     attackParams.attackMode,
                     ref attackParams.attackModifier);
             }
+        }
+
+        private static void PatchIlluminationBasedAdvantage(
+            GameLocationBattleManager __instance,
+            bool __result,
+            BattleDefinitions.AttackEvaluationParams attackParams)
+        {
+            if (!__result || !Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+            {
+                return;
+            }
+
+            var attackerLoc = attackParams.attacker;
+            var defenderLoc = attackParams.defender;
+            var attackerChr = attackerLoc.RulesetCharacter;
+            var defenderChr = defenderLoc.RulesetCharacter;
+
+            if (attackerChr == null || defenderChr == null)
+            {
+                return;
+            }
+
+            // It seems that we don't need to find the controller of the attacker or the defender
+            //RulesetCharacterEffectProxy rulesetCharacterEffectProxy;
+            //if ((rulesetCharacterEffectProxy = (attackerLoc.RulesetCharacter as RulesetCharacterEffectProxy)) != null)
+            //{
+            //    RulesetActor rulesetActor = null;
+            //    if (RulesetEntity.TryGetEntity<RulesetActor>(rulesetCharacterEffectProxy.ControllerGuid, out rulesetActor))
+            //    {
+            //        attackerLoc = GameLocationCharacter.GetFromActor(rulesetActor);
+            //    }
+            //}
+
+            var attackerGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(attackerLoc);
+            var defenderGravityCenter =
+                __instance.gameLocationPositioningService.ComputeGravityCenterPosition(defenderLoc);
+
+            IIlluminable attacker = attackerLoc;
+            var lightingState = attackerLoc.LightingState;
+            var distance = (defenderGravityCenter - attackerGravityCenter).magnitude;
+            var flag = defenderLoc.RulesetCharacter.SenseModes
+                .Where(senseMode => distance <= senseMode.SenseRange)
+                .Any(senseMode => SenseMode.ValidForLighting(senseMode.SenseType, lightingState));
+
+            if (flag)
+            {
+                return;
+            }
+
+            attackParams.attackModifier.AttackAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
+            attackParams.attackModifier.AbilityCheckAdvantageTrends.Add(
+                new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.Lighting, lightingState.ToString(),
+                    attacker.TargetSource, (string)null));
         }
     }
 

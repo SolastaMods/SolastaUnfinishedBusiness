@@ -1,30 +1,26 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScrollBlackTentacles:2d1a43b3cff1dea41a9ed2023de35372",
   "stackCount": 1,
-  "craftingHours": 42,
-  "craftingDC": 17,
+  "craftingHours": 4,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
+      "amount": 2,
       "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_GoblinHairFungus:80cf95eb060947a4eadc3aa64dcd59c2"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
     }
   ],
   "spellDefinition": "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",

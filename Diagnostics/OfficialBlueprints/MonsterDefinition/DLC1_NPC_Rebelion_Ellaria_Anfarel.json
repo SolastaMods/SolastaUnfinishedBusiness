@@ -98,7 +98,8 @@
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:AttributeModifierMartialChampionImprovedCritical:6e6f489cef90d6b4ebe16357f17daa56",
     "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
-    "Definition:PowerFighterSecondWind_DLC1_Ellaria:ccfc1e9072783564d9216193cec6b057"
+    "Definition:PowerFighterSecondWind_DLC1_Ellaria:ccfc1e9072783564d9216193cec6b057",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {

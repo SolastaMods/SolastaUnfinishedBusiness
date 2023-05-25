@@ -85,10 +85,10 @@ internal static class ProficienciesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Feats docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("UnfinishedBusinessFeats.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessFeats.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Solasta Feats docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaFeats.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaFeats.md"), UI.Width((float)200));
         }
 
         UI.Label();
@@ -99,10 +99,10 @@ internal static class ProficienciesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Fighting Styles docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("UnfinishedBusinessFightingStyles.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessFightingStyles.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Solasta Fighting Styles docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaFightingStyles.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaFightingStyles.md"), UI.Width((float)200));
         }
 
         UI.Label();
@@ -113,10 +113,10 @@ internal static class ProficienciesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Invocations docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("UnfinishedBusinessInvocations.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessInvocations.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Solasta Invocations docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaInvocations.md"), UI.Width((float)200));
         }
 
         UI.Label();
@@ -127,10 +127,10 @@ internal static class ProficienciesDisplay
         using (UI.HorizontalScope())
         {
             UI.ActionButton("UB Metamagic docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("UnfinishedBusinessMetamagic.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("UnfinishedBusinessMetamagic.md"), UI.Width((float)200));
             20.Space();
             UI.ActionButton("Solasta Metamagic docs".Bold().Khaki(),
-                () => BootContext.OpenDocumentation("SolastaMetamagic.md"), UI.Width((float)200));
+                () => UpdateContext.OpenDocumentation("SolastaMetamagic.md"), UI.Width((float)200));
         }
 
         UI.Label();

@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=Soul Missing - Portale inattivo
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=Soul Linked - Cancello pronto
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=Sacrificio pronto

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
+  "notificationTag": "Divine",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",

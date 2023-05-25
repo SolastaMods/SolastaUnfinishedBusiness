@@ -3,6 +3,7 @@
   "weaponCategory": "SimpleWeaponCategory",
   "weaponProximity": "Range",
   "isBow": false,
+  "isCrossbow": false,
   "isAttachedToBone": "Prop1",
   "animationTag": "Javelin",
   "secondaryAnimationTag": "NoWeapon",

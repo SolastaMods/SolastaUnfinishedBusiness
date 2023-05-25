@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
@@ -28,6 +28,7 @@ ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marca
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzir o peso da ração alimentar para 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
+ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Os atacantes com <color=#D89555>Darkvision</color> têm vantagem sobre os defensores sem
 ModUi/&Backgrounds=<color=#F0DAA0>Fundos</color>
 ModUi/&BackgroundsAndRaces=Antecedentes e Raças
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
@@ -42,11 +43,11 @@ ModUi/&ChangeSleetStormToCube=Alterar <color=#D89555>Sleet Storm</color> para us
 ModUi/&Character=Personagem
 ModUi/&CharactersPool=Conjunto de Personagens
 ModUi/&Classes=<color=#F0DAA0>Aulas</color>
-ModUi/&ClassesAndSubclasses=Classes e subclasses
+ModUi/&ClassesAndSubclasses=Classes e Subclasses
 ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente na parte ativa\n. Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte
 ModUi/&Credits=Créditos
-ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
+ModUi/&CreditsAndDiagnostics=Credits & Diags
 ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: padrão do jogo, role qualquer dado de dano duas vezes, some o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -54,8 +55,8 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamen
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
-ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em talentos fornecidos por este mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível nos talentos fornecidos por este mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Desabilite os pré-requisitos de corrida em talentos fornecidos por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0DAA0>[usuários da pílula azul, esta é sua última chance]</color></i>
@@ -70,25 +71,25 @@ ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de históric
 ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
-ModUi/&EnableBarbarianFightingStyle=Habilite a escolha <color=#D89555>Bárbaro</color> <b>Estilo de Luta</b> no nível 2
+ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
 ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela principal > Personagens
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
-ModUi/&EnableCharactersOnFireToEmitLight=Habilitar personagens em chamas para emitir luz <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Habilitar o menu de truques
+ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos níveis de classe 6 e 14
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
-ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
+ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecionar proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
 ModUi/&EnableInventoryFilteringAndSorting=Ativar filtragem e classificação de inventário
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Tinja de vermelho qualquer item com o qual o herói não seja proficiente
-ModUi/&EnableInventoryTintKnownRecipesRed=Receitas conhecidas de tinta vermelha
+ModUi/&EnableInventoryTintKnownRecipesRed=Tinja as receitas conhecidas de vermelho
 ModUi/&EnableInvisibleCrownOfTheMagister=Oculte a <color=#D89555>Coroa do Magistrado</color> na IU do jogo
 ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
@@ -140,7 +141,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar besta
 ModUi/&ImproveLevelUpFeaturesSelection=Melhore a seleção de recursos de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color= #D89555>Ranger</color> Inimigo preferido e afinidade de terreno, <color=#D89555>Druida</color> Besta gémea, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance de <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -150,7 +151,7 @@ ModUi/&InvertAltBehaviorOnTooltips=Inverte o comportamento da tecla <color=#1E81
 ModUi/&Invocations=<color=#F0DAA0>Invocações</color>
 ModUi/&ItemInDm=Itens em DM
 ModUi/&Items=<color=#F0DAA0>Itens:</color>
-ModUi/&ItemsCraftingMerchants=Itens, artesanato e comerciantes
+ModUi/&ItemsCraftingMerchants=Artesanato, itens e comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner de solo</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Transforme todos os cajados mágicos em focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i>
@@ -186,7 +187,7 @@ ModUi/&RestockHelp=. Substitua os padrões para forçar o estoque de todos os co
 ModUi/&RestockTowerOfKnowledge=Reabastecer a Torre do Conhecimento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Regras
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
-ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moedas]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moeda]</color></i>
 ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&Services=Serviços
@@ -197,9 +198,9 @@ ModUi/&SettingsLoad=. Carregar uma configuração exportada
 ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
 ModUi/&SettingsRefresh=Atualizar
 ModUi/&SettingsRemove=Remover
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc.]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Mostrar botão que abre informações sobre o monstro controlado <i><color=#F0DAA0>[druidas em forma selvagem, invocações, seguidores NPC, etc. ]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Mostre quantos <color=#D89555>Channel Divinity</color> usa um herói em seu retrato, semelhante a pontos de feitiçaria
-ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado]</color></i>
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item de receita na loja e no inventário <i><color=#F0DAA0>[Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
@@ -218,7 +219,7 @@ ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&Translations=Traduções
 ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em dispositivos NPC
 ModUi/&UnleashNpcAsEnemy=Desbloqueie a seleção de monstros
-ModUi/&UnlockAllNpcFaces=Desbloqueie rostos de NPC
+ModUi/&UnlockAllNpcFaces=Desbloquear rostos NPC
 ModUi/&UnlockEyeStyles=Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes para todas as marcas e tatuagens
 ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes

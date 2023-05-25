@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ChainMail_FrostWalking:5657046f-52e0-5f5f-a927-4e01a0070d71",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -15,6 +16,16 @@
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_Enchant_Shard_Of_Ice:75fae984d7b2a05419c5681b5c4a7415"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_WinterWolf_Pelt:eed26070415bb6741b59372bd43d85f7"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_PolarBear_Pelt:bbf55d6e32d450c4b981094f9993e936"
     }
   ],
   "spellDefinition": null,
@@ -26,7 +37,7 @@
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3fd77e74322b2b14abda2f89337dbfe7",
-      "m_SubObjectName": "StandardChainMail_male",
+      "m_SubObjectName": "StandardChainMail",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

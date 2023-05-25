@@ -1,0 +1,3597 @@
+{
+  "$type": "CampaignDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "isUserCampaign": false,
+  "multiplayer": true,
+  "canLoadEndGameSave": true,
+  "partySize": 4,
+  "minStartLevel": 1,
+  "maxStartLevel": 12,
+  "maxLevelImport": 12,
+  "forceLevelUpTo": 10,
+  "levelCap": 16,
+  "predefinedParty": [],
+  "calendar": "Definition:SolastanCalendar:59113df69a4ea89479030146cc95b63d",
+  "startYear": 1026,
+  "startMonth": 8,
+  "startDay": 5,
+  "startHour": 9,
+  "sceneFilePath": "",
+  "sceneReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "4b1b3e7f02497854e96e48bc7e9adcf9",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "graphicsCampaignMapReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "2d1bd9639780d4b479341d90cdd75277",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "nodesAndSegmentsPrefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5bb11c8ecddc07643b4970a69e991c5c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "renderSettingsSceneProfile": {
+    "$type": "RenderSettingsSceneProfile, Assembly-CSharp",
+    "useSkybox": false,
+    "backgroundColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "skyboxMaterial": {
+      "$type": "UnityEngine.Material, UnityEngine.CoreModule",
+      "name": "Default_Skybox"
+    },
+    "ambientLight": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.5,
+      "g": 0.5,
+      "b": 0.5,
+      "a": 1.0
+    },
+    "fog": true,
+    "fogColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "fogMode": "Exponential",
+    "fogDensity": 0.002,
+    "excludeSkybox": true,
+    "auraBaseSettings": {
+      "$type": "Aura2API.AuraBaseSettings, Aura2_Core",
+      "useDensity": true,
+      "density": 0.0,
+      "useScattering": true,
+      "scattering": 0.5,
+      "useAmbientLighting": true,
+      "ambientLightingStrength": 1.0,
+      "useColor": true,
+      "color": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 5.066395E-07,
+        "g": 0.190397218,
+        "b": 0.5,
+        "a": 1.0
+      },
+      "colorStrength": 1.0,
+      "useTint": false,
+      "tint": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 1.0,
+        "g": 0.921568632,
+        "b": 0.0156862754,
+        "a": 1.0
+      },
+      "tintStrength": 1.0,
+      "useExtinction": false,
+      "extinction": 0.75,
+      "name": "Campaign_DLC3_PalaceOfIce_AuraBaseSettings"
+    },
+    "userDungeonAuraVolumeDensity": 0.2,
+    "userDungeonAuraVolumeFogType": "Height",
+    "userDungeonAuraVolumeHeight": 3.0,
+    "userDungeonAuraVolumeNoise": false,
+    "userDungeonAuraVolumeNoiseScale": 3.0,
+    "dayCycleProfile": {
+      "$type": "GraphicsDayCycleProfile, Assembly-CSharp",
+      "noonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8396226,
+        "g": 0.8396226,
+        "b": 0.8396226,
+        "a": 1.0
+      },
+      "sunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8301887,
+        "g": 0.7941427,
+        "b": 0.716625154,
+        "a": 1.0
+      },
+      "sunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.9056604,
+        "g": 0.814607561,
+        "b": 0.7390531,
+        "a": 1.0
+      },
+      "globalSunIntensity": 1.4,
+      "sunDirection": 90.0,
+      "sunTilt": 40.0,
+      "moonLightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.538447857,
+        "g": 0.72206825,
+        "b": 0.9433962,
+        "a": 1.0
+      },
+      "moonLightFadeOffset": 1.0,
+      "moonLightFadeMinIntensity": 1.0,
+      "moonLightFadeDuration": 0.25,
+      "moonSpeedFactor": 0.2,
+      "moonBaseAngle": 20.0,
+      "globalMoonIntensity": 0.8,
+      "ambientSunriseColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8018868,
+        "g": 0.8018868,
+        "b": 0.8018868,
+        "a": 1.0
+      },
+      "ambientNoonColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.8396226,
+        "g": 0.7879594,
+        "b": 0.7247686,
+        "a": 1.0
+      },
+      "ambientSunsetColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.7169812,
+        "g": 0.58367455,
+        "b": 0.5309719,
+        "a": 1.0
+      },
+      "ambientNightColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.414515883,
+        "g": 0.6023795,
+        "b": 0.764151,
+        "a": 1.0
+      },
+      "ambientFadeDuration": 1.0,
+      "dayAtmosphereThickness": 0.53,
+      "nightAtmosphereThickness": 0.5,
+      "name": "Default_Campaign_DLC3_Valley_DayCycleProfile"
+    },
+    "name": "Campaign_DLC3_PalaceOfIce_RenderSettingsSceneProfile"
+  },
+  "introMovieDefinition": null,
+  "conclusionMovieDefinition": "Definition:ConclusionDLC3:f45529ddc324a524ab4a282783f76296",
+  "introductionCaptions": [],
+  "initialPartyPosition": "DLC3_Introduction_LocationDB",
+  "insideLocation": "DLC3_Introduction_LocationDB",
+  "normalTimeScaleDuringTravel": 4800.0,
+  "fastTimeScaleDuringTravel": 19200.0,
+  "autoGameplayRoles": [
+    {
+      "$type": "CampaignDefinition+GameplayRoleFilter, Assembly-CSharp",
+      "gameplayRoleName": "RoleGpSpellcaster",
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$type": "CampaignDefinition+GameplayRoleFilter, Assembly-CSharp",
+      "gameplayRoleName": "RoleGpStealth",
+      "personalityFlag": "GpStealth"
+    },
+    {
+      "$type": "CampaignDefinition+GameplayRoleFilter, Assembly-CSharp",
+      "gameplayRoleName": "RoleGpCombat",
+      "personalityFlag": "GpCombat"
+    },
+    {
+      "$type": "CampaignDefinition+GameplayRoleFilter, Assembly-CSharp",
+      "gameplayRoleName": "RoleGpExplorer",
+      "personalityFlag": "GpExplorer"
+    }
+  ],
+  "registeredFactions": [
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_ElvenClan",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_HumanClan",
+      "initialRelation": 20
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_NorthernClan",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_SouthernClan",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_UndermountainClan",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_Principality",
+      "initialRelation": 100
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_Gallivan_Hidden",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_Prisoner_Hidden",
+      "initialRelation": 100
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_General_Hidden",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_Captain_Hidden",
+      "initialRelation": 0
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_Fake_Ally_Trapper",
+      "initialRelation": 100
+    },
+    {
+      "$type": "CampaignDefinition+FactionRegistration, Assembly-CSharp",
+      "factionName": "DLC3_Faction_GiantCitizen_Hidden",
+      "initialRelation": 100
+    }
+  ],
+  "registeredVariables": [
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_01_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_02_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_03_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_04_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_05_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_01_CancelReinforcementOutpost",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": ""
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCLeader_DIAL_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCLeader_Position_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "POS_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCCaporal_DIAL_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCCaporal_Position_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "POS_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCCaporal_DIAL_OPT_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_HumanClan_03_GallivanConvoy_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_RollerA",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_RollerB",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_RollerC",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_Gate_Destination",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_ActivateRound",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_ActivatePyramid",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_TurnOnGate",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_Crafted_Sovereign",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Telema_Quest_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_01_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_02_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_03_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_04_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_05_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_06_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_07_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_DragonBorn_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_ReportToElder0_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_SaveSettlement_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_FakeElderUnmasked_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_ReportToElder1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_ElderCaptured_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_TraitorGone_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_POI_Quest_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_FakeElder_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_HighDoorOpenned_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_Leralyn_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_Ladder_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_LadderActivated_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_PathToRuinsActivated_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Brodir_SteelHeart_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Valdi_BoldHand_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Merchant_01_General_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Vigdis_Kaikonnen_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Beric_Sunblaze_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_LeralynRingLooted_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ElvenClan_KilledInnocentElves_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_DecideTraitorGarrad",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_POI_PillarDamage_01",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_POI_PillarDamage_02",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_POI_PillarDamage_03",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_POI_PillarDamage_04",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Ending_SavedGallivanRoyals",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_InvestigateElderDisappearance_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_MausoleumFight_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_ChallengedFakeElder_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": -1,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_POI_CountPillars",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_01_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OPT_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_02_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_03_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_04_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_05_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_06_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Beryl_Stonebeard_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_CitizenBeasts_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_CitizenQuarry_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_UndercoverGuard_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Undermountain_SecretGenerator_Status",
+      "type": "Bool",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_Undermountain_ChanceMeeting_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_InnOwner_Status",
+      "type": "Bool",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_SouthernClans_01_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_SouthernClans_02_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_SouthernClans_03_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_SouthernClans_04_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Misouk_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Caretaker_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Butler_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Cousin_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Brother_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kaupaa_Uncle_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "DIAL_OFF"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_SouthernClans_03_Traitor",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_GallivanBorder_NPCEMISSARY_STATE",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_01_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_02_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_03_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_04_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_05_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_06_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_01_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_02_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_03_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_04_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_03_Family",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_04_StomGiants",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_02_Note",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_01_Attackers_Voice",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_01_Attackers_Size",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_01_Attackers_Weight",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "CS_Giant_Citizen_1_Alive",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "CS_Giant_Citizen_2_Alive",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "CS_Giant_Citizen_Both_Alive",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_04_FriendlyGiantAlive",
+      "type": "Bool",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Leader_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_03_Family_01_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_03_Family_02_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Grimhild_DarkHead_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_03_Family_03_Status",
+      "type": "String",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_06_ElfRequested_Artefact_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_NorthernClans_06_GiantRequested_Artefact_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Kara_WiseHead_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Elevator_Engineer_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Witness1_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_Witness2_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_HowManyPillarsSeen",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_MetInnKeeperKaupaa",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_WhiteCity_YoungDwarf_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Gate",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Inn",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Keep",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_03_Butler_Not_At_Clanhouse",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_04_Temple_Gate_Active",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Southern_04_Storehouse_Key_Found",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_YoungDwarf_InParty_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_YoungDwarf_TooLate_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_CS_End_WhiteCity_Undercover Heddlon_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC_Campaign_Count_Keskainen_Denounciations",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Vigdis",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Gilmar",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Estorgath",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Marduk",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_IsVoteFriendly_Blunt",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_PlayerVoteChoice",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteVigdis",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteGilmar",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteEstorgath",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteHuman",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VoteNorthern",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteVigdis",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteGilmar",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteBlunt",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteAshdown",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteBlunt",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteMarduk",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteRolf",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_TotalVoteEstorgath",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_GeneralBlunt_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VisitedWCInn",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Leader_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Good_Giant_Attacked_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Good_Giant_Got_Artefact_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Spoke_With_Heddlon_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_WhiteCity_Gather_Vote_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Leader_InTeam",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_Undermountain_Return_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_Gilmar_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_SpeakerIs",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Worldmap_isTravellingNorth_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_WhiteCity_Election_Status",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_LeftSoul",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Speak_WIth_Hjalmar_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Vote_Clan_Human",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Vote_Clan_Elven",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Vote_Clan_Southern",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Vote_Clan_Northern",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Vote_Clan_Undermountain",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_GarradStableboy",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Palace_Allies_Human",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Palace_Allies_Elven",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Palace_Allies_Northern",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Palace_Allies_Under",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Palace_PLayCSAllies",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Telema_Exit_IsLocked",
+      "type": "Bool",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_00_Status",
+      "type": "Int",
+      "boolValue": true,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_FoundWeyneClue",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_VisitedWCInnIntro",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_SavedGallivanRoyals",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_SacrificeOne",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Garrad_Count",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "Cutscene_01_DLC3_WhiteCity_TrapperQuest_NorthernClan_03_HelgaSaved",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Tuto_Destructible_Cover_Shown_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Quest_ElvenClan_SavedElderBanter",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Raghnild",
+      "type": "Int",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_NorthernClans_Son_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Captain_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_NPC_ElvenClans_Civil_Status",
+      "type": "String",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_Telema_Invalid",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    },
+    {
+      "$type": "VariableRegistrationDescription, Assembly-CSharp",
+      "name": "DLC3_Campaign_GilmarSaved_Status",
+      "type": "Bool",
+      "boolValue": false,
+      "intValue": 0,
+      "stringValue": "Init"
+    }
+  ],
+  "knownRecipes": [
+    "Definition:RecipeBasic_Bolts:a43b02dc4187a914cac09e769684be2d",
+    "Definition:RecipeBasic_Arrows:6f5158a200a6dc047b3d8f85e0476019",
+    "Definition:RecipeHealingRemedy:db8308d374d35214b8d0d39f2a3c4d6a",
+    "Definition:RecipePotionOfHealing:3685cc1a6c78451488633770e995179b",
+    "Definition:RecipePotionOfSuperiorHealing:0a7ae01423d1d614685cea81379509c2",
+    "Definition:RecipePotionOfGreaterHealing:4a3d719d5873ca441a19595dab345e6f",
+    "Definition:RecipePoison_Basic:4c63d7dc9495d9f4db66ae64b2abafb5",
+    "Definition:RecipePoison_BasicPoison_Arrows:f4b4d2502276d93439ce6e4f30e56182",
+    "Definition:RecipePoison_DarkStab:a16f6b9bbeb9e3141a34eef0e54ccbb1",
+    "Definition:RecipePoison_BasicPoison_Bolts:c584c2a680162814bb8e03487b6f204b",
+    "Definition:RecipePotionOfSpeed:c4cbc7c49b9801b49ae05e4b7669b25f",
+    "Definition:RecipeScroll_L1_CharmPerson:4e45fa84f7dd4254f823b21ab736855d",
+    "Definition:RecipeScroll_L1_ColorSpray:f714b464945ad8640bf4a0b67230db72",
+    "Definition:RecipeScroll_L1_ComprehendLanguages:99dc4d913ac2590438fdbfdb74dd2bad",
+    "Definition:RecipeScroll_L1_DetectEvilAndGood:e807cea306900f543ba5bfaa68c59102",
+    "Definition:RecipeScroll_L1_DetectMagic:dcc93744692b95348ad1e4f087cc52d9",
+    "Definition:RecipeScroll_L1_DetectPoisonAndDisease:efd25b126503d8144ba7664f6a84ed91",
+    "Definition:RecipeScroll_L1_Entangle:c29f154b888582c458b28706b19cec14",
+    "Definition:RecipeScroll_L1_ExpeditiousRetreat:ed48d46cc73116d46bfbd3020299e8b7",
+    "Definition:RecipeScroll_L1_FaerieFire:a197f0d5f6289194e9ce157179af6c2c",
+    "Definition:RecipeScroll_L1_FeatherFall:e4e7e6185ebfe9b4281fefd361412fc7",
+    "Definition:RecipeScroll_L1_Grease:81d92048999492a4dbc744f4dfd99e44",
+    "Definition:RecipeScroll_L1_GuidingBolt:8ab5f5b5294f7164a821a13fe0630df9",
+    "Definition:RecipeScroll_L1_InflictWounds:b67711d32f538cc4ebec1b2abb978533",
+    "Definition:RecipeScroll_L1_OfBane:c59478464b5601547a3d5897e11316a1",
+    "Definition:RecipeScroll_L1_OfBless:47f0c11167ee9f447a95214c491a55b4",
+    "Definition:RecipeScroll_L1_OfBurningHands:52872ba258ec5c74a8290d0b7f79be7f",
+    "Definition:RecipeScroll_L1_OfCureWounds:1b26aa7ee386e9a4abd62e4518493b45",
+    "Definition:RecipeScroll_L1_OfFogCloud:5200f25c9112ed5499afcfb71dc71cf2",
+    "Definition:RecipeScroll_L1_OfJump:c72c09c113371204c9fdbfb50b646596",
+    "Definition:RecipeScroll_L1_OfMageArmor:7909a249465f1c249ae44edb7e7d2cc1",
+    "Definition:RecipeScroll_L1_OfMagicMissile:8daa95d394513bb4e951aae2e9b35543",
+    "Definition:RecipeScroll_L1_OfSleep:1e27221a6857d7646b9593c7b5922027",
+    "Definition:RecipeScroll_L1_OfThunderwave:9456e4ccf23eb944b86f9e378f986ab3",
+    "Definition:RecipeScroll_L1_ProtectionFromEvilandGood:9b4db705168b911409befe060ea3a37b",
+    "Definition:RecipeScroll_L1_Shield:ab5f71aa33166074f8ca97b3d5fb3bb1",
+    "Definition:RecipeScroll_L1_ShieldOfFaith:ecdde78f5dff5a8478b3b637413af992",
+    "Definition:RecipeScroll_L2_OfAcidArrow:257a2ceca6fc0c04eb8b5912c6f20a84",
+    "Definition:RecipeScroll_L2_OfBarkskin:e94f0de09d4661a4cb917ea17d2acf45",
+    "Definition:RecipeScroll_L2_OfBlindness:80cf4891419db1f4887b240554e443fa",
+    "Definition:RecipeScroll_L2_OfBlur:686751e098fcbd546a2cf6930dc0dc30",
+    "Definition:RecipeScroll_L2_OfDarkness:29d6447eff0483e4691f7db7b0b859c5",
+    "Definition:RecipeScroll_L2_OfDarkvision:a57dcab87ad4ff14ca25d95cb4c0882a",
+    "Definition:RecipeScroll_L2_OfFindTraps:0cc1b2b5aeaa88a4385a24b6c46fd272",
+    "Definition:RecipeScroll_L2_OfFlameblade:fe7449f3b0d9bd142892e28a83c81f44",
+    "Definition:RecipeScroll_L2_OfFlamingSphere:1d3855aebe299744cabf6fef2c80332d",
+    "Definition:RecipeScroll_L2_OfHoldPerson:aab577a3332c5304396d352abbed80a3",
+    "Definition:RecipeScroll_L2_OfInvisibility:6787b51f3e1701e479f02eef87a63467",
+    "Definition:RecipeScroll_L2_OfKnock:98b1eb8dbc879c84da598810151731db",
+    "Definition:RecipeScroll_L2_OfLesserRestoration:c12209b012c594243a9feaaeb2c2969c",
+    "Definition:RecipeScroll_L2_OfLevitate:b976c136a95052c4aaddeb2d2e477ddc",
+    "Definition:RecipeScroll_L2_OfMagicWeapon:9eed9b0696550fe469b270849eb16224",
+    "Definition:RecipeScroll_L2_OfMistyStep:9d33dc221b845a14ab5df3d6f301efff",
+    "Definition:RecipeScroll_L2_OfPassWithoutTrace:f8a4900d180374f4793afd5e50365a63",
+    "Definition:RecipeScroll_L2_OfRayOfEnfeeblement:fc1a8160d5560e84d835d7c89832d2a2",
+    "Definition:RecipeScroll_L2_OfScorchingRay:4eb1352ca3c86d64d9a2662da64a90c9",
+    "Definition:RecipeScroll_L2_OfSeeInvisibility:3fc93128a9e62904db72a900e9b067ef",
+    "Definition:RecipeScroll_L2_OfShatter:d90ba087e5e53da439b8cf64cf03d783",
+    "Definition:RecipeScroll_L2_OfSilence:72953cc5c54dfe247b49c59315ee9424",
+    "Definition:RecipeScroll_L2_OfSpiderClimb:3e8ccf2f518f74c45b3c704148e30571",
+    "Definition:RecipeScroll_L2_OfSpiritualWeapon:ccb436821652dbb42b35cc8c206a0bb0",
+    "Definition:RecipeScroll_L3_OfConjureAnimals:06098dc464e0c884c825e30605111850",
+    "Definition:RecipeScroll_L3_OfCounterspell:edf836641d2348941ba1d7ae20594edd",
+    "Definition:RecipeScroll_L3_OfDaylight:4a23221540a2a544daeb760240f06d3b",
+    "Definition:RecipeScroll_L3_OfFear:db6eda08dc8f31740969ece7d50c8153",
+    "Definition:RecipeScroll_L3_OfFireball:d70dd828537e3854096c627a7a9f19c7",
+    "Definition:RecipeScroll_L3_OfFly:d3fcef4872b3f204897cd9da545d4730",
+    "Definition:RecipeScroll_L3_OfHaste:e7e2f638a972879468c7182ee3ca1bee",
+    "Definition:RecipeScroll_L3_OfHypnoticPattern:5fb30d96fbf56614bb598bc2251e5c2e",
+    "Definition:RecipeScroll_L3_OfMassHealingWord:5040bc397a1c9fa4bae54ddf97bfe76b",
+    "Definition:RecipeScroll_L3_OfProtectionFromEnergy:803fa11878d38d44d8bf45c347ddf1a9",
+    "Definition:RecipeScroll_L3_OfLightningBolt:6f5cda195668ec74490019a2a973964d",
+    "Definition:RecipeScroll_L3_OfRemoveCurse:642681d1dfbeb194297e414d0f579cdc",
+    "Definition:RecipeScroll_L3_OfRevivify:3340c626b5c00154799d21930bf1115a",
+    "Definition:RecipeScroll_L3_OfSleetStorm:c2d6249abc164eb4bb2b1bbe71fb02eb",
+    "Definition:RecipeScroll_L3_OfSlow:6a115fcf43e196e4ca65329621ab4cee",
+    "Definition:RecipeScroll_L3_OfSpiritGuardians:c92a9f23e89ac394ea46536b2bb6ab53",
+    "Definition:RecipeScroll_L3_OfStinkingCloud:5f3a7a90edadc154bbc11293b49e033c",
+    "Definition:RecipeScroll_L3_OfTongues:52b1065c6de025a47a2f47d8eaa5b26b",
+    "Definition:RecipeScroll_L3_OfVampiricTouch:9cb881617089b7441b12cad7cf2510cf",
+    "Definition:RecipeScroll_L4_ Banishement:3b8842c9618d39b43a8df7ef682f5aa1",
+    "Definition:RecipeScroll_L4_ Blight:be656c1620aecae468a8f0cafe2d7dcb",
+    "Definition:RecipeScroll_L4_ Confusion:525a9ee10a6f85a4daa315dcc0ee84d6",
+    "Definition:RecipeScroll_L4_ ConjureMinorElementals:f42b95486751a4c4a97f703aa56005f3",
+    "Definition:RecipeScroll_L4_ Deathward:b8939bc8153b5f54aa46502085c04104",
+    "Definition:RecipeScroll_L4_BlackTentacles:681f4cc70041e794e967aab8daca8350",
+    "Definition:RecipeScroll_L4_DimensionDoor:94d39ccadcd30b9488803c115cb3648f",
+    "Definition:RecipeScroll_L4_FireShield:2d047333e084a4742b3e2a24756a4293",
+    "Definition:RecipeScroll_L4_FreedomOfMovement:db7e9777e5c3af24181db559821a7c1c",
+    "Definition:RecipeScroll_L4_GreaterInvisibility:9089599a8ef91c940b16dbed8d2725c2",
+    "Definition:RecipeScroll_L4_GuardianOFFaith:fc15809a3e0ea4b44a9ce7bcd52034e3",
+    "Definition:RecipeScroll_L4_IceStorm:f47f6c10444c6a7419e61aad60d4ca80",
+    "Definition:RecipeScroll_L4_PhantasmalKiller:0793c7afcc3a7744fbf3ff70e4489ac9",
+    "Definition:RecipeScroll_L4_StoneSkin:ebe07e031dba7164499799fc2240f96b",
+    "Definition:RecipeScroll_L4_WallOfFire:65068c5fc8f966349932eb366556d2b3",
+    "Definition:Recipe_Enchantment_BattleaxeOfAcuteness:3bb3b2668aa77c64ab255f7a64ac6f20",
+    "Definition:Recipe_Enchantment_BreastplateOfSturdiness:c06ff0d68f3c2ad4090714ba18b2d1bc",
+    "Definition:Recipe_Enchantment_ChainmailOfSturdiness:dfd508b59d7f0a546bfd61d564331779",
+    "Definition:Recipe_Enchantment_ChainShirtOfSturdiness:19b54d88a2bef8b449b2d1a0babf9256",
+    "Definition:Recipe_Enchantment_CrossbowOfAccuracy:da5ed8a69b52bf8448b01fc694a782b8",
+    "Definition:Recipe_Enchantment_DaggerOfAcuteness:b1bef0d2f03baa94c9bc7651bec00558",
+    "Definition:Recipe_Enchantment_GauntletOfAcuteness:9309cd66dc7f4e24183c80a697ba7909",
+    "Definition:Recipe_Enchantment_GreataxeOfAcuteness:ad682411727a64f4794e435aec35694f",
+    "Definition:Recipe_Enchantment_GreatwordOfAcuteness:c8920539a4c8110479b47ba091de76a4",
+    "Definition:Recipe_Enchantment_HalfplateOfSturdiness:b5e76ec858820a04f8966383a389dfcd",
+    "Definition:Recipe_Enchantment_HandaxeOfAcuteness:0c1fb18d2f4bafd4980e0bc0cbd9c25d",
+    "Definition:Recipe_Enchantment_HeavyCrossbowOfAccuracy:8db578730fad5234499f2fde10c1d864",
+    "Definition:Recipe_Enchantment_HideArmorOfWilderness:bad9428ab56c00d4b827e4a954e4981f",
+    "Definition:Recipe_Enchantment_JavelinOfAcuteness:c532f353c99216d43ac615eb6a0aed6f",
+    "Definition:Recipe_Enchantment_LeatherArmorOfSturdiness:97514b8df0d1fbc43af0fbb1ea980fd8",
+    "Definition:Recipe_Enchantment_LongbowOfAcurracy:8727707fe3dcf9846a4e3fcfe68b5087",
+    "Definition:Recipe_Enchantment_LongswordOfAcuteness:7294204a373abf64db7f50265bfa66d2",
+    "Definition:Recipe_Enchantment_MaceOfAcuteness:7ed72c7c072b2e3418008aa958a4675f",
+    "Definition:Recipe_Enchantment_MorningstarOfSmashing:6093acd5f057edd41aa85394f860b06d",
+    "Definition:Recipe_Enchantment_MaulOfSmashing:7454cd312bccffc44b840fb9b4567552",
+    "Definition:Recipe_Enchantment_PlateOfSturdiness:e04bcc1ba939aff4b9dd984b87cb46d8",
+    "Definition:Recipe_Enchantment_RapierOfAcuteness:81ce46e056e367c439b9fa7ff439eac8",
+    "Definition:Recipe_Enchantment_QuarterstaffOfSmashing:bc3e3b9877816e048994e1168365e239",
+    "Definition:Recipe_Enchantment_ScaleMailOfSturdiness:09bd1af0bf1b25b4db2662553a0186b1",
+    "Definition:Recipe_Enchantment_ScimitarOfAcuteness:64c92726e2458584d87643039b9f2f73",
+    "Definition:Recipe_Enchantment_ShortwordOfAcuteness:ae1b466df826c754cb39e25b0c803662",
+    "Definition:Recipe_Enchantment_SpearOfAcuteness:0c7fe35a858b23d4ca26b0805f95d5ff",
+    "Definition:Recipe_Enchantment_WarhammerOfAcuteness:90d79f23f8e706745886594ca9bb3a45",
+    "Definition:Recipe_Enchantment_ShieldOfSturdiness:3af0496190441274eb4d609b73f11b10",
+    "Definition:Recipe_Enchantment_ShortbowOfAcurracy:ff7f64488ac189f44b5012f92905151c",
+    "Definition:Recipe_Enchantment_StuddedLeatherOfSturdiness:2cbe98d1cdf7e2c488f7437b91cd978f",
+    "Definition:Recipe_Enchantment_WandOfWarMage+1:434a1b78dd0d1af469340a55a8333057",
+    "Definition:RecipePoison_Arrows_Alchemy_Corrosive:753da9fa657a3354b930916e26c54d8c",
+    "Definition:RecipePoison_Arrows_Alchemy_Flaming:6c9941c9e9d7c1243b586eddeb25e8f9",
+    "Definition:RecipePoison_Arrows_Alchemy_Flash:33aabde2d28a5e8488aaed2c09aa387a",
+    "Definition:RecipePoison_Bolts_Alchemy_Corrosive:74c3af902d25b6e4d8987d939076b0fd",
+    "Definition:RecipePoison_Bolts_Alchemy_Flaming:4e4cca6ee227ae64386ac76cb97f6411",
+    "Definition:RecipePoison_Bolts_Alchemy_Flash:319cd956b66b2634c873b2eb0f06682f",
+    "Definition:RecipePotionOfHeroism:f46491584a3b6f04cb2297aa5d7dcf3e"
+  ],
+  "startingQuests": [
+    "Definition:DLC3_Campaign_Scenario:7467e99432c824e42af33f8c553cf070"
+  ],
+  "journalStart": "Campaign/&DLC3_Journal_Start",
+  "initialBestiaryContent": [
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Redeemer_Pilgrim:2441ca94c3958e6408fee0d1e2141cb9",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Redeemer_Zealot:cb714fa4d6ed9cf42af1a3490c1a8fbc",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:SRD_Bandit:1662d0f127ca14d4d94dd30c8775d32c",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:SRD_Bandit_Ranged:52c43641e25280e4e9afb0d73682f93b",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Generic_Guard:db0ecf74155f2964bb21b0b3122309cc",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Goblin:6385eddb59bc18a4b8dd19bffdd279a8",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Goblin_Skirmisher:eb7bbfdae2a13504281402bdbce75722",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Archer:56e3bdf97083f2e48899fa9a6afed684",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Orc_Grunt:7b1dc1e1f73fcee409863a7d237ebf95",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Wolf:639e87dee33292e4a8e8a88e1e414a7d",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Eagle_Matriarch:2761b7315d8e9494083f46b34a8bfc04",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Skeleton:3c9a4d86454b04f4abf2d7d597568384",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Skeleton_Archer:40a8be3274f0999499fc7734b30b78f4",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Abomination:33d203ab6a1b5944785e5cbe2b1d3980",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Acolyte_of_Sorr-Tarr:42a7d5d78cd593549bdc58619f6fa79e",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Assassin:d1fca5bca23d2a04c8b5e1e12a294568",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Saboteur:3a3de4e622ed5f34d9b941e1d33ff5aa",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Shikkath:de59cb16776e20647a7ed74ba95d2f90",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Skirmisher:f68a7a00b3d553d4c92a1ced5bd3ea1e",
+      "knowledgeLevel": "Mastered4"
+    },
+    {
+      "$type": "MonsterKnowledgeDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:Sorr-Akkath_Warrior:8b150ec99b2f2f04bb9a136296903ceb",
+      "knowledgeLevel": "Mastered4"
+    }
+  ],
+  "canSkipIntro": false,
+  "skipIntroLocation": "",
+  "skipIntroEntrance": 0,
+  "skipIntroRegisteredVariables": [],
+  "locationProfile": {
+    "$type": "UnityEngine.Rendering.PostProcessing.PostProcessProfile, Unity.Postprocessing.Runtime",
+    "settings": [
+      {
+        "$type": "UnityEngine.Rendering.PostProcessing.AmbientOcclusion, Unity.Postprocessing.Runtime",
+        "mode": {
+          "$type": "UnityEngine.Rendering.PostProcessing.AmbientOcclusionModeParameter, Unity.Postprocessing.Runtime",
+          "value": "MultiScaleVolumetricObscurance",
+          "overrideState": true
+        },
+        "intensity": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.5,
+          "overrideState": true
+        },
+        "color": {
+          "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 0.0,
+            "g": 0.0,
+            "b": 0.0,
+            "a": 1.0
+          },
+          "overrideState": true
+        },
+        "ambientOnly": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": true,
+          "overrideState": true
+        },
+        "noiseFilterTolerance": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "blurTolerance": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": -4.6,
+          "overrideState": false
+        },
+        "upsampleTolerance": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": -12.0,
+          "overrideState": false
+        },
+        "thicknessModifier": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.6,
+          "overrideState": true
+        },
+        "directLightingStrength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "radius": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.56,
+          "overrideState": true
+        },
+        "quality": {
+          "$type": "UnityEngine.Rendering.PostProcessing.AmbientOcclusionQualityParameter, Unity.Postprocessing.Runtime",
+          "value": "Medium",
+          "overrideState": false
+        },
+        "active": true,
+        "enabled": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": true,
+          "overrideState": true
+        },
+        "name": "AmbientOcclusion"
+      },
+      {
+        "$type": "UnityEngine.Rendering.PostProcessing.Bloom, Unity.Postprocessing.Runtime",
+        "intensity": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.0,
+          "overrideState": true
+        },
+        "threshold": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.78,
+          "overrideState": true
+        },
+        "softKnee": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.5,
+          "overrideState": false
+        },
+        "clamp": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 65472.0,
+          "overrideState": false
+        },
+        "diffusion": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 7.0,
+          "overrideState": false
+        },
+        "anamorphicRatio": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "color": {
+          "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "overrideState": false
+        },
+        "fastMode": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": false,
+          "overrideState": false
+        },
+        "dirtTexture": {
+          "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
+          "defaultState": "Black",
+          "value": null,
+          "overrideState": false
+        },
+        "dirtIntensity": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "active": true,
+        "enabled": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": true,
+          "overrideState": true
+        },
+        "name": "Bloom"
+      },
+      {
+        "$type": "UnityEngine.Rendering.PostProcessing.DepthOfField, Unity.Postprocessing.Runtime",
+        "focusDistance": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.0,
+          "overrideState": false
+        },
+        "aperture": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 5.6,
+          "overrideState": true
+        },
+        "focalLength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 130.0,
+          "overrideState": true
+        },
+        "kernelSize": {
+          "$type": "UnityEngine.Rendering.PostProcessing.KernelSizeParameter, Unity.Postprocessing.Runtime",
+          "value": "Large",
+          "overrideState": true
+        },
+        "active": true,
+        "enabled": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": true,
+          "overrideState": true
+        },
+        "name": "DepthOfField"
+      },
+      {
+        "$type": "UnityEngine.Rendering.PostProcessing.ColorGrading, Unity.Postprocessing.Runtime",
+        "gradingMode": {
+          "$type": "UnityEngine.Rendering.PostProcessing.GradingModeParameter, Unity.Postprocessing.Runtime",
+          "value": "HighDefinitionRange",
+          "overrideState": false
+        },
+        "externalLut": {
+          "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
+          "defaultState": "Black",
+          "value": null,
+          "overrideState": false
+        },
+        "tonemapper": {
+          "$type": "UnityEngine.Rendering.PostProcessing.TonemapperParameter, Unity.Postprocessing.Runtime",
+          "value": "ACES",
+          "overrideState": true
+        },
+        "toneCurveToeStrength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "toneCurveToeLength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.5,
+          "overrideState": false
+        },
+        "toneCurveShoulderStrength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "toneCurveShoulderLength": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.5,
+          "overrideState": false
+        },
+        "toneCurveShoulderAngle": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "toneCurveGamma": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.0,
+          "overrideState": false
+        },
+        "ldrLut": {
+          "$type": "UnityEngine.Rendering.PostProcessing.TextureParameter, Unity.Postprocessing.Runtime",
+          "defaultState": "Lut2D",
+          "value": null,
+          "overrideState": false
+        },
+        "ldrLutContribution": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 1.0,
+          "overrideState": false
+        },
+        "temperature": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "tint": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "colorFilter": {
+          "$type": "UnityEngine.Rendering.PostProcessing.ColorParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "overrideState": false
+        },
+        "hueShift": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "saturation": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "brightness": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "postExposure": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "contrast": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerRedOutRedIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 100.0,
+          "overrideState": false
+        },
+        "mixerRedOutGreenIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerRedOutBlueIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerGreenOutRedIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerGreenOutGreenIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 100.0,
+          "overrideState": false
+        },
+        "mixerGreenOutBlueIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerBlueOutRedIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerBlueOutGreenIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 0.0,
+          "overrideState": false
+        },
+        "mixerBlueOutBlueIn": {
+          "$type": "UnityEngine.Rendering.PostProcessing.FloatParameter, Unity.Postprocessing.Runtime",
+          "value": 100.0,
+          "overrideState": false
+        },
+        "lift": {
+          "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 0.0
+          },
+          "overrideState": false
+        },
+        "gamma": {
+          "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 0.0
+          },
+          "overrideState": false
+        },
+        "gain": {
+          "$type": "UnityEngine.Rendering.PostProcessing.Vector4Parameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Vector4, UnityEngine.CoreModule",
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 0.0
+          },
+          "overrideState": false
+        },
+        "masterCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.0,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.0,
+              0.0078125,
+              0.015625,
+              0.0234375,
+              0.03125,
+              0.0390625,
+              0.046875,
+              0.0546875,
+              0.0625,
+              0.0703125,
+              0.078125,
+              0.0859375,
+              0.09375,
+              0.1015625,
+              0.109375,
+              0.1171875,
+              0.125,
+              0.1328125,
+              0.140625,
+              0.1484375,
+              0.15625,
+              0.1640625,
+              0.171875,
+              0.1796875,
+              0.1875,
+              0.1953125,
+              0.203125,
+              0.2109375,
+              0.21875,
+              0.2265625,
+              0.234375,
+              0.2421875,
+              0.25,
+              0.2578125,
+              0.265625,
+              0.2734375,
+              0.28125,
+              0.2890625,
+              0.296875,
+              0.3046875,
+              0.3125,
+              0.3203125,
+              0.328125,
+              0.3359375,
+              0.34375,
+              0.3515625,
+              0.359375,
+              0.3671875,
+              0.375,
+              0.3828125,
+              0.390625,
+              0.3984375,
+              0.40625,
+              0.4140625,
+              0.421875,
+              0.4296875,
+              0.4375,
+              0.4453125,
+              0.453125,
+              0.4609375,
+              0.46875,
+              0.4765625,
+              0.484375,
+              0.4921875,
+              0.5,
+              0.5078125,
+              0.515625,
+              0.5234375,
+              0.53125,
+              0.5390625,
+              0.546875,
+              0.5546875,
+              0.5625,
+              0.5703125,
+              0.578125,
+              0.5859375,
+              0.59375,
+              0.6015625,
+              0.609375,
+              0.6171875,
+              0.625,
+              0.6328125,
+              0.640625,
+              0.6484375,
+              0.65625,
+              0.6640625,
+              0.671875,
+              0.6796875,
+              0.6875,
+              0.6953125,
+              0.703125,
+              0.7109375,
+              0.71875,
+              0.7265625,
+              0.734375,
+              0.7421875,
+              0.75,
+              0.7578125,
+              0.765625,
+              0.7734375,
+              0.78125,
+              0.7890625,
+              0.796875,
+              0.8046875,
+              0.8125,
+              0.8203125,
+              0.828125,
+              0.8359375,
+              0.84375,
+              0.8515625,
+              0.859375,
+              0.8671875,
+              0.875,
+              0.8828125,
+              0.890625,
+              0.8984375,
+              0.90625,
+              0.9140625,
+              0.921875,
+              0.9296875,
+              0.9375,
+              0.9453125,
+              0.953125,
+              0.9609375,
+              0.96875,
+              0.9765625,
+              0.984375,
+              0.9921875
+            ]
+          },
+          "overrideState": false
+        },
+        "redCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.0,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.0,
+              0.0078125,
+              0.015625,
+              0.0234375,
+              0.03125,
+              0.0390625,
+              0.046875,
+              0.0546875,
+              0.0625,
+              0.0703125,
+              0.078125,
+              0.0859375,
+              0.09375,
+              0.1015625,
+              0.109375,
+              0.1171875,
+              0.125,
+              0.1328125,
+              0.140625,
+              0.1484375,
+              0.15625,
+              0.1640625,
+              0.171875,
+              0.1796875,
+              0.1875,
+              0.1953125,
+              0.203125,
+              0.2109375,
+              0.21875,
+              0.2265625,
+              0.234375,
+              0.2421875,
+              0.25,
+              0.2578125,
+              0.265625,
+              0.2734375,
+              0.28125,
+              0.2890625,
+              0.296875,
+              0.3046875,
+              0.3125,
+              0.3203125,
+              0.328125,
+              0.3359375,
+              0.34375,
+              0.3515625,
+              0.359375,
+              0.3671875,
+              0.375,
+              0.3828125,
+              0.390625,
+              0.3984375,
+              0.40625,
+              0.4140625,
+              0.421875,
+              0.4296875,
+              0.4375,
+              0.4453125,
+              0.453125,
+              0.4609375,
+              0.46875,
+              0.4765625,
+              0.484375,
+              0.4921875,
+              0.5,
+              0.5078125,
+              0.515625,
+              0.5234375,
+              0.53125,
+              0.5390625,
+              0.546875,
+              0.5546875,
+              0.5625,
+              0.5703125,
+              0.578125,
+              0.5859375,
+              0.59375,
+              0.6015625,
+              0.609375,
+              0.6171875,
+              0.625,
+              0.6328125,
+              0.640625,
+              0.6484375,
+              0.65625,
+              0.6640625,
+              0.671875,
+              0.6796875,
+              0.6875,
+              0.6953125,
+              0.703125,
+              0.7109375,
+              0.71875,
+              0.7265625,
+              0.734375,
+              0.7421875,
+              0.75,
+              0.7578125,
+              0.765625,
+              0.7734375,
+              0.78125,
+              0.7890625,
+              0.796875,
+              0.8046875,
+              0.8125,
+              0.8203125,
+              0.828125,
+              0.8359375,
+              0.84375,
+              0.8515625,
+              0.859375,
+              0.8671875,
+              0.875,
+              0.8828125,
+              0.890625,
+              0.8984375,
+              0.90625,
+              0.9140625,
+              0.921875,
+              0.9296875,
+              0.9375,
+              0.9453125,
+              0.953125,
+              0.9609375,
+              0.96875,
+              0.9765625,
+              0.984375,
+              0.9921875
+            ]
+          },
+          "overrideState": false
+        },
+        "greenCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.0,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.0,
+              0.0078125,
+              0.015625,
+              0.0234375,
+              0.03125,
+              0.0390625,
+              0.046875,
+              0.0546875,
+              0.0625,
+              0.0703125,
+              0.078125,
+              0.0859375,
+              0.09375,
+              0.1015625,
+              0.109375,
+              0.1171875,
+              0.125,
+              0.1328125,
+              0.140625,
+              0.1484375,
+              0.15625,
+              0.1640625,
+              0.171875,
+              0.1796875,
+              0.1875,
+              0.1953125,
+              0.203125,
+              0.2109375,
+              0.21875,
+              0.2265625,
+              0.234375,
+              0.2421875,
+              0.25,
+              0.2578125,
+              0.265625,
+              0.2734375,
+              0.28125,
+              0.2890625,
+              0.296875,
+              0.3046875,
+              0.3125,
+              0.3203125,
+              0.328125,
+              0.3359375,
+              0.34375,
+              0.3515625,
+              0.359375,
+              0.3671875,
+              0.375,
+              0.3828125,
+              0.390625,
+              0.3984375,
+              0.40625,
+              0.4140625,
+              0.421875,
+              0.4296875,
+              0.4375,
+              0.4453125,
+              0.453125,
+              0.4609375,
+              0.46875,
+              0.4765625,
+              0.484375,
+              0.4921875,
+              0.5,
+              0.5078125,
+              0.515625,
+              0.5234375,
+              0.53125,
+              0.5390625,
+              0.546875,
+              0.5546875,
+              0.5625,
+              0.5703125,
+              0.578125,
+              0.5859375,
+              0.59375,
+              0.6015625,
+              0.609375,
+              0.6171875,
+              0.625,
+              0.6328125,
+              0.640625,
+              0.6484375,
+              0.65625,
+              0.6640625,
+              0.671875,
+              0.6796875,
+              0.6875,
+              0.6953125,
+              0.703125,
+              0.7109375,
+              0.71875,
+              0.7265625,
+              0.734375,
+              0.7421875,
+              0.75,
+              0.7578125,
+              0.765625,
+              0.7734375,
+              0.78125,
+              0.7890625,
+              0.796875,
+              0.8046875,
+              0.8125,
+              0.8203125,
+              0.828125,
+              0.8359375,
+              0.84375,
+              0.8515625,
+              0.859375,
+              0.8671875,
+              0.875,
+              0.8828125,
+              0.890625,
+              0.8984375,
+              0.90625,
+              0.9140625,
+              0.921875,
+              0.9296875,
+              0.9375,
+              0.9453125,
+              0.953125,
+              0.9609375,
+              0.96875,
+              0.9765625,
+              0.984375,
+              0.9921875
+            ]
+          },
+          "overrideState": false
+        },
+        "blueCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.0,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.0,
+              0.0078125,
+              0.015625,
+              0.0234375,
+              0.03125,
+              0.0390625,
+              0.046875,
+              0.0546875,
+              0.0625,
+              0.0703125,
+              0.078125,
+              0.0859375,
+              0.09375,
+              0.1015625,
+              0.109375,
+              0.1171875,
+              0.125,
+              0.1328125,
+              0.140625,
+              0.1484375,
+              0.15625,
+              0.1640625,
+              0.171875,
+              0.1796875,
+              0.1875,
+              0.1953125,
+              0.203125,
+              0.2109375,
+              0.21875,
+              0.2265625,
+              0.234375,
+              0.2421875,
+              0.25,
+              0.2578125,
+              0.265625,
+              0.2734375,
+              0.28125,
+              0.2890625,
+              0.296875,
+              0.3046875,
+              0.3125,
+              0.3203125,
+              0.328125,
+              0.3359375,
+              0.34375,
+              0.3515625,
+              0.359375,
+              0.3671875,
+              0.375,
+              0.3828125,
+              0.390625,
+              0.3984375,
+              0.40625,
+              0.4140625,
+              0.421875,
+              0.4296875,
+              0.4375,
+              0.4453125,
+              0.453125,
+              0.4609375,
+              0.46875,
+              0.4765625,
+              0.484375,
+              0.4921875,
+              0.5,
+              0.5078125,
+              0.515625,
+              0.5234375,
+              0.53125,
+              0.5390625,
+              0.546875,
+              0.5546875,
+              0.5625,
+              0.5703125,
+              0.578125,
+              0.5859375,
+              0.59375,
+              0.6015625,
+              0.609375,
+              0.6171875,
+              0.625,
+              0.6328125,
+              0.640625,
+              0.6484375,
+              0.65625,
+              0.6640625,
+              0.671875,
+              0.6796875,
+              0.6875,
+              0.6953125,
+              0.703125,
+              0.7109375,
+              0.71875,
+              0.7265625,
+              0.734375,
+              0.7421875,
+              0.75,
+              0.7578125,
+              0.765625,
+              0.7734375,
+              0.78125,
+              0.7890625,
+              0.796875,
+              0.8046875,
+              0.8125,
+              0.8203125,
+              0.828125,
+              0.8359375,
+              0.84375,
+              0.8515625,
+              0.859375,
+              0.8671875,
+              0.875,
+              0.8828125,
+              0.890625,
+              0.8984375,
+              0.90625,
+              0.9140625,
+              0.921875,
+              0.9296875,
+              0.9375,
+              0.9453125,
+              0.953125,
+              0.9609375,
+              0.96875,
+              0.9765625,
+              0.984375,
+              0.9921875
+            ]
+          },
+          "overrideState": false
+        },
+        "hueVsHueCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": true,
+            "m_ZeroValue": 0.5,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "overrideState": false
+        },
+        "hueVsSatCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": true,
+            "m_ZeroValue": 0.5,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "overrideState": false
+        },
+        "satVsSatCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.5,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "overrideState": false
+        },
+        "lumVsSatCurve": {
+          "$type": "UnityEngine.Rendering.PostProcessing.SplineParameter, Unity.Postprocessing.Runtime",
+          "value": {
+            "$type": "UnityEngine.Rendering.PostProcessing.Spline, Unity.Postprocessing.Runtime",
+            "m_Loop": false,
+            "m_ZeroValue": 0.5,
+            "m_Range": 1.0,
+            "curve": {
+              "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+            },
+            "cachedData": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          "overrideState": false
+        },
+        "active": true,
+        "enabled": {
+          "$type": "UnityEngine.Rendering.PostProcessing.BoolParameter, Unity.Postprocessing.Runtime",
+          "value": true,
+          "overrideState": true
+        },
+        "name": "ColorGrading"
+      }
+    ],
+    "name": "DLC3_Location"
+  },
+  "namedPlacesPath": "Campaign/DLC3_PalaceOfIce_NamedPlaces",
+  "recommendedCampaign": "Definition:CrownOfTheMagister:45b218b999978f64b983044e8c5df128",
+  "recommendedSceneNameStartsWith": "AerElai_Final",
+  "variablesToImport": [
+    "IsAlive_Daliat_CaerLem-C",
+    "IsAlive_Lisbath_CaerLem-C",
+    "IsAlive_Robar_CaerLem-C",
+    "IsAlive_Beryl_CaerLem-C",
+    "IsContact_Daliat_CaerLem-C",
+    "IsContact_Robar_CaerLem-C",
+    "IsFleeing_Daliat_CaerLem-C",
+    "IsAngry_Talbut_BoneKeep-C",
+    "IsFriend_Talbut_BoneKeep-C",
+    "Merton_Bring_Sword_COTM-C",
+    "Merton_Is_Friend_COTM-C",
+    "Merton_Is_Party_COTM-C"
+  ],
+  "questStatusToImport": [
+    "Definition:Quest_Background_Academic_Scenario:cc221d138cac7c44a8bb7cc1b5cbe489",
+    "Definition:Quest_Background_Acolyte_Scenario:e8439f5ca20ae394fa6f3688a4d66946",
+    "Definition:Quest_Background_Aristocrat_Scenario:6b104d554d1e0b94c9bb478b4e19d150",
+    "Definition:Quest_Background_Lawkeeper_Scenario:dcd09edeb5f72d5469ca8f8411736076",
+    "Definition:Quest_Background_Lowlife_Scenario:a5777949b1c4bd8499428796e93986da",
+    "Definition:Quest_Background_Philosopher_Scenario:76226731a24f5f744ac66a6087871dcc",
+    "Definition:Quest_Background_Sellsword_Scenario:b8fa9800099068c498e9ec6b1b20b2fa",
+    "Definition:Quest_Background_Spy_Scenario:0fc0e6e549dd822479a5f1081aafd4ed",
+    "Definition:Quest_Background_Wanderer_Scenario:e37dff61a5727ba4c8d79d8783038bb6",
+    "Definition:LegendaryQuest_Scenario:f1ff3bad4a4dd7b4d848ba285aaceaa9",
+    "Definition:Secondary_KillRazan_Scenario:94517868a18141a43adf089eb43f29b5"
+  ],
+  "warningText": "Campaign/&PalaceOfIceWarning",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Campaign/&DLC3_Title",
+    "description": "Campaign/&DLC3_Description_Alternate",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f2c95e72cbf3be14596b5cf6bb0a533a",
+      "m_SubObjectName": "DLC3_PalaceOfIce",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "59b9933342e526c4c833d979e8909a14",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_PalaceOfIce_Campaign"
+}

@@ -19,11 +19,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -244,13 +242,14 @@ internal static class Level20SubclassesContext
         // Freedom
         //
 
-        var attributeModifierTraditionLightPurityOfLight = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierTraditionLightPurityOfLight")
+        var attributeModifierTraditionFreedomFluidStrikes = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierTraditionFreedomFluidStrikes")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
-        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionLightPurityOfLight, 17));
+        TraditionFreedom.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierTraditionFreedomFluidStrikes,
+            17));
 
         //
         // Light
@@ -439,17 +438,61 @@ internal static class Level20SubclassesContext
 
     private static void PaladinLoad()
     {
-        AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
+        //
+        // Oath of Devotion
+        //
 
-        AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, Banishment, Blight));
+        var powerOathOfDevotionAuraDevotion18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfDevotionAuraDevotion, "PowerOathOfDevotionAuraDevotion18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfDevotionAuraDevotion)
+            .AddToDB();
 
-        AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, WallOfFire, FireShield));
+        powerOathOfDevotionAuraDevotion18.EffectDescription.targetParameter = 13;
 
-        AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-            BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
+        OathOfDevotion.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfDevotionAuraDevotion18, 18));
+
+        //
+        // Oath of Judgement
+        //
+
+        var powerOathOfJugementAuraRightenousness18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfJugementAuraRightenousness, "PowerOathOfJugementAuraRightenousness18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfJugementAuraRightenousness)
+            .AddToDB();
+
+        powerOathOfJugementAuraRightenousness18.EffectDescription.targetParameter = 13;
+
+        OathOfJugement.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfJugementAuraRightenousness18, 18));
+
+        //
+        // Oath of Motherland
+        //
+
+        var powerOathOfMotherlandVolcanicAura18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfMotherlandVolcanicAura, "PowerOathOfMotherlandVolcanicAura18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfMotherlandVolcanicAura)
+            .AddToDB();
+
+        powerOathOfMotherlandVolcanicAura18.EffectDescription.targetParameter = 13;
+
+        OathOfTheMotherland.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfMotherlandVolcanicAura18, 18));
+
+        //
+        // Oath of Tirmar
+        //
+
+        var powerOathOfTirmarAuraTruth18 = FeatureDefinitionPowerBuilder
+            .Create(PowerOathOfTirmarAuraTruth, "PowerOathOfTirmarAuraTruth18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerOathOfTirmarAuraTruth)
+            .AddToDB();
+
+        powerOathOfTirmarAuraTruth18.EffectDescription.targetParameter = 13;
+
+        OathOfTirmar.FeatureUnlocks.Add(new FeatureUnlockByLevel(powerOathOfTirmarAuraTruth18, 18));
     }
 
     private static void RogueLoad()

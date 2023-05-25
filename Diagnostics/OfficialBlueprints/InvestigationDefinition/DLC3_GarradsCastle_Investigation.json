@@ -1,0 +1,89 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier0B:7b68ecc789f3d834d81a5735a2d83a56",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier02:48771c017e3a7114c8941b199a9d5002",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier03:f546cdacbdb31df4fa0411fd35cc14d9",
+      "traitor": false,
+      "reputationLevel": "Low",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier0C:0817473e58c9ebe458cfa1ee1dc98366",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Low"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier0D:d601a2b721ff168459e2b8f023bad874",
+      "traitor": true,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier06:4660e5f55b019d74aa7fb3002e245e45",
+      "traitor": false,
+      "reputationLevel": "Low",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier0A:0bf935e159d05b742a014f9389675501",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_GarradSoldier08:2f99c74cd28895d4ebee02787dbf0209",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Low"
+    }
+  ],
+  "quest": "Definition:DLC3_Telema_Quest_03:c4c5cf3446ce4ff489f9f7915b37dafc",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Investigation/&DLC3_Garrads_Title",
+    "description": "Investigation/&DLC3_Garrads_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6f12c037e38da05498aa3c020fe37d42",
+  "contentPack": "BaseGame",
+  "name": "DLC3_GarradsCastle_Investigation"
+}

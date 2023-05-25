@@ -30,6 +30,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetHatredResistance:81c3e52f-4b28-51d7-b838-43624a3e9598",
       "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerHatredArdentHate:660de72d-3df9-5b8e-8f7e-fe212911f440",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

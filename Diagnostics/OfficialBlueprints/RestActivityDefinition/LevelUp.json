@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": "CanLevelUp",
+  "requiresMissingClassSpellSlots": false,
   "functor": "LevelUp",
   "stringParameter": "",
   "checkConsciousness": false,

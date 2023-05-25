@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Bolt_Poisoned_GhoulsCaress:508c511ac85d8a047bbc4a5070f08cc8",
   "stackCount": 5,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 4,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

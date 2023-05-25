@@ -48,6 +48,13 @@ internal static class RulesDisplay
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
             SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         }
+        
+        toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
+        if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
+        }
 
         UI.Label();
 
@@ -152,6 +159,12 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             SrdAndHouseRulesContext.SwitchDruidAllowMetalArmor();
+        }
+
+        toggle = Main.Settings.IgnoreHandXbowFreeHandRequirements;
+        if (UI.Toggle(Gui.Localize("ModUi/&IgnoreHandXbowFreeHandRequirements"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
         }
 
         UI.Label();

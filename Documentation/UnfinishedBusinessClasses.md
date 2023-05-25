@@ -7,19 +7,19 @@ Inventors are tinkerers, alchemists, and more. They bridge the space between mag
 
 * Inventor Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Inventor Skill Proficiencies
 
-Choose 2 of these skills: Arcana, History, Investigation, Medicine, Nature, Perception, Sleight of Hand
+Choose 2 of these skills: Arcana,History,Investigation,Medicine,Nature,Perception,Sleight of Hand
 
 * Inventor Tool Proficiencies
 
-Proficient with these tools: Smith's tools, Thieves' Tools
+Proficient with these tools: Smith's tools,Thieves' Tools
 
 * Inventor Tool Proficiency Choice
 
-Choose one of these tools: Disguise Kit, Manacalon Rosary, Herbalism Kit, Poisoner's Kit, Scroll Kit
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
 
 * Inventor Weapon Proficiency
 
@@ -27,11 +27,11 @@ Simple Weapons
 
 * Magical Tinkering
 
-You know how to invest a spark of magic into mundane objects. Learn these cantrips: Dazzle, Light, Shine, Sparkle
+You know how to invest a spark of magic into mundane objects. Learn these cantrips: Dazzle,Light,Shine,Sparkle
 
 * Saving Throw Proficiencies
 
-Constitution, Intelligence
+Constitution,Intelligence
 
 * Inventor Spellcasting
 
@@ -54,7 +54,7 @@ Select Field Of Study to focus on.
 
 * Know Your Tools
 
-Choose one of these tools: Disguise Kit, Manacalon Rosary, Herbalism Kit, Poisoner's Kit, Scroll Kit
+Choose one of these tools: Disguise Kit,Manacalon Rosary,Herbalism Kit,Poisoner's Kit,Scroll Kit
 
 
 ## Level 4

@@ -597,7 +597,7 @@ Size: *Medium*
 
 # 18. - Berserker
 
-Hailing from barbaric lands, berserkers come together in war parties to seek battle.
+Hailing from barbaric lands, berserkers come together in war parties to seek battle.
 
 Alignment: *Chaotic Evil* 
 
@@ -781,7 +781,7 @@ Size: *Medium*
 | 0 | Poison Spray | Fire a poison spray at an enemy you can see, within range. |
 | 0 | Acid Splash | Launch an acid bolt. |
 | 1 | False Life | Gain a few temporary hit points for a limited time. |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. Creatures inside it cannot attack those on the outside. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
 | 1 | Sleep | Put a number of creatures to sleep for a limited time. Roll 5d8: the total is how many hit points of creatures this spell can affect. |
 | 2 | Ray of Enfeeblement | Weaken an enemy so they deal less damage for one minute. |
 | 2 | Blindness | Blind an enemy for one minute. |
@@ -834,7 +834,7 @@ Size: *Medium*
 
 # 25. - Evil Priest
 
-An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
+An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
 
 Alignment: *Neutral Evil* 
 
@@ -878,7 +878,7 @@ Size: *Medium*
 
 # 26. - Evil Priest
 
-An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
+An evil priest leads a religious sect conducting depraved rites in the shadows of respectable society.
 
 Alignment: *Neutral Evil* 
 
@@ -1099,7 +1099,7 @@ Size: *Medium*
 | 0 | Resistance | Grant an ally a one-time bonus to saving throws. |
 | 1 | Charm Person | Makes an ally of an enemy. |
 | 1 | Healing Word | Heal an ally you can see. |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. Creatures inside it cannot attack those on the outside. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
 | 2 | Hold Person | Paralyze a humanoid you can see for a limited time. |
 | 2 | Barkskin | Gives you or an ally you can touch an AC of at least 16. |
 | 2 | Silence | Creates a sphere four cells in radius, inside which sound cannot exist. Stops thunder damage and prevents spellcasting using verbal components. |
@@ -1823,7 +1823,7 @@ A creature is unaffected by this spell if it is Blinded, or has Blindsight, True
 | 4 | Stoneskin | Grants resistance to non-magical bludgeoning, slashing, and piercing damage. |
 | 5 | Cone of Cold | Inflicts massive cold damage in the cone of effect. |
 | 5 | Wall of Force | Conjures an invisible wall that blocks movement and attacks. |
-| 6 | Globe Of Invulnerability | A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it.  |
+| 6 | Globe Of Invulnerability | A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it. |
 | 7 | Gravity Slam | Increase gravity to slam everyone in a specific area onto the ground. |
 | 8 | Power Word Stun | Overwhelm the mind of a creature that has 150 hit points or fewer, leaving it stunned. |
 
@@ -1911,7 +1911,7 @@ Size: *Medium*
 | 0 | Shillelagh | Conjures a magical club whose attacks are magical and use your spellcasting ability instead of strength. |
 | 0 | Resistance | Grant an ally a one-time bonus to saving throws. |
 | 1 | Entangle | Creatures in a four-cell square area are restrained if they fail a STR saving throw |
-| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time. Creatures inside it cannot attack those on the outside. |
+| 1 | Fog Cloud | Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight. |
 | 1 | Thunderwave | Emit a wave of force that causes damage and pushes creatures and objects away. |
 | 2 | Hold Person | Paralyze a humanoid you can see for a limited time. |
 | 2 | Barkskin | Gives you or an ally you can touch an AC of at least 16. |
@@ -2895,7 +2895,7 @@ Size: *Medium*
 
 # 80. - Scout
 
-Scouts are skilled hunters and trackers who offer their services for a fee.
+Scouts are skilled hunters and trackers who offer their services for a fee.
 
 Alignment: *Neutral Evil* 
 
@@ -2925,7 +2925,7 @@ Size: *Medium*
 
 # 81. - Scout
 
-Scouts are skilled hunters and trackers who offer their services for a fee.
+Scouts are skilled hunters and trackers who offer their services for a fee.
 
 Alignment: *Neutral Evil* 
 
@@ -3084,7 +3084,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Shadow Escape
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3167,7 +3167,7 @@ Size: *Medium*
 * Apostle of Darkness - Unlit
 * Walk 6
 * Call of the Night
-* Moonbeam weakness
+* Moonbeam Weakness
 * Superior Darkvision
 
 *Spells:*
@@ -3262,7 +3262,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Shadow Murder
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3303,7 +3303,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Shadow Murder
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3347,7 +3347,7 @@ Size: *Medium*
 * Dread Laughter
 * Shadow Escape
 * Word of Darkness
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 * Truesight
@@ -3392,7 +3392,7 @@ Size: *Medium*
 * Dread Laughter
 * Shadow Escape
 * Word of Darkness
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 * Truesight
@@ -3437,7 +3437,7 @@ Size: *Medium*
 * Fly 8
 * Walk 8
 * Word of Darkness
-* Moonbeam weakness
+* Moonbeam Weakness
 * Advantage on saving throws against spells
 * Normal Vision
 * Superior Darkvision
@@ -3503,7 +3503,7 @@ Size: *Medium*
 * Fly 8
 * Walk 8
 * Word of Darkness
-* Moonbeam weakness
+* Moonbeam Weakness
 * Advantage on saving throws against spells
 * Normal Vision
 * Superior Darkvision
@@ -3565,7 +3565,7 @@ Size: *Medium*
 * Walk 8
 * Call of the Night
 * Doom Laughter
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3604,7 +3604,7 @@ Size: *Medium*
 * Walk 8
 * Call of the Night
 * Doom Laughter
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3649,7 +3649,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Call of the Night
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3687,7 +3687,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Shadow Escape
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3725,7 +3725,7 @@ Size: *Medium*
 * Movement Affinity Spider Climb
 * Walk 8
 * Shadow Escape
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3772,7 +3772,7 @@ Size: *Medium*
 * Walk 8
 * Call of the Night
 * Blast
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3809,7 +3809,7 @@ Size: *Medium*
 * Child of Darkness - Unlit
 * Movement Affinity Spider Climb
 * Walk 6
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -3846,7 +3846,7 @@ Size: *Medium*
 * Child of Darkness - Unlit
 * Movement Affinity Spider Climb
 * Walk 6
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 * Superior Darkvision
 
@@ -4175,7 +4175,7 @@ Size: *Medium*
 
 # 112. - Thug
 
-Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
+Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
 
 Alignment: *Neutral Evil* 
 
@@ -4204,7 +4204,7 @@ Size: *Medium*
 
 # 113. - Thug
 
-Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
+Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.
 
 Alignment: *Neutral Evil* 
 
@@ -4545,7 +4545,7 @@ Size: *Medium*
 * Damage Affinity Werewolf _ Piercing Immunity
 * Damage Affinity Werewolf _ Slashing Immunity
 * Walk 6
-* Moonbeam weakness
+* Moonbeam Weakness
 * Normal Vision
 
 *Attacks:*

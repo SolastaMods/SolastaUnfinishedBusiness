@@ -129,7 +129,7 @@ internal sealed class WizardGraviturgist : AbstractSubclass
         var powerGravityWell = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}GravityWell")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnAttackSpellHitAutomatic)
+            .SetUsesFixed(ActivationTime.OnAttackOrSpellHitAuto)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

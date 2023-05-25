@@ -33,7 +33,8 @@ internal static class CustomWeaponsContext
     private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
+    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2;
+    internal static ItemDefinition HandXbowAcid;
 
     internal static void Load()
     {
@@ -519,6 +520,7 @@ internal static class CustomWeaponsContext
 
         ProducedFlameDart = BuildWeapon("CEProducedFlameDart", ItemDefinitions.Dart, 0, true, Common,
             flame.ItemPresentation, icon: ProducedFlameThrow);
+        ProducedFlameDart.inDungeonEditor = false;
 
         var damageForm = ProducedFlameDart.WeaponDescription.EffectDescription.FindFirstDamageForm();
 
@@ -576,7 +578,7 @@ internal static class CustomWeaponsContext
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
-                    .SetGuiPresentation(CONDITION_NAME, Category.Condition)
+                    .SetGuiPresentationNoContent()
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                     .AddToDB())
@@ -615,6 +617,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true)
             .Build());

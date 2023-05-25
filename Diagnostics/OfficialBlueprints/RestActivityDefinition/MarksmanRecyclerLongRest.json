@@ -3,6 +3,7 @@
   "restStage": "AfterRest",
   "restType": "LongRest",
   "condition": "CanUsePower",
+  "requiresMissingClassSpellSlots": false,
   "functor": "UsePower",
   "stringParameter": "PowerMarksmanRecycler",
   "checkConsciousness": false,

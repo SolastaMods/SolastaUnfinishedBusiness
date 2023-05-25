@@ -29,14 +29,17 @@ internal static class FlexibleRacesContext
         { "Dragonborn", AttributeChoiceThree },
         { "Dwarf", AttributeChoiceThree },
         { "Elf", AttributeChoiceThree },
+        { "Gnome", AttributeChoiceThree },
         { "Halfling", AttributeChoiceThree },
         { "HalfElf", AttributeChoiceFour },
         { "HalfOrc", AttributeChoiceThree },
+        { "Tiefling", AttributeChoiceThree },
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceKobold", AttributeChoiceThree },
-        { "RaceFairy", AttributeChoiceThree }
+        { "RaceFairy", AttributeChoiceThree },
+        { "RaceTiefling", AttributeChoiceThree }
     };
 
     private static readonly Dictionary<string, List<string>> RemovedFeatures = new()
@@ -44,6 +47,15 @@ internal static class FlexibleRacesContext
         { "Dragonborn", new List<string> { "FeatureSetDragonbornAbilityScoreIncrease" } },
         { "Dwarf", new List<string> { "AttributeModifierDwarfAbilityScoreIncrease" } },
         { "Elf", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
+        { "Gnome", new List<string> { "AttributeModifierGnomeAbilityScoreIncreaseInt" } },
+        {
+            "GnomeRock", new List<string>
+            {
+                "AttributeModifierGnomeRockAbilityScoreIncreaseCon",
+                "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" //BUGFIX: until TA doesn't fix Gnome Rock
+            }
+        },
+        { "GnomeShadow", new List<string> { "AttributeModifierGnomeShadowAbilityScoreIncreaseDex" } },
         { "Halfling", new List<string> { "AttributeModifierHalflingAbilityScoreIncrease" } },
         { "HalfElf", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
         { "DwarfHill", new List<string> { "AttributeModifierDwarfHillAbilityScoreIncrease" } },
@@ -53,6 +65,14 @@ internal static class FlexibleRacesContext
         { "HalflingIsland", new List<string> { "AttributeModifierHalflingIslandAbilityScoreIncrease" } },
         { "HalflingMarsh", new List<string> { "AttributeModifierHalflingMarshAbilityScoreIncrease" } },
         { "HalfOrc", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
+        {
+            "Tiefling",
+            new List<string>
+            {
+                "AttributeModifierTieflingAbilityScoreIncreaseCha",
+                "AttributeModifierTieflingAbilityScoreIncreaseInt"
+            }
+        },
         // unofficial races
         {
             "RaceBolgrif",
@@ -67,7 +87,10 @@ internal static class FlexibleRacesContext
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
-        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } }
+        { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
+        { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
+        { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
+        { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)

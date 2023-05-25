@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Greataxe:533cb019e7b95e04eb6612feb99d9fb0",
   "stackCount": 1,
   "craftingHours": 8,

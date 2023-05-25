@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "terrainType": "Mountain",
   "encounterTable": "Definition:DLC1_EncounterTable_NoMutants:187fce30cb5c3d34983ef29b65b87f81",
   "narrativeEventBasicLines": [
@@ -30,11 +31,12 @@
     "Definition:DLC1_Encounter_Stonehenge_LocationDB:6f36ad76bfa3d764a8e1e80ebe274845",
     "Definition:DLC1_Encounter_Mines_LocationDB:756c643c07a7edd4685c4ad3fae33001"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Green:0ca6c650cd299314a80f59fb1cf81d50",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_DLC1_NoMutants_Title",
+    "description": "Biome/&Biome_DLC1_NoMutants_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -55,6 +57,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "52ba4b6a93f3043479969e9a7e4166fd",
-  "contentPack": "BaseGame",
+  "contentPack": "LostValley",
   "name": "Biome_DLC_Valley_Marches"
 }

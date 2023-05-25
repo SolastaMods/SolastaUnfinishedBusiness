@@ -1,0 +1,62 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "TriggerImmuneToWeatherEffects",
+  "searchKey": "Trigger_Immune_To_Weather_Effects",
+  "eventProbability": 0.25,
+  "selfProbability": 1.0,
+  "playbackDelay": 1.0,
+  "canUseWhileCautious": true,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_7_Player_BlizzardStop",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_8_Player_BlizzardStop",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_9_Player_BlizzardStop",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "Narration/&DLC3_Weather_9_Player_BlizzardStop",
+      "list": "Formal",
+      "mode": "Self"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "b8df54cd8dc94f3448b3a9c0d948b08b",
+  "contentPack": "BaseGame",
+  "name": "BanterEventImmuneToWeatherEffects"
+}

@@ -43,3 +43,5 @@ Location/&Map_DLC1_SpiderNest_Title=Nido de araña
 Location/&Map_DLC1_SpiderNest_Description=Te han advertido que aquí hay un nido de arañas.
 Location/&Map_DLC1_JungleNest_Title=Nido de la selva
 Location/&Map_DLC1_JungleNest_Description=Según Ellaria Anfarel, en esta zona habita un enorme monstruo.
+Location/&DLC3_Crossroads_Title=Camino al Einareum
+Location/&DLC3_Crossroads_Description=Un antiguo pueblo abandonado, a pocos kilómetros del Einareum.

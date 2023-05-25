@@ -1,5 +1,6 @@
 {
   "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "treasureOptions": [
     {
       "$type": "TreasureOption, Assembly-CSharp",
@@ -125,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TreasureTable/&IngredientsTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "TreasureTable/&Travel_Grassland_Title",
+    "description": "TreasureTable/&Travel_Grassland_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Rapier_Whiteburn:8f3afd5c-1e2a-5069-b776-21db41fd57d7",
   "stackCount": 1,
-  "craftingHours": 36,
-  "craftingDC": 15,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

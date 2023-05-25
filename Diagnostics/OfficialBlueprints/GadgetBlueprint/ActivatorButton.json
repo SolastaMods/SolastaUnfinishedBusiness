@@ -98,70 +98,10 @@
   "prefabsByEnvironment": [
     {
       "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Necropolis",
+      "environment": "",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c10896dfbf46425438e2b9dd52e88c17",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Stronghold",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8a0288b80a9b43945a07ed5c521d9e88",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "ElvenPalace",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "8fc5eebe21189374095fd3c2b8587630",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Sewers",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "adc12965bf7a3de4385162b4e6aa5904",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "Catacombs",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "ddd7d16aeb0496142b4f100288e9fe25",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "TownInterior",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "098e299ef29c93349917f37b821ea2d4",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      }
-    },
-    {
-      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
-      "environment": "ValleyPalace",
-      "prefabReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e2cc1ace3fd22b64f8ad71af4421556e",
+        "m_AssetGUID": "1be1a846fee2f764291b38e1170369ab",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

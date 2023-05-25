@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
-using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -21,19 +21,11 @@ internal static class FixesContext
 {
     internal static void LateLoad()
     {
-        //BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
-        //BUGFIX: add a sprite reference to Resurrection
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
-
         // REQUIRED FIXES
+        FixColorTables();
         FixAttackBuffsAffectingSpellDamage();
-        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
+        FixSmitesAndStrikesDiceProgression();
+        FixDivineStrikeRestrictions();
         FixDivineSmiteRestrictions();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
@@ -46,6 +38,9 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixWildshapeGroupAttacks();
+
+        // avoid folks tweaking max party size directly on settings as we don't need to stress cloud servers
+        Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
 
         //BUGFIX: this official condition doesn't have sprites or description
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
@@ -64,6 +59,30 @@ internal static class FixesContext
             IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
     }
 
+    private static void FixColorTables()
+    {
+        //BUGFIX: expand color tables
+        for (var i = 21; i < 33; i++)
+        {
+            Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
+            Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
+        }
+    }
+
+    /**
+     * Makes Divine Strike trigger only from melee attacks.
+     */
+    private static void FixDivineStrikeRestrictions()
+    {
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+    }
+
     /**
      * Makes Divine Smite trigger only from melee attacks.
      * This wasn't relevant until we changed how SpendSpellSlot trigger works.
@@ -73,19 +92,29 @@ internal static class FixesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
     /**
      * Makes Divine Smite use correct number of dice when spending slot level 5+.
      * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
      */
-    private static void FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots()
+    private static void FixSmitesAndStrikesDiceProgression()
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
 
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.diceByRankTable =
+            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+
+        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.diceByRankTable =
+            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
     }
 
     /**
@@ -237,11 +266,24 @@ internal static class FixesContext
 
     private static void FixWildshapeGroupAttacks()
     {
-        WildShapeApe.groupAttacks = false;
-        WildshapeBlackBear.groupAttacks = false;
-        WildShapeBrownBear.groupAttacks = false;
-        WildshapeDeepSpider.groupAttacks = false;
-        WildShapeGiant_Eagle.groupAttacks = false;
+        var monsters = new List<MonsterDefinition>
+        {
+            WildShapeApe,
+            WildshapeBlackBear,
+            WildShapeBrownBear,
+            WildshapeDeepSpider,
+            WildShapeGiant_Eagle
+        };
+
+        foreach (var monster in monsters)
+        {
+            monster.groupAttacks = false;
+
+            foreach (var attackIterations in monster.AttackIterations)
+            {
+                attackIterations.number = 2;
+            }
+        }
     }
 
     // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style

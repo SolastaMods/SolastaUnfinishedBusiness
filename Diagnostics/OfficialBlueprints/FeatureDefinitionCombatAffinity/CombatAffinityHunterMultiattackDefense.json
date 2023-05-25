@@ -29,6 +29,7 @@
   "multiAttackDefenseValue": 4,
   "readyAttackAdvantage": "None",
   "shoveOnReadyAttackHit": false,
+  "autoFormatDescription": true,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {

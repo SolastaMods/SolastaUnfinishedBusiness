@@ -1,6 +1,6 @@
 TerrainType/&ArcticDescription=Las áreas de nieve o permafrost se consideran terreno ártico. Cuidado, este tipo de terreno no se usa en la campaña Crown of the Magister.
 TerrainType/&ArcticTitle=Ártico
-TerrainType/&BadlandsDescription=La mayoría de las áreas que cubren las antiguas provincias interiores del Imperio de Manacalon, ahora una mezcla salvaje de varios tipos de terreno con manifestaciones caóticas de la magia posterior al Cataclismo, se consideran terreno de Tierras Inhóspitas.
+TerrainType/&BadlandsDescription=La mayoría de las áreas que cubren las antiguas provincias interiores del Imperio de Manacalon, ahora una mezcla salvaje de varios tipos de terreno con manifestaciones caóticas de la magia posterior al Cataclismo, se consideran terreno de Badlands.
 TerrainType/&CoastDescription=Las áreas que contienen una línea de costa se consideran terreno costero. Cuidado, este tipo de terreno no se usa en la campaña Crown of the Magister.
 TerrainType/&CoastTitle=Costa
 TerrainType/&DablandsTitle=Páramos

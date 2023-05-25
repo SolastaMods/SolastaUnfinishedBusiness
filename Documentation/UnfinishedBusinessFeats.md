@@ -83,7 +83,7 @@ You've learned to put the weight of a weapon to your advantage, letting its mome
 
 You are experienced with fighting in close quarters and gain the following benefits:
 • Your Dexterity or Intelligence increases by 1, to a maximum of 20.
-• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks.
+• When you deal sneak attack damage with melee weapon attacks while within 5 feet of your target, your sneak dice become d8 instead of d6. This feature also extends to classes that can deal sneak attacks with melee spell attacks, and rogue features that scale off of sneak dice.
 
 # 19. - Crippling
 
@@ -195,7 +195,7 @@ When you roll a 1 or 2 on a damage die for an attack you make with a melee weapo
 
 # 43. - Hand-and-a-Half
 
-You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
+You gain +1 to AC, +1 to hit, and +1 to damage rolls when you use a versatile weapon in two hands.
 
 # 44. - Hardy
 

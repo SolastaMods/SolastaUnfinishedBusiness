@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Fiend",
   "creatureTags": [],
@@ -141,7 +141,7 @@
       }
     }
   ],
-  "audioRaceRTPCValue": 0.0,
+  "audioRaceRTPCValue": 70.0,
   "challengeRating": 14.0,
   "noExperienceGain": false,
   "droppedLootDefinition": "Definition:Hezrou_General_loot_drop:7bc4404d5eb3a3d4dab3f448b1cdf38e",
@@ -163,7 +163,10 @@
     "Definition:LightAffinity_DemonGeneral:5e7b8cc1efb2b78409be2ec7d95aa6c5",
     "Definition:PowerSorakWordOfDarkness:321e78bf9858760479be5ffc13dca0e3",
     "Definition:MovementAffinitySpiderClimb:3814823c84a9ac445b368f906b1be7a9",
-    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3"
+    "Definition:PowerHezrouStench:9bd06b9f9d549c148854037568f6c5d3",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinity_LairEffect_PalaceOfIceImmunity:af2de5103ebed1440a4e6bb8d43ea580",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -195,13 +198,13 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
     "y": 7.0,
-    "z": -35.0
+    "z": -55.0
   },
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
@@ -215,7 +218,14 @@
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
     "useCustomMaterials": false,
-    "customMaterials": [],
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e8371939ed22a8540a6f7b0801cbf216",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "",
@@ -262,18 +272,18 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "9625d458785b03d42a70d1be595b3284",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "maleModelScale": 1.0,
+    "maleModelScale": 1.2,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ec23c0549f82d40419e56b048a50d51e",
+      "m_AssetGUID": "9625d458785b03d42a70d1be595b3284",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "femaleModelScale": 0.656,
+    "femaleModelScale": 1.2,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
     "hideDuringCutscene": false,

@@ -238,6 +238,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -246,8 +247,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -273,6 +273,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "4e649201b125cea409d359209d1259e6",
-  "contentPack": "InnerStrength",
+  "contentPack": "BaseGame",
   "name": "OBSOLETE-WandOfMagicMissile"
 }

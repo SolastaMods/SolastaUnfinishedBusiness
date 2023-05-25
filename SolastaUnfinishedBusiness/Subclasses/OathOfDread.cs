@@ -23,6 +23,25 @@ internal sealed class OathOfDread : AbstractSubclass
 {
     private const string Name = "OathOfDread";
 
+    private static readonly ConditionDefinition ConditionAspectOfDreadEnemy = ConditionDefinitionBuilder
+        .Create($"Condition{Name}AspectOfDreadEnemy")
+        .SetGuiPresentation($"Condition{Name}AspectOfDread", Category.Condition)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+        .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+        .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+            .Create($"SavingThrowAffinity{Name}AspectOfDreadEnemy")
+            .SetGuiPresentation($"Power{Name}AspectOfDread", Category.Feature)
+            .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, false,
+                AttributeDefinitions.Strength,
+                AttributeDefinitions.Dexterity,
+                AttributeDefinitions.Constitution,
+                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma)
+            .AddToDB())
+        .AddToDB();
+
     internal OathOfDread()
     {
         //
@@ -163,7 +182,86 @@ internal sealed class OathOfDread : AbstractSubclass
         var featureHarrowingCrusade = FeatureDefinitionBuilder
             .Create($"Feature{Name}{HARROWING_CRUSADE}")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new ReactToAttackOnMeOrMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
+            .SetCustomSubFeatures(
+                new ReactToAttackOnMeOrMeFinishedHarrowingCrusade(conditionMarkOfTheSubmission))
+            .AddToDB();
+
+        //
+        // LEVEL 18
+        //
+
+        // Improved Aura of Domination
+
+        var powerAuraOfDomination18 = FeatureDefinitionPowerBuilder
+            .Create(powerAuraOfDomination, $"Power{Name}AuraOfDomination18")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(powerAuraOfDomination)
+            .AddToDB();
+
+        powerAuraOfDomination18.EffectDescription.targetParameter = 13;
+
+        //
+        // LEVEL 20
+        //
+
+        // Aspect of Dread
+
+        var additionalDamageAspectOfDread = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}AspectOfDread")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("AspectOfDread")
+            .SetDamageDice(DieType.D8, 1)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .AddToDB();
+
+        var featureAspectOfDread = FeatureDefinitionBuilder
+            .Create($"Feature{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var featureSetAspectOfDread = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AspectOfDreadDamageResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var conditionAspectOfDread = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Condition, ConditionPactChainImp)
+            .SetPossessive()
+            .AddFeatures(additionalDamageAspectOfDread, featureAspectOfDread, featureSetAspectOfDread)
+            .AddToDB();
+
+        foreach (var damage in DatabaseRepository.GetDatabase<DamageDefinition>())
+        {
+            var title = Gui.Localize($"Rules/&{damage.Name}Title");
+            var damageAffinityAspectOfDread = FeatureDefinitionDamageAffinityBuilder
+                .Create($"DamageAffinity{Name}AspectOfDread{damage.Name}")
+                .SetGuiPresentation(title, Gui.Format("Feature/&DamageResistanceFormat", title))
+                .SetDamageType(damage.Name)
+                .SetDamageAffinityType(DamageAffinityType.Resistance)
+                .AddToDB();
+
+            featureSetAspectOfDread.FeatureSet.Add(damageAffinityAspectOfDread);
+        }
+
+        var powerAspectOfDread = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AspectOfDread")
+            .SetGuiPresentation(Category.Feature, Sprites
+                .GetSprite("PowerArdentHate", Resources.PowerArdentHate, 256, 128))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetParticleEffectParameters(PowerFighterActionSurge)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionAspectOfDread, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         // MAIN
@@ -179,6 +277,10 @@ internal sealed class OathOfDread : AbstractSubclass
                 powerAuraOfDomination)
             .AddFeaturesAtLevel(15,
                 featureHarrowingCrusade)
+            .AddFeaturesAtLevel(18,
+                powerAuraOfDomination18)
+            .AddFeaturesAtLevel(20,
+                powerAspectOfDread)
             .AddToDB();
     }
 
@@ -189,6 +291,55 @@ internal sealed class OathOfDread : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Aspect of Dread
+    //
+
+    internal static void OnRollSavingThrowAspectOfDread(
+        RulesetCharacter caster,
+        RulesetActor target,
+        BaseDefinition sourceDefinition)
+    {
+        if (sourceDefinition is not ItemDefinition && // for smite spells but can bleed
+            sourceDefinition is not FeatureDefinitionAdditionalDamage && // for smite spells but can bleed
+            sourceDefinition is not SpellDefinition { castingTime: ActivationTime.Action } &&
+            sourceDefinition is not FeatureDefinitionPower { RechargeRate: RechargeRate.ChannelDivinity })
+        {
+            return;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var gameLocationCaster = GameLocationCharacter.GetFromActor(caster);
+        var gameLocationTarget = GameLocationCharacter.GetFromActor(target);
+
+        if (gameLocationCaster == null ||
+            gameLocationTarget == null ||
+            gameLocationBattleService == null ||
+            !gameLocationBattleService.IsWithinXCells(gameLocationCaster, gameLocationTarget, 2))
+        {
+            return;
+        }
+
+        if (!caster.HasAnyConditionOfType($"Condition{Name}AspectOfDread"))
+        {
+            return;
+        }
+
+        target.InflictCondition(
+            ConditionAspectOfDreadEnemy.Name,
+            ConditionAspectOfDreadEnemy.DurationType,
+            ConditionAspectOfDreadEnemy.DurationParameter,
+            ConditionAspectOfDreadEnemy.TurnOccurence,
+            AttributeDefinitions.TagCombat,
+            caster.guid,
+            caster.CurrentFaction.Name,
+            1,
+            null,
+            0,
+            0,
+            0);
+    }
 
     //
     // Aura of Domination
@@ -206,13 +357,6 @@ internal sealed class OathOfDread : AbstractSubclass
         public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
         {
             var rulesetDefender = locationCharacter.RulesetCharacter;
-
-            if (!rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionFrightened) &&
-                !rulesetDefender.HasConditionOfType(ConditionDefinitions.ConditionFrightenedFear))
-            {
-                return;
-            }
-
             var rulesetCondition = rulesetDefender.AllConditions.FirstOrDefault(x =>
                 x.ConditionDefinition == _conditionAuraOfDomination);
 
@@ -221,16 +365,18 @@ internal sealed class OathOfDread : AbstractSubclass
                 return;
             }
 
-            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-            var locationCharacterAttacker = gameLocationCharacterService.PartyCharacters
-                .FirstOrDefault(x => x.Guid == rulesetCondition.SourceGuid);
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            var hasFrightenedFromSource = rulesetDefender.AllConditions.Any(x =>
+                x.SourceGuid == rulesetAttacker.Guid &&
+                (x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
+                 x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened)));
 
-            if (locationCharacterAttacker == null)
+            if (!hasFrightenedFromSource)
             {
                 return;
             }
 
-            var rulesetAttacker = locationCharacterAttacker.RulesetCharacter;
+            var locationCharacterAttacker = GameLocationCharacter.GetFromActor(rulesetAttacker);
 
             rulesetDefender.InflictCondition(
                 CustomConditionsContext.StopMovement.Name,
@@ -293,10 +439,11 @@ internal sealed class OathOfDread : AbstractSubclass
             ActionModifier modifier)
         {
             var rulesetAttacker = attacker.RulesetCharacter;
+            var hasFrightened = rulesetAttacker.AllConditions.Any(x =>
+                x.ConditionDefinition == ConditionDefinitions.ConditionFrightened ||
+                x.ConditionDefinition.IsSubtypeOf(RuleDefinitions.ConditionFrightened));
 
-            if (!rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightened) &&
-                !rulesetAttacker.HasConditionOfType(ConditionDefinitions.ConditionFrightenedFear) &&
-                !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
+            if (!hasFrightened && !rulesetAttacker.HasConditionOfType(_conditionMarkOfTheSubmission))
             {
                 yield break;
             }
@@ -307,12 +454,7 @@ internal sealed class OathOfDread : AbstractSubclass
                 yield break;
             }
 
-            var rulesetEnemy = attacker.RulesetCharacter;
-
-            if (!me.CanReact() ||
-                me == ally ||
-                rulesetEnemy == null ||
-                rulesetEnemy.IsDeadOrDying)
+            if (!me.CanReact())
             {
                 yield break;
             }

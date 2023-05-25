@@ -7,24 +7,24 @@ Barbarians are fierce warriors from the edge of civilization. Their battle rage 
 
 * Barbarian Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Barbarian Skills
 
-Choose 2 of these skills: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival
+Choose 2 of these skills: Animal Handling,Athletics,Intimidation,Nature,Perception,Survival
 
 * Barbarian Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Rage
 
 In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. This grants you advantage on strength saves and checks, an initial +2 bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor. Lasts for 1 minute or ends if you have not attacked or suffered damage since your last turn.
- You start with 2 rages, renewed after a long rest.
+  You start with 2 rages, renewed after a long rest.
 
 * Saving Throw Proficiencies
 
-Strength, Constitution
+Strength,Constitution
 
 * Unarmored Defense
 
@@ -100,14 +100,14 @@ Increase your rage damage by +1
 
 * Brutal Critical
 
-You can roll one additional weapon damage die when determining the extra  damage for a critical hit with a melee attack.
+You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.
 
 
 ## Level 11
 
 * Relentless Rage
 
-If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.  Each time you use this feature after the first, the DC increases by 5. When you  finish a short or long rest, the DC resets to 10.
+If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
 
 
 ## Level 12
@@ -132,7 +132,7 @@ Add another damage die to critical hits.
 
 * Persistent Rage
 
-For one minute, you have advantage on Strength saves & checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. You gain these benefits only if you are not wearing heavy armor.
+You have advantage on strength saves and checks, a bonus to melee attack damage, and resistance to slashing, bludgeoning, and piercing damage. Your rage is so fierce that it ends only if you fall unconscious, choose to end it or 1 minute has passed. You gain these benefits only if you are not currently wearing heavy armor.
 
 
 ## Level 16
@@ -200,7 +200,7 @@ Choose 3 skills
 
 * Bard Weapon Proficiencies
 
-Simple Weapons, Shortsword, Longsword, Rapier
+Simple Weapons,Shortsword,Longsword,Rapier
 
 * Bardic Inspiration
 
@@ -212,7 +212,7 @@ You can cast a selected spell as a ritual if the spell has the ritual tag.
 
 * Saving Throw Proficiencies
 
-Dexterity, Charisma
+Dexterity,Charisma
 
 * Bard Spellcasting
 
@@ -347,11 +347,11 @@ Clerics are the servants of their chosen deity. In exchange for their faith and 
 
 * Cleric Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Cleric Skills
 
-Choose 2 of these skills: History, Insight, Medicine, Persuasion, Religion
+Choose 2 of these skills: History,Insight,Medicine,Persuasion,Religion
 
 * Cleric Weapon Proficiencies
 
@@ -367,7 +367,7 @@ You can cast a spell as a ritual if that spell has the ritual tag and you have t
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 * Scroll Scribing
 
@@ -401,7 +401,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 0.5 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 0.5 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 6
@@ -420,7 +420,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 1 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 11
@@ -428,7 +428,7 @@ Undead creatures with a challenge rating of 1 or lower that fail the saving thro
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 2 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 2 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 12
@@ -443,7 +443,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 3 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 3 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 16
@@ -458,7 +458,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 * Turn Undead (Destroy)
 
 Channel Divinity to force undead creatures within 6 cells who can see you to flee, unless they make a successful Wisdom saving throw.
-Undead creatures with a challenge rating of 4 or lower that fail the saving throw are instead destroyed.
+ Undead creatures with a challenge rating of 4 or lower that fail the saving throw are instead destroyed.
 
 
 ## Level 18
@@ -483,18 +483,18 @@ Druids are part of an ancient order dedicated to nature. Their powers and spells
 
 ## Level 1
 
-* Druid  Armor Proficiencies
+* Druid Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 You cannot wear any armor made of: Metal
 
-* Druid  Skills
+* Druid Skills
 
-Choose 2 of these skills: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival
+Choose 2 of these skills: Arcana,Animal Handling,Insight,Medicine,Nature,Perception,Religion,Survival
 
-* Druid  Weapon Proficiencies
+* Druid Weapon Proficiencies
 
-Club, Dagger, Dart, Javelin, Mace, Quarterstaff, Scimitar, Spear
+Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Spear
 
 * Druidic
 
@@ -506,7 +506,7 @@ You can cast a spell as a ritual if that spell has the ritual tag and you have t
 
 * Saving Throw Proficiencies
 
-Intelligence, Wisdom
+Intelligence,Wisdom
 
 * Druid Spellcasting
 
@@ -583,15 +583,15 @@ Fighters are trained in the arts of combat. They are adept with most weapons, bu
 
 * Fighter Armor Proficiencies
 
-Light Armor, Medium Armor, Heavy Armor, Shield
+Light Armor,Medium Armor,Heavy Armor,Shield
 
 * Fighter Skills
 
-Choose 2 of these skills: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival
+Choose 2 of these skills: Acrobatics,Animal Handling,Athletics,History,Insight,Intimidation,Perception,Survival
 
 * Fighter Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Fighting Style
 
@@ -599,7 +599,7 @@ Choose a fighting style as a specialty.
 
 * Saving Throw Proficiencies
 
-Strength, Constitution
+Strength,Constitution
 
 * Second Wind
 
@@ -737,7 +737,7 @@ When you use the Attack action with an unarmed strike or a monk weapon on your t
 
 * Monk Skills
 
-Choose 2 of these skills: Acrobatics, Athletics, History, Insight, Religion, Stealth
+Choose 2 of these skills: Acrobatics,Athletics,History,Insight,Religion,Stealth
 
 * Monk tools
 
@@ -745,11 +745,11 @@ Smith's tools
 
 * Monk Weapon Proficiencies
 
-Simple Weapons, Shortsword
+Simple Weapons,Shortsword
 
 * Saving Throw Proficiencies
 
-Strength, Dexterity
+Strength,Dexterity
 
 * Unarmored Defense
 
@@ -784,7 +784,7 @@ Starting at level 2, your speed increases by 2 cells while you're not wearing ar
 * Deflect Missiles
 
 Starting at the 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your dexterity modifier + your monk level.
- If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 Ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 4 cells and a long range of 12 cells.
+  If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 Ki point to make a ranged attack with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack, which has a normal range of 4 cells and a long range of 12 cells.
 
 * Monastic Traditions
 
@@ -863,14 +863,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Tongue of the Sun and Moon
 
-Starting at 13th level, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
+Starting at level 13, you learn to touch the Ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.
 
 
 ## Level 14
 
 * Diamond Soul
 
-Beginning at 14th level, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki point to reroll it and take the second result.
+Starting at level 14, your mastery of Ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 Ki Point to reroll it and take the second result.
 
 
 ## Level 15
@@ -878,9 +878,9 @@ Beginning at 14th level, your mastery of Ki grants you proficiency in all saving
 * Timeless Body
 
 At the 15th level, you gain the following benefits:
- - Resistance to necrotic damage
- - Advantage on saving throws against being Life Drained
- - You don't require a food ration anymore to take a long rest
+  - Resistance to necrotic damage
+  - Advantage on saving throws against being Life Drained
+  - You don't require a food ration anymore to take a long rest
 
 
 ## Level 16
@@ -941,19 +941,19 @@ Spend 5 points from your Lay on Hands healing pool to neutralize one poison.
 
 * Paladin Armor Proficiencies
 
-Light Armor, Medium Armor, Heavy Armor, Shield
+Light Armor,Medium Armor,Heavy Armor,Shield
 
 * Paladin Skills
 
-Choose 2 of these skills: Athletics, Insight, Intimidation, Medicine, Persuasion, Religion
+Choose 2 of these skills: Athletics,Insight,Intimidation,Medicine,Persuasion,Religion
 
 * Paladin Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 
 ## Level 2
@@ -1035,7 +1035,7 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Cleansing Touch
 
-Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+Starting at level 14, you can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
 
 
 ## Level 16
@@ -1081,19 +1081,19 @@ You are adept at living and traveling in a certain type of terrain.
 
 * Ranger Armor Proficiencies
 
-Light Armor, Medium Armor, Shield
+Light Armor,Medium Armor,Shield
 
 * Ranger Skills
 
-Choose 3 of these skills: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Survival, Stealth
+Choose 3 of these skills: Animal Handling,Athletics,Insight,Investigation,Nature,Perception,Survival,Stealth
 
 * Ranger Weapon Proficiencies
 
-Simple Weapons, Martial Weapons
+Simple Weapons,Martial Weapons
 
 * Saving Throw Proficiencies
 
-Strength, Dexterity
+Strength,Dexterity
 
 * Smithing
 
@@ -1180,7 +1180,7 @@ Gain advantage on ability checks towards this creature type, and additional dama
 
 * Vanish
 
-Starting at level 14, you can use the Hide action as a Bonus Action on your turn.
+Starting at level 14, you can use the Hide action as a bonus action on your turn.
 
 
 ## Level 16
@@ -1229,7 +1229,7 @@ Light Armor
 
 * Rogue Skills
 
-Choose 4 of these skills: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth
+Choose 4 of these skills: Acrobatics,Athletics,Deception,Insight,Intimidation,Investigation,Perception,Performance,Persuasion,Sleight of Hand,Stealth
 
 * Rogue Tools
 
@@ -1237,11 +1237,11 @@ Thieves' Tools
 
 * Rogue Weapon Proficiencies
 
-Simple Weapons, Longsword, Rapier, Shortsword, Hand Crossbow
+Simple Weapons,Longsword,Rapier,Shortsword,Hand Crossbow
 
 * Saving Throw Proficiencies
 
-Dexterity, Intelligence
+Dexterity,Intelligence
 
 * Smithing
 
@@ -1326,14 +1326,14 @@ Choose between increasing your ability scores or gaining a bonus feat.
 
 * Blindsense
 
-You are aware of the location of any hidden or invisible creature within 10 ft of you.
+You are aware of the location of any hidden or invisible creature within 2 cells of you.
 
 
 ## Level 15
 
 * Slippery Mind
 
-You have acquired greater mental Strength. You gain proficiency in Wisdom saving throws.
+You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 
 
 ## Level 16
@@ -1375,15 +1375,15 @@ You have been trained to brew herbal remedies and use enchanting equipment.
 
 * Saving Throw Proficiencies
 
-Constitution, Charisma
+Constitution,Charisma
 
 * Sorcerer Skills
 
-Choose 2 of these skills: Arcana, Deception, Insight, Intimidation, Persuasion, Religion
+Choose 2 of these skills: Arcana,Deception,Insight,Intimidation,Persuasion,Religion
 
 * Sorcerer Weapon Proficiencies
 
-Dagger, Dart, Quarterstaff, Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow
 
 * Sorcerous Origin
 
@@ -1482,7 +1482,7 @@ Determines the Patron with whom you have signed a pact.
 
 * Saving Throw Proficiencies
 
-Wisdom, Charisma
+Wisdom,Charisma
 
 * Warlock Armor Proficiencies
 
@@ -1490,7 +1490,7 @@ Light Armor
 
 * Warlock Skills
 
-Choose 2 of these skills: Arcana, Deception, History, Intimidation, Investigation, Nature, Religion
+Choose 2 of these skills: Arcana,Deception,History,Intimidation,Investigation,Nature,Religion
 
 * Warlock Weapon Proficiencies
 
@@ -1632,15 +1632,15 @@ You can cast a spell as a ritual if the spell has the ritual tag and you have it
 
 * Saving Throw Proficiencies
 
-Intelligence, Wisdom
+Intelligence,Wisdom
 
 * Wizard Skills
 
-Choose 2 of these skills: Arcana, History, Insight, Investigation, Medicine, Religion
+Choose 2 of these skills: Arcana,History,Insight,Investigation,Medicine,Religion
 
 * Wizard Weapon Proficiencies
 
-Dagger, Dart, Quarterstaff, Light Crossbow
+Dagger,Dart,Quarterstaff,Light Crossbow
 
 * Wizard Spellcasting
 

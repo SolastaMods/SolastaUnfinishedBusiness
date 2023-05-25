@@ -1,4 +1,4 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Ganhe a habilidade de voar e +2 CA.
+Condition/&ConditionWayOfTheDragonAscensionDescription=Ganhe a habilidade de voar e +2 AC.
 Condition/&ConditionWayOfTheDragonAscensionTitle=Ascensão Dracônica
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Ataques desarmados causam 2d6 de dano de ácido.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Fúria do Dragão - Ácido

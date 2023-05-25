@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PointPoolCollegeLoreAdditionalMagicalSecrets:ad99f4051ed6b8e4b917a7c71a51542f",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityCollegeLorePeerlessSkill:849a64faba69a1145800d3e1aae4fc65",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

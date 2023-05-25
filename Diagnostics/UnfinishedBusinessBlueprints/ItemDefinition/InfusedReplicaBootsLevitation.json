@@ -59,7 +59,7 @@
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
-        "useAffinity": "RechargeDuration",
+        "useAffinity": "AtWill",
         "useAmount": 1,
         "rechargeRate": "Dawn",
         "durationType": "Hour",
@@ -211,10 +211,13 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
+      "Keep",
+      "Keep",
       "Keep",
       "Keep",
       "Keep",
@@ -230,8 +233,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

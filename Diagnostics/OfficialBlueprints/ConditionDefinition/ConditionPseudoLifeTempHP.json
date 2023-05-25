@@ -7,6 +7,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -26,7 +27,7 @@
     {
       "$type": "EffectForm, Assembly-CSharp",
       "formType": "TemporaryHitPoints",
-      "addBonusMode": "AbilityBonus",
+      "addBonusMode": "None",
       "applyLevel": "No",
       "levelType": "ClassLevel",
       "levelMultiplier": 0,
@@ -40,7 +41,7 @@
       "saveOccurence": "StartOfTurn",
       "temporaryHitPointsForm": {
         "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-        "diceNumber": 1,
+        "diceNumber": 2,
         "dieType": "D4",
         "bonusHitPoints": 0,
         "applyToSelf": true
@@ -288,7 +289,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Rules/&ConditionTempHPTitle",
-    "description": "Rules/&ConditionTempHPDescription",
+    "description": "Rules/&ConditionTempHPStartTurnDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1a46ee54048826c49a3a039097db1745",

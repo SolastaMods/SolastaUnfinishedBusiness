@@ -1,7 +1,7 @@
 SlotType/&AmmunitionSlotDescription=Puedes almacenar municiones para armas a distancia aquí.
 SlotType/&AmmunitionSlotTitle=Munición
 SlotType/&BackSlotDescription=Puedes equipar mochilas, escudos o correas de armas grandes aquí.
-SlotType/&BackSlotTitle=atrás
+SlotType/&BackSlotTitle=Atrás
 SlotType/&BeltSlotDescription=Puedes equipar cinturones o fajas aquí.
 SlotType/&BeltSlotTitle=Cinturón
 SlotType/&ContainerSlotDescription=Puedes almacenar cualquier objeto aquí.
@@ -11,7 +11,7 @@ SlotType/&FeetSlotTitle=Pies
 SlotType/&FingerSlotDescription=Puedes equipar anillos aquí.
 SlotType/&FingerSlotTitle=Dedo
 SlotType/&GlovesSlotDescription=Puedes equipar guantes o guanteletes aquí.
-SlotType/&GlovesSlotTitle=Las manos
+SlotType/&GlovesSlotTitle=Manos
 SlotType/&HeadSlotDescription=Puedes equipar sombreros, yelmos, coronas o diademas aquí.
 SlotType/&HeadSlotTitle=Cabeza
 SlotType/&MainHandSlotDescription=Puedes equipar las armas principales aquí.

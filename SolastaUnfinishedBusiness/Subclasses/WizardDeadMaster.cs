@@ -252,6 +252,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         DeadMasterSpells.SetRange(result.SelectMany(x => x.SpellsList));
+        FeatureDefinitionPowers.PowerWightLordRetaliate.rechargeRate = RechargeRate.ShortRest;
+        FeatureDefinitionPowers.PowerWightLordRetaliate.activationTime = ActivationTime.BonusAction;
+
 
         return result.ToArray();
     }

@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     2,
     2,
@@ -246,6 +248,7 @@
   ],
   "focusType": "Divine",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,0 +1,36 @@
+{
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 1,
+  "metamagicType": "SubtleSpell",
+  "parameterMethod": "None",
+  "parameterValue": 6,
+  "boundFeature": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&MetamagicOptionSubtleSpellTitle",
+    "description": "Rules/&MetamagicOptionSubtleSpellDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "43c0d0c70976db0489f8edf8390cc083",
+  "contentPack": "BaseGame",
+  "name": "MetamagicSubtleSpell"
+}

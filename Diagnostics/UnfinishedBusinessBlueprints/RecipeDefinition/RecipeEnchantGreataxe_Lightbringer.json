@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Greataxe_Lightbringer:5e5b7d6d-d7a9-5c38-afe1-55716fcd918f",
   "stackCount": 1,
-  "craftingHours": 36,
-  "craftingDC": 15,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

@@ -29,13 +29,14 @@
   "multiAttackDefenseValue": 0,
   "readyAttackAdvantage": "None",
   "shoveOnReadyAttackHit": false,
+  "autoFormatDescription": true,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionThunderGauntletDistractTitle",
-    "description": "Condition/&ConditionThunderGauntletDistractDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

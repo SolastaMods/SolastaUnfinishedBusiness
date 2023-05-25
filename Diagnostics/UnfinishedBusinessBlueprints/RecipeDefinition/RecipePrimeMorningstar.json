@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Morningstar:023e71e4f8fb4284da68a6fd6d011bcc",
   "stackCount": 1,
   "craftingHours": 8,

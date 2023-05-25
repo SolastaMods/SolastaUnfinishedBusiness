@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListAcolyte:9964a66ce613d19499678d162a677958",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 2,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     0,
@@ -278,6 +280,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

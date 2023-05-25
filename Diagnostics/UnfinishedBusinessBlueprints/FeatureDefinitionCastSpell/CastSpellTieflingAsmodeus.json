@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListTieflingAsmodeus:6b684ea9-1667-5235-882d-964873c9efeb",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": null,
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -269,6 +271,7 @@
   ],
   "focusType": "Arcane",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

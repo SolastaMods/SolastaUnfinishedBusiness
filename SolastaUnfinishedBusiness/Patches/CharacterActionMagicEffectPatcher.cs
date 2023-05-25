@@ -87,11 +87,11 @@ public static class CharacterActionMagicEffectPatcher
             var actionParams = __instance.ActionParams;
 
             //PATCH: allow modify magic attacks from spells or powers cast from non heroes
-            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicAttack>();
+            var attackModifiers = definition.GetAllSubFeaturesOfType<IModifyMagicEffectOnActionStart>();
 
             foreach (var feature in attackModifiers)
             {
-                feature.ModifyMagicAttack(__instance);
+                feature.OnMagicalEffectActionStarted(__instance);
             }
 
             //PATCH: skip spell animation if this is "attack after cast" spell
@@ -123,13 +123,25 @@ public static class CharacterActionMagicEffectPatcher
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
         {
-            //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
-            // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
+            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicalEffectInitiated>())
+            {
+                yield return magicalEffectInitiated.OnMagicalEffectInitiated(__instance);
+            }
+
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
+            foreach (var magicalEffectInitiated in __instance.ActingCharacter.RulesetCharacter
+                         .GetSubFeaturesByType<IMagicalEffectFinished>())
+            {
+                yield return magicalEffectInitiated.OnMagicalEffectFinished(__instance);
+            }
+
+            //PATCH: support for `IPerformAttackAfterMagicEffectUse` and `IChainMagicEffect` feature
+            // enables to perform automatic attacks after spell cast (like for sunlight blade cantrip) and chain effects
             var definition = __instance.GetBaseDefinition();
 
             //TODO: add possibility to get attack via feature

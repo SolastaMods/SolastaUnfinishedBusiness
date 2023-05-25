@@ -65,11 +65,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
 
         // Wrath and Fury
 
-        var combatAffinityGrievousWound = FeatureDefinitionCombatAffinityBuilder
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}GrievousWound")
             .SetGuiPresentation($"Condition{Name}GrievousWound", Category.Condition)
             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
             .AddToDB();
+        // END BACKWARD COMPATIBILITY
 
         var conditionGrievousWound = ConditionDefinitionBuilder
             .Create($"Condition{Name}GrievousWound")
@@ -77,7 +79,9 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
-            .AddFeatures(combatAffinityGrievousWound)
+            .CopyParticleReferences(ConditionDefinitions.ConditionStunned)
+            .SetParentCondition(ConditionDefinitions.ConditionIncapacitated)
+            .AddFeatures(ConditionDefinitions.ConditionIncapacitated.Features.ToArray())
             .AddToDB();
 
         var powerGrievousWound = FeatureDefinitionPowerBuilder
@@ -100,6 +104,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                             .Build())
                     .Build())
             .AddToDB();
+
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionEndParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionEndParticleReference;
+        powerGrievousWound.EffectDescription.EffectParticleParameters.conditionStartParticleReference =
+            ConditionDefinitions.ConditionStunned.conditionStartParticleReference;
 
         var featureWrathAndFury = FeatureDefinitionBuilder
             .Create($"Feature{Name}WrathAndFury")

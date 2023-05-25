@@ -269,6 +269,8 @@ public static class GameLocationCharacterPatcher
                 ActionDefinitions.Id,
                 bool,
                 bool,
+                bool,
+                ActionDefinitions.ReadyActionType,
                 RulesetAttackMode,
                 RulesetAttackMode
             >(ExtraAttacksOnActionPanel.FindExtraActionAttackModesFromForcedAttack).Method;

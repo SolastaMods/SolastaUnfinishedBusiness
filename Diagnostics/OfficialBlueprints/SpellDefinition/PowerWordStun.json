@@ -1,0 +1,352 @@
+{
+  "$type": "SpellDefinition, Assembly-CSharp",
+  "spellsBundle": false,
+  "subspellsList": [],
+  "implemented": true,
+  "schoolOfMagic": "SchoolEnchantment",
+  "spellLevel": 8,
+  "ritual": false,
+  "uniqueInstance": false,
+  "castingTime": "Action",
+  "reactionContext": "None",
+  "ritualCastingTime": "Action",
+  "requiresConcentration": false,
+  "effectDescription": {
+    "$type": "EffectDescription, Assembly-CSharp",
+    "rangeType": "Distance",
+    "rangeParameter": 12,
+    "halfDamageOnAMiss": false,
+    "hitAffinitiesByTargetTag": [],
+    "targetType": "Individuals",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 1,
+    "targetParameter2": 2,
+    "emissiveBorder": "None",
+    "emissiveParameter": 1,
+    "requiresTargetProximity": false,
+    "targetProximityDistance": 6,
+    "targetExcludeCaster": false,
+    "canBePlacedOnCharacter": true,
+    "affectOnlyGround": false,
+    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringTag": "No",
+    "requiresVisibilityForPosition": true,
+    "inviteOptionalAlly": false,
+    "slotTypes": [],
+    "recurrentEffect": "No",
+    "retargetAfterDeath": false,
+    "retargetActionType": "Bonus",
+    "poolFilterDiceNumber": 5,
+    "poolFilterDieType": "D8",
+    "trapRangeType": "Triggerer",
+    "targetConditionName": "",
+    "targetConditionAsset": null,
+    "targetSide": "Enemy",
+    "durationType": "Permanent",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfTurn",
+    "hasSavingThrow": true,
+    "disableSavingThrowOnAllies": false,
+    "savingThrowAbility": "Constitution",
+    "ignoreCover": false,
+    "grantedConditionOnSave": null,
+    "rollSaveOnlyIfRelevantForms": true,
+    "hasShoveRoll": false,
+    "createdByCharacter": true,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
+    "savingThrowAffinitiesBySense": [],
+    "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
+    "advantageForEnemies": false,
+    "canBeDispersed": false,
+    "hasVelocity": false,
+    "velocityCellsPerRound": 2,
+    "velocityType": "AwayFromSourceOriginalPosition",
+    "restrictedCreatureFamilies": [],
+    "immuneCreatureFamilies": [],
+    "restrictedCharacterSizes": [],
+    "hasLimitedEffectPool": false,
+    "effectPoolAmount": 60,
+    "effectApplication": "Filtered",
+    "effectFormFilters": [
+      {
+        "$type": "EffectFormFilter, Assembly-CSharp",
+        "effectFormId": 0,
+        "criteria": "CurrentHitPoints",
+        "minHitPoints": 0,
+        "maxHitPoints": 150,
+        "characterFamily": "Celestial"
+      }
+    ],
+    "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 0,
+        "diceByLevelTable": [],
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": true,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "",
+          "conditionDefinition": "Definition:ConditionStunned_PowerWordStun:3a1c79cdad008a04583756237f2f925a",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": true,
+        "filterId": 0
+      }
+    ],
+    "specialFormsDescription": "",
+    "effectAdvancement": {
+      "$type": "EffectAdvancement, Assembly-CSharp",
+      "effectIncrementMethod": "None",
+      "incrementMultiplier": 1,
+      "additionalTargetsPerIncrement": 0,
+      "additionalSubtargetsPerIncrement": 0,
+      "additionalDicePerIncrement": 0,
+      "additionalSpellLevelPerIncrement": 0,
+      "additionalSummonsPerIncrement": 0,
+      "additionalHPPerIncrement": 0,
+      "additionalTempHPPerIncrement": 0,
+      "additionalTargetCellsPerIncrement": 0,
+      "additionalItemBonus": 0,
+      "additionalWeaponDie": 0,
+      "alteredDuration": "None"
+    },
+    "speedType": "Instant",
+    "speedParameter": 10.0,
+    "offsetImpactTimeBasedOnDistance": false,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
+    "effectParticleParameters": {
+      "$type": "EffectParticleParameters, Assembly-CSharp",
+      "casterParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "642dff27cecc6aa46a005f6219910bec",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "casterSelfParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "casterQuickSpellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "targetParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "effectParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "680948e7a5aa58f4bb94f13fd910e590",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "effectSubTargetParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "zoneParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "beforeImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "impactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectCellEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectSurfaceParticlePerIndex": "",
+      "emissiveBorderCellStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderCellParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderCellEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "emissiveBorderSurfaceEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionStartParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "conditionEndParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "forceApplyZoneParticle": false,
+      "applyEmissionColorOnWeapons": false,
+      "emissionColor": {
+        "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "emissionColorFadeInDuration": 0.0,
+      "emissionColorFadeOutDuration": 0.0
+    },
+    "effectAIParameters": {
+      "$type": "EffectAIParameters, Assembly-CSharp",
+      "aoeScoreMultiplier": 1.0,
+      "cooldownForCaster": 0,
+      "cooldownForBattle": 0,
+      "sortingScoreMultiplier": 1.0,
+      "dynamicCooldown": false
+    },
+    "animationMagicEffect": "Animation0",
+    "lightCounterDispellsEffect": false
+  },
+  "aiParameters": {
+    "$type": "SpellAIParameters, Assembly-CSharp",
+    "learnPriority": "High",
+    "preparePriority": "Low"
+  },
+  "concentrationAction": "None",
+  "verboseComponent": true,
+  "somaticComponent": false,
+  "materialComponentType": "None",
+  "specificMaterialComponentTag": "Metal",
+  "specificMaterialComponentCostGp": 250,
+  "specificMaterialComponentConsumed": false,
+  "terminateOnItemUnequip": false,
+  "displayConditionDuration": false,
+  "vocalSpellSemeType": "Debuff",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&PowerWordStunTitle",
+    "description": "Spell/&PowerWordStunDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "85e7b442de45aeb4f987efc3dbda541a",
+      "m_SubObjectName": "PowerWordStun",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "6c2a33f146b955a4a8f16ecf21d1f73f",
+  "contentPack": "BaseGame",
+  "name": "PowerWordStun"
+}

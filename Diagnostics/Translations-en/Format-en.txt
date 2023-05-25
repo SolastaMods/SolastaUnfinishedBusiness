@@ -27,3 +27,5 @@ Format/&RevealedMagicalTitle=Magic Detected
 Format/&RevealedPoisonTitle=Poisonous
 Format/&WorldDistanceFormat={0} Miles
 Format/&ItemIdentifiedNothingNewTitle=Nothing more found on the {0} item
+Format/&RevealedNonDetectionTitle=Nondetection
+Format/&RevealedShapechangerTitle=Shapechanger

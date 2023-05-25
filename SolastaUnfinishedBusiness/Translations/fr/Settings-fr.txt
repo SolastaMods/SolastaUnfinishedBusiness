@@ -27,7 +27,8 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
-ModUi/&ArcaneShieldstaffOptions=Permet à <color=#D89555>Arcane Shieldstaff</color> d'être harmonisé par n'importe quelle classe
+ModUi/&ArcaneShieldstaffOptions=Autoriser <color=#D89555>Arcane Shieldstaff</color> à être harmonisé par n'importe quelle classe
+ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Les attaquants avec <color=#D89555>Darkvision</color> ont l'avantage sur les défenseurs sans
 ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans</color>
 ModUi/&BackgroundsAndRaces=Milieux et courses
 ModUi/&Basic=<color=#F0DAA0>De base :</color>
@@ -46,7 +47,7 @@ ModUi/&ClassesAndSubclasses=Classes et sous-classes
 ModUi/&Crafting=<color=#F0DAA0>Artisanat :</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour apprendre des recettes instantanément sur le groupe actif\n. Les articles ajoutés aux magasins peuvent nécessiter que la fête s'éloigne de l'emplacement et revienne
 ModUi/&Credits=Crédits
-ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
+ModUi/&CreditsAndDiagnostics=Crédits & Diags
 ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
 ModUi/&CriticalOption0=<color=#D89555><b>0</b></color> : jeu par défaut, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color> : additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
@@ -54,7 +55,7 @@ ModUi/&CriticalOption2=<color=#D89555><b>2</b></color> : continuez à relancer 
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color> : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits fournis par ce mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de niveau sur les exploits fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -70,12 +71,12 @@ ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'arrière-plan s
 ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments à Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
-ModUi/&EnableBarbarianFightingStyle=Activer le choix <color=#D89555>Barbare</color> <b>Style de combat</b> au niveau 2 <i><color=#F0DAA0>[Combat aveugle, Infirme, Bourreau, Grande arme, Impitoyable, Pugiliste, Deux Combat d'armes, Sentinelle, Corde-le]</color></i>
+ModUi/&EnableBarbarianFightingStyle=Activer le choix <color=#D89555>Barbare</color> <b>Style de combat</b> au niveau 2
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
 ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
-ModUi/&EnableCharactersOnFireToEmitLight=Permettre aux personnages en feu d'émettre de la lumière <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider]</color></i>ModUi/&EnableCheatMenu=Activer le menu de triche
+ModUi/&EnableCharactersOnFireToEmitLight=Les personnages en feu doivent émettre de la lumière <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider et on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les éléments de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -88,7 +89,7 @@ ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> po
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage HUD
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
 ModUi/&EnableInventoryTaintNonProficientItemsRed=Teint en rouge tout objet avec lequel le héros ne maîtrise pas
-ModUi/&EnableInventoryTintKnownRecipesRed=Recettes connues de teinte rouge
+ModUi/&EnableInventoryTintKnownRecipesRed=Teinte recettes connues rouge
 ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du magistère</color> sur l'interface utilisateur du jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
@@ -101,7 +102,7 @@ ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sort
 ModUi/&EnableRespec=Activer l'action RESPEC après repos
 ModUi/&EnableSaveByLocation=Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des ressources sur l'éditeur Dungeon Maker
-ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'infobulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
+ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques sur l'info-bulle du héros <i><color=#F0DAA0>[c'est-à-dire : coups critiques, échecs critiques, etc.]</color></i>
 ModUi/&EnableTeleportParty=Activez <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter le groupe <i><color=#F0DAA0>[vous pourriez interrompre des quêtes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
 ModUi/&EnableUpcastConjureElementalAndFey=Activer l'upcast de <color=#D89555>Conjure Elemental</color> et <color=#D89555>Conjure Fey</color>
@@ -140,7 +141,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour u
 ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast, <color=#D89555>Barbare</color> Chemin des éléments et choix des sous-classes draconiques]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Augmente la portée de <color=#D89555>Détection de la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création :</color>
 ModUi/&Input=<color=#F0DAA0>Entrée :</color>
@@ -150,7 +151,7 @@ ModUi/&InvertAltBehaviorOnTooltips=Inverser le comportement de la touche <color=
 ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
 ModUi/&ItemInDm=Articles en DM
 ModUi/&Items=<color=#F0DAA0>Articles :</color>
-ModUi/&ItemsCraftingMerchants=Objets, artisanat et marchands
+ModUi/&ItemsCraftingMerchants=Artisanat, objets et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
@@ -197,9 +198,9 @@ ModUi/&SettingsLoad=. Charger un paramètre exporté
 ModUi/&SettingsOpenFolder=Ouvrir le dossier des paramètres exportés
 ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer
-ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Afficher le bouton qui ouvre des informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, suiveurs de PNJ, etc.]</color></i>
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Afficher le bouton qui ouvre des informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, suiveurs de PNJ, etc. ]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Montre combien d'utilisations <color=#D89555>Channel Divinity</color> un héros a sur son portrait, similaire aux points de sorcellerie
-ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire <i><color=#F0DAA0>[Passer la souris dessus affichera une info-bulle pour l'objet fabriqué]</color></i>
+ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire <i><color=#F0DAA0>[En passant la souris dessus, l'info-bulle de l'objet fabriqué] s'affichera]</color></i>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellLevelFilter=<b><i><color=white>filtre de niveau orthographique</color> <color=#F0DAA0>[-1 affiche tout]</color></i></b>

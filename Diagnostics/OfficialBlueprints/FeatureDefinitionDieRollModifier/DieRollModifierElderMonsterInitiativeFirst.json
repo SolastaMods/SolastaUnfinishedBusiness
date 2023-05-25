@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 18,
+  "maxRollValue": 20,
+  "minRerollValue": 0,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "",
+  "forcedDamageOnDice": "None",
+  "validityContext": "AbilityCheck, InitiativeRoll",
+  "validSkills": [],
+  "requireProficiency": false,
+  "bardicInspirationAddChoice": false,
+  "bardicInspirationForceMaxRoll": false,
+  "bardicInspirationAdvantage": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "437940bf6660ca942a4fe03dc9ce7b1b",
+  "contentPack": "BaseGame",
+  "name": "DieRollModifierElderMonsterInitiativeFirst"
+}

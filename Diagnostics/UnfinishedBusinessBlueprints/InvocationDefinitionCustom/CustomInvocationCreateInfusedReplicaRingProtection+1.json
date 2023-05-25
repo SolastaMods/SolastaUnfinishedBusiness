@@ -12,7 +12,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Replica Ring of Protection +1",
-    "description": "Create replica <b>Ring of Protection +1</b>:\nA ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum. ",
+    "description": "Create replica <b>Ring of Protection +1</b>:\nA ring first devised to protect shock arcanists fighting the Empire's battles. Awarded upon graduation from the Arcaneum.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6e9dd0bf189453b41bf5b60a5bf780ac",

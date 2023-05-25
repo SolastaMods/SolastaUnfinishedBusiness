@@ -1,11 +1,12 @@
 {
   "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
   "package": {
     "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
     "weightedDecisions": [
       {
         "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
-        "decision": "Definition:CastMagic_DPS_AoE:1574fe0b89cfdfb438968fe5dfb92c52",
+        "decision": "Definition:CastMagic_DPS_AoE_WithFriendlyFire:602b9229e0552a64ab12171f318192f3",
         "weight": 4.5,
         "cooldown": 2,
         "dynamicCooldown": true

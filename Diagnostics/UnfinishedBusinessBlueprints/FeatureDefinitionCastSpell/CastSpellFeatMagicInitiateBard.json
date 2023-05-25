@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListBard:73378bcb8a4d12c418b336ee97b062c8",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     2,
     2,
@@ -246,6 +248,7 @@
   ],
   "focusType": "MusicalInstrument",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

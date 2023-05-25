@@ -1,0 +1,93 @@
+{
+  "$type": "TreasureTableDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": false,
+  "treasureOptions": [
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:Breastplate+3:badd12681202789468c75a64693ebfa3",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:Chainmail+3:b4debf896c9f0644884f8353381cc696",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:ChainShirt+3:c960441d168cb284ba56b661081bb5c0",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:HideArmor_plus_three:0ba89b142bc73be46b090417f3ab9767",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:LeatherArmor+3:cd7ec6aac23aff84bab6be8f56ff320c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:Shield+3:169a72f3f88bfb149a076f4e9d75ff1e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 9,
+      "itemDefinition": "Definition:ScaleMail+3:ac03cc58cf4bab04095d1d8ea3a65e9e",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:HalfPlate+3:b2e222fe4f037bd44aedb8f37bb4a34c",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 7,
+      "itemDefinition": "Definition:StuddedLeather_plus_three:96aa4a4039605714a9326d8d85fe4bde",
+      "amount": 1
+    },
+    {
+      "$type": "TreasureOption, Assembly-CSharp",
+      "odds": 5,
+      "itemDefinition": "Definition:Plate+3:9ef1349354c323a4faaac3cc02b3036e",
+      "amount": 1
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "TreasureTable/&Wondrous_ItemsTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a732c3fdb1e882147bbfd2980c07cd55",
+  "contentPack": "BaseGame",
+  "name": "RandomTreasureTableN2_Armors_03"
+}

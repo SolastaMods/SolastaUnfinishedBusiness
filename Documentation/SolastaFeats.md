@@ -1,7 +1,7 @@
 # 1. - Ambidextrous
 
 +1 to DEX to a maximum of 20
-You can fight using two weapons, even if the one-handed melee weapons aren't light.
+ You can fight using two weapons, even if the one-handed melee weapons aren't light.
 
 # 2. - Arcane Appraiser
 
@@ -30,32 +30,32 @@ After you hit an enemy with a light weapon, you gain +2 AC until the start of yo
 # 8. - Creed of Arun
 
 +1 CON to a maximum of 20
-Proficiency in CON saves if not already proficient; +1 otherwise
+ Proficiency in CON saves if not already proficient; +1 otherwise
 
 # 9. - Creed of Einar
 
 +1 STR to a maximum of 20
-Proficiency in STR saves if not already proficient; +1 otherwise
+ Proficiency in STR saves if not already proficient; +1 otherwise
 
 # 10. - Creed of Maraike
 
 +1 WIS to a maximum of 20
-Proficiency in WIS saves if not already proficient; +1 otherwise
+ Proficiency in WIS saves if not already proficient; +1 otherwise
 
 # 11. - Creed of Misaye
 
 +1 DEX to a maximum of 20
-Proficiency in DEX saves if not already proficient; +1 otherwise
+ Proficiency in DEX saves if not already proficient; +1 otherwise
 
 # 12. - Creed of Pakri
 
 +1 INT to a maximum of 20
-Proficiency in INT saves if not already proficient; +1 otherwise
+ Proficiency in INT saves if not already proficient; +1 otherwise
 
 # 13. - Creed of Solasta
 
 +1 CHA to a maximum of 20 
-Proficiency in CHA saves if not already proficient; +1 otherwise
+ Proficiency in CHA saves if not already proficient; +1 otherwise
 
 # 14. - Daunting Push
 
@@ -64,8 +64,8 @@ When you successfully shove an enemy, they lose half their movement speed (round
 # 15. - Discretion of the Coedymwarth
 
 +1 DEX to a maximum of 20 
-You gain proficiency with Light Armor.
-You gain proficiency with Shortswords, Shortbows, and Longbows.
+ You gain proficiency with Light Armor.
+ You gain proficiency with Shortswords, Shortbows, and Longbows.
 
 # 16. - Distracting Gambit
 
@@ -74,7 +74,7 @@ After you hit an enemy with a one-handed weapon, they lose -1 AC for 1 minute (d
 # 17. - Eager for Battle
 
 +1 DEX to a maximum of 20 
-You have advantage on your initiative rolls.
+ You have advantage on your initiative rolls.
 
 # 18. - Electrifying Touch
 
@@ -88,7 +88,7 @@ Increase your Constitution by 1 (max 20) and your hit points increase by an addi
 
 You are trained to maintain your concentration in the most extreme conditions.
 If you sustain up to 10 points of damage, you don't need to roll a Constitution saving throw to maintain concentration. 
-Above that value, you have advantage when rolling the saving throw.
+ Above that value, you have advantage when rolling the saving throw.
 
 # 21. - Focused Sleeper
 
@@ -96,7 +96,7 @@ You are used to getting a great deal of rest out of just a little sleep. Increas
 
 # 22. - Follow Up Strike
 
-When you use the Attack action with a two-handed weapon, you can use a bonus action to make a fast melee attack to follow up, dealing an additional 1d4 + STR bonus damage of the same type. 
+When you use the Attack action with a two-handed weapon, you can use a bonus action to make a fast melee attack to follow up, dealing an additional 1d4 + STR bonus damage of the same type.
 
 # 23. - Forest Runner
 
@@ -109,7 +109,7 @@ While you wield a two-handed weapon, you gain +1 AC.
 # 25. - Hard to Kill
 
 +1 CON to a maximum of 20
-You have advantage on death saving throws. If you succeed three times, you are not only stabilized, but you regain one hit die immediately. On a critical roll, you regain two hit dice instead.
+ You have advantage on death saving throws. If you succeed three times, you are not only stabilized, but you regain one hit die immediately. On a critical roll, you regain two hit dice instead.
 
 # 26. - Hauler
 
@@ -122,12 +122,12 @@ The first time each turn that you deal damage with an unarmed attack or weapon, 
 # 28. - Initiate Alchemist
 
 You gain proficiency with the Herbalism Kit and Poisoner's Kit.
- You gain proficiency in Nature. If you were already proficient, you gain expertise in Nature instead.
+  You gain proficiency in Nature. If you were already proficient, you gain expertise in Nature instead.
 
 # 29. - Initiate Enchanter
 
 You gain proficiency with the Manacalon Rosary, which is required to enchant items.
- You gain proficiency in Arcana. If you were already proficient, you gain expertise in Arcana instead.
+  You gain proficiency in Arcana. If you were already proficient, you gain expertise in Arcana instead.
 
 # 30. - Lock Breaker
 
@@ -140,7 +140,7 @@ You gain proficiency in Intimidation, Persuasion, and Deception. If you were alr
 # 32. - Master Alchemist
 
 You have mastered the art of potion making. You need half the normal time to craft a potion and your proficiency bonus is doubled when making the roll to determine whether your crafting progresses.
-You have expert knowledge of all potions and can identify them automatically.
+ You have expert knowledge of all potions and can identify them automatically.
 
 # 33. - Master Enchanter
 
@@ -157,8 +157,8 @@ When you stabilize an ally with a Medicine check, they regain 1 HP.
 # 36. - Might of the Iron Legion
 
 +1 STR to a maximum of 20
-You gain proficiency with Heavy Armor.
-You gain proficiency with Longswords, Greatswords, and Battleaxes.
+ You gain proficiency with Heavy Armor.
+ You gain proficiency with Longswords, Greatswords, and Battleaxes.
 
 # 37. - Mighty Blow
 
@@ -180,15 +180,15 @@ You have advantage on your attack rolls when using Ready Action.
 
 Sturdy and tough, you increase your Constitution score by 1 (max 20) and when you use a hit die to regain hit points, roll twice and take the higher value.
 
-# 42. - Rush to Battle 
+# 42. - Rush to Battle
 
 You can use your bonus action to increase your movement speed by 3 cells until the end of your turn, and get -2 to your AC, until the start of your next turn.
 
 # 43. - Sturdiness of the Tundra
 
 +1 CON to a maximum of 20 
-You gain proficiency with Medium Armor.
-You gain proficiency with Warhammers, and Light and Heavy Crossbows.
+ You gain proficiency with Medium Armor.
+ You gain proficiency with Warhammers, and Light and Heavy Crossbows.
 
 # 44. - Take Aim
 
@@ -202,13 +202,13 @@ The first time each turn that you deal damage with an unarmed attack or weapon, 
 
 When you hit an enemy with a melee weapon ready attack, they must also make a contested roll as if you used the shove action or be knocked prone.
 
-# 47. - Twin Blade 
+# 47. - Twin Blade
 
 When you are about to get hit by a melee attack while dual-wielding (not sword + shield), you can use your reaction to get +3 AC until the end of the attacker's turn.
 
 # 48. - Uncanny Accuracy
 
 +1 DEX to a maximum of 20
-You ignore half and three-quarters cover with your ranged attacks.
+ You ignore half and three-quarters cover with your ranged attacks.
 
 

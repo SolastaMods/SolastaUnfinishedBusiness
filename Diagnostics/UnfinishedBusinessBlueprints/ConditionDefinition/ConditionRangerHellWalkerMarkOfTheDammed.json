@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionFrightened:5cbaee42aac310e42a407fc59bf65515",
   "conditionType": "Detrimental",
   "features": [
     "Definition:AbilityCheckAffinityFrightened:2a2719b10ea87f34f9f29e03cbdba5c7",
@@ -10,6 +10,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

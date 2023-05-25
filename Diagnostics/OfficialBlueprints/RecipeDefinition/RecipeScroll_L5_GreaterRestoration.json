@@ -1,30 +1,26 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ScrollGreaterRestoration:ddaf136902e301d4a808d6425df6eab0",
   "stackCount": 1,
-  "craftingHours": 54,
-  "craftingDC": 18,
+  "craftingHours": 4,
+  "craftingDC": 20,
   "toolTypeDefinition": "Definition:ScrollKitType:33c029d33932a7a46a67d5279d181179",
   "ingredients": [
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:100_GP_Emerald:6443e653f20e0164bac3c82feeec49ae"
+      "itemDefinition": "Definition:Ingredient_Enchant_TrollHeart:81af6b3ca1292564a8e9138572b44b81"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_LilyOfTheBadlands:57fcf1816b97be04dbcc72ff373e067e"
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_StormHeather:a2365d0b9d4abfd4aba0f048b78c15ff"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_AngryViolet:0ea316a14e9d7d344a648184b7b09af0"
+      "amount": 2,
+      "itemDefinition": "Definition:Ingredient_QueenIvy:01f1fc63a54edfb489a833466920c266"
     }
   ],
   "spellDefinition": "Definition:GreaterRestoration:6131d7d4650604b44ad3c74b21cc3eb2",

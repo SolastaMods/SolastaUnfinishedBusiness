@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerArcaneFighterEnchantWeapon:a2fba7df-4985-59fd-8ff8-4d4c645ccc73",
+      "featureDefinition": "Definition:FeatureSorcerousSpellBladeEnchantWeapon:06292586-1510-5b6a-b2a6-1ca0afe1f196",
       "level": 1
     },
     {

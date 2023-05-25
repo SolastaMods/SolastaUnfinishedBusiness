@@ -10,7 +10,7 @@
   "type": "Gameplay",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Race/&ElfTitle",
     "description": "Race/&ElfDescription",
     "spriteReference": {

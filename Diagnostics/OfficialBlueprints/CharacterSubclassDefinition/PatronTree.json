@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerPatronTreeExplosiveGrowth:4e0a04c11733c6246a88561e9a36fa96",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetPatronTreeOneWithTheTree:c2039b5d2ea4fff438319c0ff81f1415",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

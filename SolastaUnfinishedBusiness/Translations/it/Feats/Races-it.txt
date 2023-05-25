@@ -1,7 +1,7 @@
 Feat/&FeatDragonWingsDescription=Ti spuntano ali draconiane. Ottieni la capacità di volare per un tempo limitato se non indossi armature pesanti.
 Feat/&FeatDragonWingsTitle=Ali di drago
 Feat/&FeatFadeAwayDexDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Destrezza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo finché non finisci un riposo breve o lungo.
-Feat/&FeatFadeAwayDexTitle=Dissolvenza [Destrezza]
+Feat/&FeatFadeAwayDexTitle=Dissolvenza [Des]
 Feat/&FeatFadeAwayIntDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Intelligenza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo finché non finisci un riposo breve o lungo.
 Feat/&FeatFadeAwayIntTitle=Dissolvenza [Int]
 Feat/&FeatInfernalConstitutionDescription=Il sangue diabolico scorre forte in te, sbloccando una resilienza simile a quella posseduta da alcuni demoni. Ottieni i seguenti benefici:\n• Aumenta il tuo punteggio di Costituzione di 1, fino a un massimo di 20.\n• Hai resistenza ai danni da freddo e da veleno.\n• Hai vantaggio ai tiri salvezza contro l'avvelenamento.

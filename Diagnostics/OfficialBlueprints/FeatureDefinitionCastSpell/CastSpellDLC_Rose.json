@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDLC1_Rose:c06d45172dbc76a45a97e92658d266ad",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 11,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,
@@ -358,6 +360,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

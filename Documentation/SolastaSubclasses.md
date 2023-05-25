@@ -8,7 +8,7 @@ The Battle domain grants powerful combat spells. Its clerics can deal damage as 
 * Battle Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Magic Missile, Shield of Faith
 
 	II	Acid Arrow, Flaming Sphere
@@ -119,7 +119,7 @@ Another effect of the Rift and its cataclysmic closing was that some people arou
 * Child of the Rift Origin Spells
 
 In your list and always prepared: 
-
+ 
 	I	Guiding Bolt
 
 	II	Aid
@@ -167,7 +167,7 @@ Some say that druids from the Circle of Balance are gentle healers, while others
 * Circle of Balance Spells
 
 In your list and always prepared: 
-
+ 
 	II	Prayer of Healing, Calm Emotions
 
 	III	Mass Healing Word, Revivify
@@ -200,7 +200,7 @@ Whenever you damage an opponent with a spell, they are unable to heal any HP unt
 * Balance of Power
 
 When you reach level 14, you can use your bonus action to grant all allies within 12 cells advantage on attack rolls until the start of your next turn. You and your allies who are under the effect of Balance of Power can be attacked with advantage by all enemies until the start of your next turn.
- You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
+  You can use Balance of Power a number of times equal to your proficiency bonus per long rest.
 
 
 
@@ -214,13 +214,13 @@ At the beginning of time, there was harmony between animals and sentient beings.
 * Spirit Bond
 
 Your kindred spirit has the following features:
-Proficiency bonuses: druid's proficiency bonuses
-Attack roll: druid's melee spell attack
-Saving Throws = druids' saving throws
-INT is always 8
-Advantage to attack on enemies engaged with the druid or the druid's allies
-If the kindred spirit dies, the druid sustains 3D6 psychic damage and is stunned for the remainder of the turn, unless unconscious.
-After a short rest, the kindred spirit regains the same HP as the druid does from spending hit dice.
+ Proficiency bonuses: druid's proficiency bonuses
+ Attack roll: druid's melee spell attack
+ Saving Throws = druids' saving throws
+ INT is always 8
+ Advantage to attack on enemies engaged with the druid or the druid's allies
+ If the kindred spirit dies, the druid sustains 3D6 psychic damage and is stunned for the remainder of the turn, unless unconscious.
+ After a short rest, the kindred spirit regains the same HP as the druid does from spending hit dice.
 
 * Spirit Call
 
@@ -236,14 +236,14 @@ Choose a spirit to bond to. Grants a bonus to the bonded druid.
 * Magical Spirit
 
 The attacks of the kindred spirit are considered magical.
-Furthermore, each time you heal yourself, the healing trickles down to your kindred spirit, letting it regain a number of HP equal to your spellcasting ability bonus.
+ Furthermore, each time you heal yourself, the healing trickles down to your kindred spirit, letting it regain a number of HP equal to your spellcasting ability bonus.
 
 
 ## Level 10
 
 * Shared Pain
 
-As a reaction, the damage inflicted  to the druid or the kindred spirit can be shared equally among both.
+As a reaction, the damage inflicted to the druid or the kindred spirit can be shared equally among both.
 
 
 ## Level 14
@@ -251,9 +251,9 @@ As a reaction, the damage inflicted  to the druid or the kindred spirit can be s
 * Spirit Rage
 
 When you reach level 14, you can use Spirit Rage on your kindred spirit as a bonus action. It becomes stronger for 1 minute and gains the following bonuses:
- - AC and damage bonus equal to you proficiency;
- - 2nd attack.
-You can use Spirit Rage a number of times equal to your proficiency bonus per long rest.
+  - AC and damage bonus equal to you proficiency;
+  - 2nd attack.
+  You can use Spirit Rage a number of times equal to your proficiency bonus per long rest.
 
 
 
@@ -277,7 +277,7 @@ Once per day when you complete a short rest, you can recover a number of expende
 
 * Circle Spells
 
-Select a terrain type that grants a range of spells that are always treated as prepared. Forest, Grassland, Mountain, Swamp, Desert, Coast  or Arctic
+Select a terrain type that grants a range of spells that are always treated as prepared. Forest,Grassland,Mountain,Swamp,Desert,Coast orArctic
 
 
 ## Level 6
@@ -503,7 +503,7 @@ Rousing Shout's range increases from 3 to 6 cells. Allies affected by Rousing Sh
 
 * Lead by Example
 
-Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take 1d4 additional damage (of the same damage type as the original damage taken).
+Once per turn after you strike an enemy, you leave a mark on them until the start of your next turn. Any time an ally (including yourself) deals physical damage to the marked enemy, they take additional damage (of the same damage type as the original damage taken) equal to your proficiency bonus. This extra damage can only trigger once per turn.
 
 
 ## Level 18
@@ -527,7 +527,7 @@ You gain proficiency with shields and gain the Protection Fighting Style, which 
 
 * Spell Shield
 
-You can use an action to create a powerful shield around yourself and an ally you can see within 6 cells of you. This spell shield grants both of you temporary hit points equal to 5 times your level for up to 1 hour. You can use this power twice, and then need to take a Long Rest to recover it.
+You can use an action to create a powerful shield around yourself and an ally you can see within 6 cells of you. This spell shield grants both of you temporary hit points equal to 4 times your level for up to 1 hour. You can use this power twice, and then need to take a Long Rest to recover it.
 
 
 ## Level 6
@@ -604,7 +604,7 @@ Your innate magic comes from draconic magic that was mingled with your blood or 
 * Draconic Bloodline Origin Spells
 
 In your list and always prepared: 
-
+ 
 	I	Shield
 
 	II	Misty Step
@@ -661,7 +661,7 @@ Fire Bolt
 * Elemental Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Thunderwave, Fog Cloud
 
 	II	Levitate, Misty Step
@@ -727,7 +727,7 @@ Ray of Frost
 * Elemental Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Thunderwave, Fog Cloud
 
 	II	Levitate, Misty Step
@@ -793,7 +793,7 @@ Shocking Grasp
 * Elemental Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Thunderwave, Fog Cloud
 
 	II	Levitate, Misty Step
@@ -878,11 +878,11 @@ You are trained to craft basic ammunition with smith's tools: arrows and bolts.
 * Warden of the Forest
 
 Proficiency: Light armor
+ 
+ Proficiency: Shortbow
+ Fighting Style: Archery
 
-Proficiency: Shortbow
-Fighting Style: Archery
-
-Natural Explorer: You benefit from the same advantages as Rangers when in a forest environment.
+ Natural Explorer: You benefit from the same advantages as Rangers when in a forest environment.
 
 
 ## Level 6
@@ -917,7 +917,7 @@ Haunted souls are sorcerers whose innate abilities draw malevolent spirits to th
 * Haunted Soul Origin Spells
 
 In your list and always prepared: 
-
+ 
 	I	Inflict Wounds
 
 	II	Ray of Enfeeblement
@@ -1005,14 +1005,14 @@ Emulating the Hunter archetype means accepting your place as a bulwark between c
 
 * Hunter's Prey
 
-Choose one of the following hunting specialties: Colossus Slayer, Giant Killer  or Horde Breaker
+Choose one of the following hunting specialties: Colossus Slayer,Giant Killer orHorde Breaker
 
 
 ## Level 7
 
 * Defensive Tactics
 
-Choose one of the following options: Escape the Horde, Multiattack Defense  or Steel Will
+Choose one of the following options: Escape the Horde,Multiattack Defense orSteel Will
 
 
 ## Level 11
@@ -1044,7 +1044,7 @@ Advantage on ability checks using Arcana, History, and Nature
 * Insight Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Detect Evil and Good, Identify
 
 	II	Find Traps, See Invisibility
@@ -1106,12 +1106,12 @@ The Law domain focuses on protecting the innocent and punishing the guilty, gran
 * Commanding Presence
 
 Proficient with Intimidation.
-Advantage on Intimidation checks
+ Advantage on Intimidation checks
 
 * Law Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Heroism, Shield
 
 	II	Branding Smite, Hold Person
@@ -1150,7 +1150,7 @@ Break the spellcasting concentration of an enemy
 * Anathema
 
 On a failed WIS saving throw, restrains a creature and inflicts force damage each turn equal to your WIS modifier. The creature can make a WIS saving throw at the end of their turn. Can be used once per short rest. 
- At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
+  At level 14 or above, can be used twice per short rest and the damage is increased by an additional +2d6.
 
 
 ## Level 10
@@ -1186,7 +1186,7 @@ When casting a healing spell, the target regains additional HP equal to (2 x spe
 * Life Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Bless, Cure Wounds
 
 	II	Lesser Restoration, Spiritual Weapon
@@ -1244,8 +1244,8 @@ Loremasters are obsessed with the lost knowledge of pre-Cataclysm times. They kn
 * Keen Mind
 
 Advantage on Arcana, History, and Investigation ability checks
-Advantage to copy scrolls to your spellbook
-Scroll and potion crafting costs and times are halved
+ Advantage to copy scrolls to your spellbook
+ Scroll and potion crafting costs and times are halved
 
 
 ## Level 6
@@ -1284,7 +1284,7 @@ Your Charisma modifier is used (if higher) instead of other ability modifiers on
 * Mana Painter Origin Spells
 
 In your list and always prepared: 
-
+ 
 	I	Entangle
 
 	II	Barkskin
@@ -1320,7 +1320,7 @@ At level 14, whenever you use a sorcery point, you regain 5 HP per sorcery point
 
 # 28. - Marksman
 
-Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta. 
+Marksmen are experts with a bow, inheriting techniques developed by the elite high elven troops of the Manacalon Empire. They are among the deadliest ranged combatants on Solasta.
 
 
 ## Level 3
@@ -1374,7 +1374,7 @@ When you fail a saving throw where you did not have disadvantage, you can use yo
 * Mischief Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Charm Person, Expeditious Retreat
 
 	II	Blur, Invisibility
@@ -1491,14 +1491,14 @@ Channel Divinity to force fiends and undead within 6 cells who can see you to fl
 * Oath of Devotion Spells
 
 In your list and always prepared: 
-
+ 
 	I	Shield, Protect vs Evil & Good
 
 	II	Lesser Restoration, Aid
 
 	III	Dispel Magic, Revivify
 
-	IV	Guardian of Faith, Freedom of Movement, Guardian of Faith, Freedom of Movement
+	IV	Guardian of Faith, Freedom of Movement
 
 
 ## Level 7
@@ -1513,6 +1513,13 @@ Friendly creatures in the aura cannot be charmed while you are conscious.
 * Purity of Spirit
 
 Starting at level 15, you are always under the effects of a protection from evil and good spell.
+
+
+## Level 18
+
+* Improved Aura of Devotion
+
+Your Aura of Devotion range increased to 30 ft.
 
 
 
@@ -1534,14 +1541,14 @@ As a bonus action, you can use Channel Divinity to pour your determination into 
 * Oath of Judgement Spells
 
 In your list and always prepared: 
-
+ 
 	I	Guiding Bolt, Protect vs Evil & Good
 
 	II	Enhance Ability, Hold Person
 
 	III	Hypnotic Pattern, Haste
 
-	IV	Banishment, Blight, Banishment, Blight
+	IV	Banishment, Blight
 
 
 ## Level 7
@@ -1556,6 +1563,13 @@ You constantly emanate a 2-cell-wide aura while not incapacitated. Allies (inclu
 * Retribution
 
 Starting at level 15, whenever an enemy within 6 cells deals damage to you, you can use your reaction to chastise them. They must make a Wisdom saving throw against you spellcasting ability, taking 2d8 + CHA mod psychic damage, or half on a success.
+
+
+## Level 18
+
+* Improved Aura of Rightenousness
+
+Your Aura of Rightenousness range increased to 30 ft.
 
 
 
@@ -1577,14 +1591,14 @@ Channel Divinity to target one creature within 12 cells, dealing (2d6 + paladin 
 * Oath of the Motherland Spells
 
 In your list and always prepared: 
-
+ 
 	I	Bane, Burning Hands
 
 	II	Branding Smite, Scorching Ray
 
 	III	Fireball, Dispel Magic
 
-	IV	Wall of Fire, Fire Shield, Wall of Fire, Fire Shield
+	IV	Wall of Fire, Fire Shield
 
 
 ## Level 7
@@ -1599,6 +1613,13 @@ Friendly creatures in the aura gain fire resistance and +1 to AC.
 * Heart of Lava
 
 Starting at level 15, you are immune to fire and your skin covers with stone scales when you are in danger, reducing slashing/bludgeoning/piercing damage that you take by 5.
+
+
+## Level 18
+
+* Improved Volcanic Aura
+
+Your Volcanic Aura range increased to 30 ft.
 
 
 
@@ -1624,14 +1645,14 @@ Channel Divinity to deal 1d6 additional radiant damage on attacks which hit oppo
 * Oath of Tirmar Spells
 
 In your list and always prepared: 
-
+ 
 	I	Sleep, Shield
 
 	II	Hold Person, Blindness
 
 	III	Daylight, Slow
 
-	IV	Dreadful Omen, Phantasmal Killer, Dreadful Omen, Phantasmal Killer
+	IV	Dreadful Omen, Phantasmal Killer
 
 
 ## Level 7
@@ -1646,6 +1667,13 @@ Friendly creatures in the aura gain superior darkvision and +2 perception.
 * Sorak's Bane
 
 Starting at level 15, when you use a melee attack to strike an opponent who has either natural darkvision or natural shapeshifting, you can use your bonus action to deal an additional melee attack, adding your Charisma bonus to the damage dealt.
+
+
+## Level 18
+
+* Improved Aura of Truth
+
+Your Aura of Truth range increased to 30 ft.
 
 
 
@@ -1667,7 +1695,7 @@ As long as you are conscious, you and your fellow party members within 6 cells h
 * Oblivion Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Sleep, Inflict Wounds
 
 	II	Blindness, Ray of Enfeeblement
@@ -1721,14 +1749,14 @@ You attempt to request the help of your deity, with a success chance of 1% per c
 
 # 36. - Path of the Berserker
 
-The Path of the Berserker is a path of untrammeled fury, slick with blood. As you  enter the berserker's rage, you thrill in the chaos of battle, heedless of your own   health or well-being.
+The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.
 
 
 ## Level 3
 
 * Frenzy
 
-You can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your  turns after this one. When your rage ends, you suffer one level of exhaustion unless you make a successful DC 10 CON saving throw. The DC increases by 5 each time until you complete a short or long rest.
+You can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion unless you make a successful DC 10 CON saving throw. The DC increases by 5 each time until you complete a short or long rest.
 
 
 ## Level 6
@@ -1742,7 +1770,7 @@ You can't be charmed or frightened while raging.
 
 * Intimidating Presence
 
-Frighten a creature until the end of your next turn if it fails a WIS check opposed by your CHA. 
+Frighten a creature until the end of your next turn if it fails a WIS check opposed by your CHA.
 
 
 ## Level 14
@@ -1800,7 +1828,7 @@ Followers of this path have developed a profound hatred for magic and magic-user
 
 * War Cry
 
-While raging, a Magebane who takes damage from spells or other magical attacks  can use their reaction to unleash a powerful warcry, dealing psychic damage, equal to 1d6 + CON modifier, to all enemies within 6 cells.
+While raging, a Magebane who takes damage from spells or other magical attacks can use their reaction to unleash a powerful warcry, dealing psychic damage, equal to 1d6 + CON modifier, to all enemies within 6 cells.
 
 
 ## Level 6
@@ -1951,7 +1979,7 @@ Shock Arcanists were the battle mages of the Manacalon Empire. Their teachings h
 
 * Arcane Warfare
 
-When casting spells from the War list, they count as being cast at one slot level higher than the one you actually use: Burning Hands, Magic Missile, Thunderwave, Acid Arrow, Scorching Ray, Flaming Sphere, Fireball, Lightning Bolt, Ice Storm, Cone of Cold, Mind Twist, Disintegrate, Chain Lightning, Freezing Sphere, Incendiary Cloud.
+When casting spells from the War list, they count as being cast at one slot level higher than the one you actually use: Burning Hands,Magic Missile,Thunderwave,Acid Arrow,Scorching Ray,Flaming Sphere,Fireball,Lightning Bolt,Ice Storm,Cone of Cold,Mind Twist,Disintegrate,Chain Lightning,Freezing Sphere,Incendiary Cloud.
 
 
 ## Level 6
@@ -1966,7 +1994,7 @@ Add your proficiency bonus and INT bonus to your evocation spell damage for 1 mi
 * Arcane Shock
 
 Starting at the 10th level, you can use your Bonus Action to trigger Arcane Shock and make a CON saving throw DC 14 first, taking 2D6 psychic damage on a failure. Until the end of your turn, you are restrained, but the spells you cast will have all at least average dice roll value.
- You can use this power a number of times equal to your proficiency bonus, then you must take a long rest to recharge its uses.
+  You can use this power a number of times equal to your proficiency bonus, then you must take a long rest to recharge its uses.
 
 * Wizard Weapon Proficiencies
 
@@ -1978,7 +2006,7 @@ Constitution
 * Greater Arcane Shock
 
 Starting at level 14, you can use your Bonus Action to trigger Greater Arcane Shock and make a CON saving throw DC 16 first, taking 7D6 psychic damage on a failure, or half of the damage on a success. Until the end of your turn, the spells you cast will have all the maximum possible damage dice roll values.
-You can use this feature once per long rest.
+  You can use this feature once per long rest.
 
 
 
@@ -2045,7 +2073,7 @@ When you cast Sacred Flame, your target has disadvantage on the saving throw.
 * Sun Domain Spells
 
 In your list and always prepared: 
-
+ 
 	I	Burning Hands, Faerie Fire
 
 	II	Scorching Ray, Darkvision
@@ -2181,7 +2209,7 @@ Starting at the 10th level, you can choose one damage type when you finish a sho
 * Hurl Through Hell
 
 When you hit a creature with an attack, you can banish it to the lower planes until the end of your next turn. The creature suffers 10d10 psychic damage upon returning from this horrific experience.
- You can use Hurl Through Hell once per long rest.
+  You can use Hurl Through Hell once per long rest.
 
 
 
@@ -2244,7 +2272,7 @@ Time is eternal, just a long flow. And yet, it longs for more than this endless 
 * Curse of Time
 
 Starting at the 1st level, whenever you damage an opponent with a spell, they become afflicted with the Curse of Time.
- Enemies under the Curse of Time take half your proficiency bonus (rounded up) force damage at the start of their turn for the next minute.
+  Enemies under the Curse of Time take half your proficiency bonus (rounded up) force damage at the start of their turn for the next minute.
 
 * Expanded Spells
 
@@ -2275,7 +2303,7 @@ Starting at level 6, after you take any damage, you can use your reaction to rew
 * Accelerate
 
 Starting at the 10th level, on your turn, you can use a bonus action to briefly accelerate an ally within 6 cells. They gain the effect of Haste until the start of your next turn; however, they do not suffer from lethargy when Accelerate ends.
- You can use this feature a number of times equal to your proficiency bonus per long rest.
+  You can use this feature a number of times equal to your proficiency bonus per long rest.
 
 
 ## Level 14
@@ -2402,7 +2430,7 @@ Starting at the 11th level, when you use Flurry of Blows, you can make up to one
 
 ## Level 17
 
-* Purity of Light
+* Fluid Strikes
 
 You can attack three times, instead of twice, whenever you take the Attack action on your turn.
 
@@ -2418,7 +2446,7 @@ The Way of Light was developed by former worshippers of Einar, who devoted their
 * Luminous Ki
 
 Starting at the 3rd level, you learn the Light & Shine cantrips (wisdom for spellcasting).
- Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, they automatically start emitting bright light until the end of your next turn.
+  Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, they automatically start emitting bright light until the end of your next turn.
 
 
 ## Level 6
@@ -2492,9 +2520,9 @@ The monks of the Way of the Open Hand devote themselves to the arts of combat. D
 * Open Hand Technique
 
 Starting when you choose this tradition at the 3rd level, you can manipulate your enemy's Ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:
- * It must succeed on a dexterity saving throw or be knocked prone.
- * It must make a strength saving throw. If it fails, you can push it up to 3 cells away from you.
- * It can't take reactions until the end of your next turn.
+  * It must succeed on a dexterity saving throw or be knocked prone.
+  * It must make a strength saving throw. If it fails, you can push it up to 3 cells away from you.
+  * It can't take reactions until the end of your next turn.
 
 
 ## Level 6

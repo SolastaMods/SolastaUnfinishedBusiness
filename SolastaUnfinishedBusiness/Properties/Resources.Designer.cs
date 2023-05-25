@@ -1975,6 +1975,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerArdentHate {
+            get {
+                object obj = ResourceManager.GetObject("PowerArdentHate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerAttackConcentrationIcon {
             get {
                 object obj = ResourceManager.GetObject("PowerAttackConcentrationIcon", resourceCulture);
@@ -2098,6 +2108,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerDreadfulPresence {
             get {
                 object obj = ResourceManager.GetObject("PowerDreadfulPresence", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerElderChampion {
+            get {
+                object obj = ResourceManager.GetObject("PowerElderChampion", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -2338,16 +2358,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerSlayTheEnemies {
             get {
                 object obj = ResourceManager.GetObject("PowerSlayTheEnemies", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] PowerSoulEmpower {
-            get {
-                object obj = ResourceManager.GetObject("PowerSoulEmpower", resourceCulture);
                 return ((byte[])(obj));
             }
         }

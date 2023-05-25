@@ -15,3 +15,5 @@ LootPack/&1MagicArmorPlus2=1 Armatura Magica +2
 LootPack/&1MagicWeaponPlus1=1 arma magica +1
 LootPack/&1MagicWeaponPlus2=1 arma magica +2
 LootPack/&RandomAmmo=Munizioni casuali
+LootPack/&1MagicWeaponPlus3=1 arma magica +3
+LootPack/&1MagicArmorPlus3=1 Armatura Magica +3

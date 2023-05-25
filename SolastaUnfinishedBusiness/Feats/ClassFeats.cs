@@ -256,18 +256,30 @@ internal static class ClassFeats
 
         featureCloseQuarters.SetCustomSubFeatures((DamageDieProviderFromCharacter)UpgradeCloseQuartersDice);
 
-        var closeQuartersDex = FeatDefinitionBuilder
+        static (bool result, string output) HasSneakAttack(FeatDefinition feat, RulesetCharacterHero hero)
+        {
+            var hasSneakAttack = hero.GetFeaturesByType<FeatureDefinitionAdditionalDamage>()
+                .Any(x => x.NotificationTag.EndsWith(TagsDefinitions.AdditionalDamageSneakAttackTag));
+
+            var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", "Feature/&RogueSneakAttackTitle");
+
+            return hasSneakAttack ? (true, guiFormat) : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        }
+
+        var closeQuartersDex = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Dex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Misaye)
             .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
             .AddToDB();
 
-        var closeQuartersInt = FeatDefinitionBuilder
+        var closeQuartersInt = FeatDefinitionWithPrerequisitesBuilder
             .Create($"{Name}Int")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(featureCloseQuarters, AttributeModifierCreed_Of_Einar)
             .SetFeatFamily(Family)
+            .SetValidators(HasSneakAttack)
             .AddToDB();
 
         feats.AddRange(closeQuartersDex, closeQuartersInt);

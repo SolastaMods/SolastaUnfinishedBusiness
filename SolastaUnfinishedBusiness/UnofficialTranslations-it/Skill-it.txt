@@ -1,6 +1,6 @@
 Skill/&AcrobaticsDescription=La tua prova di Destrezza (Acrobazia) copre il tuo tentativo di rimanere in piedi in una situazione difficile, come quando stai cercando di correre su una lastra di ghiaccio, restare in equilibrio su una corda tesa o stare in piedi sul ponte di una nave che oscilla.
 Skill/&AcrobaticsTitle=Acrobazie
-Skill/&AnimalHandlingDescription=Quando c'è qualche dubbio se puoi calmare un animale addomesticato, evitare che una cavalcatura si spaventi o intuire le intenzioni di un animale, effettua una prova di Saggezza (Maneggiare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa.
+Skill/&AnimalHandlingDescription=Quando c'è qualche dubbio se puoi calmare un animale addomesticato, evitare che una cavalcatura si spaventi o intuire le intenzioni di un animale, effettua una prova di Saggezza (Addestrare Animali). Si effettua anche una prova di Saggezza (Addestrare Animali) per controllare la propria cavalcatura quando si tenta una manovra rischiosa.
 Skill/&AnimalHandlingTitle=Manipolazione degli animali
 Skill/&ArcanaDescription=La tua prova di Intelligenza (Arcana) misura la tua capacità di richiamare informazioni su incantesimi, oggetti magici, simboli arcani, tradizioni magiche, i piani di esistenza e gli abitanti di quei piani.
 Skill/&ArcanaTitle=Arcano
@@ -14,13 +14,13 @@ Skill/&InsightDescription=La tua prova di Saggezza (Intuizione) decide se puoi d
 Skill/&InsightTitle=Intuizione
 Skill/&IntimidationDescription=Quando tenti di influenzare qualcuno attraverso minacce palesi, azioni ostili e violenza fisica, puoi effettuare una prova di Carisma (Intimidazione).
 Skill/&IntimidationTitle=Intimidazione
-Skill/&InvestigationDescription=Quando ti guardi intorno alla ricerca di indizi e fai deduzioni basate su quegli indizi, effettui una prova di Intelligenza (Indagine).
+Skill/&InvestigationDescription=Quando ti guardi intorno alla ricerca di indizi e fai delle deduzioni basate su quegli indizi, effettui una prova di Intelligenza (Indagazione).
 Skill/&InvestigationTitle=Indagine
 Skill/&MedecineDescription=Una prova di Saggezza (Medicina) ti consente di provare a stabilizzare un compagno morente, diagnosticare una malattia o creare pozioni curative o antitossina.
 Skill/&MedecineTitle=Medicinale
 Skill/&NatureDescription=La tua prova di Intelligenza (Natura) misura la tua capacità di ricordare informazioni su terreno, piante e animali, clima e cicli naturali.
 Skill/&NatureTitle=Natura
-Skill/&PerceptionDescription=La tua prova di Saggezza (Percezione) ti consente di individuare, udire o rilevare in altro modo la presenza di qualcosa. Misura la tua consapevolezza generale di ciò che ti circonda e l'acutezza dei tuoi sensi.=
+Skill/&PerceptionDescription=La tua prova di Saggezza (Percezione) ti consente di individuare, udire o rilevare in altro modo la presenza di qualcosa. Misura la tua consapevolezza generale di ciò che ti circonda e l'acutezza dei tuoi sensi.
 Skill/&PerceptionTitle=Percezione
 Skill/&PerformanceDescription=La tua prova di Carisma (Esibizione) determina quanto bene puoi deliziare un pubblico con musica, danza, recitazione, narrazione o qualche altra forma di intrattenimento.
 Skill/&PerformanceTitle=Prestazione

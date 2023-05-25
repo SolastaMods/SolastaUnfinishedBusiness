@@ -47,16 +47,15 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         // Empower Weapon
 
+        // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create(PowerArcaneFighterEnchantWeapon, "PowerSoulBladeEmpowerWeapon")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerSoulEmpower", Resources.PowerSoulEmpower, 256, 128))
-            .SetBonusToAttack(false, false, AttributeDefinitions.Charisma)
+            .Create("PowerSoulBladeEmpowerWeapon")
+            .SetGuiPresentation(Category.Feature)
+            // trick to keep it hidden on UI
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetCustomSubFeatures(
-                DoNotTerminateWhileUnconscious.Marker,
-                ExtraCarefulTrackedItem.Marker,
-                SkipEffectRemovalOnLocationChange.Always,
-                new CustomItemFilter(CanWeaponBeEmpowered))
+                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered))
             .AddToDB();
 
         // Common Hex Feature
@@ -207,17 +206,34 @@ internal sealed class PatronSoulBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
+    private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
-        var definition = item.ItemDefinition;
-
-        if (!definition.IsWeapon || !character.IsProficientWithItem(definition))
+        if (item == null)
         {
             return false;
         }
 
-        if (character is RulesetCharacterHero hero &&
-            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
+        var definition = item.ItemDefinition;
+
+        if (definition == null ||
+            !definition.IsWeapon ||
+            !character.IsProficientWithItem(definition))
+        {
+            return false;
+        }
+
+        if (character is not RulesetCharacterHero hero)
+        {
+            return false;
+        }
+
+        if (mode.ActionType == ActionDefinitions.ActionType.Bonus &&
+            !hero.TrainedFightingStyles.Contains(GetDefinition<FightingStyleDefinition>("TwoWeapon")))
+        {
+            return false;
+        }
+
+        if (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
         {
             return true;
         }

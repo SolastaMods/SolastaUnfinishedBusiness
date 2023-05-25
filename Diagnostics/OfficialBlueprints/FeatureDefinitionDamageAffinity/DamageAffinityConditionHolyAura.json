@@ -23,7 +23,6 @@
   "knockOutDCAttribute": "RelentlessRageDC",
   "knockOutAddDC": 5,
   "instantDeathImmunity": false,
-  "activatePowerWhenDamaged": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [
     "Fiend",

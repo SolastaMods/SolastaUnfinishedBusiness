@@ -672,7 +672,8 @@ internal static class GameLocationBattleManagerTweaks
         {
             if (attackMode?.SourceObject is RulesetItem weapon)
             {
-                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(instance.featuresToBrowseItem);
+                weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
+                    instance.featuresToBrowseItem, attacker.Name);
                 instance.featuresToBrowseReaction.AddRange(instance.featuresToBrowseItem);
                 instance.featuresToBrowseItem.Clear();
             }
@@ -848,11 +849,9 @@ internal static class GameLocationBattleManagerTweaks
 
                         // This is used to only offer smites on critical hits
                         if (!criticalHit &&
-                            // allows EldritchSmite to pass through
-                            (featureDefinition is not FeatureDefinitionAdditionalDamage ||
-                             // allows PaladinSmite to pass through
-                             (Main.Settings.AddPaladinSmiteToggle &&
-                              !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))))
+                            Main.Settings.AddPaladinSmiteToggle &&
+                            featureDefinition is FeatureDefinitionAdditionalDamage &&
+                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;
                         }

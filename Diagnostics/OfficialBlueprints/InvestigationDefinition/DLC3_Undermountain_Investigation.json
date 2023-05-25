@@ -1,0 +1,75 @@
+{
+  "$type": "InvestigationDefinition, Assembly-CSharp",
+  "suspects": [
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Berghild_StrongSpine:4e1aef4754994264fad6d9ba8af4ab26",
+      "traitor": false,
+      "reputationLevel": "High",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Undermountain_Investigation_Guard02:d88c8bd05e2e41d478515328063cbf94",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Undermountain_Investigation_Guard03:93119b9d394a1b24c82699cf06f2f8dd",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Undermountain_Investigation_Guard04:95f7f6169065b2343b3e49ec3c29d811",
+      "traitor": true,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "High"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Undermountain_Investigation_Guard05:767328a24aa9a744da36714d15eeefbb",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Normal"
+    },
+    {
+      "$type": "SuspectDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_Undermountain_Investigation_Guard06:f0b1a75524c50ae448704578cf3a4cf8",
+      "traitor": false,
+      "reputationLevel": "Normal",
+      "difficultyLevel": "Low"
+    }
+  ],
+  "quest": "Definition:DLC3_Quest_Undermountain_05_Quest:0914bc7bcfbd2c94094c97bd81055875",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Investigation/&DLC3_Undermountain_Investigation_Title",
+    "description": "Investigation/&DLC3_Undermountain_Investigation_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2e05a71203fcb97489bb1c5e9c79a946",
+  "contentPack": "BaseGame",
+  "name": "DLC3_Undermountain_Investigation"
+}

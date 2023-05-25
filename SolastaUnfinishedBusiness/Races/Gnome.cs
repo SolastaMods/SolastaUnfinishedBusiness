@@ -100,6 +100,7 @@ internal static class GnomeRaceBuilder
                 proficiencyGnomeLanguages)
             .AddToDB();
 
+        raceGnome.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
         RacesContext.RaceScaleMap[raceGnome] = 7f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceGnome.name);
 

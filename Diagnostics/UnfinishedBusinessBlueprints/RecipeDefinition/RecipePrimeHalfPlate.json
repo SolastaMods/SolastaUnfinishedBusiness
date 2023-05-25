@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed HalfPlate:d118f62359ad9fe45a127151a35a9a0f",
   "stackCount": 1,
   "craftingHours": 8,

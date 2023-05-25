@@ -1,7 +1,7 @@
 Behavior/&AttackingDescription=La creatura sta attaccando il suo bersaglio.
 Behavior/&AttackingTitle=Attaccare
 Behavior/&IdleDescription=La creatura non sta facendo nulla in particolare.
-Behavior/&IdleTitle=Inattivo
+Behavior/&IdleTitle=Oziare
 Behavior/&InterceptingDescription=La creatura ha individuato un bersaglio e si sta muovendo verso di esso.
 Behavior/&InterceptingTitle=Intercettazione
 Behavior/&InvestigatingDescription=La creatura sta indagando su una fonte di disturbo (rumore, luce).

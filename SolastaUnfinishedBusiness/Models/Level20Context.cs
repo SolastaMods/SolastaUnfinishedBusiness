@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,17 +20,14 @@ using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -41,7 +38,7 @@ internal static class Level20Context
     internal const int ModMaxLevel = 20;
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
-    internal static readonly int GameMaxLevel = Main.IsDebugBuild ? 16 : 12;
+    internal const int GameMaxLevel = 16;
 
     internal static void Load()
     {
@@ -76,18 +73,17 @@ internal static class Level20Context
         // these are currently the hard-coded levels on below methods
         var methods = new[]
         {
-            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding), // 12
-            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"), // 12
-            typeof(HigherLevelFeaturesModal).GetMethod("Bind"), // 12
-            typeof(InvocationSubPanel).GetMethod("SetState"), // 12
-            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"), // 12
-            typeof(RulesetCharacterHero).GetMethod("SerializeElements"), // 12
-            typeof(RulesetEntity).GetMethod("SerializeElements"), // 12
-            typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"), // 12
-            typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit") // 12
+            typeof(ArchetypesPreviewModal).GetMethod("Refresh", PrivateBinding),
+            typeof(CharactersPanel).GetMethod("Refresh", PrivateBinding),
+            typeof(FeatureDefinitionCastSpell).GetMethod("EnsureConsistency"),
+            typeof(HigherLevelFeaturesModal).GetMethod("Bind"), typeof(InvocationSubPanel).GetMethod("SetState"),
+            typeof(RulesetCharacterHero).GetMethod("RegisterAttributes"),
+            typeof(RulesetCharacterHero).GetMethod("SerializeElements"),
+            typeof(RulesetEntity).GetMethod("SerializeElements"),
+            typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"),
+            typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"),
+            typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"),
+            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit")
         };
 
         foreach (var method in methods)
@@ -142,17 +138,6 @@ internal static class Level20Context
             .SetCustomSubFeatures(new CustomCodeBarbarianPrimalChampion())
             .AddToDB();
 
-        if (!Main.IsDebugBuild)
-        {
-            Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
-                new(PowerBarbarianPersistentRageStart, 15),
-                new(AttributeModifierBarbarianRageDamageAdd, 16),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
@@ -177,16 +162,6 @@ internal static class Level20Context
         featureBardSuperiorInspiration.SetCustomSubFeatures(
             new BattleStartedListenerBardSuperiorInspiration(featureBardSuperiorInspiration));
 
-        if (!Main.IsDebugBuild)
-        {
-            Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(PointPoolBardMagicalSecrets14, 14),
-                new(AttributeModifierBardicInspirationDieD12, 15),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(pointPoolBardMagicalSecrets18, 18),
@@ -207,14 +182,6 @@ internal static class Level20Context
             2, 1, CastSpellBard.ReplacedSpells);
 
         SpellListBard.maxSpellLevel = 9;
-
-        if (!Main.IsDebugBuild)
-        {
-            SpellListBard.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-            {
-                level = 7, Spells = new List<SpellDefinition> { Resurrection }
-            });
-        }
     }
 
     private static void ClericLoad()
@@ -229,14 +196,6 @@ internal static class Level20Context
             .SetEffectDescription(effectPowerClericTurnUndead17)
             .AddToDB();
 
-        if (!Main.IsDebugBuild)
-        {
-            Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(PowerClericTurnUndead14, 14), new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(powerClericTurnUndead17, 17),
@@ -249,14 +208,6 @@ internal static class Level20Context
             CastSpellCleric.SlotsPerLevels);
 
         SpellListCleric.maxSpellLevel = 9;
-
-        if (!Main.IsDebugBuild)
-        {
-            SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-            {
-                level = 7, Spells = new List<SpellDefinition> { Resurrection }
-            });
-        }
     }
 
     private static void DruidLoad()
@@ -275,11 +226,6 @@ internal static class Level20Context
 
         magicAffinityArchDruid.SetCustomSubFeatures(new ActionFinishedArchDruid(magicAffinityArchDruid));
 
-        if (!Main.IsDebugBuild)
-        {
-            Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> { new(FeatureSetAbilityScoreChoice, 16) });
-        }
-
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(featureDruidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19), new(magicAffinityArchDruid, 20)
@@ -290,14 +236,6 @@ internal static class Level20Context
             CastSpellDruid.SlotsPerLevels);
 
         SpellListDruid.maxSpellLevel = 9;
-
-        if (!Main.IsDebugBuild)
-        {
-            SpellListDruid.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-            {
-                level = 7, Spells = new List<SpellDefinition> { Resurrection }
-            });
-        }
     }
 
     private static void FighterLoad()
@@ -308,22 +246,11 @@ internal static class Level20Context
             .SetOverriddenPower(PowerFighterActionSurge)
             .AddToDB();
 
-        if (!Main.IsDebugBuild)
-        {
-            Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(AttributeModifierFighterIndomitableAdd1, 13),
-                new(FeatureSetAbilityScoreChoice, 14),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(powerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
-            // TODO 18: Martial Archetype
             new(AttributeModifierFighterExtraAttack, 20)
         });
     }
@@ -396,20 +323,8 @@ internal static class Level20Context
         battleStartedListenerMonkPerfectSelf.SetCustomSubFeatures(
             new BattleStartedListenerMonkPerfectSelf(battleStartedListenerMonkPerfectSelf));
 
-        if (!Main.IsDebugBuild)
-        {
-            Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(FeatureSetMonkTongueSunMoon, 13),
-                new(FeatureSetMonkDiamondSoul, 14),
-                new(FeatureSetMonkTimelessBody, 15),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // TODO 17: Monastic Tradition Feature
             new(powerMonkEmptyBody, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(battleStartedListenerMonkPerfectSelf, 20)
@@ -418,47 +333,26 @@ internal static class Level20Context
 
     private static void PaladinLoad()
     {
-        var effectPowerPaladinAuraOfCourage18 = new EffectDescription();
-
-        effectPowerPaladinAuraOfCourage18.Copy(PowerPaladinAuraOfCourage.EffectDescription);
-        effectPowerPaladinAuraOfCourage18.targetParameter = 6;
-        effectPowerPaladinAuraOfCourage18.rangeParameter = 0;
-        effectPowerPaladinAuraOfCourage18.requiresTargetProximity = false;
-
         var powerPaladinAuraOfCourage18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfCourage, "PowerPaladinAuraOfCourage18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerPaladinAuraOfCourage18)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerPaladinAuraOfCourage)
             .AddToDB();
 
-        var effectPowerPaladinAuraOfProtection18 = new EffectDescription();
-
-        effectPowerPaladinAuraOfProtection18.Copy(PowerPaladinAuraOfProtection.EffectDescription);
-        effectPowerPaladinAuraOfProtection18.targetParameter = 6;
-        effectPowerPaladinAuraOfProtection18.rangeParameter = 0;
-        effectPowerPaladinAuraOfProtection18.requiresTargetProximity = false;
+        powerPaladinAuraOfCourage18.EffectDescription.targetParameter = 13;
 
         var powerPaladinAuraOfProtection18 = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinAuraOfProtection, "PowerPaladinAuraOfProtection18")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(effectPowerPaladinAuraOfProtection18)
-            .SetOverriddenPower(PowerPaladinAuraOfCourage)
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerPaladinAuraOfProtection)
             .AddToDB();
 
-        if (!Main.IsDebugBuild)
-        {
-            Paladin.FeatureUnlocks.AddRange(
-                new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
-                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16)
-            );
-        }
+        powerPaladinAuraOfProtection18.EffectDescription.targetParameter = 13;
 
         Paladin.FeatureUnlocks.AddRange(
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
-            // TODO 20: Sacred Oath Feature
         );
 
         EnumerateSlotsPerLevel(
@@ -483,16 +377,6 @@ internal static class Level20Context
 
         featureFoeSlayer.SetCustomSubFeatures(new ModifyWeaponAttackModeRangerFoeSlayer(featureFoeSlayer));
 
-        if (!Main.IsDebugBuild)
-        {
-            Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-                new(ActionAffinityRangerVanish, 14),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19), new(featureFoeSlayer, 20)
@@ -515,16 +399,6 @@ internal static class Level20Context
 
     private static void RogueLoad()
     {
-        if (!Main.IsDebugBuild)
-        {
-            Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(SenseRogueBlindsense, 14),
-                new(ProficiencyRogueSlipperyMind, 15),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
-
         var featureRogueElusive = FeatureDefinitionBuilder
             .Create("FeatureRogueElusive")
             .SetGuiPresentation(Category.Feature)
@@ -587,11 +461,6 @@ internal static class Level20Context
                 .Build())
             .AddToDB();
 
-        if (!Main.IsDebugBuild)
-        {
-            Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> { new(FeatureSetAbilityScoreChoice, 16) });
-        }
-
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
             new(PointPoolSorcererAdditionalMetamagic, 17),
@@ -628,17 +497,6 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
             .AddToDB();
-
-        if (!Main.IsDebugBuild)
-        {
-            Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(PointPoolWarlockMysticArcanum7, 13),
-                new(PointPoolWarlockInvocation15, 15),
-                new(PointPoolWarlockMysticArcanum8, 15),
-                new(FeatureSetAbilityScoreChoice, 16)
-            });
-        }
 
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
@@ -800,6 +658,17 @@ internal static class Level20Context
                     Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
                 });
             }
+        }
+
+        CastSpellGnomeShadow.slotsPerLevels.AddRange(CastSpellElfHigh.slotsPerLevels);
+
+        for (var level = 17; level <= 20; level++)
+        {
+            CastSpellTiefling.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level,
+                Slots = CastSpellTiefling.slotsPerLevels[15].slots
+            });
         }
     }
 

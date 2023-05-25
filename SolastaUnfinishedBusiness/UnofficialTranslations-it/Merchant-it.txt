@@ -26,3 +26,5 @@ Merchant/&DLC1_GiantTrader_StoreTitle=Commerciante gigante
 Merchant/&DLC_Armorer_Title=Armeria
 Merchant/&Yasmin_Mask_Title=Maschera negoziante segreto
 Merchant/&DLC1_Hanno_StoreTitle=Mercante di fucina
+Merchant/&DungeonMakerMagicSmith=Fabbro Magico
+Merchant/&DungeonMakerWanderingMerchant=Mercante errante

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -82,6 +81,7 @@ public static class GraphicsCharacterFactoryManagerPatcher
         }
     }
 
+#if false
     [HarmonyPatch(typeof(GraphicsCharacterFactoryManager),
         nameof(GraphicsCharacterFactoryManager.CollectBodyPartsToLoadWherePossible_Morphotypes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -120,4 +120,5 @@ public static class GraphicsCharacterFactoryManagerPatcher
             }
         }
     }
+#endif
 }

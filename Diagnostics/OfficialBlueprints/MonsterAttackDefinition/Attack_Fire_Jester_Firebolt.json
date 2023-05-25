@@ -59,6 +59,7 @@
     "fixedSavingThrowDifficultyClass": 12,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
+    "damageAffinitiesByFamily": [],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
@@ -134,7 +135,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -306,13 +307,15 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "projectile": "FireArrow",
+  "projectile": "Bolt_Alchemy_Flaming",
   "projectileBone": "Prop1",
   "itemDefinitionMainHand": null,
   "itemDefinitionOffHand": null,
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",

@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionPactChainImp:f40d07009f87ccb46ba4a8073e77229f",
+  "parentCondition": "Definition:ConditionPactChain:c612c84593d20f043a6c3ac052943143",
   "conditionType": "Beneficial",
   "features": [
     "Definition:MovementAffinityPactChainSprite:b700e9c609a367348a6b76514a31458d",
@@ -10,6 +10,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

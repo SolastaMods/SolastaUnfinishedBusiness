@@ -54,7 +54,8 @@
     "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
     "Definition:ConditionAffinityElfFeyAncestryCharm:fd5a2310e4752064c89dbc160c531b65",
     "Definition:ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern:b167a3e7068de17408d30d8f85daeed5",
-    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57"
+    "Definition:ConditionAffinityElfFeyAncestrySleep:404060024724e934ab81c8c33398cd57",
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [
     {

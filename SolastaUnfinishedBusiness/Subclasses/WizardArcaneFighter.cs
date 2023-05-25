@@ -1,6 +1,9 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -18,12 +21,32 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
+        // BACKWARD COMPATIBILITY
+        FeatureDefinitionAttackModifierBuilder
+            .Create("AttackModifierArcaneFighterIntBonus")
+            .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
+            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .SetMagicalWeapon()
+            .SetAdditionalAttackTag(TagsDefinitions.Magical)
+            .AddToDB();
+        // END BACKWARD COMPATIBILITY
+
+        // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
+        var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
+            .Create("PowerArcaneFighterEnchantWeapon")
+            .SetGuiPresentation(Category.Feature)
+            // trick to keep it hidden on UI
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetCustomSubFeatures(
+                new CanUseAttribute(AttributeDefinitions.Intelligence, ValidatorsWeapon.IsWeaponInMainHand))
+            .AddToDB();
+
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionArcaneFighter")
             .SetGuiPresentation(Category.Feature)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.CastMain)
-            .SetMaxAttacksNumber(-1)
             .SetTriggerCondition(AdditionalActionTriggerCondition.HasDownedAnEnemy)
             .AddToDB();
 
@@ -43,7 +66,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
-                PowerArcaneFighterEnchantWeapon)
+                powerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
                 AttackReplaceWithCantripCasterFighting)

@@ -3,6 +3,7 @@
   "weaponCategory": "MartialWeaponCategory",
   "weaponProximity": "Range",
   "isBow": false,
+  "isCrossbow": true,
   "isAttachedToBone": "Prop1",
   "animationTag": "HandCrossbow",
   "secondaryAnimationTag": "NoWeapon",

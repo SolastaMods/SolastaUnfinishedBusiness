@@ -40,12 +40,12 @@ Constitution + 2
 
 * Dwarven Combat Training
 
-Proficient with Battleaxe, Handaxe, Warhammer.
+Proficient with Battleaxe,Handaxe,Warhammer.
 
 * Dwarven Resilience
 
 Saving throw advantage against poison
-Resistance to poison damage
+ Resistance to poison damage
 
 * Heavy Armor Training
 
@@ -75,7 +75,7 @@ See normally in dim light, and in natural darkness as if in dim light.
 * Fey Ancestry
 
 Saving throw advantage against Charm
-Immunity to magical sleep
+ Immunity to magical sleep
 
 * Keen Senses
 
@@ -90,10 +90,10 @@ Proficient with the Perception skill.
 # 4. - Gnome
 
 Originating from the mountains bordering the Inner Sea, gnomes
- are by preference underground-dwellers. Where dwarves have mastered dourness
- and seriousness, life underground gave gnomes a zest for life shown in their
-humor, and flexible approach to honor and morality. The only trait they share
-with dwarves is a fascination for tinkering.
+  are by preference underground-dwellers. Where dwarves have mastered dourness
+  and seriousness, life underground gave gnomes a zest for life shown in their
+  humor, and flexible approach to honor and morality. The only trait they share
+  with dwarves is a fascination for tinkering.
 
 
 ## Level 1
@@ -118,7 +118,7 @@ You have advantage on all Intelligence, Wisdom, and Charisma saving throws again
 
 # 5. - Half-Elf
 
-Offspring of the human refugees from Tirmar and the Solastan elves, <#B5D3DE>half-elves</color> have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
+Offspring of the human refugees from Tirmar and the Solastan elves, half-elves have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
 
 
 ## Level 1
@@ -138,7 +138,7 @@ See normally in dim light, and in natural darkness as if in dim light.
 * Fey Ancestry
 
 Saving throw advantage against Charm
-Immunity to magical sleep
+ Immunity to magical sleep
 
 * Languages
 
@@ -204,7 +204,7 @@ You gain proficiency in the Intimidation skill
 
 * Relentless Endurance
 
-When you are reduced to 0 hit points but not killed outright, you drop to 1 hit  point instead. You can't benefit from this feature again until you finish a long rest.
+When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
 
 * Savage Attacks
 
@@ -214,7 +214,7 @@ When you score a critical hit with a melee weapon attack, you can roll one of th
 
 # 8. - High Elf
 
-<#B5D3DE>High elves</color> are the descendants of the people who ruled Solasta for centuries. They are trained to use magic very early, and have a gift for languages. They receive the traditional martial training of their people with swords and bows.
+High elves are the descendants of the people who ruled Solasta for centuries. They are trained to use magic very early, and have a gift for languages. They receive the traditional martial training of their people with swords and bows.
 
 
 ## Level 1
@@ -225,7 +225,7 @@ Intelligence + 1
 
 * Elf Weapon Training
 
-Proficient with Longsword, Shortsword, Shortbow, Longbow.
+Proficient with Longsword,Shortsword,Shortbow,Longbow.
 
 * Languages
 
@@ -243,7 +243,7 @@ Choose one Wizard cantrip, using Intelligence as the spellcasting ability.
 
 # 9. - Hill Dwarf
 
-<#B5D3DE>Hill dwarves</color> are naturally skilled miners and craftsmen, gifted with keen senses, deep intuition, and remarkable resilience. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
+Hill dwarves are naturally skilled miners and craftsmen, gifted with keen senses, deep intuition, and remarkable resilience. Blocky and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
 
 ## Level 1
@@ -268,7 +268,7 @@ Common, Dwarvish
 
 # 10. - Human
 
-Originally born on Tirmar and brought to Solasta before the Cataclysm, <#B5D3DE>humans</color> have adapted to their new world thanks to their unique talents. Able to live anywhere and take any job, they are versatile above all else.
+Originally born on Tirmar and brought to Solasta before the Cataclysm, humans have adapted to their new world thanks to their unique talents. Able to live anywhere and take any job, they are versatile above all else.
 
 
 ## Level 1
@@ -289,7 +289,7 @@ Common and one language of your choice.
 
 # 11. - Island Halfling
 
-<#B5D3DE>Island halflings</color> are the children of adventurous halflings who left the Northern Marshes to venture south and settle in the sunny islands. Discreet and brave, they are inclined to be affable and get along well with others.
+Island halflings are the children of adventurous halflings who left the Northern Marshes to venture south and settle in the sunny islands. Discreet and brave, they are inclined to be affable and get along well with others.
 
 
 ## Level 1
@@ -310,7 +310,7 @@ Advantage on Dexterity checks (Acrobatics)
 
 # 12. - Marsh Halfling
 
-<#B5D3DE>Marsh halflings</color> have lived in the tradition of their ancestors, who used to move, fight, and even sleep in swamp terrain. They are particularly sturdy compared to their island cousins, while being generally less likable and certainly no less courageous.
+Marsh halflings have lived in the tradition of their ancestors, who used to move, fight, and even sleep in swamp terrain. They are particularly sturdy compared to their island cousins, while being generally less likable and certainly no less courageous.
 
 
 ## Level 1
@@ -336,7 +336,7 @@ Areas with marshes and ponds and a humid atmosphere are considered swamp terrain
 # 13. - Rock Gnome
 
 Living inside mountains made of rock, gnomes are hardy and inventive. They
-can live under the sky, but underground is home.
+  can live under the sky, but underground is home.
 
 
 ## Level 1
@@ -352,6 +352,10 @@ Whenever you make an Intelligence (History) check, you can add twice your profic
 * Tinker
 
 You have proficiency with artisan's tools (smith's tools). Using these tools, you spend a quarter of the normal time to craft a basic item, and your proficiency bonus is doubled when making the roll to determine whether your crafting progresses.
+
+* Ability Score Increase
+
+Constitution + 1
 
 
 
@@ -378,7 +382,7 @@ You know the Annoying Bee cantrip. Intelligence is your spellcasting ability for
 
 # 15. - Snow Dwarf
 
-<#B5D3DE>Snow dwarves</color> are sturdy and adventurous, adapted to harsh terrain and low temperatures. Blocky, agile, and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
+Snow dwarves are sturdy and adventurous, adapted to harsh terrain and low temperatures. Blocky, agile, and sturdy, they are fierce warriors and keepers of their ancestral culture and traditions.
 
 
 ## Level 1
@@ -401,7 +405,7 @@ Common, Dwarvish
 
 * None
 
-Immunity to the "<#B5D3DE>Frozen" condition type
+Immunity to the "Frozen" condition type
 
 * Resistant to cold weather.
 
@@ -415,7 +419,7 @@ Immune to the effects of moderately cold weather.
 
 # 16. - Sylvan Elf
 
-Born and raised in the eastern forests of Solasta, <#B5D3DE>sylvan elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf cousins, they are trained to fight with swords and bows since childhood.
+Born and raised in the eastern forests of Solasta, sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their high elf cousins, they are trained to fight with swords and bows since childhood.
 
 
 ## Level 1
@@ -426,7 +430,7 @@ Wisdom + 1
 
 * Elf Weapon Training
 
-Proficient with Longsword, Shortsword, Shortbow, Longbow.
+Proficient with Longsword,Shortsword,Shortbow,Longbow.
 
 * Languages
 
@@ -439,7 +443,7 @@ Common, Elvish, Dwarvish, and Halfling
 * Sylvan Adaptability
 
 Proficient with Survival and Athletics.
-Advantage on Survival when hunting
+ Advantage on Survival when hunting
 
 
 
@@ -473,6 +477,82 @@ You have resistance to fire damage.
 * Infernal Legacy
 
 You know the Produce Flame cantrip. When you reach level 3, you can cast the Hellish Rebuke spell as a level 2 spell once with this trait, and regain the ability to do so again when you finish a long rest. When you reach level 5, you can cast the Darkness spell once with this trait, and regain the ability to do so again when you finish a long rest. Charisma is your spellcasting ability for these spells.
+
+
+
+# 18. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Asmodeus Attribute Increase
+
+Intelligence +1
+
+* Asmodeus Magic
+
+You know the Dancing Lights cantrip. At 3rd level you learn Hellish Rebuke and at 5th level, Darkness. Both can be used once per long rest.
+
+
+
+# 19. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Mephistopheles Attribute Increase
+
+Dexterity +1
+
+* Mephistopheles Magic
+
+You know the Fire Bolt cantrip. At 3rd level you learn Burning Hands and at 5th level, Flame Blade. Both can be used once per long rest.
+
+
+
+# 20. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Zariel Attribute Increase
+
+Strength +1
+
+* Zariel Magic
+
+You know the Sunlit Blade cantrip. At 3rd level you learn Searing Smite and at 5th level, Branding Smite. Both can be used once per long rest.
+
+
+
+# 21. - Tiefling
+
+One of their ancestors sold his soul to a fiend from the Outer Planes and now all his offspring carry the taint of fiendish blood. Their bodies reflect this inheritance, which leads many to distrust them at first sight. Because of these prejudices, most tieflings live reclusive lives in tightly knit communities.
+
+
+## Level 1
+
+* Ability Score Increase
+
+Charisma + 2
+
+* Darkvision
+
+See normally in dim light, and in natural darkness as if in dim light.
+
+* Hellish Resistance
+
+You have resistance to fire damage.
+
+* Move
+
+6◎
 
 
 

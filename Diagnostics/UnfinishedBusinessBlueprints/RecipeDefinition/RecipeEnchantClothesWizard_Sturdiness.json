@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:ClothesWizard_Sturdiness:1308fa44-7f0c-5937-ace1-5a1e0160d7fb",
   "stackCount": 1,
-  "craftingHours": 48,
-  "craftingDC": 16,
+  "craftingHours": 14,
+  "craftingDC": 18,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
@@ -25,8 +26,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a2722d3652222ad459c201ff62787697",
-      "m_SubObjectName": "AdventuringWizardOutfit_female",
+      "m_AssetGUID": "d542b1dc2d24d1643a77c40b02422a63",
+      "m_SubObjectName": "AdventuringWizardOutfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

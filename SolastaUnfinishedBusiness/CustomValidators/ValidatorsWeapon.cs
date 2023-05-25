@@ -17,6 +17,25 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
+    internal static readonly IsWeaponValidHandler IsWeaponInMainHand = (mode, item, character) =>
+    {
+        if (item == null)
+        {
+            return false;
+        }
+
+        var definition = item.ItemDefinition;
+
+        if (definition == null ||
+            !definition.IsWeapon ||
+            !character.IsProficientWithItem(definition))
+        {
+            return false;
+        }
+
+        return mode.ActionType != ActionDefinitions.ActionType.Bonus;
+    };
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {

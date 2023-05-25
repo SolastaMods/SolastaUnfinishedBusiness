@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed Rapier:94ee848dc03df8f48a7e2dbe41bc419e",
   "stackCount": 1,
   "craftingHours": 8,

@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:CAERLEM_Inquisitor_Document:88f5332ac37321a4e8fc1e595d2a1195",
   "stackCount": 1,
   "craftingHours": 16,

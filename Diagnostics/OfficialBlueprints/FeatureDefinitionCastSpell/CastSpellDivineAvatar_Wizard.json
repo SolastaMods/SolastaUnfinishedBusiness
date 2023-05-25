@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDivine_Avatar_Wizard:e8d2f253ba1fac64c885d9b853dd7915",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 10,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,
@@ -318,6 +320,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

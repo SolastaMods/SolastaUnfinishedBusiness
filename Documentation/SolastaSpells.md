@@ -524,7 +524,7 @@ An ally you touch gains the ability to fly for a limited time.
 
 # 132. - Fog Cloud
 
-Generate a sphere of thick fog for a limited time. Creatures inside it cannot attack those on the outside.
+Generate a sphere of thick fog for a limited time, the area is heavily obscured, penalizing creatures inside that rely on sight.
 
 # 133. - Fox's Cunning
 
@@ -544,7 +544,7 @@ Conjures a giant version of a natural insect or arthropod.
 
 # 137. - Globe Of Invulnerability
 
-A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it. 
+A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it.
 
 # 138. - Goodberry
 

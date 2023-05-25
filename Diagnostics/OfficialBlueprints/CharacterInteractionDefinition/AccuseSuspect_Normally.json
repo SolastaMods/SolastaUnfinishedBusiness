@@ -10,8 +10,8 @@
     "description": "CharacterInteraction/&SuspectAccuseNormally",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7742c36126347064aa9232e8418828f8",
-      "m_SubObjectName": "Accuse_Normally",
+      "m_AssetGUID": "ef12dd3d5483696469a868712993d877",
+      "m_SubObjectName": "Accuse_V2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

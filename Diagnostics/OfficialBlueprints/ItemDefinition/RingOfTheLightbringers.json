@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    375,
+    500,
     0,
     0,
     0
@@ -58,13 +58,25 @@
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
         "parentUsage": "ByFunction",
-        "useAffinity": "IterationPerRecharge",
+        "useAffinity": "AtWill",
         "useAmount": 3,
         "rechargeRate": "Dawn",
         "durationType": "Instantaneous",
         "canOverchargeSpell": false,
         "type": "Spell",
         "spellDefinition": "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
+        "featureDefinitionPower": null
+      },
+      {
+        "$type": "DeviceFunctionDescription, Assembly-CSharp",
+        "parentUsage": "ByFunction",
+        "useAffinity": "AtWill",
+        "useAmount": 3,
+        "rechargeRate": "Dawn",
+        "durationType": "Instantaneous",
+        "canOverchargeSpell": false,
+        "type": "Spell",
+        "spellDefinition": "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
         "featureDefinitionPower": null
       }
     ],
@@ -213,6 +225,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -221,8 +234,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -1,15 +1,13 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
-  "parentCondition": "Definition:ConditionIncapacitated:24d96cfe3b77b9a4b951bfb0e02fc018",
+  "inDungeonEditor": false,
+  "parentCondition": "Definition:ConditionParalyzed:a775cb208dcfe8244bc724c2af40b4fa",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityParalyzedAdvantage:fc0d09e5c5ffd4a40a1ddbc2c5bd7c1f",
-    "Definition:CombatAffinityParalyzedAutoCrit:370440ae8dc98be43b3efc2c839fc266"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Minute",
@@ -264,12 +262,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionRestrainedTitle",
-    "description": "Rules/&ConditionRestrainedDescription",
+    "title": "Rules/&ConditionParalyzedTitle",
+    "description": "Rules/&ConditionParalyzedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
-      "m_SubObjectName": "ConditionRestrained",
+      "m_AssetGUID": "cfdf2152d04bcff41aab30fd13412ad6",
+      "m_SubObjectName": "ConditionIncapacitated",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

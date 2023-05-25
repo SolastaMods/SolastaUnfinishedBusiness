@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Primed_Maul:5042ab5ffb17bc84cb37cca3bbfd107d",
   "stackCount": 1,
   "craftingHours": 8,

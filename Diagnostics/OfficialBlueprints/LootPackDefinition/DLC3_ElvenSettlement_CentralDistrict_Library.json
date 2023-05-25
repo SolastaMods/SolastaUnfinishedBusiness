@@ -1,0 +1,66 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 2,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:GlitterJacket:1ede265b56e362d40ad8f97684224685",
+      "treasureTableDefinition": "Definition:DLC3_RandomTreasureTableB_Scrolls:eb6c3228584269248b75d03ca8d5cbff",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_ElvenSettlements_Lore_TheSchism:4861699aa0b85dc459ad09fb9f0e6ff5",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:DLC3_ElvenSettlements_Lore_Dragons:78a021ef5af013246917af2198edb091",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2",
+      "autoIdentify": false
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "493bdc144e6d0884d818ede6f9ff8585",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_ElvenSettlement_CentralDistrict_Library"
+}

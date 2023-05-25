@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_Medusa_Coral:938f014028419994d8f33964bcb6d9fa",
   "stackCount": 1,
   "craftingHours": 16,

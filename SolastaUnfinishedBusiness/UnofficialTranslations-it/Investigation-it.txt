@@ -1,0 +1,10 @@
+Investigation/&DLC3_Garrads_Title=I vecchi progetti di Ettore
+Investigation/&DLC3_Garrads_Description=Come suggerito da Violet, stai cercando di determinare se Soraks si è davvero infiltrato nel castello di Garrad.
+Investigation/&DLC3_Undermountain_Investigation_Title=Voci persistenti e segreti sepolti
+Investigation/&DLC3_Undermountain_Investigation_Description=La decisione di Ettiven di condannare il pozzo, oltre alle voci insistenti sull'infiltrazione di Sorak, ti spinge a indagare e vedere se c'è qualcosa che minaccia Turvaamalinn dall'interno.
+Investigation/&DLC3_WhiteCity_Title=Il Sabotatore
+Investigation/&DLC3_WhiteCity_Description=Uno degli ingegneri di White Rock City sospetta che un sabotatore si sia infiltrato in città e chiede il tuo aiuto per smascherarlo.
+Investigation/&DLC3_ElvenSettlements_Title=Ladri con artigli
+Investigation/&DLC3_ElvenSettlements_Description=Diverse rapine sono avvenute intorno all'insediamento, sia nelle case che nei negozi. Un cittadino preoccupato di nome Liliel Oakmoss ti ha chiesto di indagare.
+Investigation/&DLC3_Gallivan_Title=Agente dormiente
+Investigation/&DLC3_Gallivan_Description=Il capitano Ashdown sospetta fortemente che qualcuno stia divulgando informazioni strategiche al nemico. Gli attacchi vengono sempre lanciati al momento giusto e nel posto giusto, quindi potrebbe trattarsi di un lavoro interno.

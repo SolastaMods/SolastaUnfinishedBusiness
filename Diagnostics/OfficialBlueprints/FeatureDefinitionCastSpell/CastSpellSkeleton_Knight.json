@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListSkeletonKnight:2cf69c80c16344b48a7bba0267254b89",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 7,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     0,
@@ -278,6 +280,7 @@
   ],
   "focusType": "None",
   "hasAccessToInvocations": false,
+  "cannotUpcast": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -667,6 +667,7 @@ internal static partial class SpellBuilders
                     conditionDefinition = ConditionDefinitionBuilder
                         .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
                         .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                        .SetParentCondition(ConditionDefinitions.ConditionFrightened)
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })

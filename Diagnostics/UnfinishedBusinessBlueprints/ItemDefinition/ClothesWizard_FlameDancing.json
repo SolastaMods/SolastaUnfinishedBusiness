@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2350,
+    8010,
     0,
     0,
     0
@@ -198,6 +198,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": false,
@@ -208,6 +209,8 @@
       "Shape",
       "Nothing",
       "Shape",
+      "Armor",
+      "Armor",
       "Armor",
       "Armor",
       "Armor",
@@ -223,13 +226,14 @@
       "Both",
       "Armor",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -237,8 +241,8 @@
     "description": "Item/&ClothesWizard_FlameDancing_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a2722d3652222ad459c201ff62787697",
-      "m_SubObjectName": "AdventuringWizardOutfit_female",
+      "m_AssetGUID": "d542b1dc2d24d1643a77c40b02422a63",
+      "m_SubObjectName": "AdventuringWizardOutfit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

@@ -12,5 +12,5 @@ Feature/&MetamagicFocusedSpellDescription=Quando lanci un incantesimo che richie
 Feature/&MetamagicFocusedSpellTitle=Incantesimo focalizzato
 Feature/&MetamagicPowerfulSpellDescription=Puoi spendere 1 punto stregoneria per livello dell'incantesimo per aumentare il numero di dadi di danno di 1.
 Feature/&MetamagicPowerfulSpellTitle=Potente Incantesimo
-Feature/&MetamagicWidenedSpellDescription=Puoi spendere 2 punti stregoneria per aumentare l'area dell'effetto di un incantesimo. Gli incantesimi che hanno un'area d'effetto conica, cubica, cilindrica o sferica aumentano di dimensioni, all'incremento di 1,5 metri più vicino.
+Feature/&MetamagicWidenedSpellDescription=Puoi spendere 2 punti stregoneria per aumentare l'area dell'effetto di un incantesimo. Gli incantesimi che hanno un'area d'effetto conica, cubica, cilindrica o sferica aumentano di dimensione, all'incremento di 1,5 metri più vicino.
 Feature/&MetamagicWidenedSpellTitle=Incantesimo allargato

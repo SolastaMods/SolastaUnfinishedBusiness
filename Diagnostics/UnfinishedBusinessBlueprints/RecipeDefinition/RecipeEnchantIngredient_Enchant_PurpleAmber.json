@@ -1,5 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Ingredient_Enchant_PurpleAmber:5e85e553c21339546b360ac82961dfab",
   "stackCount": 1,
   "craftingHours": 16,

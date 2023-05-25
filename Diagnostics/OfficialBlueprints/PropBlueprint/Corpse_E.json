@@ -1,7 +1,7 @@
 {
   "$type": "PropBlueprint, Assembly-CSharp",
   "groundPlacement": true,
-  "groundLowPlacement": false,
+  "groundLowPlacement": true,
   "groundHighPlacement": true,
   "wallPlacement": false,
   "openingPlacement": true,
@@ -140,6 +140,36 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "15493ce4ced249d4282d20bed87de931",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "SnowyForest",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "0326090adb7dc524ba7cfb6b76112a06",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "a6f79bfa364319d4ca892079855f2f79",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfOutdoor",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "57cd55ecba4bc514ea49463e21db08f6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

@@ -1,16 +1,22 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionChilled:fff1fdd70a2b7464ca19605fb9b19694",
+  "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
     "Definition:MovementAffinityConditionFrozen:f381404a8ef2d9146b091942468d1710",
     "Definition:SavingThrowAffinityConditionFrozen:8b7635c35317bc7408607e4c15900f28",
-    "Definition:AbilityCheckAffinity_ConditionFrozen:6f36206a684ad294e868b61b765813eb"
+    "Definition:AbilityCheckAffinity_ConditionFrozen:6f36206a684ad294e868b61b765813eb",
+    "Definition:MovementAffinityConditionChilled:cf9553af959fa864f883fb6d3bf7460e",
+    "Definition:SavingThrowAffinityConditionChilled:29a67b2fbf1586148bcbd8ff41367755",
+    "Definition:AbilityCheckAffinity_ConditionChilled:2564ce576de078346a00cc712fead1e5",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
+  "silentWhenRefreshed": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -265,12 +271,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ChilledBaby",
-    "description": "Rules/&ConditionBlindedDescription",
+    "title": "Rules/&ConditionFrozenTitle",
+    "description": "Rules/&ConditionFrozenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
-      "m_SubObjectName": "ConditionBlinded",
+      "m_AssetGUID": "7c2a423570022644c9ebcd59b3a29ffc",
+      "m_SubObjectName": "ConditionFrozen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

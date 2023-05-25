@@ -140,9 +140,6 @@ internal static class GuardianAuraHpSwap
                 new RollInfo(RuleDefinitions.DieType.D1, new List<int>(), damageAmount),
                 true,
                 out _);
-
-            unit.RulesetCharacter.SustainDamage(
-                damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
         }
 
         GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, DummyAuraGuardianPower,

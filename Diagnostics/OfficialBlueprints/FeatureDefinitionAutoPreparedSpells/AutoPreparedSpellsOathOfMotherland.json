@@ -25,6 +25,14 @@
         "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
         "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:WallOfFire:c44e8ec6d1e888e47bbd40981b7a605d",
+        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",

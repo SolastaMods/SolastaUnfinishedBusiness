@@ -4,7 +4,7 @@
   "groundLowPlacement": true,
   "groundHighPlacement": false,
   "wallPlacement": false,
-  "openingPlacement": false,
+  "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
   "propPlacement": false,
@@ -30,6 +30,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d894aab564e587b47adc86ababae2629",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "MountainCave",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "e393c29dc5b3daa408ad5a0078cebf0f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

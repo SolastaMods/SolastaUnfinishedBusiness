@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Giant",
   "creatureTags": [],
@@ -77,7 +77,35 @@
     "Language_Common",
     "Language_Giant"
   ],
-  "audioSwitches": [],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "Default",
+        "id": 782826392,
+        "guid": "DA107412-131C-41FA-A730-5C09015AACE1",
+        "name": "DA107412-131C-41FA-A730-5C09015AACE1"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 45.0,
   "challengeRating": 13.0,
@@ -91,7 +119,10 @@
     "Definition:DamageAffinityThunderImmunity:5835d7e62c97afc4eaeae24ed7873d58",
     "Definition:DamageAffinityLightningImmunity:9acb6e13145079c40a27012146696746",
     "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:PowerStormGiantLightningBolt:94f06fd0ed4d60e4d981de2079c351f5"
+    "Definition:PowerStormGiantLightningBolt:94f06fd0ed4d60e4d981de2079c351f5",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a",
+    "Definition:ConditionAffinityWeatherChilledInsteadOfFrozenImmunity:b63fc74bef7f98047b90c40a724a4f10"
   ],
   "attackIterations": [
     {
@@ -118,7 +149,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -181,10 +212,8 @@
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
-    "hasPrefabVariants": true,
-    "monsterPresentationDefinitions": [
-      "Definition:Giant_Fire_Presentation:b8e1db5a1e3612543ac2858074a4afcb"
-    ],
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
       "m_AssetGUID": "2351ec8d0f454e04ebcc2826e16f6ed5",
@@ -257,6 +286,6 @@
   },
   "contentCopyright": "OpenGameContentModified",
   "guid": "771dc5dcddcf7a24f827ef94fff5335f",
-  "contentPack": "PalaceOfIce",
+  "contentPack": "LostValley",
   "name": "Giant_Storm"
 }
