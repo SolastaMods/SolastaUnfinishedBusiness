@@ -435,7 +435,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpellRanger { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellRanger");
         internal static FeatureDefinitionCastSpell CastSpellShadowcaster { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellShadowcaster");
         internal static FeatureDefinitionCastSpell CastSpellSorcerer { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellSorcerer");
-        internal static FeatureDefinitionCastSpell CastSpellTiefling { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellTiefling    ");
+        internal static FeatureDefinitionCastSpell CastSpellTiefling { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellTiefling");
         internal static FeatureDefinitionCastSpell CastSpellTraditionLight { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellTraditionLight");
         internal static FeatureDefinitionCastSpell CastSpellWarlock { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellWarlock");
         internal static FeatureDefinitionCastSpell CastSpellWizard { get; } = GetDefinition<FeatureDefinitionCastSpell>("CastSpellWizard");
