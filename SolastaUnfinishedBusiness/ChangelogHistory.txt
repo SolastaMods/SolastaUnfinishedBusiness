@@ -4,7 +4,9 @@
 
 ATTENTION: only accept this after you update your base game to 1.5.x
 
-- added "Attackers with Darkvision have ADV over defenders without" setting [HIEROT]
+SPECIAL THANKS TO @HiddenHax FOR ALL RELENTLESS QA WORK OVER THE LAST MONTHS!
+
+- added "Attackers with Darkvision have ADV over defenders without" setting by @HEIROT
 - added Domain Smith's blessed metal at 17th
 - added improved range aura to all mod and vanilla Oaths at 18th
 - added Innovation Armorer's perfected armor at 15th
@@ -22,6 +24,19 @@ ATTENTION: only accept this after you update your base game to 1.5.x
 - fixed Element Conduit using strength instead of dexterity on saving DC
 - fixed Wight Lord's retaliate power allowing infinite number of uses
 - updated Flexible Races to support new gnomes and tiefling
+
+PALACE OF ICE FAQ:
+
+1. Do Inventors get a customized chest on POI? Yes.
+2. How can I import a campaign if "saves by location" is enabled? First select the location on the Load Game UI.
+3. How can I import heroes above level 12? Enable bypass min/max levels under Gameplay > Tools
+4. Why I cannot load any save with UB Gnomes or Tieflings? You have to acquire the POI DLC from now on to use them.
+5. Why I cannot find a hero or save file? You missed RESPEC alerts in the changelog... Changelog?!? Yea, I know.
+6. Why this mod sucks, it ruined my life, and you are heartless about it? Please reach out to wecare@shred.dept.hell.
+
+************************************************************************************************************************
+* MARK: GAME MINOR VERSION CHANGE FROM 1.4 to 1.5
+************************************************************************************************************************
 
 1.4.33.91:
 
