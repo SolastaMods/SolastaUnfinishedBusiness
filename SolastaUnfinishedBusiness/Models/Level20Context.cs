@@ -669,7 +669,7 @@ internal static class Level20Context
             });
 
             CastSpellTiefling.KnownCantrips[level] = 1;
-            
+
             // Gnome
             CastSpellGnomeShadow.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
@@ -677,7 +677,7 @@ internal static class Level20Context
             });
 
             CastSpellGnomeShadow.KnownCantrips[level] = 1;
-            
+
             // Tradition Light
             CastSpellTraditionLight.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
