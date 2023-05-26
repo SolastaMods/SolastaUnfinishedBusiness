@@ -30,10 +30,17 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
 
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
-    private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
-    private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
-    private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2;
+
+    private static ItemDefinition
+        Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdPlus3, HalberdLightning;
+
+    private static ItemDefinition
+        Pike, PikePrimed, PikePlus1, PikePlus2, PikePlus3, PikePsychic;
+
+    private static ItemDefinition
+        LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMacePlus3, LongMaceThunder;
+
+    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
     internal static ItemDefinition HandXbowAcid;
 
     internal static void Load()
@@ -239,7 +246,7 @@ internal static class CustomWeaponsContext
             HalberdPrimed,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), ShopItemType.ShopCrafting);
 
-        var itemDefinition = ItemDefinitions.BattleaxePlus1;
+        var itemDefinition = ItemDefinitions.BattleaxePlus2;
 
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, VeryRare,
@@ -249,6 +256,19 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(HalberdPlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus2, 48, 16,
             HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
+        itemDefinition = ItemDefinitions.BattleaxePlus3;
+
+        HalberdPlus3 = BuildWeapon("CEHalberd+3", Halberd,
+            5000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: HalberdP3Icon,
+            properties: new[] { WeaponPlus3 });
+        HalberdPlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(HalberdPlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus3, 96, 20,
+            HalberdPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
@@ -332,6 +352,21 @@ internal static class CustomWeaponsContext
             PikePrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
+        itemDefinition = ItemDefinitions.MorningstarPlus3;
+
+        PikePlus3 = BuildWeapon("CEPike+3", Pike,
+            5000, true, VeryRare,
+            itemDefinition.ItemPresentation,
+            icon: PikeP3Icon,
+            properties: new[] { WeaponPlus3 });
+        PikePlus3.SetCustomSubFeatures(scale);
+        PikePlus3.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
+        MerchantContext.AddItem(PikePlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus3, 96, 20,
+            PikePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, VeryRare,
             itemDefinition.ItemPresentation,
@@ -408,6 +443,19 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(LongMacePlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus2, 48, 16,
             LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
+        itemDefinition = ItemDefinitions.MacePlus3;
+
+        LongMacePlus3 = BuildWeapon("CELongMace+3", LongMace,
+            5000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: LongMaceP3Icon,
+            properties: new[] { WeaponPlus3 });
+        LongMacePlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(LongMacePlus3, ShopItemType.ShopMeleePlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus3, 96, 20,
+            LongMacePrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
@@ -493,6 +541,16 @@ internal static class CustomWeaponsContext
         HandXbowPlus2.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus2, ShopItemType.ShopRangedPlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus2, 48, 16,
+            HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
+
+        HandXbowPlus3 = BuildWeapon("CEHandXbow+3", HandXbow,
+            5000, true, VeryRare,
+            itemDefinition.ItemPresentation, icon: HandXbowP3Icon, twoHanded: false,
+            properties: new[] { WeaponPlus3 });
+        HandXbowPlus3.SetCustomSubFeatures(scale);
+        MerchantContext.AddItem(HandXbowPlus3, ShopItemType.ShopRangedPlus3);
+        MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus3, 96, 20,
             HandXbowPrimed,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
@@ -685,10 +743,12 @@ internal static class CustomWeaponsContext
 
     #region Halberd Icons
 
-    private static AssetReferenceSprite _halberdIcon,
+    private static AssetReferenceSprite
+        _halberdIcon,
         _halberdPrimedIcon,
         _halberdP1Icon,
         _halberdP2Icon,
+        _halberdP3Icon,
         _halberdLightningIcon;
 
     [NotNull]
@@ -708,6 +768,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("Halberd_2", Resources.Halberd_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite HalberdP3Icon => _halberdP3Icon ??=
+        Sprites.GetSprite("Halberd_3", Resources.Halberd_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
         Sprites.GetSprite("HalberdLightning", Resources.HalberdLightning, 128);
 
@@ -715,10 +779,12 @@ internal static class CustomWeaponsContext
 
     #region Pike Icons
 
-    private static AssetReferenceSprite _pikeIcon,
+    private static AssetReferenceSprite
+        _pikeIcon,
         _pikePrimedIcon,
         _pikeP1Icon,
         _pikeP2Icon,
+        _pikeP3Icon,
         _pikeLightningIcon;
 
     [NotNull]
@@ -738,6 +804,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("Pike_2", Resources.Pike_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite PikeP3Icon => _pikeP3Icon ??=
+        Sprites.GetSprite("Pike_3", Resources.Pike_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
         Sprites.GetSprite("PikePsychic", Resources.PikePsychic, 128);
 
@@ -745,10 +815,12 @@ internal static class CustomWeaponsContext
 
     #region Long Mace Icons
 
-    private static AssetReferenceSprite _longMaceIcon,
+    private static AssetReferenceSprite
+        _longMaceIcon,
         _longMacePrimedIcon,
         _longMaceP1Icon,
         _longMaceP2Icon,
+        _longMaceP3Icon,
         _longMaceLightningIcon;
 
     [NotNull]
@@ -768,6 +840,10 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("LongMace_2", Resources.LongMace_2, 128);
 
     [NotNull]
+    private static AssetReferenceSprite LongMaceP3Icon => _longMaceP3Icon ??=
+        Sprites.GetSprite("LongMace_3", Resources.LongMace_2, 128);
+
+    [NotNull]
     private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
         Sprites.GetSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
 
@@ -779,6 +855,7 @@ internal static class CustomWeaponsContext
         _handXbowPrimedIcon,
         _handXbowP1Icon,
         _handXbowP2Icon,
+        _handXbowP3Icon,
         _handXbowAcidIcon;
 
     [NotNull]
@@ -796,6 +873,10 @@ internal static class CustomWeaponsContext
     [NotNull]
     private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
         Sprites.GetSprite("HandXbow_2", Resources.HandXbow_2, 128);
+
+    [NotNull]
+    private static AssetReferenceSprite HandXbowP3Icon => _handXbowP3Icon ??=
+        Sprites.GetSprite("HandXbow_3", Resources.HandXbow_2, 128);
 
     [NotNull]
     private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=

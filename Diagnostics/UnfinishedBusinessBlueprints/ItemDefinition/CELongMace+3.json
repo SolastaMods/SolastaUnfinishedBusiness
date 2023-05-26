@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2500,
+    5000,
     0,
     0,
     0
@@ -31,7 +31,7 @@
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": false,
-  "requiresIdentification": false,
+  "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "VeryRare",
   "incompatibleWithMonkReturnMissile": false,
@@ -40,15 +40,7 @@
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": true,
       "type": "Feature",
-      "featureDefinition": "Definition:AttackImpactThunderwaveSpellVFX:d3f1e7b6-7e3c-5574-8b3b-7fa1099791c4",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
-    },
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
-      "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
+      "featureDefinition": "Definition:AttackModifierWeapon+3:e6770bc63f57e204aa0728fa523640bf",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     }
@@ -151,41 +143,6 @@
             "versatileDieType": "D10",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
-            "ancestryType": "Sorcerer",
-            "healFromInflictedDamage": "Never",
-            "hitPointsFloor": 0,
-            "forceKillOnZeroHp": false,
-            "specialDeathCondition": null,
-            "ignoreFlyingCharacters": false,
-            "ignoreCriticalDoubleDice": false
-          },
-          "hasFilterId": false,
-          "filterId": 0
-        },
-        {
-          "$type": "EffectForm, Assembly-CSharp",
-          "formType": "Damage",
-          "addBonusMode": "None",
-          "applyLevel": "No",
-          "levelType": "ClassLevel",
-          "levelMultiplier": 1,
-          "diceByLevelTable": [],
-          "createdByCharacter": false,
-          "createdByCondition": false,
-          "hasSavingThrow": false,
-          "savingThrowAffinity": "None",
-          "dcModifier": 0,
-          "canSaveToCancel": false,
-          "saveOccurence": "EndOfTurn",
-          "damageForm": {
-            "$type": "DamageForm, Assembly-CSharp",
-            "versatile": false,
-            "diceNumber": 1,
-            "dieType": "D8",
-            "overrideWithBardicInspirationDie": false,
-            "versatileDieType": "D1",
-            "bonusDamage": 0,
-            "damageType": "DamageThunder",
             "ancestryType": "Sorcerer",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
@@ -517,7 +474,7 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&CELongMaceThunderUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&CELongMace+3UnidentifiedTitle",
     "unidentifiedDescription": "Feature/&NoContentTitle",
     "overrideSubtype": "None",
     "assetReference": {
@@ -547,11 +504,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&CELongMaceThunderTitle",
+    "title": "Item/&CELongMace+3Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "69769794-4a70-590b-ac4b-bf2ffb81b8f7",
+      "m_AssetGUID": "7f213f15-cef4-5df0-96a0-53cbcefe7f78",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -568,7 +525,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5f088af4-73a3-548b-b400-32d6a9995bc7",
+  "guid": "1134a9c2-c1b8-57d8-a36e-2b5d96ba1c01",
   "contentPack": 9999,
-  "name": "CELongMaceThunder"
+  "name": "CELongMace+3"
 }

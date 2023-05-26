@@ -390,6 +390,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus1 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+1");
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus1AT { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+1AT");
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus2 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+2");
+        internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus3 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+3");
     }
     internal static class FeatureDefinitionAttributeModifiers
     {
@@ -843,7 +844,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Backpack_Handy_Haversack { get; } = GetDefinition<ItemDefinition>("Backpack_Handy_Haversack");
         internal static ItemDefinition BarbarianClothes { get; } = GetDefinition<ItemDefinition>("BarbarianClothes");
         internal static ItemDefinition Battleaxe { get; } = GetDefinition<ItemDefinition>("Battleaxe");
-        internal static ItemDefinition BattleaxePlus1 { get; } = GetDefinition<ItemDefinition>("Battleaxe+1");
+        internal static ItemDefinition BattleaxePlus2 { get; } = GetDefinition<ItemDefinition>("Battleaxe+2");
+        internal static ItemDefinition BattleaxePlus3 { get; } = GetDefinition<ItemDefinition>("Battleaxe+3");
         internal static ItemDefinition BeltOfGiantHillStrength { get; } = GetDefinition<ItemDefinition>("BeltOfGiantHillStrength");
         internal static ItemDefinition BeltOfRegeneration { get; } = GetDefinition<ItemDefinition>("BeltOfRegeneration");
         internal static ItemDefinition Berry_Ration { get; } = GetDefinition<ItemDefinition>("Berry_Ration");
@@ -1001,10 +1003,12 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition LongswordPlus2 { get; } = GetDefinition<ItemDefinition>("Longsword+2");
         internal static ItemDefinition Mace { get; } = GetDefinition<ItemDefinition>("Mace");
         internal static ItemDefinition MacePlus2 { get; } = GetDefinition<ItemDefinition>("Mace+2");
+        internal static ItemDefinition MacePlus3 { get; } = GetDefinition<ItemDefinition>("Mace+3");
         internal static ItemDefinition Maul { get; } = GetDefinition<ItemDefinition>("Maul");
         internal static ItemDefinition MonkArmor { get; } = GetDefinition<ItemDefinition>("MonkArmor");
         internal static ItemDefinition Morningstar { get; } = GetDefinition<ItemDefinition>("Morningstar");
         internal static ItemDefinition MorningstarPlus2 { get; } = GetDefinition<ItemDefinition>("Morningstar+2");
+        internal static ItemDefinition MorningstarPlus3 { get; } = GetDefinition<ItemDefinition>("Morningstar+3");
         internal static ItemDefinition PaddedLeather { get; } = GetDefinition<ItemDefinition>("PaddedLeather");
         internal static ItemDefinition PipesOfHaunting { get; } = GetDefinition<ItemDefinition>("PipesOfHaunting");
         internal static ItemDefinition Plate { get; } = GetDefinition<ItemDefinition>("Plate");
