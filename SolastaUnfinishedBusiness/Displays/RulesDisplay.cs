@@ -48,13 +48,13 @@ internal static class RulesDisplay
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
             SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         }
-        
+
         toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
         if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
-            SrdAndHouseRulesContext.FixDarknessSpell();
+            SrdAndHouseRulesContext.SwitchDarknessSpell();
         }
 
         UI.Label();
