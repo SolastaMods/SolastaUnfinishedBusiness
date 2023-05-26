@@ -38,7 +38,6 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixWildshapeGroupAttacks();
-        FixDarknessImplementation();
 
         // avoid folks tweaking max party size directly on settings as we don't need to stress cloud servers
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
@@ -58,16 +57,6 @@ internal static class FixesContext
 
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
-    }
-
-    private static void FixDarknessImplementation()
-    {
-        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
-        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
-        // so here we remove this immunity
-        if (!Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout) return;
-        FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
-        FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType = ConditionAffinityType.None;
     }
 
     private static void FixColorTables()

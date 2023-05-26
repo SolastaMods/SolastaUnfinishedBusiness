@@ -54,6 +54,7 @@ internal static class RulesDisplay
                 UI.AutoWidth()))
         {
             Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
+            SrdAndHouseRulesContext.FixDarknessSpell();
         }
 
         UI.Label();
