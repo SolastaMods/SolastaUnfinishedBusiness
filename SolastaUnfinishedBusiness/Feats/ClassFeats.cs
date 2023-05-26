@@ -101,7 +101,7 @@ internal static class ClassFeats
                     EffectDescriptionBuilder
                         .Create()
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                        .SetDurationData(DurationType.Round, 1)
+                        .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
@@ -109,7 +109,8 @@ internal static class ClassFeats
                                     ConditionDefinitionBuilder
                                         .Create($"Condition{NAME}")
                                         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                                        .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                                        .SetSpecialInterruptions(
+                                            ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
                                         .SetPossessive()
                                         .SetFeatures(
                                             FeatureDefinitionMovementAffinityBuilder

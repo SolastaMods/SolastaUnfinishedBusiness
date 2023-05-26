@@ -591,8 +591,8 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}Finish")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -1066,7 +1066,7 @@ internal static class MeleeCombatFeats
                     attackModifier.AttacktoHitTrends,
                     new List<TrendInfo>());
 
-                if (lowOutcome is (RollOutcome.Success or RollOutcome.CriticalSuccess))
+                if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                 {
                     var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
@@ -1334,8 +1334,8 @@ internal static class MeleeCombatFeats
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
                     .SetFeatures(
                         FeatureDefinitionDieRollModifierBuilder
                             .Create("DieRollModifierFeatPiercerNonMagic")
