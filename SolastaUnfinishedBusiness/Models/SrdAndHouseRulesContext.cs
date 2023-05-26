@@ -365,6 +365,23 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    internal static void FixDarknessSpell()
+    {
+        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
+        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
+        // so here we remove this immunity
+        if (Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType = ConditionAffinityType.None;
+        }
+        else
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.Disadvantage;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType = ConditionAffinityType.Immunity;
+        }
+    }
+
     internal static void SwitchEldritchBlastRange()
     {
         EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;

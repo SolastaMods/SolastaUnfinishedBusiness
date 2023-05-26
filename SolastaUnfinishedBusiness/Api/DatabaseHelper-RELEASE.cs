@@ -1,4 +1,4 @@
-// manually generated on 04/10/23
+﻿// manually generated on 04/10/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -460,6 +460,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
         internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
+        internal static FeatureDefinitionCombatAffinity CombatAffinityVeil { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityVeil");
     }
     internal static class FeatureDefinitionConditionAffinitys
     {
@@ -483,6 +484,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPoisonImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityProneImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProneImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityInvocationDevilsSight");
     }
     internal static class FeatureDefinitionDamageAffinitys
     {
