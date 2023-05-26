@@ -3,8 +3,10 @@
 1.5.46.2:
 
 - added Halberd +3, Hand Crossbow +3, Long Mace +3, and Pike +3 weapons and recipes
-- fixed custom races and spell sniper spells display on inspection panel and caster UI
+- fixed Call for Charge, Piercer, and Steady Aim feats setting incorrect Attacked interruption
+- fixed custom races and spell sniper spells display on inspection panel and caster action UI
 - fixed Devastating Strikes feat to always roll a dice on critical regardless of advantage
+- fixed Eldritch Smite only triggering on critical hits [for the 3rd time, really? Ronaldo's hat trick]
 - fixed Fighter Weapon Specialization not granting +1s if not taken from a Martial Weapon Master
 - fixed forced level up modal on Palace of the Ice campaign not working with parties greater than 4
 - fixed Martial Weapon Master's perfect strikes not checking for active focused strikes
