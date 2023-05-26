@@ -660,15 +660,31 @@ internal static class Level20Context
             }
         }
 
-        CastSpellGnomeShadow.slotsPerLevels.AddRange(CastSpellElfHigh.slotsPerLevels);
-
         for (var level = 17; level <= 20; level++)
         {
+            // Tiefling
             CastSpellTiefling.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level,
-                Slots = CastSpellTiefling.slotsPerLevels[15].slots
+                Level = level, Slots = CastSpellTiefling.slotsPerLevels[15].slots
             });
+
+            CastSpellTiefling.KnownCantrips[level] = 1;
+            
+            // Gnome
+            CastSpellGnomeShadow.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = CastSpellGnomeShadow.slotsPerLevels[15].slots
+            });
+
+            CastSpellGnomeShadow.KnownCantrips[level] = 1;
+            
+            // Tradition Light
+            CastSpellTraditionLight.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = CastSpellTraditionLight.slotsPerLevels[15].slots
+            });
+
+            CastSpellTraditionLight.KnownCantrips[level] = 2;
         }
     }
 

@@ -239,7 +239,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Halberd, HalberdPrimed), ShopItemType.ShopCrafting);
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            1500, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: HalberdP1Icon, properties: new[] { WeaponPlus1 });
         HalberdPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HalberdPlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HalberdPlus1, 12, 14,
@@ -330,7 +330,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            1500, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
         PikePlus1.SetCustomSubFeatures(scale);
         PikePlus1.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(PikePlus1, ShopItemType.ShopMeleePlus1);
@@ -426,7 +426,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(LongMace, LongMacePrimed), ShopItemType.ShopCrafting);
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            1500, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
+            1050, true, Rare, icon: LongMaceP1Icon, properties: new[] { WeaponPlus1 });
         LongMacePlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(LongMacePlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(LongMacePlus1, 12, 14,
@@ -524,7 +524,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(HandXbow, HandXbowPrimed), ShopItemType.ShopCrafting);
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
-            1500, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
+            1050, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
             properties: new[] { WeaponPlus1 });
         HandXbowPlus1.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(HandXbowPlus1, ShopItemType.ShopRangedPlus1);

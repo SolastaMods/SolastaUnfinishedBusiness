@@ -1075,13 +1075,7 @@ internal static class MeleeCombatFeats
 
                     if (strengthMod > 0 || dexterityMod > 0)
                     {
-                        GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
-                            DevastatingStrikesTitle,
-                            "Feedback/&FeatFeatFellHandedDisadvantage",
-                            tooltipContent: DevastatingStrikesDescription);
-
                         bonusDamage = Math.Max(strengthMod, dexterityMod);
-                        ;
                     }
                 }
             }
@@ -1115,6 +1109,10 @@ internal static class MeleeCombatFeats
                 rolls.Add(dieRoll);
             }
 
+            GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                DevastatingStrikesTitle,
+                "Feedback/&FeatFeatFellHandedDisadvantage",
+                tooltipContent: DevastatingStrikesDescription);
             RulesetActor.InflictDamage(
                 dieRoll + bonusDamage,
                 damage,
