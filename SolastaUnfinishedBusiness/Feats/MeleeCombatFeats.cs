@@ -591,8 +591,8 @@ internal static class MeleeCombatFeats
             .Create($"Condition{Name}Finish")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacked)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -670,11 +670,11 @@ internal static class MeleeCombatFeats
 
     private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, ITargetReducedToZeroHp
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
-        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionDefinition)
+        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionCleavingAttackFinish)
         {
-            _conditionDefinition = conditionDefinition;
+            _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
         }
 
         public void OnAttackEffectAfterDamage(
@@ -733,10 +733,10 @@ internal static class MeleeCombatFeats
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
             rulesetCharacter.InflictCondition(
-                _conditionDefinition.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                _conditionCleavingAttackFinish.Name,
+                _conditionCleavingAttackFinish.DurationType,
+                _conditionCleavingAttackFinish.DurationParameter,
+                _conditionCleavingAttackFinish.TurnOccurence,
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
@@ -1021,8 +1021,14 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode?.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            if (attackMode == null || outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                return;
+            }
+
+            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (originalDamageForm == null)
             {
                 return;
             }
@@ -1035,57 +1041,46 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-
-            if (attackModifier.AttackAdvantageTrend <= 0)
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
             }
 
-            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            var bonusDamage = 0;
+
+            if (attackModifier.AttackAdvantageTrend > 0)
             {
-                return;
+                var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
+                var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
+                var lowOutcome = GameLocationBattleManagerTweaks.GetAttackResult(lowerRoll, modifier, rulesetDefender);
+
+                Gui.Game.GameConsole.AttackRolled(
+                    rulesetAttacker,
+                    rulesetDefender,
+                    attackMode.SourceDefinition,
+                    lowOutcome,
+                    lowerRoll + modifier,
+                    lowerRoll,
+                    modifier,
+                    attackModifier.AttacktoHitTrends,
+                    new List<TrendInfo>());
+
+                if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                {
+                    var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
+                    var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+                    var dexterity = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity);
+                    var dexterityMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
+
+                    if (strengthMod > 0 || dexterityMod > 0)
+                    {
+                        bonusDamage = Math.Max(strengthMod, dexterityMod);
+                    }
+                }
             }
 
-            var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-            var lowOutcome =
-                GameLocationBattleManagerTweaks.GetAttackResult(lowerRoll, modifier, rulesetDefender);
-
-            Gui.Game.GameConsole.AttackRolled(
-                rulesetAttacker,
-                rulesetDefender,
-                attackMode.SourceDefinition,
-                lowOutcome,
-                lowerRoll + modifier,
-                lowerRoll,
-                modifier,
-                attackModifier.AttacktoHitTrends,
-                new List<TrendInfo>());
-
-            if (lowOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
-            {
-                return;
-            }
-
-            var strength = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength);
-            var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
-            var dexterity = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Dexterity);
-            var dexterityMod = AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
-
-            if (strengthMod <= 0 && dexterityMod <= 0)
-            {
-                return;
-            }
-
-            GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
-                //TODO: move this feedback term to others-en.txt
-                DevastatingStrikesTitle,
-                "Feedback/&FeatFeatFellHandedDisadvantage",
-                tooltipContent: DevastatingStrikesDescription);
-
-            var originalDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
-
-            if (originalDamageForm == null)
+            if (bonusDamage == 0 && outcome is not RollOutcome.CriticalSuccess)
             {
                 return;
             }
@@ -1095,9 +1090,9 @@ internal static class MeleeCombatFeats
             var damage = new DamageForm
             {
                 DamageType = originalDamageForm.DamageType,
-                DieType = DieType.D1,
+                DieType = originalDamageForm.DieType,
                 DiceNumber = 0,
-                BonusDamage = Math.Max(strengthMod, dexterityMod)
+                BonusDamage = bonusDamage
             };
 
             if (outcome is RollOutcome.CriticalSuccess)
@@ -1110,13 +1105,16 @@ internal static class MeleeCombatFeats
                 };
 
                 dieRoll = RollDie(originalDamageForm.DieType, advantageType, out _, out _);
-                damage.DieType = originalDamageForm.DieType;
                 damage.DiceNumber = 1;
                 rolls.Add(dieRoll);
             }
 
+            GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                DevastatingStrikesTitle,
+                "Feedback/&FeatFeatFellHandedDisadvantage",
+                tooltipContent: DevastatingStrikesDescription);
             RulesetActor.InflictDamage(
-                dieRoll + strengthMod,
+                dieRoll + bonusDamage,
                 damage,
                 damage.DamageType,
                 new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
@@ -1125,7 +1123,7 @@ internal static class MeleeCombatFeats
                 attacker.Guid,
                 false,
                 attackMode.AttackTags,
-                new RollInfo(damage.DieType, rolls, strengthMod),
+                new RollInfo(damage.DieType, rolls, bonusDamage),
                 true,
                 out _);
         }
@@ -1336,8 +1334,8 @@ internal static class MeleeCombatFeats
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
                     .SetFeatures(
                         FeatureDefinitionDieRollModifierBuilder
                             .Create("DieRollModifierFeatPiercerNonMagic")

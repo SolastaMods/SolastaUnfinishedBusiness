@@ -900,7 +900,7 @@ internal static class OtherFeats
                 .SetGuiPresentationNoContent(true)
                 .ClearSpells()
                 .SetSpellsAtLevel(0, spellSniperSpells)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells()
                 .AddToDB();
 
             var featSpellSniper = FeatDefinitionBuilder

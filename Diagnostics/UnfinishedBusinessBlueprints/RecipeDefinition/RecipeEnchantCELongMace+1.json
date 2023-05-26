@@ -3,8 +3,8 @@
   "dungeonMakerPresence": true,
   "craftedItem": "Definition:CELongMace+1:67b10fc2-68a1-53b6-8cd6-70420e22ea6b",
   "stackCount": 1,
-  "craftingHours": 24,
-  "craftingDC": 10,
+  "craftingHours": 12,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {

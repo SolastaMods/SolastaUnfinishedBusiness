@@ -8,7 +8,7 @@
   "spellListDefinition": "Definition:SpellListTieflingZariel:f41a1627-ba3d-5535-b0bb-b291680b3b70",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
-  "fixedSpellTag": null,
+  "fixedSpellTag": "Feature/&CastSpellTieflingFixedTagTitle",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
@@ -269,9 +269,9 @@
       ]
     }
   ],
-  "focusType": "Arcane",
+  "focusType": "None",
   "hasAccessToInvocations": false,
-  "cannotUpcast": false,
+  "cannotUpcast": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
