@@ -5,6 +5,7 @@
 - added Halberd +3, Hand Crossbow +3, Long Mace +3, and Pike +3 weapons and recipes
 - fixed Devastating Strikes feat to always roll a dice on critical regardless of advantage
 - fixed Martial Weapon Master's perfect strikes not checking for active focused strikes
+- fixed forced level up modal on Palace of the Ice campaign to work with parties greater than 4
 
 1.5.46.1:
 
