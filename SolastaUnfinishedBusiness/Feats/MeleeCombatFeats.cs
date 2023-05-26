@@ -592,7 +592,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -670,11 +670,11 @@ internal static class MeleeCombatFeats
 
     private sealed class AddExtraAttackFeatCleavingAttack : IAttackEffectAfterDamage, ITargetReducedToZeroHp
     {
-        private readonly ConditionDefinition _conditionDefinition;
+        private readonly ConditionDefinition _conditionCleavingAttackFinish;
 
-        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionDefinition)
+        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionCleavingAttackFinish)
         {
-            _conditionDefinition = conditionDefinition;
+            _conditionCleavingAttackFinish = conditionCleavingAttackFinish;
         }
 
         public void OnAttackEffectAfterDamage(
@@ -733,10 +733,10 @@ internal static class MeleeCombatFeats
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
             rulesetCharacter.InflictCondition(
-                _conditionDefinition.Name,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                _conditionCleavingAttackFinish.Name,
+                _conditionCleavingAttackFinish.DurationType,
+                _conditionCleavingAttackFinish.DurationParameter,
+                _conditionCleavingAttackFinish.TurnOccurence,
                 AttributeDefinitions.TagCombat,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,

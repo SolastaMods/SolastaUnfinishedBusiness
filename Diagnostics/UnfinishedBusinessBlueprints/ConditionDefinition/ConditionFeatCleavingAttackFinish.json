@@ -16,7 +16,6 @@
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
   "specialInterruptions": [
-    "Attacks",
     "AnyBattleTurnEnd"
   ],
   "interruptionRequiresSavingThrow": false,

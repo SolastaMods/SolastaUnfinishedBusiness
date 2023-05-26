@@ -200,6 +200,7 @@ internal static class RangedCombatFeats
         var conditionAdvantage = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Advantage")
             .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
             .AddFeatures(combatAffinity)
