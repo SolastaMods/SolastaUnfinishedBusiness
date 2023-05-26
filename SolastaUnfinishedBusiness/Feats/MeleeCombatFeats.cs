@@ -1086,6 +1086,11 @@ internal static class MeleeCombatFeats
                 }
             }
 
+            if (bonusDamage == 0 && outcome is not RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
             var dieRoll = 0;
             var rolls = new List<int>();
             var damage = new DamageForm
