@@ -41,7 +41,7 @@ internal static class TieflingRaceBuilder
                 .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
                 .SetSpellsAtLevel(1, SpellDefinitions.HellishRebuke)
                 .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells(true, 2)
                 .AddToDB())
             .AddToDB();
 

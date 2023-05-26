@@ -56,7 +56,7 @@ internal static class RaceBolgrifBuilder
         var spellListBolgrif = SpellListDefinitionBuilder
             .Create("SpellListBolgrif")
             .SetGuiPresentationNoContent(true)
-            .FinalizeSpells(true, -1)
+            .FinalizeSpells()
             .AddToDB();
 
         //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 

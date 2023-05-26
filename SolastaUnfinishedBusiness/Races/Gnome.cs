@@ -48,7 +48,7 @@ internal static class GnomeRaceBuilder
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
             .SetSpellsAtLevel(0, SpellDefinitions.AnnoyingBee)
-            .FinalizeSpells(maxLevel: -1)
+            .FinalizeSpells()
             .AddToDB();
 
         var castSpellGnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
