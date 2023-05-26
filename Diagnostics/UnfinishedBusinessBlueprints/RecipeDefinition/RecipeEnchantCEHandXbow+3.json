@@ -3,8 +3,8 @@
   "dungeonMakerPresence": true,
   "craftedItem": "Definition:CEHandXbow+3:559cd238-495c-59b7-b936-c5952abeb568",
   "stackCount": 1,
-  "craftingHours": 96,
-  "craftingDC": 20,
+  "craftingHours": 16,
+  "craftingDC": 22,
   "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
   "ingredients": [
     {
