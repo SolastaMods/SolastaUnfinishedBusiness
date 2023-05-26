@@ -8,7 +8,7 @@
   "spellListDefinition": "Definition:SpellListTieflingAsmodeus:6b684ea9-1667-5235-882d-964873c9efeb",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
-  "fixedSpellTag": null,
+  "fixedSpellTag": "Feature/&CastSpellTieflingFixedTagTitle",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
@@ -269,9 +269,9 @@
       ]
     }
   ],
-  "focusType": "Arcane",
+  "focusType": "None",
   "hasAccessToInvocations": false,
-  "cannotUpcast": false,
+  "cannotUpcast": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
