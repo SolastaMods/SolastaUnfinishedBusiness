@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.5.46.2:
+
+- added Halberd +3, Hand Crossbow +3, Long Mace +3, and Pike +3 weapons and recipes
+
 1.5.46.1:
 
 - fix broken patch from DEBUG to PRODUCTION release
