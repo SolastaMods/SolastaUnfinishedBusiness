@@ -284,7 +284,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
             var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var bonus = !IsWeaponMaster(character)
-                ? 0
+                ? 1
                 : characterLevel >= 17
                     ? 3
                     : characterLevel >= 9
