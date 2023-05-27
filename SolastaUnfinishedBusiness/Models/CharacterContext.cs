@@ -21,6 +21,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionTerrainTypeAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -686,6 +687,8 @@ internal static class CharacterContext
             return;
         }
 
+        // Ranger
+
         var replacedFeatures = Ranger.FeatureUnlocks
             .Select(x =>
                 x.FeatureDefinition == TerrainTypeAffinityRangerNaturalExplorerChoice
@@ -697,6 +700,36 @@ internal static class CharacterContext
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
 
+        // Halfling Marsh
+
+        replacedFeatures = HalflingMarsh.FeatureUnlocks
+            .Select(x =>
+                x.FeatureDefinition == TerrainTypeAffinityRangerNaturalExplorerSwamp
+                    ? new FeatureUnlockByLevel(
+                        FeatureDefinitionBuilder
+                            .Create($"Feature{Name}TerrainTypeSwap")
+                            .SetGuiPresentation(TerrainTypeAffinityRangerNaturalExplorerSwamp.GuiPresentation)
+                            .SetCustomSubFeatures(
+                                new FeatureDefinitionCustomCodeInvocation($"CustomInvocation{Name}TerrainTypeSwap"))
+                            .AddToDB(), x.Level)
+                    : x)
+            .ToList();
+
+        HalflingMarsh.FeatureUnlocks.SetRange(replacedFeatures);
+
+        // Greenmage Warden Of The Forest
+
+        FeatureSetGreenmageWardenOfTheForest.FeatureSet.Remove(TerrainTypeAffinityRangerNaturalExplorerForest);
+        FeatureSetGreenmageWardenOfTheForest.FeatureSet.Add(
+            FeatureDefinitionBuilder
+                .Create($"Feature{Name}TerrainTypeForest")
+                .SetGuiPresentation(TerrainTypeAffinityRangerNaturalExplorerForest.GuiPresentation)
+                .SetCustomSubFeatures(
+                    new FeatureDefinitionCustomCodeInvocation($"CustomInvocation{Name}TerrainTypeForest"))
+                .AddToDB());
+
+        // Ranger Survivalist
+
         var rangerSurvivalist = GetDefinition<CharacterSubclassDefinition>("RangerSurvivalist");
 
         replacedFeatures = rangerSurvivalist.FeatureUnlocks
@@ -707,6 +740,26 @@ internal static class CharacterContext
             .ToList();
 
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    private sealed class FeatureDefinitionCustomCodeInvocation : IFeatureDefinitionCustomCode
+    {
+        private readonly string _invocationName;
+
+        public FeatureDefinitionCustomCodeInvocation(string invocationName)
+        {
+            _invocationName = invocationName;
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(_invocationName));
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.Remove(GetDefinition<InvocationDefinition>(_invocationName));
+        }
     }
 
     private static void SwitchDruidKindredBeastToUseCustomInvocationPools()
