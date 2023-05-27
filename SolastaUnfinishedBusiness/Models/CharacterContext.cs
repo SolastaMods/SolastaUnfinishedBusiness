@@ -380,6 +380,8 @@ internal static class CharacterContext
 
     private static void LoadVisuals()
     {
+        Tiefling.RacePresentation.faceShapeAssetPrefix = Main.Settings.UseElfFaceModelsOnTieflings ? "Elf" : "Tiefling";
+
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
         if (Main.Settings.UnlockSkinColors)

@@ -139,6 +139,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
+    public bool UseElfFaceModelsOnTieflings { get; set; }
 #if false
     public bool AllowHornsOnAllRaces { get; set; }
 #endif
