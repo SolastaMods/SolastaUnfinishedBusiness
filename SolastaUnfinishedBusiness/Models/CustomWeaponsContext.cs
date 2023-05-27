@@ -25,22 +25,29 @@ internal static class CustomWeaponsContext
     private const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
-    internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
-    internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
-    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
+    internal static WeaponTypeDefinition
+        HandXbowWeaponType,
+        LightningLauncherType,
+        ThunderGauntletType,
+        HalberdWeaponType,
+        PikeWeaponType,
+        LongMaceWeaponType;
 
+    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
 
-    private static ItemDefinition
-        Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdPlus3, HalberdLightning;
+    internal static ItemDefinition Halberd, HalberdPrimed;
+    private static ItemDefinition HalberdPlus1, HalberdPlus2, HalberdPlus3, HalberdLightning;
 
-    private static ItemDefinition
-        Pike, PikePrimed, PikePlus1, PikePlus2, PikePlus3, PikePsychic;
+    internal static ItemDefinition Pike, PikePrimed;
+    private static ItemDefinition PikePlus1, PikePlus2, PikePlus3, PikePsychic;
 
-    private static ItemDefinition
-        LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMacePlus3, LongMaceThunder;
+    internal static ItemDefinition LongMace, LongMacePrimed;
+    private static ItemDefinition LongMacePlus1, LongMacePlus2, LongMacePlus3, LongMaceThunder;
 
-    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
+    internal static ItemDefinition
+        HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
+
     internal static ItemDefinition HandXbowAcid;
 
     internal static void Load()

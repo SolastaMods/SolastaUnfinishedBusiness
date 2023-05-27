@@ -1,0 +1,54 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "craftedItem": "Definition:CEHandXbow_Sharpshooting:89fa0a9f-c02e-5692-8ff6-95957dd23665",
+  "stackCount": 1,
+  "craftingHours": 14,
+  "craftingDC": 18,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:CEHandXbow:df6c8bc3-aae1-5ef1-8e56-1c3bd06a96bb"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Primed Shortbow:f1cfe01f030799e43b4c096dc16635d8"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&CEHandXbow_Sharpshooting_Title",
+    "description": "Feature/&Emptystring",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2f6f5efb-b382-515b-897b-264fdc648c36",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "91a9e5c4-1499-5a84-875d-6cdf8670145a",
+  "contentPack": 9999,
+  "name": "RecipeEnchantCEHandXbow_Sharpshooting"
+}
