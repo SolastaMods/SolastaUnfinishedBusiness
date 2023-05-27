@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&DesertTitle",
-    "description": "TerrainType/&DesertDescription",
+    "title": "Desert",
+    "description": "Arid areas with little or no rain and minimal vegetation are considered desert terrain.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "b94c4fa6-d16a-5d5f-9c51-c141b5e8aad5",

@@ -631,10 +631,14 @@ internal static class CharacterContext
             var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
             var guiPresentation = terrainType.GuiPresentation;
             var sprite = Sprites.GetSprite(terrainTypeName, terrainAffinitySprites[terrainTypeName], 128);
+            var terrainTitle = Gui.Localize($"Environment/&{terrainTypeName}Title");
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}TerrainType{terrainTypeName}")
-                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, terrainTitle),
+                    Gui.Format(guiPresentation.Description, terrainTitle),
+                    sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
                 .SetCustomSubFeatures(Hidden.Marker)
@@ -670,10 +674,14 @@ internal static class CharacterContext
             var preferredEnemyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
             var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
             var sprite = Sprites.GetSprite(preferredEnemyName, preferredEnemySprites[preferredEnemyName], 128);
+            var enemyTitle = Gui.Localize($"CharacterFamily/&{preferredEnemyName}Title");
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}PreferredEnemy{preferredEnemyName}")
-                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, enemyTitle),
+                    Gui.Format(guiPresentation.Description, enemyTitle),
+                    sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
                 .SetGrantedFeature(featureDefinitionPreferredEnemy)
                 .SetCustomSubFeatures(Hidden.Marker)
@@ -699,34 +707,6 @@ internal static class CharacterContext
             .ToList();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
-
-        // Halfling Marsh
-
-        replacedFeatures = HalflingMarsh.FeatureUnlocks
-            .Select(x =>
-                x.FeatureDefinition == TerrainTypeAffinityRangerNaturalExplorerSwamp
-                    ? new FeatureUnlockByLevel(
-                        FeatureDefinitionBuilder
-                            .Create($"Feature{Name}TerrainTypeSwap")
-                            .SetGuiPresentation(TerrainTypeAffinityRangerNaturalExplorerSwamp.GuiPresentation)
-                            .SetCustomSubFeatures(
-                                new FeatureDefinitionCustomCodeInvocation($"CustomInvocation{Name}TerrainTypeSwap"))
-                            .AddToDB(), x.Level)
-                    : x)
-            .ToList();
-
-        HalflingMarsh.FeatureUnlocks.SetRange(replacedFeatures);
-
-        // Greenmage Warden Of The Forest
-
-        FeatureSetGreenmageWardenOfTheForest.FeatureSet.Remove(TerrainTypeAffinityRangerNaturalExplorerForest);
-        FeatureSetGreenmageWardenOfTheForest.FeatureSet.Add(
-            FeatureDefinitionBuilder
-                .Create($"Feature{Name}TerrainTypeForest")
-                .SetGuiPresentation(TerrainTypeAffinityRangerNaturalExplorerForest.GuiPresentation)
-                .SetCustomSubFeatures(
-                    new FeatureDefinitionCustomCodeInvocation($"CustomInvocation{Name}TerrainTypeForest"))
-                .AddToDB());
 
         // Ranger Survivalist
 

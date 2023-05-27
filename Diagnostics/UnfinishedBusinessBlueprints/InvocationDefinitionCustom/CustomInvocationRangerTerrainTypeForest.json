@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&ForestTitle",
-    "description": "TerrainType/&ForestDescription",
+    "title": "Forest",
+    "description": "Areas with lush vegetation and large areas of woods are considered forest terrain.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d531f49c-fa3b-5a6d-bad5-23ec8ca6163a",
