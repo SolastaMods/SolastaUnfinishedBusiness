@@ -41,6 +41,13 @@ internal static class TranslatorContext
 
     internal static void EarlyLoad()
     {
+        if (!Directory.Exists(Path.Combine(Main.ModFolder, UnofficialLanguagesFolderPrefix)))
+        {
+            Main.Error($"Loading unofficial translations");
+
+            return;
+        }
+
         LoadCustomLanguages();
         LoadCustomTerms();
         LoadKoreanFont();
