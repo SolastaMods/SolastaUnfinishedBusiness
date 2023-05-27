@@ -1,7 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -55,6 +60,42 @@ public static class ForceLevelUpModalPatcher
                     parentRectTransform.localScale = new Vector3(1, 1, 1);
                     break;
             }
+        }
+    }
+
+    //PATCH: allows the force level up UI work with parties greater than 4 (PARTYSIZE)
+    [HarmonyPatch(typeof(ForceLevelUpModal), nameof(ForceLevelUpModal.Refresh))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class Refresh_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var getChildCountMethod = typeof(Transform).GetMethod("get_childCount");
+            var myGetChildCountMethod = new Func<Transform, ForceLevelUpModal, int>(MyGetChildCount).Method;
+
+            return instructions.ReplaceCall(getChildCountMethod, 1, "ForceLevelUpModal.Refresh",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, myGetChildCountMethod));
+        }
+
+        private static int MyGetChildCount(Transform transform, ForceLevelUpModal forceLevelUpModal)
+        {
+            return forceLevelUpModal.Heroes.Count;
+        }
+    }
+
+    //PATCH: allows the force level up UI work with parties greater than 4 (PARTYSIZE)
+    [HarmonyPatch(typeof(ForceLevelUpButton), nameof(ForceLevelUpButton.RefreshState))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ForceLevelUpButton_RefreshState_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(ForceLevelUpButton __instance)
+        {
+            return __instance.Hero != null;
         }
     }
 }
