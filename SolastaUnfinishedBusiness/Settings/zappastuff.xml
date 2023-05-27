@@ -5,7 +5,6 @@
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
-  <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
@@ -14,6 +13,8 @@
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
   <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
+  <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
+  <DisplayItemsToggle>false</DisplayItemsToggle>
   <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
     <item>
@@ -158,11 +159,13 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
   <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
+  <UseElfFaceModelsOnTieflings>true</UseElfFaceModelsOnTieflings>
   <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
   <IdentifyAfterRest>true</IdentifyAfterRest>
   <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
   <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
+  <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
   <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
   <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
   <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>true</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
@@ -176,6 +179,7 @@
   <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
   <FullyControlConjurations>true</FullyControlConjurations>
   <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
@@ -191,7 +195,6 @@
   <AllowAnyClassToUseArcaneShieldstaff>true</AllowAnyClassToUseArcaneShieldstaff>
   <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
   <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
-  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
   <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
   <RecipeCost>200</RecipeCost>
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
@@ -313,6 +316,7 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceTiefling</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled>
