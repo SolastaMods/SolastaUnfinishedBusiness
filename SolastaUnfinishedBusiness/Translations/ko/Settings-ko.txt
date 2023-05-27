@@ -40,7 +40,6 @@ ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
 ModUi/&ChangeSleetStormToCube=실린더 대신 큐브를 사용하도록 <color=#D89555>진눈깨비</color> 변경
-ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
 ModUi/&Character=성격
 ModUi/&CharactersPool=캐릭터 풀
 ModUi/&Classes=<color=#F0DAA0>클래스</color>
@@ -226,6 +225,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=모든 표식과 문신의 빛�
 ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
 ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 기원 표시 및 문신 잠금 해제
 ModUi/&UnlockSkinColors=피부색 잠금 해제
+ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[만약 상황으로 인해 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
