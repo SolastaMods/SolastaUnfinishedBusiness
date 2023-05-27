@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatPrimalRage",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierBarbarianRagePointsAdd:a972ffba165be34418cd0a6fa8b85f10",

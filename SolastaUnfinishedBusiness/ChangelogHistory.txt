@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.5.46.4:
+
+- added missing family tags to Apothecary, Awaken the Beast, Blessed Soul, Hardy, Medium Armor, Primal Rage, and Toxicologist
+ 
 1.5.46.3:
 
 - added additional Halberd, Hand Crossbow, Long Mace, and Pike recipes

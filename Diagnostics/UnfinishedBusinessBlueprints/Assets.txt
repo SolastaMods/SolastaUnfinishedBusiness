@@ -879,7 +879,7 @@ FeatGroupAlchemist	FeatDefinition	FeatDefinition	1bdd5719-e3f7-5faa-ad3e-d004935
 FeatGroupApothecary	FeatDefinition	FeatDefinition	9b53f105-90af-5055-a801-00415348a616
 FeatGroupArmor	FeatDefinition	FeatDefinition	eb002d8a-4f64-5057-b205-1479683055e7
 FeatGroupAwakenTheBeastWithin	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	9c4afa86-2d53-50ce-a04c-c2eed3b3b260
-FeatGroupBlessedSoul	FeatDefinition	FeatDefinition	3467db20-48dc-57e6-83b4-86cc9f235e0e
+FeatGroupBlessedSoul	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	3467db20-48dc-57e6-83b4-86cc9f235e0e
 FeatGroupBodyResilience	FeatDefinition	FeatDefinition	53158993-e0b8-5031-afc1-fbeaebc70fc1
 FeatGroupCelestialTouched	FeatDefinition	FeatDefinition	2db2859d-daee-5ef4-81a7-64adb5473156
 FeatGroupClassBound	FeatDefinition	FeatDefinition	c98daa86-03c4-5550-86f8-80178d6ec6f5
