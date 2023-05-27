@@ -1,0 +1,231 @@
+ModUi/&AddAllToStore=스토어에 모두 추가
+ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#D89555>하급 복원</color>으로 제거된 상태에 <color=#D89555>출혈</color> 상태를 추가합니다.
+ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 맞춤 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함] </color></i></b>
+ModUi/&AddHelpActionToAllRaces=플레이 가능한 모든 종족에 <color=#D89555>도움</color> 액션을 추가합니다. <i><color=#F0DAA0>[5피트 내에 있는 생물을 공격하는 아군 생물을 도울 수 있습니다]</color></ 나>
+ModUi/&AddHumanoidFavoredEnemyToRanger=인간형 선호 적을 <color=#D89555>레인저</color>에 추가
+ModUi/&AddNewBrightEyeColors=새로운 밝은 눈 색깔 추가
+ModUi/&AddNewWeaponsAndRecipesToShops=상점에 새로운 무기와 제조법 추가 <i><color=#F0DAA0>[핸드 랩, 할버드, 파이크, 긴 철퇴, 손 석궁]</color></i> <b><i><color=#C04040E0> [다시 시작해야 함]</color></i></b>
+ModUi/&AddPaladinSmiteToggle=<color=#D89555>팔라딘</color>이 치명타 시에만 스마이트를 활성화할 수 있도록 토글을 추가합니다. <i><color=#F0DAA0>[반응 프롬프트를 최소화하는 데 유용함]</color></i>
+ModUi/&AddPickPocketableLoot=소매치기 전리품 추가 <i><color=#F0DAA0>[<color=#D89555>소매치기</color> 위업이 활성화된 경우 권장됨]</color></i>
+ModUi/&AddToStore=스토어에 추가
+ModUi/&Advanced=<color=#F0DAA0>고급:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&AdvancedHelp=. <b><color=#C04040E0>주의:</color></b> 이 설정을 사용하려면 플레이어가 이 모드를 설치해야 합니다.
+ModUi/&AllItemInDm=DM의 모든 항목
+ModUi/&AllRecipesInDm=DM의 모든 레시피
+ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 내러티브 시퀀스의 모든 플레이어 허용</i>
+ModUi/&AllowAnyClassToWearSylvanArmor=모든 클래스가 <color=#D89555>실반 갑옷</color> 또는 <color=#D89555>라이트브링어 옷</color>을 입을 수 있습니다.
+ModUi/&AllowAssigningOfficialSpells=공식 주문이 이 목록에 표시되도록 허용
+ModUi/&AllowBeardlessDwarves=수염이 없는 <color=#D89555>드워프</color> 허용
+ModUi/&AllowClubsToBeThrown=<color=#D89555>곤봉</color>을 <color=#D89555>단검</color> 또는 <color=#D89555>손도끼</color>처럼 던질 수 있습니다.
+ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>드루이드</color>가 금속 갑옷을 입도록 허용
+ModUi/&AllowDungeonsMaxLevel20=최대 레벨 20의 던전 허용
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> 클릭을 활성화하여 가젯이나 소품을 배치할 때 확인을 건너뜁니다.
+ModUi/&AllowHornsOnAllRaces=모든 종족에 뿔 허용 <i><color=#F0DAA0>[인종, 머리, 뿔에 따라 결과가 끔찍해 보일 수 있음]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=나머지 패널에 더 많은 실제 상태 허용 <i><color=#F0DAA0>[패널 이전에 휴식 작업 후 숨기기 및 패널 이후에 복구 기능]</color></i>
+ModUi/&AllowStackedMaterialComponent=적층 재료 구성 요소 허용 <i><color=#F0DAA0>[예: 2x500gp 다이아몬드는 1000gp 다이아몬드와 동일합니다.]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상 선택 허용
+ModUi/&AllowUnmarkedSorcerers=출처 표시 및 문신이 없는 <color=#D89555>마법사</color> 허용
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에서 가젯만 강조 표시합니다. <i><color=#F0DAA0>[맞춤형 던전만 해당]</color></i>
+ModUi/&ApplySRDWeightToFoodRations=<color=#D89555>식량 배급</color>의 무게를 2파운드로 줄입니다.
+ModUi/&ArcaneShieldstaffOptions=모든 병과가 <color=#D89555>아케인 실드스태프</color>를 조율하도록 허용
+ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>암시야</color>가 있는 공격자는 없는 수비자보다 유리합니다.
+ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
+ModUi/&BackgroundsAndRaces=배경 및 인종
+ModUi/&Basic=<color=#F0DAA0>기본:</color>
+ModUi/&Bestiary=동물 우화집
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>저주 부여</color>는 L5+ 주문 슬롯으로 시전할 때 집중할 필요가 없습니다.
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>맹인</color> 상태는 기회 공격을 허용하지 않습니다.
+ModUi/&Blueprints=청사진
+ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
+ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
+ModUi/&Category=범주
+ModUi/&ChangeSleetStormToCube=실린더 대신 큐브를 사용하도록 <color=#D89555>진눈깨비</color> 변경
+ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
+ModUi/&Character=성격
+ModUi/&CharactersPool=캐릭터 풀
+ModUi/&Classes=<color=#F0DAA0>클래스</color>
+ModUi/&ClassesAndSubclasses=클래스 및 하위 클래스
+ModUi/&Crafting=<color=#F0DAA0>제작:</color>
+ModUi/&CraftingHelp=. 활성 파티에서 즉시 레시피를 배우려면 버튼을 누르십시오\n. 상점에 추가된 항목은 일행이 해당 위치에서 멀리 이동했다가 다시 돌아와야 할 수 있습니다.
+ModUi/&Credits=학점
+ModUi/&CreditsAndDiagnostics=크레딧 및 진단
+ModUi/&Critical=<color=#F0DAA0>치명타:</color>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: 게임 기본값, 피해 주사위를 두 번 굴리고 결과를 추가하고 수정자를 추가합니다. <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: 피해 주사위의 최대 결과를 합산하여 공격 피해에 더합니다. <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: 가능한 가장 높은 결과를 굴리는 피해 주사위를 계속 다시 굴리고 총 피해에 추가합니다.
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: 추가 주사위를 굴리는 대신 공격의 총 데미지를 두 배로 늘립니다. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&Deities=<color=#F0DAA0>신</color>
+ModUi/&DisableAutoEquip=인벤토리에 있는 아이템 자동 장착 비활성화
+ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 재주에 대한 레벨 전제 조건 비활성화
+ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 업적에 대한 레이스 전제 조건 비활성화
+ModUi/&DisableSenseDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>다크 비전 감지</color> 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>Superior Sense Dark Vision</color> 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA0>[파란약 사용자, 이것이 마지막 기회입니다]</color></i>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스의 모든 알려진 주문 표시</i>
+ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
+ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전투 카메라가 따라가지 않습니다.
+ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않는 한</color></i>
+ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
+ModUi/&DungeonMakerMenu=던전메이커
+ModUi/&EmpressGarbAppearance=<color=#D89555>황제 의복</color> 모습
+ModUi/&EnableAdditionalBackstoryDisplay=백그라운드 검사 시 추가 배경 스토리 표시 활성화
+ModUi/&EnableAdditionalIconsOnLevelMap=레벨 맵에서 캠프, 출구 및 텔레포터에 대한 추가 아이콘 활성화
+ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Dungeon Maker에 새 항목 추가</i>
+ModUi/&EnableAlternateHuman=대체 인간 활성화 <i><color=#F0DAA0>[+1 재주 / +2 특성 선택 / +1 기술]</color></i>
+ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>야만인</color> <b>전투 스타일</b> 선택 활성화
+ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 버튼 클릭으로 취소 작업 활성화
+ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 캐릭터 검사기 버튼 활성화
+ModUi/&EnableCharacterExport=문자를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
+ModUi/&EnableCharactersOnFireToEmitLight=불이 붙은 캐릭터는 빛을 발산해야 합니다. <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
+ModUi/&EnableCheatMenu=치트 메뉴 활성화
+ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 사용\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기 포함, 모든 환경의 애셋 혼합 없음]</color></i>
+ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레이 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화
+ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6 및 14에서 재주 선택 활성화
+ModUi/&EnableFighterWeaponSpecialization=클래스 레벨 8 및 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[적중 및 피해에 +1을 받지만 다른 모든 경우에는 불리합니다. 무기 유형]</color></i>
+ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
+ModUi/&EnableFlexibleRaces=유연한 인종 활성화 <i><color=#F0DAA0>[기본 인종 대신 능력 점수 할당]</color></i>
+ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.
+ModUi/&EnableHotkeyToggleHud=HUD 디스플레이를 전환하려면 <color=#1E81B0>CTRL-SHIFT-(H)</color>를 활성화하세요.
+ModUi/&EnableInventoryFilteringAndSorting=인벤토리 필터링 및 정렬 활성화
+ModUi/&EnableInventoryTaintNonProficientItemsRed=영웅이 능숙하지 않은 모든 항목은 빨간색으로 표시됩니다.
+ModUi/&EnableInventoryTintKnownRecipesRed=알려진 조리법을 빨간색으로 착색
+ModUi/&EnableInvisibleCrownOfTheMagister=게임 UI에서 <color=#D89555>마기스터의 왕관</color> 숨기기
+ModUi/&EnableLevel20=레벨 20 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&EnableLogDialoguesToConsole=내러티브 시퀀스 중에 게임 콘솔에 대한 로그 대화 활성화
+ModUi/&EnableMinInOutAttributes=<i>+ 능력 점수 최소 인앤아웃 전제 조건 적용</i>
+ModUi/&EnableMonkWeaponSpecialization=클래스 레벨 2 및 11에서 <color=#D89555>수도사</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[선택한 무기 유형이 수도사 무기가 됩니다]</ 색상></i>
+ModUi/&EnableMulticlass=다중 클래스 활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&EnablePcgRandom=더 나은 무작위 생성 알고리즘 <i><color=#F0DAA0>[https://www.pcg-random.org]</color></i> 사용
+ModUi/&EnableRejoinParty=아무도 선택하지 않은 경우 <color=#1E81B0>CTRL-SHIFT-(R)</color>를 활성화하여 선택한 영웅 또는 리더 주변의 파티에 다시 합류합니다. <i><color=#F0DAA0>[5명 또는 6명의 파티에 유용합니다. ]</color></i>
+ModUi/&EnableRelearnSpells=<i>+ 다른 클래스에서 이미 배운 캔트립이나 주문을 선택할 수 있습니다.</i>
+ModUi/&EnableRespec=휴식 후 RESPEC 활성화
+ModUi/&EnableSaveByLocation=캠페인/위치별 저장 활성화
+ModUi/&EnableSortingDungeonMakerAssets=Dungeon Maker 편집기에서 자산 정렬 활성화
+ModUi/&EnableStatsOnHeroTooltip=영웅의 툴팁에 통계 표시 <i><color=#F0DAA0>[예: 치명타, 치명타 실패 등]</color></i>
+ModUi/&EnableTeleportParty=<color=#1E81B0>CTRL-SHIFT-(T)</color>를 활성화하여 파티 <i><color=#F0DAA0>[발견되지 않은 장소로 순간이동하면 퀘스트가 중단될 수 있음]</color></ 나>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty=기본 플레이 및 테스트 파티를 설정하려면 캐릭터 풀에서 토글을 활성화하십시오.
+ModUi/&EnableUpcastConjureElementalAndFey=<color=#D89555>정령 소환</color> 및 <color=#D89555>페이 소환</color> 업캐스트 활성화
+ModUi/&EnablesAsiAndFeat=<i><color=#F0DAA0>[독점적인 선택 대신]</color></i> 속성 점수 증가 및 재주 선택 활성화
+ModUi/&EncounterPercentageChance=<color=white>무작위 만남 비율 설정</color>
+ModUi/&Encounters=만남
+ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[베타]</color></b> 영웅의 기능이 <color=#D89555>야생 모양</color> 형태에서 작동하도록 허용
+ModUi/&ExpandAll=모두 펼치기
+ModUi/&FactionHelp=<color=#C04040E0>진영 관계를 수정하려면 공식 캠페인 게임을 로드하세요...</color>
+ModUi/&FactionRelations=<color=#F0DAA0>파벌:</color>
+ModUi/&FasterTimeModifier=<color=white>스페이스 바를 누를 때 게임 시간 수정</color>
+ModUi/&FeatGroups=<color=#F0DAA0>피트 그룹</color>
+ModUi/&FeatGroupsHelp=. 각 그룹은 유사한 업적 <i><color=#F0DAA0>[즉: 신조, 격투 스타일, 메타마법 등]</color></i>\n의 통합입니다. 이 그룹의 위업은 숙련도 선택 단계에서 더 이상 직접 볼 수 없습니다\n. 그룹을 선택하면 게임 화면을 깔끔하게 정리할 수 있도록 드롭다운 목록에 제공됩니다.
+ModUi/&Feats=<color=#F0DAA0>재주</color>
+ModUi/&FightingStyles=<color=#F0DAA0>전투 스타일</color>
+ModUi/&FixEldritchBlastRange=<color=#D89555>엘드리치 폭발</color> 범위를 24 <i><color=#F0DAA0>[16 대신]</color></i>로 변경
+ModUi/&Formation=<color=#F0DAA0>형성:</color>
+ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포메이션을 변경할 수 없습니다...</color>
+ModUi/&FormationHelp1=. 숫자 버튼을 사용하여 지정된 세트를 편집합니다. <i><color=#F0DAA0>[입력 시 핫키 활성화 고려]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b>는 상대적 영웅 위치를 나타냅니다.
+ModUi/&FormationHelp3=. 2개의 버튼을 클릭하여 위치를 바꿉니다.
+ModUi/&FormationHotkey=<color=#1E81B0>CTRL-SHIFT-(1..5)</color>를 활성화하여 게임에서 포메이션 세트를 교체하세요.
+ModUi/&FormationResetAllSets=모두 초기화
+ModUi/&FormationResetThisSet=재설정
+ModUi/&FormationSelected=포메이션 세트 {0} 선택됨
+ModUi/&FullyControlConjurations=컨저레이션을 완전히 제어합니다. <i><color=#F0DAA0>[동물, 정령 등]</color></i>
+ModUi/&GameUi=게임 UI
+ModUi/&Gameplay=게임플레이
+ModUi/&General=<color=#F0DAA0>일반:</color>
+ModUi/&GeneralMenu=일반적인
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
+ModUi/&HideMonsterHitPoints=정확한 HP 대신 몬스터의 체력을 25% / 50% / 75% / 100% 단계로 표시
+ModUi/&House=<color=#F0DAA0>집:</color>
+ModUi/&IdentifyAfterRest=짧거나 긴 휴식을 통해 <color=#D89555>마법 아이템을 식별</color>할 수 있는 능력을 추가하세요
+ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손 석궁</color>을 사용하기 위해 손이 자유로울 필요가 없습니다.
+ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>\n<i><color=#F0DAA0>[영향 <color= #D89555>레인저</color> 선호하는 적 및 지형 선호도, <color=#D89555>드루이드</color> 킨드레드 비스트, <color=#D89555>야만인</color> 요소 및 하위 클래스 드라코닉 선택의 경로]</ 색상></i>
+ModUi/&IncreaseGameTimeBy=게임 시간 증가
+ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템을 레벨 10에서 4개, 레벨 18에서 5개로 증가
+ModUi/&IncreaseSenseNormalVision=<color=white><color=#D89555>일반 시야 감지</color> 범위를 늘려 장거리 공격 가능</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
+ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[적들이 너무 멀리서 합류하는 것을 피하려면 40이 이상적입니다.]</color></i>
+ModUi/&InitialChoices=<color=#F0DAA0>만들기:</color>
+ModUi/&Input=<color=#F0DAA0>입력:</color>
+ModUi/&Interface=상호 작용
+ModUi/&InventoryAndItems=<color=#F0DAA0>인벤토리 및 아이템:</color>
+ModUi/&InvertAltBehaviorOnTooltips=툴팁에서 <color=#1E81B0>ALT</color> 키 동작 반전
+ModUi/&Invocations=<color=#F0DAA0>호출</color>
+ModUi/&ItemInDm=DM의 항목
+ModUi/&Items=<color=#F0DAA0>항목:</color>
+ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
+ModUi/&ItemsHelp1=<color=#C04040E0>영웅에게 아이템을 추가하려면 캐릭터 검사 화면을 여세요...</color>
+ModUi/&ItemsHelp2=<b>그라운드 컨테이너에 항목을 추가하려면 +를 누르십시오.</b>
+ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 신비한 초점으로 <i><color=#F0DAA0>[보편적인 <color=#D89555>치유 지팡이</color> 제외]</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=모든 큰 야생 형태를 중간 크기로 만듭니다.
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 ​​표시</i>
+ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
+ModUi/&Merchants=<color=#F0DAA0>상인:</color>
+ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
+ModUi/&Monsters=<color=#F0DAA0>몬스터:</color>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> 주문을 클릭하면 소비된 기본 레퍼토리 슬롯 유형이 반전됩니다.\n<i><color=#F0DAA0>[<color=#D89555>워록</color>은 흰색 주문 슬롯을 사용합니다. 그리고 다른 사람들은 협약 녹색을 사용합니다]</color></i>
+ModUi/&MultiplyTheExperienceGainedBy=<color=white>획득 경험치 곱하기</color> <color=#C04040E0>[%]</color>
+ModUi/&NoExperienceOnLevelUp=레벨업에 경험치가 필요하지 않습니다
+ModUi/&OfferAdditionalLoreFriendlyNames=캐릭터 생성 시 추가로 친근한 이름 제공
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 컨저레이션 목록에서 가장 강력한 생물만 표시</i>
+ModUi/&OverrideMinMaxLevel=새로운 모험을 시작할 때 필요한 최소 및 최대 레벨 재정의
+ModUi/&OverridePartySize=<color=white>파티 규모 재정의</color>
+ModUi/&Patches=<color=#F0DAA0>패치:</color>
+ModUi/&PrimedItems=프라이밍 아이템
+ModUi/&Progression=<color=#F0DAA0>진행:</color>
+ModUi/&Races=<color=#F0DAA0>종족</color>
+ModUi/&RecipeCost=<color=white>레시피 비용</color>
+ModUi/&RecipesInDm=DM의 레시피
+ModUi/&RelicForgeries=유물 위조
+ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&RemoveBugVisualModels=게임 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>에서 거미 같은 모델을 대체 시각적 개체로 교체
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터 제거
+ModUi/&RemoveIdentificationRequirements=식별 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=캐스팅 시간에만 <color=#D89555>인탱글</color> 효과를 적용합니다. <i><color=#F0DAA0>[예: 반복 효과 없음]</color></i>
+ModUi/&RestockAntiquarians=골동품 수집품 재입고 <i><color=#F0DAA0>[할만 여름]</color></i>
+ModUi/&RestockArcaneum=비석 보충 <i><color=#F0DAA0>[헤들론 슈어스펠]</color></i>
+ModUi/&RestockCircleOfDanantar=다난타의 원 재입고 <i><color=#F0DAA0>[조리엘 폭스아이]</color></i>
+ModUi/&RestockHelp=. 시간 경과에 따라 모든 판매자의 재고가 강제로 재입고되도록 기본값을 재정의합니다. <i><color=#F0DAA0>[설명서 및 책 제외]</color></i>\n. 일부 아이템은 재입고까지 최대 7일이 소요될 수 있습니다.
+ModUi/&RestockTowerOfKnowledge=지식의 탑 재입고 <i><color=#F0DAA0>[매디 그린아일]</color></i>
+ModUi/&Rules=규칙
+ModUi/&SRD=<color=#F0DAA0>SRD:</color>
+ModUi/&ScaleMerchantPricesCorrectly=판매자 가격을 정확하게 / 정확하게 조정 <i><color=#F0DAA0>[동전 값을 변환할 때 더 이상 반올림 오류 없음]</color></i>
+ModUi/&SelectAll=모두 선택
+ModUi/&SelectSuggested=제안 선택
+ModUi/&Services=서비스
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>드워프족의 허리띠</color> <color=white>수염이 나타날 확률</color>
+ModUi/&SettingsExport=내보내다
+ModUi/&SettingsHelp=. 호스트는 현재 구성을 내보내고 내보내기 폴더를 열고 동료와 쉽게 공유할 수 있습니다\n. 게스트로 내보내기 폴더를 열고 호스트에서 공유 파일을 붙여넣고 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>을 통해 로드할 수 있습니다.
+ModUi/&SettingsLoad=. 내보낸 설정 로드
+ModUi/&SettingsOpenFolder=내보낸 설정 폴더 열기
+ModUi/&SettingsRefresh=새로 고치다
+ModUi/&SettingsRemove=제거하다
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> 제어되는 몬스터 <i><color=#F0DAA0>[야생형 드루이드, 소환, NPC 추종자 등에 대한 정보를 여는 버튼 표시 ]</color></i>
+ModUi/&ShowChannelDivinityOnPortrait=마법 점수와 유사하게 초상화에 영웅이 얼마나 많은 <color=#D89555>채널 신성</color>을 사용하는지 보여줍니다.
+ModUi/&ShowCraftedItemOnRecipeIcon=상점 및 인벤토리의 레시피 아이템 근처에 제작된 아이템 아이콘 표시 <i><color=#F0DAA0>[마우스를 올리면 제작된 아이템에 대한 툴팁이 표시됨]</color></i>
+ModUi/&ShowCraftingRecipeInDetailedTooltips=자세한 툴팁에 제작 레시피 표시
+ModUi/&ShowDescriptions=설명 표시
+ModUi/&SpellLevelFilter=<b><i><color=white>주문 수준 필터</color> <color=#F0DAA0>[-1은 모두 표시]</color></i></b>
+ModUi/&SpellsMenu=주문
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=모든 비마법 의류로 고림의 상점을 비축합니다. <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalInstruments=모든 비마법 악기가 있는 고림의 상점 재고 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<으로 휴고의 상점을 비축하세요. /color> 초점 항목으로 설정
+ModUi/&Subclasses=<color=#F0DAA0>하위 클래스</color>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교체</i>
+ModUi/&TargetLanguage=대상 언어
+ModUi/&Tools=도구
+ModUi/&TotalCraftingTimeModifier=<color=white>제작 시간 단축</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>첫 번째 레벨에서 부여된 총 업적</color>
+ModUi/&Translate=번역하다
+ModUi/&TranslateCancel={1}에서 {0} 취소
+ModUi/&Translations=번역
+ModUi/&UnleashEnemyAsNpc=NPC 가젯에서 몬스터를 선택할 수 있도록 허용
+ModUi/&UnleashNpcAsEnemy=잠금 해제 몬스터 선택
+ModUi/&UnlockAllNpcFaces=NPC 얼굴 잠금 해제
+ModUi/&UnlockEyeStyles=눈 스타일 잠금 해제
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=모든 표식과 문신의 빛나는 색상 잠금 해제
+ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
+ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 기원 표시 및 문신 잠금 해제
+ModUi/&UnlockSkinColors=피부색 잠금 해제
+ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[만약 상황으로 인해 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
+ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>

@@ -1,0 +1,16 @@
+Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=세 번째로 불협화음에 빠지면 정신이 괴사 피해를 입을 것입니다.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=불화
+Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=세이브 드로우에 -1d4, 어택 롤에 -2를 받습니다. 각 턴이 끝날 때 저장을 시도할 수 있습니다.
+Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=심오한 혼란
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=3레벨부터 적의 내부 부조화를 조작하여 왜곡된 에너지의 파동을 만드는 방법을 배웁니다. 몽크 무기나 비무장 공격으로 생명체를 때릴 때마다 생명체는 1분 동안 불협화음 조건을 한 번 받습니다. 생물이 세 번째 인스턴스를 받으면 모든 인스턴스가 제거되고 생물은 당신의 무술 주사위 + 지혜 수정치만큼의 괴사 피해를 받습니다.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=불화
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=6레벨부터 Stunning Strike 능력으로 생명체를 성공적으로 기절시킬 때 Discordance 조건의 추가 인스턴스를 하나 적용합니다. 또한 기절 상태가 지속되는 동안 기절한 생물은 공격과 능력으로 인해 추가 부조화 인스턴스를 받습니다.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=분리
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=11레벨에서 당신은 축적된 부정적인 에너지를 폭발시키는 능력을 얻습니다. Ki 포인트를 사용하여 데미지를 증가시킬 수 있습니다. 사용하는 각 포인트는 숙련도 보너스의 최대값까지 손상을 1d6만큼 증가시킵니다.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=부조화의 폭발
+Feature/&PowerWayOfTheDiscordanceProfoundTurmoilDescription=17레벨부터 생물이 당신의 불일치 기능으로 피해를 받으면 카리스마 내성굴림에 성공하거나 최대 1분 동안 소란 상태를 받아야 합니다. 생물이 내성 굴림에 성공하거나 효과가 만료되면 생물은 Turmoil의 추가 효과에 면역이 됩니다.
+Feature/&PowerWayOfTheDiscordanceProfoundTurmoilTitle=심오한 혼란
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription={0} Ki 포인트를 사용하여 {1}d6 피해를 입힙니다.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=부조화의 폭발 [{0} Ki]
+Subclass/&WayOfTheDiscordanceDescription=대부분의 승려들은 명상을 통해 깨달음을 얻고 내면의 평화를 얻는 반면, 불협화음의 승려들은 우주의 혼란스러운 에너지를 이용하는 데 집중합니다. 이 신비로운 부조화 학자들은 기(Ki)를 조작하여 적의 내부 갈등을 이용하고 왜곡된 에너지 폭발로 적들을 파괴합니다.
+Subclass/&WayOfTheDiscordanceTitle=불협화음의 길

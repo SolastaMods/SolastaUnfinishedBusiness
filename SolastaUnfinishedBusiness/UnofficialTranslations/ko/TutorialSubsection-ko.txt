@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle=카메라
+TutorialSubsection/&Basics_MovingTitle=움직이는
+TutorialSubsection/&Basics_PartyMngtTitle=파티 관리
+TutorialSubsection/&Basics_QuestTitle=퀘스트 로그
+TutorialSubsection/&CombatMovementTitle=움직임
+TutorialSubsection/&CombatShoveTitle=밀다
+TutorialSubsection/&Exploration_LocationMapTitle=위치지도
+TutorialSubsection/&Exploration_MiscTitle=여러 가지 잡다한
+TutorialSubsection/&Exploration_PointsOfInterestTitle=가볼만한 곳
+TutorialSubsection/&ExplorationJumpingClimbingTitle=점프와 등반
+TutorialSubsection/&Inventory_LootingTitle=약탈
+TutorialSubsection/&Inventory_SpecialTitle=특수 슬롯
+TutorialSubsection/&Exploration_MagicTitle=마법

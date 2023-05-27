@@ -1,0 +1,18 @@
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=당신은 추가 공격을 얻고 이제 당신의 차례에 최대 2번 공격할 수 있습니다.
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=추가 공격
+Feature/&DamageAffinityGenericHardenToNecroticDescription=괴사 손상에 대한 면역이 있으며 최대 생명력을 줄일 수 없습니다.
+Feature/&DamageAffinityGenericHardenToNecroticTitle=괴사로 굳어지다
+Feature/&FeatureSetCasterFightingProficiencyDescription=경갑, 중갑, 방패를 착용할 수 있으며 무술 숙련도도 높일 수 있습니다.
+Feature/&FeatureSetCasterFightingProficiencyTitle=갑옷과 무기
+Feature/&MagicAffinityCasterFightingCombatMagicDescription=집중력 검사에서도 이점이 있고, 무기를 주문 시전 초점으로 사용할 수 있고, 아이템을 들고 있는 동안 주문의 신체적 구성 요소를 수행할 수 있습니다.
+Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=집중력 검사에서도 이점이 있고, 무기를 주문 시전 초점으로 사용할 수 있고, 아이템을 들고 있는 동안 주문의 신체적 구성 요소를 수행할 수 있으며, 적이 근접 범위 내에 있을 때 불이익이 없습니다.
+Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=향상된 전쟁 캐스팅
+Feature/&MagicAffinityCasterFightingCombatMagicTitle=전쟁 캐스팅
+Feature/&PowerArcaneFighterEnchantWeaponDescription=무기에 활성화되면 공격은 마법으로 간주되며 공격 및 손상 롤에 주문 시전 수정자를 사용합니다.
+Feature/&PowerArcaneFighterEnchantWeaponTitle=신비한 무기
+Feature/&PowerCasterCommandUndeadDescription=언데드를 제어하기 위해 숙련도 보너스만큼 하루에 여러 번 행동을 사용할 수 있습니다. 언데드는 카리스마 저장(DC = 8 + 숙련도 보너스 + 주문 시전자 속성 수정자)을 하지 않으면 1분 동안 조종당해야 합니다.
+Feature/&PowerCasterCommandUndeadTitle=커맨드 언데드
+Feature/&PowerCasterFightingWarMagicDescription=보너스 액션을 사용하여 주문을 시전한 후 주 손에 있는 무기를 사용하여 공격할 수 있습니다.
+Feature/&PowerCasterFightingWarMagicTitle=전쟁 마법
+Feature/&ReplaceAttackWithCantripCasterFightingDescription=공격 중 하나를 캔트립으로 대체할 수 있습니다.
+Feature/&ReplaceAttackWithCantripCasterFightingTitle=캔트립 어택

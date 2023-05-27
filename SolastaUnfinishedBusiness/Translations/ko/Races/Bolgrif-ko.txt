@@ -1,0 +1,14 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=힘 +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=속성 증가
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=지혜 +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=속성 증가
+Feature/&CastSpellBolgrifMagicDescription=드루이드 주문 목록에서 선택한 캔트립 하나를 알고 있습니다. 지혜는 그것에 대한 당신의 주문 시전 능력입니다.
+Feature/&CastSpellBolgrifMagicTitle=드루이드 마법
+Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=운반 능력을 결정할 때 크기를 라지(Large)로 계산합니다.
+Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=강력한 빌드
+Feature/&PowerBolgrifInvisibilityDescription=보너스 액션으로 1라운드 동안 마법처럼 보이지 않게 할 수 있습니다. 공격적인 행동을 취하면 이 투명 상태가 해제됩니다. 이 능력을 사용하면 짧거나 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
+Feature/&PowerBolgrifInvisibilityTitle=사라지다
+Feature/&ProficiencyBolgrifLanguagesDescription=커먼, 엘프, 자이언트.
+Feature/&ProficiencyBolgrifLanguagesTitle=언어
+Race/&RaceBolgrifDescription=볼그리프는 솔라스타의 얼어붙은 고원에 사는 반거인입니다. 그들은 교활하고, 조심스럽고, 은둔하고, 엘프를 제외한 대부분의 휴머노이드를 불신하며 문명에서 멀리 떨어진 긴밀한 클랜에서 사는 것을 선호합니다. 전투에 투입되면 볼그리프는 무기와 자연 마법으로 강력한 기술을 발휘합니다.
+Race/&RaceBolgrifTitle=볼그리프
