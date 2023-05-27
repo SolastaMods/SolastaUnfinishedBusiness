@@ -552,6 +552,7 @@ internal static class CustomWeaponsContext
         MerchantContext.AddItem(HandXbowPlus3, ShopItemType.ShopRangedPlus3);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(HandXbowPlus3, 16, 22,
             HandXbowPrimed,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem,
             ItemDefinitions.Ingredient_Enchant_Blood_Gem), ShopItemType.ShopCrafting);
 
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
