@@ -121,6 +121,10 @@
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/Unity.InputSystem.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(SolastaInstallDir)/Solasta_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
@@ -256,10 +260,7 @@
     <None Update="Settings\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="UnofficialTranslations-es\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="UnofficialTranslations-it\**\*.*">
+    <None Update="UnofficialTranslations\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

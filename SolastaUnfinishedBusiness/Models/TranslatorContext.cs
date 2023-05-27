@@ -15,9 +15,8 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using TMPro;
 using UnityEngine;
-using UnityModManagerNet;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -28,7 +27,7 @@ internal struct LanguageEntry
 
 internal static class TranslatorContext
 {
-    private const string UnofficialLanguagesFolderPrefix = "UnofficialTranslations-";
+    private const string UnofficialLanguagesFolderPrefix = "UnofficialTranslations/";
 
     internal const string English = "en";
 
@@ -36,20 +35,26 @@ internal static class TranslatorContext
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "ko", "pt", "ru", "zh-CN" };
 
     internal static readonly List<LanguageEntry> Languages = new();
 
-    internal static void LoadCustomLanguages()
+    internal static void EarlyLoad()
+    {
+        LoadCustomLanguages();
+        LoadCustomTerms();
+        LoadKoreanFont();
+    }
+
+    private static void LoadCustomLanguages()
     {
         var cultureInfos = CultureInfo.GetCultures(CultureTypes.AllCultures);
-        var directoryInfo = new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}");
-        var directories = directoryInfo.GetDirectories($"{UnofficialLanguagesFolderPrefix}??");
+        var directoryInfo = new DirectoryInfo($@"{Main.ModFolder}/{UnofficialLanguagesFolderPrefix}");
+        var directories = directoryInfo.GetDirectories("??");
 
         foreach (var directory in directories)
         {
-            var code = directory.Name.Substring(UnofficialLanguagesFolderPrefix.Length,
-                directory.Name.Length - UnofficialLanguagesFolderPrefix.Length);
+            var code = directory.Name;
             var cultureInfo = cultureInfos.First(o => o.Name == code);
 
             if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
@@ -62,7 +67,7 @@ internal static class TranslatorContext
                 {
                     Code = code,
                     Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
-                    Directory = directory.Name
+                    Directory = directory.FullName
                 });
 
                 Main.Info($"Language {code} detected.");
@@ -70,7 +75,7 @@ internal static class TranslatorContext
         }
     }
 
-    internal static void LoadCustomTerms()
+    private static void LoadCustomTerms()
     {
         var languageSourceData = LocalizationManager.Sources[0];
 
@@ -83,14 +88,12 @@ internal static class TranslatorContext
             var languageIndex = languageSourceData.GetLanguageIndex(language.Text);
 
             // add terms
-            var directoryInfo =
-                new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/{language.Directory}");
+            var directoryInfo = new DirectoryInfo(language.Directory);
             var files = directoryInfo.GetFiles("*.txt");
 
             foreach (var file in files)
             {
-                var filename = $@"{Main.ModFolder}/{language.Directory}/{file.Name}";
-                using var sr = new StreamReader(filename);
+                using var sr = new StreamReader(file.FullName);
 
                 while (sr.ReadLine() is { } line)
                 {
@@ -109,11 +112,47 @@ internal static class TranslatorContext
                     }
                     catch
                     {
-                        Main.Error($"Skipping line [{line}] in file [{filename}]");
+                        Main.Error($"Skipping line [{line}] in file [{file.FullName}]");
                     }
                 }
             }
         }
+    }
+
+    private static void LoadKoreanFont()
+    {
+        var filename = Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}KoreanHanSans.unity3d");
+
+        if (!File.Exists(filename))
+        {
+            Main.Error($"Loading the font {filename}");
+
+            return;
+        }
+
+        var koreanFontBundle = AssetBundle.LoadFromFile(
+            Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}KoreanHanSans.unity3d"));
+
+        var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+
+        var thinOrig = allFonts.First(x => x.name is "Noto-Light SDF" or "Noto-Thin SDF");
+        var thinKorean = koreanFontBundle.LoadAsset<TMP_FontAsset>("SourceHanSansK-Light SDF");
+
+        thinOrig.fallbackFontAssetTable.Add(thinKorean);
+
+        var regularOrig = allFonts.First(x => x.name == "Noto-Regular SDF");
+        var regularKorean = koreanFontBundle.LoadAsset<TMP_FontAsset>("SourceHanSansK-Regular SDF");
+
+        regularOrig.fallbackFontAssetTable.Add(regularKorean);
+
+        var boldOrig = allFonts.First(x => x.name == "Noto-Bold SDF");
+        var boldKorean = koreanFontBundle.LoadAsset<TMP_FontAsset>("SourceHanSansK-Bold SDF");
+
+        boldOrig.fallbackFontAssetTable.Add(boldKorean);
+
+        var liberationSans = allFonts.First(x => x.name == "LiberationSans SDF");
+
+        liberationSans.fallbackFontAssetTable.Add(regularKorean);
     }
 
     [NotNull]
@@ -234,7 +273,7 @@ internal static class TranslatorContext
     [UsedImplicitly]
     internal static IEnumerable<string> GetTranslations(string languageCode, Func<string, string, bool> validate)
     {
-        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zipStream = new MemoryStream(Properties.Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries.Where(x => validate(x.FullName, languageCode)))
