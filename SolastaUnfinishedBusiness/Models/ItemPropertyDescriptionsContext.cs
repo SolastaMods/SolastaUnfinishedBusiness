@@ -12,6 +12,7 @@ internal static class ItemPropertyDescriptionsContext
     internal static readonly ItemPropertyDescription WeaponPlus1 = BuildFrom(AttackModifierWeaponPlus1);
     internal static readonly ItemPropertyDescription WeaponPlus1AttackOnly = BuildFrom(AttackModifierWeaponPlus1AT);
     internal static readonly ItemPropertyDescription WeaponPlus2 = BuildFrom(AttackModifierWeaponPlus2);
+    internal static readonly ItemPropertyDescription WeaponPlus3 = BuildFrom(AttackModifierWeaponPlus3);
 
     internal static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));

@@ -65,7 +65,7 @@ internal static class FairyRaceBuilder
                 .SetSpellsAtLevel(0, SpellsContext.BurstOfRadiance)
                 .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
                 .SetSpellsAtLevel(2, SpellsContext.ColorBurst)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells()
                 .AddToDB())
             .AddToDB();
 

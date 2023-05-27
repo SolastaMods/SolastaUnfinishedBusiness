@@ -32,14 +32,8 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var castSpellTieflingAsmodeus = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellTieflingAsmodeus")
+            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingAsmodeus")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.FixedList)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(SpellListDefinitionBuilder
                 .Create("SpellListTieflingAsmodeus")
@@ -48,7 +42,7 @@ internal static class TieflingRaceBuilder
                 .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
                 .SetSpellsAtLevel(1, SpellDefinitions.HellishRebuke)
                 .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells(true, 2)
                 .AddToDB())
             .AddToDB();
 
@@ -75,14 +69,8 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var castSpellTieflingMephistopheles = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellTieflingMephistopheles")
+            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingMephistopheles")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.FixedList)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(SpellListDefinitionBuilder
                 .Create("SpellListTieflingMephistopheles")
@@ -91,7 +79,7 @@ internal static class TieflingRaceBuilder
                 .SetSpellsAtLevel(0, SpellDefinitions.FireBolt)
                 .SetSpellsAtLevel(1, SpellDefinitions.BurningHands)
                 .SetSpellsAtLevel(2, SpellDefinitions.FlameBlade)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells(true, 2)
                 .AddToDB())
             .AddToDB();
 
@@ -115,14 +103,8 @@ internal static class TieflingRaceBuilder
             .AddToDB();
 
         var castSpellTieflingZariel = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellTieflingZariel")
+            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingZariel")
             .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.FixedList)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(SpellListDefinitionBuilder
                 .Create("SpellListTieflingZariel")
@@ -131,7 +113,7 @@ internal static class TieflingRaceBuilder
                 .SetSpellsAtLevel(0, SpellsContext.SunlightBlade)
                 .SetSpellsAtLevel(1, SpellsContext.SearingSmite)
                 .SetSpellsAtLevel(2, SpellDefinitions.BrandingSmite)
-                .FinalizeSpells(true, -1)
+                .FinalizeSpells(true, 2)
                 .AddToDB())
             .AddToDB();
 
@@ -171,6 +153,24 @@ internal static class TieflingRaceBuilder
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "LanguageInfernal")
             .AddToDB();
         // END BACKWARD COMPATIBILITY
+
+        for (var level = 17; level <= 20; level++)
+        {
+            castSpellTieflingAsmodeus.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = castSpellTieflingAsmodeus.slotsPerLevels[15].slots
+            });
+
+            castSpellTieflingMephistopheles.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = castSpellTieflingMephistopheles.slotsPerLevels[15].slots
+            });
+
+            castSpellTieflingZariel.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            {
+                Level = level, Slots = castSpellTieflingZariel.slotsPerLevels[15].slots
+            });
+        }
 
         var raceTiefling = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTiefling")

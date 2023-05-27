@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2500,
+    4000,
     0,
     0,
     0
@@ -522,7 +522,7 @@
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "bfe46e8cb70520347b28cef32c05b65c",
+      "m_AssetGUID": "4a7b4f70ed9e9db4dab68b3f24bcb156",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

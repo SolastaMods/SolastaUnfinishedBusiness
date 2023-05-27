@@ -453,6 +453,9 @@ internal sealed class ShopItemType
     internal static readonly ShopItemType ShopMeleePlus2 =
         new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicMelee);
 
+    internal static readonly ShopItemType ShopMeleePlus3 =
+        new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicMelee);
+
     internal static readonly ShopItemType ShopGenericRanged =
         new(FactionStatusDefinitions.Indifference, MerchantFilter.GenericRanged);
 
@@ -463,6 +466,9 @@ internal sealed class ShopItemType
         new(FactionStatusDefinitions.Alliance, MerchantFilter.MagicRanged);
 
     internal static readonly ShopItemType ShopRangedPlus2 =
+        new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicRanged);
+
+    internal static readonly ShopItemType ShopRangedPlus3 =
         new(FactionStatusDefinitions.Brotherhood, MerchantFilter.MagicRanged);
 
     internal static readonly ShopItemType ShopCrafting =

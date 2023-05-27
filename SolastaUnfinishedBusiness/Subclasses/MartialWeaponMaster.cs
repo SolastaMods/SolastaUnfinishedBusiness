@@ -175,7 +175,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featurePerfectStrikes.SetCustomSubFeatures(new PerfectStrikes(featurePerfectStrikes));
+        featurePerfectStrikes.SetCustomSubFeatures(new PerfectStrikes(conditionFocusedStrikes, featurePerfectStrikes));
 
         // MAIN
 
@@ -284,7 +284,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
             var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
             var bonus = !IsWeaponMaster(character)
-                ? 0
+                ? 1
                 : characterLevel >= 17
                     ? 3
                     : characterLevel >= 9
@@ -506,10 +506,12 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
     private sealed class PerfectStrikes : IChangeDiceRoll
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public PerfectStrikes(FeatureDefinition featureDefinition)
+        public PerfectStrikes(ConditionDefinition conditionDefinition, FeatureDefinition featureDefinition)
         {
+            _conditionDefinition = conditionDefinition;
             _featureDefinition = featureDefinition;
         }
 
@@ -517,7 +519,9 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             RollContext rollContext,
             RulesetCharacter rulesetCharacter)
         {
-            return rollContext == RollContext.AttackDamageValueRoll && HasSpecializedWeapon(rulesetCharacter);
+            return rollContext == RollContext.AttackDamageValueRoll &&
+                   HasSpecializedWeapon(rulesetCharacter) &&
+                   rulesetCharacter.HasConditionOfType(_conditionDefinition.Name);
         }
 
         public void BeforeRoll(

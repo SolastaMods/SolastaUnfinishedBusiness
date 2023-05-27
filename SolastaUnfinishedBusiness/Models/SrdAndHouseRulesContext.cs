@@ -92,6 +92,7 @@ internal static class SrdAndHouseRulesContext
         BuildConjureElementalInvisibleStalker();
         LoadAfterRestIdentify();
         SwitchAllowClubsToBeThrown();
+        SwitchDarknessSpell();
         SwitchDruidAllowMetalArmor();
         SwitchEldritchBlastRange();
         SwitchEnableUpcastConjureElementalAndFey();
@@ -362,6 +363,25 @@ internal static class SrdAndHouseRulesContext
             sleetStormEffect.targetType = TargetType.Cylinder;
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
+        }
+    }
+
+    internal static void SwitchDarknessSpell()
+    {
+        //BUGFIX: Now that we have better handled sight and advantage elsewhere, darkness should no more give other source of disadvantage on attack
+        // and the immunity to condition darkness provided by the condition affinity below prevents one with devil sight and similar abilities, causing other problems
+        // so here we remove this immunity
+        if (Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout)
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.None;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
+                ConditionAffinityType.None;
+        }
+        else
+        {
+            FeatureDefinitionCombatAffinitys.CombatAffinityVeil.myAttackAdvantage = AdvantageType.Disadvantage;
+            FeatureDefinitionConditionAffinitys.ConditionAffinityInvocationDevilsSight.conditionAffinityType =
+                ConditionAffinityType.Immunity;
         }
     }
 

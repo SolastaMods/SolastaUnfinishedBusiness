@@ -138,7 +138,7 @@ internal static class KoboldRaceBuilder
             .Create("SpellListDraconicKobold")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
-            .FinalizeSpells(true, -1)
+            .FinalizeSpells()
             .AddToDB();
 
         //explicitly re-use sorcerer spell list, so custom cantrips selected for sorcerer will show here 

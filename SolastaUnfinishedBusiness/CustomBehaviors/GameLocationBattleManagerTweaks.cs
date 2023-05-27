@@ -847,10 +847,10 @@ internal static class GameLocationBattleManagerTweaks
                             hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
                         }
 
-                        // This is used to only offer smites on critical hits
+                        // This is used to only offer divine smites on critical hits
                         if (!criticalHit &&
                             Main.Settings.AddPaladinSmiteToggle &&
-                            featureDefinition is FeatureDefinitionAdditionalDamage &&
+                            featureDefinition is FeatureDefinitionAdditionalDamage { NotificationTag: "DivineSmite" } &&
                             !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
                         {
                             break;

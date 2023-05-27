@@ -658,7 +658,10 @@ internal static class MulticlassGameUiContext
             var spell = pair.Key;
 
             //Add multiclass tag to spells known from other classes
-            extraSpellsMap.TryAdd(spell, pair.Value);
+            if (!Main.Settings.EnableRelearnSpells)
+            {
+                extraSpellsMap.TryAdd(spell, pair.Value);
+            }
 
             // displays known spells from other classes
             if (!Main.Settings.DisplayAllKnownSpellsDuringLevelUp)
