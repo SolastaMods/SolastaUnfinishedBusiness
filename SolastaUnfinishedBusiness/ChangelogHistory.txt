@@ -2,8 +2,9 @@
 
 1.5.46.4:
 
-- added missing family tags to Apothecary, Awaken the Beast, Blessed Soul, Hardy, Medium Armor, Primal Rage, and Toxicologist
- 
+- fixed Apothecary, Awaken the Beast, Blessed Soul, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
+- fixed Alchemist Breath Bombs, Artillerist Flame Thrower, Bounden Ice, Pulse Wave, and Winter Breath not excluding caster
+
 1.5.46.3:
 
 - added additional Halberd, Hand Crossbow, Long Mace, and Pike recipes
