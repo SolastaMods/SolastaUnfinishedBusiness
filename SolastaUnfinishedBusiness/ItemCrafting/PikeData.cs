@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,11 +14,8 @@ internal static class PikeData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons = new List<ItemDefinition> { Models.CustomWeaponsContext.Pike },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition>
-            {
-                Models.CustomWeaponsContext.PikePrimed
-            },
+            BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.Pike },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.PikePrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1

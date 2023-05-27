@@ -38,7 +38,6 @@ public class Settings : UnityModManager.ModSettings
     //
     public bool DisplayRacesToggle { get; set; } = true;
     public bool DisplayBackgroundsToggle { get; set; } = true;
-    //public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; }

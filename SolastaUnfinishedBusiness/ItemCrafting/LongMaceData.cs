@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,11 +14,8 @@ internal static class LongMaceData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons = new List<ItemDefinition> { Models.CustomWeaponsContext.LongMace },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition>
-            {
-                Models.CustomWeaponsContext.LongMacePrimed
-            },
+            BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.LongMace },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.LongMacePrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1

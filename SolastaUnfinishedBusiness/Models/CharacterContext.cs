@@ -21,7 +21,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionTerrainTypeAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -722,26 +721,6 @@ internal static class CharacterContext
         rangerSurvivalist.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
-    private sealed class FeatureDefinitionCustomCodeInvocation : IFeatureDefinitionCustomCode
-    {
-        private readonly string _invocationName;
-
-        public FeatureDefinitionCustomCodeInvocation(string invocationName)
-        {
-            _invocationName = invocationName;
-        }
-
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(_invocationName));
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.TrainedInvocations.Remove(GetDefinition<InvocationDefinition>(_invocationName));
-        }
-    }
-
     private static void SwitchDruidKindredBeastToUseCustomInvocationPools()
     {
         var kindredSpirits = FeatureSetKindredSpiritChoice.FeatureSet;
@@ -1148,6 +1127,26 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    private sealed class FeatureDefinitionCustomCodeInvocation : IFeatureDefinitionCustomCode
+    {
+        private readonly string _invocationName;
+
+        public FeatureDefinitionCustomCodeInvocation(string invocationName)
+        {
+            _invocationName = invocationName;
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(_invocationName));
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.Remove(GetDefinition<InvocationDefinition>(_invocationName));
         }
     }
 

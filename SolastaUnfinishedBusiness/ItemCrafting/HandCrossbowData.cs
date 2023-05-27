@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,9 +14,8 @@ internal static class HandCrossbowData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons =
-                new List<ItemDefinition> { Models.CustomWeaponsContext.HandXbow },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> { Models.CustomWeaponsContext.HandXbowPrimed },
+            BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.HandXbow },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.HandXbowPrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1

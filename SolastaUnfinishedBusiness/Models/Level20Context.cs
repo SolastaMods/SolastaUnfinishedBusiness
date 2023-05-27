@@ -688,7 +688,7 @@ internal static class Level20Context
             CastSpellTraditionLight.KnownCantrips[level] = 2;
 
             // Warlock
-            CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>()
+            CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
             {
                 0,
                 0,

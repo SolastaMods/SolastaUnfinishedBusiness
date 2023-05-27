@@ -45,8 +45,8 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition LongMace, LongMacePrimed;
     private static ItemDefinition LongMacePlus1, LongMacePlus2, LongMacePlus3, LongMaceThunder;
 
-    internal static ItemDefinition
-        HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
+    internal static ItemDefinition HandXbow, HandXbowPrimed;
+    private static ItemDefinition HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
 
     internal static ItemDefinition HandXbowAcid;
 
