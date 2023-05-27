@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription=손재주 +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle=숲 노움 속성 증가
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription=지능 +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle=노움 속성 증가
+Feature/&CastSpellGnomeNaturalIllusionistDescription=<b>성가신 꿀벌</b> 캔트립을 아시죠? 지능은 그것에 대한 주문 시전 수정자입니다.
+Feature/&CastSpellGnomeNaturalIllusionistTitle=자연의 마술사
+Feature/&ProficiencyGnomeLanguagesDescription=일반, 노움.
+Feature/&ProficiencyGnomeLanguagesTitle=언어
+Feature/&SavingThrowAffinityGnomeCunningFeatureDescription=당신은 모든 지능, 지혜, 카리스마가 마법에 대한 내성에 유리합니다.
+Feature/&SavingThrowAffinityGnomeCunningFeatureTitle=교활한
+Language/&LanguageGnomishDescription=솔라스타의 깊은 숲에 사는 놈들에 의해 보존된 오래된 솔라스탄어는 대격변에서 살아남았습니다.
+Language/&LanguageGnomishTitle=노움
+Race/&RaceGnomeDescription=분주한 활동의 ​​끊임없는 윙윙거림이 노움이 긴밀한 공동체를 형성하는 워렌과 이웃에 만연해 있습니다. 더 큰 소리가 윙윙거리는 소리를 냅니다. 여기서는 톱니바퀴가 부딪치는 소리, 저기서 작은 폭발음, 놀라움이나 승리의 함성, 특히 폭소가 터집니다. 격언은 발명, 탐험, 조사, 창조, 놀이의 모든 순간을 즐기며 삶을 즐깁니다.
+Race/&RaceGnomeTitle=금언

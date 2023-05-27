@@ -112,7 +112,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Enchant Heavy Stormcrossbow",
+    "title": "Enchant Heavy Storm Crossbow",
     "description": "Item/&HeavyCrossbow_Stormbow_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -660,6 +660,7 @@ internal static class Level20Context
             }
         }
 
+        // fixes known cantrips and slots for some incomplete cast spell features
         for (var level = 17; level <= 20; level++)
         {
             // Tiefling
@@ -685,6 +686,22 @@ internal static class Level20Context
             });
 
             CastSpellTraditionLight.KnownCantrips[level] = 2;
+
+            // Warlock
+            CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
+            {
+                0,
+                0,
+                0,
+                0,
+                4,
+                0,
+                0,
+                0,
+                0
+            };
+
+            CastSpellWarlock.KnownCantrips[level - 1] = 4;
         }
     }
 

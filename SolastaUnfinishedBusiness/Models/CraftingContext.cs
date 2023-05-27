@@ -17,43 +17,47 @@ internal static class CraftingContext
 
     internal static readonly Dictionary<string, string> RecipeTitles = new()
     {
-        { "PrimedItems", Gui.Localize("ModUi/&PrimedItems") },
-        { "EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle") },
-        { "RelicForgeries", Gui.Localize("ModUi/&RelicForgeries") },
-        { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
-        { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
-        { "Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle") },
+        { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
         { "Battleaxe", Gui.Localize("Equipment/&BattleaxeTypeTitle") },
-        { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
-        { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
+        { "Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle") },
+        { "CEHalberd", Gui.Localize("Item/&CEHalberdTitle") },
+        { "CEHandXbow", Gui.Localize("Item/&CEHandXbowTitle") },
+        { "CELongMace", Gui.Localize("Item/&CELongMaceTitle") },
+        { "CEPike", Gui.Localize("Item/&CEPikeTitle") },
+        { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
+        { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
+        { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
         { "Club", Gui.Localize("Equipment/&ClubTypeTitle") },
-        { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
-        { "Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle") },
-        { "Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle") },
-        { "Rapier", Gui.Localize("Equipment/&RapierTypeTitle") },
+        { "Dart", Gui.Localize("Equipment/&DartTypeTitle") },
+        { "EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle") },
         { "Greataxe", Gui.Localize("Equipment/&GreataxeTypeTitle") },
         { "Greatsword", Gui.Localize("Equipment/&GreatswordTypeTitle") },
-        { "Spear", Gui.Localize("Equipment/&SpearTypeTitle") },
+        { "HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle") },
+        { "Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle") },
+        { "HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle") },
+        { "HideArmor", Gui.Localize("Equipment/&Armor_HideTitle") },
+        { "Javelin", Gui.Localize("Equipment/&JavelinTypeTitle") },
+        { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
+        { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
+        { "LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle") },
+        { "Maul", Gui.Localize("Equipment/&MaulTypeTitle") },
+        { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") },
+        { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedTitle") },
+        { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") },
+        { "PrimedItems", Gui.Localize("ModUi/&PrimedItems") },
+        { "Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle") },
+        { "Rapier", Gui.Localize("Equipment/&RapierTypeTitle") },
+        { "RelicForgeries", Gui.Localize("ModUi/&RelicForgeries") },
+        { "Ringmail", Gui.Localize("Equipment/&Armor_RingMailTitle") },
+        { "ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle") },
         { "Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle") },
         { "Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title") },
         { "Shield", Gui.Localize("Equipment/&ShieldCategoryTitle") },
-        { "HideArmor", Gui.Localize("Equipment/&Armor_HideTitle") },
-        { "LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title") },
-        { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
-        { "ChainShirt", Gui.Localize("Equipment/&Armor_ChainShirtTitle") },
-        { "PaddedLeather", Gui.Localize("Equipment/&Armor_PaddedTitle") },
-        { "Leather", Gui.Localize("Equipment/&Armor_LeatherTitle") },
-        { "ScaleMail", Gui.Localize("Equipment/&Armor_ScaleMailTitle") },
-        { "Breastplate", Gui.Localize("Equipment/&Armor_BreastplateTitle") },
-        { "HalfPlate", Gui.Localize("Equipment/&Armor_HalfPlateTitle") },
-        { "Ringmail", Gui.Localize("Equipment/&Armor_RingMailTitle") },
-        { "ChainMail", Gui.Localize("Equipment/&Armor_ChainMailTitle") },
-        { "Plate", Gui.Localize("Equipment/&Armor_PlateTitle") },
-        { "BarbarianClothes", Gui.Localize("Equipment/&Barbarian_Clothes_Title") },
         { "SorcererArmor", Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title") },
-        { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") },
-        { "ClothesWizard", Gui.Localize("Armor_Adventuring_Wizard_OutfitTitle") },
-        { "MonkArmor", Gui.Localize("Equipment/&Monk_Armor_Title") }
+        { "Spear", Gui.Localize("Equipment/&SpearTypeTitle") },
+        { "StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle") },
+        { "Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle") },
+        { "Warlock_Armor", Gui.Localize("Equipment/&Armor_Warlock_Title") }
     };
 
     private static readonly List<string> ItemCategories = new()
@@ -79,7 +83,11 @@ internal static class CraftingContext
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(CrossbowData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatAxeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(GreatSwordData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HalberdData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandaxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(HandCrossbowData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(LongMaceData.Items);
+        ItemRecipeGenerationHelper.AddRecipesFromItemCollection(PikeData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(QuarterstaffData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(RapierData.Items);
         ItemRecipeGenerationHelper.AddRecipesFromItemCollection(ScimitarData.Items);

@@ -1,0 +1,3 @@
+QuestStatus/&HeaderQuestCompletedTitle=퀘스트 완료
+QuestStatus/&HeaderQuestFailedTitle=퀘스트 실패!
+QuestStatus/&HeaderQuestNewTitle=새로운 퀘스트 시작

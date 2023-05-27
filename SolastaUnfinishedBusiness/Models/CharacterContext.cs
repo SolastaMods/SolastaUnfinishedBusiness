@@ -380,6 +380,8 @@ internal static class CharacterContext
 
     private static void LoadVisuals()
     {
+        Tiefling.RacePresentation.faceShapeAssetPrefix = Main.Settings.UseElfFaceModelsOnTieflings ? "Elf" : "Tiefling";
+
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
         if (Main.Settings.UnlockSkinColors)
@@ -628,10 +630,14 @@ internal static class CharacterContext
             var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
             var guiPresentation = terrainType.GuiPresentation;
             var sprite = Sprites.GetSprite(terrainTypeName, terrainAffinitySprites[terrainTypeName], 128);
+            var terrainTitle = Gui.Localize($"Environment/&{terrainTypeName}Title");
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}TerrainType{terrainTypeName}")
-                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, terrainTitle),
+                    Gui.Format(guiPresentation.Description, terrainTitle),
+                    sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
                 .SetCustomSubFeatures(Hidden.Marker)
@@ -667,10 +673,14 @@ internal static class CharacterContext
             var preferredEnemyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
             var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
             var sprite = Sprites.GetSprite(preferredEnemyName, preferredEnemySprites[preferredEnemyName], 128);
+            var enemyTitle = Gui.Localize($"CharacterFamily/&{preferredEnemyName}Title");
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}PreferredEnemy{preferredEnemyName}")
-                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
+                .SetGuiPresentation(
+                    Gui.Format(guiPresentation.Title, enemyTitle),
+                    Gui.Format(guiPresentation.Description, enemyTitle),
+                    sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
                 .SetGrantedFeature(featureDefinitionPreferredEnemy)
                 .SetCustomSubFeatures(Hidden.Marker)
@@ -684,6 +694,8 @@ internal static class CharacterContext
             return;
         }
 
+        // Ranger
+
         var replacedFeatures = Ranger.FeatureUnlocks
             .Select(x =>
                 x.FeatureDefinition == TerrainTypeAffinityRangerNaturalExplorerChoice
@@ -694,6 +706,8 @@ internal static class CharacterContext
             .ToList();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
+
+        // Ranger Survivalist
 
         var rangerSurvivalist = GetDefinition<CharacterSubclassDefinition>("RangerSurvivalist");
 
@@ -1113,6 +1127,26 @@ internal static class CharacterContext
         if (Main.Settings.EnableSortingFutureFeatures)
         {
             Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
+    private sealed class FeatureDefinitionCustomCodeInvocation : IFeatureDefinitionCustomCode
+    {
+        private readonly string _invocationName;
+
+        public FeatureDefinitionCustomCodeInvocation(string invocationName)
+        {
+            _invocationName = invocationName;
+        }
+
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(_invocationName));
+        }
+
+        public void RemoveFeature(RulesetCharacterHero hero, string tag)
+        {
+            hero.TrainedInvocations.Remove(GetDefinition<InvocationDefinition>(_invocationName));
         }
     }
 

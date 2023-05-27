@@ -97,8 +97,7 @@ internal static class Main
                 ModEntry.Logger.Log("enabled.");
             };
 
-            TranslatorContext.LoadCustomLanguages();
-            TranslatorContext.LoadCustomTerms();
+            TranslatorContext.EarlyLoad();
         }
         catch (Exception ex)
         {

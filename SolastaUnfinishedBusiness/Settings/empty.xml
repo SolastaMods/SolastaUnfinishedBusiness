@@ -5,16 +5,17 @@
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>true</DisplayRacesToggle>
   <DisplayBackgroundsToggle>true</DisplayBackgroundsToggle>
-  <DisplayDeitiesToggle>true</DisplayDeitiesToggle>
   <DisplayClassesToggle>true</DisplayClassesToggle>
   <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>true</DisplayFeatsToggle>
-  <DisplayFeatGroupsToggle>true</DisplayFeatGroupsToggle>
-  <DisplayFightingStylesToggle>true</DisplayFightingStylesToggle>
-  <DisplayInvocationsToggle>true</DisplayInvocationsToggle>
-  <DisplayMetamagicToggle>true</DisplayMetamagicToggle>
+  <DisplayFeatsToggle>false</DisplayFeatsToggle>
+  <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
+  <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
+  <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
+  <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
-  <DisplayMerchantsToggle>true</DisplayMerchantsToggle>
+  <DisplayFactionRelationsToggle>false</DisplayFactionRelationsToggle>
+  <DisplayItemsToggle>false</DisplayItemsToggle>
+  <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
     <item>
       <key>
@@ -158,11 +159,13 @@
   <UnlockGlowingColorsForAllMarksAndTattoos>false</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>false</UnlockSkinColors>
   <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
+  <UseElfFaceModelsOnTieflings>false</UseElfFaceModelsOnTieflings>
   <ApplySrdWeightToFoodRations>false</ApplySrdWeightToFoodRations>
   <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
   <IdentifyAfterRest>false</IdentifyAfterRest>
   <AddBleedingToLesserRestoration>false</AddBleedingToLesserRestoration>
   <BlindedConditionDontAllowAttackOfOpportunity>false</BlindedConditionDontAllowAttackOfOpportunity>
+  <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false</AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
   <AllowTargetingSelectionWhenCastingChainLightningSpell>false</AllowTargetingSelectionWhenCastingChainLightningSpell>
   <RemoveHumanoidFilterOnHideousLaughter>false</RemoveHumanoidFilterOnHideousLaughter>
   <BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>false</BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove>
@@ -176,6 +179,7 @@
   <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
+  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
   <FullyControlConjurations>false</FullyControlConjurations>
   <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>false</MakeLargeWildshapeFormsMedium>
@@ -191,7 +195,6 @@
   <AllowAnyClassToUseArcaneShieldstaff>false</AllowAnyClassToUseArcaneShieldstaff>
   <RemoveAttunementRequirements>false</RemoveAttunementRequirements>
   <RemoveIdentificationRequirements>false</RemoveIdentificationRequirements>
-  <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
   <ShowCraftingRecipeInDetailedTooltips>false</ShowCraftingRecipeInDetailedTooltips>
   <RecipeCost>200</RecipeCost>
   <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>

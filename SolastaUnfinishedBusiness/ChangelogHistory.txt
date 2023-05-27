@@ -1,5 +1,17 @@
 ﻿CHANGES:
 
+1.5.46.3:
+
+- added additional Halberd, Hand Crossbow, Long Mace, and Pike recipes
+- added "Gameplay > General > Visuals > Use Elf face models on Tieflings" setting
+- added support to unofficial Korean translations [need help to improve them]
+- casted Dimension Door and sent wife to another hemisphere [meh, she took a plane]
+- fixed Call of Charge wrong condition duration, again [here I go towards another hat trick]
+- fixed custom weapons recipes not grouping same ingredient types
+- fixed Find Familiar not retaining your best buddy on location changes
+- fixed Palace of the Ice campaign not working with itsy bitsy teenie weenie parties
+- fixed Warlock pact slots and known cantrips on levels 17th and above
+
 1.5.46.2:
 
 - added Halberd +3, Hand Crossbow +3, Long Mace +3, and Pike +3 weapons and recipes

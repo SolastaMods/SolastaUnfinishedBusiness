@@ -14,12 +14,7 @@
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 1,
+      "amount": 2,
       "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
     }
   ],

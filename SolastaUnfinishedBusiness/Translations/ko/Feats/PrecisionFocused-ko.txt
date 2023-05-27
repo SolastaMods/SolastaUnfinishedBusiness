@@ -1,0 +1,6 @@
+Feat/&FeatArcanePrecisionDescription=지능을 1 증가시켜 최대 20까지 증가시킵니다.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 그것의 공격은 마법으로 간주되며 1분 동안 공격 및 피해 굴림에 지능을 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatArcanePrecisionTitle=아케인 프리시전
+Feat/&FeatCharismaticPrecisionDescription=매력을 1 올려 최대 20까지 올립니다.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 그것의 공격은 마법으로 간주되며 1분 동안 공격 및 손상 롤에 카리스마를 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatCharismaticPrecisionTitle=카리스마 넘치는 정확성
+Feat/&FeatWisePrecisionDescription=지혜를 1 증가시켜 최대 20까지 증가시킵니다.\n보너스 액션을 사용하여 무기를 선택할 수 있습니다. 그것의 공격은 마법으로 간주되며 1분 동안 공격 및 피해 굴림에 지혜를 사용합니다. 이 기능은 긴 휴식마다 숙련도 보너스 횟수를 사용할 수 있습니다.
+Feat/&FeatWisePrecisionTitle=현명한 정밀도

@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&AberrationTitle",
-    "description": "CharacterFamily/&AberrationDescription",
+    "title": "Aberration",
+    "description": "Aberrations are utterly alien beings. Many of them have innate magical abilities drawn from the creature's alien mind rather than the mystical forces of the world.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "39c38e65-e909-5ba1-9801-4e89916e8052",

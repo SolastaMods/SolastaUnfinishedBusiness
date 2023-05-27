@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle=포기
+SchoolOfMagic/&ConjurationTitle=주문
+SchoolOfMagic/&DivinationTitle=점
+SchoolOfMagic/&EnchantmentTitle=마법
+SchoolOfMagic/&EvocationTitle=연상
+SchoolOfMagic/&IllusionTitle=환각
+SchoolOfMagic/&NecromancyTitle=점
+SchoolOfMagic/&TransmutationTitle=변성

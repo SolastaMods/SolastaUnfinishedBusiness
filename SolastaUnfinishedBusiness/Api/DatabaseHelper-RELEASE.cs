@@ -794,6 +794,11 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
     }
+    internal static class FeatureDefinitionTerrainTypeAffinitys
+    {
+        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerForest { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerForest");
+        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerSwamp { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerSwamp");
+    }
     internal static class FormationDefinitions
     {
         internal static FormationDefinition Column2 { get; } = GetDefinition<FormationDefinition>("Column2");

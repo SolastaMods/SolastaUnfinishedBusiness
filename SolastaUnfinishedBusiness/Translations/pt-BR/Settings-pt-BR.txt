@@ -225,6 +225,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes par
 ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem <color=#D89555>Sorcerer</color> e tatuagens para todos os personagens
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
+ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color> em <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem do DnD <i><color=#F0DAA0>[se as circunstâncias fizerem com que uma rolagem tenha ambos, considera-se que você não tem nenhum deles]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

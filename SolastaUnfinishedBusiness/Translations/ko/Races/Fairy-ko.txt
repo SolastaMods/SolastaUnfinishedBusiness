@@ -1,0 +1,14 @@
+Feature/&CastSpellFairyDescription=당신은 <b>Burst of Radiance</b> 캔트립을 알고 있습니다. 3레벨에서 <b>Faerie Fire</b>를 배우고 5레벨에서 <b>컬러 버스트</b>를 배웁니다. 둘 다 긴 휴식마다 한 번 사용할 수 있습니다.
+Feature/&CastSpellFairyTitle=페어리 매직
+Feature/&FeatureSetFairyAbilityScoreIncreaseDescription=손재주 +2, 지능, 지혜 또는 카리스마 +1
+Feature/&FeatureSetFairyAbilityScoreIncreaseTitle=능력 점수
+Feature/&FeatureSetFairyFlightDescription=날개 덕분에 걷는 속도와 같은 속도로 비행할 수 있습니다. 중간 또는 무거운 갑옷을 입고 있으면 이 비행 속도를 사용할 수 없습니다.
+Feature/&FeatureSetFairyFlightTitle=비행
+Feature/&PowerFairyFlightDismissDescription=항공편을 취소하십시오.
+Feature/&PowerFairyFlightDismissTitle=항공편 취소
+Feature/&PowerFairyFlightSproutDescription=행동으로 걷는 속도와 같은 비행 속도를 자신에게 부여할 수 있습니다. 미디엄이나 헤비 아머를 착용하고 있다면 사용할 수 없습니다.
+Feature/&PowerFairyFlightSproutTitle=비행
+Feature/&ProficiencyFairyLanguagesDescription=커먼, 엘프
+Feature/&ProficiencyFairyLanguagesTitle=언어
+Race/&RaceFairyDescription=Feywild는 요정을 포함하여 많은 환상적인 사람들의 고향입니다. 요정은 보잘것없는 사람들이지만 그들의 픽시와 스프라이트 친구들만큼은 아닙니다. 최초의 요정은 Elvish, Goblin 또는 Sylvan을 말했고 인간 방문객과의 만남으로 인해 많은 요정도 Common을 배웠습니다.
+Race/&RaceFairyTitle=요정
