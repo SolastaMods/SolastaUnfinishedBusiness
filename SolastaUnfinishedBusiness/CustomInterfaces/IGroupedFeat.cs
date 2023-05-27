@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 public interface IGroupedFeat
 {
     public bool HideSubFeats { get; }
-    public List<FeatDefinition> GetSubFeats(bool includeHidden = false);
+    public List<FeatDefinition> GetSubFeats(bool includeHidden = false, bool onlyModded = false);
 }
 
 public class GroupedFeat : IGroupedFeat
@@ -20,9 +20,13 @@ public class GroupedFeat : IGroupedFeat
         this.feats.Sort(FeatsContext.CompareFeats);
     }
 
-    public List<FeatDefinition> GetSubFeats(bool includeHidden = false)
+    public List<FeatDefinition> GetSubFeats(bool includeHidden = false, bool onlyModded = false)
     {
-        return feats.Where(x => includeHidden || !x.GuiPresentation.hidden).ToList();
+        return feats
+            .Where(x =>
+                (includeHidden || !x.GuiPresentation.hidden) &&
+                (!onlyModded || x.ContentPack == CeContentPackContext.CeContentPack))
+            .ToList();
     }
 
     public bool HideSubFeats => true;
