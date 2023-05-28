@@ -289,8 +289,8 @@ internal static class ClassFeats
 
         feats.AddRange(closeQuartersDex, closeQuartersInt);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupCloseQuarters", Family, closeQuartersDex, closeQuartersInt);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
     }
 
     #endregion
