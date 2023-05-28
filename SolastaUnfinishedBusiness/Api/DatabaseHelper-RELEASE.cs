@@ -608,7 +608,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolRogueSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolRogueSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolSorcererAdditionalMetamagic { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererAdditionalMetamagic");
         internal static FeatureDefinitionPointPool PointPoolSorcererSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererSkillPoints");
-        internal static FeatureDefinitionPointPool PointPoolWarlockMysticArcanum7 { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockMysticArcanum7");
         internal static FeatureDefinitionPointPool PointPoolWarlockSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolWizardSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWizardSkillPoints");
     }
@@ -795,11 +794,6 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
-    }
-    internal static class FeatureDefinitionTerrainTypeAffinitys
-    {
-        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerForest { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerForest");
-        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerSwamp { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerSwamp");
     }
     internal static class FormationDefinitions
     {
