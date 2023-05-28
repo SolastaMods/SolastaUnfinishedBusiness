@@ -4,6 +4,7 @@
 
 - fixed Apothecary, Awaken the Beast, Blessed Soul, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
 - fixed Alchemist Breath Bombs, Artillerist Flame Thrower, Bounden Ice, Pulse Wave, and Winter Breath not excluding caster
+- fixed RESPEC not finishing the process correctly and leading to faceless heroes
 
 1.5.46.3:
 
