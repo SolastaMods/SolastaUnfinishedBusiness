@@ -2,10 +2,10 @@
 
 1.5.46.4:
 
-- changed how the random state from better random dice is saved on game instance
-- fixed Apothecary, Awaken the Beast, Blessed Soul, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
+- fixed Apothecary, Awaken the Beast, Blessed Soul, Close Quarters, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
 - fixed Alchemist Breath Bombs, Artillerist Flame Thrower, Bounden Ice, Pulse Wave, and Winter Breath not excluding caster
 - fixed RESPEC not finishing the process correctly which was leading to faceless heroes
+- fixed summoned creatures and items not getting preserved on location changes [might need a RESPEC on hero with summon to reset state]
 
 1.5.46.3:
 
