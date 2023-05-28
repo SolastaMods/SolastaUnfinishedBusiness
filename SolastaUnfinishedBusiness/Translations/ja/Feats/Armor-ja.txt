@@ -1,0 +1,8 @@
+Feat/&FeatHeavyArmorMasterDescription=鎧を使用して、他の人を殺す可能性のある攻撃をそらすことができます。筋力スコアが 1 増加し、最大 20 になります。重装甲を着用している間、攻撃から受ける殴打、突き刺し、斬撃のダメージは 3 減少します。
+Feat/&FeatHeavyArmorMasterTitle=ヘビーアーマーマスター
+Feat/&FeatMediumArmorDexDescription=器用性が 1 増加し、最大 20 になります。\n中程度の鎧と盾の熟練度が上がります。
+Feat/&FeatMediumArmorDexTitle=中装甲[デックス]
+Feat/&FeatMediumArmorStrDescription=筋力が 1 増加し、最大 20 になります。\n中程度の鎧と盾の熟練度が上がります。
+Feat/&FeatMediumArmorStrTitle=中装甲[Str]
+Feedback/&HeavyArmorMasterFormat=ヘビーアーマーマスター！
+Feedback/&HeavyArmorMasterLine=ヘビーアーマーマスターはターゲットからのダメージを軽減します！

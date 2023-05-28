@@ -1,0 +1,8 @@
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=カリスマ性+1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=能力値増加
+Feature/&CastSpellDarkelfMagicDescription=あなたは<b>ダンシングライツ</b>のキャントリップを知っています。 3 レベルでは<b>フェアリー ファイア</b>を、5 レベルでは<b>闇</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。
+Feature/&CastSpellDarkelfMagicTitle=ダークエルフの魔法
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=あなたはレイピア、ショートソード、ハンドクロスボウの熟練度を持っています。
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=ダークエルフの武器訓練
+Race/&RaceDarkelfDescription=ダークエルフは、人を寄せ付けないバッドランズに住むことで時間の経過とともに変化したエルフの子孫です。ダークエルフは主に夜行性であり、古代のバッドランズ遺跡、特に地下に埋もれた遺跡での生活に適応しています。彼らは黒い肌と白い髪を持つ傾向があります。
+Race/&RaceDarkelfTitle=ダークエルフ

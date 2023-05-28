@@ -1,0 +1,4 @@
+Condition/&ConditionReverseGravityDescription=逆重力に捕らえられる。
+Condition/&ConditionReverseGravityTitle=リバースグラビティ
+Spell/&ReverseGravityDescription=この呪文は、範囲内の点を中心とした半径 50 フィート、高さ 100 フィートの円柱内で重力を逆転させます。
+Spell/&ReverseGravityTitle=リバースグラビティ
