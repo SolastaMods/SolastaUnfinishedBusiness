@@ -40,8 +40,9 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .ExcludeCaster()
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
                     false,

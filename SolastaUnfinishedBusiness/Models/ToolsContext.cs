@@ -182,11 +182,12 @@ internal static class ToolsContext
             characterCreationScreen.CurrentHero = hero;
             characterCreationScreen.Show();
 
-            while (characterCreationScreen.isActiveAndEnabled)
+            while (characterCreationScreen.currentHero != null)
             {
                 yield return null;
             }
 
+            characterCreationScreen.Hide();
             IsRespecing = !hero.TryGetHeroBuildingData(out _);
         }
 

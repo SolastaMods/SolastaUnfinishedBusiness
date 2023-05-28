@@ -27,6 +27,7 @@ internal static class ArmorFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye)
             .SetArmorProficiencyPrerequisite(EquipmentDefinitions.LightArmorCategory)
+            .SetFeatFamily("MediumArmor")
             .AddToDB();
 
         var featMediumArmorStr = FeatDefinitionBuilder
@@ -34,6 +35,7 @@ internal static class ArmorFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar)
             .SetArmorProficiencyPrerequisite(EquipmentDefinitions.LightArmorCategory)
+            .SetFeatFamily("MediumArmor")
             .AddToDB();
 
         var featHeavyArmorMaster = FeatDefinitionBuilder

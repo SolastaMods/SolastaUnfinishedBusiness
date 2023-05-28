@@ -630,8 +630,9 @@ public static class InnovationAlchemy
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator,
                 InventorClassHolder.Marker)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
+                .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 4)
+                .ExcludeCaster()
                 .SetEffectAdvancement(PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetSavingThrowData(
                     false,
@@ -639,8 +640,8 @@ public static class InnovationAlchemy
                     false,
                     EffectDifficultyClassComputation.SpellCastingFeature,
                     AttributeDefinitions.Intelligence)
+                .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation0)
                 .SetParticleEffectParameters(particleParameters)
-                .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .SetDamageForm(damageType, 2, dieType)
