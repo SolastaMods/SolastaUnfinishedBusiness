@@ -883,7 +883,7 @@ FeatGroupBlessedSoul	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionW
 FeatGroupBodyResilience	FeatDefinition	FeatDefinition	53158993-e0b8-5031-afc1-fbeaebc70fc1
 FeatGroupCelestialTouched	FeatDefinition	FeatDefinition	2db2859d-daee-5ef4-81a7-64adb5473156
 FeatGroupClassBound	FeatDefinition	FeatDefinition	c98daa86-03c4-5550-86f8-80178d6ec6f5
-FeatGroupCloseQuarters	FeatDefinition	FeatDefinition	94abe162-6e43-5da9-8f5e-a61ac972df8e
+FeatGroupCloseQuarters	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	94abe162-6e43-5da9-8f5e-a61ac972df8e
 FeatGroupCreed	FeatDefinition	FeatDefinition	fa6d77ba-64d9-5e53-807b-375a3239f17f
 FeatGroupCriticalVirtuoso	FeatDefinition	FeatDefinition	17be5861-9ee7-5d67-b4cd-13b0265a1a2d
 FeatGroupCrusher	FeatDefinition	FeatDefinition	2b736153-fa6a-509c-8447-e9edb59b2cc4
