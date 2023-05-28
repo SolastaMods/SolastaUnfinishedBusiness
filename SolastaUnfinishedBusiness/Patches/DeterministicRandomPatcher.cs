@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -11,6 +12,44 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class DeterministicRandomPatcher
 {
+    private struct MyState
+    {
+        public ulong State;
+#pragma warning disable CS0169
+#pragma warning disable IDE0051
+        private readonly ulong unused;
+#pragma warning restore IDE0051
+#pragma warning restore CS0169
+    }
+
+    private static UnityEngine.Random.State MyStateToRandomState(ulong myState)
+    {
+        var ms = new MyState { State = myState };
+
+        Object o = ms;
+
+        return CopyStruct<UnityEngine.Random.State>(ref o);
+    }
+
+    private static ulong RandomStateToMyState(UnityEngine.Random.State state)
+    {
+        Object o = state;
+
+        var ms = CopyStruct<MyState>(ref o);
+
+        return ms.State;
+    }
+
+    private static T CopyStruct<T>(ref object s1)
+    {
+        var handle = GCHandle.Alloc(s1, GCHandleType.Pinned);
+        T typedStruct = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+
+        handle.Free();
+
+        return typedStruct;
+    }
+
     private static int MySeed => (int)DateTime.Now.Ticks;
 
     private static PcgRandom MyRandom { get; } = new((ulong)MySeed);
@@ -137,7 +176,7 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            __instance.randomSeed = (int)MyRandom.State;
+            __instance.randomState = MyStateToRandomState(MyRandom.State);
 
             return false;
         }
@@ -156,7 +195,7 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            MyRandom.State = (ulong)__instance.randomSeed;
+            MyRandom.State = RandomStateToMyState(__instance.randomState);
 
             return false;
         }
@@ -198,7 +237,9 @@ public static class DeterministicRandomPatcher
                 __instance.randomSeed = (num ^ 3) * 3 / 2;
             }
 
-            MyRandom.State = (ulong)__instance.randomSeed;
+            ulong seed = (ulong)__instance.randomSeed;
+
+            MyRandom.State = (seed << 32) + seed;
 
             __instance.RecordDeterministicRandomState();
 
