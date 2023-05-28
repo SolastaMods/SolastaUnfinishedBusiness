@@ -35,7 +35,10 @@ internal static class TranslatorContext
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "ko", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages =
+    {
+        "de", "en", "es", "fr", "ja", "it", "ko", "pt", "ru", "zh-CN"
+    };
 
     internal static readonly List<LanguageEntry> Languages = new();
 
@@ -50,6 +53,7 @@ internal static class TranslatorContext
 
         LoadCustomLanguages();
         LoadCustomTerms();
+        LoadJapaneseFont();
         LoadKoreanFont();
     }
 
@@ -137,8 +141,7 @@ internal static class TranslatorContext
             return;
         }
 
-        var koreanFontBundle = AssetBundle.LoadFromFile(
-            Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}KoreanHanSans.unity3d"));
+        var koreanFontBundle = AssetBundle.LoadFromFile(filename);
 
         var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
 
@@ -160,6 +163,37 @@ internal static class TranslatorContext
         var liberationSans = allFonts.First(x => x.name == "LiberationSans SDF");
 
         liberationSans.fallbackFontAssetTable.Add(regularKorean);
+    }
+
+    private static void LoadJapaneseFont()
+    {
+        var filename = Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}NotoSansJP-Regular SDF.unitypackage");
+
+        if (!File.Exists(filename))
+        {
+            Main.Error($"Loading the font {filename}");
+
+            return;
+        }
+
+        var allFonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+        var notoSansJapaneseRegular = Resources.Load<TMP_FontAsset>(filename);
+
+        var thinOrig = allFonts.First(x => x.name is "Noto-Light SDF" or "Noto-Thin SDF");
+
+        thinOrig.fallbackFontAssetTable.Add(notoSansJapaneseRegular);
+
+        var regularOrig = allFonts.First(x => x.name == "Noto-Regular SDF");
+
+        regularOrig.fallbackFontAssetTable.Add(notoSansJapaneseRegular);
+
+        var boldOrig = allFonts.First(x => x.name == "Noto-Bold SDF");
+
+        boldOrig.fallbackFontAssetTable.Add(notoSansJapaneseRegular);
+
+        var liberationSans = allFonts.First(x => x.name == "LiberationSans SDF");
+
+        liberationSans.fallbackFontAssetTable.Add(notoSansJapaneseRegular);
     }
 
     [NotNull]

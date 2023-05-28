@@ -48,7 +48,9 @@ internal static class CreditsDisplay
             "sprites [fighting styles, powers, spells, subclasses], homebrew design [Roguish Acrobat, Defiler Domain, Oath of Altruism]"),
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
-        ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]")
+        ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
+        ("nilpkthmsk", "japanese font"),
+        ("team-waldo", "korean font")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
