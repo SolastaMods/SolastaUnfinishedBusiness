@@ -43,7 +43,7 @@ internal static class TranslatorContext
     {
         if (!Directory.Exists(Path.Combine(Main.ModFolder, UnofficialLanguagesFolderPrefix)))
         {
-            Main.Error($"Loading unofficial translations");
+            Main.Error("Loading unofficial translations");
 
             return;
         }

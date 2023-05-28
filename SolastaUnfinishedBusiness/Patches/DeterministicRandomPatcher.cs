@@ -6,32 +6,27 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
+using Random = UnityEngine.Random;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class DeterministicRandomPatcher
 {
-    private struct MyState
-    {
-        public ulong State;
-#pragma warning disable CS0169
-#pragma warning disable IDE0051
-        private readonly ulong unused;
-#pragma warning restore IDE0051
-#pragma warning restore CS0169
-    }
+    private static ulong MySeed => (ulong)DateTime.Now.Ticks;
 
-    private static UnityEngine.Random.State MyStateToRandomState(ulong myState)
+    private static PcgRandom MyRandom { get; } = new(MySeed);
+
+    private static Random.State MyStateToRandomState(ulong myState)
     {
         var ms = new MyState { State = myState };
 
         Object o = ms;
 
-        return CopyStruct<UnityEngine.Random.State>(ref o);
+        return CopyStruct<Random.State>(ref o);
     }
 
-    private static ulong RandomStateToMyState(UnityEngine.Random.State state)
+    private static ulong RandomStateToMyState(Random.State state)
     {
         Object o = state;
 
@@ -43,22 +38,28 @@ public static class DeterministicRandomPatcher
     private static T CopyStruct<T>(ref object s1)
     {
         var handle = GCHandle.Alloc(s1, GCHandleType.Pinned);
-        T typedStruct = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+        var typedStruct = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
 
         handle.Free();
 
         return typedStruct;
     }
 
-    private static int MySeed => (int)DateTime.Now.Ticks;
-
-    private static PcgRandom MyRandom { get; } = new((ulong)MySeed);
-
     private static float Next(double minValue, double maxValue)
     {
         var result = (MyRandom.NextDouble() * (maxValue - minValue)) + minValue;
 
         return (float)result;
+    }
+
+    private struct MyState
+    {
+        public ulong State;
+#pragma warning disable CS0169
+#pragma warning disable IDE0051
+        private readonly ulong unused;
+#pragma warning restore IDE0051
+#pragma warning restore CS0169
     }
 
     [HarmonyPatch(typeof(DeterministicRandom), nameof(DeterministicRandom.value), MethodType.Getter)]
@@ -222,7 +223,7 @@ public static class DeterministicRandomPatcher
 
                 if (__instance.randomSeed == 0)
                 {
-                    __instance.randomSeed = MySeed;
+                    __instance.randomSeed = (int)MySeed;
                 }
             }
             else
@@ -237,7 +238,7 @@ public static class DeterministicRandomPatcher
                 __instance.randomSeed = (num ^ 3) * 3 / 2;
             }
 
-            ulong seed = (ulong)__instance.randomSeed;
+            var seed = (ulong)__instance.randomSeed;
 
             MyRandom.State = (seed << 32) + seed;
 

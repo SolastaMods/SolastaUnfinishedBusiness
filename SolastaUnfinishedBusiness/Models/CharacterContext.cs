@@ -1130,26 +1130,6 @@ internal static class CharacterContext
         }
     }
 
-    private sealed class FeatureDefinitionCustomCodeInvocation : IFeatureDefinitionCustomCode
-    {
-        private readonly string _invocationName;
-
-        public FeatureDefinitionCustomCodeInvocation(string invocationName)
-        {
-            _invocationName = invocationName;
-        }
-
-        public void ApplyFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.TrainedInvocations.TryAdd(GetDefinition<InvocationDefinition>(_invocationName));
-        }
-
-        public void RemoveFeature(RulesetCharacterHero hero, string tag)
-        {
-            hero.TrainedInvocations.Remove(GetDefinition<InvocationDefinition>(_invocationName));
-        }
-    }
-
     internal sealed class MonkWeaponSpecialization
     {
         internal WeaponTypeDefinition WeaponType { get; set; }

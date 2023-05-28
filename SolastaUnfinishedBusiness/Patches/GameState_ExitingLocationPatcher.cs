@@ -19,11 +19,12 @@ public static class GameState_ExitingLocationPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: fix summoned creatures being unable to transfer with party
-            var method = typeof(RulesetActor).GetMethod(nameof(RulesetActor.HasConditionOfType), new [] { typeof(string) });
+            var method =
+                typeof(RulesetActor).GetMethod(nameof(RulesetActor.HasConditionOfType), new[] { typeof(string) });
             var custom = new Func<RulesetActor, string, bool>(HasConditionOfType).Method;
-            
+
             return instructions.ReplaceCalls(method,
-                 "GameState_ExitingLocation.Begin",
+                "GameState_ExitingLocation.Begin",
                 new CodeInstruction(OpCodes.Call, custom));
         }
 
@@ -33,4 +34,3 @@ public static class GameState_ExitingLocationPatcher
         }
     }
 }
-
