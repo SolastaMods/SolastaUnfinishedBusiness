@@ -111,7 +111,14 @@ internal static partial class SpellBuilders
                 ConditionAffinityFrightenedImmunity,
                 ConditionAffinityFrightenedFearImmunity,
                 ConditionAffinityMindControlledImmunity,
-                ConditionAffinityMindDominatedImmunity)
+                ConditionAffinityMindDominatedImmunity,
+                ConditionAffinityDemonicInfluenceImmunity,
+                FeatureDefinitionConditionAffinityBuilder
+                    .Create("ConditionAffinityInsaneImmunity")
+                    .SetGuiPresentationNoContent(true)
+                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
+                    .SetConditionType(ConditionInsane)
+                    .AddToDB())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder

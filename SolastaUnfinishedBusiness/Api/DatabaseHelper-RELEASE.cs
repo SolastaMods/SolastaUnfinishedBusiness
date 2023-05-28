@@ -167,6 +167,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionHindered_By_Frost { get; } = GetDefinition<ConditionDefinition>("ConditionHindered_By_Frost");
         internal static ConditionDefinition ConditionHitByDirtyFighting { get; } = GetDefinition<ConditionDefinition>("ConditionHitByDirtyFighting");
         internal static ConditionDefinition ConditionIncapacitated { get; } = GetDefinition<ConditionDefinition>("ConditionIncapacitated");
+        internal static ConditionDefinition ConditionInsane { get; } = GetDefinition<ConditionDefinition>("ConditionInsane");
         internal static ConditionDefinition ConditionInvisible { get; } = GetDefinition<ConditionDefinition>("ConditionInvisible");
         internal static ConditionDefinition ConditionInvisibleBase { get; } = GetDefinition<ConditionDefinition>("ConditionInvisibleBase");
         internal static ConditionDefinition ConditionInvisibleGreater { get; } = GetDefinition<ConditionDefinition>("ConditionInvisibleGreater");
@@ -470,6 +471,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCharmImmunityHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCharmImmunityHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardCharmed { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardCharmed");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardFrightened { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardFrightened");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityDemonicInfluenceImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityDemonicInfluenceImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharm { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityExhaustionImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityExhaustionImmunity");
