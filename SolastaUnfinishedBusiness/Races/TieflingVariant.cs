@@ -48,6 +48,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingAsmodeus")
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingAsmodeus)
@@ -74,6 +75,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingDevilTongue = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingDevilTongue")
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingDevilTongue)
@@ -108,6 +110,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingMephistopheles")
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingDexterityAbilityScoreIncrease,
                 castSpellTieflingMephistopheles)
@@ -142,6 +145,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
             .Create(Tiefling, "RaceTieflingZariel")
+            .SetOrUpdateGuiPresentation(Category.Race)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingStrengthAbilityScoreIncrease,
                 castSpellTieflingZariel)
