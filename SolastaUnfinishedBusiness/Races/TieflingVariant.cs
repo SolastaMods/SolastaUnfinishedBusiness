@@ -57,6 +57,29 @@ internal static class TieflingRaceBuilder
         raceTieflingAsmodeus.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         // END BACKWARD COMPATIBILITY
+        var castSpellTieflingDevilTongue = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingDevilTongue")
+            .SetGuiPresentation(Category.Feature)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetSpellList(SpellListDefinitionBuilder
+                .Create("SpellListTieflingDevilTongue")
+                .SetGuiPresentationNoContent(true)
+                .ClearSpells()
+                .SetSpellsAtLevel(0, SpellDefinitions.ViciousMockery)
+                .SetSpellsAtLevel(1, SpellDefinitions.CharmPerson)
+                .SetSpellsAtLevel(2, SpellDefinitions.CalmEmotions)
+                .FinalizeSpells(true, 2)
+                .AddToDB())
+            .AddToDB();
+
+        var raceTieflingDevilTongue = CharacterRaceDefinitionBuilder
+            .Create(Tiefling, "RaceTieflingDevilTongue")
+            .SetFeaturesAtLevel(1,
+                attributeModifierTieflingIntelligenceAbilityScoreIncrease,
+                castSpellTieflingDevilTongue)
+            .AddToDB();
+
+        raceTieflingDevilTongue.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         //
         // Mephistopheles
@@ -184,7 +207,7 @@ internal static class TieflingRaceBuilder
                 ProficiencyTieflingStaticLanguages)
             .AddToDB();
 
-        raceTiefling.subRaces.SetRange(raceTieflingMephistopheles, raceTieflingZariel);
+        raceTiefling.subRaces.SetRange(raceTieflingMephistopheles, raceTieflingZariel, raceTieflingDevilTongue);
         raceTiefling.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
 
         return raceTiefling;
