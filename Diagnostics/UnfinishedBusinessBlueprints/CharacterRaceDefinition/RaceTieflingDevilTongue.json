@@ -10,40 +10,16 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierTieflingAbilityScoreIncreaseCha:ee857308581b2d0438b3d0f75d5c0447",
+      "featureDefinition": "Definition:AttributeModifierTieflingIntelligenceAbilityScoreIncrease:1d5fa0e8-69c7-5a54-b952-2777c66e9a3d",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetTieflingHellishResistance:ad681cc5b1544ab4e930bfc412e104c5",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyTieflingStaticLanguages:8bd5b5d595078304981b5d982dbebdfd",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:CastSpellTieflingDevilTongue:e199e46a-8f38-5445-bd4c-4db0886c6668",
       "level": 1
     }
   ],
-  "subRaces": [
-    "Definition:RaceTieflingMephistopheles:3510889d-228b-545d-b345-e2156da11282",
-    "Definition:RaceTieflingZariel:740e7892-8b56-5708-bee2-fd16b2b73bd8",
-    "Definition:RaceTieflingDevilTongue:ccf60b07-2678-5f3d-bd1e-1816a809136d"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
@@ -288,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&TieflingTitle",
-    "description": "Race/&TieflingDescription",
+    "title": "Race/&RaceTieflingDevilTongueTitle",
+    "description": "Race/&RaceTieflingDevilTongueDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3062ae828f76e3c4988135b29ea6ecd9",
@@ -309,7 +285,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "31027206-c934-50e9-a6c2-20b8d4f2f86c",
+  "guid": "ccf60b07-2678-5f3d-bd1e-1816a809136d",
   "contentPack": "PalaceOfIce",
-  "name": "RaceTiefling"
+  "name": "RaceTieflingDevilTongue"
 }
