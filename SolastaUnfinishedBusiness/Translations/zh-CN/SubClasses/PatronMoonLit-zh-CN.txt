@@ -1,6 +1,6 @@
 Condition/&ConditionMoonlitMoonTouchedDescription=你的重力被否定了。
 Condition/&ConditionMoonlitMoonTouchedTitle=潮汐引力
-Feature/&BonusCantripsMoonlitDescription=你对月光的控制已经提高到一个新的水平。你可以随意施放法术<b>月华只光</b> 和<b>妖火</b>。
+Feature/&BonusCantripsMoonlitDescription=你对月光的控制已经提高到一个新的水平。你可以随意施放法术<b>月华之光</b> 和<b>妖火</b>。
 Feature/&BonusCantripsMoonlitTitle=月光控制
 Feature/&FeatureSetMoonlitSuperiorSightDescription=你可以在所有照明条件下完美地看到，盲视可达 80 尺，让你即使在隐形和魔法黑暗中也能看到敌人。
 Feature/&FeatureSetMoonlitSuperiorSightTitle=高级月之视界
