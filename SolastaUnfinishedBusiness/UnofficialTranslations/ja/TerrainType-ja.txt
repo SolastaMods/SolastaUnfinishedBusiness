@@ -1,0 +1,16 @@
+TerrainType/&ArcticDescription=雪または永久凍土の地域は北極地形とみなされます。この地形タイプは Crown of the Magister キャンペーンでは使用されないことに注意してください。
+TerrainType/&ArcticTitle=北極
+TerrainType/&BadlandsDescription=かつてマナカロン帝国の内陸部をカバーしていたほとんどの地域は、現在では大変動後の魔法が混沌と現れ、さまざまな地形が混在する荒々しい地形となっており、バッドランズ地形と考えられています。
+TerrainType/&CoastDescription=海岸線を含むエリアは海岸地形とみなされます。この地形タイプは Crown of the Magister キャンペーンでは使用されないことに注意してください。
+TerrainType/&CoastTitle=海岸
+TerrainType/&DablandsTitle=バッドランズ
+TerrainType/&DesertDescription=雨がほとんどまたはまったくなく、植生が最小限の乾燥地域は砂漠地形とみなされます。
+TerrainType/&DesertTitle=荒野
+TerrainType/&ForestDescription=緑豊かな植生と広い範囲の森林があるエリアは、森林地形とみなされます。
+TerrainType/&ForestTitle=森
+TerrainType/&GrasslandDescription=希少な森林と広大な緑の平原がある地域は草原地形とみなされます。
+TerrainType/&GrasslandTitle=草原
+TerrainType/&MountainDescription=岩場、丘、山のある地域は山岳地帯とみなされます。
+TerrainType/&MountainTitle=山
+TerrainType/&SwampDescription=湿地や池があり、湿った雰囲気のある地域は湿地地形とみなされます。
+TerrainType/&SwampTitle=沼地

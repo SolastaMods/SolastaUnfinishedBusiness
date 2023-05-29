@@ -1,0 +1,7 @@
+Tag/&PactTomeCantripSpecialTagTitle=パクト・キャントリップス
+Tag/&PactTomeSpellSpecialTagTitle=協定の呪文
+Tag/&PactTomeRitualSpellSpecialTagTitle=協定の儀式
+Tag/&MysticArcanumSpellSpecialTagTitle=ミスティックアルカナム
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=魔法の秘密 キャントリップまたはスペル
+Tag/&BonusCantripsCantripSpecialTagTitle=ボーナスキャントリップ
+Tag/&ArcaneProfessorCantripSpecialTagTitle=秘術教授

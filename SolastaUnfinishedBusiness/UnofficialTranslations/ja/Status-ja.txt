@@ -1,0 +1,6 @@
+Status/&ConcentrationFormat={0} は呪文「{1}」を維持することに集中しています。
+Status/&ConcentrationStopDescription=集中するのをやめてください。
+Status/&HealthStatusFormat=健康状態: {0}
+Status/&ReadiedCantripAttackFormat={0} は機会があればキャントリップ攻撃を使用する準備ができています。
+Status/&ReadiedMeleeAttackFormat={0} は機会があれば近接攻撃を行う準備ができています。
+Status/&ReadiedRangedAttackFormat={0} は機会があれば遠隔攻撃を行う準備ができています。

@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle=アブレーション
+SchoolOfMagic/&ConjurationTitle=召喚術
+SchoolOfMagic/&DivinationTitle=占い
+SchoolOfMagic/&EnchantmentTitle=エンチャント
+SchoolOfMagic/&EvocationTitle=喚起
+SchoolOfMagic/&IllusionTitle=幻想
+SchoolOfMagic/&NecromancyTitle=ネクロマンシー
+SchoolOfMagic/&TransmutationTitle=変換

@@ -1,0 +1,6 @@
+Size/&GargantuanTitle=ガルガンチュアン
+Size/&HugeTitle=巨大
+Size/&LargeTitle=大きい
+Size/&MediumTitle=中くらい
+Size/&SmallTitle=小さい
+Size/&TinyTitle=小さい
