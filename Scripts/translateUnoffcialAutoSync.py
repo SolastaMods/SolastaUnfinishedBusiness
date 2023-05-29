@@ -67,6 +67,8 @@ def split_dict(dict):
     return dict_group
 
 def sync_file(offcial_dict, file_record, file_full_name):
+    print(f"sync {file_full_name}")
+
     # sync file with offcial dict
     for key, value in file_record.items():
         if key not in offcial_dict:
@@ -90,17 +92,15 @@ def sync_file(offcial_dict, file_record, file_full_name):
     with open(file_full_name, "wt", encoding="utf-8") as f:
         f.writelines(data)
 
-def sync_folder(offcial_dict, unofficial_file_code, dict_group):
+def sync_folder(dict_group, unofficial_file_code):
     unoffcial_folder_name = f"SolastaUnfinishedBusiness\\UnofficialTranslations\\{unofficial_file_code}"
-    for filename in os.listdir(unoffcial_folder_name):
-        if filename.endswith(".txt"):
-            file_full_name = os.path.join(unoffcial_folder_name, filename)
-            group_name = os.path.splitext(filename)[0].replace(unofficial_file_code, "")
-            if group_name in dict_group:
-                file_record = readRecord(file_full_name)
-                sync_file(offcial_dict[group_name], file_record, file_full_name)
-
-
+    for group_name in dict_group.keys():
+        file_full_name = os.path.join(unoffcial_folder_name, f"{group_name}-{unofficial_file_code}.txt")
+        if os.path.exists(file_full_name):
+            file_record = readRecord(file_full_name)
+        else:
+            file_record = {}
+        sync_file(dict_group[group_name], file_record, file_full_name)
 
 def sync_translation(offcial_file_code, unofficial_file_code):
     # read offcial translation file
@@ -108,9 +108,10 @@ def sync_translation(offcial_file_code, unofficial_file_code):
     offcial_dict = readRecord(offcial_file_name)
     dict_group = split_dict(offcial_dict)
     # read unofficial translation group
-    sync_folder(offcial_dict, unofficial_file_code, dict_group)
+    sync_folder(dict_group, unofficial_file_code)
 
 def main():
+    # run this script in root folder
     # sync cn language
     sync_translation("cn-ZN", "zh-CN-Unoffcial")
 

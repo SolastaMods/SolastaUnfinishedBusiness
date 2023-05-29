@@ -1,0 +1,7 @@
+Voice/&Female1Title=女性 1
+Voice/&Female2Title=女性 2
+Voice/&Male1Title=男性 1
+Voice/&Male2Title=男性 2
+Voice/&Voice1Title=嗓音 1
+Voice/&Voice2Title=嗓音 2
+Voice/&Voice3Title=嗓音 3

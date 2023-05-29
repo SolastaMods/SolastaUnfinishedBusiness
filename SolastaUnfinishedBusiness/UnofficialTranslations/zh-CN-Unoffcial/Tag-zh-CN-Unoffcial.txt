@@ -1,0 +1,7 @@
+Tag/&ArcaneProfessorCantripSpecialTagTitle=奥术教授
+Tag/&BonusCantripsCantripSpecialTagTitle=附赠戏法
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle=魔法奥秘戏法或法术
+Tag/&MysticArcanumSpellSpecialTagTitle=玄奥秘法
+Tag/&PactTomeCantripSpecialTagTitle=魔契戏法
+Tag/&PactTomeRitualSpellSpecialTagTitle=魔契仪式
+Tag/&PactTomeSpellSpecialTagTitle=魔契法术

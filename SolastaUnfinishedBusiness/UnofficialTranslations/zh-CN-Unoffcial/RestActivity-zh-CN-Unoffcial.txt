@@ -1,0 +1,12 @@
+RestActivity/&ArcaneRecoveryDescription=当你完成一次短休后, 你可以将 若干耗尽的法术位恢复至至多你法师 等级的半值（最大值：第 5 级）, 向上取整。每天限用一次。
+RestActivity/&ArcaneRecoveryExecutedDescription=开启<b>奥术回想</b>可{0} 回复以下法术位：
+RestActivity/&ArcaneRecoveryTitle=奥术回想
+RestActivity/&AttuneItemDescription=同调物品可以使用其高级属性和功能。
+RestActivity/&AttuneItemTitle=同调物品
+RestActivity/&FiendishResilienceDescription=选择一种新的伤害类型抗性。 这将替换此前所选的邪魔体魄。
+RestActivity/&LevelUpDescription=开始该角色的升级进程。
+RestActivity/&LevelUpTitle=升级
+RestActivity/&NaturalRecoveryDescription=每日完成一次短休后, 你可以选择恢复部分已使用的法术位 （最高环阶 5）, 至多等于你德鲁伊职业等级的一半, 向下取整。
+RestActivity/&NaturalRecoveryTitle=自然恢复
+RestActivity/&PrepareSpellsDescription=当你结束一次长休时, 你可以调 整自己的已准备法术列表。
+RestActivity/&PrepareSpellsTitle=准备法术

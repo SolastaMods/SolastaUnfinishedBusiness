@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=缺少灵魂 - 异界之门未启动
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=灵魂已连接 - 异界之门已就绪
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=祭品就绪

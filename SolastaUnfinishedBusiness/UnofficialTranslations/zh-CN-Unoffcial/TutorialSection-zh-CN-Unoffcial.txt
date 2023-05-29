@@ -1,0 +1,5 @@
+TutorialSection/&BasicsTitle=基础知识
+TutorialSection/&CombatTitle=战斗信息
+TutorialSection/&ExplorationTitle=探索
+TutorialSection/&InventoryTitle=物品栏
+TutorialSection/&TravelTitle=移动
