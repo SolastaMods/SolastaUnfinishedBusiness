@@ -41,7 +41,8 @@
   ],
   "subRaces": [
     "Definition:RaceTieflingMephistopheles:3510889d-228b-545d-b345-e2156da11282",
-    "Definition:RaceTieflingZariel:740e7892-8b56-5708-bee2-fd16b2b73bd8"
+    "Definition:RaceTieflingZariel:740e7892-8b56-5708-bee2-fd16b2b73bd8",
+    "Definition:RaceTieflingDevilTongue:ccf60b07-2678-5f3d-bd1e-1816a809136d"
   ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],

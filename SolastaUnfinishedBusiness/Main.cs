@@ -69,6 +69,8 @@ internal static class Main
     [UsedImplicitly]
     internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
+        var now = DateTime.Now;
+
         try
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -91,14 +93,16 @@ internal static class Main
 
             Enable = () =>
             {
-                Enabled = true;
+                var finished = DateTime.Now;
+
                 new MenuManager().Enable(modEntry, assembly);
                 LoadSettingFilenames();
-                ModEntry.Logger.Log("enabled.");
+                ModEntry.Logger.Log($"enabled in {finished - now:T}.");
+
+                Enabled = true;
             };
 
-            TranslatorContext.LoadCustomLanguages();
-            TranslatorContext.LoadCustomTerms();
+            TranslatorContext.EarlyLoad();
         }
         catch (Exception ex)
         {

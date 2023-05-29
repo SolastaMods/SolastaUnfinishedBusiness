@@ -1,0 +1,14 @@
+Condition/&ConditionFarStepDescription=ボーナス アクションを使用すると、目に見える空いているスペースまで最大 60 フィートまでテレポートできます。
+Condition/&ConditionFarStepTitle=ファーステップ
+Feature/&AdditionalDamageBanishingSmiteDescription=強制ダメージを受けます。
+Feature/&AdditionalDamageBanishingSmiteTitle=バニシング・スマイト
+Feedback/&AdditionalDamageBanishingSmiteFormat=バニシング・スマイト!
+Feedback/&AdditionalDamageBanishingSmiteLine={0} は追放スマイトにより {1} により多くのダメージを与えます (+{2})
+Spell/&BanishingSmiteDescription=次のヒットは、武器による追加の 5d10 フォース ダメージを与えます。さらに、この攻撃でターゲットのヒットポイントが 50 以下になった場合、1 分間追放します。
+Spell/&BanishingSmiteTitle=バニシング・スマイト
+Spell/&FarStepDescription=最大 60 フィートの、目に見える空いているスペースにテレポートします。呪文が終了する前の各ターンで、ボーナス アクションを使用して、この方法で再びテレポートできます。
+Spell/&FarStepTitle=ファーステップ
+Spell/&MantleOfThornsDescription=茨のオーラで身を包みましょう。開始または通過したものは 2d8 の貫通ダメージを受けます。このダメージは、高レベルではスロットごとに 1d8 ずつ増加します。
+Spell/&MantleOfThornsTitle=いばらのマントル
+Spell/&SonicBoomDescription=使用した風船と同じ色の小さな球体が範囲内で選択した点に表示され、大きな音を立てて広がり、力が爆発します。半径30フィート内の各クリーチャーはストレングスセーヴィングスローを行わなければなりません。ターゲットは中心から最大 30 フィート離れたところに押し出され、セーブに失敗した場合は 6d8 の雷撃ダメージを与え、成功した場合は半分のダメージで移動はなくなりました。
+Spell/&SonicBoomTitle=ソニックブーム

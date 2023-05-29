@@ -264,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&TieflingTitle",
-    "description": "Race/&TieflingDescription",
+    "title": "Race/&RaceTieflingAsmodeusTitle",
+    "description": "Race/&RaceTieflingAsmodeusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3062ae828f76e3c4988135b29ea6ecd9",
@@ -280,7 +280,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 1,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

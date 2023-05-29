@@ -1,0 +1,7 @@
+Voice/&Female1Title=空
+Voice/&Female2Title=空
+Voice/&Male1Title=空
+Voice/&Male2Title=空
+Voice/&Voice1Title=ボイス1
+Voice/&Voice2Title=ボイス2
+Voice/&Voice3Title=ボイス3

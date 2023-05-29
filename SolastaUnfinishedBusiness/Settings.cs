@@ -38,7 +38,6 @@ public class Settings : UnityModManager.ModSettings
     //
     public bool DisplayRacesToggle { get; set; } = true;
     public bool DisplayBackgroundsToggle { get; set; } = true;
-    //public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; }
@@ -72,6 +71,7 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool DisableUpdateMessage { get; set; }
+    public bool DisableUnofficialTranslationsMessage { get; set; }
     public bool EnableBetaContent { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool EnableSaveByLocation { get; set; }
@@ -139,6 +139,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
+    public bool UseElfFaceModelsOnTieflings { get; set; }
 #if false
     public bool AllowHornsOnAllRaces { get; set; }
 #endif

@@ -1,0 +1,14 @@
+Feature/&AutoPreparedSpellsDeadMasterDescription={0}。
+Feature/&AutoPreparedSpellsDeadMasterTitle=デッドマスターの呪文
+Feature/&BypassSpellConcentrationDeadMasterDescription=あなたは死霊術の方法を学びました。アップキャストの場合、デッドを蘇生するのに集中力は必要ありません。
+Feature/&BypassSpellConcentrationDeadMasterTitle=散布
+Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=ネクロマンシー呪文を唱えるとき、+1 DC ボーナスを獲得します。
+Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=死霊術の達人
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=あなたが作成したアンデッドは、ウィザード レベルごとにヒット ポイントの最大値が 2 HP 増加し、攻撃ロールに熟練度ボーナスが追加されます。
+Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=アンデッドチェーン
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=ターンごとに 1 回、第 1 レベル以上の呪文でクリーチャーを倒すと、その呪文のレベルの 2 倍、またはその呪文が死霊術の学校に属している場合はそのレベルの 3 倍に等しいヒット ポイントを回復します。健康状態が満タンの場合、代わりに一時的なヒット ポイントを獲得します。構築物やアンデッドを殺害してもこの恩恵は得られません。
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=スターク・ハーベスト
+Spell/&SpellRaiseDeadFormatDescription=<b>{0}</b> の召喚:\n{1}
+Spell/&SpellRaiseDeadFormatTitle={0}を上げる
+Subclass/&WizardDeadMasterDescription=デッドマスターは、すべての生き物を活気づけるエネルギーを操作することを学びます。進歩するにつれて、魔法が生き物の体を破壊するにつれて生き物から生命力を奪い、その生命エネルギーを操作できる魔法の力に変えることを学びます。
+Subclass/&WizardDeadMasterTitle=デッドマスター

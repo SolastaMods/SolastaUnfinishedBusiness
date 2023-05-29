@@ -240,6 +240,14 @@ internal static class CharacterDisplay
         }
 #endif
 
+        toggle = Main.Settings.UseElfFaceModelsOnTieflings;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseElfFaceModelsOnTieflings"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseElfFaceModelsOnTieflings = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
         {

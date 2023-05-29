@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&GrasslandTitle",
-    "description": "TerrainType/&GrasslandDescription",
+    "title": "Grassland",
+    "description": "Areas with rare forests and vast areas of green plains are considered grassland terrain.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "efa48ca4-43fb-5c61-81b3-93cdbb3de28f",

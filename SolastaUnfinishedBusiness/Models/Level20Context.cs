@@ -486,11 +486,13 @@ internal static class Level20Context
     private static void WarlockLoad()
     {
         var pointPoolWarlockMysticArcanum9 = FeatureDefinitionPointPoolBuilder
-            .Create(PointPoolWarlockMysticArcanum7, "PointPoolWarlockMysticArcanum9")
-            .SetGuiPresentation(
-                "Feature/&PointPoolWarlockMysticArcanum9Title",
-                "Feature/&PointPoolWarlockMysticArcanumDescription")
+            .Create("PointPoolWarlockMysticArcanum9")
+            .SetGuiPresentation(Category.Feature, "Feature/&PointPoolWarlockMysticArcanumDescription")
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, null, "MysticArcanum", 9, 9)
             .AddToDB();
+
+        pointPoolWarlockMysticArcanum9.minSpellLevel = 9;
+        pointPoolWarlockMysticArcanum9.maxSpellLevel = 9;
 
         var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)
@@ -660,6 +662,7 @@ internal static class Level20Context
             }
         }
 
+        // fixes known cantrips and slots for some incomplete cast spell features
         for (var level = 17; level <= 20; level++)
         {
             // Tiefling
@@ -685,6 +688,22 @@ internal static class Level20Context
             });
 
             CastSpellTraditionLight.KnownCantrips[level] = 2;
+
+            // Warlock
+            CastSpellWarlock.slotsPerLevels[level - 1].slots = new List<int>
+            {
+                0,
+                0,
+                0,
+                0,
+                4,
+                0,
+                0,
+                0,
+                0
+            };
+
+            CastSpellWarlock.KnownCantrips[level - 1] = 4;
         }
     }
 

@@ -101,7 +101,7 @@ internal static class ClassFeats
                     EffectDescriptionBuilder
                         .Create()
                         .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                        .SetDurationData(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                        .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                         .SetEffectForms(
                             EffectFormBuilder
                                 .Create()
@@ -109,8 +109,7 @@ internal static class ClassFeats
                                     ConditionDefinitionBuilder
                                         .Create($"Condition{NAME}")
                                         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
-                                        .SetSpecialInterruptions(
-                                            ConditionInterruption.Attacks, ConditionInterruption.AnyBattleTurnEnd)
+                                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
                                         .SetPossessive()
                                         .SetFeatures(
                                             FeatureDefinitionMovementAffinityBuilder
@@ -149,6 +148,7 @@ internal static class ClassFeats
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Maraike)
             .SetValidators(ValidatorsFeat.IsClericLevel4)
+            .SetFeatFamily("BlessedSoul")
             .AddToDB();
 
         var blessedSoulPaladin = FeatDefinitionWithPrerequisitesBuilder
@@ -163,8 +163,10 @@ internal static class ClassFeats
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupBlessedSoul", "BlessedSoul", blessedSoulCleric, blessedSoulPaladin);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupBlessedSoul", "BlessedSoul", ValidatorsFeat.IsClericOrPaladinLevel4,
+            blessedSoulCleric,
+            blessedSoulPaladin);
     }
 
     #endregion
@@ -182,6 +184,7 @@ internal static class ClassFeats
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Einar)
             .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         var primalRageCon = FeatDefinitionWithPrerequisitesBuilder
@@ -191,6 +194,7 @@ internal static class ClassFeats
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Arun)
             .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         feats.AddRange(primalRageStr, primalRageCon);
@@ -285,8 +289,8 @@ internal static class ClassFeats
 
         feats.AddRange(closeQuartersDex, closeQuartersInt);
 
-        return GroupFeats.MakeGroup(
-            "FeatGroupCloseQuarters", Family, closeQuartersDex, closeQuartersInt);
+        return GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupCloseQuarters", Family, HasSneakAttack, closeQuartersDex, closeQuartersInt);
     }
 
     #endregion
@@ -416,6 +420,7 @@ internal static class ClassFeats
                                 Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
                         Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
                     .SetFeatures(t.attributeModifier)
+                    .SetFeatFamily(NAME)
                     .SetValidators(ValidatorsFeat.IsDruidLevel4)
                     .SetCustomSubFeatures(new CustomBehaviorFeatAwakenTheBeastWithin())
                     .AddToDB())
@@ -600,6 +605,7 @@ internal static class ClassFeats
                 feature,
                 AttributeModifierCreed_Of_Einar)
             .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         var hardyCon = FeatDefinitionWithPrerequisitesBuilder
@@ -609,6 +615,7 @@ internal static class ClassFeats
                 feature,
                 AttributeModifierCreed_Of_Arun)
             .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .SetFeatFamily(Name)
             .AddToDB();
 
         feats.AddRange(hardyStr, hardyCon);

@@ -83,6 +83,8 @@ internal static partial class SpellBuilders
 
         var effectDescription = EffectDescriptionBuilder
             .Create()
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
+            .SetDurationData(DurationType.Instantaneous)
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
             .SetSavingThrowData(
                 false,
@@ -91,9 +93,8 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(ConeOfCold)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
+            .ExcludeCaster()
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -436,6 +437,7 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetDurationData(DurationType.Instantaneous)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .ExcludeCaster()
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
                 .SetSavingThrowData(
                     false,

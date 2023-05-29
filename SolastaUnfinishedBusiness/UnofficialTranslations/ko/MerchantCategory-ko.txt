@@ -1,0 +1,8 @@
+MerchantCategory/&AdventuringTitle=모험 장비
+MerchantCategory/&AllTitle=모든 아이템
+MerchantCategory/&ArmorTitle=갑옷
+MerchantCategory/&CraftingTitle=제작
+MerchantCategory/&IngredientTitle=재료
+MerchantCategory/&MagicDeviceTitle=마법 장치
+MerchantCategory/&WeaponTitle=무기
+MerchantCategory/&DocumentTitle=서류

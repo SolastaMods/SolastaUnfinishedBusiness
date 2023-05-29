@@ -1,0 +1,16 @@
+TerrainType/&ArcticDescription=눈이나 영구 동토층 지역은 북극 지형으로 간주됩니다. 주의: 이 지형 유형은 마기스터의 왕관 캠페인에서 사용되지 않습니다.
+TerrainType/&ArcticTitle=북극
+TerrainType/&BadlandsDescription=마나칼론 제국의 이전 내부 지방을 덮고 있는 대부분의 지역은 이제 다양한 지형 유형과 대격변 이후 마법의 혼란스러운 발현이 혼합된 거친 땅으로 간주됩니다.
+TerrainType/&CoastDescription=해안선을 포함하는 지역은 해안 지형으로 간주됩니다. 주의: 이 지형 유형은 마기스터의 왕관 캠페인에서 사용되지 않습니다.
+TerrainType/&CoastTitle=해안
+TerrainType/&DablandsTitle=황무지
+TerrainType/&DesertDescription=비가 거의 없거나 전혀 없고 식물이 거의 없는 건조한 지역은 사막 지형으로 간주됩니다.
+TerrainType/&DesertTitle=사막
+TerrainType/&ForestDescription=초목이 무성하고 넓은 숲이 있는 지역은 산림 지형으로 간주됩니다.
+TerrainType/&ForestTitle=숲
+TerrainType/&GrasslandDescription=희귀한 숲이 있는 지역과 광활한 녹지 평야 지역은 초원 지형으로 간주됩니다.
+TerrainType/&GrasslandTitle=목초지
+TerrainType/&MountainDescription=바위가 많은 땅, 언덕, 산이 있는 지역은 산악 지형으로 간주됩니다.
+TerrainType/&MountainTitle=산
+TerrainType/&SwampDescription=늪과 연못이 있고 대기가 습한 지역은 늪 지형으로 간주됩니다.
+TerrainType/&SwampTitle=늪

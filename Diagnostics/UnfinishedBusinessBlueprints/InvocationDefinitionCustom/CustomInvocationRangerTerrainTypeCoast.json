@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "TerrainType/&CoastTitle",
-    "description": "TerrainType/&CoastDescription",
+    "title": "Coast",
+    "description": "Areas containing a coastline are considered coast terrain. Beware, this Terrain Type is not used in the Crown of the Magister campaign.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "5fd9aec6-7b95-522f-9efc-0790be83d4f5",

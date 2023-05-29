@@ -1,0 +1,16 @@
+Calendar/&LongTimeFormat=[TEMP]게임 시간은 대격변 이후 {3}년 {1} {2}일 {0}입니다.
+Calendar/&SolastanCalendarDescription=Solasta에서 사용하는 공통 달력입니다.
+Calendar/&SolastanCalendarTitle=솔라스탄 달력
+Calendar/&SolastanMonth10Title=Aearun
+Calendar/&SolastanMonth11Title=가벼운
+Calendar/&SolastanMonth12Title=공기
+Calendar/&SolastanMonth1Title=Aerun
+Calendar/&SolastanMonth2Title=에어드와이
+Calendar/&SolastanMonth3Title=에어데어
+Calendar/&SolastanMonth4Title=죄송합니다
+Calendar/&SolastanMonth5Title=이스케드위
+Calendar/&SolastanMonth6Title=이스케데어
+Calendar/&SolastanMonth7Title=모두
+Calendar/&SolastanMonth8Title=탄윈
+Calendar/&SolastanMonth9Title=서표
+Calendar/&SolastanYearFormat={0} PC

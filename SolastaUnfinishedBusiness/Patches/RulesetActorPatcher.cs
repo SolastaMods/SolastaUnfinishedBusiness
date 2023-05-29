@@ -281,14 +281,21 @@ public static class RulesetActorPatcher
         {
             __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse);
 
-            var damageType = RulesetCharacterPatcher.RollMagicAttack_Patch
-                .CurrentMagicEffect?.EffectDescription.FindFirstDamageForm()?.damageType;
+            var damageTypes = RulesetCharacterPatcher.RollMagicAttack_Patch
+                .CurrentMagicEffect?.EffectDescription.EffectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType)
+                .Distinct()
+                .ToList();
 
-            if (damageType != null)
+            if (damageTypes != null)
             {
                 featuresToBrowse.RemoveAll(x =>
-                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y && !y.damageTypes.Contains(damageType));
+                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
+                    y.damageTypes.Intersect(damageTypes).Any());
             }
+
+            __instance.featuresToBrowse.AddRange(featuresToBrowse);
         }
 
 

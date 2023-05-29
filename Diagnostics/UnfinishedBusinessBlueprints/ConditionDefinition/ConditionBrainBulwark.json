@@ -4,8 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:ConditionAffinityDemonicInfluenceImmunity:180bb42cb4c325347b6af8184af29b36",
     "Definition:ConditionAffinityFrightenedFearImmunity:9611f8c570eb8344bbba73c40351a17d",
     "Definition:ConditionAffinityFrightenedImmunity:561b7a96b31b8064e85df039829c050b",
+    "Definition:ConditionAffinityInsaneImmunity:5520ce48-52c7-5280-ac7d-168b75bb79c3",
     "Definition:ConditionAffinityMindControlledImmunity:2f69cc55a85055743810ccf48cdd55df",
     "Definition:ConditionAffinityMindDominatedImmunity:d611fc277b51e114ba4de9bad1c4a577",
     "Definition:DamageAffinityPsychicResistance:6bcf228fbe370f34fa7cf0d8420998eb"

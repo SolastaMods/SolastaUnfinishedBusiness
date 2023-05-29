@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -28,18 +27,24 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Update".Bold().Khaki(), () => UpdateContext.UpdateMod(), UI.Width((float)200));
-            UI.ActionButton("Rollback".Bold().Khaki(), UpdateContext.DisplayRollbackMessage, UI.Width((float)200));
-            UI.ActionButton("Changelog".Bold().Khaki(), UpdateContext.OpenChangeLog, UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
+                UI.Width((float)200));
         }
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), UpdateContext.OpenDonateGithub, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), UpdateContext.OpenDonatePatreon, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), UpdateContext.OpenDonatePayPal, UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Github"), UpdateContext.OpenDonateGithub,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Patreon"), UpdateContext.OpenDonatePatreon,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "PayPal"), UpdateContext.OpenDonatePayPal,
+                UI.Width((float)200));
         }
 
         UI.Label();
@@ -48,6 +53,12 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUpdateMessage = toggle;
+        }
+
+        toggle = Main.Settings.DisableUnofficialTranslationsMessage;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslationsMessage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableUnofficialTranslationsMessage = toggle;
         }
 
         toggle = Main.Settings.EnableBetaContent;

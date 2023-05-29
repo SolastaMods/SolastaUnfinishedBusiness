@@ -1,25 +1,49 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
+using Random = UnityEngine.Random;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly]
 public static class DeterministicRandomPatcher
 {
-    private static int MySeed => (int)DateTime.Now.Ticks;
+    private static ulong MySeed => (ulong)DateTime.Now.Ticks;
 
-    private static PcgRandom MyRandom { get; } = new((ulong)MySeed);
+    private static PcgRandom MyRandom { get; } = new(MySeed);
+
+    private static Random.State MyStateToRandomState(ulong myState)
+    {
+        Span<MyState> s = new[] { new MyState { State = myState } };
+        return MemoryMarshal.Cast<MyState, Random.State>(s)[0];
+    }
+
+    private static ulong RandomStateToMyState(Random.State state)
+    {
+        Span<Random.State> s = new[] { state };
+        return MemoryMarshal.Cast<Random.State, MyState>(s)[0].State;
+    }
 
     private static float Next(double minValue, double maxValue)
     {
         var result = (MyRandom.NextDouble() * (maxValue - minValue)) + minValue;
 
         return (float)result;
+    }
+
+    private struct MyState
+    {
+        public ulong State;
+#pragma warning disable CS0169
+#pragma warning disable IDE0051
+        private readonly ulong unused;
+#pragma warning restore IDE0051
+#pragma warning restore CS0169
     }
 
     [HarmonyPatch(typeof(DeterministicRandom), nameof(DeterministicRandom.value), MethodType.Getter)]
@@ -137,7 +161,7 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            __instance.randomSeed = (int)MyRandom.State;
+            __instance.randomState = MyStateToRandomState(MyRandom.State);
 
             return false;
         }
@@ -156,7 +180,7 @@ public static class DeterministicRandomPatcher
                 return true;
             }
 
-            MyRandom.State = (ulong)__instance.randomSeed;
+            MyRandom.State = RandomStateToMyState(__instance.randomState);
 
             return false;
         }
@@ -183,7 +207,7 @@ public static class DeterministicRandomPatcher
 
                 if (__instance.randomSeed == 0)
                 {
-                    __instance.randomSeed = MySeed;
+                    __instance.randomSeed = (int)MySeed;
                 }
             }
             else
@@ -198,7 +222,9 @@ public static class DeterministicRandomPatcher
                 __instance.randomSeed = (num ^ 3) * 3 / 2;
             }
 
-            MyRandom.State = (ulong)__instance.randomSeed;
+            var seed = (ulong)__instance.randomSeed;
+
+            MyRandom.State = (seed << 32) + seed;
 
             __instance.RecordDeterministicRandomState();
 

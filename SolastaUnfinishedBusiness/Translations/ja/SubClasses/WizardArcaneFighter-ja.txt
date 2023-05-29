@@ -1,0 +1,10 @@
+Feature/&AdditionalActionArcaneFighterDescription=武器攻撃で敵を倒した後に呪文を唱えることができます。
+Feature/&AdditionalActionArcaneFighterTitle=スペルファイティング
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=ターンごとに 1 回、武器攻撃で 1d8 の追加ダメージを与えます。
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=魔法の力による攻撃
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=混乱した戦闘の経験により、集中力判定で有利になります。
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=集中力の向上
+Feedback/&AdditionalDamageArcaneFighterFormat=アーケインファイター！
+Feedback/&AdditionalDamageArcaneFighterLine=秘術の戦士は追加の +{2} ダメージを与える！
+Subclass/&WizardArcaneFighterDescription=Arcane Fighter は、破壊的な攻撃を実行するために武器に魔法を注入します。彼らの敵は、これらの呪文詠唱者の凶暴性と執拗さに驚かれることがよくあります。
+Subclass/&WizardArcaneFighterTitle=アーケイン・ファイター

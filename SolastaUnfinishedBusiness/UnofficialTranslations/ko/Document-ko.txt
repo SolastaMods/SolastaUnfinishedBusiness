@@ -1,0 +1,4 @@
+Document/&Lightfiller_01_Title=Wildspring 안전 키 코드
+Document/&Lightfiller_01_Content=가족 외엔 연락하지 마세요
+Document/&Lightfiller_02_Title=게스트 셀 키
+Document/&Lightfiller_02_Content=소장의 재량에 따라 의사 소통

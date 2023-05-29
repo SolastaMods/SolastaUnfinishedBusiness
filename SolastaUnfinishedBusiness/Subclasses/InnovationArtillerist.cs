@@ -58,10 +58,11 @@ public static class InnovationArtillerist
                     .Create(FlameStrike)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
-                    .SetParticleEffectParameters(FlameStrike)
+                    .ExcludeCaster()
                     .SetSavingThrowData(
                         false, AttributeDefinitions.Dexterity, false,
                         EffectDifficultyClassComputation.FixedValue, AttributeDefinitions.Intelligence, 15)
+                    .SetParticleEffectParameters(FlameStrike)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

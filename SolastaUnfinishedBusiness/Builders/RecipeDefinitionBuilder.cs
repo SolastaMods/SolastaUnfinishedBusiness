@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -26,9 +27,12 @@ internal class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Rec
 
     internal RecipeDefinitionBuilder AddIngredients(params ItemDefinition[] ingredients)
     {
-        foreach (var ingredient in ingredients)
+        foreach (var ingredient in ingredients.GroupBy(x => x))
         {
-            Definition.Ingredients.Add(new IngredientOccurenceDescription { itemDefinition = ingredient, amount = 1 });
+            Definition.Ingredients.Add(new IngredientOccurenceDescription
+            {
+                itemDefinition = ingredient.Key, amount = ingredient.Count()
+            });
         }
 
         return this;

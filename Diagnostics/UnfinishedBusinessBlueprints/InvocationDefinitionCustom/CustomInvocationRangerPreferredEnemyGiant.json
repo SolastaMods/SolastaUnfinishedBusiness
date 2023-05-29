@@ -11,8 +11,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&GiantTitle",
-    "description": "CharacterFamily/&GiantDescription",
+    "title": "Giant",
+    "description": "Giants tower over humans and their kind. They are humanlike in shape, though some have multiple heads or deformities. The six varieties of true giant are hill giants, stone giants, frost giants, fire giants, cloud giants, and storm giants. Besides these, creatures such as ogres and trolls are giants.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6abc328e-bdb0-5cea-a96d-54b6581e70c0",

@@ -100,7 +100,7 @@ internal static class FeatsContext
 
         var groupedFeat = featDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
 
-        groupedFeat?.GetSubFeats(true).ForEach(x => x.GuiPresentation.hidden = hidden);
+        groupedFeat?.GetSubFeats(true, true).ForEach(x => x.GuiPresentation.hidden = hidden);
     }
 
     private static void UpdateFeatGroupsVisibility([NotNull] BaseDefinition featDefinition)

@@ -1,0 +1,10 @@
+DieStyle/&DieStyleEbonyTitle=黒檀
+DieStyle/&DieStyleGreenTitle=緑
+DieStyle/&DieStyleIvoryTitle=象牙
+DieStyle/&DieStyleRubyTitle=ルビー
+DieStyle/&DieStyleStandardTitle=標準
+DieStyle/&DieStyleYellowTitle=黄色
+DieStyle/&DieStyleGoldSupporterTitle=金
+DieStyle/&DieStyleSilverSupporterTitle=銀
+DieStyle/&DieStyleBronzeSupporterTitle=ブロンズ
+DieStyle/&DieStyleDiamondSupporterTitle=ダイヤモンド

@@ -1,0 +1,16 @@
+Calendar/&LongTimeFormat=[TEMP]ゲーム時間は {0}、大変動後 {3} 年の {1} {2} 日です。
+Calendar/&SolastanCalendarDescription=ソラスタで使用される共通カレンダー。
+Calendar/&SolastanCalendarTitle=ソラスタンカレンダー
+Calendar/&SolastanMonth10Title=Aearun
+Calendar/&SolastanMonth11Title=風通しの良い
+Calendar/&SolastanMonth12Title=空気
+Calendar/&SolastanMonth1Title=Aerun
+Calendar/&SolastanMonth2Title=エアドウィ
+Calendar/&SolastanMonth3Title=エアデア
+Calendar/&SolastanMonth4Title=ごめんなさい
+Calendar/&SolastanMonth5Title=イスケウィ
+Calendar/&SolastanMonth6Title=イスケデア
+Calendar/&SolastanMonth7Title=全て
+Calendar/&SolastanMonth8Title=タンウィン
+Calendar/&SolastanMonth9Title=ブックマーク
+Calendar/&SolastanYearFormat={0} パソコン

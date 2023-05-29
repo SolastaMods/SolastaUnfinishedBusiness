@@ -1,0 +1,10 @@
+Investigation/&DLC3_Garrads_Title=헥터의 오래된 계획
+Investigation/&DLC3_Garrads_Description=Violet이 제안한 대로 Soraks가 실제로 Garrad의성에 잠입했는지 확인하려고 합니다.
+Investigation/&DLC3_Undermountain_Investigation_Title=끊임없는 소문과 숨겨진 비밀
+Investigation/&DLC3_Undermountain_Investigation_Description=Ettiven이 우물을 비난하기로 결정하고 Sorak 침투에 대한 끊임없는 소문과 함께 내부에서 Turvaamalinn을 위협하는 것이 있는지 조사하고 확인해야 합니다.
+Investigation/&DLC3_WhiteCity_Title=파괴공작원
+Investigation/&DLC3_WhiteCity_Description=White Rock City의 엔지니어 중 한 명이 사보타주(saboteur)가 도시에 침투한 것으로 의심하고 그들의 정체를 밝히기 위해 도움을 요청하고 있습니다.
+Investigation/&DLC3_ElvenSettlements_Title=발톱 도둑
+Investigation/&DLC3_ElvenSettlements_Description=집과 상점 모두에서 정착지 주변에서 여러 강도 사건이 발생했습니다. Liliel Oakmoss라는 걱정스러운 시민이 조사를 요청했습니다.
+Investigation/&DLC3_Gallivan_Title=슬리퍼 에이전트
+Investigation/&DLC3_Gallivan_Description=애쉬다운 대위는 누군가가 적에게 전략적 정보를 누설하고 있다고 강하게 의심합니다. 공격은 항상 적시에 적소에서 실행되므로 이는 내부 작업일 수 있습니다.

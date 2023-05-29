@@ -319,6 +319,7 @@ internal static partial class SpellBuilders
                             .SetSummonCreatureForm(1, familiarMonster.Name)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
