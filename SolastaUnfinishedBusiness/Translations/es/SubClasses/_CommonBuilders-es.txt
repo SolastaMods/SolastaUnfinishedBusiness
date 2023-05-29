@@ -1,7 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Obtienes un ataque adicional y ahora puedes atacar hasta 2 veces en tu turno.
-Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque adicional
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=ataque adicional
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Tienes inmunidad al daño necrótico y tu máximo de puntos de vida no se puede reducir.
-Feature/&DamageAffinityGenericHardenToNecroticTitle=Endurecer a necrótico
+Feature/&DamageAffinityGenericHardenToNecroticTitle=endurecer a necrótico
 Feature/&FeatureSetCasterFightingProficiencyDescription=Puedes usar armadura ligera, armadura media y escudo y también ganar competencia con armas marciales.
 Feature/&FeatureSetCasterFightingProficiencyTitle=Armadura y Armas
 Feature/&MagicAffinityCasterFightingCombatMagicDescription=Benefíciese también de las pruebas de concentración, sea capaz de usar sus armas como foco de lanzamiento de hechizos y sea capaz de realizar componentes somáticos de hechizos mientras sostiene objetos.
@@ -15,4 +15,4 @@ Feature/&PowerCasterCommandUndeadTitle=Comandar muertos vivientes
 Feature/&PowerCasterFightingWarMagicDescription=Puedes usar tu acción adicional para atacar usando el arma en tu mano principal después de lanzar un hechizo.
 Feature/&PowerCasterFightingWarMagicTitle=Magia de guerra
 Feature/&ReplaceAttackWithCantripCasterFightingDescription=Puedes reemplazar uno de tus ataques con un cantrip.
-Feature/&ReplaceAttackWithCantripCasterFightingTitle=Ataque de cantrip
+Feature/&ReplaceAttackWithCantripCasterFightingTitle=ataque de cantrip
