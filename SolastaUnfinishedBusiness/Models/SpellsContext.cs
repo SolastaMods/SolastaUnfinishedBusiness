@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -364,6 +365,42 @@ internal static class SpellsContext
 
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
+
+        var isActiveInAtLeastOneRepertoire = SpellLists.Values.Any(x => x.ContainsSpell(spellDefinition));
+
+        if (!isActiveInAtLeastOneRepertoire || spellDefinition.contentPack != CeContentPackContext.CeContentPack)
+        {
+            return;
+        }
+
+        //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+        if (spellDefinition.SpellLevel == 0)
+        {
+            SpellListAllCantrips.AddSpell(spellDefinition);
+        }
+
+        //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
+        SpellListAllSpells.AddSpell(spellDefinition);
+
+        //Add spells to Snipers lists
+        var spellSniperClasses = new List<CharacterClassDefinition>
+        {
+            Cleric,
+            Druid,
+            Sorcerer,
+            Warlock,
+            Wizard
+        };
+
+        foreach (var spellSniperClass in spellSniperClasses)
+        {
+            if (spellDefinition.SpellLevel == 0 &&
+                DatabaseHelper.TryGetDefinition<SpellListDefinition>(
+                    $"SpellListFeatSpellSniper{spellSniperClass.Name}", out var spellListSniper))
+            {
+                spellListSniper.AddSpell(spellDefinition);
+            }
+        }
     }
 
     internal sealed class SpellListContext
@@ -449,28 +486,6 @@ internal static class SpellsContext
             {
                 SpellList.AddSpell(spellDefinition);
 
-                //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
-                {
-                    SpellListAllSpells.AddSpell(spellDefinition);
-
-                    //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-                    if (spellDefinition.SpellLevel == 0)
-                    {
-                        SpellListAllCantrips.AddSpell(spellDefinition);
-                    }
-
-                    //Add to spell sniper lists
-                    var className = spellListName.Replace("SpellList", string.Empty);
-
-                    if (spellDefinition.SpellLevel == 0 &&
-                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
-                            out var spellList))
-                    {
-                        spellList.AddSpell(spellDefinition);
-                    }
-                }
-
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
             }
             else
@@ -478,37 +493,6 @@ internal static class SpellsContext
                 foreach (var spellsByLevel in SpellList.SpellsByLevel)
                 {
                     spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                }
-
-                //Remove spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
-                {
-                    foreach (var spellsByLevel in SpellListAllSpells.SpellsByLevel)
-                    {
-                        spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                    }
-
-                    //Remove cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-                    if (spellDefinition.SpellLevel == 0)
-                    {
-                        foreach (var spellsByLevel in SpellListAllCantrips.SpellsByLevel)
-                        {
-                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                        }
-                    }
-
-                    //Remove from spell sniper lists
-                    var className = spellListName.Replace("SpellList", string.Empty);
-
-                    if (spellDefinition.SpellLevel == 0 &&
-                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
-                            out var spellList))
-                    {
-                        foreach (var spellsByLevel in spellList.SpellsByLevel)
-                        {
-                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
-                        }
-                    }
                 }
 
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);

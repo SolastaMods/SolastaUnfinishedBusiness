@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.5.48.0:
+
+- added Devil's Tongue Tiefling subrace
+- added "Gameplay > Tools > Disable unofficial translations" setting
+- added support to unofficial Japanese translations [need help to improve them]
+- fixed Blessed Souls not validating Clerics and Paladins but Rangers and Rogues [copy and paste god struck again]
+- changed Spell Shield's war caster to also trigger when casting cantrips
+- fixed custom weapons added through crafting context not having proper scale [because size matters]
+- fixed Warlock Mystic Arcanum at level 17th not offering level 9th spells [who cares, you'll blast anyways]
+
 1.5.46.4:
 
 - fixed Apothecary, Awaken the Beast, Blessed Soul, Close Quarters, Hardy, Medium Armor, Primal Rage, and Toxicologist not having family tags
