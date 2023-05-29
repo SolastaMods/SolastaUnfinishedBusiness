@@ -15,6 +15,7 @@ internal static class PikeData
         _items ??= new ItemCollection
         {
             BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.Pike },
+            CustomSubFeatures = new List<object> { new CustomScale(z: 3.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.PikePrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
