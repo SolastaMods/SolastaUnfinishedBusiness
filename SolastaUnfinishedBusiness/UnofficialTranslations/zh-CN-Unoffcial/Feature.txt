@@ -1,0 +1,3 @@
+Feature/&CastSpellGnomeShadowDescription=你熟知恼人蜂戏法。并使用智力作为施法属性。
+Feature/&GnomeCunningDescription=当对抗来自于法术的智力、感知和魅力豁免检定时，你具有优势。
+Feature/&GnomeRockArtificersLoreDescription=当你进行智力（历史）检定时, 你可以添加双倍的熟练加值。

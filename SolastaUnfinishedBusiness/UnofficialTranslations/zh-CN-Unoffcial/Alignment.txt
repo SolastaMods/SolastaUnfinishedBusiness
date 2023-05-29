@@ -1,0 +1,2 @@
+Alignment/&ChaoticEvilDescription=混乱邪恶（CE）生物受自身贪欲、仇恨以及嗜血的刺激，会肆意地开展暴力行为。恶魔、红龙以及兽人都是混乱邪恶阵营的。
+Alignment/&ChaoticGoodDescription=混乱善良（CG）生物会按照自己的良知行事, 并不在意他人的期许。铜龙、各种精灵以及独角兽都是混乱善良阵营的。

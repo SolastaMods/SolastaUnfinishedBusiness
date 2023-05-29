@@ -73,22 +73,41 @@ internal static class TranslatorContext
         foreach (var directory in directories)
         {
             var code = directory.Name;
-            var cultureInfo = cultureInfos.First(o => o.Name == code);
+            var cultureInfo = cultureInfos.FirstOrDefault(o => o.Name == code);
 
-            if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+            if (cultureInfo != null)
             {
-                Main.Error($"Language {code} from {directory.Name} already in game.");
+                if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+                {
+                    Main.Error($"Language {code} from {directory.Name} already in game.");
+                }
+                else
+                {
+                    Languages.Add(new LanguageEntry
+                    {
+                        Code = code,
+                        Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
+                        Directory = directory.FullName
+                    });
+
+                    Main.Info($"Language {code} detected.");
+                }
             }
-            else
+            else if (!File.Exists($"{directoryInfo.FullName}/info.json"))
             {
+                var info = JsonConvert.DeserializeObject<JObject>(File.ReadAllText($"{directoryInfo.FullName}/info.json"));
                 Languages.Add(new LanguageEntry
                 {
                     Code = code,
-                    Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
+                    Text = info["NativeName"]!.ToString(),
                     Directory = directory.FullName
                 });
 
                 Main.Info($"Language {code} detected.");
+            }
+            else
+            {
+                Main.Error($"Language {code} illegal!");
             }
         }
     }
