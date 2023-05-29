@@ -644,19 +644,24 @@ public static class RulesetImplementationManagerPatcher
 
         private static void GetBestSavingThrowAbilityScore(RulesetActor rulesetActor, ref string attributeScore)
         {
+            if (rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return;
+            }
+
             var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attributeScore)) +
-                rulesetActor.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
+                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attributeScore)) +
+                rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
 
             var attr = attributeScore;
 
-            foreach (var attribute in rulesetActor
+            foreach (var attribute in rulesetCharacter
                          .GetSubFeaturesByType<IChangeSavingThrowAttribute>()
-                         .Where(x => x.IsValid(rulesetActor, attr))
-                         .Select(x => x.SavingThrowAttribute(rulesetActor)))
+                         .Where(x => x.IsValid(rulesetCharacter, attr))
+                         .Select(x => x.SavingThrowAttribute(rulesetCharacter)))
             {
                 var newSavingThrowBonus =
-                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetActor.TryGetAttributeValue(attribute)) +
+                    AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attribute)) +
                     rulesetActor.ComputeBaseSavingThrowBonus(attribute, new List<RuleDefinitions.TrendInfo>());
 
                 // get the last one instead unless we start using this with other subs and then need to decide which one is better
@@ -682,6 +687,7 @@ public static class RulesetImplementationManagerPatcher
             //TODO: convert to an interface
             var hasSmiteCondition = effectForms.Any(x =>
                 x.FormType == EffectForm.EffectFormType.Condition &&
+                x.ConditionForm.ConditionDefinition != null &&
                 x.ConditionForm.ConditionDefinition.Name.Contains("Smite"));
 
             if (hasSmiteCondition)
