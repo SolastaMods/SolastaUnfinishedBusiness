@@ -1,8 +1,8 @@
 {
   "Id": "SolastaUnfinishedBusiness",
   "DisplayName": "Unfinished Business [UB1]",
-  "Version": "1.5.46.4",
-  "GameVersion": "1.5.46",
+  "Version": "1.5.48.0",
+  "GameVersion": "1.5.48",
   "ManagerVersion": "0.24.0",
   "AssemblyName": "SolastaUnfinishedBusiness.dll",
   "EntryMethod": "SolastaUnfinishedBusiness.Main.Load",

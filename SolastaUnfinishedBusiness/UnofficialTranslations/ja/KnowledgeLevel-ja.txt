@@ -1,0 +1,10 @@
+KnowledgeLevel/&KnownDescription=あなたはこの生き物をよく知っています。
+KnowledgeLevel/&KnownTitle=既知 (3)
+KnowledgeLevel/&MasteredDescription=あなたはこの生き物についてすべてを知っています。
+KnowledgeLevel/&MasteredTitle=マスター済み (4)
+KnowledgeLevel/&ObservedDescription=あなたはこの生き物を簡単に観察しました。
+KnowledgeLevel/&ObservedTitle=観察された (1)
+KnowledgeLevel/&StudiedDescription=あなたはこの生き物を研究しました。
+KnowledgeLevel/&StudiedTitle=勉強しました (2)
+KnowledgeLevel/&UnknownDescription=あなたはこの生き物に遭遇したことがありません。
+KnowledgeLevel/&UnknownTitle=不明 (0)

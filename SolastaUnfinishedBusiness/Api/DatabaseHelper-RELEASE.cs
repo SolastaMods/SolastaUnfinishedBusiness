@@ -66,6 +66,7 @@ internal static partial class DatabaseHelper
         internal static CharacterRaceDefinition HalflingIsland { get; } = GetDefinition<CharacterRaceDefinition>("HalflingIsland");
         internal static CharacterRaceDefinition HalflingMarsh { get; } = GetDefinition<CharacterRaceDefinition>("HalflingMarsh");
         internal static CharacterRaceDefinition Human { get; } = GetDefinition<CharacterRaceDefinition>("Human");
+        internal static CharacterRaceDefinition Gnome { get; } = GetDefinition<CharacterRaceDefinition>("Gnome");
         internal static CharacterRaceDefinition Tiefling { get; } = GetDefinition<CharacterRaceDefinition>("Tiefling");
     }
     internal static class CharacterSizeDefinitions
@@ -608,7 +609,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolRogueSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolRogueSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolSorcererAdditionalMetamagic { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererAdditionalMetamagic");
         internal static FeatureDefinitionPointPool PointPoolSorcererSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolSorcererSkillPoints");
-        internal static FeatureDefinitionPointPool PointPoolWarlockMysticArcanum7 { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockMysticArcanum7");
         internal static FeatureDefinitionPointPool PointPoolWarlockSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWarlockSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolWizardSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolWizardSkillPoints");
     }
@@ -795,11 +795,6 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
-    }
-    internal static class FeatureDefinitionTerrainTypeAffinitys
-    {
-        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerForest { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerForest");
-        internal static FeatureDefinitionTerrainTypeAffinity TerrainTypeAffinityRangerNaturalExplorerSwamp { get; } = GetDefinition<FeatureDefinitionTerrainTypeAffinity>("TerrainTypeAffinityRangerNaturalExplorerSwamp");
     }
     internal static class FormationDefinitions
     {
@@ -1316,6 +1311,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition CallLightning { get; } = GetDefinition<SpellDefinition>("CallLightning");
         internal static SpellDefinition CalmEmotions { get; } = GetDefinition<SpellDefinition>("CalmEmotions");
         internal static SpellDefinition ChainLightning { get; } = GetDefinition<SpellDefinition>("ChainLightning");
+        internal static SpellDefinition CharmPerson { get; } = GetDefinition<SpellDefinition>("CharmPerson");
         internal static SpellDefinition ChillTouch { get; } = GetDefinition<SpellDefinition>("ChillTouch");
         internal static SpellDefinition CircleOfDeath { get; } = GetDefinition<SpellDefinition>("CircleOfDeath");
         internal static SpellDefinition CloudKill { get; } = GetDefinition<SpellDefinition>("CloudKill");
@@ -1458,6 +1454,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");
+        internal static SpellDefinition ViciousMockery { get; } = GetDefinition<SpellDefinition>("ViciousMockery");
         internal static SpellDefinition WallOfFire { get; } = GetDefinition<SpellDefinition>("WallOfFire");
         internal static SpellDefinition WallOfForce { get; } = GetDefinition<SpellDefinition>("WallOfForce");
         internal static SpellDefinition WallOfThornsWallLine { get; } = GetDefinition<SpellDefinition>("WallOfThornsWallLine");

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
@@ -15,6 +16,7 @@ internal static class HalberdData
         _items ??= new ItemCollection
         {
             BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.Halberd },
+            CustomSubFeatures = new List<Object> { new CustomScale(z: 3.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.HalberdPrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

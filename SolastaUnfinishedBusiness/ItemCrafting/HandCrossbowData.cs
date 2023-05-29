@@ -15,6 +15,7 @@ internal static class HandCrossbowData
         _items ??= new ItemCollection
         {
             BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.HandXbow },
+            CustomSubFeatures = new List<object> { new CustomScale(0.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.HandXbowPrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

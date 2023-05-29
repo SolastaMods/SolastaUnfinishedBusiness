@@ -6,8 +6,8 @@
   "uniqueChoices": false,
   "spellListOverride": null,
   "ritualOnly": false,
-  "minSpellLevel": 7,
-  "maxSpellLevel": 7,
+  "minSpellLevel": 9,
+  "maxSpellLevel": 9,
   "extraSpellsTag": "MysticArcanum",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

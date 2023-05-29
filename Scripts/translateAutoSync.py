@@ -94,6 +94,7 @@ def main():
     # sync cn language
     sync_folder("en", "en", "zh-CN")
     sync_folder("en", "en", "ko")
+    sync_folder("en", "en", "ja")
     sync_folder("en", "en", "pt")
     sync_folder("en", "en", "es")
     sync_folder("en", "en", "fr")

@@ -1,0 +1,5 @@
+BodyHairStyle/&Hairstyle_A=ピクシーカット
+BodyHairStyle/&Hairstyle_B=中くらい
+BodyHairStyle/&Hairstyle_C=短い
+BodyHairStyle/&Hairstyle_D=Bun
+BodyHairStyle/&Hairstyle_E=クラウンブレイド

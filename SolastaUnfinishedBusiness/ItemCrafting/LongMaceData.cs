@@ -15,6 +15,7 @@ internal static class LongMaceData
         _items ??= new ItemCollection
         {
             BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.LongMace },
+            CustomSubFeatures = new List<object> { new CustomScale(z: 3.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.LongMacePrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

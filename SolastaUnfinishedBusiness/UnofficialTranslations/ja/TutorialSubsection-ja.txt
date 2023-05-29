@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle=カメラ
+TutorialSubsection/&Basics_MovingTitle=移動
+TutorialSubsection/&Basics_PartyMngtTitle=パーティー管理
+TutorialSubsection/&Basics_QuestTitle=クエストログ
+TutorialSubsection/&CombatMovementTitle=動き
+TutorialSubsection/&CombatShoveTitle=突き飛ばす
+TutorialSubsection/&Exploration_LocationMapTitle=ロケーションマップ
+TutorialSubsection/&Exploration_MiscTitle=その他
+TutorialSubsection/&Exploration_PointsOfInterestTitle=興味がある点
+TutorialSubsection/&ExplorationJumpingClimbingTitle=ジャンプとクライミング
+TutorialSubsection/&Inventory_LootingTitle=略奪
+TutorialSubsection/&Inventory_SpecialTitle=特別なスロット
+TutorialSubsection/&Exploration_MagicTitle=魔法

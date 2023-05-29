@@ -1,0 +1,3 @@
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateInactive=魂の欠落 - ゲートが非アクティブ
+Text/&Feedback_DLC3_PalaceOfIce_Hell_GateReady=ソウルリンクド - ゲートレディ
+Text/&Feedback_DLC3_PalaceOfIce_Hell_SacrificeReady=犠牲の準備はできています

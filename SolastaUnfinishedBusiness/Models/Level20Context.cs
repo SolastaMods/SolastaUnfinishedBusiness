@@ -486,11 +486,13 @@ internal static class Level20Context
     private static void WarlockLoad()
     {
         var pointPoolWarlockMysticArcanum9 = FeatureDefinitionPointPoolBuilder
-            .Create(PointPoolWarlockMysticArcanum7, "PointPoolWarlockMysticArcanum9")
-            .SetGuiPresentation(
-                "Feature/&PointPoolWarlockMysticArcanum9Title",
-                "Feature/&PointPoolWarlockMysticArcanumDescription")
+            .Create("PointPoolWarlockMysticArcanum9")
+            .SetGuiPresentation(Category.Feature, "Feature/&PointPoolWarlockMysticArcanumDescription")
+            .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, null, "MysticArcanum", 9, 9)
             .AddToDB();
+
+        pointPoolWarlockMysticArcanum9.minSpellLevel = 9;
+        pointPoolWarlockMysticArcanum9.maxSpellLevel = 9;
 
         var powerWarlockEldritchMaster = FeatureDefinitionPowerBuilder
             .Create(PowerWizardArcaneRecovery, PowerWarlockEldritchMasterName)

@@ -66,7 +66,7 @@ internal static class ValidatorsFeat
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
         IsClericOrPaladinLevel4 =
-            ValidateIsClass($"{Cleric.FormatTitle()} | {Paladin.FormatTitle()}", 4, Ranger, Rogue);
+            ValidateIsClass($"{Cleric.FormatTitle()} | {Paladin.FormatTitle()}", 4, Cleric, Paladin);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
@@ -88,19 +88,19 @@ internal static class ValidatorsFeat
             RaceHalfElfVariantRaceBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
-        ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
+        ValidateIsRace(Gnome.FormatTitle(), Gnome, GnomeRaceBuilder.RaceGnome);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
-        ValidateIsRace(TieflingRaceBuilder.RaceTiefling.FormatTitle(), TieflingRaceBuilder.RaceTiefling);
+        ValidateIsRace(TieflingRaceBuilder.RaceTiefling.FormatTitle(), Tiefling, TieflingRaceBuilder.RaceTiefling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
         ValidateIsRace(
-            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}",
+            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}, {KoboldRaceBuilder.RaceKobold.FormatTitle()}",
             Dwarf, DwarfHill, DwarfSnow,
             GrayDwarfSubraceBuilder.SubraceGrayDwarf,
             GnomeRaceBuilder.RaceGnome,
             KoboldRaceBuilder.RaceKobold,
-            Halfling, HalflingIsland, HalflingMarsh);
+            Gnome, Halfling, HalflingIsland, HalflingMarsh);
 
 #if false
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()

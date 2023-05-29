@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = System.Object;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -172,7 +173,7 @@ internal static class CraftingContext
         var craftingPanel = characterInspectionScreen.craftingPanel;
         // ReSharper disable once Unity.UnknownResource
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
-        var filter = Object.Instantiate(dropdownPrefab, craftingPanel.transform);
+        var filter = UnityEngine.Object.Instantiate(dropdownPrefab, craftingPanel.transform);
         var filterRect = filter.GetComponent<RectTransform>();
 
         FilterGuiDropdown = filter.GetComponent<GuiDropdown>();
@@ -236,6 +237,7 @@ internal static class CraftingContext
     internal sealed class ItemCollection
     {
         internal List<ItemDefinition> BaseWeapons;
+        internal List<Object> CustomSubFeatures;
         internal List<MagicItemDataHolder> MagicToCopy;
         internal List<ItemDefinition> PossiblePrimedItemsToReplace;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
@@ -53,6 +54,8 @@ internal static class ItemRecipeGenerationHelper
                     : ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemData.Item);
                 var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
                 var ingredients = new List<ItemDefinition> { primedItem };
+
+                newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures);
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
                     .Where(ingredient =>

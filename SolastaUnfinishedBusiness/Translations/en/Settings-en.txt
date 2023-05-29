@@ -40,6 +40,7 @@ ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
 ModUi/&Category=Category
 ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
+ModUi/&Changelog=<b><color=#D89555>Change Log</color></b>
 ModUi/&Character=Character
 ModUi/&CharactersPool=Characters Pool
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
@@ -59,9 +60,11 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Disable level pre-requisites on feats
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableUnofficialTranslationsMessage=Disable unofficial translations support to speed up boot and improve memory usage <i><color=#F0DAA0>[unless I speak Italian, Japanese, Korean or Spanish]</color></i>
 ModUi/&DisableUpdateMessage=Disable update messages <i><color=#F0DAA0>[blue pill users, this is your last chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
+ModUi/&Donate=<b><color=#D89555>Donate:</color></b> <i>{0}</i>
 ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
@@ -185,6 +188,7 @@ ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</c
 ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
 ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=<b><color=#D89555>Rollback</color></b>
 ModUi/&Rules=Rules
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
@@ -225,6 +229,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all ma
 ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
 ModUi/&UnlockSkinColors=Unlock skin colors
+ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official DnD advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
