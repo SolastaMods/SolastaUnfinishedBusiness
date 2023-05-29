@@ -141,14 +141,6 @@
       PublicKeyToken=b77a5c561934e089
     </value>
   </data>
-<data name="TidalWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/TidalWave.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
-<data name="WaterySphere" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Spells/WaterySphere.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Web" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/Web.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089

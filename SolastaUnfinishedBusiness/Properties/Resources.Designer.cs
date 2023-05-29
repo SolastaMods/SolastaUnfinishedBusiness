@@ -3432,29 +3432,6 @@ namespace SolastaUnfinishedBusiness.Properties {
             }
         }
         
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] TidalWave
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("TidalWave", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] WaterySphere
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("WaterySphere", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
