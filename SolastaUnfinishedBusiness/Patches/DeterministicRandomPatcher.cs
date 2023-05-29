@@ -19,13 +19,13 @@ public static class DeterministicRandomPatcher
 
     private static Random.State MyStateToRandomState(ulong myState)
     {
-        Span<MyState> s = new MyState[1] { new MyState { State = myState } };
+        Span<MyState> s = new[] { new MyState { State = myState } };
         return MemoryMarshal.Cast<MyState, Random.State>(s)[0];
     }
 
     private static ulong RandomStateToMyState(Random.State state)
     {
-        Span<Random.State> s = new Random.State[1] { state };
+        Span<Random.State> s = new[] { state };
         return MemoryMarshal.Cast<Random.State, MyState>(s)[0].State;
     }
 
