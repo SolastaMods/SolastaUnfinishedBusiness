@@ -44,9 +44,16 @@ internal static class TranslatorContext
 
     internal static void EarlyLoad()
     {
+        if (Main.Settings.DisableUnofficialTranslationsMessage)
+        {
+            Main.Info("Unofficial translations support disabled.");
+
+            return;
+        }
+
         if (!Directory.Exists(Path.Combine(Main.ModFolder, UnofficialLanguagesFolderPrefix)))
         {
-            Main.Error("Loading unofficial translations");
+            Main.Error("Unofficial translations not found.");
 
             return;
         }
@@ -70,7 +77,7 @@ internal static class TranslatorContext
 
             if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
             {
-                Main.Error($"Language {code} from {directory.Name} already in game");
+                Main.Error($"Language {code} from {directory.Name} already in game.");
             }
             else
             {
@@ -136,7 +143,7 @@ internal static class TranslatorContext
 
         if (!File.Exists(filename))
         {
-            Main.Error($"Loading the font {filename}");
+            Main.Error($"Loading the asset bundle {filename}.");
 
             return;
         }
@@ -167,11 +174,12 @@ internal static class TranslatorContext
 
     private static void LoadJapaneseFont()
     {
-        var filename = Path.Combine(Main.ModFolder, $"{UnofficialLanguagesFolderPrefix}NotoSansJP-Regular SDF.unitypackage");
+        var filename = Path.Combine(Main.ModFolder,
+            $"{UnofficialLanguagesFolderPrefix}NotoSansJP-Regular SDF.unitypackage");
 
         if (!File.Exists(filename))
         {
-            Main.Error($"Loading the font {filename}");
+            Main.Error($"Loading the font {filename}.");
 
             return;
         }

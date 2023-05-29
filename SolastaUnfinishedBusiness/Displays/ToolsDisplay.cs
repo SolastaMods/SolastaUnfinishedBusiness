@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -54,6 +53,12 @@ internal static class ToolsDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&DisableUpdateMessage"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableUpdateMessage = toggle;
+        }
+
+        toggle = Main.Settings.DisableUnofficialTranslationsMessage;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslationsMessage"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableUnofficialTranslationsMessage = toggle;
         }
 
         toggle = Main.Settings.EnableBetaContent;
