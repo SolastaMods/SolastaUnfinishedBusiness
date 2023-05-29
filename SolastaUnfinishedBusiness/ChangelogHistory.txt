@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.5.48.1:
+
+- fixed mod warning
+
 1.5.48.0:
 
 - added Devil's Tongue Tiefling subrace
