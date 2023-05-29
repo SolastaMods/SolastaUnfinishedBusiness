@@ -1,7 +1,11 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -78,29 +82,29 @@ internal static class CommonBuilders
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
+    // kept as a power for backward compatibility
     internal static readonly FeatureDefinitionPower PowerCasterFightingWarMagic = FeatureDefinitionPowerBuilder
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.OnSpellCast)
-        .SetEffectDescription(EffectDescriptionBuilder.Create()
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
-            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCasterFightingWarMagic")
-                        .SetGuiPresentationNoContent(true)
-                        .AddFeatures(FeatureDefinitionAttackModifierBuilder
+        .SetUsesFixed(ActivationTime.BonusAction)
+        .SetCustomSubFeatures(
+            Hidden.Marker,
+            new MagicalAttackInitiatedCasterFightingWarMagic(
+                ConditionDefinitionBuilder
+                    .Create("ConditionCasterFightingWarMagic")
+                    .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
+                    .SetSilent(Silent.WhenRemoved)
+                    .SetPossessive()
+                    .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+                    .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                    .AddFeatures(
+                        FeatureDefinitionAttackModifierBuilder
                             .Create("PowerCasterFightingWarMagicAttack")
                             .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
                             .SetDamageRollModifier(1)
-                            .SetCustomSubFeatures(
-                                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
+                            .SetCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                             .AddToDB())
-                        .AddToDB(),
-                    ConditionForm.ConditionOperation.Add)
-                .Build()
-            )
-            .Build())
+                    .AddToDB()))
         .AddToDB();
 
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder
@@ -126,4 +130,50 @@ internal static class CommonBuilders
             .Create("ReplaceAttackWithCantripCasterFighting")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+    private sealed class MagicalAttackInitiatedCasterFightingWarMagic : IMagicalAttackInitiated
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public MagicalAttackInitiatedCasterFightingWarMagic(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public IEnumerator OnMagicalAttackInitiated(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            if (rulesetEffect is not RulesetEffectSpell)
+            {
+                yield break;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker == null || rulesetAttacker.HasAnyConditionOfType(_conditionDefinition.Name))
+            {
+                yield break;
+            }
+
+            rulesetAttacker.InflictCondition(
+                _conditionDefinition.Name,
+                _conditionDefinition.durationType,
+                _conditionDefinition.durationParameter,
+                _conditionDefinition.turnOccurence,
+                AttributeDefinitions.TagCombat,
+                rulesetAttacker.guid,
+                rulesetAttacker.CurrentFaction.Name,
+                1,
+                null,
+                0,
+                0,
+                0);
+        }
+    }
 }
