@@ -28,18 +28,24 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Update".Bold().Khaki(), () => UpdateContext.UpdateMod(), UI.Width((float)200));
-            UI.ActionButton("Rollback".Bold().Khaki(), UpdateContext.DisplayRollbackMessage, UI.Width((float)200));
-            UI.ActionButton("Changelog".Bold().Khaki(), UpdateContext.OpenChangeLog, UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Update"), () => UpdateContext.UpdateMod(),
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Rollback"), UpdateContext.DisplayRollbackMessage,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Localize("ModUi/&Changelog"), UpdateContext.OpenChangeLog,
+                UI.Width((float)200));
         }
 
         UI.Label();
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("<b>Donate:</b> GitHub".Khaki(), UpdateContext.OpenDonateGithub, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), UpdateContext.OpenDonatePatreon, UI.Width((float)200));
-            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), UpdateContext.OpenDonatePayPal, UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Github"), UpdateContext.OpenDonateGithub,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "Patreon"), UpdateContext.OpenDonatePatreon,
+                UI.Width((float)200));
+            UI.ActionButton(Gui.Format("ModUi/&Donate", "PayPal"), UpdateContext.OpenDonatePayPal,
+                UI.Width((float)200));
         }
 
         UI.Label();

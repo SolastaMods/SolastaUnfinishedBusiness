@@ -40,6 +40,7 @@ ModUi/&Campaigns=<color=#F0DAA0>캠페인:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>캠페인 및 위치:</color>
 ModUi/&Category=범주
 ModUi/&ChangeSleetStormToCube=실린더 대신 큐브를 사용하도록 <color=#D89555>진눈깨비</color> 변경
+ModUi/&Changelog=<b><color=#D89555>변경 로그</color></b>
 ModUi/&Character=성격
 ModUi/&CharactersPool=캐릭터 풀
 ModUi/&Classes=<color=#F0DAA0>클래스</color>
@@ -62,6 +63,7 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종
 ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA0>[파란약 사용자, 이것이 마지막 기회입니다]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
+ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않는 한</color></i>
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
@@ -185,6 +187,7 @@ ModUi/&RestockArcaneum=비석 보충 <i><color=#F0DAA0>[헤들론 슈어스펠]<
 ModUi/&RestockCircleOfDanantar=다난타의 원 재입고 <i><color=#F0DAA0>[조리엘 폭스아이]</color></i>
 ModUi/&RestockHelp=. 시간 경과에 따라 모든 판매자의 재고가 강제로 재입고되도록 기본값을 재정의합니다. <i><color=#F0DAA0>[설명서 및 책 제외]</color></i>\n. 일부 아이템은 재입고까지 최대 7일이 소요될 수 있습니다.
 ModUi/&RestockTowerOfKnowledge=지식의 탑 재입고 <i><color=#F0DAA0>[매디 그린아일]</color></i>
+ModUi/&Rollback=<b><color=#D89555>되돌리기</color></b>
 ModUi/&Rules=규칙
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=판매자 가격을 정확하게 / 정확하게 조정 <i><color=#F0DAA0>[동전 값을 변환할 때 더 이상 반올림 오류 없음]</color></i>
@@ -225,6 +228,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=모든 표식과 문신의 빛�
 ModUi/&UnlockGlowingEyeColors=빛나는 눈 색깔 추가
 ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>소서러</color> 기원 표시 및 문신 잠금 해제
 ModUi/&UnlockSkinColors=피부색 잠금 해제
+ModUi/&Update=<b><color=#D89555>업데이트</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[만약 상황으로 인해 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>

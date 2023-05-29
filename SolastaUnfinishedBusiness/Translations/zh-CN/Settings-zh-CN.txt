@@ -40,6 +40,7 @@ ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
 ModUi/&Category=职业
 ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪雨暴</color>更改为使用立方体而不是圆柱体
+ModUi/&Changelog=<b><color=#D89555>更改日志</color></b>
 ModUi/&Character=特点
 ModUi/&CharactersPool=角色池
 ModUi/&Classes=<color=#F0DAA0>职业</color>
@@ -62,6 +63,7 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<co
 ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[你确定要服下这个蓝色药丸，逃避真实吗]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
+ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=.这些设置不需要玩家安装这个模组
@@ -185,6 +187,7 @@ ModUi/&RestockArcaneum=补货奥术协会<i><color=#F0DAA0>[Heddlon Surespell]</
 ModUi/&RestockCircleOfDanantar=补货丹塔尔之环<i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=.覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要7个游戏日才能补货
 ModUi/&RestockTowerOfKnowledge=补货知识之塔<i><color=#F0DAA0>[Maddy Greenisle]</color></i>
+ModUi/&Rollback=<b><color=#D89555>回滚</color></b>
 ModUi/&Rules=规则
 ModUi/&SRD=<color=#F0DAA0>SRD：</color>
 ModUi/&ScaleMerchantPricesCorrectly=正确/准确调整商家价格<i><color=#F0DAA0>[转换硬币价值时不再出现舍入错误]</color></i>
@@ -225,6 +228,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=解锁所有标记和纹身的�
 ModUi/&UnlockGlowingEyeColors=添加亮色眼睛颜色
 ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
 ModUi/&UnlockSkinColors=解锁肤色
+ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>Tieflings</color>上使用<color=#D89555>Elf</color>面部模型
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>

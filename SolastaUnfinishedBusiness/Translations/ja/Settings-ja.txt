@@ -40,6 +40,7 @@ ModUi/&Campaigns=<color=#F0DAA0>キャンペーン:</color>
 ModUi/&CampaignsAndLocations=<color=#F0DAA0>キャンペーンと場所:</color>
 ModUi/&Category=カテゴリー
 ModUi/&ChangeSleetStormToCube=<color=#D89555>みぞれの嵐</color>を円柱の代わりに立方体を使用するように変更します
+ModUi/&Changelog=<b><color=#D89555>変更ログ</color></b>
 ModUi/&Character=キャラクター
 ModUi/&CharactersPool=キャラクタープール
 ModUi/&Classes=<color=#F0DAA0>クラス</color>
@@ -62,6 +63,7 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての
 ModUi/&DisableUpdateMessage=アップデート メッセージを無効にする <i><color=#F0DAA0>[青薬をお使いの方、これが最後のチャンスです]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
+ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にある場合、戦闘カメラが追従しない
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフであるか、画面端の % 以内にない場合</color></i>
 ModUi/&DungeonMakerBasicHelp=。これらの設定では、プレーヤーがこの MOD をインストールする必要はありません
@@ -185,6 +187,7 @@ ModUi/&RestockArcaneum=Arcaneum <i><color=#F0DAA0>[ヘドロン・シュアス�
 ModUi/&RestockCircleOfDanantar=サークル オブ ダナンタル <i><color=#F0DAA0>[ジョリエル フォックスアイ]</color></i> を再入荷
 ModUi/&RestockHelp=。デフォルトをオーバーライドすると、時間の経過とともにすべての販売者の在庫が強制的に補充されます<i><color=#F0DAA0>[マニュアルと書籍を除く]</color></i>\n。一部のアイテムは再入荷までに最大 7 ゲーム日かかる場合があることに注意してください
 ModUi/&RestockTowerOfKnowledge=知識の塔 <i><color=#F0DAA0>[マディ グリーンアイル]</color></i> を補充する
+ModUi/&Rollback=<b><color=#D89555>ロールバック</color></b>
 ModUi/&Rules=ルール
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく/正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
@@ -225,6 +228,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=すべてのマーキングと�
 ModUi/&UnlockGlowingEyeColors=輝く目の色を追加する
 ModUi/&UnlockMarkAndTattoosForAllCharacters=すべてのキャラクターの<color=#D89555>ソーサラー</color>のオリジンマークとタトゥーをロック解除する
 ModUi/&UnlockSkinColors=肌の色のロックを解除する
+ModUi/&Update=<b><color=#D89555>更新</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>で<color=#D89555>エルフ</color>の顔モデルを使用する
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡み合い、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=公式の DnD 有利 / 不利ルールを使用します <i><color=#F0DAA0>[状況によってロールに両方がある場合、どちらも持っていないとみなされます]</color></i>
