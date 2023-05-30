@@ -42,7 +42,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
             .Create($"Feature{Name}EnchantWeapon")
             .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
             .SetCustomSubFeatures(
-                new CanUseAttribute(AttributeDefinitions.Charisma, ValidatorsWeapon.IsWeaponInMainHand))
+                new CanUseAttribute(AttributeDefinitions.Charisma, CanWeaponBeEmpowered))
             .AddToDB();
 
         var featureSetMartialTraining = FeatureDefinitionFeatureSetBuilder
@@ -199,6 +199,40 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
+    //
+    // Empower Weapon
+    //
+    
+    private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
+    {
+        if (item == null)
+        {
+            return false;
+        }
+
+        var definition = item.ItemDefinition;
+
+        if (definition == null ||
+            !definition.IsWeapon ||
+            !character.IsProficientWithItem(definition))
+        {
+            return false;
+        }
+
+        if (character is not RulesetCharacterHero hero)
+        {
+            return false;
+        }
+
+        if (mode.ActionType == ActionDefinitions.ActionType.Bonus &&
+            !hero.TrainedFightingStyles.Contains(GetDefinition<FightingStyleDefinition>("TwoWeapon")))
+        {
+            return false;
+        }
+
+        return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+    }
+    
     //
     // Mana Shield
     //
