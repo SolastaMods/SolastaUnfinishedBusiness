@@ -7,6 +7,7 @@ ATTENTION: manually re-install if you're using Japanese translations
 - added bold and thin HanSans Japanese font variations to cover the ones in Solasta
 - added setting to allow War Caster to trigger only on spells or on spells & cantrips
 - changed Japanese atlas font size to 1024 x 1024 to reduce mod payload size
+- fixed Elemental Adept interaction with summon effect proxy forms attack damage types
 - fixed null exception when casting Greater Restoration and similar effects
 - fixed Thorny Vines to not enforce disadvantage within enemy melee reach
 

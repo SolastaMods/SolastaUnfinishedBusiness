@@ -238,13 +238,23 @@ public static class RulesetActorPatcher
 
             ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(guid, out var rulesetEntity);
 
-            var caster = rulesetEntity as RulesetCharacter;
-            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
-
-            foreach (var feature in features.ToList())
+            var caster = rulesetEntity switch
             {
-                featuresToBrowse.RemoveAll(x =>
-                    x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+                RulesetCharacterEffectProxy rulesetCharacterEffectProxy =>
+                    EffectHelpers.GetCharacterByGuid(rulesetCharacterEffectProxy.ControllerGuid),
+                RulesetCharacter rulesetCharacter => rulesetCharacter,
+                _ => null
+            };
+
+            if (caster != null)
+            {
+                var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+
+                foreach (var feature in features)
+                {
+                    featuresToBrowse.RemoveAll(x =>
+                        x is IDamageAffinityProvider y && feature.CanIgnoreDamageAffinity(y, caster));
+                }
             }
 
             //PATCH: add `IDamageAffinityProvider` from dynamic item properties
@@ -280,21 +290,44 @@ public static class RulesetActorPatcher
         {
             __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
 
-            var damageTypes = RulesetCharacterPatcher.RollMagicAttack_Patch
-                .CurrentMagicEffect?.EffectDescription.EffectForms
+            var effectForms =
+                RulesetCharacterPatcher.RollMagicAttack_Patch.CurrentMagicEffect?.EffectDescription.EffectForms;
+
+            if (effectForms == null)
+            {
+                return;
+            }
+
+            var damageTypes = effectForms
                 .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
                 .Select(x => x.DamageForm.DamageType)
-                .Distinct()
                 .ToList();
 
-            if (damageTypes != null)
-            {
-                featuresToBrowse.RemoveAll(x =>
-                    x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
-                    y.damageTypes.Intersect(damageTypes).Any());
-            }
-        }
+            var proxies = effectForms
+                .Where(x => x.FormType == EffectForm.EffectFormType.Summon &&
+                            x.SummonForm.SummonType == SummonForm.Type.EffectProxy)
+                .Select(x =>
+                    DatabaseHelper.GetDefinition<EffectProxyDefinition>(x.SummonForm.EffectProxyDefinitionName))
+                .ToList();
 
+            var damageTypesFromProxyAttacks = proxies
+                .Where(x => x.canAttack && x.attackMethod == RuleDefinitions.ProxyAttackMethod.CasterSpellAbility)
+                .Select(x => x.DamageType).ToList();
+
+            var damageTypesFromProxyAttackPowers = proxies
+                .Where(x => x.attackPower != null)
+                .Select(x => x.attackPower)
+                .SelectMany(x => x.EffectDescription.EffectForms)
+                .Where(x => x.FormType == EffectForm.EffectFormType.Damage)
+                .Select(x => x.DamageForm.DamageType).ToList();
+
+            damageTypes.AddRange(damageTypesFromProxyAttacks);
+            damageTypes.AddRange(damageTypesFromProxyAttackPowers);
+
+            featuresToBrowse.RemoveAll(x =>
+                x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
+                !y.damageTypes.Intersect(damageTypes).Any());
+        }
 
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -374,8 +407,7 @@ public static class RulesetActorPatcher
             RuleDefinitions.DieType diceType,
             out int firstRoll,
             out int secondRoll,
-            float rollAlterationScore
-        )
+            float rollAlterationScore)
         {
             var karmic = rollAlterationScore != 0.0;
 
