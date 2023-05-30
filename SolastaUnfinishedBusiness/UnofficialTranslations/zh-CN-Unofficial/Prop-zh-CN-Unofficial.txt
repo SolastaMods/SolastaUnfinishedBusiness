@@ -200,6 +200,7 @@ Prop/&SledgeTitle=斯莱奇
 Prop/&SlopeTitle=斜坡
 Prop/&SmallWallsLadderDescription=放置于墙体障碍或自由墙。不可放置于内墙（薄壁）上。
 Prop/&SmallWallsLadderTitle=爬藤
+Prop/&SnowPileTitle=Snow Pile
 Prop/&SpiderEggsTitle=蛛卵
 Prop/&SpiderWebsTitle=蛛网
 Prop/&SpinningWheelTitle=纺车

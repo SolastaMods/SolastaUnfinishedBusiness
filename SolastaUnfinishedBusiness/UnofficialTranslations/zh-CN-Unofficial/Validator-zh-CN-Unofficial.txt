@@ -12,6 +12,7 @@ Validator/&ParameterMonsterDescription=为该验证器选择一个怪物
 Validator/&ParameterMonsterQuantityDescription=决定指定元素的数量
 Validator/&ParameterMonsterQuantityTitle=数量为多少？
 Validator/&ParameterMonsterTitle=怪物
+Validator/&ParameterMonsterorNPCTitle=怪物或 NPC
 Validator/&ParameterRestTypeDescription=想要休整的类型
 Validator/&ParameterRestTypeTitle=短=0 长=1
 Validator/&ParameterSpellNameDescription=指定法术的确切内部名称（英文且强制大写）

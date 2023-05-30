@@ -227,7 +227,7 @@ TutorialStep/&Tuto_ShortRest_Description=在探索地牢时，短休是恢复精
 TutorialStep/&Tuto_ShortRest_Title=进行一次短休
 TutorialStep/&Tuto_Stalactites_Description=在探索期间，你可能会遇到吊笼、石笋等各类危险，一不小心就会被砸到——对于敌人也是如此。\n\n用箭或攻击法术（需要进行攻击掷骰）攻击此类有坠落危险的物体，将它们打下来，压死下面的任何敌人。
 TutorialStep/&Tuto_Stalactites_Title=坠落危险
-TutorialStep/&Tuto_SurpriseAttack2_Description=EMPTY
+TutorialStep/&Tuto_SurpriseAttack2_Description=如果在路上被攻击, 你可以寻找到地图的出口并继续旅行。\n  如果扎营时被攻击, 与营火互动可以恢复你的长休。
 TutorialStep/&Tuto_SurpriseAttack2_Title=战斗存活
 TutorialStep/&Tuto_SurpriseAttack3XBox_Description=如果可以悄悄接近没有意识到你存在的敌人，你便可以对其发起突袭，并迫使对方浪费掉自身战斗的首个回合。\n按<sprite index={2}>，并选择你一名角色的攻击选项或攻击法术，选中一个敌方目标，然后确认攻击。\n此举将开启战斗，并为你带来突袭优势。同样，只要你的角色未被发现，他们在攻击掷骰上就具有优势。
 TutorialStep/&Tuto_SurpriseAttack3_Description=如果你可以悄悄接近没有意识到你存在的敌人的话，你便可以对其发起突袭，并迫使对方浪费掉自身战斗的首个回合。\n要这样做，需要点击你队伍中一个角色的攻击选项或攻击法术，选中一个敌方目标，并确认攻击。\n此举将开启战斗，并为你带来突袭优势。同样，只要你的角色未被发现，他们在攻击掷骰上就具有优势。
