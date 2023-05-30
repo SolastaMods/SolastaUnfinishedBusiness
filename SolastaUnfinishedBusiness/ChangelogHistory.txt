@@ -3,6 +3,8 @@
 1.5.48.2:
 
 - added bold and thin HanSans Japanese font variations
+- added setting to change War Caster to work with spells or cantrips/spells
+- fixed null exception when casting Greater Restoration
 - reduced Japanese atlas font size to 1024 x 1024
 
 1.5.48.1:
