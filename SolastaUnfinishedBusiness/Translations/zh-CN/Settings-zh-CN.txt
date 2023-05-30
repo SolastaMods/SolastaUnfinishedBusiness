@@ -77,7 +77,7 @@ ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属�
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=单击鼠标右键启用取消操作
-ModUi/&EnableCantripsTriggeringOnWarMagic=启用 cantrips 触发 <color=#D89555>War Magic</color> 额外奖励攻击
+ModUi/&EnableCantripsTriggeringOnWarMagic=启用戏法触发<color=#D89555>战争魔法</color>额外奖励攻击
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
@@ -231,7 +231,7 @@ ModUi/&UnlockGlowingEyeColors=添加亮色眼睛颜色
 ModUi/&UnlockMarkAndTattoosForAllCharacters=解锁所有角色的<color=#D89555>术士</color>起源标记和纹身
 ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&Update=<b><color=#D89555>更新</color></b>
-ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>Tieflings</color>上使用<color=#D89555>Elf</color>面部模型
+ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<color=#D89555>精灵</color>的面部模型
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

@@ -8,9 +8,6 @@
 
 import os
 import codecs
-from deep_translator import GoogleTranslator
-
-CHARS_MAX = 4500
 
 def unpack_record(record):
     term = ""
@@ -21,17 +18,7 @@ def unpack_record(record):
     except:
         term = record
 
-    return term, text if text != "" else "EMPTY"
-
-def translate_text(text, code):
-    text = text.replace("\\n", "{99}")
-    if len(text) > 3 and len(text) <= CHARS_MAX:
-        translated = GoogleTranslator(source="auto", target=code).translate(text)
-    else:
-        translated = text
-    translated = translated.replace("{99}", "\\n")
-
-    return translated
+    return term, text
 
 def readRecord(filename):
     # read file and split with "=" to dict
@@ -70,12 +57,17 @@ def sync_file(offcial_dict, file_record, file_full_name):
     print(f"sync {file_full_name}")
 
     # sync file with offcial dict
+    unused_keys = []
     for key, value in file_record.items():
         if key not in offcial_dict:
             print(f"unused {file_full_name} {key} {value}")
+            unused_keys.append(key)
+
+    for key in unused_keys:
+        del file_record[key]
 
     for key, value in offcial_dict.items():
-        if key not in file_record:
+        if key not in file_record or file_record[key] == "EMPTY":
             print(f"Add {file_full_name} {key} {value}")
             file_record[key] = offcial_dict[key]
 
@@ -98,9 +90,17 @@ def sync_folder(dict_group, unofficial_file_code):
         file_full_name = os.path.join(unoffcial_folder_name, f"{group_name}-{unofficial_file_code}.txt")
         if os.path.exists(file_full_name):
             file_record = readRecord(file_full_name)
+            print(f"read {file_full_name}")
         else:
             file_record = {}
+            print(f"create {file_full_name}")
         sync_file(dict_group[group_name], file_record, file_full_name)
+
+    for file_name in os.listdir(unoffcial_folder_name):
+        file_full_name = os.path.join(unoffcial_folder_name, file_name)
+        group_name = file_name.split("-")[0]
+        if group_name not in dict_group and file_name.endswith(".txt"):
+            print(f"unuse file {file_full_name}")
 
 def sync_translation(offcial_file_code, unofficial_file_code):
     # read offcial translation file
@@ -113,7 +113,7 @@ def sync_translation(offcial_file_code, unofficial_file_code):
 def main():
     # run this script in root folder
     # sync cn language
-    sync_translation("cn-ZN", "zh-CN-Unoffcial")
+    sync_translation("cn-ZN", "zh-CN-Unofficial")
 
 
 if __name__ == "__main__":
