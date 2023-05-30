@@ -77,6 +77,7 @@ ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
+ModUi/&EnableCantripsTriggeringOnWarMagic=Habilite truques para ativar <color=#D89555>War Magic</color> ataque bônus extra
 ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela principal > Personagens
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>

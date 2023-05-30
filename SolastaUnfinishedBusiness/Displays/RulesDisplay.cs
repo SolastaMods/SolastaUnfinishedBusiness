@@ -170,6 +170,14 @@ internal static class RulesDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.FullyControlConjurations;
         if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {

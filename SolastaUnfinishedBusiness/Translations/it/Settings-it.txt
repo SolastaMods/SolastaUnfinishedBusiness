@@ -77,6 +77,7 @@ ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 ta
 ModUi/&EnableBarbarianFightingStyle=Abilita la scelta <color=#D89555>Barbaro</color> <b>Stile di combattimento</b> al livello 2
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
+ModUi/&EnableCantripsTriggeringOnWarMagic=Abilita i trucchetti per attivare <color=#D89555> Magia da guerra </color> attacco bonus extra
 ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella schermata principale > Personaggi
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
 ModUi/&EnableCharactersOnFireToEmitLight=I personaggi in fiamme dovrebbero emettere luce <i><color=#F0DAA0>[Cubo di Luce, Elementale del Fuoco, Giullare del Fuoco, Osprey del Fuoco, Ragno del Fuoco e famiglia delle condizioni in fiamme]</color></i>
