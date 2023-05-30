@@ -49,7 +49,7 @@ internal static class CreditsDisplay
         ("DubhHerder",
             "quality of life, spells, homebrew design [Patron Elementalist, Patron Moonlit, Patron Riftwalker]"),
         ("Stuffies12", "homebrew design [Ranger Hellwalker, Ranger Lightbearer]"),
-        ("nilpkthmsk", "japanese font"),
+        ("magicSword", "chinese translations"),
         ("team-waldo", "korean font")
     };
 

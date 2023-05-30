@@ -1,0 +1,3 @@
+QuestStatus/&HeaderQuestCompletedTitle=任务完成
+QuestStatus/&HeaderQuestFailedTitle=任务失败！
+QuestStatus/&HeaderQuestNewTitle=新任务已开始

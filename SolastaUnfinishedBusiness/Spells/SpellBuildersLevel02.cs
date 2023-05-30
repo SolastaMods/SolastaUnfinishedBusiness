@@ -20,6 +20,8 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
+    #region Binding Ice
+
     internal static SpellDefinition BuildBindingIce()
     {
         const string NAME = "BindingIce";
@@ -85,6 +87,8 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
 
     #region Color Burst
 

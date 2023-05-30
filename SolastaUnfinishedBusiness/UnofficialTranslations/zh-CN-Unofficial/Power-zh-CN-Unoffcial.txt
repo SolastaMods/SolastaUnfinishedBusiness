@@ -1,0 +1,9 @@
+Power/&DemonicInfluence_Description=EMPTY
+Power/&PowerStoneGolemSlow_Description=石魔像可以减缓附近敌方的行动。
+Power/&PowerStoneGolemSlow_Title=缓慢术
+Power/&Vrock_Screech_Description=弗洛魔发出刺耳尖叫，震慑周围的敌人。
+Power/&Vrock_Screech_Title=尖叫
+Power/&Vrock_Spores_Description=弗洛魔孢子每回合造成 1d10 毒素伤害。
+Power/&Vrock_Spores_Title=孢子
+Power/&WightLifeDrain_Description=尸妖可在近战攻击成功命中时吸取生命精华。
+Power/&WightLordCircleofDeath_Description=尸妖领主可从周围的敌方身上吸取生命精华。

@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle=防护
+SchoolOfMagic/&ConjurationTitle=咒法
+SchoolOfMagic/&DivinationTitle=预言
+SchoolOfMagic/&EnchantmentTitle=附魔
+SchoolOfMagic/&EvocationTitle=塑能
+SchoolOfMagic/&IllusionTitle=幻术
+SchoolOfMagic/&NecromancyTitle=死灵
+SchoolOfMagic/&TransmutationTitle=变化

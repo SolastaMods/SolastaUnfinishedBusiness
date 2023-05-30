@@ -77,6 +77,7 @@ ModUi/&EnableAlternateHuman=대체 인간 활성화 <i><color=#F0DAA0>[+1 재주
 ModUi/&EnableBarbarianFightingStyle=레벨 2에서 <color=#D89555>야만인</color> <b>전투 스타일</b> 선택 활성화
 ModUi/&EnableBetaContent=베타 콘텐츠 활성화 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=마우스 오른쪽 버튼 클릭으로 취소 작업 활성화
+ModUi/&EnableCantripsTriggeringOnWarMagic=캔트립을 활성화하여 <color=#D89555>전쟁 마법</color> 추가 보너스 공격 발동
 ModUi/&EnableCharacterChecker=메인 화면 > 캐릭터에서 캐릭터 검사기 버튼 활성화
 ModUi/&EnableCharacterExport=문자를 내보내려면 <color=#1E81B0>CTRL-SHIFT-(E)</color>를 활성화하세요.
 ModUi/&EnableCharactersOnFireToEmitLight=불이 붙은 캐릭터는 빛을 발산해야 합니다. <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
