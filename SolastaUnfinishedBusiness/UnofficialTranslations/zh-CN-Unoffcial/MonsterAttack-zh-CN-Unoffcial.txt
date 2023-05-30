@@ -1,0 +1,4 @@
+MonsterAttack/&Fire_Spit_Title=火焰喷吐
+MonsterAttack/&LifeDrainTitle=生命吸取
+MonsterAttack/&ShamblingMound_Engulf_Title=吞噬
+MonsterAttack/&SorakWarrior_Spine_Title=脊刺

@@ -1,0 +1,2 @@
+Conditions/&ConditionPOI_Description=在寒冰宫殿和恶魔领域，非邪魔会受到多种惩罚。
+Conditions/&ConditionPOI_Title=寒冰宫殿巢穴效果

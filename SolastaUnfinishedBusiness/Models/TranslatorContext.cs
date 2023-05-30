@@ -22,7 +22,10 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal struct LanguageEntry
 {
-    public string Code, Text, Directory;
+    public string Code;
+    public string Text;
+    public string Directory;
+    public string SourceCode;
 }
 
 internal static class TranslatorContext
@@ -38,6 +41,11 @@ internal static class TranslatorContext
     internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "ja", "it", "ko", "pt", "zh-CN" };
 
     internal static readonly List<LanguageEntry> Languages = new();
+
+    /// <summary>
+    /// Maps unofficial language codes to official language codes.
+    /// </summary>
+    private static Dictionary<string, string> SourceCodeCache { get; } = new();
 
     internal static void EarlyLoad()
     {
@@ -106,22 +114,48 @@ internal static class TranslatorContext
         foreach (var directory in directories)
         {
             var code = directory.Name;
-            var cultureInfo = cultureInfos.First(o => o.Name == code);
-
-            if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+            var cultureInfo = cultureInfos.FirstOrDefault(o => o.Name == code);
+            
+            if (File.Exists($"{directory.FullName}\\info.json"))
             {
-                Main.Error($"Language {code} from {directory.Name} already in game.");
-            }
-            else
-            {
+                var info = JsonConvert.DeserializeObject<JObject>(File.ReadAllText($"{directory.FullName}/info.json"));
+                var sourceCode = info["SourceCode"]?.ToString() ?? string.Empty;
+                if(!string.IsNullOrEmpty(sourceCode))
+                {
+                    SourceCodeCache.Add(code, sourceCode);
+                }
+                
                 Languages.Add(new LanguageEntry
                 {
                     Code = code,
-                    Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
-                    Directory = directory.FullName
+                    Text = info["NativeName"]!.ToString(),
+                    Directory = directory.FullName,
+                    SourceCode = sourceCode
                 });
 
                 Main.Info($"Language {code} detected.");
+            }
+            else if (cultureInfo != null)
+            {
+                if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+                {
+                    Main.Error($"Language {code} from {directory.Name} already in game.");
+                }
+                else
+                {
+                    Languages.Add(new LanguageEntry
+                    {
+                        Code = code,
+                        Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
+                        Directory = directory.FullName
+                    });
+
+                    Main.Info($"Language {code} detected.");
+                }
+            }
+            else
+            {
+                Main.Error($"Language {code} illegal!");
             }
         }
     }
@@ -137,7 +171,7 @@ internal static class TranslatorContext
             languageSourceData.AddLanguage(language.Text, language.Code);
 
             var languageIndex = languageSourceData.GetLanguageIndex(language.Text);
-
+            
             // add terms
             var directoryInfo = new DirectoryInfo(language.Directory);
             var files = directoryInfo.GetFiles("*.txt");
@@ -331,6 +365,12 @@ internal static class TranslatorContext
         Func<string, string, bool> validate)
     {
         var result = new Dictionary<string, string>();
+        
+        if(SourceCodeCache.TryGetValue(languageCode, out string sourceCode))
+        {
+            // if has source language, use it
+            languageCode = sourceCode;
+        }
 
         foreach (var line in GetTranslations(languageCode, validate))
         {

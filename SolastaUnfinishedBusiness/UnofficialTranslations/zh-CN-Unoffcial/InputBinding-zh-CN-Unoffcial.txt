@@ -1,0 +1,8 @@
+InputBinding/&LeftAlt=左 Alt +
+InputBinding/&LeftControl=左 Ctrl +
+InputBinding/&LeftShift=左 Shift +
+InputBinding/&MainFormat=快捷键：{0}
+InputBinding/&OrFormat=或者
+InputBinding/&RightAlt=右 Alt +
+InputBinding/&RightControl=右 Ctrl +
+InputBinding/&RightShift=右 Shift +

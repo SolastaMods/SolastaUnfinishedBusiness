@@ -1,0 +1,10 @@
+KnowledgeLevel/&KnownDescription=你很了解此生物。
+KnowledgeLevel/&KnownTitle=了解（3）
+KnowledgeLevel/&MasteredDescription=你对此生物知根知底。
+KnowledgeLevel/&MasteredTitle=精通（4）
+KnowledgeLevel/&ObservedDescription=你已经大致地观察过此生物了。
+KnowledgeLevel/&ObservedTitle=观察（1）
+KnowledgeLevel/&StudiedDescription=你已经研究过此生物了。
+KnowledgeLevel/&StudiedTitle=研究（2）
+KnowledgeLevel/&UnknownDescription=你从未遭遇过此生物。
+KnowledgeLevel/&UnknownTitle=未知（0）
