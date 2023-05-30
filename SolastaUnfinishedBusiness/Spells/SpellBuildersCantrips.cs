@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -350,6 +352,8 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #region Resonating Strike
+
     internal static SpellDefinition BuildResonatingStrike()
     {
         var resonanceLeap = SpellDefinitionBuilder
@@ -396,7 +400,7 @@ internal static partial class SpellBuilders
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
                 AttackAfterMagicEffect.MeleeAttack,
-                CustomSpellEffectLevel.ByCasterLevel,
+                new SpellEffectLevelFromCasterLevel(),
                 new ChainSpellEffectOnAttackHit(resonanceLeap, "ResonatingStrike")
             )
             .SetCastingTime(ActivationTime.Action)
@@ -423,6 +427,107 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
+
+    private sealed class BonusSlotLevelsByClassLevel : IBonusSlotLevels
+    {
+        public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
+        {
+            var level = caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+
+            return SpellAdvancementByCasterLevel[level - 1];
+        }
+    }
+
+    private sealed class SpellEffectLevelFromCasterLevel : ICustomSpellEffectLevel
+    {
+        public int GetEffectLevel([NotNull] RulesetActor caster, RulesetEffectSpell rulesetEffectSpell)
+        {
+            return caster.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+        }
+    }
+
+    private sealed class ChainSpellEffectOnAttackHit : IChainMagicEffect
+    {
+        private readonly string _notificationTag;
+        private readonly SpellDefinition _spell;
+
+        internal ChainSpellEffectOnAttackHit(SpellDefinition spell, [CanBeNull] string notificationTag = null)
+        {
+            _spell = spell;
+            _notificationTag = notificationTag;
+        }
+
+        [CanBeNull]
+        public CharacterActionMagicEffect GetNextMagicEffect(
+            [CanBeNull] CharacterActionMagicEffect baseEffect,
+            CharacterActionAttack triggeredAttack,
+            RollOutcome attackOutcome)
+        {
+            if (baseEffect == null)
+            {
+                return null;
+            }
+
+            var spellEffect = baseEffect as CharacterActionCastSpell;
+            var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
+            var actionParams = baseEffect.actionParams;
+
+            if (actionParams == null)
+            {
+                return null;
+            }
+
+            if (baseEffect.Countered || baseEffect.ExecutionFailed)
+            {
+                return null;
+            }
+
+            if (attackOutcome != RollOutcome.Success && attackOutcome != RollOutcome.CriticalSuccess)
+            {
+                return null;
+            }
+
+            var caster = actionParams.ActingCharacter;
+            var targets = actionParams.TargetCharacters;
+
+            if (caster == null || targets.Count < 2)
+            {
+                return null;
+            }
+
+            var rulesetCaster = caster.RulesetCharacter;
+            var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+            var bonusLevelProvider = _spell.GetFirstSubFeatureOfType<IBonusSlotLevels>();
+            var slotLevel = _spell.SpellLevel;
+
+            if (bonusLevelProvider != null)
+            {
+                slotLevel += bonusLevelProvider.GetBonusSlotLevels(rulesetCaster);
+            }
+
+            var effectSpell = rules.InstantiateEffectSpell(rulesetCaster, repertoire, _spell, slotLevel, false);
+
+            for (var i = 1; i < targets.Count; i++)
+            {
+                var rulesetTarget = targets[i].RulesetCharacter;
+
+                if (!string.IsNullOrEmpty(_notificationTag))
+                {
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                }
+
+                effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);
+            }
+
+            effectSpell.Terminate(true);
+
+            return null;
+        }
+    }
+
+    #endregion
+
+    #region Sunlit Blade
 
     internal static SpellDefinition BuildSunlightBlade()
     {
@@ -510,6 +615,41 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
+
+
+    private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return effectDescription;
+            }
+
+            var weapon = hero.GetMainWeapon();
+
+            if (weapon == null || !weapon.itemDefinition.IsWeapon)
+            {
+                return effectDescription;
+            }
+
+            var reach = weapon.itemDefinition.WeaponDescription.ReachRange;
+
+            if (reach <= 1)
+            {
+                return effectDescription;
+            }
+
+            effectDescription.rangeParameter = reach;
+            return effectDescription;
+        }
+    }
+
+    #endregion
 
     internal static SpellDefinition BuildSwordStorm()
     {
