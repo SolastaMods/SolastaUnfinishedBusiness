@@ -47,7 +47,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 2, TargetType.IndividualsUnique, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -57,40 +57,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetCustomSubFeatures(new ModifyMagicEffectGatheringStorm())
             .AddToDB();
 
-        var combatAffinityGatheringStorm = FeatureDefinitionCombatAffinityBuilder
-            .Create($"CombatAffinity{Name}AppliedGatheringStorm")
-            .SetGuiPresentation($"Condition{Name}AppliedGatheringStorm", Category.Condition)
-            .SetMyAttackAdvantage(AdvantageType.Advantage)
-            .AddToDB();
-
-        var conditionAppliedGatheringStorm = ConditionDefinitionBuilder
-            .Create($"Condition{Name}AppliedGatheringStorm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
-            .SetPossessive()
-            .SetSilent(Silent.WhenRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .CopyParticleReferences(ConditionDefinitions.ConditionBranded)
-            .SetFeatures(combatAffinityGatheringStorm)
-            .AddToDB();
-
-        var conditionGatheringStorm = ConditionDefinitionBuilder
-            .Create($"Condition{Name}GatheringStorm")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionLightSensitiveSorakSaboteur)
-            .SetPossessive()
-            .SetSilent(Silent.WhenRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .CopyParticleReferences(ConditionDefinitions.ConditionGuided)
-            .SetCancellingConditions(conditionAppliedGatheringStorm)
-            .AddToDB();
-
-        var featureGatheringStorm = FeatureDefinitionBuilder
+        // kept name for backward compatibility
+        var featureGatheringStorm = FeatureDefinitionDamageAffinityBuilder
             .Create($"Feature{Name}GatheringStorm")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new AttackEffectAfterDamageGatheringStorm(
-                    conditionGatheringStorm,
-                    conditionAppliedGatheringStorm,
-                    powerAppliedGatheringStorm))
+            .SetDamageType(DamageTypeLightning)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetCustomSubFeatures(new AttackEffectAfterDamageGatheringStorm(powerAppliedGatheringStorm))
             .AddToDB();
 
         // LEVEL 11
@@ -205,7 +178,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeLightning, 3, DieType.D10)
+                            .SetDamageForm(DamageTypeLightning, 5, DieType.D10)
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .Build(),
                         EffectFormBuilder
@@ -302,17 +275,10 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
     private sealed class AttackEffectAfterDamageGatheringStorm : IAttackEffectAfterDamage
     {
-        private readonly ConditionDefinition _conditionAppliedGatheringStorm;
-        private readonly ConditionDefinition _conditionGatheringStorm;
         private readonly FeatureDefinitionPower _powerAppliedGatheringStorm;
 
-        public AttackEffectAfterDamageGatheringStorm(
-            ConditionDefinition conditionGatheringStorm,
-            ConditionDefinition conditionAppliedGatheringStorm,
-            FeatureDefinitionPower powerAppliedGatheringStorm)
+        public AttackEffectAfterDamageGatheringStorm(FeatureDefinitionPower powerAppliedGatheringStorm)
         {
-            _conditionGatheringStorm = conditionGatheringStorm;
-            _conditionAppliedGatheringStorm = conditionAppliedGatheringStorm;
             _powerAppliedGatheringStorm = powerAppliedGatheringStorm;
         }
 
@@ -324,136 +290,30 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            var rulesetCharacter = attacker.RulesetCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetCharacter == null || rulesetCharacter.IsDeadOrDyingOrUnconscious)
+            if (rulesetAttacker == null || rulesetAttacker.IsDeadOrDyingOrUnconscious)
             {
                 return;
             }
 
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
-                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                    _conditionGatheringStorm.Name);
-                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                    _conditionAppliedGatheringStorm.Name);
-
                 return;
             }
 
-            if (rulesetCharacter.HasAnyConditionOfType(_conditionAppliedGatheringStorm.Name))
-            {
-                attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                    _conditionAppliedGatheringStorm.Name);
-
-                ApplyDamage(attacker);
-
-                return;
-            }
-
-            if (!rulesetCharacter.HasAnyConditionOfType(_conditionGatheringStorm.Name))
-            {
-                rulesetCharacter.InflictCondition(
-                    _conditionGatheringStorm.Name,
-                    _conditionGatheringStorm.DurationType,
-                    _conditionGatheringStorm.DurationParameter,
-                    _conditionGatheringStorm.TurnOccurence,
-                    AttributeDefinitions.TagCombat,
-                    rulesetCharacter.guid,
-                    rulesetCharacter.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
-
-                return;
-            }
-
-            rulesetCharacter.InflictCondition(
-                _conditionAppliedGatheringStorm.Name,
-                _conditionAppliedGatheringStorm.DurationType,
-                _conditionAppliedGatheringStorm.DurationParameter,
-                _conditionAppliedGatheringStorm.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-        }
-
-        /*
-        0. Create possible targets empty ordered list
-        1. Add all non immune enemies within 5 feet ordered by current hit points
-        2. Add all non immune enemies within 10 feet ordered by current hit points
-        3. While list has at least one element and selected targets less than 3
-            3.1 Find first non resistant target
-            3.2 If not found find first target
-            3.3 Remove target from ordered list and apply damage
-         */
-        private void ApplyDamage(GameLocationCharacter attacker)
-        {
-            var gameLocationBattleService =
-                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-
-            if (gameLocationBattleService == null)
+            if (attackMode.ActionType != ActionDefinitions.ActionType.Bonus ||
+                !rulesetAttacker.HasAnyConditionOfType(ConditionFlurryOfBlows))
             {
                 return;
             }
 
-            var battle = gameLocationBattleService.Battle;
-
-            // add non immune targets within 5 feet
-            var targets = battle.AllContenders
-                .Where(x =>
-                    x.Side != attacker.Side &&
-                    x.RulesetCharacter is { IsDeadOrDying: false } &&
-                    gameLocationBattleService.IsWithin1Cell(attacker, x) &&
-                    x.RulesetCharacter
-                        .GetFeaturesByType<IDamageAffinityProvider>()
-                        .All(y =>
-                            y.DamageAffinityType != DamageAffinityType.Immunity ||
-                            y.DamageType != DamageTypeLightning))
-                .OrderBy(x => x.RulesetCharacter.CurrentHitPoints)
-                .ToList();
-
-            // add non immune targets within 10 feet
-            targets.AddRange(battle.AllContenders
-                .Where(x =>
-                    x.Side != attacker.Side &&
-                    x.RulesetCharacter is { IsDeadOrDying: false } &&
-                    gameLocationBattleService.IsWithinXCells(attacker, x, 2) &&
-                    x.RulesetCharacter
-                        .GetFeaturesByType<IDamageAffinityProvider>()
-                        .All(y =>
-                            y.DamageAffinityType != DamageAffinityType.Immunity ||
-                            y.DamageType != DamageTypeLightning))
-                .Except(targets)
-                .OrderBy(x => x.RulesetCharacter.CurrentHitPoints));
-
-            var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = UsablePowersProvider.Get(_powerAppliedGatheringStorm, attacker.RulesetCharacter);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
-            var selected = 3;
 
-            while (selected-- > 0 && targets.Count > 0)
-            {
-                var target =
-                    targets.FirstOrDefault(x => x.RulesetCharacter
-                        .GetFeaturesByType<IDamageAffinityProvider>()
-                        .All(y =>
-                            y.DamageAffinityType != DamageAffinityType.Resistance &&
-                            y.DamageType != DamageTypeLightning)) ??
-                    targets.First();
-
-                EffectHelpers.StartVisualEffect(attacker, target, ShockingGrasp,
-                    EffectHelpers.EffectType.Effect);
-                effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
-                targets.Remove(target);
-            }
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerAppliedGatheringStorm);
+            EffectHelpers.StartVisualEffect(attacker, defender, ShockingGrasp, EffectHelpers.EffectType.Effect);
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 
@@ -523,8 +383,8 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
-                target.LocationPosition, attackModifier);
+            evalParams.FillForPhysicalReachAttack(
+                caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
 
             return battleService.CanAttack(evalParams);
         }
