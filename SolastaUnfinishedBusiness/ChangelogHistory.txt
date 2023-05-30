@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.5.48.2:
+
+- added bold and thin HanSans Japanese font variations
+- reduced Japanese atlas font size to 1024 x 1024
+
 1.5.48.1:
 
 - fixed mod warning
