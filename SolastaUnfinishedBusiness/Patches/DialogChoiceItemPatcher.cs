@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
+using TMPro;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -18,7 +17,7 @@ public static class DialogChoiceItemPatcher
         [UsedImplicitly]
         public static void Postfix(DialogChoiceItem __instance)
         {
-            __instance.labelHighlighter.TargetLabel.TMP_Text.overflowMode = TMPro.TextOverflowModes.Overflow;
+            __instance.labelHighlighter.TargetLabel.TMP_Text.overflowMode = TextOverflowModes.Overflow;
         }
     }
 }

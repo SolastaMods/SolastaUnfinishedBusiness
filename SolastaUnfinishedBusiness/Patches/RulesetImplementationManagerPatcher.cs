@@ -650,7 +650,8 @@ public static class RulesetImplementationManagerPatcher
             }
 
             var savingThrowBonus =
-                AttributeDefinitions.ComputeAbilityScoreModifier(rulesetCharacter.TryGetAttributeValue(attributeScore)) +
+                AttributeDefinitions.ComputeAbilityScoreModifier(
+                    rulesetCharacter.TryGetAttributeValue(attributeScore)) +
                 rulesetCharacter.ComputeBaseSavingThrowBonus(attributeScore, new List<RuleDefinitions.TrendInfo>());
 
             var attr = attributeScore;
