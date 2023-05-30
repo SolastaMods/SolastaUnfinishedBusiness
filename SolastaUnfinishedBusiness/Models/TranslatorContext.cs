@@ -25,7 +25,7 @@ internal struct LanguageEntry
     public string Code;
     public string Text;
     public string Directory;
-    public string SourceCode;
+    [UsedImplicitly] public string SourceCode;
 }
 
 internal static class TranslatorContext
@@ -43,7 +43,7 @@ internal static class TranslatorContext
     internal static readonly List<LanguageEntry> Languages = new();
 
     /// <summary>
-    /// Maps unofficial language codes to official language codes.
+    ///     Maps unofficial language codes to official language codes.
     /// </summary>
     private static Dictionary<string, string> SourceCodeCache { get; } = new();
 
@@ -115,16 +115,17 @@ internal static class TranslatorContext
         {
             var code = directory.Name;
             var cultureInfo = cultureInfos.FirstOrDefault(o => o.Name == code);
-            
-            if (File.Exists($"{directory.FullName}\\info.json"))
+
+            if (File.Exists($"{directory.FullName}/info.json"))
             {
                 var info = JsonConvert.DeserializeObject<JObject>(File.ReadAllText($"{directory.FullName}/info.json"));
                 var sourceCode = info["SourceCode"]?.ToString() ?? string.Empty;
-                if(!string.IsNullOrEmpty(sourceCode))
+                
+                if (!string.IsNullOrEmpty(sourceCode))
                 {
                     SourceCodeCache.Add(code, sourceCode);
                 }
-                
+
                 Languages.Add(new LanguageEntry
                 {
                     Code = code,
@@ -171,7 +172,7 @@ internal static class TranslatorContext
             languageSourceData.AddLanguage(language.Text, language.Code);
 
             var languageIndex = languageSourceData.GetLanguageIndex(language.Text);
-            
+
             // add terms
             var directoryInfo = new DirectoryInfo(language.Directory);
             var files = directoryInfo.GetFiles("*.txt");
@@ -365,8 +366,8 @@ internal static class TranslatorContext
         Func<string, string, bool> validate)
     {
         var result = new Dictionary<string, string>();
-        
-        if(SourceCodeCache.TryGetValue(languageCode, out string sourceCode))
+
+        if (SourceCodeCache.TryGetValue(languageCode, out var sourceCode))
         {
             // if has source language, use it
             languageCode = sourceCode;
