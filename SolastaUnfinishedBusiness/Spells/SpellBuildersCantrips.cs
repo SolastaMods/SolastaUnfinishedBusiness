@@ -702,7 +702,7 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 6, TargetType.IndividualsUnique)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.IndividualsUnique)
                 .SetParticleEffectParameters(VenomousSpike)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5,
                     additionalDicePerIncrement: 1)
@@ -716,7 +716,22 @@ internal static partial class SpellBuilders
                         .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
                         .Build())
                 .Build())
+            .SetCustomSubFeatures(new ModifyMagicEffectThornyVines())
             .AddToDB();
+    }
+
+    internal sealed class ModifyMagicEffectThornyVines : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
+        {
+            effectDescription.rangeParameter = 6;
+
+            return effectDescription;
+        }
     }
 
     internal static SpellDefinition BuildThunderStrike()
