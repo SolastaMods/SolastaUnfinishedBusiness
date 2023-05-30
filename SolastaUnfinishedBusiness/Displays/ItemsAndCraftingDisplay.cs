@@ -40,8 +40,8 @@ internal static class ItemsAndCraftingDisplay
             .OrderBy(x => x.Item1)
             .ToArray();
 
-    private static readonly int AllTitleIndexItemTagsFilters =
-        Array.FindIndex(ItemsItemTagsFilters, x => x.Item1 == Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"));
+    private static readonly int WeaponIndexItemFilters =
+        Array.FindIndex(ItemsFilters, x => x.Item1 == Gui.Localize("MerchantCategory/&WeaponTitle"));
 
     private static readonly string[] ItemsItemTagsFiltersLabels = ItemsItemTagsFilters.Select(x => x.Item1).ToArray();
 
@@ -364,7 +364,7 @@ internal static class ItemsAndCraftingDisplay
             UI.Space(40f);
             UI.Label("Category".Bold(), UI.Width((float)100));
 
-            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            if (CurrentItemsFilterIndex == WeaponIndexItemFilters /* Weapons */)
             {
                 UI.Space(40f);
                 UI.Label("Weapon Tag".Bold(), UI.Width((float)100));
@@ -388,13 +388,13 @@ internal static class ItemsAndCraftingDisplay
             {
                 CurrentItemsFilterIndex = intValue;
 
-                if (CurrentItemsFilterIndex != AllTitleIndexItemTagsFilters /* Weapons */)
+                if (CurrentItemsFilterIndex != WeaponIndexItemFilters /* Weapons */)
                 {
                     CurrentItemsWeaponTagsFilterIndex = AllTitleIndexWeaponTagsFilters;
                 }
             }
 
-            if (CurrentItemsFilterIndex == AllTitleIndexItemTagsFilters /* Weapons */)
+            if (CurrentItemsFilterIndex == WeaponIndexItemFilters /* Weapons */)
             {
                 intValue = CurrentItemsWeaponTagsFilterIndex;
                 if (UI.SelectionGrid(
