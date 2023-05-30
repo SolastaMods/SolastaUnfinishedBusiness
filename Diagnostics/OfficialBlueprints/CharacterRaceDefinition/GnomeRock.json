@@ -10,7 +10,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierGnomeShadowAbilityScoreIncreaseDex:9cd25e09b1b8b55448675f05ea018a17",
+      "featureDefinition": "Definition:AttributeModifierGnomeRockAbilityScoreIncreaseCon:95af87b030449cf44a4974d730eeb5c3",
       "level": 1
     },
     {
