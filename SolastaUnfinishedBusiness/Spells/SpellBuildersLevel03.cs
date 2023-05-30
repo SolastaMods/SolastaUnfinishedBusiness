@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 03
+    #region Blinding Smite
 
     internal static SpellDefinition BuildBlindingSmite()
     {
@@ -75,6 +75,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Winter Breath
+
     internal static SpellDefinition BuildWinterBreath()
     {
         const string NAME = "WinterBreath";
@@ -121,6 +125,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Crusaders Mantle
+
     internal static SpellDefinition BuildCrusadersMantle()
     {
         const string NAME = "CrusadersMantle";
@@ -158,6 +166,56 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Pulse Wave
+
+    internal static SpellDefinition BuildPulseWave()
+    {
+        const string NAME = "PulseWave";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
+                .ExcludeCaster()
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Constitution,
+                    true,
+                    EffectDifficultyClassComputation.SpellCastingFeature,
+                    AttributeDefinitions.Wisdom,
+                    12)
+                .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .AddEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
+                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                        .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(3)
+            .SetVerboseComponent(true)
+            .SetSomaticComponent(true)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
 
     #region Elemental Weapon
 
@@ -422,52 +480,6 @@ internal static partial class SpellBuilders
                         .Build())
                 .Build())
             .AddToDB();
-    }
-
-    #endregion
-
-    internal static SpellDefinition BuildPulseWave()
-    {
-        const string NAME = "PulseWave";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.PulseWave, 128))
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 6)
-                .ExcludeCaster()
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Constitution,
-                    true,
-                    EffectDifficultyClassComputation.SpellCastingFeature,
-                    AttributeDefinitions.Wisdom,
-                    12)
-                .SetParticleEffectParameters(Fear.EffectDescription.EffectParticleParameters)
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 3)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .Build())
-                .AddEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetDamageForm(DamageTypeForce, dieType: DieType.D6, diceNumber: 6)
-                        .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                        .Build())
-                .Build())
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(3)
-            .SetVerboseComponent(true)
-            .SetSomaticComponent(true)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .AddToDB();
-
-        return spell;
     }
 
     #endregion

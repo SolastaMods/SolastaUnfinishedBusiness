@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 04
+    #region Staggering Smite
 
     internal static SpellDefinition BuildStaggeringSmite()
     {
@@ -98,6 +98,10 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #endregion
+
+    #region Brain Bulwark
+
     internal static SpellDefinition BuildBrainBulwark()
     {
         const string NAME = "BrainBulwark";
@@ -146,6 +150,10 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+
+    #endregion
+
+    #region Gravity Sinkhole
 
     internal static SpellDefinition BuildGravitySinkhole()
     {
