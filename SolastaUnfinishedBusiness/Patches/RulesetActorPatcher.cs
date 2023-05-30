@@ -218,7 +218,7 @@ public static class RulesetActorPatcher
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>,
                 ulong
-            >(MyEnumerate).Method;
+            >(EnumerateIDamageAffinityProvider).Method;
 
             return instructions
                 .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
@@ -227,7 +227,7 @@ public static class RulesetActorPatcher
                     new CodeInstruction(OpCodes.Call, myEnumerate));
         }
 
-        private static void MyEnumerate(
+        private static void EnumerateIDamageAffinityProvider(
             RulesetActor actor,
             List<FeatureDefinition> featuresToBrowse,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
@@ -276,10 +276,9 @@ public static class RulesetActorPatcher
         private static void EnumerateIDieRollModificationProvider(
             RulesetCharacter __instance,
             List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition,
-                RuleDefinitions.FeatureOrigin> featuresOrigin)
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin)
         {
-            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse);
+            __instance.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(featuresToBrowse, featuresOrigin);
 
             var damageTypes = RulesetCharacterPatcher.RollMagicAttack_Patch
                 .CurrentMagicEffect?.EffectDescription.EffectForms
@@ -294,8 +293,6 @@ public static class RulesetActorPatcher
                     x is FeatureDefinitionDieRollModifierDamageTypeDependent y &&
                     y.damageTypes.Intersect(damageTypes).Any());
             }
-
-            __instance.featuresToBrowse.AddRange(featuresToBrowse);
         }
 
 
