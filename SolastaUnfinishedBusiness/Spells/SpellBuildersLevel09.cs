@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 09
+    #region Foresight
 
     internal static SpellDefinition BuildForesight()
     {
@@ -58,6 +58,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Mass Heal
+
     internal static SpellDefinition BuildMassHeal()
     {
         var effectDescription = EffectDescriptionBuilder
@@ -88,6 +92,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Meteor Swarm
 
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
@@ -133,6 +141,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Power Word Heal
 
     internal static SpellDefinition BuildPowerWordHeal()
     {
@@ -186,6 +198,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Power Word Kill
+
     internal static SpellDefinition BuildPowerWordKill()
     {
         var effectDescription = EffectDescriptionBuilder
@@ -211,6 +227,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Shapechange
 
     internal static SpellDefinition BuildShapechange()
     {
@@ -262,6 +282,10 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    #endregion
+
+    #region Time Stop
+
     internal static SpellDefinition BuildTimeStop()
     {
         const string NAME = "TimeStop";
@@ -298,6 +322,10 @@ internal static partial class SpellBuilders
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
     }
+
+    #endregion
+
+    #region Weird
 
     internal static SpellDefinition BuildWeird()
     {

@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 08
+    #region Mind Blank
 
     internal static SpellDefinition BuildMindBlank()
     {

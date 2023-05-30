@@ -149,7 +149,12 @@ internal static class CommonBuilders
             bool firstTarget,
             bool criticalHit)
         {
-            if (rulesetEffect is not RulesetEffectSpell)
+            if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+            {
+                yield break;
+            }
+
+            if (rulesetEffectSpell.SpellDefinition.SpellLevel == 0 && !Main.Settings.EnableCantripsTriggeringOnWarMagic)
             {
                 yield break;
             }

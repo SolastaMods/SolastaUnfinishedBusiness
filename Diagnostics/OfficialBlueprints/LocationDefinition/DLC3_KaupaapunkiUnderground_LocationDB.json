@@ -194,7 +194,7 @@
   "useDirectionalLightInCutscene": true,
   "useNewSectorCullingAlgorithm": true,
   "keepSectorCullingResultsWhenInactive": false,
-  "setCurrentCampaignNodeWhenLeaving": false,
+  "setCurrentCampaignNodeWhenLeaving": true,
   "hasPriorityForTeleporter": true,
   "canAttackNonHostileCharacters": false,
   "forceNoEncounterPrespawn": false,

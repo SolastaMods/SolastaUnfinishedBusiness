@@ -1,0 +1,271 @@
+TutorialStep/&BattleCameraDescription=在战斗中，你可以使用 WASD 键、将鼠标指针移至屏幕边缘或按住鼠标中键移动鼠标，从而移动镜头。\n\n镜头的旋转方式与探索中的旋转方式相同。
+TutorialStep/&BattleCameraDescriptionXBox=在战斗期间，你可以按<sprite index={4}>移动镜头。\n\n 按<sprite index={5}>旋转镜头。
+TutorialStep/&BattleCameraTitle=战斗中的镜头控制
+TutorialStep/&CautiousModeDescription=激活警觉模式会降低你的移动速度，但也会赋予你两个优势：更容易找到隐藏物品和陷阱，你的行动更难被敌人发现。\n如果敌人开始注意到你的行踪，他们头上的计量槽就会逐渐充满，给你反应和躲避的时间。
+TutorialStep/&CautiousModeTitle=警觉模式
+TutorialStep/&ConfigWeapons2Description=你可以改变物品栏中的快捷方式。 \n将武器、护盾或其他物品拖拽并放置到一个手部槽位上，变更快捷方式。
+TutorialStep/&ConfigWeapons2Title=变更武器快捷方式
+TutorialStep/&ConfigWeaponsDescription=你可以使用快捷方式切换装备。\n默认状态下，你拥有三个武器配置快捷方式。\n最后一个是你的光源快捷方式，使用第三个配置，可包含火把或其他光源。\n如果你的法术列表中有光亮术戏法，点击光源按钮，就可以立刻施放光亮术。
+TutorialStep/&ConfigWeaponsTitle=装备快捷方式
+TutorialStep/&ConfigWeaponsXBoxDescription=你可以使用快捷方式切换装备。\n按<sprite index={12}>打开快捷菜单。默认状态下，你拥有三个武器配置快捷方式。\n最后一个是你的光源快捷方式，使用第三个配置，可包含火把或其他光源。\n如果你的法术列表中有光亮术戏法，第四个快捷方式可立刻施放光亮术。
+TutorialStep/&Crafting01Description=在 Solasta，你可以制作各色物品。要想开始制作，你需要合适的装备、原料、技能，以及时间。对于魔法物品而言，你有时还需要懂得法术。\n\n制作会在旅行过程中进行，只要你的小队扎营完毕，又还没有入睡，就会进行制作。\n\n角色会投入一些各自的自由时间来着手完成其当前的制作任务。
+TutorialStep/&Crafting01Title=制作
+TutorialStep/&Crafting02Description=下列这些便是制作所需的工具：\n\n- 药水：草药工具\n- 卷轴：卷轴工具\n- 毒药：制毒工具\n- 附魔武器和护甲：魔纳卡隆念珠\n\n你需要具备相应的熟练项才能使用这些工具。
+TutorialStep/&Crafting02Title=制作装备
+TutorialStep/&Crafting03Description=即便你具备了给定工具的熟练项，你还需要特定的技能来针对配方的 DC 进行成功的检定。\n要制作药水，有些时候“医药”就足够了，但“奥秘”也十分有用。\n制作毒药的话，“医药”“自然”就很有用了。\n制作卷轴或附魔物品时，“奥秘”必不可少。
+TutorialStep/&Crafting03Title=制作技能
+TutorialStep/&Crafting04Description=制作需要原料。这些原料可以在冒险途中获得，也可以从花朵、灌木以及岩石中采集，有时还要需要从死掉的生物遗体上收集。\n显然，你也可以从商店直接购买，除非它们稀有到有市无价。\n附魔需要用经由魔纳卡隆铁匠大师用魔法预处理后的制备物品，这些物品的秘密已经因大灾变而失传。一般而言，一件制备物品需要一种非常罕见的额外原料才发挥其潜能。
+TutorialStep/&Crafting04Title=制作原料
+TutorialStep/&Crafting05Description=最后，为了制作一件物品，你需要知道原料的组合方式。这些“配方”可以通过阅读各种手册或者通过大师教授而习得。\n通常来说，索拉斯塔的各个阵营都存有这些配方的副本，并以划算的价格售卖给各自看得上的朋友。不过，有一些也可以在恶土野外找到。\n\n一旦习得某种配方，全小队都可以对其进行使用。
+TutorialStep/&Crafting05Title=制作配方
+TutorialStep/&Crafting06Description=想要开始制作，请开启某角色的界面，然后点击制作界面。仅需选择一种可用配方便可开始制作。\n进度条会在你旅行时填满，当操作结束时，\n你会得到通知，如此一来，只要你愿意，便能启动新的制作项目了。\n记住，如果你取消了制作操作，相应的原料还是会被消耗。
+TutorialStep/&Crafting06Title=制作界面
+TutorialStep/&Crafting06XBoxDescription=想要开始制作，使用<sprite index={11}>开启某角色的界面，然后使用<sprite index={8}>或<sprite index={9}>选择制作界面。仅需选择一种可用配方即可开始制作。\n进度条会在你旅行时填满，当制作结束时，你会得到通知，之后即可启动新的制作项目。\n记住，即使你中途取消制作，相应的原料仍会被消耗掉。
+TutorialStep/&FoodDescription=\n如果你的物品栏中没有食物，请在可搜刮的容器或死去敌人的身上中寻找口粮。
+TutorialStep/&FoodTitle=食物
+TutorialStep/&GatheringDescription=有时候，你必须将小队所有人聚集在特定地点，才能继续冒险。\n\n寻找方法，让小队在这些区域中集合，解锁任务的下一步。
+TutorialStep/&GatheringTitle=集合小队
+TutorialStep/&InventorySpaceDescription=你角色的最高负重是其力量的五倍，超过这个限制，角色就会重载。 \n\n每件物品都有重量。有的物品可以在同一个物品栏位中堆叠，比如箭矢，但重量依旧会叠加。\n\n在搜刮装备时，请留意你的负重计量槽。如果角色移动缓慢，请检查其负重，看看是不是携带了太多的东西。
+TutorialStep/&InventorySpaceTitle=物品栏管理
+TutorialStep/&LightingDescription=在索拉斯塔中，你将探索众多缺乏自然光源的幽深黑暗之处。光源的缺乏会增加探索和战斗的难度，对没有黑暗视觉的角色尤为如此。\n\n你可以装备火把，或施放光亮法术，让整个小队看清楚周围环境。
+TutorialStep/&LightingTitle=光照和光源
+TutorialStep/&MajorGateBoneKeep_Description=使用这个小门可以将你传送至城堡外。\n\n你也可以使用身后的主门传送回塞弗伦堡。
+TutorialStep/&MajorGateBoneKeep_Title=主门
+TutorialStep/&MechanismsDescription=有时候，你要找到可互动物体，才能解锁通道或激活系统等。\n进行探索，激活警觉模式以增加发现可互动物体的几率，留意齿轮图标。齿轮图标说明存在可能的互动。\n然后，选择权就在你手上了：激活还是不激活？这是个问题。
+TutorialStep/&MechanismsTitle=可互动物体
+TutorialStep/&MovingCharactersDescription=左键点击地面，选中目的地，你选中的角色就会前往你选中的位置。 \n\n镜头会自动跟随移动的角色。\n\n指针会显示你是否能够到达选定的目的地。
+TutorialStep/&MovingCharactersDescriptionXBox=使用<sprite index={4}>移动指针，然后按<sprite index={0}>，你选中的角色就会前往指定地点。\n\n 指针会显示你选定的目的地是否可到达。
+TutorialStep/&MovingCharactersTitle=角色移动
+TutorialStep/&OutgameCharacterCreationAbilityScores2Description=属性值可以通过好几种方式进行生成，既有随机的方式，也有点数系统的方式。\n\n不同职业具有各自的偏好属性值（比如法师偏好智力）。因此，请确保你角色的最高属性值为该角色职业的主属性。
+TutorialStep/&OutgameCharacterCreationAbilityScores2Title=属性值计算
+TutorialStep/&OutgameCharacterCreationAbilityScores3Description=所有角色的血统都会为某些属性提供加值，进而产生了一种有趣的血统/职业二元协同效应系统。\n\n属性值可以在角色达到 4 级，8 级等以此类推的等级时获得提升。战士甚至能够更为频繁地提升属性值。
+TutorialStep/&OutgameCharacterCreationAbilityScores3Title=提升属性值
+TutorialStep/&OutgameCharacterCreationAbilityScoresDescription=属性值是决定你角色擅长方面的六项核心数值：力量、敏捷、体质、智力、感知，以及魅力，具体数值从 3 至 20 不等。\n\n 每项数值下的加值适用于所有相关动作。比如：力量加值会在力量的基础上被添加至攻击掷骰。
+TutorialStep/&OutgameCharacterCreationAbilityScoresTitle=属性值
+TutorialStep/&OutgameCharacterCreationAncestryDescription=角色创建的第一步便是选择一种血统，这会决定你的外观以及位于右侧的你的游戏内能力。\n\n某些血统会提供一种宗系子选项，以进一步细化角色的游戏内能力。
+TutorialStep/&OutgameCharacterCreationAncestryTitle=血统选择
+TutorialStep/&OutgameCharacterCreationBackground2Description=除了背景所提供的人物个性外，你还必须从守序/混乱与善良/邪恶的道德标尺上选择 2 项人物个性。 \n\n在 Solasta，阵营便是个性自定义的第二种形式。
+TutorialStep/&OutgameCharacterCreationBackground2Title=阵营
+TutorialStep/&OutgameCharacterCreationBackground3Description=你可以通过两次选择相同的个性来强化个性特征。角色个性不会影响游戏玩法、选择或对话选项，只会改变你的角色说话的方式、语气和举止。 \n\n个性综观会在屏幕左下角总结显示，其中，最深的颜色代表最强的个性。
+TutorialStep/&OutgameCharacterCreationBackground3Title=个性综观
+TutorialStep/&OutgameCharacterCreationBackgroundDescription=背景会决定角色开始冒险生活之前的履历。\n\n背景不仅会提供装备以及熟练项，也会提供选择人物个性的能力。这些标记会决定该角色在叙述场景中所表现出的社会行为。
+TutorialStep/&OutgameCharacterCreationBackgroundTitle=背景选择
+TutorialStep/&OutgameCharacterCreationClassDescription=角色职业会决定专业，这会赋予角色列于右侧的各项特定特性。\n\n更高等级时会赋予角色全新的能力，甚至副职。\n\n每种职业还会提供一套你可以自定义的装备。
+TutorialStep/&OutgameCharacterCreationClassTitle=职业选择
+TutorialStep/&OutgameCharacterCreationDeityDescription=创建牧师和圣武士时，必须选择 索拉斯塔的一位神祇。 \n\n对牧师来说，所选神祇会提供一系列可供专精的神圣领域。\n\n选定的神圣领域会自动赋予角色准备好的法术、引导神力的能力，以及更高等级时可获得的全新能力。
+TutorialStep/&OutgameCharacterCreationDeityTitle=神祇
+TutorialStep/&OutgameCharacterCreationFightingStyleDescription=某些角色职业允许玩家进行战斗风格的选择。\n\n战斗风格会赋予你使用战斗技巧与装备的特定优势。\n\n某些角色职业会在更高等级时被赋予二级战斗风格。
+TutorialStep/&OutgameCharacterCreationFightingStyleTitle=战斗风格
+TutorialStep/&OutgameCharacterCreationIdentityDescription=角色创建的最终阶段允许你自定义角色的外貌与身份。\n\n你可以在全部可选选项中自由搭配。最后，要想完成角色创建流程，你需要为角色取一个有效的名字。
+TutorialStep/&OutgameCharacterCreationIdentityTitle=身份
+TutorialStep/&OutgameCharacterCreationProficiencies2Description=大多数攻击与属性检定都会使用熟练加值来决定你的效率。\n\n该等加值始于 +2，并且会在 5 级，9级等以此类推的级别获得提升。它会被添加至角色具备熟练项的动作掷骰中：豁免检定、属性检定、使用具有熟练项的武器的攻击掷骰，以及魔法攻击与法术难度。
+TutorialStep/&OutgameCharacterCreationProficiencies2Title=熟练加值
+TutorialStep/&OutgameCharacterCreationProficienciesDescription=你可以在此阶段获取各色专业领域的熟练项。你的职业与血统决定了一整套的熟练项，或者决定了一系列可供选择的选项。\n\n你可以在屏幕右侧按照类型与出身选择自己的熟练项。必须在分配完所有的点数后，才能进行下一步流程。
+TutorialStep/&OutgameCharacterCreationProficienciesTitle=熟练项
+TutorialStep/&OutgameCharacterCreationSpells2Description=某些职业以及血统可以使用戏法。角色必须从所示列表中选择规定的戏法。\n\n与主要法术完全相反，作为简易的法术，你可以无限制施展戏法，且无需消耗法术位。
+TutorialStep/&OutgameCharacterCreationSpells2Title=戏法
+TutorialStep/&OutgameCharacterCreationSpells3Description=每种主要法术都提供了一个根据职业偏好定制的法术列表。比如：牧师有治疗法术，而法师则能够驾驭元素的力量。\n\n某些职业可以直接使用全部法术，而其它职业，比如法师，则必须将法术收集到自己的法术书内。\n\n最后，某些职业需要你在长休过程中，选择并准备他们的法术；而其它职业倘若存在剩余的法术位，就能够自由地使用已习得的法术。
+TutorialStep/&OutgameCharacterCreationSpells3Title=主要法术
+TutorialStep/&OutgameCharacterCreationSpellsDescription=某些职业能够立刻使用魔法法术，而其它职业则必须达到更高等级或选择一个副职之后才能使用。\n\n你可以在该界面选择角色能够施展的法术。
+TutorialStep/&OutgameCharacterCreationSpellsTitle=法术与魔法
+TutorialStep/&OutgameCharacterCreationSubclassDescription=职业会在达到特定等级时，以职业范型的形式提供某种专业化。\n\n职业不同，范型的名称也不同：法师的是奥术传承、战士的叫武术范型、牧师则会在等级 1 的时候选择各自的神圣领域。\n\n每种范型都会提供一整套的特性以及能力，它们会赋予角色独特的气质，而且可以从根本上改变其游玩风格。\n
+TutorialStep/&OutgameCharacterCreationSubclassTitle=职业范型
+TutorialStep/&OutgameCharacterSelectionDescription=该角色池列出了你可以选择进行冒险的可用角色。\n\n如果你想快捷开启冒险，我们也为你生成了一些角色。但我们还是建议你亲手打造属于你自己的四人冒险小队。
+TutorialStep/&OutgameCharacterSelectionTitle=小队组建
+TutorialStep/&OutgameMainMenuDescription=欢迎来到 Solasta！\n\n 随着游戏进度不断推进，这一系列界面将会为你介绍游戏的主要概念。 \n\n选择屏幕右侧的一个选项，开始一场全新冒险或进行角色创建
+TutorialStep/&OutgameMainMenuTitle=游戏内帮助
+TutorialStep/&OutgameMainMenuXBoxDescription=欢迎使用手柄进行索拉斯塔游戏。\n按 <sprite index={0}>开始
+TutorialStep/&OutgameMainMenuXBoxTitle=游戏内帮助（This is an Xbox test）
+TutorialStep/&OutgameNewAdventureDescription=你可以通过此界面在索拉斯塔的世界内开启一场名为“战役”的全新冒险。\n\n我们计划在游戏发布后实装更多战役。\n\n你必须选择四位等级 1 的角色来开始索拉斯塔战役。
+TutorialStep/&OutgameNewAdventureTitle=新冒险
+TutorialStep/&PickupQuests_Description=这些板块为你提供了接受可选任务的机会。这很简单：接受客户的任务，顺利完成任务，然后返回板块领取奖励！\n\n小心：有些任务比表面看起来更危险。
+TutorialStep/&PickupQuests_Title=领取任务
+TutorialStep/&RestingDescription=如果小队生命值或法术位过低，你可以找到安全地点并为每个角色提供一个单位的口粮，并进行长休。 \n\n长休后，你的生命值会充分恢复，多数能力也会恢复，还能恢复一半的最大生命骰。
+TutorialStep/&RestingTitle=休整
+TutorialStep/&SelectionDescription=在 3D 界面中点击角色可以进行选中，或拖拽出矩形框，选择多个角色。\n双击角色头像，可锁定特定角色。\n你也可以点击角色头像或点击头像列表底部的“选择所有”按钮。
+TutorialStep/&SelectionTitle=角色选择
+TutorialStep/&Tuto01_CameraXbox_Description=使用<sprite index={23}>转动镜头，更改你的视角。\n  \n  使用<sprite index={4}>移动镜头，聚焦角色时使用<sprite index={22}>可拉近观察角色。
+TutorialStep/&Tuto01_Camera_Description=按住鼠标右键拖拽，可旋转镜头，改变你的视角。\n\n你可以使用页面右下角指南针上的按钮进行旋转，或按下 Q 或 E 键。\n\n 使用 WASD 键或方向键移动镜头，聚焦角色时按住 W 键可拉近观察角色。
+TutorialStep/&Tuto01_Camera_Title=镜头控制
+TutorialStep/&Tuto01_Climbing_and_jumping2_Description=上图：力量低于 15 且无运动熟练项的角色无法跳过沟渠接近箱子。 \n\n\n\n下图：力量为 15 - 20 的战士可以跃过 3 个单位格；力量为 11-14 且拥有运动熟练项的角色也能够完成同一跳跃。
+TutorialStep/&Tuto01_Climbing_and_jumping2_Title=跳跃距离
+TutorialStep/&Tuto01_Climbing_and_jumping3_Description=一般来说，主要路线无需角色具备优越的体力属性即可通行。然而，更难抵达的备选路线上常藏有可供搜刮的战利品。\n\n但是请不要放弃，您或许能找到通向宝箱的另一条路！
+TutorialStep/&Tuto01_Climbing_and_jumping3_Title=备选路线
+TutorialStep/&Tuto01_Climbing_and_jumpingXbox_Description=要跳跃或攀爬，请将指针移动到你想去的地方，然后按<sprite index={0}>。\n \n 你可以跳过或攀爬 2 至 5 个单位格，具体视角色的力量和运动熟练项而定。\n\n 你始终可以跳过 2 个单位格、下落 3 个单位格、攀爬 1 个单位格，或是攀爬比较容易的立面，如爬梯或绳索等，而不会遇到任何问题。
+TutorialStep/&Tuto01_Climbing_and_jumping_Description=要跳跃或攀爬，点击目的地即可。 \n\n你可以跳过或攀爬 2 至 5 个单位格，具体视角色的力量和运动熟练项而定。\n\n你始终可以跳过 2 个单位格、下落 3 个单位格、攀爬 1 个单位格，或是攀爬比较容易的立面，如爬梯或绳索等，不会遇到任何问题。
+TutorialStep/&Tuto01_Climbing_and_jumping_Title=攀爬和跳跃
+TutorialStep/&Tuto01_CrawlingXbox_Description=如需爬过洞穴，请将指针移动到洞穴附近，然后按<sprite index={0}>。\n \n 旋转镜头可以帮助你更好地看清洞的另一侧。你可以使用<sprite index={23}>，或使用<sprite index={4}>移动镜头。\n\n 你的角色会根据相应情况，自动跪下、爬行或站立，以抵达指定的目的地。
+TutorialStep/&Tuto01_Crawling_Description=如需爬过洞穴，请点击洞穴的对侧。\n\n旋转镜头可以帮助您更好地看清楚洞的另一侧。您可以点击 Q 或 E 键，或按住鼠标左键移动鼠标旋转镜头。\n\n您的角色会根据相应情况，自动跪下、爬行或站立，以抵达指定的目的地。
+TutorialStep/&Tuto01_Crawling_Title=爬行
+TutorialStep/&Tuto01_Interacting_Description=可互动的元素会有特殊光效提示。 \n\n不同的指针图标指示了可以进行的操作，如打开、推动、激活、撬锁等。 \n\n如果行动需要掷骰，就会显示 DC。
+TutorialStep/&Tuto01_Interacting_Title=可互动元素
+TutorialStep/&Tuto01_Looting2Xbox_Description=有的物品可叠放在物品栏的同一格中。最大单位堆叠数量视具体物品而定。\n\n 要分离堆叠的物品，你可按<sprite index={7}>后进行选择，或按两次<sprite index={0}>一次性分离堆叠物品的半数。
+TutorialStep/&Tuto01_Looting2_Description=有的物品可叠放在物品栏的同一格中。最大单位堆叠数量视具体物品而定。\n\n要拆分叠加的物品，请按住 SHIFT 键，同时左键点击堆叠的物品，将其拖拽并放置进空格中。这样可以从堆叠中分出一个单位的物品。
+TutorialStep/&Tuto01_Looting2_Title=可堆叠物品
+TutorialStep/&Tuto01_LootingXbox_Description=将指针移动到箱子或其他种类的容器上，然后按<sprite index={0}>搜刮战利品。\n\n 你身上的每样东西都会影响负重计量槽，因此请留意不要超过负重上限，否则将会大大降低移动速度。\n\n 你必须将装备和光源置于合适的槽位中，才可使用。
+TutorialStep/&Tuto01_Looting_Description=点击箱子或其他种类的容器，搜刮战利品。\n\n你穿戴、携带的每样东西都会影响你的负重计量槽，因此请留意不要超过负重上限，否则你的移动速度将会大大降低。\n\n你必须将装备和光源置于合适的槽位中，才能加以使用。
+TutorialStep/&Tuto01_Looting_Title=战利品搜刮和物品栏管理
+TutorialStep/&Tuto01_Questlog2_Description=日志中列出了你当前的目标。只有完成了这些目标，你才能向前推进任务进度。你也可以接一些可选的支线目标。\n\n在日志中，你也可以找到提示和背景信息，帮助你理解任务细节。\n\n这里记录着你所有的成功与失败。
+TutorialStep/&Tuto01_Questlog2_Title=任务日志
+TutorialStep/&Tuto01_QuestlogXbox_Description=按住<sprite index={11}>并使用<sprite index={5}>选择日志，即可打开小队日志。\n \n 可在此查阅当前目标详情和有用的背景信息。\n\n 请注意，该日志中的信息量远远大于任务日志。
+TutorialStep/&Tuto01_Questlog_Description=点击日志按钮，打开任务日志。 \n\n在这里，你可以查阅当前目标详情和有用的背景信息。\n\n请注意，志中的信息量比任务日志中的大得多。
+TutorialStep/&Tuto01_Questlog_Title=日志
+TutorialStep/&Tuto01_Refocus_Description=在移动镜头、查看周围情况后，你可以将镜头聚焦于一位角色上，跟随这个角色。\n\n在控制该角色时双击角色头像，或点击 TAB 键。
+TutorialStep/&Tuto01_Refocus_DescriptionXBox=在移动镜头、查看周围情况后，你可以将镜头聚焦于一位角色上，跟随这个角色。\n \n 按<sprite index={10}>并选择同一位角色两次，或按<sprite index={3}>将镜头聚焦在小队第一位角色上。
+TutorialStep/&Tuto01_Refocus_Title=聚焦角色
+TutorialStep/&Tuto01_SelectionXbox_Description=将指针置于 3D 视图中的角色上来选择你的角色，也可使用<sprite index={13}>或<sprite index={15}>循环查看每个角色。\n要选择整支小队，首先按住<sprite index={10}>，然后按<sprite index={3}>。\n \n 若要移动，使用<sprite index={4}>移动指针，然后按<sprite index={0}>将小队移动到指针所在的位置。当你将指针放置在有效目的地上时，会显示一个圆形标记。无效目的地则显示“禁止”标志。
+TutorialStep/&Tuto01_Selection_Description=在 3D 视图中点击角色，或点击角色头像，可以选中角色。要选择整个小队，可以点击头像底部的“选择所有”按钮。你也可以拖拽出矩形，将一个或多个角色囊括在内，即可将其选中。\n\n要进行移动，请用鼠标左键点击移动目的地。如果目的地有效，在点击时就会出现圆圈标记；如果目的地无效，则会显示“禁用”标识。
+TutorialStep/&Tuto01_Selection_Title=角色选择和基本移动
+TutorialStep/&Tuto02_Cautious_Stealth_Description=激活警觉模式会降低你的移动速度，也会赋予你两个优势：更容易找到隐藏物品和陷阱，且你更难被敌人发现。\n如果敌人开始注意到你的行踪，他们的头上就会出现一个计量槽，给你反应和躲避的时间。\n在该模式中，只要与敌人保持 3 个单位格的距离，你就不会被发现。
+TutorialStep/&Tuto02_Cautious_Stealth_Title=警觉模式
+TutorialStep/&Tuto02_HealingXbox_Description=如果你的角色可以施展治疗法术（例如牧师），请按<sprite index={2}>打开“施法”菜单，然后选择一个法术，以恢复失去的生命值。\n\n 你也可以使用从附近搜刮来的药水。按<sprite index={3}>打开物品栏，选中药水，然后按<sprite index={7}>使用。
+TutorialStep/&Tuto02_Healing_Description=如果你的角色可以施展治疗法术（例如牧师），请点击“施法”按钮，然后选择一个法术，恢复失去的生命值。\n\n你也可以使用从附近搜刮来的药水。打开物品栏，右键点击药水，即可使用。
+TutorialStep/&Tuto02_Healing_Title=治疗
+TutorialStep/&Tuto02_Light_Up_Description=你可以与手中持有的火把互动，或施放火焰法术，如<i>火焰箭 </i>戏法，点燃易燃物品，例如架子上的火把。
+TutorialStep/&Tuto02_Light_Up_Title=点燃物品
+TutorialStep/&Tuto02_Rest_Description=要恢复生命值、特殊能力和法术，你就必须进行长休。\n\n要进行长休，你就需要在安全的地方集合小队，并为每位小队成员提供一个单位的口粮。\n\n营火代表安全位置，区域地图上也会显示其位置。
+TutorialStep/&Tuto02_Rest_Title=进行一次长休
+TutorialStep/&Tuto02_Search_AroundXbox_Description=探索区域，找到能打开门的机关。\n\n 当屏幕中央的指针靠近可互动对象时，该对象会高亮，指针也会变为有解释作用的图标。
+TutorialStep/&Tuto02_Search_Around_Description=探索区域，找到能打开门的机关。 \n\n鼠标悬停在可互动物品上时，物品会被高亮，鼠标指针也会变成有解释作用的图标。
+TutorialStep/&Tuto02_Search_Around_Title=机关
+TutorialStep/&Tuto03_Cautious2_Description=在此任务的整个进行期间保持警觉模式。\n\n如果你想在敌人的听觉范围内与物体互动，比如开门、开箱甚至扒窃，就必须进行一次隐匿检定。如果检定成功，就不会被发现。警觉模式也允许你寻找并追踪踪迹。
+TutorialStep/&Tuto03_Cautious2_Title=隐匿
+TutorialStep/&Tuto03_CautiousXBox_Description=按<sprite index={2}>选择警觉模式，以更加隐匿地行动。在你噪音范围内的敌人会听到你的声音，一旦你离开警觉模式，就会被敌人发现。\n\n 你的噪音范围视护甲类型和隐匿技能而定。此外，如果你持有光源，最好不要进入敌人的视野范围。
+TutorialStep/&Tuto03_Cautious_Description=使用警觉模式更加隐匿地行动。在你噪音范围中的敌人会听到你的声音，一旦你取消警觉模式，就会被敌人发现。\n\n你的噪音范围视护甲类型和隐匿技能而定。此外，如果你持有光源，最好不要进入敌人的视野范围。
+TutorialStep/&Tuto03_Cautious_Title=隐匿
+TutorialStep/&Tuto03_Disarm2_Description=有的陷阱只能通过触发拆除。\n\n如果陷阱拆除失败，你就有可能触发或锁定陷阱，或者需要再试一次。
+TutorialStep/&Tuto03_Disarm2_Title=拆除陷阱
+TutorialStep/&Tuto03_DisarmXbox_Description=要拆除陷阱，必须先侦测出陷阱。如果在未侦测出陷阱的情况下，贸然打开箱子或撬箱锁，就会触发陷阱，那时可就晚了！\n \n 要尝试陷阱拆除，请将指针置于陷阱上，然后按<sprite index={0}>。只有进行一次成功的敏捷检定，才可拆除陷阱。窃贼工具会有所助益，但你需具备窃贼工具的熟练项。
+TutorialStep/&Tuto03_Disarm_Description=要拆除陷阱，必须先侦测出陷阱。如果在未侦测出陷阱的情况下贸然打开箱子或撬箱锁，就会触发陷阱，那时可就晚了！\n\n要尝试陷阱拆除，请将鼠标悬停在陷阱上，并点击鼠标左键。只有进行一次成功的敏捷检定，你才能拆除陷阱。窃贼工具会有所助益，但你要有窃贼工具的熟练项。
+TutorialStep/&Tuto03_Disarm_Title=拆除陷阱
+TutorialStep/&Tuto03_LockpickXbox_Description=要尝试撬锁，用<sprite index={4}>移动指针至上锁的门，然后按<sprite index={0}>。\n \n 如果你选中整支小队，技能最高的角色会自动承担起这个任务。\n\n 你的物品栏中必须有窃贼工具，才能尝试撬锁。具备窃贼工具的熟练项会有所助益。
+TutorialStep/&Tuto03_Lockpick_Description=要尝试撬锁，请将鼠标悬停在门或箱子上，点击左键。如果你选中了整个小队，技能最高的角色会自动承担起这个任务。\n\n你的物品栏中必须含有窃贼工具，才能尝试撬锁。具备窃贼工具的熟练项会有所助益。
+TutorialStep/&Tuto03_Lockpick_Title=撬锁
+TutorialStep/&Tuto03_Sneak_Attack_Description=如果你在未被发现的情况对敌人发动攻击，就会获得突袭优势。\n\n也就是说，你在攻击掷骰时会获得优势，在下个回合之前，你的对手无法做出反应。\n\n如果你是一位游荡者，你就会发动偷袭，造成额外的伤害。
+TutorialStep/&Tuto03_Sneak_Attack_Title=突袭攻击
+TutorialStep/&Tuto04_Attack_Shove2Xbox_Description=可尝试推撞敌人，让敌人后退或跌倒。\n\n 按<sprite index={2}>后，用<sprite index={16}>选择“推撞”，然后选择可用的选项。\n \n 如果敌人身后有坑或洞，推撞敌人可使其坠落。倒地的敌人在消耗移动点数重新站起来之前，很容易受到伤害。
+TutorialStep/&Tuto04_Attack_Shove2_Description=尝试推撞敌人，让敌人后退或跌倒。选择“推撞”，然后选择可用的选项。\n\n如果敌人身后有坑或洞，向后推撞敌人可使敌人坠落。倒地的敌人在消耗移动点数重新站起来之前，很容易受到伤害。\n
+TutorialStep/&Tuto04_Attack_Shove2_Title=推撞
+TutorialStep/&Tuto04_Attack_ShoveXbox_Description=要使用你的默认武器攻击敌人，请将指针置于敌人身上，并按<sprite index={0}>。\n \n 你也可以按<sprite index={12}>切换武器配置，换用其他武器，例如远程武器。\n\n 根据角色的具体情况，你还会有某些可用的特殊能力，比如法术。
+TutorialStep/&Tuto04_Attack_Shove_Description=要使用你的默认武器攻击敌人，请将鼠标悬停在敌人身上，并点击左键。\n\n你也可以施展攻击法术或切换武器配置，换用其他武器——例如远程武器。\n\n根据角色的具体情况，你还会有某些可用的特殊能力。\n
+TutorialStep/&Tuto04_Attack_Shove_Title=攻击中
+TutorialStep/&Tuto04_Dashing_Description=使用您的主动作移动到黄色区域中的一个点后，即可进行疾走。\n疾走会使您本回合的最大移动距离翻倍。 \n\n但是，进行疾走后您将不能再使用动作进行攻击或施展法术。\n\n请记住，您可以先正常移动，然后再决定是疾走至更远处，还是进行其他动作。
+TutorialStep/&Tuto04_Dashing_Title=疾走
+TutorialStep/&Tuto04_Disengaging_Description=要避开借机攻击，你可以使用“撤离”动作。在当前回合的余下时间中，你可以自由靠近敌人，没有遭到借机攻击的危险。\n\n但是，撤离会消耗你的主动作，导致你在本回合中无法攻击或疾走。
+TutorialStep/&Tuto04_Disengaging_Title=撤离中
+TutorialStep/&Tuto04_DodgingXbox_Description=按<sprite index={2}>还可选择其他动作，比如回避。\n \n 选择“回避”将消耗主动作，并提供如下利好：\n \n 在你的下一回合开始之前，你能看见的所有攻击者在攻击掷骰时都会有劣势，而你的敏捷豁免检定则有优势。
+TutorialStep/&Tuto04_Dodging_Description=点击“回避”虽然会消耗你的主动作，但也会提供如下利好：\n\n在你下一回合开始之前，你能看见的所有攻击者在攻击掷骰时都会有劣势，而你的敏捷豁免检定则有优势。
+TutorialStep/&Tuto04_Dodging_Title=闪避
+TutorialStep/&Tuto04_Opportunity_Description=如果敌人能看见生物，而生物离开了敌人的射程，敌人就可以使用反应进行近战攻击。\n\n当然，你也可以使用借机攻击。\n\n在敌人近战距离内时要时刻留神，想走——没那么容易！
+TutorialStep/&Tuto04_Opportunity_Title=借机攻击
+TutorialStep/&Tuto04_Sleight_Description=如果你拥有巧手的熟练项，可以尝试扒窃敌人和 NPC。\n此外，有的护甲会导致隐匿检定劣势。\n扒窃有风险，尝试需谨慎。你必须非常隐匿，才能成功扒窃！
+TutorialStep/&Tuto04_Sleight_Title=巧手
+TutorialStep/&TutoT4_Critical_Description=在冒险途中，有时候非玩家角色会成为关键角色。\n\n也就是说，如果这种关键角色死亡，游戏也就结束了。\n
+TutorialStep/&TutoT4_Critical_Title=关键角色
+TutorialStep/&Tuto_CampaignMap2_Description=采用缓慢行进速度意味着您的行动将会更谨慎，且更不容易被怪物发现。\n普通速度更快些，但较为冒险。\n快速行进能以最快的速度到达目的地，但可能会使您陷入危险。\n\n游侠可以在对他们而言的有利地形中大显身手。您可以找到更多的食物，也较难遭到怪物的突然袭击。\n
+TutorialStep/&Tuto_CampaignMap2_Title=旅行步调
+TutorialStep/&Tuto_CampaignMap3_Description=您可以对行进进行设置，不必事事躬亲管理小队。\n\n如果有角色可以升级，您就能立刻开始长休，不必完成当日的旅行。\n完成制作任务后，可以为您立刻设置一个新任务，不会浪费任何时间。 \n在长休后，您可以打开休息后窗口进行编辑，例如变更您的已准备法术。\n
+TutorialStep/&Tuto_CampaignMap3_Title=旅行设置
+TutorialStep/&Tuto_CampaignMap4_Description=你的英雄们一般会做旅行规划，以随时保持最佳状态，应对各类情况。\n\n按照旅行日常安排，小队每天最多能行进 8 小时，要留出足够的时间吃饭、睡觉，并进行其他活动，例如制作、聊天、游戏、演奏乐器和祈祷等。\n
+TutorialStep/&Tuto_CampaignMap4_Title=旅行日常安排
+TutorialStep/&Tuto_CampaignMap5_Description=有时候，惯常的日程会被打断，你的英雄们需要用本该休整的时间赶路。这会让小队疲倦，最终可能导致小队力竭。\n\n冒险者知道如何暂时逼自己再努力一把，然后回归日常，减少营地活动量，更多地休整，以减少疲劳值。不要让小队力竭，避免力竭带来的严重负面后果。\n
+TutorialStep/&Tuto_CampaignMap5_Title=旅行疲劳值
+TutorialStep/&Tuto_CampaignMap6XBox_Description=你可以按<sprite index={2}>随时手动中断小队行进。\n\n 然后，你可以按<sprite index={3}>打开角色物品栏，开始新的制作、更换装备或进行任何检视。\n\n 按<sprite index={0}>继续旅行。
+TutorialStep/&Tuto_CampaignMap6_Description=你可以点击“中断”按钮，随时手动中断小队行进。\n\n然后，你可以点击角色头像，打开角色物品栏，开始新的制作活动、更换装备或按你的需要进行任何检视。\n\n要继续旅行，只需点击“继续”按钮。\n
+TutorialStep/&Tuto_CampaignMap6_Title=中断旅行
+TutorialStep/&Tuto_CampaignMap7XBox_Description=解决了夜袭的敌人后，你可以继续安心睡眠，完成长休。\n 将指针移动至营火，按<sprite index={0}>即可。\n 所有角色都会如常获得长休的增益。\n\n 具有平和休息的湮灭领域牧师，未来将不会遭到突袭。这一次仅是为了解释规则。
+TutorialStep/&Tuto_CampaignMap7_Description=解决了敌人夜袭的问题后，你可以继续安心睡眠，完成长休。\n点击营火即可。\n所有角色都会如常获得长休的增益。\n\n具有平和休息的湮灭领域的牧师，未来将不会遭到突袭。这一次仅是为了解释规则。
+TutorialStep/&Tuto_CampaignMap7_Title=完成长休
+TutorialStep/&Tuto_CampaignMapXBox_Description=使用<sprite index={4}>可平移地图，进行探索。\n\n 将标记置于你的目的地，按<sprite index={3}>规划行程。你的小队需要一点时间才能到达目的地。也可按<sprite index={2}>进入某个地点。\n\n 冒险者可以在路上采集或打猎，借此搜集食物。他们也会找到制作原料，遇到其他旅行者，游历令人难忘的地点，甚至会遭遇怪物。
+TutorialStep/&Tuto_CampaignMap_Description=使用方向键可平移地图，进行探索。\n\n点击目的地，计划旅行。你的小队需要一点时间才能到达目的地。\n\n冒险者可以在路上采集或打猎，搜集食物。他们也会找到制作原料，遇到其他旅行者，游历令人难忘的地点，甚至会遭遇怪物。
+TutorialStep/&Tuto_CampaignMap_Title=旅行地图
+TutorialStep/&Tuto_DLC_Forge1=当你清除了一个地方的怪物，前往任意“锻炉”前哨站并报告。他们会派人去那里收集剩余的战利品然后卖掉。\n每次访问一个锻冶营地时，你都可以拿走他们欠你的钱。
+TutorialStep/&Tuto_DLC_Forge2=他们收取带回物品总价值一定比例的金额。你也有机会事先买回一些他们收集的东西。\n\n 与“锻炉”首领旁边的任务板互动，即可使用清道夫系统。
+TutorialStep/&Tuto_Explosive_Description=这些化学成分高度不稳定，且会在你使用燃烧法术或物件与其交互时发生爆炸。在这些化学成分附近移动时，请务必小心谨慎，或者你也可以尝试让它们为己所用，对周遭敌方造成一定伤害。
+TutorialStep/&Tuto_Explosives_Title=爆炸构材
+TutorialStep/&Tuto_FindCouncil_Description=公国首府是一座大城市。\n\n你需要找到遗产委员会，之后就可以使用“快速移动”功能了。但现在，你还需要再跑跑腿。\n\n朝北走，走楼梯前往日灼广场方向，然后通过楼梯向西前往委员会。\n
+TutorialStep/&Tuto_FindCouncil_Title=游历塞弗伦堡
+TutorialStep/&Tuto_Legendary_01_Description=注意！如果你与阿尔文·默顿交谈，你则必须完成任务，否则任务失败！
+TutorialStep/&Tuto_Legendary_01_Title=传奇任务
+TutorialStep/&Tuto_Legendary_02_Description=如果你在未完成任务的情况下离开关卡，则任务失败！
+TutorialStep/&Tuto_Legendary_02_Title=取消任务
+TutorialStep/&Tuto_LevelUp2_Description=天明了，你的英雄意识到在过去几天内，他们学习了许多知识。\n\n点击每位角色的升级按钮，打开相关的交互界面。\n\n升级可赋予你更多的生命值，以及对应你职业的额外特性。\n
+TutorialStep/&Tuto_LevelUp2_Title=升级！
+TutorialStep/&Tuto_LevelUpGeneric_Description=经验值达到升级要求后，您可以进行长休并打开升级窗口。\n\n在升级窗口中，您会获得对应您职业的额外生命值与特性。\n\n请注意，在客栈、在路途中或在探索地点内部您均可进行长休和升级。
+TutorialStep/&Tuto_LevelUpGeneric_Title=升级
+TutorialStep/&Tuto_LevelUp_Description=你的英雄可以升级了！\n\n要升级英雄，你需要进行一次长休。\n\n返回镇墓酒桶客栈，与酒保卡雷尔交谈，订一间房过夜。
+TutorialStep/&Tuto_LevelUp_Title=升级！
+TutorialStep/&Tuto_LocationMap2Xbox_Description=按<sprite index={17}>开启区域地图。\n \n找到出口，并清出通往出口的路后，你也可以直接快速移动至世界地图。\n\n 将指针置于快速移动点，然后使用<sprite index={0}>进行选择。长按<sprite index={28}>开始快速移动，按<sprite index={1}>取消。
+TutorialStep/&Tuto_LocationMap2_Description=点击地图按钮，开启区域地图。 \n\n找到出口，并清出通往出口的路后，你也可以直接快速移动至世界地图。\n\n点击快速移动按钮，然后选择“确认”。\n
+TutorialStep/&Tuto_LocationMap2_Title=快速出口位置
+TutorialStep/&Tuto_LocationMapGeneric2_Description=地图上也会显示锁住的门、未打开的箱子和侦测到、但没有触发或拆除的陷阱。\n\n您已经发现、但尚未展开战斗的敌人也会在地图上显示，您可以选择发起攻击或绕开敌人。\n地图会在您探索区域的过程中自动更新。
+TutorialStep/&Tuto_LocationMapGeneric2_Title=地图图标
+TutorialStep/&Tuto_LocationMapGeneric3_Description=你可以使用地图，瞬间移动到地图上的另一个路径点，但前提是通往目的地的道路没有障碍和妨害，可以步行抵达，否则，你会收到“道路受阻”的提示。\n
+TutorialStep/&Tuto_LocationMapGeneric3_Title=快速移动
+TutorialStep/&Tuto_LocationMapGeneric4_Description=此外，如果该路径点是离开本地区与的出口，你可以使用该路径点直接转到旅行地图上，但前提是通往目的地的道路没有障碍和妨害，可以步行抵达，否则，你会收到“道路受阻”的提示。
+TutorialStep/&Tuto_LocationMapGeneric4_Title=快速出口位置
+TutorialStep/&Tuto_LocationMapGenericXbox_Description=按<sprite index={17}>开启区域地图。\n \n在探索途中，你会找到路径点。路径点会揭示不同建筑的功用、区域中的光照情况和其他游戏调整值。\n\n 重要 NPC，如商人等，会在地图上显示。具有头像的 NPC 大多都是可互动对象。\n \n 你也可按住<sprite index={11}>并选择地图，使用<sprite index={4}>或<sprite index={5}>均可。
+TutorialStep/&Tuto_LocationMapGeneric_Description=点击地图按钮，开启区域地图。 \n\n在探索途中，您会找到路径点。路径点会揭示不同建筑的功用、区域中的光照情况和其他游戏调整值。 \n\n重要 NPC，如商人等，会在地图上显示。具有头像的 NPC 大多都是可互动对象。
+TutorialStep/&Tuto_LocationMapGeneric_Title=区域地图
+TutorialStep/&Tuto_LocationMapXbox_Description=按<sprite index={17}>开启区域地图。\n \n找到路径点后，你可以用路径点快速移动到当前区域中的另一个位置。\n\n 现在，你可以快速移动并返回镇墓酒桶客栈。
+TutorialStep/&Tuto_LocationMap_Description=点击地图按钮，开启区域地图。 \n\n找到路径点后，你可以用路径点快速移动到当前区域中的另一个位置。\n\n现在，你可以快速移动并返回镇墓酒桶客栈。
+TutorialStep/&Tuto_LocationMap_Title=区域地图
+TutorialStep/&Tuto_ManaLamps_Description=在魔纳卡隆遗迹中，你可能会碰到此类魔法油灯。\n\n这些油灯使用魔力，比火把更可靠，散发出的光也比火把更亮。\n\n任何魔法伤害都会激活魔法油灯，包括戏法。
+TutorialStep/&Tuto_ManaLamps_Title=魔法油灯
+TutorialStep/&Tuto_Merchants_Description=商人可以出售和购买物品，也可以侦测并鉴定你物品栏中的魔法物品。 \n\n有的商人隶属特定阵营，如果你在这些的阵营中的声望良好，就能获得利好。
+TutorialStep/&Tuto_Merchants_Title=商人
+TutorialStep/&Tuto_PreparingSpells_Description=有的施法者了解许多法术，但不一定立刻能全部回想起来。您的角色可以通过消耗法术位准备法术，以备不时之需。\n\n打开您英雄的已知法术列表，选择要准备的法术。\n\n您不能施展没有准备的法术。许多角色了解的法术数量比能准备的法术数量更多，因此请审时度势，谨慎选择！\n
+TutorialStep/&Tuto_PreparingSpells_Title=准备法术
+TutorialStep/&Tuto_ReadyAnAction_Description=通过设定预备动作，您的角色会等待指定条件满足，然后打断其他角色的回合，进行已预备的动作。\n\n在《大法师之冠》中，您可以预备攻击，具体视您的角色和角色装备与属性而定。\n\n您可以先移动，然后使用附赠动作，再使用预备动作。这样，您的回合会自动结束。\n
+TutorialStep/&Tuto_ReadyAnAction_Title=预备动作
+TutorialStep/&Tuto_RunePuzzle_Description=找到在地面上闪着暗淡光芒的隐藏符文，然后踩在符文上面将其激活。
+TutorialStep/&Tuto_RunePuzzle_Title=魔法符文谜题
+TutorialStep/&Tuto_ShortRest2_Description=短休后，角色可以使用生命骰恢复生命值。英雄每关只有一个生命骰，消耗后，需要长休才能恢复生命骰。在短休后，你可以使用小队部分或全部的生命骰。\n\n部分能力也可以通过短休恢复，具体视角色职业和等级而定。\n
+TutorialStep/&Tuto_ShortRest2_Title=短休利好
+TutorialStep/&Tuto_ShortRestXBox_Description=你可以长按<sprite index={11}>，然后选择“短休”进行一次短休。\n在探索地下城时，短休是恢复精力的好办法。只要与敌方拉开足够的距离，就可以随时进行短休。但如果周遭环境非常危险，你可能无法进行短休。短休时，小队全员必须集合。\n \n 短休时间为一小时。在短休期间，角色除了吃饭、喝水和疗伤外，不会进行其他需要花费精力的活动。
+TutorialStep/&Tuto_ShortRest_Description=在探索地牢时，短休是恢复精力的好办法。只要与敌人之间拉开足够的距离，你就可以随时进行短休。但是，如果周遭环境非常危险，你可能就无法进行短休。短休时，小队全员必须集合。\n\n短休时间为一小时。在短休期间，角色除了吃饭、喝水、阅读和疗伤外，不会进行其他需要花费精力的活动。\n\n
+TutorialStep/&Tuto_ShortRest_Title=进行一次短休
+TutorialStep/&Tuto_Stalactites_Description=在探索期间，你可能会遇到吊笼、石笋等各类危险，一不小心就会被砸到——对于敌人也是如此。\n\n用箭或攻击法术（需要进行攻击掷骰）攻击此类有坠落危险的物体，将它们打下来，压死下面的任何敌人。
+TutorialStep/&Tuto_Stalactites_Title=坠落危险
+TutorialStep/&Tuto_SurpriseAttack2_Description=EMPTY
+TutorialStep/&Tuto_SurpriseAttack2_Title=战斗存活
+TutorialStep/&Tuto_SurpriseAttack3XBox_Description=如果可以悄悄接近没有意识到你存在的敌人，你便可以对其发起突袭，并迫使对方浪费掉自身战斗的首个回合。\n按<sprite index={2}>，并选择你一名角色的攻击选项或攻击法术，选中一个敌方目标，然后确认攻击。\n此举将开启战斗，并为你带来突袭优势。同样，只要你的角色未被发现，他们在攻击掷骰上就具有优势。
+TutorialStep/&Tuto_SurpriseAttack3_Description=如果你可以悄悄接近没有意识到你存在的敌人的话，你便可以对其发起突袭，并迫使对方浪费掉自身战斗的首个回合。\n要这样做，需要点击你队伍中一个角色的攻击选项或攻击法术，选中一个敌方目标，并确认攻击。\n此举将开启战斗，并为你带来突袭优势。同样，只要你的角色未被发现，他们在攻击掷骰上就具有优势。
+TutorialStep/&Tuto_SurpriseAttack3_Title=突袭攻击
+TutorialStep/&Tuto_SurpriseAttack_Description=你在扎营时遭到了突袭！你必须击退攻击者，才能离开。\n由于遭到突袭，你无法在战斗的第一个回合进行任何动作！\n\n不要吝惜你的法术和能力！你在战斗后会继续长休，因此请尽全力战斗，存活下来吧！
+TutorialStep/&Tuto_SurpriseAttack_Title=突袭攻击！
+TutorialStep/&Tuto_T8_CriticalCharacters_Description=两名角色作为同伴加入了你的队伍。他们至关重要，照顾好他们，如果他们死了，游戏就结束了。\n另一方面，他们不仅仅是追随者。他们可以像你的英雄一样战斗并执行动作。
+TutorialStep/&Tuto_T8_CriticalCharacters_Title=关键角色
+TutorialStep/&Tuto_T8_Scav01_Description=当你清除了一个位置的怪物，去任意一个清道夫前哨站报告你的行动。他们会把他们的人派往那里，收集遗留的战利品并卖掉。\n每次访问一个清道夫大本营时，你都可以拿走他们欠你的钱。
+TutorialStep/&Tuto_T8_Scav01_Title=清道夫系统
+TutorialStep/&Tuto_T8_Scav02_Description=他们收取带回物品总价值 20% 左右的金额。你也有机会事先买回一些他们收集的东西。\n\n使用该系统无需与清道夫军需官交谈，你可以直接点击附近的标志。
+TutorialStep/&Tuto_T8_Scav02_Title=获取你的黄金
+TutorialStep/&Tuto_TDLC1_T1_Redeemers_Description=有时候你会遇到对你的小队来说过于强大的怪物。不过，你不必总是应战。\n\n 试着保持警觉模式，努力避免与之交战。否则……战斗就是你自找的。
+TutorialStep/&Tuto_TDLC1_T1_Redeemers_Title=保持警惕！
+TutorialStep/&Tuto_TDLC1_T2_OutpostControl_Description=要改变控制前哨站的阵营，点击入口右边的横幅，直到它显示想要的阵营。
+TutorialStep/&Tuto_TDLC1_T2_OutpostControl_Title=控制前哨站
+TutorialStep/&Tuto_TeamBalance_Description=一支平衡的小队更能应对好各种不同的情况。例如，经典平衡小队中会有一位伤害输出者（战士）、一位治疗者（牧师）、一位法术使用者（法师）和一位隐匿行动者（盗贼）。 \n圣武士是个多面手，能伤害输出、会治疗也会法术，兼顾三个领域中的属性。游侠也可身兼数职，包括伤害输出、隐匿行动和使用法术。 \n我们建议你不要带两三位相同职业的角色，因为这会严重限制你在应对情况时的选项。阵容中设置四位相同职业的角色就更不推荐了。不过，这是你的小队，选择权在你！
+TutorialStep/&Tuto_TeamBalance_Title=小队平衡
+TutorialStep/&Tuto_Telema_CameraElevationXbpx_Description=自由镜头一般会随着地面高度的提升而升高。\n\n 如果导航区域相互叠加，你可以按<sprite index={7}>，然后用<sprite index={22}>上下移动镜头。再按一次<sprite index={7}>即可离开调整模式。
+TutorialStep/&Tuto_Telema_CameraElevation_Description=自由镜头一般会随着地面高度的提升而升高。\n\n如果导航区域相互叠加，你可以使用鼠标滚轮或指南针上的方向键上下移动镜头。\n\n在此类情况下，指南针方向键就会显示；如果高度差异巨大，屏幕上就会显示图标。
+TutorialStep/&Tuto_Telema_CameraElevation_Title=镜头升高
+TutorialStep/&Tuto_Telema_Crafting2_Description=打开角色物品栏的制作界面，然后选择魔法飞弹卷轴。维奥莱特会使用必需的原料，创造魔法墨水，并撰写卷轴。\n\n卷轴制作需要花费数小时的时间，必须在旅途中休整时进行。因而在探索特雷玛废墟时，您无法进行卷轴制造。
+TutorialStep/&Tuto_Telema_Crafting2_Title=制作
+TutorialStep/&Tuto_Telema_Crafting_Description=具备了相关制作工具、知识、原料和配方，你就可以制造各类物品。 \n\n维奥莱特具备草药工具的熟练项，同时拥有医药技能。如果有配方和需要的原料，她就能制作治疗药水！\n\n请注意：整个小队会分享配方知识。
+TutorialStep/&Tuto_Telema_Crafting_Title=制作
+TutorialStep/&Tuto_Telema_Identify1_Description=有时候，你会遇到品质上乘、可能具有魔法的物品。要予以确认，你需要施展侦测魔法法术，然后施放鉴定术来查明物品的属性，并加以利用。\n\n在多数商店中，你都可以付费请别人施展这些法术，鉴定物品。但如果有角色了解这些法术，就可以在探索途中施展。
+TutorialStep/&Tuto_Telema_Identify1_Title=鉴定魔法物品
+TutorialStep/&Tuto_Telema_Identify2_Description=诸如侦测魔法、鉴定术等法术可以作为仪式施放。\n\n也就是说，你在施放这些法术时无需消耗法术位，只需静待一段时间，因为仪式比普通施法需要的时间长 10 分钟。
+TutorialStep/&Tuto_Telema_Identify2_Title=仪式施法
+TutorialStep/&Tuto_UseCovers_Description=在战斗中，你有时会看到显示护盾图标的物品，如墙壁、路障等。 \n\n半身掩护会让敌人的远程攻击命中受到 -2 的惩罚。当然了，你需要躲到掩体后面。四分之三掩护的命中惩罚为 -5。全身掩护意味着敌人无法击中你。\n近战攻击或范围效果法术不受掩体影响。
+TutorialStep/&Tuto_UseCovers_Title=掩护！
+TutorialStep/&Tuto_Utility_Description=在战斗中，你每回合只能使用物品栏一次，包括武器切换。\n\n你还拥有一个实用品槽位，可以查看和使用物品，无需消耗物品栏动作。 \n\n在这里放置一瓶药水或卷轴，方便直接使用。该放置动作会被计为你的主动作。
+TutorialStep/&Tuto_Utility_Title=物品栏和实用品槽位
+TutorialStep/&Tuto_WarlockInvocations01_Description=祈唤是邪术师达到新等级时习得的特殊能力。\n有些能力会提供永久加值，另一些则允许施展法术。\n其中有些法术可以随意施展，而另一些则需要消耗法术位，而且通常需要长休来充能。
+TutorialStep/&Tuto_WarlockInvocations01_Title=邪术师祈唤
+TutorialStep/&Tuto_WarlockSpells01_Description=邪术师有着特殊的施法方式——使用一个独特的法术位池。\n 这个池很小，但是邪术师的法术位在短休后即可充能，而且随着邪术师获得新的法术环阶，其法术位的环阶也会提高。\n比如说，如果一个邪术师掌握了 3 环法术，就会用 3 环法术位施展所有法术，并在可行时向上施展较低环阶的法术。
+TutorialStep/&Tuto_WarlockSpells01_Title=邪术师法术
+TutorialStep/&Tuto_WarlockSpells02_Description=当邪术师达到 9 级后，其法术位会保持在 5 环阶。\n 第 11 级时，邪术师会获得一个玄奥秘法，让其可以选择一个 6 环法术，每天可以施展一次。\n第 13 级时解锁 7 环玄奥秘法，以此类推。
+TutorialStep/&Tuto_WarlockSpells02_Title=玄奥秘法
+TutorialStep/&UsingCameraDescription=按住鼠标右键拖拽，可旋转镜头，改变你的视角。\n\n你可以使用页面右下角指南针上的按钮进行旋转，或按下 Q 或 E 键。\n\n 使用 WASD 键或方向键移动镜头，聚焦角色时按住 W 键可拉近观察角色。
+TutorialStep/&UsingCameraTitle=控制镜头

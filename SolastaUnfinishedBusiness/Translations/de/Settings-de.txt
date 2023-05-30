@@ -77,6 +77,7 @@ ModUi/&EnableAlternateHuman=Aktiviere den alternativen Menschen <i><color=#F0DAA
 ModUi/&EnableBarbarianFightingStyle=Aktiviere die Wahl des <color=#D89555>Barbaren</color> <b>Kampfstils</b> auf Stufe 2
 ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abbruchaktionen per Rechtsklick aktivieren
+ModUi/&EnableCantripsTriggeringOnWarMagic=Aktivieren Sie Cantrips, um einen zusätzlichen <color=#D89555>Kriegsmagie</color>-Bonusangriff auszulösen
 ModUi/&EnableCharacterChecker=Aktivieren Sie die Schaltfläche „Charakterprüfung“ auf dem Hauptbildschirm > Charaktere
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCharactersOnFireToEmitLight=Charaktere in Flammen sollten Licht aussenden <i><color=#F0DAA0>[Lichtwürfel, Feuerelementar, Feuernarr, Feuerfischadler, Feuerspinne und die Familie der Feuerbedingungen]</color></i>

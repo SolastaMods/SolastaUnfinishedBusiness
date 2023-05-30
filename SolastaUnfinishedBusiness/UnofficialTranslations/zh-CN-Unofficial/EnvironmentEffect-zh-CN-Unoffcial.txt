@@ -1,0 +1,14 @@
+EnvironmentEffect/&CollapsingRoofDescription=一些石块和瓦砾掉落在地上
+EnvironmentEffect/&CollapsingRoofTitle=坍塌的屋顶
+EnvironmentEffect/&DeathGlyphDescription=不慎踩到会受到黯蚀伤害，附带恐慌效果
+EnvironmentEffect/&DeathGlyphTitle=死亡符咒
+EnvironmentEffect/&DisturbingRunesDescription=心灵控制符文会对灵魂造成伤害，并导致随机行为
+EnvironmentEffect/&DisturbingRunesTitle=扰动符文
+EnvironmentEffect/&FireBurstDescription=喷发会造成火焰伤害
+EnvironmentEffect/&FireBurstTitle=火焰爆破
+EnvironmentEffect/&GroundSpikesDescription=尖刺从地面升起，造成穿刺伤害
+EnvironmentEffect/&GroundSpikesTitle=地面尖刺
+EnvironmentEffect/&LightningDischargeDescription=在附近区域放电，造成闪电伤害
+EnvironmentEffect/&LightningDischargeTitle=闪电投放
+EnvironmentEffect/&PoisonCloudDescription=充满剧毒的云朵，造成毒素伤害且中毒状态将持续
+EnvironmentEffect/&PoisonCloudTitle=剧毒云朵

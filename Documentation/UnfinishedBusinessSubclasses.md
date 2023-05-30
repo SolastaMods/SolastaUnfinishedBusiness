@@ -519,16 +519,16 @@ You gain the ability to impersonate a Bark Ward to protect you. As a bonus actio
 
 Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
 
-* War Magic
-
-You can use your bonus action to attack using the weapon in your main hand after casting a spell.
-
 
 ## Level 6
 
 * Extra Attack
 
 You gain an extra attack and can now attack up to 2 times in your turn.
+
+* War Magic
+
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 10
@@ -609,7 +609,7 @@ You can wear Light Armor, Medium Armor and Shield and also gain proficiency with
 
 * War Casting
 
-Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -627,7 +627,7 @@ You gain an extra attack and can now attack up to 2 times in your turn.
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 
@@ -656,7 +656,7 @@ When you engage in two-weapon fighting, you can add your ability modifier to the
 
 * War Casting
 
-Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -733,7 +733,7 @@ The Momentum duration is also extended by 1 round if you reduce your enemy to 0 
 
 * War Casting
 
-Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, and be able to perform somatic components of spells while holding items.
 
 
 ## Level 6
@@ -1527,7 +1527,7 @@ In your list and always prepared:
 
 * Aura of Domination
 
-Starting at 7th level, you constantly emanate a menacing aura to all enemies within 10 feet while you are not incapacitated. If a creature is frightened or feared, and starts its turn in your aura, its speed is reduced to 0 and that creature takes psychic damage equal to half your paladin level. At 18th level, the range of this aura increases to 30 feet.
+Starting at 7th level, you constantly emanate a menacing aura to all enemies within 10 feet while you are not incapacitated. If a creature is frightened or feared by you, and starts its turn in your aura, its speed is reduced to 0 and that creature takes psychic damage equal to half your paladin level. At 18th level, the range of this aura increases to 30 feet.
 
 
 ## Level 15
@@ -2173,7 +2173,7 @@ Spell Shields are fighters that specialize in defense and protection. They use m
 
 * Improved War Casting
 
-Advantage on concentration checks as well, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when if enemies are within melee range.
+Advantage on concentration checks, be able to use your weapons as spellcasting focus, be able to perform somatic components of spells while holding items, and no disadvantage when enemies are within melee range.
 
 * Spellcasting
 
@@ -2188,7 +2188,7 @@ You can replace one of your attacks with a cantrip.
 
 * War Magic
 
-You can use your bonus action to attack using the weapon in your main hand after casting a spell.
+You can use your bonus action to attack using the weapon in your main hand after casting a spell or cantrip.
 
 
 ## Level 10
@@ -2888,7 +2888,7 @@ Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 
 * Perfect Strikes
 
-Your focused strikes also grants you advantage on all damage rolls while attacking with your specialized weapon.
+Your Focused Strikes also grants you advantage on all damage rolls while attacking with your specialized weapon.
 
 
 

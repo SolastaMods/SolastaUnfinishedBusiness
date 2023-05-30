@@ -1,0 +1,8 @@
+Label/&CampfireLocationRestDescription=与此物品交互以开始一次长休。
+Label/&CampfireLocationRestTitle=长休
+Label/&CampfireResumeTravelRestDescription=返回世界地图，并继续您的休息。
+Label/&CampfireResumeTravelRestTitle=继续休息
+Label/&EnterLocationDescription=让小队进入此地点。
+Label/&EnterLocationTitle=进入
+Label/&TravelToLocationDescription=准备移动至此地点。
+Label/&TravelToLocationTitle=移动
