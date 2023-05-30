@@ -284,3 +284,4 @@ Prop/&DwarfWallDeco=Dwarf wall decoration.
 Prop/&CrystalsTitle=Crystals
 Prop/&HoistTitle=Hoist
 Prop/&RailsTitle=Rails
+Prop/&SnowPileTitle=Snow Pile
