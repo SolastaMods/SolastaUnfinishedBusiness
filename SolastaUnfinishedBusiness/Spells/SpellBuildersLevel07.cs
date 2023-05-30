@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 
 internal static partial class SpellBuilders
 {
-    #region LEVEL 07
+    #region Reverse Gravity
 
     internal static SpellDefinition BuildReverseGravity()
     {

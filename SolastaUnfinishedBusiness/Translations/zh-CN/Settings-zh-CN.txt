@@ -77,6 +77,7 @@ ModUi/&EnableAlternateHuman=启用变体人类<i><color=#F0DAA0>[+1专长/+2属�
 ModUi/&EnableBarbarianFightingStyle=在2级启用<color=#D89555>野蛮人</color><b>战斗风格</b>
 ModUi/&EnableBetaContent=启用测试版内容<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=单击鼠标右键启用取消操作
+ModUi/&EnableCantripsTriggeringOnWarMagic=启用 cantrips 触发 <color=#D89555>War Magic</color> 额外奖励攻击
 ModUi/&EnableCharacterChecker=在 主屏幕 > 角色 上启用角色检视按钮
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-(E)</color>导出角色
 ModUi/&EnableCharactersOnFireToEmitLight=使火焰生物发光<i><color=#F0DAA0>[光之立方体、火元素、火焰小丑、火焰鹗、火蜘蛛，以及其他火系生物]</color></i>
