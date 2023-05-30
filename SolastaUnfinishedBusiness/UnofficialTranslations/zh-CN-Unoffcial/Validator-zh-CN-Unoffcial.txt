@@ -1,7 +1,7 @@
 Validator/&ParameterCompletionDelayDescription=完成之前的延迟时间（以秒为单位）。 允许小数
 Validator/&ParameterCompletionDelayTitle=延迟
-Validator/&ParameterFromDeviceDescription=EMPTY
-Validator/&ParameterFromDeviceTitle=EMPTY
+Validator/&ParameterFromDeviceDescription=该法术是从魔法装置(1)中施展，比如卷轴或魔法物品，还是从标准的施法能力(0)中施展?
+Validator/&ParameterFromDeviceTitle=来自装置
 Validator/&ParameterItemDescription=为该验证器选择一件物品
 Validator/&ParameterItemQuantityDescription=决定指定元素的数量
 Validator/&ParameterItemQuantityTitle=数量为多少？

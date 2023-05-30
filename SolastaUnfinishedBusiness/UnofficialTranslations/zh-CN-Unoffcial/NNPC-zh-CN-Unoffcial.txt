@@ -1,1 +1,1 @@
-NNPC/&DLC3_NPC_YoungDwarfsMother_Description=伊斯里德的母亲, 虽然很担心自己的女儿, 但也以她为荣。
+NNPC/&DLC3_NPC_YoungDwarfsMother_Description=伊斯里德的母亲，虽然很担心自己的女儿，但也以她为荣。

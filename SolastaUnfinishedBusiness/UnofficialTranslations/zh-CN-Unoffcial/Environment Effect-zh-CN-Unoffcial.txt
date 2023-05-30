@@ -1,6 +1,6 @@
 Environment Effect/&BoulderFallTitle=巨石坠落
 Environment Effect/&ChandelierfallTitle=吊灯坠落
-Environment Effect/&ExplosiveRunesDescription=物件上刻有爆炸符文, 当与此物 件交互时就会触发剧烈的爆炸。
+Environment Effect/&ExplosiveRunesDescription=物件上刻有爆炸符文，当与此物件交互时就会触发剧烈的爆炸。
 Environment Effect/&ExplosiveRunesTitle=爆炸符文
 Environment Effect/&FireburstTitle=炽热爆炸
 Environment Effect/&IceBurstTitle=EMPTY
@@ -9,7 +9,7 @@ Environment Effect/&LightHypersensitivityTitle=光过敏
 Environment Effect/&LightningAreaNeedleTitle=闪电柱
 Environment Effect/&ManaWindTitle=法力之风
 Environment Effect/&PalaceOfIceSessrothExhaustion=EMPTY
-Environment Effect/&PoisonNeedleDescription=一根藏在锁里, 或者藏在生物可 能打开的其它东西内的淬毒利针。如 果使用不当的钥匙开启此物件的话, 针体会一并弹出, 且附赠一剂毒 药。
+Environment Effect/&PoisonNeedleDescription=一根藏在锁里，或者藏在生物可 能打开的其它东西内的淬毒利针。如 果使用不当的钥匙开启此物件的话，针体会一并弹出，且附赠一剂毒 药。
 Environment Effect/&PoisonNeedleTitle=淬毒利针
 Environment Effect/&PoisonbulbTitle=剧毒熔岩球草
 Environment Effect/&SpikesTitle=尖刺丛生

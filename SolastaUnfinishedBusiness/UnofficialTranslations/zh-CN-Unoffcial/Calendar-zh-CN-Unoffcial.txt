@@ -1,6 +1,6 @@
 Calendar/&LongTimeFormat=[TEMP]Game time is {0} on the day of {1} {2} in the year {3} Post Cataclysm
-Calendar/&SolastanCalendarDescription=Solasta 的通用历法。
-Calendar/&SolastanCalendarTitle=Solasta 历法
+Calendar/&SolastanCalendarDescription=索拉斯塔的通用历法。
+Calendar/&SolastanCalendarTitle=索拉斯塔历法
 Calendar/&SolastanMonth10Title=雪月
 Calendar/&SolastanMonth11Title=杏月
 Calendar/&SolastanMonth12Title=桃月

@@ -1,6 +1,6 @@
 Status/&ConcentrationFormat={0}正在专注维系法术“{1}”。
 Status/&ConcentrationStopDescription=终止专注。
 Status/&HealthStatusFormat=健康：{0}
-Status/&ReadiedCantripAttackFormat={0} 已做好准备, 时机一到 就会使用戏法攻击。
-Status/&ReadiedMeleeAttackFormat={0} 已做好准备, 时机一到 就会使用近战攻击。
-Status/&ReadiedRangedAttackFormat={0} 已做好准备, 时机一到 就会使用远程攻击。
+Status/&ReadiedCantripAttackFormat={0} 已做好准备，时机一到 就会使用戏法攻击。
+Status/&ReadiedMeleeAttackFormat={0} 已做好准备，时机一到 就会使用近战攻击。
+Status/&ReadiedRangedAttackFormat={0} 已做好准备，时机一到 就会使用远程攻击。

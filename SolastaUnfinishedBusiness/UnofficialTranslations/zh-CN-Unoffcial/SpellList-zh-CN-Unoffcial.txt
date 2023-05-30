@@ -4,6 +4,6 @@ SpellList/&SpellListPaladinTitle=圣武士法术
 SpellList/&SpellListRangerTitle=游侠法术
 SpellList/&SpellListSorcererTitle=术士法术
 SpellList/&SpellListSpellbladeTitle=魔剑士法术
-SpellList/&SpellListTraditionLightTitle=武僧（光明之道）法术
+SpellList/&SpellListTraditionLightTitle=武僧（光明宗）法术
 SpellList/&SpellListWarlockTitle=邪术师法术
 SpellList/&SpellListWizardTitle=法师法术

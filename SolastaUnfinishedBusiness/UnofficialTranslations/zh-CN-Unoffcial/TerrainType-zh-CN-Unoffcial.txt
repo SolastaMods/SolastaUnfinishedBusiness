@@ -1,6 +1,6 @@
 TerrainType/&ArcticDescription=积雪和永冻地区即是极地。
 TerrainType/&ArcticTitle=极地
-TerrainType/&BadlandsDescription=Manacalon 帝国从前大 部分的内陆行省, 现在都变成了混 合各种地形的地区, 常有大灾变后 魔法的混沌显现。这些地区即是 Badlands。
+TerrainType/&BadlandsDescription=魔纳卡隆帝国从前大 部分的内陆行省，现在都变成了混 合各种地形的地区，常有大灾变后 魔法的混沌显现。这些地区即是恶土。
 TerrainType/&CoastDescription=包含海岸线的地区即是海岸。
 TerrainType/&CoastTitle=海岸
 TerrainType/&DablandsTitle=Badlands

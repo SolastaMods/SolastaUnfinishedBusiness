@@ -1,10 +1,10 @@
-Investigation/&DLC3_ElvenSettlements_Description=定居点一带发生了多起抢劫案, 被抢的既有民宅 也有商店。一个名叫莉莉尔·橡苔, 忧心忡忡的 居民请求你前去调查一番。
+Investigation/&DLC3_ElvenSettlements_Description=定居点一带发生了多起抢劫案，被抢的既有民宅 也有商店。一个名叫莉莉尔·橡苔，忧心忡忡的 居民请求你前去调查一番。
 Investigation/&DLC3_ElvenSettlements_Title=凶恶的窃贼
-Investigation/&DLC3_Gallivan_Description=灰烬队长非常怀疑有人在将战术情报偷偷泄露给 敌人。袭击者总是能在正确的时间和正确的地点 发起攻击, 所以这很有可能是内部人员在搞鬼。
+Investigation/&DLC3_Gallivan_Description=灰烬队长非常怀疑有人在将战术情报偷偷泄露给 敌人。袭击者总是能在正确的时间和正确的地点 发起攻击，所以这很有可能是内部人员在搞鬼。
 Investigation/&DLC3_Gallivan_Title=潜伏的内鬼
-Investigation/&DLC3_Garrads_Description=根据维奥莱特的建议, 你正设法确认索莱克是否 真的已经潜入了加拉德城堡。
+Investigation/&DLC3_Garrads_Description=根据维奥莱特的建议，你正设法确认索莱克是否 真的已经潜入了加拉德城堡。
 Investigation/&DLC3_Garrads_Title=海克托尔的旧计划
-Investigation/&DLC3_Undermountain_Investigation_Description=埃蒂文做出了宣布矿井不安全的决定, 与此同时, 索莱克渗透分子持续不断散布着谣言, 在这种情 况下, 展开调查对你来说已经是当务之急, 必须查清楚里面是否有什么东西会威胁到 Turvaamalinn。
-Investigation/&DLC3_Undermountain_Investigation_Title=谣言不断, 秘密深藏
-Investigation/&DLC3_WhiteCity_Description=白岩城一位工程师怀疑有破坏者渗入了城里, 他请求你帮忙揭露对方的真面目。
+Investigation/&DLC3_Undermountain_Investigation_Description=埃蒂文做出了宣布矿井不安全的决定，与此同时，索莱克渗透分子持续不断散布着谣言，在这种情 况下，展开调查对你来说已经是当务之急，必须查清楚里面是否有什么东西会威胁到 Turvaamalinn。
+Investigation/&DLC3_Undermountain_Investigation_Title=谣言不断，秘密深藏
+Investigation/&DLC3_WhiteCity_Description=白岩城一位工程师怀疑有破坏者渗入了城里，他请求你帮忙揭露对方的真面目。
 Investigation/&DLC3_WhiteCity_Title=破坏者
