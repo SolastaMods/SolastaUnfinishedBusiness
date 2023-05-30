@@ -1,8 +1,8 @@
 UI/&Add=Add
-UI/&Current Party=Aktuelle Partei
+UI/&Current Party=Aktuelle Gruppe
 UI/&Experimental Preview:=Experimentelle Vorschau <i><color=Yellow>[Sicherungskopie vor Verwendung speichern]</color></i>:
 UI/&Expert=Experte
-UI/&PartyEditor=Parteiredakteur
+UI/&PartyEditor=Gruppeneditor
 UI/&PartyEditorMessage=Mit diesem einfachen Party-Editor können Sie Charaktere in einer geladenen Spielsitzung bearbeiten. Bitte klicken Sie auf Folgendes, um Probleme zu melden:
 UI/&PartyEditorUnavailable=****** Party-Editor nicht verfügbar: Bitte laden Sie ein gespeichertes Spiel ******
 UI/&Quickies=Quickies
