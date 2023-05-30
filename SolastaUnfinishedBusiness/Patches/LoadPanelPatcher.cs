@@ -23,15 +23,15 @@ public static class LoadPanelPatcher
             }
 
             //PATCH: Allow import any campaign if override min max level is on
-            if (Main.Settings.OverrideMinMaxLevel)
-            {
-                __instance.CampaignForImportSaveMode.minStartLevel = 1;
-                __instance.CampaignForImportSaveMode.maxStartLevel = 20;
-                __instance.CampaignForImportSaveMode.maxLevelImport = 20;
-            }
+            // if (Main.Settings.OverrideMinMaxLevel)
+            // {
+            //     __instance.CampaignForImportSaveMode.minStartLevel = 1;
+            //     __instance.CampaignForImportSaveMode.maxStartLevel = 20;
+            //     __instance.CampaignForImportSaveMode.maxLevelImport = 20;
+            // }
 
 #pragma warning disable IDE0031
-            if (Dropdown != null)
+            if (Dropdown != null && Dropdown.activeSelf)
 #pragma warning restore IDE0031
             {
                 Dropdown.SetActive(false);
