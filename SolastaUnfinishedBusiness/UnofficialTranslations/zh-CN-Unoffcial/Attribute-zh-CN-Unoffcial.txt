@@ -1,4 +1,4 @@
-Attribute/&ArmorClassDescription=护甲等级（AC）代表生物在战斗 中回避打击的能力。
+Attribute/&ArmorClassDescription=护甲等级（AC）代表生物在战斗中回避打击的能力。
 Attribute/&ArmorClassTitle=AC
 Attribute/&AttacksNumberDescription=角色每回合可以进行的攻击次数。
 Attribute/&AttacksNumberTitle=攻击

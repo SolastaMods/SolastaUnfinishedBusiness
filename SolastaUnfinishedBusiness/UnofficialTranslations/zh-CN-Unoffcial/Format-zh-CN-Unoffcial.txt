@@ -1,4 +1,4 @@
-Format/&CurrentAndTemporaryHitPointsDescription=此生物的当前生命值 + 临时生 命值。首先损耗临时生命值。
+Format/&CurrentAndTemporaryHitPointsDescription=此生物的当前生命值 + 临时生命值。首先损耗临时生命值。
 Format/&CurrentHitPointsDescription=此生物的当前生命值。
 Format/&DifficultyEasyFormat=简单
 Format/&DifficultyHardFormat=困难

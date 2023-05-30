@@ -1,14 +1,14 @@
 Biome/&AridBadlandsTitle=干旱荒地
 Biome/&Biome_AridBadlands_Description=恶土典型的不毛之地。
 Biome/&Biome_AridBadlands_Title=干旱荒地
-Biome/&Biome_DLC1_Full_Description=这片区域中的道路危机四伏，蜿蜒在失落山谷的 丛林之间。到处都是变异的怪物。
+Biome/&Biome_DLC1_Full_Description=这片区域中的道路危机四伏，蜿蜒在失落山谷的丛林之间。到处都是变异的怪物。
 Biome/&Biome_DLC1_Full_Title=失落山谷 - 完整
 Biome/&Biome_DLC1_NoMutants_Description=这片区域中的道路围绕着失落山谷的首都海弗里德堡，较为安全。
 Biome/&Biome_DLC1_NoMutants_Title=失落山谷 - 无变异
 Biome/&Biome_DLC3_Badlands_Description=强大的怪兽游荡在荒凉的恶土，这是个危机四伏的地方。
 Biome/&Biome_DLC3_Badlands_Title=恶土北部
 Biome/&Biome_DLC3_Frontier_Description=远在北方的地区，是冰雪联盟最寒冷的地方。
-Biome/&Biome_DLC3_Gallivan_Description=这片区域位于冰雪联盟的冻土与 盖利文王国之间。
+Biome/&Biome_DLC3_Gallivan_Description=这片区域位于冰雪联盟的冻土与盖利文王国之间。
 Biome/&Biome_DLC3_Gallivan_Title=盖利文边境
 Biome/&Biome_DLC3_Principality_Description=这片区域位于玛斯加斯公国与冰雪联盟南部地区之间。
 Biome/&Biome_DLC3_Principality_Title=公国 - 北部

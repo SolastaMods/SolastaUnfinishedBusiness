@@ -1,10 +1,10 @@
 TerrainType/&ArcticDescription=积雪和永冻地区即是极地。
 TerrainType/&ArcticTitle=极地
-TerrainType/&BadlandsDescription=魔纳卡隆帝国从前大 部分的内陆行省，现在都变成了混 合各种地形的地区，常有大灾变后 魔法的混沌显现。这些地区即是恶土。
+TerrainType/&BadlandsDescription=魔纳卡隆帝国从前大部分的内陆行省，现在都变成了混合各种地形的地区，常有大灾变后魔法的混沌显现。这些地区即是恶土。
 TerrainType/&CoastDescription=包含海岸线的地区即是海岸。
 TerrainType/&CoastTitle=海岸
 TerrainType/&DablandsTitle=Badlands
-TerrainType/&DesertDescription=降雨稀少或不降雨、且植被覆盖率 极低的干燥地区即是荒漠。
+TerrainType/&DesertDescription=降雨稀少或不降雨、且植被覆盖率极低的干燥地区即是荒漠。
 TerrainType/&DesertTitle=荒漠
 TerrainType/&ForestDescription=植被茂盛、林木众多的区域即为森林。
 TerrainType/&ForestTitle=森林

@@ -1,4 +1,4 @@
-ContentPack/&BackerItemsDescription=解锁：唯一戒、矮人面包、六盟靴、争斗之匙，以及早鸟物品。可在委员会旁的 纪念碑附近木箱中找到。
+ContentPack/&BackerItemsDescription=解锁：唯一戒、矮人面包、六盟靴、争斗之匙，以及早鸟物品。可在委员会旁的纪念碑附近木箱中找到。
 ContentPack/&BackerItemsTitle=众筹支持者包
 ContentPack/&DigitalBackerContentDescription=解锁：永恒火把物品，以及特殊视觉效果版本的燃烧之手与圣火术。可在委员会旁的纪念碑附近木箱中找到。
 ContentPack/&DigitalBackerContentTitle=数字版包

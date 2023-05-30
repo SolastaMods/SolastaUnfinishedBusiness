@@ -1,9 +1,9 @@
 Lore/&ObservableText_DLC1_Complex_01=根据文件描述，这座建筑还有地下层！
-Lore/&ObservableText_DLC1_Complex_02=似乎这整座建筑需要使用某种魔法棱镜作为 钥匙。
+Lore/&ObservableText_DLC1_Complex_02=似乎这整座建筑需要使用某种魔法棱镜作为钥匙。
 Lore/&ObservableText_DLC1_Complex_03=一摞研究笔记。
 Lore/&ObservableText_DLC1_Complex_04=高等生物学研究
 Lore/&ObservableText_DLC1_Complex_05=法力和魔法动力元素原理
-Lore/&ObservableText_DLC1_Complex_06=一张小纸条上写着：“通道目前已经封锁了。 如果要到地下层，请搭乘升降梯。”
+Lore/&ObservableText_DLC1_Complex_06=一张小纸条上写着：“通道目前已经封锁了。如果要到地下层，请搭乘升降梯。”
 Lore/&ObservableText_DLC1_Marches_01=TBC
 Lore/&ObservableText_DLC1_Marches_02=TBC
 Lore/&ObservableText_DLC1_Marches_03=TBC

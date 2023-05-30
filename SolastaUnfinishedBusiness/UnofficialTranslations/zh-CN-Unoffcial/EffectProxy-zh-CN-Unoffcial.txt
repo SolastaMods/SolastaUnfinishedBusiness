@@ -1,4 +1,4 @@
-EffectProxy/&DelayedBlastFireballDefinition=一个火球，可以在你的命令下，或在法术结束或 被打断时引爆。
+EffectProxy/&DelayedBlastFireballDefinition=一个火球，可以在你的命令下，或在法术结束或被打断时引爆。
 EffectProxy/&DelayedBlastFireballTitle=延迟爆裂火球
 EffectProxy/&ProxyArcaneSwordDescription=将武器移动至多 4 个单位格，并攻击一名对手。
 EffectProxy/&ProxyArcaneSwordTitle=奥术剑刃
@@ -23,6 +23,6 @@ EffectProxy/&ProxySleetStormDescription=雪雨暴
 EffectProxy/&ProxySpiritualWeaponDescription=将武器上移至 4 个单位格，并打击一名对手
 EffectProxy/&ProxySpiritualWeaponTitle=灵体武器
 EffectProxy/&ProxyStinkingCloudDescription=一团使敌人失能的有毒气体云。
-EffectProxy/&ProxyWallOfFireDescription=一道火墙， 对其内部和近旁的生物造成伤害。
+EffectProxy/&ProxyWallOfFireDescription=一道火墙，对其内部和近旁的生物造成伤害。
 EffectProxy/&ProxyWallOfForceDescription=召唤出一道隐形的墙来阻挡敌人的移动和攻击。
-EffectProxy/&ProxyWindWallDescription=一道会对敌人造成伤害的风墙，能够推离生物和物体并吹散雾气和 气团。
+EffectProxy/&ProxyWindWallDescription=一道会对敌人造成伤害的风墙，能够推离生物和物体并吹散雾气和气团。
