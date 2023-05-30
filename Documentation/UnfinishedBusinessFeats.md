@@ -10,7 +10,7 @@ You automatically ready a melee or unarmed attack at the end of your turn if you
 # 3. - Apothecary
 
 Increase one of your mental attributes by 1, to a maximum of 20.
-You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+You gain proficiency with herbalism kit and medicine, or expertise if already proficient.
 
 # 4. - Arcane Defense
 
