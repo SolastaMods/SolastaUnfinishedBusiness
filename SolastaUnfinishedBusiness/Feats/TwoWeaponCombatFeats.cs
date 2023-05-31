@@ -51,6 +51,7 @@ internal static class TwoWeaponCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                    .SetMaxAttacksNumber(1)
                     .AddToDB())
             .AddToDB();
 
@@ -107,6 +108,7 @@ internal static class TwoWeaponCombatFeats
             ActionModifier attackModifier)
         {
             if (!ValidatorsWeapon.IsOneHanded(attackMode) ||
+                !ValidatorsWeapon.IsMelee(attackMode) ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
