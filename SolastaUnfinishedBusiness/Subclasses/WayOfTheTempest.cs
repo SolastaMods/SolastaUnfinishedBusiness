@@ -44,13 +44,13 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetNotificationTag("GatheringStorm")
             .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
-            .SetTargetCondition(
-                ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
-                (AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition.SourceHasCondition)
+            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.FlurryOfBlows)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
+            .SetImpactParticleReference(
+                FeatureDefinitionAdditionalDamages.AdditionalDamageLifedrinker.impactParticleReference)
             .AddToDB();
-        
+
         var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"Feature{Name}GatheringStorm")
             .SetGuiPresentation($"FeatureSet{Name}GatheringStorm", Category.Feature)

@@ -11,6 +11,6 @@ Feature/&MovementAffinityWayOfTheTempestTempestSwiftnessTitle=Tempest's Swiftnes
 Feature/&PowerWayOfTheTempestTempestFuryDescription=Starting at 11th level, after using your attack action, you can pay 2 ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
 Feature/&PowerWayOfTheTempestTempestFuryTitle=Tempest's Fury
 Feedback/&AdditionalDamageGatheringStormFormat=Gathering Storm!
-Feedback/&AdditionalDamageGatheringStormLine={0} gathers storm on {1} (+{2})
+Feedback/&AdditionalDamageGatheringStormLine={0} strikes {1} with lightning (+{2})
 Subclass/&WayOfTheTempestDescription=Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 Subclass/&WayOfTheTempestTitle=Way of Tempest

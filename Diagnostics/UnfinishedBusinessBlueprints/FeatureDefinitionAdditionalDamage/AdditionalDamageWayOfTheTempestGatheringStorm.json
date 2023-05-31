@@ -9,7 +9,7 @@
   "requiredProperty": "Unarmed",
   "attackModeOnly": false,
   "attackOnly": false,
-  "requiredTargetCondition": "Definition:ConditionMonkFlurryOfBlowsUnarmedStrikeBonus:b86ca48afc417b247b22900df01189c2",
+  "requiredTargetCondition": null,
   "requiredTargetSenseType": "Darkvision",
   "requiredTargetCreatureTag": "",
   "requiredCharacterFamily": null,
@@ -36,7 +36,12 @@
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
-  "impactParticleReference": null,
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "7e38b4bbedbb68d44b4efad1143cead4",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
   "acidImpactParticleReference": null,
