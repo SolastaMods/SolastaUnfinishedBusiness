@@ -39,31 +39,24 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         // Gathering Storm
 
-        var powerAppliedGatheringStorm = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}AppliedGatheringStorm")
-            .SetGuiPresentation($"Feature{Name}GatheringStorm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.IndividualsUnique)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetDamageForm(DamageTypeLightning, 1, DieType.D4)
-                            .Build())
-                    .Build())
-            .SetCustomSubFeatures(new ModifyMagicEffectGatheringStorm())
+        var additionalDamageGatheringStorm = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}GatheringStorm")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("GatheringStorm")
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Unarmed)
+            .SetTargetCondition(
+                ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus,
+                (AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition.SourceHasCondition)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+            .SetSpecificDamageType(DamageTypeLightning)
             .AddToDB();
-
-        // kept name for backward compatibility
-        var featureGatheringStorm = FeatureDefinitionDamageAffinityBuilder
+        
+        var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder
             .Create($"Feature{Name}GatheringStorm")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageType(DamageTypeLightning)
-            .SetDamageAffinityType(DamageAffinityType.Resistance)
-            .SetCustomSubFeatures(new AttackEffectAfterDamageGatheringStorm(powerAppliedGatheringStorm))
+            .SetGuiPresentation($"FeatureSet{Name}GatheringStorm", Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                additionalDamageGatheringStorm)
             .AddToDB();
 
         // LEVEL 11
@@ -225,7 +218,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
             .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
-            .AddFeaturesAtLevel(6, featureGatheringStorm)
+            .AddFeaturesAtLevel(6, featureSetGatheringStorm)
             .AddFeaturesAtLevel(11, powerTempestFury)
             .AddFeaturesAtLevel(17, featureSetEyeOfTheStorm)
             .AddToDB();
@@ -238,84 +231,6 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
-
-    //
-    // Gathering Storm
-    //
-
-    private sealed class ModifyMagicEffectGatheringStorm : IModifyMagicEffect
-    {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effectDescription,
-            RulesetCharacter character,
-            RulesetEffect rulesetEffect)
-        {
-            var damage = effectDescription.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return effectDescription;
-            }
-
-            var monkLevel = character.GetClassLevel(CharacterClassDefinitions.Monk);
-            var dieType = monkLevel switch
-            {
-                < 5 => DieType.D4,
-                < 11 => DieType.D6,
-                < 17 => DieType.D8,
-                _ => DieType.D10
-            };
-
-            damage.dieType = dieType;
-
-            return effectDescription;
-        }
-    }
-
-    private sealed class AttackEffectAfterDamageGatheringStorm : IAttackEffectAfterDamage
-    {
-        private readonly FeatureDefinitionPower _powerAppliedGatheringStorm;
-
-        public AttackEffectAfterDamageGatheringStorm(FeatureDefinitionPower powerAppliedGatheringStorm)
-        {
-            _powerAppliedGatheringStorm = powerAppliedGatheringStorm;
-        }
-
-        public void OnAttackEffectAfterDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker == null || rulesetAttacker.IsDeadOrDyingOrUnconscious)
-            {
-                return;
-            }
-
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            if (attackMode.ActionType != ActionDefinitions.ActionType.Bonus ||
-                !rulesetAttacker.HasAnyConditionOfType(ConditionFlurryOfBlows))
-            {
-                return;
-            }
-
-            var usablePower = UsablePowersProvider.Get(_powerAppliedGatheringStorm, attacker.RulesetCharacter);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
-
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerAppliedGatheringStorm);
-            EffectHelpers.StartVisualEffect(attacker, defender, ShockingGrasp, EffectHelpers.EffectType.Effect);
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-        }
-    }
 
     //
     // Tempest Swiftness
