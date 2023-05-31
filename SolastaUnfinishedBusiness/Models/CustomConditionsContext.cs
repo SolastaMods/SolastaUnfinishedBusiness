@@ -42,6 +42,12 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create("CombatAffinityDistractedByAlly")
+                    .SetGuiPresentation("ConditionDistractedByAlly", Category.Condition)
+                    .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
             .AddToDB();
     }
 
