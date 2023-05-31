@@ -307,6 +307,11 @@ public static class CharacterActionMagicEffectPatcher
             IGameLocationBattleService battleService,
             GameLocationCharacter target)
         {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
             if (!battleService.IsBattleInProgress)
             {
                 yield break;

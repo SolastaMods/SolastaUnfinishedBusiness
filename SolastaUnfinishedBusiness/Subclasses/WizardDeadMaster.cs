@@ -320,7 +320,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (activeEffect is not RulesetEffectSpell spellEffect)
+            if (activeEffect is not RulesetEffectSpell spellEffect || spellEffect.SpellDefinition.SpellLevel == 0)
             {
                 yield break;
             }
