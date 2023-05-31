@@ -325,7 +325,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            if (downedCreature.RulesetCharacter is not { IsDeadOrDying: false })
+            if (downedCreature.RulesetCharacter is not { IsDeadOrDying: true })
             {
                 yield break;
             }

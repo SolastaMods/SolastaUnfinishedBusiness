@@ -5,6 +5,7 @@
 - fixed game saves not displaying under certain scenarios
 - fixed the distracted condition not granting advantage on attacks
 - fixed the selection of items on mod UI using non EN languages
+- fixed Wizard Dead Master's stack harvest not triggering
 - improved Arcane Fighter and Forceblade empowered weapon behavior
 - improved Way of the Tempest overall damage output
 
