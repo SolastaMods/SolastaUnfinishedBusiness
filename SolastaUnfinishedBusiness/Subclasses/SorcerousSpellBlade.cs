@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
@@ -202,7 +201,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
     //
     // Empower Weapon
     //
-    
+
     private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
         if (item == null)
@@ -232,7 +231,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
-    
+
     //
     // Mana Shield
     //

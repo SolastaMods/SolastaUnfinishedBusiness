@@ -57,7 +57,8 @@ internal static class ItemsAndCraftingDisplay
             .ToArray();
 
     private static readonly int AllTitleIndexWeaponTagsFilters =
-    Array.FindIndex(ItemsWeaponTagsFilters, x => x.Item1 == Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"));
+        Array.FindIndex(ItemsWeaponTagsFilters,
+            x => x.Item1 == Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"));
 
     private static readonly string[] ItemsWeaponTagsFiltersLabels =
         ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
