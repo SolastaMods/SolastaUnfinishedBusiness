@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:CombatAffinityDistractedByAlly:50f806ee-547c-56e2-b615-056e58429b1c"
+  ],
   "allowMultipleInstances": true,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -14,7 +16,7 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",

@@ -77,9 +77,8 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDarkKoboldGrovelCowerAndBeg")
+            .Create(CustomConditionsContext.Distracted, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         conditionDarkKoboldGrovelCowerAndBeg.specialInterruptions = new List<ConditionInterruption>();
