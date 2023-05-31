@@ -41,7 +41,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var powerAppliedGatheringStorm = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AppliedGatheringStorm")
-            .SetGuiPresentation($"Condition{Name}AppliedGatheringStorm", Category.Condition, hidden: true)
+            .SetGuiPresentation($"Feature{Name}GatheringStorm", Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
