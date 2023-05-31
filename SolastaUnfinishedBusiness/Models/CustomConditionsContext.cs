@@ -133,7 +133,6 @@ internal static class CustomConditionsContext
             }
         }
 
-
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterMonster &&

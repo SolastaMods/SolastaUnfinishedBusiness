@@ -22,7 +22,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatu
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -110,10 +109,26 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
             .AddToDB();
 
+    internal static readonly FeatureDefinitionPower FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
+        .Create("PowerHelp")
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128))
+        .SetUsesFixed(ActivationTime.Action)
+        .SetEffectDescription(EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .Build())
+        .SetUniqueInstance()
+        .AddToDB();
+
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
-    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
 
     internal static void Load()
     {
@@ -132,7 +147,6 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
-        LoadHelpPower();
         LoadVision();
         LoadEpicArray();
         LoadVisuals();
@@ -264,28 +278,6 @@ internal static class CharacterContext
         {
             Monk.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
-    }
-
-    private static void LoadHelpPower()
-    {
-        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128);
-        var effectDescription = EffectDescriptionBuilder
-            .Create(TrueStrike.EffectDescription)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.IndividualsUnique)
-            .SetDurationData(DurationType.Round, 1)
-            .Build();
-
-        effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = CustomConditionsContext.Distracted;
-        effectDescription.EffectForms[0].ConditionForm.conditionDefinitionName =
-            CustomConditionsContext.Distracted.Name;
-
-        FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
-            .Create("PowerHelp")
-            .SetGuiPresentation(Category.Feature, sprite)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(effectDescription)
-            .SetUniqueInstance()
-            .AddToDB();
     }
 
     private static void LoadVision()
