@@ -21,7 +21,7 @@
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
   "activatedPower": "Definition:PowerTraditionOpenHandQuiveringPalm:9b1f88b1-bace-5a9a-ba01-4c833533f515",
-  "displayPowerTooltip": true,
+  "displayPowerTooltip": false,
   "dieType": "D10",
   "abilityScore": "Dexterity",
   "addLevel": false,

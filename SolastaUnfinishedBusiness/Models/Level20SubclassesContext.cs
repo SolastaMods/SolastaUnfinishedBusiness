@@ -342,7 +342,7 @@ internal static class Level20SubclassesContext
         var powerTraditionOpenHandQuiveringPalm = FeatureDefinitionPowerBuilder
             .Create("PowerTraditionOpenHandQuiveringPalm")
             .SetGuiPresentation("FeatureSetTraditionOpenHandQuiveringPalm", Category.Feature, hidden: true)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3)
+            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto, RechargeRate.KiPoints, 3, 3)
             .SetAutoActivationPowerTag("9024") // this is the action ID for Quivering Palm
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -369,7 +369,8 @@ internal static class Level20SubclassesContext
             .Create(DatabaseHelper.ActionDefinitions.StunningStrikeToggle, "TraditionOpenHandQuiveringPalmToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.QuiveringPalmToggle)
-            .SetActivatedPower(powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower)
+            .SetActivatedPower(
+                powerTraditionOpenHandQuiveringPalm, ActionDefinitions.ActionParameter.TogglePower, false)
             .RequiresAuthorization()
             .AddToDB();
 

@@ -21,28 +21,28 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkness")
             .SetGuiPresentation(Darkness.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Darkness.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkvision")
             .SetGuiPresentation(Darkvision.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Darkvision.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouettePassWithoutTrace")
             .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(PassWithoutTrace.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteSilence")
             .SetGuiPresentation(Silence.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(Silence.EffectDescription)
             .AddToDB();
 
