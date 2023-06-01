@@ -49,7 +49,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
             .SetImpactParticleReference(
-                ShockingGrasp.EffectDescription.EffectParticleParameters.casterParticleReference)
+                ShockingGrasp.EffectDescription.EffectParticleParameters.effectParticleReference)
             .AddToDB();
 
         var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder
@@ -67,7 +67,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -96,7 +96,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
             .SetOrUpdateGuiPresentation(Category.Action)
             .SetActionId(ExtraActionId.TempestFury)
-            .SetActivatedPower(powerTempestFury, ActionDefinitions.ActionParameter.None, false)
+            .SetActivatedPower(powerTempestFury, ActionDefinitions.ActionParameter.ActivatePower, false)
             .OverrideClassName("UsePower")
             .AddToDB();
 
@@ -379,6 +379,8 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                 attackActionParams.ActionModifiers.Add(attackModifier);
                 attacks.Add(attackActionParams);
             }
+
+            EffectHelpers.StartVisualEffect(caster, caster, ShockingGrasp, EffectHelpers.EffectType.Caster);
 
             return attacks;
         }

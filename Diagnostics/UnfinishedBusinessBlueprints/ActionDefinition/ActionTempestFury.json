@@ -11,7 +11,7 @@
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,
   "canTriggerBattle": false,
-  "parameter": "None",
+  "parameter": "ActivatePower",
   "formType": "Large",
   "overrideGuiActionType": true,
   "overridenGuiActionType": "Bonus",
