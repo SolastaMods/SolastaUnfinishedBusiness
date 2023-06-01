@@ -79,14 +79,13 @@ internal static class KoboldRaceBuilder
         var conditionDarkKoboldGrovelCowerAndBeg = ConditionDefinitionBuilder
             .Create(CustomConditionsContext.Distracted, "ConditionDarkKoboldGrovelCowerAndBeg")
             .SetOrUpdateGuiPresentation(Category.Condition)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
-
-        conditionDarkKoboldGrovelCowerAndBeg.specialInterruptions = new List<ConditionInterruption>();
 
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
-            .SetDurationData(DurationType.Round, 1)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
             .Build();
 
         effectDescription.EffectForms[0].ConditionForm.ConditionDefinition = conditionDarkKoboldGrovelCowerAndBeg;
