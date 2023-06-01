@@ -10,6 +10,7 @@ internal static partial class DatabaseHelper
     {
         internal static ActionDefinition ActionSurge { get; } = GetDefinition<ActionDefinition>("ActionSurge");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
+        internal static ActionDefinition FlurryOfBlows { get; } = GetDefinition<ActionDefinition>("FlurryOfBlows");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition StunningStrikeToggle { get; } = GetDefinition<ActionDefinition>("StunningStrikeToggle");
     }
@@ -180,7 +181,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionKindredSpiritBondSavingThrows { get; } = GetDefinition<ConditionDefinition>("ConditionKindredSpiritBondSavingThrows");
         internal static ConditionDefinition ConditionLevitate { get; } = GetDefinition<ConditionDefinition>("ConditionLevitate");
         internal static ConditionDefinition ConditionLightSensitive { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitive");
-        internal static ConditionDefinition ConditionLightSensitiveSorakSaboteur { get; } = GetDefinition<ConditionDefinition>("ConditionLightSensitiveSorakSaboteur");
         internal static ConditionDefinition ConditionLuminousKi { get; } = GetDefinition<ConditionDefinition>("ConditionLuminousKi");
         internal static ConditionDefinition ConditionMagicallyArmored { get; } = GetDefinition<ConditionDefinition>("ConditionMagicallyArmored");
         internal static ConditionDefinition ConditionMalediction { get; } = GetDefinition<ConditionDefinition>("ConditionMalediction");

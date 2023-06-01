@@ -32,7 +32,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var proficiencyAcrobatConnoisseur = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Maven")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Acrobatics)
             .AddToDB();
 
         // Acrobat Protector

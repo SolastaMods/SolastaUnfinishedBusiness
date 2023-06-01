@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomValidators;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -34,7 +33,7 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentationNoContent(true)
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -43,7 +42,7 @@ internal static class TwoWeaponCombatFeats
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
@@ -51,6 +50,7 @@ internal static class TwoWeaponCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                    .SetMaxAttacksNumber(1)
                     .AddToDB())
             .AddToDB();
 
@@ -106,23 +106,30 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (!ValidatorsWeapon.IsOneHanded(attackMode) ||
-                outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (attackMode == null || !attacker.RulesetCharacter.IsDualWieldingMeleeWeapons())
             {
                 return;
             }
 
+            if (attacker.UsedSpecialFeatures.ContainsKey(_conditionDualFlurryGrant.Name))
+            {
+                return;
+            }
+
+            var condition = _conditionDualFlurryApply;
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            var condition = rulesetAttacker.HasConditionOfType(_conditionDualFlurryApply.Name)
-                ? _conditionDualFlurryGrant
-                : _conditionDualFlurryApply;
+            if (rulesetAttacker.HasConditionOfType(condition))
+            {
+                attacker.UsedSpecialFeatures.Add(_conditionDualFlurryGrant.Name, 1);
+                condition = _conditionDualFlurryGrant;
+            }
 
             rulesetAttacker.InflictCondition(
                 condition.Name,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
+                condition.DurationType,
+                condition.DurationParameter,
+                condition.TurnOccurence,
                 AttributeDefinitions.TagCombat,
                 rulesetAttacker.guid,
                 rulesetAttacker.CurrentFaction.Name,

@@ -1,0 +1,6 @@
+Maps/&Location_Presentation_DLC3_Undermountain_Description=由岩石和冰块雕成的巨大堡垒，冰雪联盟古老的矮人氏族在这里采矿，并与其他城市开展贸易。
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Description=一个由隧道和岩浆通道构成的复杂网络, 其中分布着为 Turvaamalinn 供暖系统提供动力的矮人机械。
+Maps/&Location_Presentation_DLC3_Undermountain_LavaTunnels_Title=岩浆隧道
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Description=旅行者和商人前往 Turvaamalinn 的主要入口……当然, 这是它被冰层覆盖之前的事了。
+Maps/&Location_Presentation_DLC3_Undermountain_Outside_Title=隧道入口
+Maps/&Location_Presentation_DLC3_Undermountain_Title=Turvaamalinn

@@ -158,7 +158,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2, 2)
             .SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
                 new UpgradeFlurry(

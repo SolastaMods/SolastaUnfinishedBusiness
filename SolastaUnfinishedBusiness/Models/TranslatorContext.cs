@@ -120,7 +120,7 @@ internal static class TranslatorContext
             {
                 var info = JsonConvert.DeserializeObject<JObject>(File.ReadAllText($"{directory.FullName}/info.json"));
                 var sourceCode = info["SourceCode"]?.ToString() ?? string.Empty;
-                
+
                 if (!string.IsNullOrEmpty(sourceCode))
                 {
                     SourceCodeCache.Add(code, sourceCode);

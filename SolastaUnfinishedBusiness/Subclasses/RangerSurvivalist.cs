@@ -45,7 +45,7 @@ internal sealed class RangerSurvivalist : AbstractSubclass
         var proficiencyWanderingOutcast = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}WanderingOutcast")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Survival)
+            .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Survival)
             .AddToDB();
 
         // Disabling Strike

@@ -262,7 +262,7 @@ internal static class Level20Context
         var powerMonkEmptyBody = FeatureDefinitionPowerBuilder
             .Create("PowerMonkEmptyBody")
             .SetGuiPresentation(Category.Feature, emptyBodySprite)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 4, 4)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)

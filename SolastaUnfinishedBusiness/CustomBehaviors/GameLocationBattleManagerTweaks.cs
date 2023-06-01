@@ -995,10 +995,11 @@ internal static class GameLocationBattleManagerTweaks
                     }
 
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                        ExtraAdditionalDamageTriggerCondition.SourceHasCondition:
+                        ExtraAdditionalDamageTriggerCondition.FlurryOfBlows:
                     {
-                        validTrigger =
-                            attacker.RulesetCharacter.HasConditionOfType(provider.RequiredTargetCondition.Name);
+                        validTrigger = attackMode != null &&
+                                       attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
+
                         break;
                     }
                     /*

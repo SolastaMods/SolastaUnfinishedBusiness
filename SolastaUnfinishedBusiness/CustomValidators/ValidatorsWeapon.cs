@@ -17,25 +17,6 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    internal static readonly IsWeaponValidHandler IsWeaponInMainHand = (mode, item, character) =>
-    {
-        if (item == null)
-        {
-            return false;
-        }
-
-        var definition = item.ItemDefinition;
-
-        if (definition == null ||
-            !definition.IsWeapon ||
-            !character.IsProficientWithItem(definition))
-        {
-            return false;
-        }
-
-        return mode.ActionType != ActionDefinitions.ActionType.Bonus;
-    };
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {
@@ -84,13 +65,6 @@ internal static class ValidatorsWeapon
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
         return attackMode is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsOneHanded([CanBeNull] RulesetAttackMode attackMode)
-    {
-        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
-               !HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagTwoHanded);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

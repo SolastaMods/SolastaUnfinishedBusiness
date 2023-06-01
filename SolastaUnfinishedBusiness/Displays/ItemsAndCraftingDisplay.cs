@@ -40,6 +40,9 @@ internal static class ItemsAndCraftingDisplay
             .OrderBy(x => x.Item1)
             .ToArray();
 
+    private static readonly int WeaponIndexItemFilters =
+        Array.FindIndex(ItemsFilters, x => x.Item1 == Gui.Localize("MerchantCategory/&WeaponTitle"));
+
     private static readonly string[] ItemsItemTagsFiltersLabels = ItemsItemTagsFilters.Select(x => x.Item1).ToArray();
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsWeaponTagsFilters =
@@ -52,6 +55,10 @@ internal static class ItemsAndCraftingDisplay
                 a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
             .OrderBy(x => x.Item1)
             .ToArray();
+
+    private static readonly int AllTitleIndexWeaponTagsFilters =
+        Array.FindIndex(ItemsWeaponTagsFilters,
+            x => x.Item1 == Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"));
 
     private static readonly string[] ItemsWeaponTagsFiltersLabels =
         ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
@@ -358,7 +365,7 @@ internal static class ItemsAndCraftingDisplay
             UI.Space(40f);
             UI.Label("Category".Bold(), UI.Width((float)100));
 
-            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            if (CurrentItemsFilterIndex == WeaponIndexItemFilters /* Weapons */)
             {
                 UI.Space(40f);
                 UI.Label("Weapon Tag".Bold(), UI.Width((float)100));
@@ -382,13 +389,13 @@ internal static class ItemsAndCraftingDisplay
             {
                 CurrentItemsFilterIndex = intValue;
 
-                if (CurrentItemsFilterIndex != 11 /* Weapons */)
+                if (CurrentItemsFilterIndex != WeaponIndexItemFilters /* Weapons */)
                 {
-                    CurrentItemsWeaponTagsFilterIndex = 0;
+                    CurrentItemsWeaponTagsFilterIndex = AllTitleIndexWeaponTagsFilters;
                 }
             }
 
-            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            if (CurrentItemsFilterIndex == WeaponIndexItemFilters /* Weapons */)
             {
                 intValue = CurrentItemsWeaponTagsFilterIndex;
                 if (UI.SelectionGrid(

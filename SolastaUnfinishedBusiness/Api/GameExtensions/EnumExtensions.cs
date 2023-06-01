@@ -127,7 +127,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
 
     TargetWithin10Ft = 9000,
     TargetIsDuelingWithYou = 9002,
-    SourceHasCondition = 9003
+    FlurryOfBlows = 9003
 }
 
 public enum ExtraConditionInterruption
@@ -205,7 +205,8 @@ internal enum ExtraActionId
     QuiveringPalmToggle = 9024,
     CannonFlamethrowerBonus = 9025,
     CannonForceBallistaBonus = 9026,
-    CannonProtectorBonus = 9027
+    CannonProtectorBonus = 9027,
+    TempestFury = 9028
 }
 
 #if false
