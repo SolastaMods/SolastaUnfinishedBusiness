@@ -2,11 +2,14 @@
 
 1.5.49.1:
 
+ATTENTION: RESPEC required for Way of the Tempest on or above 11th
+
 - fixed game saves not displaying under certain scenarios
 - fixed the distracted condition not granting advantage on attacks
 - fixed the selection of items on mod UI using non EN languages
 - fixed Wizard Dead Master's stack harvest not triggering
-- improved Arcane Fighter and Forceblade empowered weapon behavior
+- improved Arcane Fighter and Forceblade empowered weapon
+- improved Dual Flurry interaction with Flurry of Blows
 - improved Way of the Tempest overall damage output
 
 1.5.49.0:

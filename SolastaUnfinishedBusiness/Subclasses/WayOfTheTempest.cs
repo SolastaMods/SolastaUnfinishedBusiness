@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -48,7 +49,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
             .SetSpecificDamageType(DamageTypeLightning)
             .SetImpactParticleReference(
-                FeatureDefinitionAdditionalDamages.AdditionalDamageLifedrinker.impactParticleReference)
+                ShockingGrasp.EffectDescription.EffectParticleParameters.casterParticleReference)
             .AddToDB();
 
         var featureSetGatheringStorm = FeatureDefinitionFeatureSetBuilder
@@ -65,8 +66,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
         var powerTempestFury = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TempestFury")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("TempestFury", Resources.PowerTempestFury, 256, 128))
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -90,13 +90,32 @@ internal sealed class WayOfTheTempest : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        powerTempestFury.SetCustomSubFeatures(
-            ValidatorsPowerUse.InCombat,
-            new AttackAfterMagicEffectTempestFury(),
-            new ValidatorsPowerUse(
+        powerTempestFury.SetCustomSubFeatures(new AttackAfterMagicEffectTempestFury());
+
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.FlurryOfBlows, "ActionTempestFury")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .SetActionId(ExtraActionId.TempestFury)
+            .SetActivatedPower(powerTempestFury, ActionDefinitions.ActionParameter.None, false)
+            .OverrideClassName("UsePower")
+            .AddToDB();
+
+        var actionAffinityTempestFury = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}TempestFury")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.TempestFury)
+            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(
                 ValidatorsCharacter.HasAttacked,
                 ValidatorsCharacter.HasAvailableBonusAction,
-                ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)));
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlurryOfBlows)))
+            .AddToDB();
+
+        var featureSetTempestFury = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}TempestFury")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(actionAffinityTempestFury, powerTempestFury)
+            .AddToDB();
 
         // LEVEL 17
 
@@ -219,7 +238,7 @@ internal sealed class WayOfTheTempest : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.WayOfTheTempest, 256))
             .AddFeaturesAtLevel(3, movementAffinityTempestSwiftness)
             .AddFeaturesAtLevel(6, featureSetGatheringStorm)
-            .AddFeaturesAtLevel(11, powerTempestFury)
+            .AddFeaturesAtLevel(11, featureSetTempestFury)
             .AddFeaturesAtLevel(17, featureSetEyeOfTheStorm)
             .AddToDB();
     }
