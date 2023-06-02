@@ -15,7 +15,13 @@ internal static class DungeonMakerDisplay
         UI.Label(Gui.Localize("ModUi/&DungeonMakerBasicHelp"));
         UI.Label();
 
-        var toggle = Main.Settings.EnableSortingDungeonMakerAssets;
+        var toggle = Main.Settings.EnableLoggingInvalidReferencesInUserCampaigns;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLoggingInvalidReferencesInUserCampaigns"), ref toggle))
+        {
+            Main.Settings.EnableLoggingInvalidReferencesInUserCampaigns = toggle;
+        }
+
+        toggle = Main.Settings.EnableSortingDungeonMakerAssets;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSortingDungeonMakerAssets"), ref toggle))
         {
             Main.Settings.EnableSortingDungeonMakerAssets = toggle;

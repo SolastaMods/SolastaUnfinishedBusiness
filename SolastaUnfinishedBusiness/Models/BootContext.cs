@@ -1,4 +1,7 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.CustomUI;
 #if DEBUG
@@ -139,6 +142,9 @@ internal static class BootContext
             // Manages update or welcome messages
             UpdateContext.Load();
 
+            // Log invalid user campaign
+            LogMissingReferencesInUserCampaigns();
+
             // Enable mod
             Main.Enable();
         };
@@ -187,5 +193,100 @@ internal static class BootContext
         info.scope = TooltipDefinitions.Scope.All;
         //and then put copy back
         definition.tooltipFeatures[index] = info;
+    }
+
+    private static void LogMissingReferencesInUserCampaigns()
+    {
+        if (!Main.Settings.EnableLoggingInvalidReferencesInUserCampaigns)
+        {
+            return;
+        }
+
+        var userCampaigns = Directory.GetFiles(TacticalAdventuresApplication.UserCampaignsDirectory);
+
+        foreach (var userCampaign in userCampaigns)
+        {
+            try
+            {
+                var payload = File.ReadAllText(userCampaign);
+                var infoJson = JsonConvert.DeserializeObject<JObject>(payload);
+
+
+                foreach (var userItem in infoJson["userItems"]!)
+                {
+                    var referenceDefinition = userItem["referenceDefinition"]!.Value<string>();
+
+                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out var _))
+                    {
+                        continue;
+                    }
+
+                    Main.Error(
+                        $"User campaign {Path.GetFileName(userCampaign)} has an invalid item reference: {referenceDefinition}");
+                }
+
+                foreach (var userMonster in infoJson["userMonsters"]!)
+                {
+                    var referenceDefinition = userMonster["referenceDefinition"]!.Value<string>();
+
+                    if (DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .TryGetElement(referenceDefinition, out var _))
+                    {
+                        continue;
+                    }
+
+                    Main.Error(
+                        $"User campaign {Path.GetFileName(userCampaign)} has an invalid monster reference: {referenceDefinition}");
+                }
+
+                foreach (var userLocation in infoJson["userLocations"]!)
+                {
+                    var userGadgets = userLocation["userGadgets"];
+
+                    if (userGadgets == null)
+                    {
+                        continue;
+                    }
+
+                    foreach (var userGadget in userGadgets)
+                    {
+                        var parameterValues = userGadget["parameterValues"];
+
+                        if (parameterValues == null)
+                        {
+                            continue;
+                        }
+
+                        foreach (var parameterValue in parameterValues)
+                        {
+                            if (parameterValue["gadgetParameterDescriptionName"]!.Value<string>() !=
+                                "gadgetParameterDescriptionName")
+                            {
+                                continue;
+                            }
+
+                            // ReSharper disable once StringLiteralTypo
+                            foreach (var occurrence in parameterValue["occurencesList"]!)
+                            {
+                                var elementName = occurrence["elementName"]!.Value<string>();
+
+                                if (DatabaseRepository.GetDatabase<ItemDefinition>()
+                                    .TryGetElement(elementName, out var _))
+                                {
+                                    continue;
+                                }
+
+                                Main.Error(
+                                    $"User campaign {Path.GetFileName(userCampaign)} has an invalid item reference: {elementName}");
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Main.Error($"User campaign {Path.GetFileName(userCampaign)} is really messed up.");
+            }
+        }
     }
 }

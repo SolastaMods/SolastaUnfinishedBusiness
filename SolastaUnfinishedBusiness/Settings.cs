@@ -345,6 +345,7 @@ public class Settings : UnityModManager.ModSettings
     // Interface - Dungeon Maker
     //
 
+    public bool EnableLoggingInvalidReferencesInUserCampaigns { get; set; }
     public bool EnableSortingDungeonMakerAssets { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
