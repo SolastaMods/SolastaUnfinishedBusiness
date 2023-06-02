@@ -211,12 +211,11 @@ internal static class BootContext
                 var payload = File.ReadAllText(userCampaign);
                 var infoJson = JsonConvert.DeserializeObject<JObject>(payload);
 
-
                 foreach (var userItem in infoJson["userItems"]!)
                 {
                     var referenceDefinition = userItem["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out var _))
+                    if (DatabaseRepository.GetDatabase<ItemDefinition>().TryGetElement(referenceDefinition, out _))
                     {
                         continue;
                     }
@@ -229,58 +228,13 @@ internal static class BootContext
                 {
                     var referenceDefinition = userMonster["referenceDefinition"]!.Value<string>();
 
-                    if (DatabaseRepository.GetDatabase<MonsterDefinition>()
-                        .TryGetElement(referenceDefinition, out var _))
+                    if (DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(referenceDefinition, out _))
                     {
                         continue;
                     }
 
                     Main.Error(
                         $"User campaign {Path.GetFileName(userCampaign)} has an invalid monster reference: {referenceDefinition}");
-                }
-
-                foreach (var userLocation in infoJson["userLocations"]!)
-                {
-                    var userGadgets = userLocation["userGadgets"];
-
-                    if (userGadgets == null)
-                    {
-                        continue;
-                    }
-
-                    foreach (var userGadget in userGadgets)
-                    {
-                        var parameterValues = userGadget["parameterValues"];
-
-                        if (parameterValues == null)
-                        {
-                            continue;
-                        }
-
-                        foreach (var parameterValue in parameterValues)
-                        {
-                            if (parameterValue["gadgetParameterDescriptionName"]!.Value<string>() !=
-                                "gadgetParameterDescriptionName")
-                            {
-                                continue;
-                            }
-
-                            // ReSharper disable once StringLiteralTypo
-                            foreach (var occurrence in parameterValue["occurencesList"]!)
-                            {
-                                var elementName = occurrence["elementName"]!.Value<string>();
-
-                                if (DatabaseRepository.GetDatabase<ItemDefinition>()
-                                    .TryGetElement(elementName, out var _))
-                                {
-                                    continue;
-                                }
-
-                                Main.Error(
-                                    $"User campaign {Path.GetFileName(userCampaign)} has an invalid item reference: {elementName}");
-                            }
-                        }
-                    }
                 }
             }
             catch
