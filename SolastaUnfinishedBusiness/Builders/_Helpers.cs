@@ -17,7 +17,6 @@ public enum Category
     FightingStyle,
     Invocation,
     Item,
-    Language,
     Monster,
     MonsterFamily,
     Race,

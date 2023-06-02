@@ -997,7 +997,8 @@ internal static class FlankingRules
 
         if (alliesInMelee >= 4)
         {
-            actionModifier.AttackAdvantageTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
         }
     }
 
