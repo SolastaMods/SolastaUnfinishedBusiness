@@ -51,7 +51,9 @@ Feature/&PowerHelpDescription=Puoi aiutare una creatura amica ad attaccare una c
 Feature/&PowerHelpTitle=Aiuto
 Feature/&ToolGainChoicesPluralDescription=Scegli {0} di questi strumenti: {1}
 Feature/&ToolGainChoicesSingleDescription=Scegli uno di questi strumenti: {1}
+Feedback/&BehindAttack=Fiancheggiare da dietro
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dà un bonus di {1}, il nuovo risultato è {2} (DC: {3})
+Feedback/&HigherAttack=Terreno più elevato
 Feedback/&ReturningWeaponActivates={1} torna a {0}!
 Feedback/&TriggerFeatureLine={0} trigger {1}
 Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = {3}

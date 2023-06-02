@@ -895,6 +895,11 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
+            if (Main.Settings.EnableFlankingRules)
+            {
+                FlankingRules.HandleMagicAttack(attacker, defender, magicModifier, rulesetEffect);
+            }
+
             //call all before handlers
             foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
             {
@@ -1076,6 +1081,11 @@ public static class GameLocationBattleManagerPatcher
             ActionModifier attackModifier,
             RulesetAttackMode attackerAttackMode)
         {
+            if (Main.Settings.EnableFlankingRules)
+            {
+                FlankingRules.HandlePhysicalAttack(attacker, defender, attackModifier, attackerAttackMode);
+            }
+
             //PATCH: registers which weapon types were used so far on attacks
             ValidatorsCharacter.RegisterWeaponTypeUsed(attacker, attackerAttackMode);
 

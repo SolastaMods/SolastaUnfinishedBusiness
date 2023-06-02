@@ -51,7 +51,9 @@ Feature/&PowerHelpDescription=Você pode ajudar uma criatura aliada a atacar uma
 Feature/&PowerHelpTitle=Ajuda
 Feature/&ToolGainChoicesPluralDescription=Escolha {0} destas ferramentas: {1}
 Feature/&ToolGainChoicesSingleDescription=Escolha uma destas ferramentas: {1}
+Feedback/&BehindAttack=Por trás
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dá um bônus de {1}, o novo resultado é {2} (CD: {3})
+Feedback/&HigherAttack=Terreno mais elevado
 Feedback/&ReturningWeaponActivates={1} retorna para {0}!
 Feedback/&TriggerFeatureLine={0} gatilhos {1}
 Feedback/&TriggerRerollLine={0} ativa o poder {1} para rolar novamente {2} = {3}

@@ -135,6 +135,12 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
+        toggle = Main.Settings.EnableFlankingRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlankingRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlankingRules = toggle;
+        }
+
         toggle = Main.Settings.AllowStackedMaterialComponent;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {

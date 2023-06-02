@@ -169,6 +169,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House
+    public bool EnableFlankingRules { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
