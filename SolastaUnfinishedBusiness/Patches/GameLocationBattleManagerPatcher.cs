@@ -895,9 +895,6 @@ public static class GameLocationBattleManagerPatcher
             bool firstTarget,
             bool criticalHit)
         {
-            //PATCH: set critical strike global variable
-            Global.CriticalHit = criticalHit;
-
             //call all before handlers
             foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IMagicalAttackInitiated>())
             {
@@ -916,8 +913,6 @@ public static class GameLocationBattleManagerPatcher
                 yield return feature.OnMagicalAttackFinished(attacker, defender, magicModifier, rulesetEffect,
                     actualEffectForms, firstTarget, criticalHit);
             }
-
-            Global.CriticalHit = false;
         }
     }
 
