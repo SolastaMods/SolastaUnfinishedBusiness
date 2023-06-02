@@ -25,8 +25,7 @@ internal static class FixesContext
         FixColorTables();
         FixAttackBuffsAffectingSpellDamage();
         FixSmitesAndStrikesDiceProgression();
-        FixDivineStrikeRestrictions();
-        FixDivineSmiteRestrictions();
+        FixAdditionalDamageRestrictions();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
@@ -72,7 +71,7 @@ internal static class FixesContext
     /**
      * Makes Divine Strike trigger only from melee attacks.
      */
-    private static void FixDivineStrikeRestrictions()
+    private static void FixAdditionalDamageRestrictions()
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.requiredProperty =
@@ -81,20 +80,17 @@ internal static class FixesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
-    }
 
-    /**
-     * Makes Divine Smite trigger only from melee attacks.
-     * This wasn't relevant until we changed how SpendSpellSlot trigger works.
-     */
-    private static void FixDivineSmiteRestrictions()
-    {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
 
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+        
+        FeatureDefinitionAdditionalDamages.AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
     }
 

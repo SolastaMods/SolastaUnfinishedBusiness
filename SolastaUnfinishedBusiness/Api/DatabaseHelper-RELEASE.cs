@@ -869,6 +869,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyUndead { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyUndead");
+        
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerSwiftBladeBattleFocus { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerSwiftBladeBattleFocus");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
