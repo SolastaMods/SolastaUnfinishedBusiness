@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=그래픽 캐릭터에 헬멧을 표시하지 않음 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않는 한</color></i>
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.
@@ -87,6 +88,7 @@ ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레�
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6 및 14에서 재주 선택 활성화
 ModUi/&EnableFighterWeaponSpecialization=클래스 레벨 8 및 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[적중 및 피해에 +1을 받지만 다른 모든 경우에는 불리합니다. 무기 유형]</color></i>
+ModUi/&EnableFlankingRules=플랭킹 규칙 활성화 <i><color=#F0DAA0>[높은 지대에서 원거리 공격 시 +1, 뒤에서 근접 공격 시 +1, 적이 4명 이상의 아군에게 둘러싸여 있을 경우 유리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 인종 활성화 <i><color=#F0DAA0>[기본 인종 대신 능력 점수 할당]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.

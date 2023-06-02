@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[你确定要服
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=不要在图形角色上显示头盔 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=.这些设置不需要玩家安装这个模组
@@ -87,6 +88,7 @@ ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=
 ModUi/&EnableFeatsAtEvenLevels=在等级2、10和18启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在6级和14级启用专长选择
 ModUi/&EnableFighterWeaponSpecialization=在8级和16级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
+ModUi/&EnableFlankingRules=启用侧翼规则<i><color=#F0DAA0>[如果在地势较高的地方射程+1，如果从背后混战+1，如果敌人被 4 个以上盟友包围则优势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[分配属性值而不是种族默认值]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖

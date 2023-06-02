@@ -17,13 +17,6 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
-        // BACKWARD COMPATIBILITY
-        var raceGnome = GnomeRaceBuilder.RaceGnome;
-
-        raceGnome.GuiPresentation.hidden = true;
-        Main.Settings.RaceEnabled.Remove(raceGnome.Name);
-        // END BACKWARD COMPATIBILITY
-
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);

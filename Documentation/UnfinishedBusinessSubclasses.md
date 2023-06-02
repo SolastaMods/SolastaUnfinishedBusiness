@@ -7,7 +7,7 @@ The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, 
 
 * Acrobat Maven
 
-You gain proficiency or expertise in the acrobat skill.
+You gain proficiency in the acrobat skill.
 
 * Acrobat Protector
 
@@ -60,7 +60,7 @@ Arcane Fighters channel magic into their weapons in order to perform devastating
 
 * Arcane Weapon
 
-When active on a weapon, its attacks count as magical and you use your spell casting modifier for your attack and damage rolls.
+Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
 
 * Armor and Weapons
 
@@ -106,7 +106,7 @@ With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series 
 
 * Arcane Affinity
 
-Gain proficiency with Arcana skill. If you are already proficient, gain expertise instead.
+You gain proficiency in the Arcana skill.
 
 * Guileful Casting
 
@@ -1050,7 +1050,7 @@ Forceblades combine martial prowess with inborn magical talents to outmatch thei
 
 * Arcane Weapon
 
-When active on a weapon, its attacks count as magical and you use your spell casting modifier for your attack and damage rolls.
+Your non two-handed weapon attacks count as magical and you use your spell casting modifier for your attack and damage rolls. If you have the Two Weapon fighting style these changes also apply to your offhand attack.
 
 * Expanded Spells
 
@@ -1921,7 +1921,7 @@ You reroll any 1s when rolling for damage. You must keep the second roll.
 
 * Deadly Aim
 
-Starting at 13th level, if you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest. 
+Starting at 13th level, if you miss with a ranged weapon attack roll, you can roll it again with advantage. You can use this feature once per short rest.
 
 
 ## Level 17
@@ -2288,7 +2288,7 @@ You gain bonus spells that are considered Ranger spells for you, they are always
 
 * Wandering Outcast
 
-Gain proficiency in Survival, or expertise if already proficient.
+You gain proficiency in the survival skill.
 
 
 ## Level 7
@@ -2820,21 +2820,21 @@ Starting at 3rd level, your base movement speed is increased by 10 feet. Wheneve
 
 * Gathering Storm
 
-Starting at 6th level, whenever you successfully land two consecutive monk weapon attacks or unarmed strikes, the third one is made with advantage, and if it hits, up to three creatures within 10 feet of you, prioritizing those closest to you, receive your martial arts die as lightning damage.
+Starting at 6th level, you become resistant to lightning damage and your bonus attacks provided by your Flurry of Blows feature each deal additional lightning damage equal to your martial arts die.
 
 
 ## Level 11
 
 * Tempest's Fury
 
-Starting at 11th level, after using your attack action, you can pay 2 ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation.
+Starting at 11th level, after using your attack action, you can spend 2 ki to use Tempest's Fury as a bonus action. It is an upgraded version of your Flurry of Blows, that in addition to granting benefits of the disengage action and allowing you to make two unarmed attacks as a bonus action, also immediately initiates one extra unarmed attack against each enemy creature within 5 feet of you upon its activation. All attacks provided by this feature deal additional lightning damage equal to your martial arts die.
 
 
 ## Level 17
 
 * Eye of the Storm
 
-Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 3d10 lightning damage and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
+Starting at 17th level, whenever you hit a creature with a monk weapon or unarmed attack, you mark that creature for 1 minute. You can use your action and pay 3 ki to consume the mark on each creature and force a Dexterity saving throw on them, with DC being 8 + proficiency + Wisdom. On a failed saving throw, each creature receives 5d10 lightning damage, half if saved, and becomes staggered, having disadvantage on all attacks and ability checks until the end of your next turn.
 
 
 

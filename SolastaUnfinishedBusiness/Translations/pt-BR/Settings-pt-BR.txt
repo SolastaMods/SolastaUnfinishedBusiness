@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Não exiba capacetes em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
 ModUi/&DungeonMakerBasicHelp=. Essas configurações não exigirão que o jogador tenha este mod instalado
@@ -87,6 +88,7 @@ ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 ponto
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos níveis de classe 6 e 14
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
+ModUi/&EnableFlankingRules=Habilitar regras de flanqueamento <i><color=#F0DAA0>[+1 para acertar se for à distância em um terreno mais alto, +1 para acertar se for corpo a corpo por trás, vantagem se o inimigo estiver cercado por mais de 4 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecionar proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração

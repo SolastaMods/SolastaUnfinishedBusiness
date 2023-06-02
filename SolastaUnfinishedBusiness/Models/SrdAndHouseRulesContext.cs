@@ -950,3 +950,99 @@ internal static class UpcastConjureElementalAndFey
         return _filteredSubspells;
     }
 }
+
+internal static class FlankingRules
+{
+    private static bool IsBehindMelee(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        var attackerPos = attacker.LocationPosition;
+        var defenderPos = defender.LocationPosition;
+        var delta = Math.Abs(attackerPos.x - defenderPos.x) +
+                    Math.Abs(attackerPos.y - defenderPos.y) +
+                    Math.Abs(attackerPos.z - defenderPos.z);
+
+        return attacker.Orientation == defender.Orientation && delta == 1;
+    }
+
+    private static void AddHigherAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&HigherAttack",
+            null));
+    }
+
+    private static void AddBehindAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&BehindAttack",
+            null));
+    }
+
+    private static void AddAdvantage(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier)
+    {
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return;
+        }
+
+        var alliesInMelee = Gui.Battle.AllContenders
+            .Count(x => x.Side == attacker.Side && gameLocationBattleService.IsWithin1Cell(x, defender));
+
+        if (alliesInMelee >= 4)
+        {
+            actionModifier.AttackAdvantageTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
+        }
+    }
+
+    internal static void HandlePhysicalAttack(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier,
+        RulesetAttackMode rulesetAttackMode)
+    {
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
+        if (rulesetAttackMode.ranged && attacker.LocationPosition.y > defender.LocationPosition.y)
+        {
+            AddHigherAttack(actionModifier);
+        }
+        else if (!rulesetAttackMode.ranged && IsBehindMelee(attacker, defender))
+        {
+            AddBehindAttack(actionModifier);
+        }
+
+        AddAdvantage(attacker, defender, actionModifier);
+    }
+
+    internal static void HandleMagicAttack(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier,
+        RulesetEffect rulesetEffect)
+    {
+        if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+        {
+            return;
+        }
+
+        var rangeType = rulesetEffectSpell.EffectDescription.rangeType;
+
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
+        if (rangeType == RangeType.RangeHit && attacker.LocationPosition.y > defender.LocationPosition.z)
+        {
+            AddHigherAttack(actionModifier);
+        }
+        else if (rangeType == RangeType.MeleeHit && IsBehindMelee(attacker, defender))
+        {
+            AddBehindAttack(actionModifier);
+        }
+
+        AddAdvantage(attacker, defender, actionModifier);
+    }
+}

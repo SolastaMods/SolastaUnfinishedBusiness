@@ -164,6 +164,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             StopPower = powerBulwarkTurnOff
         });
 
+        Global.PowersThatIgnoreInterruptions.Add(powerBulwark);
         Global.PowersThatIgnoreInterruptions.Add(powerBulwarkTurnOff);
 
         // LEVEL 14

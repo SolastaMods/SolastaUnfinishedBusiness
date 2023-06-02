@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomValidators;
+using SolastaUnfinishedBusiness.FightingStyles;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -106,7 +109,21 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || !attacker.RulesetCharacter.IsDualWieldingMeleeWeapons())
+            if (attacker.RulesetCharacter is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            var hasWeaponInMainHand = ValidatorsCharacter.HasMeleeWeaponInMainHand(hero);
+            var hasWeaponInOffHand = ValidatorsCharacter.HasMeleeWeaponInOffHand(hero);
+            var hasShield = ValidatorsCharacter.HasShield(hero);
+            var hasShieldExpert =
+                hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
+                hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
+
+            var isValid = hasWeaponInMainHand && ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
+
+            if (attackMode == null || !isValid)
             {
                 return;
             }
@@ -117,22 +134,21 @@ internal static class TwoWeaponCombatFeats
             }
 
             var condition = _conditionDualFlurryApply;
-            var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (rulesetAttacker.HasConditionOfType(condition))
+            if (hero.HasConditionOfType(condition))
             {
                 attacker.UsedSpecialFeatures.Add(_conditionDualFlurryGrant.Name, 1);
                 condition = _conditionDualFlurryGrant;
             }
 
-            rulesetAttacker.InflictCondition(
+            hero.InflictCondition(
                 condition.Name,
                 condition.DurationType,
                 condition.DurationParameter,
                 condition.TurnOccurence,
                 AttributeDefinitions.TagCombat,
-                rulesetAttacker.guid,
-                rulesetAttacker.CurrentFaction.Name,
+                hero.guid,
+                hero.CurrentFaction.Name,
                 1,
                 null,
                 0,

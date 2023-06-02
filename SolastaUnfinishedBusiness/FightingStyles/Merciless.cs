@@ -56,8 +56,11 @@ internal sealed class Merciless : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class TargetReducedToZeroHpFightingStyleMerciless : ITargetReducedToZeroHp
+    private sealed class TargetReducedToZeroHpFightingStyleMerciless :
+        ITargetReducedToZeroHp, IPhysicalAttackBeforeHitConfirmedOnEnemy
     {
+        private bool isCritical;
+
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -86,7 +89,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             usablePower.saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus);
 
-            var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
+            var distance = isCritical ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower)
             {
                 EffectDescription = { targetParameter = (distance * 2) + 1 }
@@ -99,6 +102,26 @@ internal sealed class Merciless : AbstractFightingStyle
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
+
+            isCritical = false;
+        }
+
+        public IEnumerator OnAttackBeforeHitConfirmedOnEnemy(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            isCritical = criticalHit;
+
+            yield break;
         }
     }
 }

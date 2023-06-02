@@ -24,40 +24,12 @@ internal static class TieflingRaceBuilder
     {
         #region subraces
 
-        // BACKWARD COMPATIBILITY
         var attributeModifierTieflingIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingIntelligenceAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 1)
             .AddToDB();
 
-        var castSpellTieflingAsmodeus = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingAsmodeus")
-            .SetGuiPresentation(Category.Feature)
-            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListTieflingAsmodeus")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
-                .SetSpellsAtLevel(1, SpellDefinitions.HellishRebuke)
-                .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells(true, 2)
-                .AddToDB())
-            .AddToDB();
-
-        var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
-            .Create(Tiefling, "RaceTieflingAsmodeus")
-            .SetOrUpdateGuiPresentation(Category.Race)
-            .SetFeaturesAtLevel(1,
-                attributeModifierTieflingIntelligenceAbilityScoreIncrease,
-                castSpellTieflingAsmodeus)
-            .AddToDB();
-
-        raceTieflingAsmodeus.GuiPresentation.hidden = true;
-        raceTieflingAsmodeus.contentPack = GamingPlatformDefinitions.ContentPack.PalaceOfIce;
-
-        // END BACKWARD COMPATIBILITY
         var castSpellTieflingDevilTongue = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellTiefling, "CastSpellTieflingDevilTongue")
             .SetGuiPresentation(Category.Feature)
@@ -155,37 +127,11 @@ internal static class TieflingRaceBuilder
 
         #endregion
 
-        // BACKWARD COMPATIBILITY
-        _ = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierTieflingCharismaAbilityScoreIncrease")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Charisma, 2)
-            .AddToDB();
-
-        _ = FeatureDefinitionDamageAffinityBuilder
-            .Create("DamageAffinityTieflingHellishResistance")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageAffinityType(DamageAffinityType.Resistance)
-            .SetDamageType(DamageTypeFire)
-            .AddToDB();
-
-        _ = LanguageDefinitionBuilder
-            .Create("LanguageInfernal")
-            .SetGuiPresentation(Category.Language)
-            .AddToDB();
-
-        _ = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyTieflingLanguages")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Language, "Language_Common", "LanguageInfernal")
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         for (var level = 17; level <= 20; level++)
         {
-            castSpellTieflingAsmodeus.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
+            castSpellTieflingDevilTongue.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet
             {
-                Level = level, Slots = castSpellTieflingAsmodeus.slotsPerLevels[15].slots
+                Level = level, Slots = castSpellTieflingDevilTongue.slotsPerLevels[15].slots
             });
 
             castSpellTieflingMephistopheles.slotsPerLevels.Add(new FeatureDefinitionCastSpell.SlotsByLevelDuplet

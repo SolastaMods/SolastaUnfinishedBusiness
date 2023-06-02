@@ -167,6 +167,15 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.DontDisplayHelmets;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontDisplayHelmets"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontDisplayHelmets = toggle;
+            ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
+        }
+
+        UI.Label();
+
         intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
         if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
                 0, 100, 50, "%", UI.Width((float)500)))

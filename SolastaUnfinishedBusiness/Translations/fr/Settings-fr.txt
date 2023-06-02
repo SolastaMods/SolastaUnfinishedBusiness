@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Désactiver les messages de mise à jour <i><color=#
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte <color=#D89555>Warlock</color> lors de la sélection de sorts au lieu du panneau de personnage</i>
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les caractères graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
@@ -87,6 +88,7 @@ ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des exploits aux niveaux de classe 6 et 14
 ModUi/&EnableFighterWeaponSpecialization=Activez <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et endommager mais désavantagez avec n'importe quel autre type d'arme]</color></i>
+ModUi/&EnableFlankingRules=Activer les règles de flanc <i><color=#F0DAA0>[+1 pour toucher si à distance à un terrain plus élevé, +1 pour toucher si mêlée par derrière, avantage si l'ennemi est entouré de 4+ alliés]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage

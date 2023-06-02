@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><colo
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado
@@ -87,6 +88,7 @@ ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 punto
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
+ModUi/&EnableFlankingRules=Habilita las reglas de flanqueo <i><color=#F0DAA0>[+1 para golpear si se encuentra a distancia en un terreno más alto, +1 para golpear si es cuerpo a cuerpo por detrás, ventaja si el enemigo está rodeado por más de 4 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
