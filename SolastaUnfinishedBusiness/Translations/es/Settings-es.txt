@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><colo
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
 ModUi/&Donate=<b><color=#D89555>Donar:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=No mostrar cascos en caracteres gráficos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
 ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado

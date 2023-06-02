@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
 ModUi/&Donate=<b><color=#D89555>기부:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=그래픽 캐릭터에 헬멧을 표시하지 않음 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=캐릭터가 이미 화면에 있을 때 전투 카메라가 따라가지 않습니다.
 ModUi/&DontFollowMargin=<i><color=white>+ 영웅이 꺼져 있거나 화면 가장자리의 % 내에 있지 않는 한</color></i>
 ModUi/&DungeonMakerBasicHelp=. 이 설정은 플레이어가 이 모드를 설치할 필요가 없습니다.

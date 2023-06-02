@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=アップデート メッセージを無効にする
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
 ModUi/&Donate=<b><color=#D89555>寄付:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=グラフィック キャラクターにヘルメットを表示しない<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=キャラクターがすでに画面上にある場合、戦闘カメラが追従しない
 ModUi/&DontFollowMargin=<i><color=white>+ ヒーローがオフであるか、画面端の % 以内にない場合</color></i>
 ModUi/&DungeonMakerBasicHelp=。これらの設定では、プレーヤーがこの MOD をインストールする必要はありません

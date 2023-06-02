@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Deaktivieren Sie Aktualisierungsnachrichten <i><colo
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
 ModUi/&Donate=<b><color=#D89555>Spenden:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Helme nicht auf grafischen Charakteren anzeigen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin=<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
 ModUi/&DungeonMakerBasicHelp=. Für diese Einstellungen ist es nicht erforderlich, dass der Player diesen Mod installiert hat

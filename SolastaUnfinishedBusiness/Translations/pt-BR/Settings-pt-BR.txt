@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
 ModUi/&Donate=<b><color=#D89555>Doar:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Não exiba capacetes em personagens gráficos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
 ModUi/&DontFollowMargin=<i><color=white>+ A menos que o herói esteja desligado ou dentro de % da borda da tela</color></i>
 ModUi/&DungeonMakerBasicHelp=. Essas configurações não exigirão que o jogador tenha este mod instalado

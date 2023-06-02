@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=Disabilita i messaggi di aggiornamento <i><color=#F0
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
 ModUi/&Donate=<b><color=#D89555>Dona:</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=Non visualizzare i caschi sui caratteri grafici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
 ModUi/&DontFollowMargin=<i><color=white>+ A meno che l'eroe non sia spento o entro il % del bordo dello schermo</color></i>
 ModUi/&DungeonMakerBasicHelp=. Queste impostazioni non richiedono che il giocatore abbia installato questa mod

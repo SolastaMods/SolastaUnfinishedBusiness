@@ -46,6 +46,34 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
+        LoadDontDisplayHelmets();
+    }
+
+    private static void LoadDontDisplayHelmets()
+    {
+        if (!Main.Settings.DontDisplayHelmets)
+        {
+            return;
+        }
+
+        foreach (var armor in DatabaseRepository.GetDatabase<ItemDefinition>()
+                     .Where(x => x.IsArmor))
+        {
+            if (armor.ItemPresentation.maleBodyPartBehaviours.Length == GraphicsCharacterDefinitions.BodyPartCount)
+            {
+                armor.ItemPresentation.maleBodyPartBehaviours[0] = GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+                armor.ItemPresentation.maleBodyPartBehaviours[1] = GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+            }
+
+            // ReSharper disable once InvertIf
+            if (armor.ItemPresentation.femaleBodyPartBehaviours.Length == GraphicsCharacterDefinitions.BodyPartCount)
+            {
+                armor.ItemPresentation.femaleBodyPartBehaviours[0] =
+                    GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+                armor.ItemPresentation.femaleBodyPartBehaviours[1] =
+                    GraphicsCharacterDefinitions.BodyPartBehaviour.Shape;
+            }
+        }
     }
 
     private static void LoadCustomIcons()

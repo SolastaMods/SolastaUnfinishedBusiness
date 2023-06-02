@@ -65,6 +65,7 @@ ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[你确定要服
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
 ModUi/&Donate=<b><color=#D89555>捐赠：</color></b> <i>{0}</i>
+ModUi/&DontDisplayHelmets=不要在图形角色上显示头盔 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DontFollowCharacterInBattle=当角色已经出现在屏幕上时，战斗镜头不会跟随
 ModUi/&DontFollowMargin=<i><color=white>+除非英雄不在屏幕内或在屏幕边缘的%范围内</color></i>
 ModUi/&DungeonMakerBasicHelp=.这些设置不需要玩家安装这个模组
