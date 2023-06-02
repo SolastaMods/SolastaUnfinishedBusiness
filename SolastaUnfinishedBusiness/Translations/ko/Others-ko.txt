@@ -55,6 +55,7 @@ Feedback/&BehindAttack=뒤에서
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0}는 {1}의 보너스를 제공하고 새 결과는 {2}(DC: {3})입니다.
 Feedback/&HigherAttack=고지
 Feedback/&ReturningWeaponActivates={1}이(가) {0}(으)로 돌아갑니다!
+Feedback/&Surrounded=포위
 Feedback/&TriggerFeatureLine={0} 트리거 {1}
 Feedback/&TriggerRerollLine={0}는 {1} 능력을 활성화하여 {2} = {3}을(를) 다시 굴립니다.
 Format/&LevelAndExperienceFormat=레벨: {0}\n경험: {3} 레벨에 도달하려면 {1}\n{2} 포인트가 필요합니다.
