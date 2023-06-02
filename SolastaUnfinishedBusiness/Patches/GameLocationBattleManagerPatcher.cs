@@ -267,6 +267,13 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (rulesetEffect != null && rulesetEffect.EffectDescription.RangeType is
+                    not (RuleDefinitions.RangeType.MeleeHit or RuleDefinitions.RangeType.RangeHit))
+            {
+                yield break;
+            }
+
+            //PATCH: support for Sentinel Fighting Style - allows attacks of opportunity on enemies attacking allies
             var extraEvents =
                 AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
@@ -275,7 +282,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return extraEvents.Current;
             }
 
-            //PATCH: support for Defensive Strike Power - allows adding Charisma modifer and chain reactions
+            //PATCH: support for Defensive Strike Power - allows adding Charisma modifier and chain reactions
             var defensiveEvents =
                 DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
@@ -286,8 +293,8 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
             var guardianEvents =
-                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(__instance, attacker, defender,
-                    attackerAttackMode, rulesetEffect, damageAmount);
+                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(
+                    __instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
 
             while (guardianEvents.MoveNext())
             {
