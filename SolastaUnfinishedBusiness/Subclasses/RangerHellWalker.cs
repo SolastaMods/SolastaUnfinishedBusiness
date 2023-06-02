@@ -94,7 +94,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var proficiencyCursedTongue = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}CursedTongue")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Language, "Language_Abyssal", "LanguageInfernal")
+            .SetProficiencies(ProficiencyType.Language, "Language_Abyssal", "Language_Infernal")
             .AddToDB();
 
         // LEVEL 07

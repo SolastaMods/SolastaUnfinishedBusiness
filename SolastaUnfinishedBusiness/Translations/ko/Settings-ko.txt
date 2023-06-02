@@ -88,7 +88,7 @@ ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레�
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6 및 14에서 재주 선택 활성화
 ModUi/&EnableFighterWeaponSpecialization=클래스 레벨 8 및 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[적중 및 피해에 +1을 받지만 다른 모든 경우에는 불리합니다. 무기 유형]</color></i>
-ModUi/&EnableFlankingRules=플랭킹 규칙 활성화 <i><color=#F0DAA0>[높은 지대에 있는 경우 적중 시 +1, 뒤에서 측면 공격 시 적중 시 +1]</color></i>
+ModUi/&EnableFlankingRules=플랭킹 규칙 활성화 <i><color=#F0DAA0>[높은 지대에서 원거리 공격 시 +1, 뒤에서 근접 공격 시 +1, 적이 4명 이상의 아군에게 둘러싸여 있을 경우 유리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 인종 활성화 <i><color=#F0DAA0>[기본 인종 대신 능력 점수 할당]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.

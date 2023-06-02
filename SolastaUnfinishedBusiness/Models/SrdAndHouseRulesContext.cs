@@ -964,6 +964,43 @@ internal static class FlankingRules
         return attacker.Orientation == defender.Orientation && delta == 1;
     }
 
+    private static void AddHigherAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&HigherAttack",
+            null));
+    }
+
+    private static void AddBehindAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&BehindAttack",
+            null));
+    }
+
+    private static void AddAdvantage(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier)
+    {
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return;
+        }
+
+        var alliesInMelee = Gui.Battle.AllContenders
+            .Count(x => x.Side == attacker.Side && gameLocationBattleService.IsWithin1Cell(x, defender));
+
+        if (alliesInMelee >= 4)
+        {
+            actionModifier.AttackAdvantageTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
+        }
+    }
+
     internal static void HandlePhysicalAttack(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -971,20 +1008,16 @@ internal static class FlankingRules
         RulesetAttackMode rulesetAttackMode)
     {
         // ReSharper disable once ConvertIfStatementToSwitchStatement
-        if (rulesetAttackMode.ranged && attacker.LocationPosition.y > defender.LocationPosition.z)
+        if (rulesetAttackMode.ranged && attacker.LocationPosition.y > defender.LocationPosition.y)
         {
-            actionModifier.attackRollModifier += 1;
-            actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-                "Feedback/&HigherAttack",
-                null));
+            AddHigherAttack(actionModifier);
         }
         else if (!rulesetAttackMode.ranged && IsBehindMelee(attacker, defender))
         {
-            actionModifier.attackRollModifier += 1;
-            actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-                "Feedback/&BehindAttack",
-                null));
+            AddBehindAttack(actionModifier);
         }
+
+        AddAdvantage(attacker, defender, actionModifier);
     }
 
     internal static void HandleMagicAttack(
@@ -1003,17 +1036,13 @@ internal static class FlankingRules
         // ReSharper disable once ConvertIfStatementToSwitchStatement
         if (rangeType == RangeType.RangeHit && attacker.LocationPosition.y > defender.LocationPosition.z)
         {
-            actionModifier.attackRollModifier += 1;
-            actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-                "Feedback/&HigherAttack",
-                null));
+            AddHigherAttack(actionModifier);
         }
         else if (rangeType == RangeType.MeleeHit && IsBehindMelee(attacker, defender))
         {
-            actionModifier.attackRollModifier += 1;
-            actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-                "Feedback/&BehindAttack",
-                null));
+            AddBehindAttack(actionModifier);
         }
+
+        AddAdvantage(attacker, defender, actionModifier);
     }
 }

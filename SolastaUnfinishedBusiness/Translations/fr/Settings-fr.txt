@@ -88,7 +88,7 @@ ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 10 et 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Activer la sélection des exploits aux niveaux de classe 6 et 14
 ModUi/&EnableFighterWeaponSpecialization=Activez <color=#D89555>Combattant</color> <b>Spécialisation d'arme</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[obtenez +1 pour toucher et endommager mais désavantagez avec n'importe quel autre type d'arme]</color></i>
-ModUi/&EnableFlankingRules=Activer les règles de flanquement <i><color=#F0DAA0>[+1 pour toucher si à distance à un terrain plus élevé, +1 pour toucher si flanquant par derrière]</color></i>
+ModUi/&EnableFlankingRules=Activer les règles de flanc <i><color=#F0DAA0>[+1 pour toucher si à distance à un terrain plus élevé, +1 pour toucher si mêlée par derrière, avantage si l'ennemi est entouré de 4+ alliés]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage

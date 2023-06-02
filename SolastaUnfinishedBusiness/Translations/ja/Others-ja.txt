@@ -55,6 +55,7 @@ Feedback/&BehindAttack=背後から
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} は {1} のボーナスを与え、新しい結果は {2} です (DC: {3})
 Feedback/&HigherAttack=高いところ
 Feedback/&ReturningWeaponActivates={1} は {0} に戻ります!
+Feedback/&Surrounded=囲まれた
 Feedback/&TriggerFeatureLine={0} が {1} をトリガーします
 Feedback/&TriggerRerollLine={0} は、{2} = {3} を再ロールするための {1} パワーを有効にします
 Format/&LevelAndExperienceFormat=レベル: {0}\n経験値: {1}\n{2} ポイントがレベル {3} に到達するために必要です

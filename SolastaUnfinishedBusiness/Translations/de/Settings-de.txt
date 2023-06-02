@@ -88,7 +88,7 @@ ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
-ModUi/&EnableFlankingRules=Aktivieren Sie die Flankierungsregeln <i><color=#F0DAA0>[+1 für Treffer, wenn die Distanz höher liegt, +1 für Treffer, wenn Sie von hinten flankieren]</color></i>
+ModUi/&EnableFlankingRules=Aktivieren Sie die Flankierungsregeln <i><color=#F0DAA0>[+1 für Treffer bei Distanzangriff auf höherem Boden, +1 für Treffer bei Nahkampf von hinten, Vorteil, wenn der Feind von mehr als 4 Verbündeten umgeben ist]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen

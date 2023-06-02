@@ -55,6 +55,7 @@ Feedback/&BehindAttack=Fiancheggiare da dietro
 Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} dà un bonus di {1}, il nuovo risultato è {2} (DC: {3})
 Feedback/&HigherAttack=Terreno più elevato
 Feedback/&ReturningWeaponActivates={1} torna a {0}!
+Feedback/&Surrounded=Circondato
 Feedback/&TriggerFeatureLine={0} trigger {1}
 Feedback/&TriggerRerollLine={0} attiva il potere {1} per ripetere il tiro {2} = {3}
 Format/&LevelAndExperienceFormat=Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
