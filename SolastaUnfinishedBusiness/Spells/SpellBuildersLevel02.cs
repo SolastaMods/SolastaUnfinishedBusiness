@@ -32,6 +32,7 @@ internal static partial class SpellBuilders
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedIceBound")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetFeatures(MovementAffinityConditionRestrained, ActionAffinityConditionRestrained, ActionAffinityGrappled)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
         conditionGrappledRestrainedIceBound.specialDuration = false;
