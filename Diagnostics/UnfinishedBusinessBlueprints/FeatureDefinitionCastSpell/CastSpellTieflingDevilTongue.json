@@ -235,6 +235,38 @@
         1,
         1
       ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 17,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 18,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 19,
+      "slots": [
+        1,
+        1
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
+      "level": 20,
+      "slots": [
+        1,
+        1
+      ]
     }
   ],
   "focusType": "None",
