@@ -88,17 +88,16 @@ internal static class ValidatorsFeat
             RaceHalfElfVariantRaceBuilder.RaceHalfElfSylvanVariant);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
-        ValidateIsRace(Gnome.FormatTitle(), Gnome, GnomeRaceBuilder.RaceGnome);
+        ValidateIsRace(Gnome.FormatTitle(), Gnome);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsTiefling =
         ValidateIsRace(TieflingRaceBuilder.RaceTiefling.FormatTitle(), Tiefling, TieflingRaceBuilder.RaceTiefling);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
         ValidateIsRace(
-            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}, {KoboldRaceBuilder.RaceKobold.FormatTitle()}",
+            $"{Dwarf.FormatTitle()}, {Gnome.FormatTitle()}, {Halfling.FormatTitle()}, {KoboldRaceBuilder.RaceKobold.FormatTitle()}",
             Dwarf, DwarfHill, DwarfSnow,
             GrayDwarfSubraceBuilder.SubraceGrayDwarf,
-            GnomeRaceBuilder.RaceGnome,
             KoboldRaceBuilder.RaceKobold,
             Gnome, Halfling, HalflingIsland, HalflingMarsh);
 
