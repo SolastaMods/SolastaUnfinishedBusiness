@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.5.49.2:
+
+ATTENTION: RESPEC any Gnome or Tiefling created before May, 25th
+
+- added setting "Don't Display Helmets"
+- added setting "Enable Flanking Rules"
+- fixed Blade Ward to work with Share Spells
+- fixed Dual Flurry to work with Shield Expert
+- removed mod Gnome race in favor of vanilla ones
+- removed mod Tiefling race in favor of vanilla ones
+
 1.5.49.1:
 
 ATTENTION: RESPEC required for Way of the Tempest on or above 11th
@@ -9,8 +20,6 @@ ATTENTION: RESPEC required for Way of the Tempest on or above 11th
 - fixed the distracted condition not granting advantage on attacks
 - fixed the selection of items on mod UI using non EN languages
 - fixed Wizard Dead Master's stack harvest not triggering
-- gifted a Steam Pathfinder Wrath of the Righteous to whoever reads this first [QK7EL-8G958-YX7EF]
-- gifted a Steam Fallout 76 to whoever reads this first and pls don't be greed [NQH4F-X6HL6-CDFV2] 
 - improved Arcane Fighter and Forceblade empowered weapon
 - improved Dual Flurry interaction with Flurry of Blows
 - improved Way of the Tempest overall damage output
