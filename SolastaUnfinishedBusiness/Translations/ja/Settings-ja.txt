@@ -88,7 +88,7 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=クラスレベル6および14で特技選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=クラスレベル8と16で<color=#D89555>ファイター</color>の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[ヒットとダメージに+1を獲得しますが、他のものでは不利になります。武器の種類]</color></i>
-ModUi/&EnableFlankingRules=側面攻撃ルールを有効にする <i><color=#F0DAA0>[高台から遠距離攻撃した場合の命中率 +1、背後から側面攻撃した場合の命中率 +1]</color></i>
+ModUi/&EnableFlankingRules=側面ルールを有効にする <i><color=#F0DAA0>[高台から遠距離攻撃をした場合の命中率 +1、背後からの近接攻撃の場合は命中率 +1、敵が 4 人以上の味方に囲まれている場合に有利]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します

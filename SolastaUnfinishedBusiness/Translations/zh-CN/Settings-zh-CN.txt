@@ -88,7 +88,7 @@ ModUi/&EnableEpicPointsAndArray=启用史诗级35点购点和默认骰<i><color=
 ModUi/&EnableFeatsAtEvenLevels=在等级2、10和18启用专长选择
 ModUi/&EnableFeatsAtEvenLevelsMiddle=在6级和14级启用专长选择
 ModUi/&EnableFighterWeaponSpecialization=在8级和16级启用<color=#D89555>战士</color><b>武器专攻</b><i><color=#F0DAA0>[获得+1命中和伤害，但是使用其他武器时将获得劣势]</color></i>
-ModUi/&EnableFlankingRules=启用夹击规则<i><color=#F0DAA0>[如果射程高，+1 命中，如果从后面夹击则+1 命中]</color></i>
+ModUi/&EnableFlankingRules=启用侧翼规则<i><color=#F0DAA0>[如果在地势较高的地方射程+1，如果从背后混战+1，如果敌人被 4 个以上盟友包围则优势]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[分配属性值而不是种族默认值]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-(D)</color>以显示调试覆盖
