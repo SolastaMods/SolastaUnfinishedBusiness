@@ -33,7 +33,7 @@
     "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -83,7 +83,7 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
-          "forceOnSelf": true
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
