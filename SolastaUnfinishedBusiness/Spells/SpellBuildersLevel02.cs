@@ -350,6 +350,7 @@ internal static partial class SpellBuilders
             .Create(ConditionGrappledRestrainedRemorhaz, "ConditionGrappledRestrainedSpellWeb")
             .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1)
+            .SetParentCondition(ConditionDefinitions.ConditionRestrained)
             .AddToDB();
 
         conditionRestrainedBySpellWeb.specialInterruptions.Clear();
