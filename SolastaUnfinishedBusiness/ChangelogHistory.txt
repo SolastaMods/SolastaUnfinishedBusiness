@@ -2,9 +2,9 @@
 
 1.5.49.4:
 
-- fixed additional sources of null exceptions on game battle manager
-- fixed remove on fire light source logic not considering extinguish action
-- fixed shallow copy issues on AI context not triggering break free action [in other words, Web spell is fine again]
+- fixed additional sources of null exceptions all over the code base [aksha fight, attacks of opportunity, etc.]
+- fixed remove on fire light source logic not considering extinguish action [didn't even know that was a thing]
+- fixed shallow copy issues not triggering the break free action [in other words, web spell is fine again]
 
 1.5.49.3:
 
