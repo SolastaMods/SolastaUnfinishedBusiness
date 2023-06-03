@@ -179,6 +179,11 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                yield break;
+            }
+
             var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
 
             while (extraEvents.MoveNext())
@@ -229,7 +234,12 @@ public static class GameLocationBattleManagerPatcher
                 action.AttackSuccessDelta += action.BardicDieRoll;
             }
 
-            foreach (var extraEvents in attacker.RulesetActor
+            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: true })
+            {
+                yield break;
+            }
+
+            foreach (var extraEvents in attacker.RulesetCharacter
                          .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
                          .TakeWhile(_ =>
                              action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
@@ -502,7 +512,7 @@ public static class GameLocationBattleManagerPatcher
 
             var defenderCharacter = defender.RulesetCharacter;
 
-            if (defenderCharacter == null)
+            if (defenderCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -830,6 +840,7 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode rulesetAttackMode,
@@ -858,6 +869,10 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (__instance.battle == null)
+            {
+                yield break;
+            }
 
             //PATCH: Support for `ITargetReducedToZeroHP` feature
             foreach (var extraEvents in attacker.RulesetActor.GetSubFeaturesByType<ITargetReducedToZeroHp>()
@@ -869,6 +884,11 @@ public static class GameLocationBattleManagerPatcher
                 {
                     yield return extraEvents.Current;
                 }
+            }
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             //PATCH: Support for `ISourceReducedToZeroHP` feature
@@ -894,6 +914,7 @@ public static class GameLocationBattleManagerPatcher
         [UsedImplicitly]
         public static IEnumerator Postfix(
             IEnumerator values,
+            GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             ActionModifier magicModifier,
@@ -917,6 +938,11 @@ public static class GameLocationBattleManagerPatcher
             while (values.MoveNext())
             {
                 yield return values.Current;
+            }
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             //call all after handlers
@@ -1101,16 +1127,24 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            //PATCH: allow custom behavior when physical attack initiates
+
             if (__instance.battle == null)
             {
                 yield break;
             }
 
-            //PATCH: allow custom behavior when physical attack initiates
             foreach (var attackInitiated in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackInitiated>())
             {
                 yield return attackInitiated.OnAttackInitiated(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             foreach (var attackInitiated in
@@ -1118,6 +1152,13 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return attackInitiated.OnAttackInitiatedOnMe(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
+            }
+
+            //PATCH: allow custom behavior when physical attack initiates on me or ally
+
+            if (__instance.battle == null)
+            {
+                yield break;
             }
 
             foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
@@ -1152,20 +1193,27 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            //PATCH: allow custom behavior when physical attack finished
-            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+            if (attacker.RulesetCharacter != null && __instance.Battle != null)
             {
-                yield return feature.OnAttackFinished(
-                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                    damageAmount);
+                //PATCH: allow custom behavior when physical attack finished
+                foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
+                {
+                    yield return feature.OnAttackFinished(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
             }
 
-            //PATCH: allow custom behavior when physical attack finished on defender
-            foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+            // ReSharper disable once InvertIf
+            if (defender.RulesetCharacter != null && __instance.Battle != null)
             {
-                yield return feature.OnAttackFinishedOnMe(
-                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
-                    damageAmount);
+                //PATCH: allow custom behavior when physical attack finished on defender
+                foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())
+                {
+                    yield return feature.OnAttackFinishedOnMe(
+                        __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                        damageAmount);
+                }
             }
         }
     }
