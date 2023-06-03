@@ -2,7 +2,7 @@
   "$type": "TA.AI.DecisionDefinition, Assembly-CSharp",
   "decision": {
     "$type": "TA.AI.DecisionDescription, Assembly-CSharp",
-    "description": "If flying but in melee range of an enemy and not too high, break concentration.",
+    "description": "if restrained and can use main action, try to break free",
     "scorer": {
       "$type": "TA.AI.ActivityScorerDefinition, Assembly-CSharp",
       "scorer": {
@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionGrappledRestrainedIceBound",
+                "stringParameter": "ConditionGrappledRestrainedSpellWeb",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasConditionGrappledRestrainedIceBound"
+              "name": "HasConditionGrappledRestrainedSpellWeb"
             },
             "weight": 1.0
           },
@@ -54,7 +54,7 @@
           }
         ]
       },
-      "name": "StopFlyingWhenInMelee"
+      "name": "BreakFree"
     },
     "activityType": "BreakFree",
     "stringParameter": "",

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
@@ -9,34 +10,70 @@ internal static class AiContext
 {
     internal static void Load()
     {
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound", false);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb");
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
     }
 
     // boolParameter false won't do any ability check
-    private static void BuildDecisionBreakFreeFromCondition(string conditionName, bool boolParameter = true)
+    private static void BuildDecisionBreakFreeFromCondition(string conditionName, bool boolParameter = false)
     {
+        //TODO: create proper builders
+
+        // create considerations copies
+
         var baseDecision = DatabaseHelper.GetDefinition<DecisionDefinition>("BreakConcentration_FlyingInMelee");
-        var decisionBreakFree = DecisionDefinitionBuilder
-            .Create(baseDecision, $"DecisionBreakFree{conditionName}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        decisionBreakFree.Decision.activityType = "BreakFree";
-        decisionBreakFree.Decision.Scorer.considerations.RemoveAll(x =>
-            x.consideration.name is "HasEnemyInMeleeRange" or "IsNotFlyingTooHigh");
-        decisionBreakFree.Decision.boolParameter = boolParameter;
-
-        var consideration = decisionBreakFree.Decision.Scorer.considerations.FirstOrDefault(x =>
+        var considerationHasCondition = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
             x.consideration.name == "HasConditionFlying");
+        var considerationMainActionNotFullyConsumed = baseDecision.Decision.Scorer.considerations.FirstOrDefault(x =>
+            x.consideration.name == "MainActionNotFullyConsumed");
 
-        if (consideration == null)
+        if (considerationHasCondition == null || considerationMainActionNotFullyConsumed == null)
         {
+            Main.Error("fetching considerations at BuildDecisionBreakFreeFromCondition");
+
             return;
         }
 
-        consideration.consideration.name = $"Has{conditionName}";
-        consideration.consideration.consideration.stringParameter = conditionName;
+        var considerationHasConditionBreakFree = new WeightedConsiderationDescription
+        {
+            consideration = UnityEngine.Object.Instantiate(considerationHasCondition.consideration),
+            weight = considerationHasCondition.weight
+        };
+
+        considerationHasConditionBreakFree.consideration.name = $"Has{conditionName}";
+        considerationHasConditionBreakFree.consideration.consideration = new ConsiderationDescription
+        {
+            considerationType = nameof(TA.AI.Considerations.HasCondition),
+            curve = considerationHasCondition.consideration.consideration.curve,
+            boolParameter = considerationHasCondition.consideration.consideration.boolParameter,
+            intParameter = considerationHasCondition.consideration.consideration.intParameter,
+            floatParameter = considerationHasCondition.consideration.consideration.floatParameter,
+            stringParameter = conditionName
+        };
+
+        // create scorer copy
+
+        var scorer = UnityEngine.Object.Instantiate(baseDecision.Decision.scorer);
+
+        scorer.name = "BreakFree";
+        scorer.scorer.considerations = new List<WeightedConsiderationDescription>
+        {
+            considerationHasConditionBreakFree, considerationMainActionNotFullyConsumed
+        };
+
+        // create and assign decision definition to all decision packages
+
+        var decisionBreakFree = DecisionDefinitionBuilder
+            .Create($"DecisionBreakFree{conditionName}")
+            .SetGuiPresentationNoContent(true)
+            .SetDecisionDescription(
+                "if restrained and can use main action, try to break free",
+                "BreakFree",
+                scorer,
+                boolParameter: boolParameter,
+                enumParameter: 1,
+                floatParameter: 3f)
+            .AddToDB();
 
         foreach (var decisionPackageDefinition in DatabaseRepository.GetDatabase<DecisionPackageDefinition>())
         {
