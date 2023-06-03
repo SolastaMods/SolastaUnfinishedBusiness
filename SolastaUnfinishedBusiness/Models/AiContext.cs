@@ -10,8 +10,8 @@ internal static class AiContext
 {
     internal static void Load()
     {
+        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound"); // order matters as same weight
         BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedSpellWeb", true);
-        BuildDecisionBreakFreeFromCondition("ConditionGrappledRestrainedIceBound");
     }
 
     // boolParameter false won't do any ability check
