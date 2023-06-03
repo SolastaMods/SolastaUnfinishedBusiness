@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -8,13 +9,14 @@ internal static class FeatHelpers
 {
     internal sealed class ModifyWeaponAttackModeTypeFilter : IModifyWeaponAttackMode
     {
-        private readonly string _sourceName;
+        private readonly FeatDefinition _source;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public ModifyWeaponAttackModeTypeFilter(string sourceName,
+        public ModifyWeaponAttackModeTypeFilter(
+            FeatDefinition source,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            _sourceName = sourceName;
+            _source = source;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
         }
 
@@ -34,8 +36,7 @@ internal static class FeatHelpers
             }
 
             attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(1,
-                RuleDefinitions.FeatureSourceType.CharacterFeature, _sourceName, null));
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.Feat, _source.Name, _source));
         }
     }
 }

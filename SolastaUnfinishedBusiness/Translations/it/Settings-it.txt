@@ -99,6 +99,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Tinta ricette note rosse
 ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del Magister</color> sull'interfaccia utente del gioco
 ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Abilita la registrazione di riferimenti non validi nelle campagne personalizzate
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
 ModUi/&EnableMonkWeaponSpecialization=Abilita <color=#D89555>Monaco</color> <b>Specializzazione arma</b> ai livelli di classe 2 e 11 <i><color=#F0DAA0>[il tipo di arma selezionato diventa un'arma monaco per te]</color></i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

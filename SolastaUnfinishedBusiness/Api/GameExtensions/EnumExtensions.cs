@@ -25,7 +25,8 @@ internal enum ExtraSituationalContext
     IsRagingAndDualWielding = 1009,
     NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
     TargetIsNotInBrightLight = 1011,
-    HasTwoHandedVersatileWeapon = 1012
+    HasTwoHandedVersatileWeapon = 1012,
+    HasBladeMasteryWeaponTypesInHands = 1013
 }
 
 #if false

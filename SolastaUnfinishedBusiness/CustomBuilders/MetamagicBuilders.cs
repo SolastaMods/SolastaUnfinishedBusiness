@@ -247,7 +247,7 @@ internal static class MetamagicBuilders
     {
         var effect = rulesetEffectSpell.EffectDescription;
 
-        if (effect.targetType is not (TargetType.Cone or TargetType.Cube or TargetType.Cylinder or TargetType.Sphere))
+        if (effect.targetType is TargetType.Cone or TargetType.Cube or TargetType.Cylinder or TargetType.Sphere)
         {
             return;
         }

@@ -99,6 +99,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Tinja as receitas conhecidas de vermel
 ModUi/&EnableInvisibleCrownOfTheMagister=Oculte a <color=#D89555>Coroa do Magistrado</color> na IU do jogo
 ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Ativar o registro de referências inválidas em campanhas personalizadas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade dentro e fora dos pré-requisitos</i>
 ModUi/&EnableMonkWeaponSpecialization=Habilite <color=#D89555>Monge</color> <b>Especialização em Arma</b> nos níveis de classe 2 e 11 <i><color=#F0DAA0>[o tipo de arma selecionado se torna uma arma de monge para você]</color></i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

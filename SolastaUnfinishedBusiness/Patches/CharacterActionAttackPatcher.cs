@@ -23,43 +23,41 @@ public static class CharacterActionAttackPatcher
             [NotNull] IEnumerator values,
             [NotNull] CharacterActionAttack __instance)
         {
-            var actingCharacter = __instance.ActingCharacter;
-            var character = actingCharacter.RulesetCharacter;
-            var outcome = RollOutcome.Neutral;
             var found = false;
-            GameLocationCharacter defender = null;
-            CharacterActionParams actionParams = null;
-            RulesetAttackMode mode = null;
-            ActionModifier modifier = null;
+            var gameLocationAttacker = __instance.ActingCharacter;
 
-            // ReSharper disable InconsistentNaming
+            GameLocationCharacter gameLocationDefender = null;
+            CharacterActionParams actionParams = null;
+            RulesetAttackMode attackMode = null;
+            ActionModifier actionModifier = null;
+            var rollOutcome = RollOutcome.Neutral;
+
             void AttackImpactStartHandler(
-                GameLocationCharacter _attacker,
-                GameLocationCharacter _defender,
-                RollOutcome _outcome,
-                CharacterActionParams _params,
-                RulesetAttackMode _mode,
-                ActionModifier _modifier)
+                GameLocationCharacter attacker,
+                GameLocationCharacter defender,
+                RollOutcome outcome,
+                CharacterActionParams parameters,
+                RulesetAttackMode mode,
+                ActionModifier modifier)
             {
                 found = true;
-                defender = _defender;
-                outcome = _outcome;
-                actionParams = _params;
-                mode = _mode;
-                modifier = _modifier;
+                gameLocationDefender = defender;
+                rollOutcome = outcome;
+                actionParams = parameters;
+                attackMode = mode;
+                actionModifier = modifier;
             }
-            // ReSharper enable InconsistentNaming
 
-            actingCharacter.AttackImpactStart += AttackImpactStartHandler;
+            gameLocationAttacker.AttackImpactStart += AttackImpactStartHandler;
 
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            actingCharacter.AttackImpactStart -= AttackImpactStartHandler;
+            gameLocationAttacker.AttackImpactStart -= AttackImpactStartHandler;
 
-            if (!found || Gui.Battle == null)
+            if (!found)
             {
                 yield break;
             }
@@ -68,14 +66,18 @@ public static class CharacterActionAttackPatcher
             // IReactToMyAttackFinished
             //
 
-            var attackerFeatures = character?.GetSubFeaturesByType<IReactToMyAttackFinished>();
-
-            if (attackerFeatures != null)
+            if (Gui.Battle != null &&
+                gameLocationAttacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
+                var attackerFeatures = gameLocationAttacker.RulesetCharacter
+                    .GetSubFeaturesByType<IReactToMyAttackFinished>();
+
                 foreach (var feature in attackerFeatures)
                 {
                     yield return feature.HandleReactToMyAttackFinished(
-                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                        gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
+                        actionModifier);
                 }
             }
 
@@ -83,29 +85,30 @@ public static class CharacterActionAttackPatcher
             // IReactToAttackOnEnemyFinished
             //
 
-            foreach (var gameLocationAlly in Gui.Battle.AllContenders
-                         .Where(x =>
-                             (x.RulesetCharacter is { IsDeadOrUnconscious: false } &&
-                              x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
-                             x.Side == actingCharacter.Side)
-                         .ToList())
+            if (Gui.Battle != null &&
+                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var allyFeatures =
-                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
-
-                if (allyFeatures == null)
+                foreach (var gameLocationAlly in Gui.Battle.AllContenders
+                             .Where(x =>
+                                 (x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                                  x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
+                                 x.Side == gameLocationAttacker.Side)
+                             .ToList())
                 {
-                    continue;
-                }
+                    var allyFeatures =
+                        gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
 
-                foreach (var feature in allyFeatures)
-                {
-                    yield return feature.HandleReactToAttackOnEnemyFinished(
-                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
-
-                    if (Gui.Battle == null)
+                    foreach (var feature in allyFeatures)
                     {
-                        yield break;
+                        yield return feature.HandleReactToAttackOnEnemyFinished(
+                            gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
+                            attackMode,
+                            actionModifier);
+
+                        if (Gui.Battle == null)
+                        {
+                            yield break;
+                        }
                     }
                 }
             }
@@ -113,34 +116,44 @@ public static class CharacterActionAttackPatcher
             //
             // IReactToAttackOnMeFinished
             //
-            var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
-            if (defenderFeatures != null)
+            if (Gui.Battle != null &&
+                gameLocationAttacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
+                var defenderFeatures = gameLocationDefender.RulesetCharacter
+                    .GetSubFeaturesByType<IReactToAttackOnMeFinished>();
+
                 foreach (var feature in defenderFeatures)
                 {
                     yield return feature.HandleReactToAttackOnMeFinished(
-                        actingCharacter, defender, outcome, actionParams, mode, modifier);
+                        gameLocationAttacker, gameLocationDefender, rollOutcome, actionParams, attackMode,
+                        actionModifier);
                 }
             }
 
             //
             // IReactToAttackOnMeOrAllyFinished
             //
-            foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(actingCharacter.Side).ToList())
+
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                gameLocationDefender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var allyFeatures =
-                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
-
-                if (allyFeatures == null)
+                foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(gameLocationAttacker.Side)
+                             .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
+                             .ToList())
                 {
-                    continue;
-                }
+                    var allyFeatures = gameLocationAlly.RulesetCharacter
+                        .GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();
 
-                foreach (var feature in allyFeatures)
-                {
-                    yield return feature.HandleReactToAttackOnAllyFinished(
-                        actingCharacter, gameLocationAlly, defender, outcome, actionParams, mode, modifier);
+                    foreach (var feature in allyFeatures)
+                    {
+                        yield return feature.HandleReactToAttackOnAllyFinished(
+                            gameLocationAttacker, gameLocationAlly, gameLocationDefender, rollOutcome, actionParams,
+                            attackMode,
+                            actionModifier);
+                    }
                 }
             }
         }

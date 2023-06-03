@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -37,11 +38,16 @@ internal static class CustomSituationalContext
                 contextParams.source),
 
             ExtraSituationalContext.HasLongswordInHands =>
-                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
+                ValidatorsCharacter.HasWeaponType(LongswordType)
                     (contextParams.source),
 
             ExtraSituationalContext.HasGreatswordInHands =>
-                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
+                ValidatorsCharacter.HasWeaponType(GreatswordType)
+                    (contextParams.source),
+
+            ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands =>
+                ValidatorsCharacter.HasWeaponType(ShortswordType, LongswordType, ScimitarType, RapierType,
+                        GreatswordType)
                     (contextParams.source),
 
             ExtraSituationalContext.HasTwoHandedVersatileWeapon => ValidatorsCharacter

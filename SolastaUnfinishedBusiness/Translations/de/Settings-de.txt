@@ -99,6 +99,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Bekannte Rezepte rot tönen
 ModUi/&EnableInvisibleCrownOfTheMagister=Verstecke die <color=#D89555>Krone des Magisters</color> auf der Spieloberfläche
 ModUi/&EnableLevel20=Aktivieren Sie Level 20 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie die Protokollierung von Dialogen während Erzählsequenzen auf der Spielekonsole
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Aktivieren Sie die Protokollierung ungültiger Referenzen in benutzerdefinierten Kampagnen
 ModUi/&EnableMinInOutAttributes=<i>+ Erzwingen Sie die Mindestein- und -aus-Voraussetzungen für Fähigkeitswerte</i>
 ModUi/&EnableMonkWeaponSpecialization=Aktiviere <color=#D89555>Mönch</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 2 und 11 <i><color=#F0DAA0>[der ausgewählte Waffentyp wird für dich zu einer Mönchswaffe]</color></i>
 ModUi/&EnableMulticlass=Aktivieren Sie Multiclass <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

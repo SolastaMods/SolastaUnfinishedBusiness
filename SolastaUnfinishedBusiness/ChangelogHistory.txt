@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.5.49.3:
+
+- added setting "Enable logging invalid references in user campaigns"
+- added unofficial fix to Oath of Jugement's aura of righteousness context
+- added unofficial fix to Swiftblade's battle focus context
+- changed Blade Mastery to grant +1 AC when wielding any of the weapons
+- fixed additional sources of desyncs in multiplayer session
+- fixed Bounded Ice and Web conditions not setting parent as restrained
+- fixed Dual Flurry not checking for attack outcome
+- fixed Widen Spell not allowing spells with area effects
+
 1.5.49.2:
 
 ATTENTION: RESPEC any Gnome or Tiefling created before May, 25th

@@ -29,12 +29,6 @@ internal static class AttacksOfOpportunity
             yield break;
         }
 
-        // this happens during Aksha fight when she uses second veil a 2nd time
-        if (defender == null)
-        {
-            yield break;
-        }
-
         var battle = battleManager.Battle;
 
         if (battle == null)
@@ -47,34 +41,19 @@ internal static class AttacksOfOpportunity
 
         var units = battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            .ToArray();
+            .ToList();
 
         //Process other participants of the battle
-        foreach (var unit in units)
+        foreach (var unit in units
+                     .Where(unit => attacker != defender &&
+                                    unit != attacker &&
+                                    unit != defender &&
+                                    defender.RulesetCharacter.Side == unit.RulesetCharacter.Side &&
+                                    attacker.RulesetCharacter.Side != unit.RulesetCharacter.Side))
         {
-            if (attacker != unit && defender != unit)
-            {
-                yield return ProcessSentinel(unit, attacker, defender, battleManager, actionManager);
-            }
-        }
-    }
-
-    private static IEnumerator ProcessSentinel(
-        [NotNull] GameLocationCharacter unit,
-        [NotNull] GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        GameLocationBattleManager battleManager,
-        GameLocationActionManager actionManager)
-    {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender)
-        {
-            yield break;
-        }
-
-        foreach (var reaction in unit.RulesetActor.GetSubFeaturesByType<SentinelFeatMarker>()
-                     .Where(feature => feature.IsValid(unit, attacker)))
-        {
-            yield return reaction.Process(unit, attacker, null, battleManager, actionManager, false);
+            yield return unit.RulesetCharacter.GetSubFeaturesByType<SentinelFeatMarker>()
+                .Where(feature => feature.IsValid(unit, attacker))
+                .Select(reaction => reaction.Process(unit, attacker, null, battleManager, actionManager, false));
         }
     }
 
@@ -107,9 +86,9 @@ internal static class AttacksOfOpportunity
         //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (mover == unit
-                || !mover.IsOppositeSide(unit.Side)
-                || !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
+            if (mover == unit ||
+                mover.Side == unit.Side ||
+                !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
                 continue;
             }

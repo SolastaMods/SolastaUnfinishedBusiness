@@ -478,93 +478,67 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(weaponTypes);
-
-        var conditionBladeMastery = ConditionDefinitionBuilder
+        // BACKWARD COMPATIBILITY
+        _ = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    1)
-                .AddToDB())
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var powerBladeMastery = FeatureDefinitionPowerBuilder
+        _ = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionBladeMastery,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
-                    .Build())
-            .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
+        // END BACKWARD COMPATIBILITY
 
-        return FeatDefinitionBuilder
+        var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerBladeMastery)
-            .SetCustomSubFeatures(
-                new AttackComputeModifierFeatBladeMastery(weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatBladeMasteryTitle", weaponTypes))
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.ArmorClass, 1)
+                    .AddToDB())
             .AddToDB();
+
+        feat.SetCustomSubFeatures(
+            new AttackComputeModifierFeatBladeMastery(feat, weaponTypes),
+            new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
+
+        return feat;
     }
 
-    private sealed class AttackComputeModifierFeatBladeMastery : IAttackComputeModifier
+    private sealed class AttackComputeModifierFeatBladeMastery : IPhysicalAttackInitiated
     {
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly FeatDefinition _featDefinition;
+        private readonly WeaponTypeDefinition[] _weaponTypeDefinition;
 
-        public AttackComputeModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public AttackComputeModifierFeatBladeMastery(FeatDefinition featDefinition,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+            _featDefinition = featDefinition;
+            _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
-            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
-                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
+            if ((action.ActionId == ActionDefinitions.Id.SwiftRetaliation ||
+                 action.ActionType == ActionDefinitions.ActionType.Reaction) &&
+                ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition)(attackerAttackMode, null, null))
             {
-                return;
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Feat, _featDefinition.Name, _featDefinition));
             }
 
-            var battle = Gui.Battle;
-
-            // the second check handle cases where you can attack when enemy misses you on a hit
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction && battle != null &&
-                battle.ActiveContender.RulesetCharacter != defender && battle.DefenderContender != null)
-            {
-                return;
-            }
-
-            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition.ToArray())(attackMode, null, null))
-            {
-                return;
-            }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Feat, "Feature/&ModifyAttackModeFeatBladeMasteryTitle", null));
+            yield break;
         }
     }
 
@@ -981,10 +955,11 @@ internal static class MeleeCombatFeats
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(
-                new CustomBehaviorFeatDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatDevastatingStrikesTitle", weaponTypes))
             .AddToDB();
+
+        feat.SetCustomSubFeatures(
+            new CustomBehaviorFeatDevastatingStrikes(conditionDevastatingStrikes, weaponTypes),
+            new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
     }
@@ -1195,10 +1170,11 @@ internal static class MeleeCombatFeats
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(
-                new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
-                new ModifyWeaponAttackModeTypeFilter("Feat/&FeatFellHandedTitle", weaponTypes))
             .AddToDB();
+
+        feat.SetCustomSubFeatures(
+            new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
+            new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
 
         return feat;
     }

@@ -133,7 +133,7 @@ internal static class SrdAndHouseRulesContext
             return;
         }
 
-        if (rulesetCondition != null && !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
         {
             return;
         }
@@ -158,13 +158,9 @@ internal static class SrdAndHouseRulesContext
         RulesetCharacter rulesetCharacter,
         string name)
     {
-        if (rulesetCharacter.PersonalLightSource != null)
-        {
-            return;
-        }
-
         var lightSourceForm = Shine.EffectDescription.EffectForms[0].LightSourceForm;
 
+        rulesetCharacter.PersonalLightSource?.Unregister();
         rulesetCharacter.PersonalLightSource = new RulesetLightSource(
             lightSourceForm.Color,
             2,
@@ -180,34 +176,30 @@ internal static class SrdAndHouseRulesContext
             .AddCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
     }
 
-    internal static void RemoveLightSourceIfNeeded(RulesetActor __instance, RulesetCondition rulesetCondition)
+    internal static void RemoveLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
-        if (!Main.Settings.EnableCharactersOnFireToEmitLight)
+        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
         {
             return;
         }
 
-        if (!rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
-        {
-            return;
-        }
-
-        if (__instance is not RulesetCharacter rulesetCharacter)
-        {
-            return;
-        }
-
-        if (rulesetCharacter.PersonalLightSource is not { SourceName: "ShouldEmitLightFromCondition" })
+        if (rulesetActor is not RulesetCharacter rulesetCharacter)
         {
             return;
         }
 
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(rulesetCharacter);
 
+        if (gameLocationCharacter == null)
+        {
+            return;
+        }
+
         ServiceRepository.GetService<IGameLocationVisibilityService>()?
             .RemoveCharacterLightSource(gameLocationCharacter, rulesetCharacter.PersonalLightSource);
 
         rulesetCharacter.PersonalLightSource.Unregister();
+        rulesetCharacter.PersonalLightSource = null;
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
@@ -997,7 +989,8 @@ internal static class FlankingRules
 
         if (alliesInMelee >= 4)
         {
-            actionModifier.AttackAdvantageTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
         }
     }
 

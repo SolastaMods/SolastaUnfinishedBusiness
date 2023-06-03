@@ -109,6 +109,11 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            if (outcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+            {
+                return;
+            }
+
             if (attacker.RulesetCharacter is not RulesetCharacterHero hero)
             {
                 return;

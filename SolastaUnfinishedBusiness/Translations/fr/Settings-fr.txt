@@ -99,6 +99,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Teinte recettes connues rouge
 ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du magistère</color> sur l'interface utilisateur du jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
+ModUi/&EnableLoggingInvalidReferencesInUserCampaigns=Activer la journalisation des références invalides dans les campagnes personnalisées
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
 ModUi/&EnableMonkWeaponSpecialization=Activez <color=#D89555>Moine</color> <b>Spécialisation d'arme</b> aux niveaux de classe 2 et 11 <i><color=#F0DAA0>[le type d'arme sélectionné devient une arme de moine pour vous]</color></i>
 ModUi/&EnableMulticlass=Activer multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

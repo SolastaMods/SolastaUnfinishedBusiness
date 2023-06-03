@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -22,13 +23,13 @@ public static class ProficienciesPanelPatcher
         }
     }
 
-    //TODO: Don't know when this is called - was unable to trigger this method 
-#if false
     [HarmonyPatch(typeof(ProficienciesPanel), nameof(ProficienciesPanel.Unload))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly] public static class Unload_Patch
+    [UsedImplicitly]
+    public static class Unload_Patch
     {
-        [UsedImplicitly] public static IEnumerator Postfix(
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             ProficienciesPanel __instance)
         {
@@ -55,5 +56,4 @@ public static class ProficienciesPanelPatcher
             }
         }
     }
-#endif
 }

@@ -1,6 +1,5 @@
 # 翻译词典 - Translation Dictionary
 
-
 ## 地名
 
 * Manacalon - 魔纳卡隆
@@ -15,6 +14,8 @@
 * Caer Hyfryd - 海弗里德堡
     * caer（城堡）
     * hyfryd（美丽）
+* Caer Elis - 伊利斯堡
+    * caer（城堡）
 * Marches - 边境之地
 * Badlands - 恶土
 * Masgarth - 玛斯加斯
@@ -27,11 +28,16 @@
 * Kaupaapunki - 科帕普基
 * SANDREED - 沙芦滩
 * AER-ELAI - 艾尔-艾莱
-  * aer（空气）（拉丁语）
-  * elai（神圣的）（阿尔巴尼亚名字）
+    * aer（空气）（拉丁语）
+    * elai（神圣的）（阿尔巴尼亚名字）
 * Auld Cedar - 老雪松
 * Ferendragh - 飞龙格
-  * 游戏里高等精灵语中的 “龙之地”
+    * 游戏里高等精灵语中的 “龙之地”
+* Valkarokkupun - 瓦克普城
+    * 游戏里矮人语中的 “白岩城”
+* Fairview - 费尔维
+* Dinas Gessa - 迪纳斯格萨
+    * 也被称为“埋葬之城”
 
 ## 人名
 
@@ -58,4 +64,5 @@
 * Einar - 埃纳尔
 
 ## 口语
+
 * Stay in the light - 与光同行

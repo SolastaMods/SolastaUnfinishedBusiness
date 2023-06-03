@@ -11,6 +11,7 @@ using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -25,8 +26,7 @@ internal static class FixesContext
         FixColorTables();
         FixAttackBuffsAffectingSpellDamage();
         FixSmitesAndStrikesDiceProgression();
-        FixDivineStrikeRestrictions();
-        FixDivineSmiteRestrictions();
+        FixAdditionalDamageRestrictions();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
@@ -72,29 +72,25 @@ internal static class FixesContext
     /**
      * Makes Divine Strike trigger only from melee attacks.
      */
-    private static void FixDivineStrikeRestrictions()
+    private static void FixAdditionalDamageRestrictions()
     {
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.requiredProperty =
-            RestrictedContextRequiredProperty.MeleeWeapon;
+        AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
+        AdditionalDamageDomainLifeDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.requiredProperty =
-            RestrictedContextRequiredProperty.MeleeWeapon;
-    }
+        AdditionalDamageDomainMischiefDivineStrike.attackModeOnly = true;
+        AdditionalDamageDomainMischiefDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
-    /**
-     * Makes Divine Smite trigger only from melee attacks.
-     * This wasn't relevant until we changed how SpendSpellSlot trigger works.
-     */
-    private static void FixDivineSmiteRestrictions()
-    {
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
-            RestrictedContextRequiredProperty.MeleeWeapon;
+        AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
+        AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.attackModeOnly = true;
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.requiredProperty =
+        AdditionalDamageBrandingSmite.attackModeOnly = true;
+        AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
+
+        AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
+        AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
+
+        AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.attackModeOnly = true;
+        AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
@@ -104,17 +100,13 @@ internal static class FixesContext
      */
     private static void FixSmitesAndStrikesDiceProgression()
     {
-        FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(2);
+        AdditionalDamagePaladinDivineSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
 
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(2);
+        AdditionalDamageBrandingSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
 
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+        AdditionalDamageDomainLifeDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
 
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDomainMischiefDivineStrike.diceByRankTable =
-            DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+        AdditionalDamageDomainMischiefDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
     }
 
     /**
@@ -238,11 +230,11 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
+        AdditionalDamageBrandingSmite
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor
+        AdditionalDamageDivineFavor
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
     }
 
