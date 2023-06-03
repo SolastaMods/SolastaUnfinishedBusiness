@@ -296,9 +296,9 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
-                         .Where(x => x.RulesetCharacter is { IsDeadOrDying: false })
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Where(x => x != gameLocationDefender)
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions

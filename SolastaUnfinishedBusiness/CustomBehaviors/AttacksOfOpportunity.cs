@@ -24,24 +24,12 @@ internal static class AttacksOfOpportunity
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
         //Process features on attacker or defender
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        var units = battle.AllContenders
+        var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            .ToList();
+            .ToList(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units
@@ -62,26 +50,15 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
     }
 
-    internal static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
+    internal static IEnumerator ProcessOnCharacterMoveEnd(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter mover)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
-        var units = battle.AllContenders
+        var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-            .ToList();
+            .ToList(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units)

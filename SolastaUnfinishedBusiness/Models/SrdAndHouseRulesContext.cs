@@ -178,12 +178,14 @@ internal static class SrdAndHouseRulesContext
 
     internal static void RemoveLightSourceIfNeeded(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
     {
-        if (rulesetCondition == null || !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
+        if (rulesetCondition == null ||
+            !rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionOnFire.Name))
         {
             return;
         }
 
-        if (rulesetActor is not RulesetCharacter rulesetCharacter)
+        if (rulesetActor is not RulesetCharacter rulesetCharacter ||
+            rulesetCharacter.PersonalLightSource == null) // if using extinguish fire light source will come null here
         {
             return;
         }

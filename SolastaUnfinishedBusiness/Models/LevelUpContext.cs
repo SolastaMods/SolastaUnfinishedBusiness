@@ -54,9 +54,11 @@ internal static class LevelUpContext
 
         var experienceAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.Experience);
 
-        experienceAttribute.MaxValue = Main.Settings.EnableLevel20
-            ? Level20Context.ModMaxExperience
-            : Level20Context.GameMaxExperience;
+        // experienceAttribute.MaxValue = Main.Settings.EnableLevel20
+        //     ? Level20Context.ModMaxExperience
+        //     : Level20Context.GameMaxExperience;
+
+        experienceAttribute.MaxValue = Level20Context.ModMaxExperience;
         experienceAttribute.Refresh();
     }
 

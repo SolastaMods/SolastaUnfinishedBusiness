@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -616,70 +616,71 @@ internal static class InvocationsBuilders
 
         public IEnumerator OnActionFinished(CharacterAction action)
         {
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus)
+            var actingCharacter = action.ActingCharacter;
+
+            if (actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (action.ActingCharacter == null)
+            if (action.ActionType != ActionDefinitions.ActionType.Bonus &&
+                action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard)
             {
                 yield break;
             }
 
-            var self = action.ActingCharacter;
+            var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            var powers = self.RulesetCharacter.usablePowers;
-
-            // required ToList() to avoid list was changed when Far Step in play
-            foreach (var power in powers.ToList())
+            foreach (var power in rulesetCharacter.usablePowers
+                         .ToList()) // required ToList() to avoid list was changed when Far Step in play
             {
-                if (self.RulesetCharacter.IsPowerActive(power))
+                if (rulesetCharacter.IsPowerActive(power))
                 {
                     if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp &&
-                        !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                        !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionImpAbility.name))
                     {
-                        SetChainBuff(self.RulesetCharacter, _conditionImpAbility);
+                        SetChainBuff(rulesetCharacter, _conditionImpAbility);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit &&
-                             !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionQuasitAbility.name))
                     {
-                        SetChainBuff(self.RulesetCharacter, _conditionQuasitAbility);
+                        SetChainBuff(rulesetCharacter, _conditionQuasitAbility);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite &&
-                             !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionSpriteAbility.name))
                     {
-                        SetChainBuff(self.RulesetCharacter, _conditionSpriteAbility);
+                        SetChainBuff(rulesetCharacter, _conditionSpriteAbility);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon &&
-                             !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                             !rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                                  _conditionPseudoAbility.name))
                     {
-                        SetChainBuff(self.RulesetCharacter, _conditionPseudoAbility);
+                        SetChainBuff(rulesetCharacter, _conditionPseudoAbility);
                     }
                 }
                 else
                 {
                     if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp)
                     {
-                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionImpAbility.name);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit)
                     {
-                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionQuasitAbility.name);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite)
                     {
-                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionSpriteAbility.name);
                     }
                     else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon)
                     {
-                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
+                        rulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect,
                             _conditionPseudoAbility.name);
                     }
                 }

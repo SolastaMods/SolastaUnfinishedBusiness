@@ -844,7 +844,8 @@ internal static class Level20SubclassesContext
             foreach (var ally in gameLocationBattleService.Battle.AllContenders
                          .Where(x => x.Side == attacker.Side &&
                                      x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
-                                     gameLocationBattleService.IsWithinXCells(attacker, x, 4)))
+                                     gameLocationBattleService.IsWithinXCells(attacker, x, 4))
+                         .ToList()) // avoid changing enumerator
             {
                 ally.RulesetCharacter.ReceiveHealing(2, true, attacker.Guid);
             }
@@ -999,9 +1000,9 @@ internal static class Level20SubclassesContext
             // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
                          .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x != gameLocationDefender)
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = gameLocationCharacter.RulesetCharacter;
                 var rulesetCondition = rulesetDefender.AllConditions
@@ -1081,7 +1082,7 @@ internal static class Level20SubclassesContext
             var targets = actionParams.TargetCharacters
                 .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                             x.RulesetCharacter.HasAnyConditionOfType("ConditionHitByDirtyFighting"))
-                .ToList();
+                .ToList(); // avoid changing enumerator
 
             if (caster == null || targets.Empty())
             {
@@ -1165,6 +1166,7 @@ internal static class Level20SubclassesContext
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,
+                ConditionGrappled,
                 ConditionIncapacitated,
                 ConditionParalyzed,
                 ConditionPoisoned,
@@ -1190,29 +1192,29 @@ internal static class Level20SubclassesContext
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
 
-            if (rulesetCharacter is not { IsDeadOrDyingOrUnconscious: false } ||
-                !ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) ||
-                rulesetCharacter.HasConditionOfType(_conditionDarkAssault.Name))
+            // ReSharper disable once InvertIf
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                ValidatorsCharacter.IsNotInBrightLight(rulesetCharacter) &&
+                !rulesetCharacter.HasConditionOfType(_conditionDarkAssault.Name))
             {
-                return;
+                EffectHelpers.StartVisualEffect(
+                    locationCharacter, locationCharacter, PowerShadowcasterShadowDodge,
+                    EffectHelpers.EffectType.Caster);
+                rulesetCharacter.InflictCondition(
+                    _conditionDarkAssault.Name,
+                    _conditionDarkAssault.DurationType,
+                    _conditionDarkAssault.DurationParameter,
+                    _conditionDarkAssault.TurnOccurence,
+                    AttributeDefinitions.TagCombat,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name,
+                    1,
+                    null,
+                    0,
+                    0,
+                    0);
+                rulesetCharacter.RefreshAttackModes();
             }
-
-            EffectHelpers.StartVisualEffect(
-                locationCharacter, locationCharacter, PowerShadowcasterShadowDodge, EffectHelpers.EffectType.Caster);
-            rulesetCharacter.InflictCondition(
-                _conditionDarkAssault.Name,
-                _conditionDarkAssault.DurationType,
-                _conditionDarkAssault.DurationParameter,
-                _conditionDarkAssault.TurnOccurence,
-                AttributeDefinitions.TagCombat,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name,
-                1,
-                null,
-                0,
-                0,
-                0);
-            rulesetCharacter.RefreshAttackModes();
         }
     }
 

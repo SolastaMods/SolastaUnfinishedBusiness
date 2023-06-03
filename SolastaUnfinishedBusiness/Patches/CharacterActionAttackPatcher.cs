@@ -93,7 +93,7 @@ public static class CharacterActionAttackPatcher
                                  (x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                                   x.RulesetCharacter.HasAnyConditionOfType(ConditionMindControlledByCaster)) ||
                                  x.Side == gameLocationAttacker.Side)
-                             .ToList())
+                             .ToList()) // avoid changing enumerator
                 {
                     var allyFeatures =
                         gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
@@ -142,7 +142,7 @@ public static class CharacterActionAttackPatcher
             {
                 foreach (var gameLocationAlly in Gui.Battle.GetOpposingContenders(gameLocationAttacker.Side)
                              .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
-                             .ToList())
+                             .ToList()) // avoid changing enumerator
                 {
                     var allyFeatures = gameLocationAlly.RulesetCharacter
                         .GetSubFeaturesByType<IReactToAttackOnMeOrAllyFinished>();

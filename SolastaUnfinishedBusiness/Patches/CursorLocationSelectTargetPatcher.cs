@@ -44,7 +44,8 @@ public static class CursorLocationSelectTargetPatcher
                 var rulesetCharacter = __instance.actionParams.actingCharacter.RulesetCharacter;
                 var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-                if (rulesetCharacter != null && gameLocationBattleService is { IsBattleInProgress: true })
+                if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
+                    gameLocationBattleService is { IsBattleInProgress: true })
                 {
                     var familiar = gameLocationBattleService.Battle.PlayerContenders
                         .FirstOrDefault(x =>

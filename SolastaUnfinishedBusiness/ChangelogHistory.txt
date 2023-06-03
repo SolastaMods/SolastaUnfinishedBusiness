@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.5.49.4:
+
+- fixed additional sources of null exceptions all over the code base [aksha fight, attacks of opportunity, etc.]
+- fixed remove on fire light source logic not considering extinguish action [didn't even know that was a thing]
+- fixed shallow copy issues not triggering the break free action [in other words, web spell is fine again]
+
 1.5.49.3:
 
 - added setting "Enable logging invalid references in user campaigns"

@@ -367,9 +367,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
             foreach (var gameLocationTarget in gameLocationBattleService.Battle.EnemyContenders
                          .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithinXCells(action.ActingCharacter, x, 2))
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 EffectHelpers.StartVisualEffect(action.ActingCharacter, gameLocationTarget, EldritchBlast);
                 effectPower.ApplyEffectOnCharacter(

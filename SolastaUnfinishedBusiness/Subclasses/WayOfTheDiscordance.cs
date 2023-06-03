@@ -278,7 +278,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
             // although it should be one target only, we better keep it compatible for any future feature
             foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                         .Where(x => x.RulesetCharacter != null)
+                         .Where(x => x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
                          .Select(gameLocationCharacter => new
                          {
                              gameLocationCharacter,

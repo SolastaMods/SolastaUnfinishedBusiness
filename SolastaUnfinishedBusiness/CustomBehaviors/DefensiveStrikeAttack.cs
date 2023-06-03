@@ -18,27 +18,9 @@ internal static class DefensiveStrikeAttack
         GameLocationCharacter attacker,
         GameLocationCharacter defender)
     {
-        if (battleManager == null)
-        {
-            yield break;
-        }
-
-        // this happens during Aksha fight when she uses second veil a 2nd time
-        if (defender == null)
-        {
-            yield break;
-        }
-
-        var battle = battleManager.Battle;
-
-        if (battle == null)
-        {
-            yield break;
-        }
-
-        var units = battle.AllContenders
+        var units = Gui.Battle.AllContenders
             .Where(u => u.RulesetCharacter is { IsDeadOrUnconscious: false })
-            .ToList();
+            .ToList(); // avoid changing enumerator
 
         //Process other participants of the battle
         foreach (var unit in units
