@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.5.49.4:
+
+- fixed additional sources of null exceptions on game battle manager
+- fixed remove on fire light source logic not considering extinguish action
+- fixed shallow copy issues on AI context not triggering break free action [in other words, Web spell is fine again]
+
 1.5.49.3:
 
 - added setting "Enable logging invalid references in user campaigns"
