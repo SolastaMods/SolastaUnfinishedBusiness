@@ -92,6 +92,11 @@ internal static class FixesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamageRangerSwiftBladeBattleFocus.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamageRangerSwiftBladeBattleFocus.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
+        
+        FeatureDefinitionAdditionalDamages.AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.attackModeOnly = true;
+        FeatureDefinitionAdditionalDamages.AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon.requiredProperty =
+            RestrictedContextRequiredProperty.MeleeWeapon;
+        
     }
 
     /**

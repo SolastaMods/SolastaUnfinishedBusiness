@@ -824,6 +824,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
+        
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon { get; } =
+            GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon");
 
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinDivineSmite { get; } =
             GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinDivineSmite");
