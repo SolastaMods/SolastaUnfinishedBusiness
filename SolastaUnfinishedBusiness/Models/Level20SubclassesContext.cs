@@ -1165,6 +1165,7 @@ internal static class Level20SubclassesContext
                 ConditionBlinded,
                 ConditionFrightened,
                 ConditionRestrained,
+                ConditionGrappled,
                 ConditionIncapacitated,
                 ConditionParalyzed,
                 ConditionPoisoned,
