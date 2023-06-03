@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -616,12 +616,12 @@ internal static class InvocationsBuilders
 
         public IEnumerator OnActionFinished(CharacterAction action)
         {
-            if (action.ActionType != ActionDefinitions.ActionType.Bonus)
+            if (action.ActingCharacter == null)
             {
                 yield break;
             }
 
-            if (action.ActingCharacter == null)
+            if (action.ActionType != ActionDefinitions.ActionType.Bonus && action.ActingCharacter.PerceptionState == ActionDefinitions.PerceptionState.OnGuard)
             {
                 yield break;
             }
