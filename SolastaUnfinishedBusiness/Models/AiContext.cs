@@ -3,6 +3,8 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using TA.AI;
+using TA.AI.Considerations;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -36,14 +38,14 @@ internal static class AiContext
 
         var considerationHasConditionBreakFree = new WeightedConsiderationDescription
         {
-            consideration = UnityEngine.Object.Instantiate(considerationHasCondition.consideration),
+            consideration = Object.Instantiate(considerationHasCondition.consideration),
             weight = considerationHasCondition.weight
         };
 
         considerationHasConditionBreakFree.consideration.name = $"Has{conditionName}";
         considerationHasConditionBreakFree.consideration.consideration = new ConsiderationDescription
         {
-            considerationType = nameof(TA.AI.Considerations.HasCondition),
+            considerationType = nameof(HasCondition),
             curve = considerationHasCondition.consideration.consideration.curve,
             boolParameter = considerationHasCondition.consideration.consideration.boolParameter,
             intParameter = considerationHasCondition.consideration.consideration.intParameter,
@@ -53,7 +55,7 @@ internal static class AiContext
 
         // create scorer copy
 
-        var scorer = UnityEngine.Object.Instantiate(baseDecision.Decision.scorer);
+        var scorer = Object.Instantiate(baseDecision.Decision.scorer);
 
         scorer.name = "BreakFree";
         scorer.scorer.considerations = new List<WeightedConsiderationDescription>
