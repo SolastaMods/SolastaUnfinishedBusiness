@@ -1124,7 +1124,7 @@ internal static class MeleeCombatFeats
 
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (!criticalHit || !attacker.CanAct())
+            if (!criticalHit)
             {
                 yield break;
             }

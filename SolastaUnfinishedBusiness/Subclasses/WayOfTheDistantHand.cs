@@ -49,7 +49,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -208,7 +208,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 new RestrictReactionAttackMode((mode, character, _) =>
                     mode != null &&
                     mode.AttackTags.Contains(ZenArrowTag) &&
-                    character.RulesetCharacter != null &&
+                    character.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                     character.RulesetCharacter.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)))
             .SetEffectDescription(
                 EffectDescriptionBuilder

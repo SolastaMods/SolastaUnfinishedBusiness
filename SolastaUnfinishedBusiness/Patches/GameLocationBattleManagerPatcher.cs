@@ -170,24 +170,22 @@ public static class GameLocationBattleManagerPatcher
             GameLocationBattleManager __instance,
             GameLocationCharacter mover)
         {
-            //PATCH: support for Polearm Expert AoO
-            //processes saved movement to trigger AoO when appropriate
-
             while (values.MoveNext())
             {
                 yield return values.Current;
             }
 
-            if (mover.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            //PATCH: support for Polearm Expert AoO. processes saved movement to trigger AoO when appropriate
+            // ReSharper disable once InvertIf
+            if (Gui.Battle != null &&
+                mover.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
-            }
+                var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
 
-            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
-
-            while (extraEvents.MoveNext())
-            {
-                yield return extraEvents.Current;
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
             }
         }
     }
@@ -238,7 +236,6 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 target.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                
                 foreach (var extraEvents in attacker.RulesetCharacter
                              .GetSubFeaturesByType<IPhysicalAttackTryAlterOutcome>()
                              .TakeWhile(_ =>
@@ -303,7 +300,6 @@ public static class GameLocationBattleManagerPatcher
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                 defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                
                 var defensiveEvents =
                     DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
@@ -379,7 +375,7 @@ public static class GameLocationBattleManagerPatcher
                     {
                         yield return extra.Current;
                     }
-                } 
+                }
             }
 
             //PATCH: support for `IPhysicalAttackBeforeHitConfirmedOnMe`
@@ -455,7 +451,7 @@ public static class GameLocationBattleManagerPatcher
                     yield return blockEvents.Current;
                 }
             }
-            
+
             // ReSharper disable once InvertIf
             if (Gui.Battle != null &&
                 attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
@@ -479,7 +475,6 @@ public static class GameLocationBattleManagerPatcher
                     }
                 }
             }
-
         }
     }
 
@@ -1021,7 +1016,7 @@ public static class GameLocationBattleManagerPatcher
 
             var rulesetDefender = defender.RulesetCharacter;
 
-            if (rulesetDefender is not {IsDeadOrDyingOrUnconscious: false})
+            if (rulesetDefender is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }
@@ -1227,7 +1222,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-            if (attacker.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} && __instance.Battle != null)
+            if (attacker.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished
                 foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinished>())
@@ -1239,7 +1234,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             // ReSharper disable once InvertIf
-            if (defender.RulesetCharacter is {IsDeadOrDyingOrUnconscious: false} && __instance.Battle != null)
+            if (defender.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } && __instance.Battle != null)
             {
                 //PATCH: allow custom behavior when physical attack finished on defender
                 foreach (var feature in defender.RulesetCharacter.GetSubFeaturesByType<IPhysicalAttackFinishedOnMe>())

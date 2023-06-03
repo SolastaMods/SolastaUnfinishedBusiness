@@ -82,7 +82,7 @@ public static class CharacterActionPatcher
         {
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
-            if (rulesetCharacter != null)
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
                 var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
 
@@ -97,24 +97,22 @@ public static class CharacterActionPatcher
                 yield return values.Current;
             }
 
-            if (rulesetCharacter == null)
+            if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                yield break;
-            }
+                //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
+                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
+                {
+                    __instance.ActingCharacter.UsedMainSpell = false;
+                    __instance.ActingCharacter.UsedMainCantrip = false;
+                }
 
-            //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
-            if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
-            {
-                __instance.ActingCharacter.UsedMainSpell = false;
-                __instance.ActingCharacter.UsedMainCantrip = false;
-            }
+                var onAfterActions = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
 
-            var onAfterActions = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
-
-            foreach (var onAfterAction in onAfterActions)
-            {
-                yield return onAfterAction.OnActionFinished(__instance);
+                foreach (var onAfterAction in onAfterActions)
+                {
+                    yield return onAfterAction.OnActionFinished(__instance);
+                }
             }
 
             //PATCH: support for character action tracking

@@ -477,9 +477,9 @@ internal sealed class PathOfTheElements : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side != locationCharacter.Side &&
-                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              gameLocationBattleService.IsWithin1Cell(locationCharacter, x))
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 var rulesetDefender = targetLocationCharacter.RulesetCharacter;
                 var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);

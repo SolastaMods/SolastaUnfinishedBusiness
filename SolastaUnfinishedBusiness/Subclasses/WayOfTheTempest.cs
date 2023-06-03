@@ -438,12 +438,12 @@ internal sealed class WayOfTheTempest : AbstractSubclass
 
             foreach (var defender in battleService.Battle.AllContenders
                          .Where(x =>
-                             x.RulesetCharacter is { IsDeadOrDying: false } &&
+                             x.RulesetCharacter is { IsDeadOrDyingOrUnconscious: false } &&
                              x.IsOppositeSide(attacker.Side) &&
                              x.RulesetCharacter.AllConditions
                                  .Any(y => y.ConditionDefinition == _conditionEyeOfTheStorm &&
                                            y.SourceGuid == rulesetCharacter.Guid))
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 EffectHelpers.StartVisualEffect(
                     attacker, defender, PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);

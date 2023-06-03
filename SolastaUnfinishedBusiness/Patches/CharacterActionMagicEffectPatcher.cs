@@ -332,15 +332,10 @@ public static class CharacterActionMagicEffectPatcher
                               x.RulesetCharacter.HasAnyConditionOfType(RuleDefinitions
                                   .ConditionMindControlledByCaster)) ||
                              x.Side == attacker.Side)
-                         .ToList())
+                         .ToList()) // avoid changing enumerator
             {
                 var allyFeatures =
-                    gameLocationAlly.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
-
-                if (allyFeatures == null)
-                {
-                    continue;
-                }
+                    gameLocationAlly.RulesetCharacter.GetSubFeaturesByType<IReactToAttackOnEnemyFinished>();
 
                 foreach (var feature in allyFeatures)
                 {
