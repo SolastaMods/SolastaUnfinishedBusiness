@@ -30,7 +30,7 @@ public static class CharacterActionAttackPatcher
             CharacterActionParams actionParams = null;
             RulesetAttackMode attackMode = null;
             ActionModifier actionModifier = null;
-            RollOutcome rollOutcome = RollOutcome.Neutral;
+            var rollOutcome = RollOutcome.Neutral;
 
             void AttackImpactStartHandler(
                 GameLocationCharacter attacker,

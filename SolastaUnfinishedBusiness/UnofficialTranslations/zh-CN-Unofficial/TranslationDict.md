@@ -1,6 +1,5 @@
 # 翻译词典 - Translation Dictionary
 
-
 ## 地名
 
 * Manacalon - 魔纳卡隆
@@ -65,4 +64,5 @@
 * Einar - 埃纳尔
 
 ## 口语
+
 * Stay in the light - 与光同行
