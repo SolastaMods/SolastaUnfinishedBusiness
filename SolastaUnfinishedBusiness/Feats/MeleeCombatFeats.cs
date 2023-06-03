@@ -510,7 +510,7 @@ internal static class MeleeCombatFeats
         return feat;
     }
 
-    private sealed class AttackComputeModifierFeatBladeMastery : IAttackComputeModifier
+    private sealed class AttackComputeModifierFeatBladeMastery : IPhysicalAttackInitiated
     {
         private readonly FeatDefinition _featDefinition;
         private readonly WeaponTypeDefinition[] _weaponTypeDefinition;
@@ -522,31 +522,23 @@ internal static class MeleeCombatFeats
             _weaponTypeDefinition = weaponTypeDefinition;
         }
 
-        public void OnAttackComputeModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
         {
-            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
-                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
+            if ((action.ActionId == ActionDefinitions.Id.SwiftRetaliation ||
+                 action.ActionType == ActionDefinitions.ActionType.Reaction) &&
+                ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition)(attackerAttackMode, null, null))
             {
-                return;
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.Feat, _featDefinition.Name, _featDefinition));
             }
 
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction)
-            {
-                return;
-            }
-
-            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition)(attackMode, null, null))
-            {
-                return;
-            }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Feat, _featDefinition.Name, _featDefinition));
+            yield break;
         }
     }
 
@@ -1183,7 +1175,7 @@ internal static class MeleeCombatFeats
         feat.SetCustomSubFeatures(
             new AttackEffectAfterDamageFeatFellHanded(fellHandedAdvantage, weaponTypes),
             new ModifyWeaponAttackModeTypeFilter(feat, weaponTypes));
-        
+
         return feat;
     }
 
