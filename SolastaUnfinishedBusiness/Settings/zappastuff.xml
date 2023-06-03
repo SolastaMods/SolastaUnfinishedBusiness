@@ -107,6 +107,7 @@
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
     <DisableUpdateMessage>false</DisableUpdateMessage>
+    <DisableUnofficialTranslationsMessage>true</DisableUnofficialTranslationsMessage>
     <EnableBetaContent>true</EnableBetaContent>
     <EnablePcgRandom>true</EnablePcgRandom>
     <EnableSaveByLocation>true</EnableSaveByLocation>
@@ -165,7 +166,7 @@
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
-    <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>false
+    <AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>true
     </AttackersWithDarkvisionHaveAdvantageOverDefendersWithout>
     <AllowTargetingSelectionWhenCastingChainLightningSpell>true</AllowTargetingSelectionWhenCastingChainLightningSpell>
     <RemoveHumanoidFilterOnHideousLaughter>true</RemoveHumanoidFilterOnHideousLaughter>
@@ -177,11 +178,13 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
+    <EnableFlankingRules>true</EnableFlankingRules>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
     <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
     <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
-    <IgnoreHandXbowFreeHandRequirements>false</IgnoreHandXbowFreeHandRequirements>
+    <IgnoreHandXbowFreeHandRequirements>true</IgnoreHandXbowFreeHandRequirements>
+    <EnableCantripsTriggeringOnWarMagic>false</EnableCantripsTriggeringOnWarMagic>
     <FullyControlConjurations>true</FullyControlConjurations>
     <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
     <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
@@ -189,7 +192,7 @@
     <EnableCharactersOnFireToEmitLight>true</EnableCharactersOnFireToEmitLight>
     <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
     <CriticalHitModeAllies>2</CriticalHitModeAllies>
-    <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
+    <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
     <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
     <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
     <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
@@ -200,6 +203,7 @@
     <ShowCraftingRecipeInDetailedTooltips>true</ShowCraftingRecipeInDetailedTooltips>
     <RecipeCost>200</RecipeCost>
     <TotalCraftingTimeModifier>0</TotalCraftingTimeModifier>
+    <DontDisplayHelmets>false</DontDisplayHelmets>
     <SetBeltOfDwarvenKindBeardChances>50</SetBeltOfDwarvenKindBeardChances>
     <EmpressGarbAppearanceIndex>0</EmpressGarbAppearanceIndex>
     <CraftingInStore>
@@ -1096,6 +1100,7 @@
     <HideMonsterHitPoints>true</HideMonsterHitPoints>
     <RemoveBugVisualModels>false</RemoveBugVisualModels>
     <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
+    <EnableLoggingInvalidReferencesInUserCampaigns>false</EnableLoggingInvalidReferencesInUserCampaigns>
     <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
     <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
     <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>
