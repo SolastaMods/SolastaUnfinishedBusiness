@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Grupos de características</color>
 ModUi/&FeatGroupsHelp=. Cada grupo es una consolidación de hazañas similares <i><color=#F0DAA0>[es decir, credos, estilos de lucha, metamagia, etc.]</color></i>\n. Las dotes en estos grupos ya no serán visibles directamente en la etapa de selección de competencia\n. El grupo, cuando se selecciona, los ofrece en una lista desplegable para despejar la pantalla del juego.
 ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
+ModUi/&FixCJKWrappingError=Solucione un error de ajuste en el texto CJK <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>

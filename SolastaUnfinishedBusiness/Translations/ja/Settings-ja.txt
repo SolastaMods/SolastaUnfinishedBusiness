@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>特技グループ</color>
 ModUi/&FeatGroupsHelp=。各グループは、同様の特技<i><color=#F0DAA0>[例: 信条、戦闘スタイル、メタマジックなど]</color></i>\n を統合したものです。これらのグループの特技は、熟練度選択ステージで直接表示されなくなります\n。グループを選択すると、ゲーム画面を整理するためにドロップダウン リストにグループが表示されます。
 ModUi/&Feats=<color=#F0DAA0>特技</color>
 ModUi/&FightingStyles=<color=#F0DAA0>戦闘スタイル</color>
+ModUi/&FixCJKWrappingError=CJK テキストの折り返しエラーを修正<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチブラスト</color>の範囲を<i><color=#F0DAA0>[16ではなく]</color></i> 24に変更します。
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤー ゲーム中にフォーメーションを変更することはできません...</color>

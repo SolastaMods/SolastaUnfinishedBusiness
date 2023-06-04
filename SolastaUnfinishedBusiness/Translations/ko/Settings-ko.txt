@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>피트 그룹</color>
 ModUi/&FeatGroupsHelp=. 각 그룹은 유사한 업적 <i><color=#F0DAA0>[즉: 신조, 격투 스타일, 메타마법 등]</color></i>\n의 통합입니다. 이 그룹의 위업은 숙련도 선택 단계에서 더 이상 직접 볼 수 없습니다\n. 그룹을 선택하면 게임 화면을 깔끔하게 정리할 수 있도록 드롭다운 목록에 제공됩니다.
 ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 스타일</color>
+ModUi/&FixCJKWrappingError=CJK 텍스트의 래핑 오류 수정 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>엘드리치 폭발</color> 범위를 24 <i><color=#F0DAA0>[16 대신]</color></i>로 변경
 ModUi/&Formation=<color=#F0DAA0>형성:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포메이션을 변경할 수 없습니다...</color>
