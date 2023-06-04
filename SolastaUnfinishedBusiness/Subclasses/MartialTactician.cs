@@ -25,14 +25,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
     internal MartialTactician()
     {
-        // BACKWARD COMPATIBILITY
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolGambitLearn1")
-            .SetGuiPresentationNoContent(true)
-            .Setup(InvocationPoolTypeCustom.Pools.Gambit)
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         var unlearn = BuildUnlearn();
 
         Subclass = CharacterSubclassDefinitionBuilder
