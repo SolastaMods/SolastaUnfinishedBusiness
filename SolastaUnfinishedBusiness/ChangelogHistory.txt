@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.5.49.5:
+
+- fixed engine limitation not allowing upcasting summons from war lists [College of Life / Dead Master anyone?]
+- fixed War Magic not hiding power on hero action panel [it was left as a power for backward compatibility]
+
 1.5.49.4:
 
 - fixed additional sources of null exceptions all over the code base [aksha fight, attacks of opportunity, etc.]
