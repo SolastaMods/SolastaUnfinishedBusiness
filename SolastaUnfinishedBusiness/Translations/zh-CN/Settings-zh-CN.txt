@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=禁用此mod提供的职业专长的�
 ModUi/&DisableRacePrerequisitesOnModFeats=禁用此mod提供的专长的种族前提条件
 ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>强化黑暗视觉</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=禁用非官方翻译支持以加快启动速度并改善内存使用<i><color=#F0DAA0>[除非我使用意大利语、日语、韩语或西班牙语]</color></i>
+ModUi/&DisableUnofficialTranslations=禁用非官方翻译支持以加快启动速度并改善内存使用<i><color=#F0DAA0>[除非我使用意大利语、日语、韩语或西班牙语]</color></i>
 ModUi/&DisableUpdateMessage=禁用更新消息<i><color=#F0DAA0>[你确定要服下这个蓝色药丸，逃避真实吗]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+在法术选择而非角色面板上显示<color=#D89555>邪术士</color>契约槽位</i>
@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>专长组</color>
 ModUi/&FeatGroupsHelp=.每个组都是相似专长的综合<i><color=#F0DAA0>[即：信条、战斗风格、超魔等]</color></i>\n。这些组中的专长将不再直接显示在熟练程度选择阶段\n。该组在被选中后会在下拉列表中提供它们以供选择。
 ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
+ModUi/&FixAsianLanguagesTextWrap=修复亚洲语言的游戏 UI 文本换行<b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&FixEldritchBlastRange=将<color=#D89555>魔能爆</color>范围更改为24<i><color=#F0DAA0>[而不是16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>
 ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型...</color>

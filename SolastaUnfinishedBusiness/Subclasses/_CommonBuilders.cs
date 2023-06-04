@@ -82,11 +82,13 @@ internal static class CommonBuilders
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
             .AddToDB();
 
-    // kept as a power for backward compatibility
+    // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
     internal static readonly FeatureDefinitionPower PowerCasterFightingWarMagic = FeatureDefinitionPowerBuilder
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
-        .SetUsesFixed(ActivationTime.BonusAction)
+        // trick to keep it hidden on UI
+        .SetUsesFixed(ActivationTime.Reaction)
+        .SetReactionContext(ExtraReactionContext.Custom)
         .SetCustomSubFeatures(
             Hidden.Marker,
             new MagicalAttackInitiatedCasterFightingWarMagic(

@@ -22,7 +22,7 @@
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageAcid",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": "ClassLevel",
+  "damageAdvancement": 9000,
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",

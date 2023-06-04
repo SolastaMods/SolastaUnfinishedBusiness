@@ -154,7 +154,7 @@ internal static class InventorInfusions
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
-                    .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 3)
+                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 3)
                     .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());
@@ -258,6 +258,7 @@ internal static class InventorInfusions
                     .SetCustomSubFeatures(MagicalDamage)
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D4, 1)
+                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 6, 3)
                     .SetSpecificDamageType(element)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());

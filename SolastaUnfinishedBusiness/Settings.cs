@@ -71,7 +71,8 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool DisableUpdateMessage { get; set; }
-    public bool DisableUnofficialTranslationsMessage { get; set; }
+    public bool DisableUnofficialTranslations { get; set; }
+    public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool EnableBetaContent { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool EnableSaveByLocation { get; set; }

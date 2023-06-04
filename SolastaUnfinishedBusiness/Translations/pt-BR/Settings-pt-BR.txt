@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível
 ModUi/&DisableRacePrerequisitesOnModFeats=Desabilite os pré-requisitos de corrida em talentos fornecidos por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=Desative o suporte a traduções não oficiais para acelerar a inicialização e melhorar o uso da memória <i><color=#F0DAA0>[a menos que eu fale italiano, japonês, coreano ou espanhol]</color></i>
+ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar a inicialização e melhorar o uso da memória <i><color=#F0DAA0>[a menos que eu fale italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0DAA0>[usuários da pílula azul, esta é sua última chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Grupos de talentos</color>
 ModUi/&FeatGroupsHelp=. Cada grupo é uma consolidação de talentos semelhantes <i><color=#F0DAA0>[ou seja: credos, estilos de luta, metamagia, etc]</color></i>\n. Os talentos desses grupos não serão mais visíveis diretamente no estágio de seleção de proficiência\n. O grupo, quando selecionado, os oferece em uma lista suspensa para desorganizar a tela do jogo
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
+ModUi/&FixAsianLanguagesTextWrap=Correção do texto da IU do jogo em idiomas asiáticos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador...</color>

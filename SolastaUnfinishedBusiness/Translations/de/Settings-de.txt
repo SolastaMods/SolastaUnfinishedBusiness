@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzu
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für die von diesem Mod bereitgestellten Leistungen
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D89555>Superior Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Start zu beschleunigen und die Speichernutzung zu verbessern <i><color=#F0DAA0>[es sei denn, ich spreche Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
+ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Start zu beschleunigen und die Speichernutzung zu verbessern <i><color=#F0DAA0>[es sei denn, ich spreche Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
 ModUi/&DisableUpdateMessage=Deaktivieren Sie Aktualisierungsnachrichten <i><color=#F0DAA0>[Benutzer der blauen Pille, dies ist Ihre letzte Chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Feature-Gruppen</color>
 ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Leistungen <i><color=#F0DAA0>[d. h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n. Leistungen in diesen Gruppen werden in der Kompetenzauswahlphase nicht mehr direkt sichtbar sein\n. Wenn die Gruppe ausgewählt ist, werden sie in einer Dropdown-Liste angezeigt, um den Spielbildschirm übersichtlicher zu gestalten
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
+ModUi/&FixAsianLanguagesTextWrap=Korrigieren Sie den Textumbruch in der Spiel-Benutzeroberfläche für asiatische Sprachen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&FixEldritchBlastRange=Ändern Sie die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Sie können Ihre Formation während eines Mehrspielerspiels nicht ändern...</color>

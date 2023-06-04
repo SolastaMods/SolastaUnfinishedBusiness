@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de niveau
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=Désactivez la prise en charge des traductions non officielles pour accélérer le démarrage et améliorer l'utilisation de la mémoire <i><color=#F0DAA0>[sauf si je parle italien, japonais, coréen ou espagnol]</color></i>
+ModUi/&DisableUnofficialTranslations=Désactivez la prise en charge des traductions non officielles pour accélérer le démarrage et améliorer l'utilisation de la mémoire <i><color=#F0DAA0>[sauf si je parle italien, japonais, coréen ou espagnol]</color></i>
 ModUi/&DisableUpdateMessage=Désactiver les messages de mise à jour <i><color=#F0DAA0>[utilisateurs de la pilule bleue, c'est votre dernière chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte <color=#D89555>Warlock</color> lors de la sélection de sorts au lieu du panneau de personnage</i>
@@ -125,6 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Groupes de fonctions</color>
 ModUi/&FeatGroupsHelp=. Chaque groupe est une consolidation d'exploits similaires <i><color=#F0DAA0>[c'est-à-dire : croyances, styles de combat, métamagie, etc.]</color></i>\n. Les exploits de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n. Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour désencombrer l'écran de jeu
 ModUi/&Feats=<color=#F0DAA0>Exploits</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
+ModUi/&FixAsianLanguagesTextWrap=Correction de l'habillage du texte de l'interface utilisateur du jeu dans les langues asiatiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>

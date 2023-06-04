@@ -20,16 +20,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierArcaneFighterIntBonus")
-            .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
-            .SetMagicalWeapon()
-            .SetAdditionalAttackTag(TagsDefinitions.Magical)
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         // LEFT AS A POWER FOR BACKWARD COMPATIBILITY
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")

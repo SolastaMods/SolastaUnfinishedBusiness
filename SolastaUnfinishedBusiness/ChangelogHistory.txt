@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.5.49.5:
+
+- added setting "Fix Asian languages' game UI text wrap" by @magicSword
+- changed major and minor elemental infusions to scale with character level
+- fixed war lists not upcasting summons [College of Life / Dead Master build]
+- fixed War Magic not hiding power on hero action panel
+
 1.5.49.4:
 
 - fixed additional sources of null exceptions all over the code base [aksha fight, attacks of opportunity, etc.]
