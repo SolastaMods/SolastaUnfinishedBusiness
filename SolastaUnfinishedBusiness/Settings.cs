@@ -272,6 +272,7 @@ public class Settings : UnityModManager.ModSettings
     // Campaigns and Locations
     public bool DontFollowCharacterInBattle { get; set; }
     public int DontFollowMargin { get; set; } = 5;
+    public bool FixCJKWrappingError { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }
