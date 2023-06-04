@@ -478,18 +478,6 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
-        // BACKWARD COMPATIBILITY
-        _ = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        _ = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-        // END BACKWARD COMPATIBILITY
-
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
