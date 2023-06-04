@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos d
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las proezas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=Desactive la compatibilidad con traducciones no oficiales para acelerar el arranque y mejorar el uso de la memoria <i><color=#F0DAA0>[a menos que hable italiano, japonés, coreano o español]</color></i>
+ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el arranque y mejorar el uso de la memoria <i><color=#F0DAA0>[a menos que hable italiano, japonés, coreano o español]</color></i>
 ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><color=#F0DAA0>[usuarios de la píldora azul, esta es su última oportunidad]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
@@ -125,7 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Grupos de características</color>
 ModUi/&FeatGroupsHelp=. Cada grupo es una consolidación de hazañas similares <i><color=#F0DAA0>[es decir, credos, estilos de lucha, metamagia, etc.]</color></i>\n. Las dotes en estos grupos ya no serán visibles directamente en la etapa de selección de competencia\n. El grupo, cuando se selecciona, los ofrece en una lista desplegable para despejar la pantalla del juego.
 ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
-ModUi/&FixCJKWrappingError=Solucione un error de ajuste en el texto CJK <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&FixAsianLanguagesTextWrap=Corrige el ajuste de texto de la interfaz de usuario del juego de los idiomas asiáticos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>

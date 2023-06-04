@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供され�
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される特技のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>闇の視覚の感覚</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>優れた感覚ダークビジョン</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=非公式翻訳サポートを無効にして、起動を高速化し、メモリ使用量を改善します<i><color=#F0DAA0>[イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
+ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして、起動を高速化し、メモリ使用量を改善します<i><color=#F0DAA0>[イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
 ModUi/&DisableUpdateMessage=アップデート メッセージを無効にする <i><color=#F0DAA0>[青薬をお使いの方、これが最後のチャンスです]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
@@ -125,7 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>特技グループ</color>
 ModUi/&FeatGroupsHelp=。各グループは、同様の特技<i><color=#F0DAA0>[例: 信条、戦闘スタイル、メタマジックなど]</color></i>\n を統合したものです。これらのグループの特技は、熟練度選択ステージで直接表示されなくなります\n。グループを選択すると、ゲーム画面を整理するためにドロップダウン リストにグループが表示されます。
 ModUi/&Feats=<color=#F0DAA0>特技</color>
 ModUi/&FightingStyles=<color=#F0DAA0>戦闘スタイル</color>
-ModUi/&FixCJKWrappingError=CJK テキストの折り返しエラーを修正<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
+ModUi/&FixAsianLanguagesTextWrap=アジア言語のゲーム UI テキストの回り込みを修正 <b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>エルドリッチブラスト</color>の範囲を<i><color=#F0DAA0>[16ではなく]</color></i> 24に変更します。
 ModUi/&Formation=<color=#F0DAA0>フォーメーション:</color>
 ModUi/&FormationError=<color=#C04040E0>マルチプレイヤー ゲーム中にフォーメーションを変更することはできません...</color>

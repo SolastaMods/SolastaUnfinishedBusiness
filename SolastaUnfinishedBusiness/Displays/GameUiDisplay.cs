@@ -140,13 +140,6 @@ internal static class GameUiDisplay
                 Main.Settings.DontFollowMargin = intValue;
             }
         }
-        
-        UI.Label();
-        toggle = Main.Settings.FixCJKWrappingError;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixCJKWrappingError"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixCJKWrappingError = toggle;
-        }
 
         UI.Label();
 

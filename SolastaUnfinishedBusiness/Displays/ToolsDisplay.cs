@@ -55,10 +55,20 @@ internal static class ToolsDisplay
             Main.Settings.DisableUpdateMessage = toggle;
         }
 
-        toggle = Main.Settings.DisableUnofficialTranslationsMessage;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslationsMessage"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.DisableUnofficialTranslations;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableUnofficialTranslations"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.DisableUnofficialTranslationsMessage = toggle;
+            Main.Settings.DisableUnofficialTranslations = toggle;
+            Main.Settings.FixAsianLanguagesTextWrap = !toggle;
+        }
+
+        if (!Main.Settings.DisableUnofficialTranslations)
+        {
+            toggle = Main.Settings.FixAsianLanguagesTextWrap;
+            if (UI.Toggle(Gui.Localize("ModUi/&FixAsianLanguagesTextWrap"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.FixAsianLanguagesTextWrap = toggle;
+            }
         }
 
         toggle = Main.Settings.EnableBetaContent;

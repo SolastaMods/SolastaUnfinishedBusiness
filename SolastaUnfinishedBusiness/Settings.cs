@@ -71,7 +71,8 @@ public class Settings : UnityModManager.ModSettings
 
     // General
     public bool DisableUpdateMessage { get; set; }
-    public bool DisableUnofficialTranslationsMessage { get; set; }
+    public bool DisableUnofficialTranslations { get; set; }
+    public bool FixAsianLanguagesTextWrap { get; set; } = true;
     public bool EnableBetaContent { get; set; }
     public bool EnablePcgRandom { get; set; }
     public bool EnableSaveByLocation { get; set; }
@@ -272,7 +273,6 @@ public class Settings : UnityModManager.ModSettings
     // Campaigns and Locations
     public bool DontFollowCharacterInBattle { get; set; }
     public int DontFollowMargin { get; set; } = 5;
-    public bool FixCJKWrappingError { get; set; }
     public bool ShowChannelDivinityOnPortrait { get; set; }
     public bool EnableStatsOnHeroTooltip { get; set; }
     public bool EnableAdditionalBackstoryDisplay { get; set; }

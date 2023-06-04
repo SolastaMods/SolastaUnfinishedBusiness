@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=이 모드에서 제공하는 재주�
 ModUi/&DisableRacePrerequisitesOnModFeats=이 모드에서 제공하는 업적에 대한 레이스 전제 조건 비활성화
 ModUi/&DisableSenseDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>다크 비전 감지</color> 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=플레이 가능한 모든 종족에서 <color=#D89555>Superior Sense Dark Vision</color> 비활성화 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=부팅 속도를 높이고 메모리 사용량을 개선하기 위해 비공식 번역 지원을 비활성화합니다. <i><color=#F0DAA0>[이탈리아어, 일본어, 한국어 또는 스페인어를 사용하지 않는 한]</color></i>
+ModUi/&DisableUnofficialTranslations=부팅 속도를 높이고 메모리 사용량을 개선하기 위해 비공식 번역 지원을 비활성화합니다. <i><color=#F0DAA0>[이탈리아어, 일본어, 한국어 또는 스페인어를 사용하지 않는 한]</color></i>
 ModUi/&DisableUpdateMessage=업데이트 메시지 비활성화 <i><color=#F0DAA0>[파란약 사용자, 이것이 마지막 기회입니다]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 레벨 업 중 다른 클래스의 모든 알려진 주문 표시</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 캐릭터 패널 대신 주문 선택에 <color=#D89555>워록</color> 협정 슬롯 표시</i>
@@ -125,7 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>피트 그룹</color>
 ModUi/&FeatGroupsHelp=. 각 그룹은 유사한 업적 <i><color=#F0DAA0>[즉: 신조, 격투 스타일, 메타마법 등]</color></i>\n의 통합입니다. 이 그룹의 위업은 숙련도 선택 단계에서 더 이상 직접 볼 수 없습니다\n. 그룹을 선택하면 게임 화면을 깔끔하게 정리할 수 있도록 드롭다운 목록에 제공됩니다.
 ModUi/&Feats=<color=#F0DAA0>재주</color>
 ModUi/&FightingStyles=<color=#F0DAA0>전투 스타일</color>
-ModUi/&FixCJKWrappingError=CJK 텍스트의 래핑 오류 수정 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
+ModUi/&FixAsianLanguagesTextWrap=아시아 언어의 게임 UI 텍스트 줄 바꿈 수정 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&FixEldritchBlastRange=<color=#D89555>엘드리치 폭발</color> 범위를 24 <i><color=#F0DAA0>[16 대신]</color></i>로 변경
 ModUi/&Formation=<color=#F0DAA0>형성:</color>
 ModUi/&FormationError=<color=#C04040E0>멀티플레이어 게임 중에는 포메이션을 변경할 수 없습니다...</color>

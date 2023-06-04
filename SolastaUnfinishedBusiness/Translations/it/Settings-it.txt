@@ -60,7 +60,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello 
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Superior Sense Dark Vision</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableUnofficialTranslationsMessage=Disabilita il supporto delle traduzioni non ufficiali per velocizzare l'avvio e migliorare l'utilizzo della memoria <i><color=#F0DAA0>[a meno che non parli italiano, giapponese, coreano o spagnolo]</color></i>
+ModUi/&DisableUnofficialTranslations=Disabilita il supporto delle traduzioni non ufficiali per velocizzare l'avvio e migliorare l'utilizzo della memoria <i><color=#F0DAA0>[a meno che non parli italiano, giapponese, coreano o spagnolo]</color></i>
 ModUi/&DisableUpdateMessage=Disabilita i messaggi di aggiornamento <i><color=#F0DAA0>[utenti della pillola blu, questa è la tua ultima possibilità]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
@@ -125,7 +125,7 @@ ModUi/&FeatGroups=<color=#F0DAA0>Gruppi di talenti</color>
 ModUi/&FeatGroupsHelp=. Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credi, stili di combattimento, metamagia, ecc.]</color></i>\n. I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n. Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
 ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
-ModUi/&FixCJKWrappingError=Correggi un errore di a capo nel testo CJK <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&FixAsianLanguagesTextWrap=Risolto il problema con il testo dell'interfaccia utente del gioco in lingue asiatiche <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer...</color>

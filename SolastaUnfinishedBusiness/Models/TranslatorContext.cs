@@ -42,14 +42,31 @@ internal static class TranslatorContext
 
     internal static readonly List<LanguageEntry> Languages = new();
 
+    private static readonly Regex RegexHasCJK = new(@"\p{IsCJKUnifiedIdeographs}", RegexOptions.Compiled);
+
     /// <summary>
     ///     Maps unofficial language codes to official language codes.
     /// </summary>
     private static Dictionary<string, string> SourceCodeCache { get; } = new();
 
+    public static bool IsCJKChar(char c)
+    {
+        return c >= 0x4E00 && c <= 0x9FA5;
+    }
+
+    public static bool HasCJKChar(string s)
+    {
+        return s.Length > 0 && RegexHasCJK.IsMatch(s);
+    }
+
+    public static bool HasCJKCharQuick(string s)
+    {
+        return s.Length > 0 && IsCJKChar(s[0]);
+    }
+
     internal static void EarlyLoad()
     {
-        if (Main.Settings.DisableUnofficialTranslationsMessage)
+        if (Main.Settings.DisableUnofficialTranslations)
         {
             Main.Info("Unofficial translations support disabled.");
 
