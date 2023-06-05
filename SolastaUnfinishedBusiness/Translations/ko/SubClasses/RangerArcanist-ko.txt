@@ -11,6 +11,6 @@ Feature/&MagicAffinityRangerArcanistTitle=아케인 컴뱃 트레이닝
 Feature/&PowerArcanistArcanePulseDescription=7레벨부터 시작하여 30피트 범위에서 신비한 에너지를 분출할 수 있습니다. 충격 지점에서 15피트 이내에 있는 적대적인 생명체는 4d8 피해를 입고 비전술사의 표식을 얻습니다. 긴 휴식당 지혜 수정치만큼 이 능력을 여러 번 사용할 수 있습니다. 15레벨에서 비전 파동의 피해가 8d8로 증가합니다.
 Feature/&PowerArcanistArcanePulseTitle=신비한 펄스
 Feedback/&AdditionalDamageArcanistMarkFormat=아케이니스트의 마크!
-Feedback/&AdditionalDamageArcanistMarkLine=비전술사의 표식이 폭발하여 대상에게 추가 피해를 입힙니다!
+Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's Mark가 폭발하고 {1}에 추가 피해를 +{2} 입힙니다!
 Subclass/&RangerArcanistDescription=Arcanist는 Ranger 기술과 신비한 능력을 결합합니다. 그들의 무기는 Arcanist's Mark로 상대방을 괴롭힐 수 있으며 레인저 주문 레퍼토리의 일부로 일부 마법사 주문을 시전하는 방법을 배웠습니다.
 Subclass/&RangerArcanistTitle=비전술사

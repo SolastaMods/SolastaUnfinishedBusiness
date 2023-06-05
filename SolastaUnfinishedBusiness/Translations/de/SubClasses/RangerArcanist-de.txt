@@ -11,6 +11,6 @@ Feature/&MagicAffinityRangerArcanistTitle=Arkanes Kampftraining
 Feature/&PowerArcanistArcanePulseDescription=Ab der 7. Stufe können Sie einen Ausbruch arkaner Energie in einer Entfernung von 9 m auslösen. Feindliche Kreaturen im Umkreis von 4,5 m um den Einschlagpunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft nutzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Impulses auf 8W8.
 Feature/&PowerArcanistArcanePulseTitle=Arkaner Puls
 Feedback/&AdditionalDamageArcanistMarkFormat=Zeichen des Arkanisten!
-Feedback/&AdditionalDamageArcanistMarkLine=Das Zeichen des Arkanisten explodiert und fügt dem Ziel zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageArcanistMarkLine=Das Zeichen des Arkanisten explodiert und fügt dem {1} zusätzlichen Schaden von +{2} zu!
 Subclass/&RangerArcanistDescription=Der Arkanist verbindet seine Ranger-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Mal des Arkanisten belasten und sie haben gelernt, einige Zaubererzauber als Teil ihres Ranger-Zauberrepertoires zu wirken.
 Subclass/&RangerArcanistTitle=Arkanist

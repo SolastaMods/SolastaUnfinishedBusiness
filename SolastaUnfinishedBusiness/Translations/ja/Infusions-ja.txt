@@ -1,6 +1,6 @@
 Feature/&AdditionalDamageInfusionMajorElementalDescription=この武器による攻撃は追加の 1d4 {0} ダメージを与える。
 Feature/&AdditionalDamageInfusionMajorElementalTitle=メジャーエレメンタル[{0}]
-Feature/&AdditionalDamageInfusionMinorElementalDescription=ターンに一度、あなたがこの武器でクリーチャーを攻撃したとき、追加の 1d6 {0} ダメージを与える。このダメージはレベル 9 で 2D6、レベル 15 で 3D6 に増加します。
+Feature/&AdditionalDamageInfusionMinorElementalDescription=ターンに一度、あなたがこの武器でクリーチャーを攻撃したとき、追加の 1d6 {0} ダメージを与える。
 Feature/&AdditionalDamageInfusionMinorElementalTitle=マイナーエレメンタル[{0}]
 Feature/&InfusionBloodyDescription=ターンに 1 回、この武器で急所攻撃と同じ条件を満たす攻撃をヒットすると、追加の 2d6 ダメージを与えます。\n追加のダメージ注入は武器ごとに 1 回だけ有効です。
 Feature/&InfusionBloodyTitle=血まみれの

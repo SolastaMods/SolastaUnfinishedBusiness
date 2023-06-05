@@ -1,6 +1,6 @@
 Feature/&AdditionalDamageInfusionMajorElementalDescription=이 무기로 이루어진 공격은 추가 1d4 {0} 피해를 입힙니다.
 Feature/&AdditionalDamageInfusionMajorElementalTitle=주요 정령 [{0}]
-Feature/&AdditionalDamageInfusionMinorElementalDescription=턴당 한 번, 이 무기로 생물을 공격할 때 추가로 1d6 {0} 피해를 입힙니다. 이 손상은 레벨 9에서 2D6, 레벨 15에서 3D6으로 증가합니다.
+Feature/&AdditionalDamageInfusionMinorElementalDescription=턴당 한 번, 이 무기로 생물을 공격할 때 추가로 1d6 {0} 피해를 입힙니다.
 Feature/&AdditionalDamageInfusionMinorElementalTitle=작은 정령 [{0}]
 Feature/&InfusionBloodyDescription=턴당 한 번, 은밀한 공격과 동일한 요구 사항을 충족하는 이 무기로 공격을 명중하면 추가 2d6 피해를 입힙니다.\n무기당 추가 피해 주입은 한 번만 활성화할 수 있습니다.
 Feature/&InfusionBloodyTitle=피의
