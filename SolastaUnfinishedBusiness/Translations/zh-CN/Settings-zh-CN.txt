@@ -224,7 +224,7 @@ ModUi/&Tools=工具
 ModUi/&TotalCraftingTimeModifier=<color=white>减少制作时间</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>一级授予的专长总数</color>
 ModUi/&Translate=翻译
-ModUi/&TranslateCancel=在{1}取消{0}
+ModUi/&TranslateCancel=取消翻译 {0} 进度 {1}
 ModUi/&Translations=翻译
 ModUi/&UnleashEnemyAsNpc=允许在NPC小工具上选择怪物
 ModUi/&UnleashNpcAsEnemy=解锁怪物选择
