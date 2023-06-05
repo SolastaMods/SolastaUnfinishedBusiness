@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=You have resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
 Condition/&ConditionBrainBulwarkTitle=Brain Bulwark
-Feature/&AdditionalDamageStaggeringSmiteDescription=You're hit by psychic damage.
-Feature/&AdditionalDamageStaggeringSmiteTitle=Staggering Smite
+Condition/&ConditionStaggeringSmiteEnemyDescription=You're hit by psychic damage.
+Condition/&ConditionStaggeringSmiteEnemyTitle=Staggering Smite
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
 Spell/&BrainBulwarkDescription=For the duration, you or one willing creature you can see within range has resistance to psychic damage, as well as Immunity to the Charmed, Frightened, Fear, Mind dominated and Mind controlled conditions.
