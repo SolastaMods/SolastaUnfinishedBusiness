@@ -1,5 +1,20 @@
 ﻿CHANGES:
 
+1.5.49.6:
+
+- added hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn [TPAOBAP]
+- fixed custom weapons not getting scale applied [TPAOBAP]
+- fixed Fairy's flight power still visible when active [TPAOBAP]
+- fixed patch to allow upcasting summons from spells on war lists [Zappastuff]
+- fixed Potent Spell caster feat group to require level 4 [TPAOBAP]
+- fixed Sentinel reaction not processing correctly after protection changes [TPAOBAP]
+- improved Chain Master abilities to also work off combat [HIEROT]
+- improved Path of the Yeoman to validate long bow on attack mode instead of wielded [Zappastuff]
+- removed damage dice progression from major and minor elemental infusions [TPAOBAP]
+- removed "removed identification requirements" setting in favor of vanilla one [Zappastuff]
+- updated Arcanist Mark's detonation text to include target and damage value [TPAOBAP]
+- updated campaigns translator to consider new collections added to DM on POI DLC [MagicSkySword]
+
 1.5.49.5:
 
 - added setting "Fix Asian languages' game UI text wrap" by @magicSword
