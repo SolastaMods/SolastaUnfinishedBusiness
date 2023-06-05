@@ -72,10 +72,7 @@ public static class RulesetEffectPowerPatcher
                 return;
             }
 
-            if (hero.ClassesAndLevels.TryGetValue(holder.Class, out var level))
-            {
-                __result = level;
-            }
+            __result = hero.GetClassLevel(holder.Class);
         }
     }
 

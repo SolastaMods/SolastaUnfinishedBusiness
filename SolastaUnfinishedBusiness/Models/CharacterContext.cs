@@ -227,7 +227,7 @@ internal static class CharacterContext
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MonkWeaponSpecialization)
                 .SetGrantedFeature(featureMonkWeaponSpecialization)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
     }
@@ -632,7 +632,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -675,7 +675,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
                 .SetGrantedFeature(featureDefinitionPreferredEnemy)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -742,7 +742,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
                 .SetGrantedFeature(featureDefinitionPower)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -783,7 +783,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, elementalFuriesSprites[name])
                 .SetPoolType(InvocationPoolTypeCustom.Pools.PathOfTheElementsElementalFuryChoiceChoice)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -835,7 +835,7 @@ internal static class CharacterContext
                     sprite)
                 .SetPoolType(invocationPoolTypeCustom)
                 .SetGrantedFeature(featureDefinitionAncestry)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 

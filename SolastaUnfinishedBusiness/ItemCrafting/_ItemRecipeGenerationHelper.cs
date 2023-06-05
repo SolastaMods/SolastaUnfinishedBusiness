@@ -55,7 +55,10 @@ internal static class ItemRecipeGenerationHelper
                 var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
                 var ingredients = new List<ItemDefinition> { primedItem };
 
-                newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures);
+                if (itemCollection.CustomSubFeatures != null)
+                {
+                    newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures.ToArray());
+                }
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
                     .Where(ingredient =>

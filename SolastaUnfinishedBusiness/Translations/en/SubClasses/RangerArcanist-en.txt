@@ -11,6 +11,6 @@ Feature/&MagicAffinityRangerArcanistTitle=Arcane Combat Training
 Feature/&PowerArcanistArcanePulseDescription=Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 ft. Hostile creatures within 15 ft of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 Feature/&PowerArcanistArcanePulseTitle=Arcane Pulse
 Feedback/&AdditionalDamageArcanistMarkFormat=Arcanist's Mark!
-Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's Mark detonates and deals extra damage to the target!
+Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's Mark detonates and deals extra +{2} damage to the {1}!
 Subclass/&RangerArcanistDescription=The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 Subclass/&RangerArcanistTitle=Arcanist

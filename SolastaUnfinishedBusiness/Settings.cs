@@ -63,6 +63,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
+    //TA made levelups of more than 1 level at a time (like when starting PoI with low level party) disallow unlearning spells/invocations to streamline process. Setting this to true disables that.
+    public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
 
     //

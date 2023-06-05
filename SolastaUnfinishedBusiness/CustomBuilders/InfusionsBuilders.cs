@@ -154,7 +154,7 @@ internal static class InventorInfusions
                     .SetNotificationTag(name)
                     .SetDamageDice(DieType.D6, 1)
                     .SetSpecificDamageType(element)
-                    .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 10)
+                    .SetAdvancement(AdditionalDamageAdvancement.None)
                     .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
                     .AddToDB());
