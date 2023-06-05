@@ -482,12 +482,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&BattleAxe_plus_1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&BattleAxe_plus_1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "ecebeea347c11d24d8724b75cfac89f8",
+      "m_AssetGUID": "c0891f0adb76ba44c8cbb5d7a0db4e16",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

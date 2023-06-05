@@ -199,8 +199,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&LeatherArmorPlus1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&LeatherArmorPlus1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -214,12 +214,12 @@
     "armorAddressableName": "Leather",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "Leatherlvl2",
     "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
-    "sameBehavioursForMaleAndFemale": false,
+    "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [
       "Shape",
       "Shape",
@@ -242,9 +242,7 @@
       "Armor",
       "Shape",
       "Armor",
-      "Armor",
-      "Armor",
-      "Armor",
+      "Shape",
       "Armor",
       "Armor"
     ],

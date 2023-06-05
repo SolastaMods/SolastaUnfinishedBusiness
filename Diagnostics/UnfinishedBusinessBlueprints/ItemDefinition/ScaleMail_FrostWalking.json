@@ -207,8 +207,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&ScaleArmorPlus1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&ScaleArmorPlus1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -222,8 +222,8 @@
     "armorAddressableName": "ScaleMail",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "ScaleMaillvl1",
     "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
