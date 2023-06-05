@@ -254,20 +254,6 @@ public static class CharacterActionPanelPatcher
             var spell = spellDefinition; // cannot pass ref to enumerator
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
 
-            //BUGFIX: consider War List when casting spells with additional summons per target on advancement
-            var effectAdvancement = spellDefinition.EffectDescription?.EffectAdvancement;
-
-            if (effectAdvancement is
-                {
-                    EffectIncrementMethod: RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalSummonsPerIncrement: > 0
-                })
-            {
-                slotLevel += rulesetCharacter.GetFeaturesByType<ISpellCastingAffinityProvider>()
-                    .Select(x => x.ComputeWarListSlotBonus(spell))
-                    .Sum();
-            }
-
             //PATCH: supports IBypassSpellConcentration
             var spellLevel = spellDefinition.SpellLevel;
             var upcastDelta = slotLevel - spellLevel;
