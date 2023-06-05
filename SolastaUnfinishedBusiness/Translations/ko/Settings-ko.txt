@@ -186,7 +186,6 @@ ModUi/&RelicForgeries=유물 위조
 ModUi/&RemoveAttunementRequirements=조율 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveBugVisualModels=게임 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>에서 거미 같은 모델을 대체 시각적 개체로 교체
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=<color=#D89555>끔찍한 웃음</color>에서 인간형 필터 제거
-ModUi/&RemoveIdentificationRequirements=식별 요구 사항 제거 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=캐스팅 시간에만 <color=#D89555>인탱글</color> 효과를 적용합니다. <i><color=#F0DAA0>[예: 반복 효과 없음]</color></i>
 ModUi/&RestockAntiquarians=골동품 수집품 재입고 <i><color=#F0DAA0>[할만 여름]</color></i>
 ModUi/&RestockArcaneum=비석 보충 <i><color=#F0DAA0>[헤들론 슈어스펠]</color></i>
