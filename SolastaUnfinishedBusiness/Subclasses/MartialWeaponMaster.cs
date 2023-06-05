@@ -119,15 +119,16 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .Create($"Condition{Name}Momentum")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                .Create($"AdditionalAction{Name}Momentum")
-                .SetGuiPresentationNoContent(true)
-                .SetActionType(ActionDefinitions.ActionType.Main)
-                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                .SetMaxAttacksNumber(1)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalAction{Name}Momentum")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB())
             .AddToDB();
 
         var featureMomentum = FeatureDefinitionBuilder

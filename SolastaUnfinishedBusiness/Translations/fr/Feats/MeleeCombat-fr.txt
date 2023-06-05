@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=Laissez-les venir!
+Condition/&ConditionFeatCleavingAttackFinishTitle=Attaque clivante
 Condition/&ConditionFeatCrusherCriticalHitDescription=Vous avez été écrasé par un coup critique et les attaques contre vous ont l'avantage.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Écrasé
 Condition/&ConditionFeatPiercerNonMagicDescription=Lorsque vous touchez une créature avec une attaque qui inflige des dégâts perçants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet.

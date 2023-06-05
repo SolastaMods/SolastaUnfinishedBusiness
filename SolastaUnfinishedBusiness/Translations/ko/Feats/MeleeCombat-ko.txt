@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=계속 오세요!
+Condition/&ConditionFeatCleavingAttackFinishTitle=클리빙 어택
 Condition/&ConditionFeatCrusherCriticalHitDescription=당신은 치명타에 짓눌려 당신에 대한 공격이 유리합니다.
 Condition/&ConditionFeatCrusherCriticalHitTitle=밀어 넣는
 Condition/&ConditionFeatPiercerNonMagicDescription=관통 피해를 입히는 공격으로 생물을 공격할 때 1이 나오면 주사위를 다시 굴릴 수 있으며 새로운 굴림을 사용해야 합니다.

@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=Mantenha-os vindo!
+Condition/&ConditionFeatCleavingAttackFinishTitle=Ataque de Corte
 Condition/&ConditionFeatCrusherCriticalHitDescription=Você foi esmagado por um acerto crítico e os ataques contra você têm vantagem.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Esmagado
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando você atinge uma criatura com um ataque que causa dano perfurante, você pode jogar novamente os dados quando rolar um 1 e deve usar a nova jogada.

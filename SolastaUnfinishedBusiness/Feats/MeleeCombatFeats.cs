@@ -551,10 +551,18 @@ internal static class MeleeCombatFeats
 
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd, ConditionInterruption.UsePower)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalAction{Name}Finish")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB())
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder

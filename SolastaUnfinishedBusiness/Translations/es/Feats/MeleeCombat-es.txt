@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=¡Manténlos viniendo!
+Condition/&ConditionFeatCleavingAttackFinishTitle=Ataque de hendidura
 Condition/&ConditionFeatCrusherCriticalHitDescription=Has sido aplastado por un golpe crítico y los ataques en tu contra tienen ventaja.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Aplastada
 Condition/&ConditionFeatPiercerNonMagicDescription=Cuando golpeas a una criatura con un ataque que inflige daño perforante, puedes volver a tirar los dados cuando saques un 1 y debes usar la nueva tirada.

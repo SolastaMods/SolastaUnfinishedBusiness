@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=これからも来てください！
+Condition/&ConditionFeatCleavingAttackFinishTitle=切断攻撃
 Condition/&ConditionFeatCrusherCriticalHitDescription=あなたはクリティカルヒットで潰されており、あなたに対する攻撃が有利です。
 Condition/&ConditionFeatCrusherCriticalHitTitle=破砕されました
 Condition/&ConditionFeatPiercerNonMagicDescription=貫通ダメージを与える攻撃でクリーチャーを攻撃した場合、1 をロールしたときにサイコロを振り直すことができ、新しいロールを使用する必要があります。

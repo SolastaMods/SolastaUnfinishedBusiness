@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=让他们继续来！
+Condition/&ConditionFeatCleavingAttackFinishTitle=切割攻击
 Condition/&ConditionFeatCrusherCriticalHitDescription=你被暴击击倒，对你的攻击有优势。
 Condition/&ConditionFeatCrusherCriticalHitTitle=破碎
 Condition/&ConditionFeatPiercerNonMagicDescription=当你用造成穿刺伤害的攻击击中一个生物时，你可以在掷出 1 时重新掷骰子，并且你必须使用新的掷骰。

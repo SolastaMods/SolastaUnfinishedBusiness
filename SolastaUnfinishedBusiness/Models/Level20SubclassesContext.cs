@@ -520,7 +520,8 @@ internal static class Level20SubclassesContext
             .Create("ConditionRoguishDarkweaverDarkAssault")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionStealthy)
             .SetPossessive()
-            .SetSpecialDuration()
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddFeatures(additionalActionRoguishDarkweaverDarkAssault, movementAffinityRoguishDarkweaverDarkAssault)
             .AddToDB();
 
