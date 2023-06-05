@@ -27,12 +27,12 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -67,12 +67,12 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -97,32 +97,32 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 15,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 16,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 17,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 18,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 20,
-      "diceNumber": 3
+      "diceNumber": 2
     }
   ],
   "familiesWithAdditionalDice": [],
