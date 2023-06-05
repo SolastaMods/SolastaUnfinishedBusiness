@@ -70,7 +70,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 

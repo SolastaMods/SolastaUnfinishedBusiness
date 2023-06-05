@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(__instance, definition));
 
-            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 __result = false;
 
