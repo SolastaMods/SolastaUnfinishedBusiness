@@ -14,7 +14,10 @@ internal static class GreatSwordData
         _items ??= new ItemCollection
         {
             BaseItems =
-                new List<(ItemDefinition item, ItemDefinition presentation)> { (ItemDefinitions.Greatsword, ItemDefinitions.GreataxePlus2) },
+                new List<(ItemDefinition item, ItemDefinition presentation)>
+                {
+                    (ItemDefinitions.Greatsword, ItemDefinitions.GreataxePlus2)
+                },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Battleaxe },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

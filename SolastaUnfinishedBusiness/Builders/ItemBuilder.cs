@@ -20,7 +20,8 @@ internal static class ItemBuilder
             .AddToDB();
     }
 
-    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, ItemDefinition presentation, string name,
+    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, ItemDefinition presentation,
+        string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;

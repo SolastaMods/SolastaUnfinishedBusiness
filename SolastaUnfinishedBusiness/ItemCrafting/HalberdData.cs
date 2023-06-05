@@ -15,7 +15,11 @@ internal static class HalberdData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseItems = new List<(ItemDefinition item, ItemDefinition presentation)> { (CustomWeaponsContext.Halberd, CustomWeaponsContext.HalberdPlus2) },
+            BaseItems =
+                new List<(ItemDefinition item, ItemDefinition presentation)>
+                {
+                    (CustomWeaponsContext.Halberd, CustomWeaponsContext.HalberdPlus2)
+                },
             CustomSubFeatures = new List<Object> { new CustomScale(z: 3.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.HalberdPrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>

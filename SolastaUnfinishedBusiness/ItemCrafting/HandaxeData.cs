@@ -13,7 +13,11 @@ internal static class HandaxeData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseItems = new List<(ItemDefinition item, ItemDefinition presentation)> { (ItemDefinitions.Handaxe, ItemDefinitions.HandaxePlus2) },
+            BaseItems =
+                new List<(ItemDefinition item, ItemDefinition presentation)>
+                {
+                    (ItemDefinitions.Handaxe, ItemDefinitions.HandaxePlus2)
+                },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Dagger },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {

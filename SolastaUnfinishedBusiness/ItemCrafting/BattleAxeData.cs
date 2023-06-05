@@ -14,7 +14,10 @@ internal static class BattleAxeData
         _items ??= new ItemCollection
         {
             BaseItems =
-                new List<(ItemDefinition item, ItemDefinition presentation)> { (ItemDefinitions.Battleaxe, ItemDefinitions.BattleaxePlus2) },
+                new List<(ItemDefinition item, ItemDefinition presentation)>
+                {
+                    (ItemDefinitions.Battleaxe, ItemDefinitions.BattleaxePlus2)
+                },
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
                 ItemDefinitions.Primed_Morningstar,

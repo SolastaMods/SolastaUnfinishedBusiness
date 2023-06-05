@@ -20,7 +20,7 @@ internal static class CrossbowData
                     (ItemDefinitions.HeavyCrossbow, ItemDefinitions.HeavyCrossbowPlus2)
                 },
             PossiblePrimedItemsToReplace =
-                new List<ItemDefinition> {ItemDefinitions.Primed_Longbow, ItemDefinitions.Primed_Shortbow},
+                new List<ItemDefinition> { ItemDefinitions.Primed_Longbow, ItemDefinitions.Primed_Shortbow },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1

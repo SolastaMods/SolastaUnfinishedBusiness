@@ -18,7 +18,7 @@ internal static class ThrowingWeaponData
                 {
                     (ItemDefinitions.Javelin, ItemDefinitions.JavelinPlus2), (ItemDefinitions.Dart, null)
                 },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> {ItemDefinitions.Primed_Dagger},
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Dagger },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1
