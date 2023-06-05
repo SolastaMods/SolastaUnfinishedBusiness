@@ -13,7 +13,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -22,58 +21,27 @@ internal static class FixesContext
 {
     internal static void LateLoad()
     {
-        // REQUIRED FIXES
-        FixColorTables();
-        FixAttackBuffsAffectingSpellDamage();
-        FixSmitesAndStrikesDiceProgression();
         FixAdditionalDamageRestrictions();
+        FixAttackBuffsAffectingSpellDamage();
+        FixColorTables();
         FixFightingStyleArchery();
         FixGorillaWildShapeRocksToUnlimited();
         FixMartialArtsProgression();
         FixMeleeHitEffectsRange();
         FixMinorSpellIssues();
-        FixMissingWildShapeTagOnSomeForms();
         FixMountaineerBonusShoveRestrictions();
-        FixRecklessAttackForReachWeapons();
+        FixRecklessAttackForReachWeaponsAndPathOfTheYeoman();
+        FixSmitesAndStrikesDiceProgression();
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
-        FixWildshapeGroupAttacks();
+        FixUncannyDodgeForRoguishDuelist();
 
-        // avoid folks tweaking max party size directly on settings as we don't need to stress cloud servers
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
-
-        //BUGFIX: this official condition doesn't have sprites or description
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
-        ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
-        ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
-
-        //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
-        static IsCharacterValidHandler IsActionAffinityUncannyDodgeValid(params string[] conditions)
-        {
-            // this allows Reflexive Party to trigger without Uncanny Dodge which can be triggered after that
-            return character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
-                                conditions.Any(character.HasConditionOfType);
-        }
-
-        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
-            IsActionAffinityUncannyDodgeValid(RoguishDuelist.ConditionReflexiveParry)));
     }
 
-    private static void FixColorTables()
-    {
-        //BUGFIX: expand color tables
-        for (var i = 21; i < 33; i++)
-        {
-            Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
-            Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
-        }
-    }
-
-    /**
-     * Makes Divine Strike trigger only from melee attacks.
-     */
     private static void FixAdditionalDamageRestrictions()
     {
+        //BUGFIX: Some vanilla additional damage definitions have incorrect attributes
         AdditionalDamageDomainLifeDivineStrike.attackModeOnly = true;
         AdditionalDamageDomainLifeDivineStrike.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
 
@@ -94,19 +62,66 @@ internal static class FixesContext
             RestrictedContextRequiredProperty.MeleeWeapon;
     }
 
-    /**
-     * Makes Divine Smite use correct number of dice when spending slot level 5+.
-     * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
-     */
-    private static void FixSmitesAndStrikesDiceProgression()
+    private static void FixAttackBuffsAffectingSpellDamage()
     {
-        AdditionalDamagePaladinDivineSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
+        //BUGFIX: fix Branding Smite applying bonus damage to spells
+        AdditionalDamageBrandingSmite
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
 
-        AdditionalDamageBrandingSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
+        //BUGFIX: fix Divine Favor applying bonus damage to spells
+        AdditionalDamageDivineFavor
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+    }
 
-        AdditionalDamageDomainLifeDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+    private static void FixColorTables()
+    {
+        //BUGFIX: expand color tables
+        for (var i = 21; i < 33; i++)
+        {
+            Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
+            Gui.CheckModifierColors.Add(i, new Color32(0, 36, 77, byte.MaxValue));
+        }
+    }
 
-        AdditionalDamageDomainMischiefDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+    private static void FixFightingStyleArchery()
+    {
+        //BEHAVIOR: allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
+        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
+                ValidatorsWeapon.IsWeaponType(item,
+                    CustomWeaponsContext.HandXbowWeaponType,
+                    CustomWeaponsContext.LightningLauncherType,
+                    WeaponTypeDefinitions.LongbowType,
+                    WeaponTypeDefinitions.ShortbowType,
+                    WeaponTypeDefinitions.HeavyCrossbowType,
+                    WeaponTypeDefinitions.LightCrossbowType,
+                    WeaponTypeDefinitions.DartType))));
+    }
+
+    private static void FixGorillaWildShapeRocksToUnlimited()
+    {
+        //BEHAVIOR: makes Wildshape Gorilla form having unlimited rock toss attacks 
+        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
+        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
+    }
+
+
+    private static void FixMartialArtsProgression()
+    {
+        //BUGFIX: fixes die progression of Monk's Martial Arts to use Monk level, not character level
+        var provider = new RankByClassLevel(Monk);
+        var features = new List<FeatureDefinition>
+        {
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
+        };
+
+        foreach (var feature in features)
+        {
+            feature.AddCustomSubFeatures(provider);
+        }
     }
 
     /**
@@ -130,42 +145,13 @@ internal static class FixesContext
         }
     }
 
-    /**
-     * Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped.
-     * This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`.
-     */
-    private static void FixMountaineerBonusShoveRestrictions()
-    {
-        ActionAffinityMountaineerShieldCharge
-            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield));
-    }
-
-    /**
-     * Makes `Reckless` context check if main hand weapon is melee, instead of if character is next to target.
-     * Required for it to work on reach weapons.
-     */
-    private static void FixRecklessAttackForReachWeapons()
-    {
-        FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext =
-            (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow;
-    }
-
-    /**
-     * Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
-     * Required for it to work with monk weapon specialization and/or way of distant hand.
-     */
-    private static void FixStunningStrikeForAnyMonkWeapon()
-    {
-        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
-    }
-
     private static void FixMinorSpellIssues()
     {
         //BUGFIX: add an effect to Counterspell
         Counterspell.EffectDescription.effectParticleParameters =
             DreadfulOmen.EffectDescription.effectParticleParameters;
 
-        //BUGFIX: Chill Touch and Ray of Frost should have not saving throw
+        //BUGFIX: Chill Touch and Ray of Frost should have no saving throw
         ChillTouch.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
         RayOfFrost.EffectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.None;
 
@@ -185,22 +171,36 @@ internal static class FixesContext
         }
     }
 
-    private static void FixMartialArtsProgression()
+    private static void FixMountaineerBonusShoveRestrictions()
     {
-        //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
-        var provider = new RankByClassLevel(Monk);
-        var features = new List<FeatureDefinition>
-        {
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
-        };
+        //BEHAVIOR: Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped
+        //This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`
+        ActionAffinityMountaineerShieldCharge
+            .SetCustomSubFeatures(new ValidatorsDefinitionApplication(ValidatorsCharacter.HasShield));
+    }
 
-        foreach (var feature in features)
-        {
-            feature.AddCustomSubFeatures(provider);
-        }
+    private static void FixRecklessAttackForReachWeaponsAndPathOfTheYeoman()
+    {
+        //BEHAVIOR: Makes `Reckless` context check if main hand weapon is melee or long bow if Path of the Yeoman
+        //instead of if character is next to target
+        FeatureDefinitionCombatAffinitys.CombatAffinityReckless.situationalContext =
+            (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow;
+    }
+
+    private static void FixSmitesAndStrikesDiceProgression()
+    {
+        //BUGFIX: Makes Divine Smite use correct number of dice when spending slot level 5+
+        AdditionalDamagePaladinDivineSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
+        AdditionalDamageBrandingSmite.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(2);
+        AdditionalDamageDomainLifeDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+        AdditionalDamageDomainMischiefDivineStrike.diceByRankTable = DiceByRankBuilder.BuildDiceByRankTable(0, 1, 7);
+    }
+
+    private static void FixStunningStrikeForAnyMonkWeapon()
+    {
+        //BEHAVIOR: Makes `Stunning Strike` context check if any monk weapon instead on OnAttackMeleeHitAuto
+        //Required for it to work with monk weapon specialization and/or way of distant hand
+        FeatureDefinitionPowers.PowerMonkStunningStrike.activationTime = ActivationTime.OnAttackHitAuto;
     }
 
     private static void FixTwinnedMetamagic()
@@ -227,69 +227,11 @@ internal static class FixesContext
                 }));
     }
 
-    private static void FixAttackBuffsAffectingSpellDamage()
+    private static void FixUncannyDodgeForRoguishDuelist()
     {
-        //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-
-        //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-    }
-
-    private static void FixMissingWildShapeTagOnSomeForms()
-    {
-        //BUGFIX: fix some Wild Shape forms missing proper tag, making wild shape action button visible while wild-shaped
-        var wildShape = FeatureDefinitionPowers.PowerDruidWildShape;
-
-        foreach (var option in wildShape.EffectDescription.FindFirstShapeChangeForm().ShapeOptions)
-        {
-            option.substituteMonster.CreatureTags.TryAdd(TagsDefinitions.CreatureTagWildShape);
-        }
-    }
-
-    private static void FixGorillaWildShapeRocksToUnlimited()
-    {
-        //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
-        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
-        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
-    }
-
-    private static void FixWildshapeGroupAttacks()
-    {
-        var monsters = new List<MonsterDefinition>
-        {
-            WildShapeApe,
-            WildshapeBlackBear,
-            WildShapeBrownBear,
-            WildshapeDeepSpider,
-            WildShapeGiant_Eagle
-        };
-
-        foreach (var monster in monsters)
-        {
-            monster.groupAttacks = false;
-
-            foreach (var attackIterations in monster.AttackIterations)
-            {
-                attackIterations.number = 2;
-            }
-        }
-    }
-
-    // allow darts, lightning launcher or hand crossbows benefit from Archery Fighting Style
-    private static void FixFightingStyleArchery()
-    {
-        FeatureDefinitionAttackModifiers.AttackModifierFightingStyleArchery.SetCustomSubFeatures(
-            new RestrictedContextValidator((_, _, _, item, _, _, _) => (OperationType.Set,
-                ValidatorsWeapon.IsWeaponType(item,
-                    CustomWeaponsContext.HandXbowWeaponType,
-                    CustomWeaponsContext.LightningLauncherType,
-                    WeaponTypeDefinitions.LongbowType,
-                    WeaponTypeDefinitions.ShortbowType,
-                    WeaponTypeDefinitions.HeavyCrossbowType,
-                    WeaponTypeDefinitions.LightCrossbowType,
-                    WeaponTypeDefinitions.DartType))));
+        //BEHAVIOR: Allow Duelist higher level feature to interact correctly with Uncanny Dodge
+        ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
+            character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
+                         character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
     }
 }
