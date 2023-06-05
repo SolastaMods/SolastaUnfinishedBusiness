@@ -15,7 +15,7 @@ public static class CharacterLevelUpScreenPatcher
         [UsedImplicitly]
         public static void Prefix(ref bool canUnlearn)
         {
-            //PATCH: TA made it so that if you levelup more than 1 level without closing levelup screen
+            //PATCH: TA made it so that if you level up more than 1 level without closing level up screen
             //(like when starting PoI with low level party) then you can't unlearn spells or invocations.
             //This change removes that limitation.
             if (Main.Settings.DisableStreamlinedMultiLevelUp)

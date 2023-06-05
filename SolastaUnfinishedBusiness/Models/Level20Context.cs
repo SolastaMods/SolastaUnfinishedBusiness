@@ -37,7 +37,6 @@ internal static class Level20Context
     internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
     internal const int ModMaxLevel = 20;
     internal const int ModMaxExperience = 355000;
-    internal const int GameMaxExperience = 100000;
     internal const int GameMaxLevel = 16;
 
     internal static void Load()

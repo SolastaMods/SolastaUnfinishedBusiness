@@ -116,8 +116,6 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         // LEVEL 14
 
-        const string WAR_SORCERER_NAME = $"AdditionalDamage{Name}WarSorcerer";
-
         var additionalDamageWarSorcererMagic = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererMagic")
             .SetGuiPresentationNoContent(true)

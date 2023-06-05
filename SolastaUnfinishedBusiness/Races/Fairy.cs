@@ -24,7 +24,8 @@ internal static class FairyRaceBuilder
 
     private static bool IsFlightValid(RulesetCharacter character)
     {
-        return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() && !character.HasAnyConditionOfType(ConditionFlyingAdaptive);
+        return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() &&
+               !character.HasAnyConditionOfType(ConditionFlyingAdaptive);
     }
 
     internal static void OnItemEquipped([NotNull] RulesetCharacter character)

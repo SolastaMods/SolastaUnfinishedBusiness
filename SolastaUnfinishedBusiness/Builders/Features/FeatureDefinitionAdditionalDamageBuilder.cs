@@ -47,7 +47,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.DiceByRankTable.SetRange(ranks);
         return this;
     }
-    
+
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
         int start = 0,

@@ -43,7 +43,7 @@ internal static class DiceByRankBuilder
         {
             while (k < sorted.Count - 1 && i >= sorted[k + 1].level) { k++; }
 
-            result.Add(new DiceByRank {rank = i, diceNumber = k < 0 ? 0 : sorted[k].dice});
+            result.Add(new DiceByRank { rank = i, diceNumber = k < 0 ? 0 : sorted[k].dice });
         }
 
         return result;
