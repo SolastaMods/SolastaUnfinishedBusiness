@@ -1,7 +1,5 @@
 Condition/&ConditionFarStepDescription=보너스 액션을 사용하여 볼 수 있는 빈 공간으로 최대 60피트 순간이동할 수 있습니다.
 Condition/&ConditionFarStepTitle=파 스텝
-Feature/&AdditionalDamageBanishingSmiteDescription=당신은 힘 피해를 입었습니다.
-Feature/&AdditionalDamageBanishingSmiteTitle=배니싱 스마이트
 Feedback/&AdditionalDamageBanishingSmiteFormat=배니싱 스마이트!
 Feedback/&AdditionalDamageBanishingSmiteLine={0}는 배니싱 스마이트를 통해 {1}에게 더 많은 피해를 입힙니다(+{2}).
 Spell/&BanishingSmiteDescription=다음 공격은 무기로 추가 5d10의 힘 피해를 입힙니다. 추가로, 이 공격으로 대상의 체력이 50 이하로 줄어들면 대상을 1분 동안 추방합니다.

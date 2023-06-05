@@ -1,7 +1,5 @@
 Condition/&ConditionFarStepDescription=Mit einer Bonusaktion können Sie sich bis zu 60 Fuß weit zu einem freien, sichtbaren Feld teleportieren.
 Condition/&ConditionFarStepTitle=Weiter Schritt
-Feature/&AdditionalDamageBanishingSmiteDescription=Du wirst von Gewaltschaden getroffen.
-Feature/&AdditionalDamageBanishingSmiteTitle=Smite verbannen
 Feedback/&AdditionalDamageBanishingSmiteFormat=Smite verbannen!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} fügt {1} mehr Schaden durch einen verbannenden Schlag zu (+{2})
 Spell/&BanishingSmiteDescription=Ihr nächster Treffer verursacht mit Ihrer Waffe zusätzlichen Kraftschaden von 5W10. Wenn dieser Angriff das Ziel außerdem auf 50 Trefferpunkte oder weniger reduziert, verbannen Sie es für 1 Minute.

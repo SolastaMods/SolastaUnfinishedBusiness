@@ -1311,7 +1311,7 @@ internal static class MeleeCombatFeats
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetNotificationTag(GroupFeats.Piercer)
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     .SetIgnoreCriticalDoubleDice(true)

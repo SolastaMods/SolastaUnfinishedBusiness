@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=Hai resistenza ai danni psichici, così come Immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla Mente e Controllato dalla Mente.
 Condition/&ConditionBrainBulwarkTitle=Baluardo del cervello
-Feature/&AdditionalDamageStaggeringSmiteDescription=Sei colpito da un danno psichico.
-Feature/&AdditionalDamageStaggeringSmiteTitle=Punizione Sconcertante
+Condition/&ConditionStaggeringSmiteEnemyDescription=Sei colpito da un danno psichico.
+Condition/&ConditionStaggeringSmiteEnemyTitle=Punizione Sconcertante
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Punizione sbalorditiva!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} tramite una punizione sbalorditiva (+{2})
 Spell/&BrainBulwarkDescription=Per tutta la durata, tu o una creatura consenziente che puoi vedere entro il raggio d'azione hai resistenza ai danni psichici, così come Immunità alle condizioni Ammaliato, Spaventato, Paura, Dominato dalla Mente e Controllato dalla Mente.

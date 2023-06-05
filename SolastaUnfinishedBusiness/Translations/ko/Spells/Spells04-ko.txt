@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=심령 피해에 대한 저항력은 물론 매혹, 공포, 공포, 정신 지배 및 정신 통제 상태에 대한 면역이 있습니다.
 Condition/&ConditionBrainBulwarkTitle=두뇌 보루
-Feature/&AdditionalDamageStaggeringSmiteDescription=당신은 정신적 피해를 입었습니다.
-Feature/&AdditionalDamageStaggeringSmiteTitle=비틀거리는 강타
+Condition/&ConditionStaggeringSmiteEnemyDescription=당신은 정신적 피해를 입었습니다.
+Condition/&ConditionStaggeringSmiteEnemyTitle=비틀거리는 강타
 Feedback/&AdditionalDamageStaggeringSmiteFormat=엄청난 스마이트!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0}은(는) 엄청난 강타를 통해 {1}에게 더 많은 피해를 입힙니다(+{2}).
 Spell/&BrainBulwarkDescription=지속 시간 동안 범위 내에 있는 당신 또는 당신이 볼 수 있는 하나의 자발적인 생물은 심령 손상에 대한 저항뿐만 아니라 매혹, 공포, 공포, 정신 지배 및 정신 제어 조건에 대한 면역을 갖습니다.

@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=Sie verfügen über Resistenz gegen psychischen Schaden sowie über Immunität gegen die Zustände „Bezaubert“, „Verängstigt“, „Angst“, „Geist dominiert“ und „Geist kontrolliert“.
 Condition/&ConditionBrainBulwarkTitle=Gehirnbollwerk
-Feature/&AdditionalDamageStaggeringSmiteDescription=Du wirst von psychischem Schaden getroffen.
-Feature/&AdditionalDamageStaggeringSmiteTitle=Atemberaubender Schlag
+Condition/&ConditionStaggeringSmiteEnemyDescription=Du wirst von psychischem Schaden getroffen.
+Condition/&ConditionStaggeringSmiteEnemyTitle=Atemberaubender Schlag
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Atemberaubender Schlag!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} fügt {1} mehr Schaden durch einen atemberaubenden Schlag zu (+{2})
 Spell/&BrainBulwarkDescription=Für die Dauer haben Sie oder eine willige Kreatur, die Sie in Reichweite sehen können, Widerstand gegen psychischen Schaden sowie Immunität gegen die Zustände „Bezaubert“, „Verängstigt“, „Furcht“, „Geist dominiert“ und „Geist kontrolliert“.
