@@ -39,9 +39,11 @@ internal static class AttacksOfOpportunity
                                     defender.RulesetCharacter.Side == unit.RulesetCharacter.Side &&
                                     attacker.RulesetCharacter.Side != unit.RulesetCharacter.Side))
         {
-            yield return unit.RulesetCharacter.GetSubFeaturesByType<SentinelFeatMarker>()
-                .Where(feature => feature.IsValid(unit, attacker))
-                .Select(reaction => reaction.Process(unit, attacker, null, battleManager, actionManager, false));
+            foreach (var reaction in unit.RulesetCharacter.GetSubFeaturesByType<SentinelFeatMarker>()
+                         .Where(feature => feature.IsValid(unit, attacker)))
+            {
+                yield return reaction.Process(unit, attacker, null, battleManager, actionManager, false);
+            }
         }
     }
 
