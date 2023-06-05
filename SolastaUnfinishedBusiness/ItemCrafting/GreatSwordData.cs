@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,13 +13,13 @@ internal static class GreatSwordData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons =
-                new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Greatsword },
-            PossiblePrimedItemsToReplace = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Primed_Battleaxe },
+            BaseItems =
+                new List<(ItemDefinition item, ItemDefinition presentation)> { (ItemDefinitions.Greatsword, ItemDefinitions.GreataxePlus2) },
+            PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Battleaxe },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
-                new("Punisher", DatabaseHelper.ItemDefinitions.Enchanted_Battleaxe_Punisher,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher)
+                new("Punisher", ItemDefinitions.Enchanted_Battleaxe_Punisher,
+                    RecipeDefinitions.Recipe_Enchantment_BattleaxePunisher)
             }
         };
 }

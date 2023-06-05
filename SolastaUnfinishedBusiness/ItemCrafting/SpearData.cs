@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -13,26 +13,29 @@ internal static class SpearData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Spear },
+            BaseItems = new List<(ItemDefinition item, ItemDefinition presentation)>
+            {
+                (ItemDefinitions.Spear, ItemDefinitions.SpearPlus2)
+            },
             PossiblePrimedItemsToReplace =
                 new List<ItemDefinition>
                 {
-                    DatabaseHelper.ItemDefinitions.Primed_Rapier, DatabaseHelper.ItemDefinitions.Primed_Shortsword
+                    ItemDefinitions.Primed_Rapier, ItemDefinitions.Primed_Shortsword
                 },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
-                new("BlackViper", DatabaseHelper.ItemDefinitions.Enchanted_Rapier_Blackadder,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_RapierBlackAdder),
-                new("Doomblade", DatabaseHelper.ItemDefinitions.Enchanted_Rapier_Doomblade,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_RapierDoomblade),
-                new("Acuteness", DatabaseHelper.ItemDefinitions.Enchanted_Rapier_Of_Acuteness,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_RapierOfAcuteness),
-                new("Whiteburn", DatabaseHelper.ItemDefinitions.Enchanted_Shortsword_Whiteburn,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn),
-                new("Lightbringer", DatabaseHelper.ItemDefinitions.Enchanted_Shortsword_Lightbringer,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortswordLightbringer),
-                new("Sharpness", DatabaseHelper.ItemDefinitions.Enchanted_Shortsword_of_Sharpness,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortwordOfSharpness)
+                new("BlackViper", ItemDefinitions.Enchanted_Rapier_Blackadder,
+                    RecipeDefinitions.Recipe_Enchantment_RapierBlackAdder),
+                new("Doomblade", ItemDefinitions.Enchanted_Rapier_Doomblade,
+                    RecipeDefinitions.Recipe_Enchantment_RapierDoomblade),
+                new("Acuteness", ItemDefinitions.Enchanted_Rapier_Of_Acuteness,
+                    RecipeDefinitions.Recipe_Enchantment_RapierOfAcuteness),
+                new("Whiteburn", ItemDefinitions.Enchanted_Shortsword_Whiteburn,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordWhiteburn),
+                new("Lightbringer", ItemDefinitions.Enchanted_Shortsword_Lightbringer,
+                    RecipeDefinitions.Recipe_Enchantment_ShortswordLightbringer),
+                new("Sharpness", ItemDefinitions.Enchanted_Shortsword_of_Sharpness,
+                    RecipeDefinitions.Recipe_Enchantment_ShortwordOfSharpness)
             }
         };
 }

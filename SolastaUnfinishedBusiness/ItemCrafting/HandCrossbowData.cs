@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Models.CraftingContext;
 
 namespace SolastaUnfinishedBusiness.ItemCrafting;
@@ -14,23 +14,23 @@ internal static class HandCrossbowData
     internal static ItemCollection Items =>
         _items ??= new ItemCollection
         {
-            BaseWeapons = new List<ItemDefinition> { CustomWeaponsContext.HandXbow },
+            BaseItems = new List<(ItemDefinition item, ItemDefinition presentation)> { (CustomWeaponsContext.HandXbow, CustomWeaponsContext.HandXbowPlus2) },
             CustomSubFeatures = new List<object> { new CustomScale(0.5f) },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { CustomWeaponsContext.HandXbowPrimed },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>
             {
                 // Same as +1
-                new("Accuracy", DatabaseHelper.ItemDefinitions.Enchanted_Longbow_Of_Accurary,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LongbowOfAcurracy),
+                new("Accuracy", ItemDefinitions.Enchanted_Longbow_Of_Accurary,
+                    RecipeDefinitions.Recipe_Enchantment_LongbowOfAcurracy),
                 // Same as +2
-                new("Sharpshooting", DatabaseHelper.ItemDefinitions.Enchanted_Shortbow_Of_Sharpshooting,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortbowOfSharpshooting),
-                new("Lightbringer", DatabaseHelper.ItemDefinitions.Enchanted_Longbow_Lightbringer,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LongbowLightbringer),
-                new("Stormbow", DatabaseHelper.ItemDefinitions.Enchanted_Longbow_Stormbow,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LongsbowStormbow),
-                new("Medusa", DatabaseHelper.ItemDefinitions.Enchanted_Shortbow_Medusa,
-                    DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_ShortbowMedusa)
+                new("Sharpshooting", ItemDefinitions.Enchanted_Shortbow_Of_Sharpshooting,
+                    RecipeDefinitions.Recipe_Enchantment_ShortbowOfSharpshooting),
+                new("Lightbringer", ItemDefinitions.Enchanted_Longbow_Lightbringer,
+                    RecipeDefinitions.Recipe_Enchantment_LongbowLightbringer),
+                new("Stormbow", ItemDefinitions.Enchanted_Longbow_Stormbow,
+                    RecipeDefinitions.Recipe_Enchantment_LongsbowStormbow),
+                new("Medusa", ItemDefinitions.Enchanted_Shortbow_Medusa,
+                    RecipeDefinitions.Recipe_Enchantment_ShortbowMedusa)
             }
         };
 }

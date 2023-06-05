@@ -20,7 +20,7 @@ internal static class ItemBuilder
             .AddToDB();
     }
 
-    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name,
+    internal static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, ItemDefinition presentation, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
@@ -28,6 +28,7 @@ internal static class ItemBuilder
         var builder = ItemDefinitionBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
+            .SetItemPresentation(presentation.ItemPresentation.DeepCopy())
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
@@ -55,7 +56,7 @@ internal static class ItemBuilder
         return builder.AddToDB();
     }
 
-    internal static ItemDefinition BuildNewMagicArmor(ItemDefinition original, string name,
+    internal static ItemDefinition BuildNewMagicArmor(ItemDefinition original, ItemDefinition presentation, string name,
         ItemDefinition magicalExample)
     {
         var itemName = original.Name + "_" + name;
@@ -63,7 +64,7 @@ internal static class ItemBuilder
         var builder = ItemDefinitionBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
-            .SetItemPresentation(original.ItemPresentation.DeepCopy())
+            .SetItemPresentation(presentation.ItemPresentation.DeepCopy())
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
