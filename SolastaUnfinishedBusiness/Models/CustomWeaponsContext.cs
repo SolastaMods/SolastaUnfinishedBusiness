@@ -36,17 +36,17 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
 
-    internal static ItemDefinition Halberd, HalberdPrimed;
-    private static ItemDefinition HalberdPlus1, HalberdPlus2, HalberdPlus3, HalberdLightning;
+    internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus2;
+    private static ItemDefinition HalberdPlus1, HalberdPlus3, HalberdLightning;
 
-    internal static ItemDefinition Pike, PikePrimed;
-    private static ItemDefinition PikePlus1, PikePlus2, PikePlus3, PikePsychic;
+    internal static ItemDefinition Pike, PikePrimed, PikePlus2;
+    private static ItemDefinition PikePlus1, PikePlus3, PikePsychic;
 
-    internal static ItemDefinition LongMace, LongMacePrimed;
-    private static ItemDefinition LongMacePlus1, LongMacePlus2, LongMacePlus3, LongMaceThunder;
+    internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus2;
+    private static ItemDefinition LongMacePlus1, LongMacePlus3, LongMaceThunder;
 
-    internal static ItemDefinition HandXbow, HandXbowPrimed;
-    private static ItemDefinition HandXbowPlus1, HandXbowPlus2, HandXbowPlus3;
+    internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus2;
+    private static ItemDefinition HandXbowPlus1, HandXbowPlus3;
 
     internal static ItemDefinition HandXbowAcid;
 
