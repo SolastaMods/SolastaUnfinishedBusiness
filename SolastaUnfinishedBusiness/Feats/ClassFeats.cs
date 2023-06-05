@@ -861,8 +861,8 @@ internal static class ClassFeats
             potentSpellcasterFeats.Add(featPotentSpellcaster);
         }
 
-        var potentSpellcasterGroup = GroupFeats.MakeGroup(
-            "FeatGroupPotentSpellcaster", "PotentSpellcaster", potentSpellcasterFeats);
+        var potentSpellcasterGroup = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupPotentSpellcaster", "PotentSpellcaster", ValidatorsFeat.IsLevel4, potentSpellcasterFeats.ToArray());
 
         feats.AddRange(potentSpellcasterFeats);
 
