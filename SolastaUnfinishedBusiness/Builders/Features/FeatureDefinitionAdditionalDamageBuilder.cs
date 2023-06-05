@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
@@ -37,6 +38,16 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    [UsedImplicitly]
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        RuleDefinitions.AdditionalDamageAdvancement advancement,
+        IEnumerable<DiceByRank> ranks)
+    {
+        Definition.damageAdvancement = advancement;
+        Definition.DiceByRankTable.SetRange(ranks);
+        return this;
+    }
+    
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
         int start = 0,
@@ -44,9 +55,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         int step = 1,
         int begin = 1)
     {
-        Definition.damageAdvancement = advancement;
-        Definition.DiceByRankTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
-        return this;
+        return SetAdvancement(advancement, DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
