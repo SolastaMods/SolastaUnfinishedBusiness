@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -207,37 +208,17 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
-        if (item == null)
-        {
-            return false;
-        }
-
-        var definition = item.ItemDefinition;
-
-        if (definition == null ||
-            !definition.IsWeapon ||
-            !character.IsProficientWithItem(definition))
-        {
-            return false;
-        }
-
         if (character is not RulesetCharacterHero hero)
         {
             return false;
         }
 
-        if (mode.ActionType == ActionDefinitions.ActionType.Bonus &&
-            !hero.TrainedFightingStyles.Contains(GetDefinition<FightingStyleDefinition>("TwoWeapon")))
-        {
-            return false;
-        }
+        var canWeaponBeEmpowered = CanWeaponBeEnchanted(mode, item, character);
+        var canTwoHandedBeEmpowered =
+            ValidatorsWeapon.HasTwoHandedTag(mode) &&
+            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade));
 
-        if (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
-        {
-            return true;
-        }
-
-        return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+        return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
     }
 
     private sealed class AttackOrMagicAttackInitiatedHex : IPhysicalAttackInitiated, IMagicalAttackInitiated

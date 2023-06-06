@@ -20,13 +20,7 @@ internal sealed class PolearmExpert : AbstractFightingStyle
             .Create("FeaturePolearm")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new CanMakeAoOOnReachEntered
-                {
-                    WeaponValidator = (mode, weapon, _) =>
-                        ValidatorsWeapon.IsWeaponType(
-                            mode?.SourceObject as RulesetItem ?? weapon,
-                            QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType)
-                },
+                new CanMakeAoOOnReachEntered { WeaponValidator = (mode, _, _) => ValidatorsWeapon.IsPolearmType(mode) },
                 new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddPolearmFollowUpAttack(SpearType),
                 new AddPolearmFollowUpAttack(HalberdWeaponType),

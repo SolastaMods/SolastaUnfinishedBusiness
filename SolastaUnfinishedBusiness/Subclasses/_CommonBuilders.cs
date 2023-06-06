@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -7,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
@@ -129,6 +131,23 @@ internal static class CommonBuilders
             .Create("ReplaceAttackWithCantripCasterFighting")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+    //
+    // Enchant Weapon
+    //
+
+    internal static bool CanWeaponBeEnchanted(RulesetAttackMode mode, RulesetItem _, RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero || ValidatorsWeapon.HasTwoHandedTag(mode))
+        {
+            return false;
+        }
+
+        return mode.ActionType != ActionDefinitions.ActionType.Bonus ||
+               ValidatorsWeapon.IsPolearmType(mode) ||
+               ValidatorsWeapon.IsTwoHandedRanged(mode) ||
+               hero.TrainedFightingStyles.Contains(DatabaseHelper.FightingStyleDefinitions.TwoWeapon);
+    }
 
     private sealed class MagicalAttackInitiatedCasterFightingWarMagic : IMagicalAttackInitiated
     {
