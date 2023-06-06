@@ -19,6 +19,11 @@ public static class HitDiceRestItemPatcher
         [UsedImplicitly]
         public static bool Prefix(HitDiceRestItem __instance)
         {
+            if (!Main.Settings.EnableMulticlass)
+            {
+                return true;
+            }
+
             var maxHitDiceCount = __instance.character.MaxHitDiceCount();
             var remainingHitDiceCount = __instance.character.RemainingHitDiceCount();
             var restHealingBonusDiceCount = 0;
