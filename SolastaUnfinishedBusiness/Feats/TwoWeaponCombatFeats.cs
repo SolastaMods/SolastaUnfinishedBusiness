@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -125,8 +126,10 @@ internal static class TwoWeaponCombatFeats
             var hasShieldExpert =
                 hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
                 hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
+            var hasGauntlet =
+                ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.ThunderGauntletType)(attackMode, null, null);
 
-            var isValid = hasWeaponInMainHand && ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
+            var isValid = (hasWeaponInMainHand || hasGauntlet) && ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
 
             if (attackMode == null || !isValid)
             {

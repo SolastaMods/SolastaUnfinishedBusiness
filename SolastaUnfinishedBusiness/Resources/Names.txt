@@ -612,11 +612,8 @@ Tiefling	Female	Anakis
 Tiefling	Female	Bryseis
 Tiefling	Female	Ea
 Tiefling	Female	Kallista
-Tiefling	Female	Lerissa
 Tiefling	Male	Akmenos
 Tiefling	Male	Amnon
 Tiefling	Male	Barakas
 Tiefling	Male	Damakos
 Tiefling	Male	Ekemon
-Tiefling	Male	Iados
-Tiefling	Sur	Kairon
