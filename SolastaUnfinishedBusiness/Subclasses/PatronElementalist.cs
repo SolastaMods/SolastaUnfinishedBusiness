@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DamageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -25,7 +24,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         {
             "Fire", new ElementalFormConfig
             {
-                DamageType = DamageFire,
+                DamageType = DamageTypeFire,
                 Resistance = DamageAffinityFireResistance,
                 Immunity = DamageAffinityFireImmunity,
                 Particles = Fire_Jester.MonsterPresentation.attachedParticlesReference,
@@ -36,7 +35,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         {
             "Earth", new ElementalFormConfig
             {
-                DamageType = DamageBludgeoning,
+                DamageType = DamageTypeBludgeoning,
                 Resistance = DamageAffinityBludgeoningResistance,
                 Immunity = DamageAffinityBludgeoningImmunity,
                 // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
@@ -49,7 +48,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         {
             "Ice", new ElementalFormConfig
             {
-                DamageType = DamageCold,
+                DamageType = DamageTypeCold,
                 Resistance = DamageAffinityColdResistance,
                 Immunity = DamageAffinityColdImmunity,
                 Particles = WindSnake.MonsterPresentation.attachedParticlesReference,
@@ -60,7 +59,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         {
             "Air", new ElementalFormConfig
             {
-                DamageType = DamageThunder,
+                DamageType = DamageTypeThunder,
                 Resistance = DamageAffinityThunderResistance,
                 Immunity = DamageAffinityThunderImmunity,
                 Particles = Air_Elemental.MonsterPresentation.attachedParticlesReference,
@@ -186,7 +185,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         ElementalFormConfig elementalFormConfig,
         AssetReferenceSprite sprite = null)
     {
-        var damageType = elementalFormConfig.DamageType.GuiPresentation.Title;
+        var damageType = $"Rules/&{elementalFormConfig.DamageType}Title";
         var planeText = $"Feature/&ElementalPatron{text}Plane";
 
         return new GuiPresentationBuilder(
@@ -212,7 +211,7 @@ internal sealed class PatronElementalist : AbstractSubclass
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetSpecificDamageType(elementalFormConfig.DamageType.Name)
+            .SetSpecificDamageType(elementalFormConfig.DamageType)
             .AddToDB();
 
         var conditionElementalistNormal = ConditionDefinitionBuilder
@@ -279,7 +278,7 @@ internal sealed class PatronElementalist : AbstractSubclass
 
     private sealed class ElementalFormConfig
     {
-        internal DamageDefinition DamageType;
+        internal string DamageType;
         internal FeatureDefinitionDamageAffinity Immunity;
 
         internal AssetReference Particles;
