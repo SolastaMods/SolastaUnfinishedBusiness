@@ -174,10 +174,7 @@ public static class RulesetEffectSpellPatcher
                 return;
             }
 
-            if (hero.ClassesAndLevels.TryGetValue(holder.Class, out var level))
-            {
-                __result = level;
-            }
+            __result = hero.GetClassLevel(holder.Class);
         }
     }
 

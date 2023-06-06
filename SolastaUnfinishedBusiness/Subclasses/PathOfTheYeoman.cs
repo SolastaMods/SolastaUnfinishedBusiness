@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.Helpers.EffectHelpers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -21,8 +22,6 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
     internal PathOfTheYeoman()
     {
-        var isLongbow = ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType);
-
         // LEVEL 03
 
         // Fletcher
@@ -42,15 +41,13 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .SetNotificationTag("Rage")
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.RageDamage)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.NotWearingHeavyArmor)
             .AddToDB();
 
         var featureStrongBow = FeatureDefinitionBuilder
             .Create($"Feature{Name}StrongBow")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new CanUseAttribute(AttributeDefinitions.Strength, isLongbow),
+                new CanUseAttribute(AttributeDefinitions.Strength, IsLongBow),
                 new CustomAdditionalDamageStrongBow(additionalDamageStrongBow))
             .AddToDB();
 
@@ -66,6 +63,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .SetCustomSubFeatures(
                 new ValidatorsDefinitionApplication(
                     ValidatorsCharacter.HasLongbow,
+                    ValidatorsCharacter.DoesNotHaveHeavyArmor,
                     ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)))
             .AddToDB();
 
@@ -99,8 +97,8 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .Create($"Feature{Name}Bulwark")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new RangedAttackInMeleeDisadvantageRemover(isLongbow),
-                new CanMakeAoOOnReachEntered { WeaponValidator = isLongbow, AllowRange = true })
+                new RangedAttackInMeleeDisadvantageRemover(IsLongBow),
+                new CanMakeAoOOnReachEntered { WeaponValidator = IsLongBow, AllowRange = true })
             .AddToDB();
 
         var combatAffinityBulwark = FeatureDefinitionCombatAffinityBuilder
@@ -195,7 +193,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .Create($"Feature{Name}MightyShot")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), isLongbow),
+                new UpgradeWeaponDice((_, damage) => (damage.diceNumber, DieType.D12, DieType.D12), IsLongBow),
                 new PhysicalAttackFinishedMightyShot(powerMightyShot))
             .AddToDB();
 
@@ -210,6 +208,8 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
             .AddFeaturesAtLevel(14, featureMightyShot, powerMightyShot)
             .AddToDB();
     }
+
+    private static IsWeaponValidHandler IsLongBow => ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.LongbowType);
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
@@ -247,8 +247,10 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            return rulesetAttacker.HasConditionOfType(ConditionRaging) &&
-                   ValidatorsCharacter.HasLongbow(rulesetAttacker);
+            return rulesetAttacker is { IsDeadOrDyingOrUnconscious: false } &&
+                   rulesetAttacker.HasConditionOfType(ConditionRaging) &&
+                   !rulesetAttacker.IsWearingHeavyArmor() &&
+                   IsLongBow(attackMode, null, null);
         }
     }
 
@@ -278,9 +280,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
         {
             reactionParams = null;
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            return criticalHit && ValidatorsCharacter.HasLongbow(rulesetAttacker);
+            return criticalHit && IsLongBow(attackMode, null, null);
         }
     }
 
@@ -313,8 +313,10 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
 
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!rulesetAttacker.HasConditionOfType(ConditionRaging) ||
-                !ValidatorsCharacter.HasLongbow(rulesetAttacker))
+            if (rulesetAttacker is not { IsDeadOrDyingOrUnconscious: false } ||
+                !rulesetAttacker.HasConditionOfType(ConditionRaging) ||
+                rulesetAttacker.IsWearingHeavyArmor() ||
+                !IsLongBow(attackerAttackMode, null, null))
             {
                 yield break;
             }
@@ -350,10 +352,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
                              gameLocationBattleService.IsWithinXCells(defender, x, 3))
                          .ToList())
             {
-                // EffectHelpers.StartVisualEffect(attacker, defender,
-                //     FeatureDefinitionPowers.PowerDomainElementalLightningBlade, EffectHelpers.EffectType.Effect);
-                EffectHelpers.StartVisualEffect(attacker, defender, SpellDefinitions.CallLightning,
-                    EffectHelpers.EffectType.Effect);
+                StartVisualEffect(attacker, defender, SpellDefinitions.CallLightning, EffectType.Effect);
                 effectPower.ApplyEffectOnCharacter(target.RulesetCharacter, true, target.LocationPosition);
             }
         }

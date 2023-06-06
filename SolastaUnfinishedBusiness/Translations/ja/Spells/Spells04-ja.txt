@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=あなたは精神的ダメージに対する抵抗力を持ち、魅了されたり、怯えたり、恐怖したり、精神に支配されたり、精神に支配されたりする状況に対する免疫を持っています。
 Condition/&ConditionBrainBulwarkTitle=ブレインブルワーク
-Feature/&AdditionalDamageStaggeringSmiteDescription=精神的なダメージを受けてしまいます。
-Feature/&AdditionalDamageStaggeringSmiteTitle=よろめきのスマイト
+Condition/&ConditionStaggeringSmiteEnemyDescription=精神的なダメージを受けてしまいます。
+Condition/&ConditionStaggeringSmiteEnemyTitle=よろめきのスマイト
 Feedback/&AdditionalDamageStaggeringSmiteFormat=驚異のスマイト！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} は驚異的な打撃により {1} にさらに多くのダメージを与えます (+{2})
 Spell/&BrainBulwarkDescription=期間中、あなたまたは範囲内で見える自発的なクリーチャー 1 体は精神的ダメージに対する耐性を持ち、また魅了、恐怖、恐怖、精神支配、精神支配状態に対する免疫を持ちます。

@@ -528,12 +528,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Quarterstaff_plus_three_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Quarterstaff_plus_two_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1110be87443300f46976c1b313fa6d8e",
+      "m_AssetGUID": "a1913fedad54a2848a3ebec8aa31792a",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

@@ -358,7 +358,7 @@ public static class InnovationArtillerist
 
         var additionalDamageArcaneFirearm = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{ArcaneFirearm}")
-            .SetGuiPresentation(ARCANE_FIREARM, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(ArcaneFirearm)
             .SetDamageDice(DieType.D8, 1)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10, 5)

@@ -23,7 +23,7 @@ internal static partial class SpellBuilders
 
         var additionalDamageBlindingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D8, 3)

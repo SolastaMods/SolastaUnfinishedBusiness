@@ -61,7 +61,7 @@ public static class InvocationActivationBoxPatcher
                 .All(v => v(activator, definition));
 
             //PATCH: make sure hidden invocations are indeed hidden and not interactable
-            if (__instance.Invocation.invocationDefinition.HasSubFeatureOfType<Hidden>() || !isValid)
+            if (__instance.Invocation.invocationDefinition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 __instance.gameObject.SetActive(false);
                 __instance.button.interactable = false;

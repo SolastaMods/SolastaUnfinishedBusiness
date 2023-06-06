@@ -22,7 +22,7 @@
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageFire",
   "ancestryTypeForDamageType": "Sorcerer",
-  "damageAdvancement": 9000,
+  "damageAdvancement": "None",
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -32,97 +32,97 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
-      "diceNumber": 1
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 4,
-      "diceNumber": 1
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 5,
-      "diceNumber": 1
+      "diceNumber": 4
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 6,
-      "diceNumber": 1
+      "diceNumber": 5
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 7,
-      "diceNumber": 1
+      "diceNumber": 6
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 8,
-      "diceNumber": 1
+      "diceNumber": 7
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
-      "diceNumber": 2
+      "diceNumber": 8
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 2
+      "diceNumber": 9
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 11,
-      "diceNumber": 2
+      "diceNumber": 10
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 12,
-      "diceNumber": 2
+      "diceNumber": 11
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 13,
-      "diceNumber": 2
+      "diceNumber": 12
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 14,
-      "diceNumber": 2
+      "diceNumber": 13
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 15,
-      "diceNumber": 3
+      "diceNumber": 14
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 16,
-      "diceNumber": 3
+      "diceNumber": 15
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 17,
-      "diceNumber": 3
+      "diceNumber": 16
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 18,
-      "diceNumber": 3
+      "diceNumber": 17
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
-      "diceNumber": 3
+      "diceNumber": 18
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 20,
-      "diceNumber": 3
+      "diceNumber": 19
     }
   ],
   "familiesWithAdditionalDice": [],
@@ -150,7 +150,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Minor Elemental [Fire]",
-    "description": "Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Fire damage. This damage increases to 2D6 at level 9th and 3D6 at level 15th.",
+    "description": "Once per turn, when you hit a creature with this weapon, deal an additional 1d6 Fire damage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a723156c787808644b470992b3f992df",

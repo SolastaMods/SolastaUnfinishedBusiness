@@ -659,8 +659,9 @@ internal static class SrdAndHouseRulesContext
 
         Tags.Clear();
         item.FillTags(Tags, hero, true);
-        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition)
-            || Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
+
+        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition) ||
+            Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
         {
             return false;
         }
@@ -872,8 +873,8 @@ internal static class UpcastConjureElementalAndFey
             return true;
         }
 
-        __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, _filteredSubspells[index],
-            __instance.slotLevel);
+        __instance.spellCastEngaged?.Invoke(
+            __instance.spellRepertoire, _filteredSubspells[index], __instance.slotLevel);
 
         __instance.Hide();
 

@@ -200,12 +200,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Shield_plus_1_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Shield_plus_1_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "3332937267c53b7469241c2cbbadf421",
+      "m_AssetGUID": "3aa8e556c86f95c4c93cf371f84cee2b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=계속 오세요!
+Condition/&ConditionFeatCleavingAttackFinishTitle=클리빙 어택
 Condition/&ConditionFeatCrusherCriticalHitDescription=당신은 치명타에 짓눌려 당신에 대한 공격이 유리합니다.
 Condition/&ConditionFeatCrusherCriticalHitTitle=밀어 넣는
 Condition/&ConditionFeatPiercerNonMagicDescription=관통 피해를 입히는 공격으로 생물을 공격할 때 1이 나오면 주사위를 다시 굴릴 수 있으며 새로운 굴림을 사용해야 합니다.
@@ -42,8 +44,6 @@ Feat/&FeatSlasherStrDescription=최고의 결과를 얻기 위해 어디를 잘�
 Feat/&FeatSlasherStrTitle=슬래셔[Str]
 Feat/&FeatSpearMasteryDescription=창은 배우기에 간단한 무기이지만 마스터하는 데 걸린 시간에 대해 보상을 받습니다.\n• 창으로 수행하는 공격 굴림에 +1 보너스를 얻고 피해 주사위가 d6에서 다음으로 변경됩니다. d8, 양손으로 휘두르면 d8에서 d10까지.\n• 보너스 액션으로 창에 버티고 접근하는 적을 가로막을 수 있습니다. 반응을 사용하여 범위에 들어오는 적에게 창으로 기회 공격을 수행하고 해당 공격이 적중하면 추가 피해 주사위를 가할 수 있습니다.\n• 보너스 작업으로 창으로 범위를 5피트 늘릴 수 있습니다. 나머지 차례.
 Feat/&FeatSpearMasteryTitle=스피어 마스터리
-Feature/&AdditionalDamageFeatPiercerDescription=치명타를 기록하면 추가 관통 손상을 결정할 때 하나의 추가 손상 주사위를 굴릴 수 있습니다.
-Feature/&AdditionalDamageFeatPiercerTitle=꿰뚫는 사람
 Feature/&AttackModifierFeatSpearMasteryDescription=창으로 만드는 공격 굴림에 +1 보너스를 얻고 양손으로 휘두를 때 피해 주사위가 d6에서 d8로, d8에서 d10으로 변경됩니다.
 Feature/&AttackModifierFeatSpearMasteryTitle=스피어 마스터리
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=롱소드를 들고 있는 동안 갑옷 클래스에 +1 보너스를 얻습니다.

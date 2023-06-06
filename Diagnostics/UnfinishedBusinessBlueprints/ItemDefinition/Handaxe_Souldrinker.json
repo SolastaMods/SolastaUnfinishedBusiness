@@ -511,12 +511,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Handaxe_plus_one_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Handaxe_plus_one_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1bbfc36d4a1c6cb4da9ea3601a5c5b81",
+      "m_AssetGUID": "5548c426834e0a843ab5cea5f5f9b02b",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

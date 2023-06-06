@@ -49,16 +49,13 @@ internal static class BootContext
         PowerBundleContext.Load();
 
         //
-        // other stuff can be loaded in any order
+        // other stuff that can be loaded in any order
         //
 
         ToolsContext.Load();
         CharacterExportContext.Load();
         DmProEditorContext.Load();
         GameUiContext.Load();
-
-        // Start will all options under Character
-        CharacterContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();
@@ -89,8 +86,6 @@ internal static class BootContext
 
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {
-            // DelegatesContext.LateLoad();
-
             // Late initialized to allow feats and races from other mods
             CharacterContext.LateLoad();
 

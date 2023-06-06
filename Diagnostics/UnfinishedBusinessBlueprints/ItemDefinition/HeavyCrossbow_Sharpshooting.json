@@ -475,12 +475,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&MagnificientHeavyCrossbow_Title",
+    "unidentifiedDescription": "Equipment/&MagnificientHeavyCrossbow_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "1f643e9d1fdeddc4fb2b7ddb0b3fbd19",
+      "m_AssetGUID": "c477b75e2f4c7b94ebe8d93725cd9c10",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

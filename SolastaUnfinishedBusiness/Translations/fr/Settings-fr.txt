@@ -186,7 +186,6 @@ ModUi/&RelicForgeries=Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements=Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveBugVisualModels=Remplacez les modèles ressemblant à des araignées par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Supprimer le filtre humanoïde sur <color=#D89555>Hideous Laughter</color>
-ModUi/&RemoveIdentificationRequirements=Supprimer les exigences d'identification <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle=N'applique l'effet <color=#D89555>Enchevêtrement</color> qu'au moment de l'incantation <i><color=#F0DAA0>[c'est-à-dire : aucun effet récurrent]</color></i>
 ModUi/&RestockAntiquarians=Réapprovisionner les antiquaires <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Réapprovisionner Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>

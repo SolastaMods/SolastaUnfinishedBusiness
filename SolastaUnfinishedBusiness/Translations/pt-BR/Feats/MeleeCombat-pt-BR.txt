@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=Mantenha-os vindo!
+Condition/&ConditionFeatCleavingAttackFinishTitle=Ataque de Corte
 Condition/&ConditionFeatCrusherCriticalHitDescription=Você foi esmagado por um acerto crítico e os ataques contra você têm vantagem.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Esmagado
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando você atinge uma criatura com um ataque que causa dano perfurante, você pode jogar novamente os dados quando rolar um 1 e deve usar a nova jogada.
@@ -42,8 +44,6 @@ Feat/&FeatSlasherStrDescription=Você aprendeu onde cortar para ter os melhores 
 Feat/&FeatSlasherStrTitle=Slasher [Str]
 Feat/&FeatSpearMasteryDescription=Embora a lança seja uma arma simples de aprender, ela recompensa você pelo tempo que levou para dominá-la:\n• Você ganha +1 de bônus nas jogadas de ataque feitas com uma lança e seu dado de dano muda de d6 para um d8 e de um d8 para um d10 quando empunhado com as duas mãos.\n• Como uma ação bônus, você pode segurar sua lança para interceptar os inimigos que se aproximam. Você pode usar a reação para realizar um ataque de oportunidade com uma lança no inimigo que entrar em seu alcance e causar um dado extra de dano se o ataque acertar.\n• Como uma ação bônus, você pode aumentar seu alcance com uma lança em 1,5 m para o resto do seu turno.
 Feat/&FeatSpearMasteryTitle=Domínio da Lança
-Feature/&AdditionalDamageFeatPiercerDescription=Quando você acerta um acerto crítico, você pode rolar um dado de dano adicional ao determinar o dano perfurante extra.
-Feature/&AdditionalDamageFeatPiercerTitle=Perfurador
 Feature/&AttackModifierFeatSpearMasteryDescription=Você ganha um bônus de +1 nas jogadas de ataque feitas com uma lança e seu dado de dano muda de d6 para d8, e de d8 para d10 quando empunhado com as duas mãos.
 Feature/&AttackModifierFeatSpearMasteryTitle=Domínio da Lança
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Enquanto estiver segurando uma espada longa, você ganha um bônus de +1 na classe de armadura.

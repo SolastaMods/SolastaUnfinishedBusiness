@@ -116,11 +116,9 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         // LEVEL 14
 
-        const string WAR_SORCERER_NAME = $"AdditionalDamage{Name}WarSorcerer";
-
         var additionalDamageWarSorcererMagic = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererMagic")
-            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("WarSorcerer")
             .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
             .SetRequiredProperty(RestrictedContextRequiredProperty.SpellWithAttackRoll)
@@ -131,7 +129,7 @@ internal sealed class SorcerousSpellBlade : AbstractSubclass
 
         var additionalDamageWarSorcererWeapon = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}WarSorcererWeapon")
-            .SetGuiPresentation(WAR_SORCERER_NAME, Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("WarSorcerer")
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
             .SetAttackModeOnly()

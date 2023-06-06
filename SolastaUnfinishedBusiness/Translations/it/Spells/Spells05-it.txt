@@ -1,7 +1,5 @@
 Condition/&ConditionFarStepDescription=Puoi usare un'azione bonus per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere.
 Condition/&ConditionFarStepTitle=Passo lontano
-Feature/&AdditionalDamageBanishingSmiteDescription=Sei colpito da un danno da forza.
-Feature/&AdditionalDamageBanishingSmiteTitle=Punizione del bando
 Feedback/&AdditionalDamageBanishingSmiteFormat=Punizione bandita!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} infligge più danni a {1} attraverso una punizione esiliante (+{2})
 Spell/&BanishingSmiteDescription=Il tuo prossimo colpo infligge 5d10 danni da forza aggiuntivi con la tua arma. Inoltre, se questo attacco riduce il bersaglio a 50 punti ferita in meno, lo bandisci per 1 min.

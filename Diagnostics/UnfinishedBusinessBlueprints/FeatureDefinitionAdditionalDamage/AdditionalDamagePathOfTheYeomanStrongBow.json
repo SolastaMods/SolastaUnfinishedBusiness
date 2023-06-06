@@ -5,7 +5,7 @@
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": "NotWearingHeavyArmor",
+  "triggerCondition": "AlwaysActive",
   "requiredProperty": "None",
   "attackModeOnly": false,
   "attackOnly": false,

@@ -35,7 +35,7 @@ internal static class ItemCraftingMerchantContext
         CraftingContext.Load();
         PickPocketContext.Load();
         LoadCustomIcons();
-        LoadRemoveIdentification();
+        LoadRemoveAttunementRequirements();
         SwitchAttuneArcaneShieldstaff();
         SwitchSetBeltOfDwarvenKindBeardChances();
         LoadClothingGorimStock();
@@ -289,16 +289,8 @@ internal static class ItemCraftingMerchantContext
         }
     }
 
-    private static void LoadRemoveIdentification()
+    private static void LoadRemoveAttunementRequirements()
     {
-        if (Main.Settings.RemoveIdentificationRequirements)
-        {
-            foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
-            {
-                item.requiresIdentification = false;
-            }
-        }
-
         if (!Main.Settings.RemoveAttunementRequirements)
         {
             return;

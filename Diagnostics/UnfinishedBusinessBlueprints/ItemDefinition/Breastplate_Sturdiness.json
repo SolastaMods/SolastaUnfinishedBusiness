@@ -175,8 +175,8 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Breastplate_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Breastplate_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -190,9 +190,9 @@
     "armorAddressableName": "BreastPlate",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
-    "ignoreCustomArmorMaterialOnCommonClothes": false,
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "FullPlatelvl2",
+    "ignoreCustomArmorMaterialOnCommonClothes": true,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,

@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -24,10 +23,9 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
             .SetGuiPresentation(Category.Feature)
-            // trick to keep it hidden on UI
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
                 new CanUseAttribute(AttributeDefinitions.Intelligence, CanWeaponBeEmpowered))
             .AddToDB();
 

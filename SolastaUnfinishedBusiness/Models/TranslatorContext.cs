@@ -600,7 +600,13 @@ internal static class TranslatorContext
                 userCampaign.UserQuests
                     .SelectMany(x => x.AllQuestStepDescriptions)
                     .SelectMany(x => x.OutcomesTable)
-                    .Count();
+                    .Count() +
+                userCampaign.UserBiomes
+                    .SelectMany(x => x.narrativeEventBasicLines)
+                    .Count() +
+                userCampaign.UserEncounterTables.Count +
+                userCampaign.userEncounters.Count +
+                userCampaign.campaignMapNodes.Count;
 
             IEnumerator Update()
             {
@@ -779,6 +785,50 @@ internal static class TranslatorContext
 
                 lootPack.Title = Translate(lootPack.Title, languageCode);
                 lootPack.Description = Translate(lootPack.Description, languageCode);
+            }
+
+            // USER BIOMES
+            foreach (var userBiome in userCampaign.userBiomes)
+            {
+                userBiome.Title = Translate(userBiome.Title, languageCode);
+                userBiome.Description = Translate(userBiome.Description, languageCode);
+
+                for (var index = 0; index < userBiome.NarrativeEventBasicLines.Count; index++)
+                {
+                    yield return Update();
+
+                    var narrativeEventBasicLine = userBiome.NarrativeEventBasicLines[index];
+                    userBiome.NarrativeEventBasicLines[index] = Translate(narrativeEventBasicLine, languageCode);
+                }
+            }
+
+            // USER ENCOUNTER TABLES
+            foreach (var userEncounterTable in userCampaign.userEncounterTables)
+            {
+                yield return Update();
+
+                userEncounterTable.Title = Translate(userEncounterTable.Title, languageCode);
+                userEncounterTable.Description = Translate(userEncounterTable.Description, languageCode);
+            }
+
+            // USER ENCOUNTERS
+            foreach (var userEncounter in userCampaign.userEncounters)
+            {
+                yield return Update();
+
+                userEncounter.Title = Translate(userEncounter.Title, languageCode);
+                userEncounter.Description = Translate(userEncounter.Description, languageCode);
+            }
+
+            // USER CAMPAIGN MAP NODES
+            foreach (var userCampaignMapNode in userCampaign.campaignMapNodes)
+            {
+                yield return Update();
+
+                userCampaignMapNode.userLocationName = Translate(userCampaignMapNode.userLocationName, languageCode);
+                userCampaignMapNode.overriddenTitle = Translate(userCampaignMapNode.overriddenTitle, languageCode);
+                userCampaignMapNode.overriddenDescription =
+                    Translate(userCampaignMapNode.overriddenDescription, languageCode);
             }
 
             CurrentExports.Remove(exportName);

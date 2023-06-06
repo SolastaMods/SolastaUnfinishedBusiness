@@ -202,6 +202,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+            .SetMaxAttacksNumber(1)
             .AddToDB();
 
         var conditionElderChampionAdditionalAttack = ConditionDefinitionBuilder
@@ -209,8 +210,8 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(additionalActionElderChampion)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(additionalActionElderChampion)
             .AddToDB();
 
         var featureElderChampion = FeatureDefinitionBuilder

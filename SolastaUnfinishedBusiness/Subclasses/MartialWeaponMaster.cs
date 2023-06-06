@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -70,7 +69,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                     CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.MartialWeaponMasterWeaponSpecialization)
                 .SetGrantedFeature(featureSpecialization)
-                .SetCustomSubFeatures(Hidden.Marker)
+                .SetCustomSubFeatures(HiddenInvocation.Marker)
                 .AddToDB();
         }
 
@@ -119,15 +118,16 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .Create($"Condition{Name}Momentum")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                .Create($"AdditionalAction{Name}Momentum")
-                .SetGuiPresentationNoContent(true)
-                .SetActionType(ActionDefinitions.ActionType.Main)
-                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
-                .SetMaxAttacksNumber(1)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalAction{Name}Momentum")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB())
             .AddToDB();
 
         var featureMomentum = FeatureDefinitionBuilder
@@ -136,7 +136,6 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddToDB();
 
         featureMomentum.SetCustomSubFeatures(new TargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
-        DatabaseHelper.ActionDefinitions.ActionSurge.SetCustomSubFeatures(new ActionFinishedActionSurge());
 
         // LEVEL 10
 
@@ -403,20 +402,6 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 0,
                 0,
                 0);
-        }
-    }
-
-    private sealed class ActionFinishedActionSurge : IActionFinished
-    {
-        public IEnumerator OnActionFinished(CharacterAction characterAction)
-        {
-            if (characterAction.ActionDefinition != DatabaseHelper.ActionDefinitions.ActionSurge)
-            {
-                yield break;
-            }
-
-            characterAction.ActingCharacter.RulesetCharacter
-                .RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, $"Condition{Name}Momentum");
         }
     }
 

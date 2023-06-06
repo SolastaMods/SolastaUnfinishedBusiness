@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=你对精神伤害有抵抗力，并且免疫魅惑、害怕、恐惧、心智支配和精神控制。
 Condition/&ConditionBrainBulwarkTitle=心智屏障
-Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
-Feature/&AdditionalDamageStaggeringSmiteTitle=惊震斩
+Condition/&ConditionStaggeringSmiteEnemyDescription=你受到精神伤害。
+Condition/&ConditionStaggeringSmiteEnemyTitle=惊震斩
 Feedback/&AdditionalDamageStaggeringSmiteFormat=惊震斩！
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊震斩对 {1} 造成更多伤害 (+{2})
 Spell/&BrainBulwarkDescription=在此期间，你或范围内你能看到的一个自愿生物对精神伤害具有抵抗力，并且免疫魅惑、恐惧、恐惧、心智支配和精神控制的状态。
