@@ -65,12 +65,10 @@ internal static class FixesContext
     private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
-        AdditionalDamageBrandingSmite
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+        AdditionalDamageBrandingSmite.AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
-        AdditionalDamageDivineFavor
-            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+        AdditionalDamageDivineFavor.AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
     }
 
     private static void FixColorTables()
@@ -105,7 +103,6 @@ internal static class FixesContext
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
     }
 
-
     private static void FixMartialArtsProgression()
     {
         //BUGFIX: fixes die progression of Monk's Martial Arts to use Monk level, not character level
@@ -124,12 +121,10 @@ internal static class FixesContext
         }
     }
 
-    /**
-     * Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1.
-     * Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data.
-     */
     private static void FixMeleeHitEffectsRange()
     {
+        //BEHAVIOR: Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1
+        //Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data
         foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
                      .Select(x => x.EffectDescription)
                      .Where(x => x.rangeType == RangeType.MeleeHit))
