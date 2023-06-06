@@ -143,7 +143,7 @@ ModUi/&General=<color=#F0DAA0>通用：</color>
 ModUi/&GeneralMenu=通用
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=如果尚未发现，则隐藏出口和传送器视觉效果
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%的步长显示怪物的生命值，而不是准确生命值
-ModUi/&House=<color=#F0DAA0>房子：</color>
+ModUi/&House=<color=#F0DAA0>房规：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
 ModUi/&ImproveLevelUpFeaturesSelection=改进升级功能选择<b><i><color=#C04040E0>[需要重启]</color></i></b>\n<i><color=#F0DAA0>[影响<color=#D89555>游侠</color>宿敌和擅长地形，<color=#D89555>德鲁伊</color>血缘野兽，<color=#D89555>野蛮人</color>元素之路和龙类子职选择]</color></i>
