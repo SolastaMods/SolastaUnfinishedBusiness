@@ -2,18 +2,19 @@
 
 1.5.49.6:
 
-- added a hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn [TPAOBAP]
-- fixed custom weapons not getting scale applied and improved their models [TPAOBAP]
-- fixed patch to allow upcasting summons from spells on war lists [Zappastuff]
-- fixed Sentinel reaction not processing correctly after protection changes [TPAOBAP]
-- improved Chain Master abilities to also work off combat [HIEROT]
-- improved Fairy's flight power still visible when active [TPAOBAP]
-- improved Path of the Yeoman to validate long bow on attack mode instead of wielded [Zappastuff]
-- improved Potent Spell caster feat group to require level 4 [TPAOBAP]
-- removed damage dice progression from major and minor elemental infusions [TPAOBAP]
-- removed "remove identification requirements" setting in favor of the vanilla one [Zappastuff]
-- updated Arcanist Mark's detonation text to include target and damage value [TPAOBAP]
-- updated campaigns' translator to consider new collections added to DM on POI DLC [MagicSkySword]
+- added a hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn
+- fixed custom weapons not getting scale applied and also improved their models for something more magical
+- fixed patch to allow upcasting summons from spells on war lists as previous wasn't consuming slots
+- fixed Sentinel reaction not processing correctly after adding desync protection changes
+- improved Chain Master abilities to also work off combat [by HIEROT]
+- improved Fairy's flight power which was still visible when active
+- improved Path of the Yeoman to validate long bow on the attack mode instead of the wielded weapon
+- improved Potent Spell caster feat group to require level 4
+- improved the short rest UI to correctly mark the consumed dice under multiclass
+- removed damage dice progression from major and minor elemental infusions
+- removed "remove identification requirements" setting in favor of the vanilla one
+- updated Arcanist Mark's detonation text to include target and damage value
+- updated campaigns' translator to consider new collections added to DM on POI DLC [by MagicSkySword]
 
 1.5.49.5:
 
