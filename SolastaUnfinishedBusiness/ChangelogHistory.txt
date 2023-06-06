@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.5.49.7:
+
+- added Gauntlet support to Dual Flurry triggering logic
+- added "Add all dice from base weapon damage" setting for weapons with 2+ dice
+- fixed minor issues on Fairy's flight, and campaigns' translator
+
 1.5.49.6:
 
 - added a hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn

@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=常に 1 つのダイスではなく、基本武器ダメージを追加する機能 (ハーフオークのサベージ アタックなど) に、基本武器ダメージからのすべてのダイスを追加します
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>

@@ -390,7 +390,20 @@ internal static class GameLocationBattleManagerTweaks
             var useVersatileDamage = attackMode is { UseVersatileDamage: true };
             var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
-            additionalDamageForm.DiceNumber = 1;
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for accounting for all damage dice on savage critical
+             * Base game uses only 1 dice, which makes Greatsword weak in this case
+             */
+            //Commented out original code
+            //additionalDamageForm.DiceNumber = 1;
+            additionalDamageForm.DiceNumber = Main.Settings.AccountForAllDiceOnSavageAttack ? damageForm.DiceNumber : 1;
+            /*
+             * Support for accounting for all damage dice on savage critical
+             * [CE] EDIT END
+             * ######################################
+             */
             additionalDamageForm.BonusDamage = 0;
         }
         else if (provider.DamageValueDetermination ==

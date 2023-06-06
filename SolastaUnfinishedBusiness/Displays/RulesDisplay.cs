@@ -141,6 +141,14 @@ internal static class RulesDisplay
             Main.Settings.EnableFlankingRules = toggle;
         }
 
+        toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
+        if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AllowStackedMaterialComponent;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {

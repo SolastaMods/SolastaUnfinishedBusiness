@@ -735,9 +735,7 @@ internal static class TranslatorContext
                         yield return Update();
 
                         outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
-                        outcome.validatorDescription.stringParameter =
-                            Translate(outcome.validatorDescription.stringParameter, languageCode);
-
+                        // magicSkySword : Only place parameters can be translated
                         // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                         switch (outcome.validatorDescription.type)
                         {

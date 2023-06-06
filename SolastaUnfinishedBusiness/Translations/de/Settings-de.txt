@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Grundwaffenschaden zu Funktionen hinzu, die Grundwaffenschaden hinzufügen (wie der wilde Angriff des Halb-Orks), anstatt immer 1 Würfel
 ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>

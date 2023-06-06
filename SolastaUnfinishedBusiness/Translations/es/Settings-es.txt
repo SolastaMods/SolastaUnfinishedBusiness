@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=Agregue todos los dados del daño de arma base a las características que agregan daño de arma base (como el Ataque salvaje de Half-orc) en lugar de siempre 1 dado
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
