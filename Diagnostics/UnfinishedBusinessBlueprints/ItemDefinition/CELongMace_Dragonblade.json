@@ -527,12 +527,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&CELongMaceUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&CELongMace+2UnidentifiedTitle",
     "unidentifiedDescription": "Feature/&NoContentTitle",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "217eff7029a88e7408afb85104d61a55",
+      "m_AssetGUID": "bfe46e8cb70520347b28cef32c05b65c",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -551,7 +551,7 @@
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
-    "serializedVersion": 1
+    "serializedVersion": 0
   },
   "clueSuspectPairs": [],
   "guiPresentation": {

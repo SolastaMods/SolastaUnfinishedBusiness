@@ -1,3 +1,5 @@
+Condition/&ConditionFeatCleavingAttackFinishDescription=Laissez-les venir!
+Condition/&ConditionFeatCleavingAttackFinishTitle=Attaque clivante
 Condition/&ConditionFeatCrusherCriticalHitDescription=Vous avez été écrasé par un coup critique et les attaques contre vous ont l'avantage.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Écrasé
 Condition/&ConditionFeatPiercerNonMagicDescription=Lorsque vous touchez une créature avec une attaque qui inflige des dégâts perçants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet.
@@ -42,8 +44,6 @@ Feat/&FeatSlasherStrDescription=Vous avez appris où couper pour obtenir les mei
 Feat/&FeatSlasherStrTitle=Slasher [For]
 Feat/&FeatSpearMasteryDescription=Bien que la lance soit une arme simple à apprendre, elle vous récompense pour le temps que vous avez mis à la maîtriser :\n• Vous gagnez un bonus de +1 aux jets d'attaque que vous effectuez avec une lance et son dé de dégâts passe de d6 à un d8, et d'un d8 à un d10 lorsqu'il est utilisé à deux mains.\n• En tant qu'action bonus, vous pouvez armer votre lance pour intercepter les ennemis qui approchent. Vous pouvez utiliser la réaction pour effectuer une attaque d'opportunité avec une lance sur un ennemi qui entre dans votre portée et infliger un dé de dégâts supplémentaire si cette attaque touche.\n• En tant qu'action bonus, vous pouvez augmenter votre portée avec une lance de 1 mètre pour le reste de votre tour.
 Feat/&FeatSpearMasteryTitle=Maîtrise de la lance
-Feature/&AdditionalDamageFeatPiercerDescription=Lorsque vous marquez un coup critique, vous pouvez lancer un dé de dégâts supplémentaire pour déterminer les dégâts perforants supplémentaires.
-Feature/&AdditionalDamageFeatPiercerTitle=Perceur
 Feature/&AttackModifierFeatSpearMasteryDescription=Vous gagnez un bonus de +1 aux jets d'attaque que vous effectuez avec une lance et son dé de dégâts passe d'un d6 à un d8, et d'un d8 à un d10 lorsqu'il est manié à deux mains.
 Feature/&AttackModifierFeatSpearMasteryTitle=Maîtrise de la lance
 Feature/&AttributeModifierFeatLongswordFinesseArmorClassDescription=Tant que vous tenez une épée longue, vous gagnez un bonus de +1 à la classe d'armure.

@@ -1,7 +1,5 @@
 Condition/&ConditionFarStepDescription=ボーナス アクションを使用すると、目に見える空いているスペースまで最大 60 フィートまでテレポートできます。
 Condition/&ConditionFarStepTitle=ファーステップ
-Feature/&AdditionalDamageBanishingSmiteDescription=強制ダメージを受けます。
-Feature/&AdditionalDamageBanishingSmiteTitle=バニシング・スマイト
 Feedback/&AdditionalDamageBanishingSmiteFormat=バニシング・スマイト!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} は追放スマイトにより {1} により多くのダメージを与えます (+{2})
 Spell/&BanishingSmiteDescription=次のヒットは、武器による追加の 5d10 フォース ダメージを与えます。さらに、この攻撃でターゲットのヒットポイントが 50 以下になった場合、1 分間追放します。

@@ -482,12 +482,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Rapier_plus_one_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Rapier_plus_one_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "0713347ab69823f47937a93125e9773c",
+      "m_AssetGUID": "8787fdf1e5cdd3148a7779e8627d6049",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

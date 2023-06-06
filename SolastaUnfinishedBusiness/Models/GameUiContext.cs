@@ -24,10 +24,10 @@ internal static class GameUiContext
     {
         new[] // default
         {
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
-            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 1, 1, 0, 0 }, //
+            new[] { 0, 1, 1, 0, 0 }, //
+            new[] { 0, 1, 1, 0, 0 }, //
+            new[] { 0, 1, 1, 0, 0 }, //
             new[] { 0, 0, 0, 0, 0 } //
         },
         new[] // triangle

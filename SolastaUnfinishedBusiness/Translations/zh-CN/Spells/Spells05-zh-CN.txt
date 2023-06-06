@@ -1,7 +1,5 @@
 Condition/&ConditionFarStepDescription=你可以使用一个附赠动作将最远 60 尺传送到一个你能看到的未被占据的空间。
 Condition/&ConditionFarStepTitle=渺远步
-Feature/&AdditionalDamageBanishingSmiteDescription=你被力场伤害击中。
-Feature/&AdditionalDamageBanishingSmiteTitle=放逐斩
 Feedback/&AdditionalDamageBanishingSmiteFormat=放逐斩！
 Feedback/&AdditionalDamageBanishingSmiteLine={0} 通过放逐斩对 {1} 造成更多伤害 (+{2})
 Spell/&BanishingSmiteDescription=你的下一次攻击用你的武器造成额外的 5d10 力场伤害。此外，如果这次攻击将目标的生命值降低到 50 以下，你将其放逐 1 分钟。

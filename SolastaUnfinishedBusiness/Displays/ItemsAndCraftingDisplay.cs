@@ -134,12 +134,6 @@ internal static class ItemsAndCraftingDisplay
             Main.Settings.RemoveAttunementRequirements = toggle;
         }
 
-        toggle = Main.Settings.RemoveIdentificationRequirements;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentificationRequirements"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveIdentificationRequirements = toggle;
-        }
-
         UI.Label();
 
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;

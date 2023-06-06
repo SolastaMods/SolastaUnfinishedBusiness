@@ -64,6 +64,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSortingFutureFeatures { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp { get; set; } = true;
 
+    //TA made level ups of more than 1 level at a time (like when starting PoI with low level party) disallow unlearning spells/invocations to streamline process. Setting this to true disables that.
+    public bool DisableStreamlinedMultiLevelUp { get; set; } = true;
 
     //
     // Gameplay - Tools
@@ -141,9 +143,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
     public bool UseElfFaceModelsOnTieflings { get; set; }
-#if false
-    public bool AllowHornsOnAllRaces { get; set; }
-#endif
+
     //
     // Gameplay - Rules
     //

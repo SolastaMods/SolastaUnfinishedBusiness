@@ -23,7 +23,7 @@ internal static partial class SpellBuilders
 
         var conditionStaggeringSmiteEnemy = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Enemy")
-            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionDazzled)
+            .SetGuiPresentation(Category.Condition, ConditionDazzled)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
@@ -51,7 +51,7 @@ internal static partial class SpellBuilders
 
         var additionalDamageStaggeringSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag(NAME)
             .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 4)

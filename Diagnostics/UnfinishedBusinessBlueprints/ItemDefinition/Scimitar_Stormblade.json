@@ -510,12 +510,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "",
-    "unidentifiedDescription": "",
+    "unidentifiedTitle": "Equipment/&Scimitar_plus_one_Unidentified_Title",
+    "unidentifiedDescription": "Equipment/&Scimitar_plus_one_Unidentified_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "a8e5c0b9d6351e243a14bf1b2cc07752",
+      "m_AssetGUID": "9722eaa5af639d84ca3ce3bb00e297d0",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },

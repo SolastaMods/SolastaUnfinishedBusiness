@@ -344,7 +344,7 @@ internal static class RulesetCharacterExtensions
                 .GetAllSubFeaturesOfType<IsInvocationValidHandler>()
                 .All(v => v(instance, definition));
 
-            if (definition.HasSubFeatureOfType<Hidden>() || !isValid)
+            if (definition.HasSubFeatureOfType<HiddenInvocation>() || !isValid)
             {
                 continue;
             }

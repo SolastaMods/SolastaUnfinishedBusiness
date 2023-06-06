@@ -44,18 +44,28 @@ internal static class ItemRecipeGenerationHelper
             { Warhammer, Primed_Warhammer }
         };
 
-        foreach (var baseItem in itemCollection.BaseWeapons)
+        foreach (var baseConfig in itemCollection.BaseItems)
         {
+            var baseItem = baseConfig.item;
+            var presentation = baseConfig.presentation;
+            if (presentation == null)
+            {
+                presentation = baseItem;
+            }
+
             foreach (var itemData in itemCollection.MagicToCopy)
             {
                 // Generate new items
                 var newItem = isArmor
-                    ? ItemBuilder.BuildNewMagicArmor(baseItem, itemData.Name, itemData.Item)
-                    : ItemBuilder.BuildNewMagicWeapon(baseItem, itemData.Name, itemData.Item);
+                    ? ItemBuilder.BuildNewMagicArmor(baseItem, presentation, itemData.Name, itemData.Item)
+                    : ItemBuilder.BuildNewMagicWeapon(baseItem, presentation, itemData.Name, itemData.Item);
                 var primedItem = baseToPrimed.TryGetValue(baseItem, out var value) ? value : baseItem;
                 var ingredients = new List<ItemDefinition> { primedItem };
 
-                newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures);
+                if (itemCollection.CustomSubFeatures != null)
+                {
+                    newItem.SetCustomSubFeatures(itemCollection.CustomSubFeatures.ToArray());
+                }
 
                 ingredients.AddRange(itemData.Recipe.Ingredients
                     .Where(ingredient =>

@@ -551,10 +551,18 @@ internal static class MeleeCombatFeats
 
         var conditionCleavingAttackFinish = ConditionDefinitionBuilder
             .Create($"Condition{Name}Finish")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition)
+            .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.StartOfTurn)
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd, ConditionInterruption.UsePower)
+            .SetFeatures(
+                FeatureDefinitionAdditionalActionBuilder
+                    .Create($"AdditionalAction{Name}Finish")
+                    .SetGuiPresentationNoContent(true)
+                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                    .SetMaxAttacksNumber(1)
+                    .AddToDB())
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -612,12 +620,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
-                        new AddExtraMainHandAttack(
-                            ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.HasMeleeWeaponInMainHand,
-                            ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                    .SetCustomSubFeatures(new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish))
                     .AddToDB())
             .AddToDB();
 
@@ -647,17 +650,12 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (outcome != RollOutcome.CriticalSuccess)
+            if (outcome != RollOutcome.CriticalSuccess || !ValidateCleavingAttack(attackMode))
             {
                 return;
             }
 
-            if (!Validate(attackMode))
-            {
-                return;
-            }
-
-            TryToApplyCondition(attacker.RulesetCharacter);
+            InflictCondition(attacker.RulesetCharacter);
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -666,33 +664,15 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!Validate(attackMode))
+            if (activeEffect != null || !ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
 
-            // activeEffect != null means a magical attack
-            if (activeEffect != null)
-            {
-                yield break;
-            }
-
-            TryToApplyCondition(attacker.RulesetCharacter);
+            InflictCondition(attacker.RulesetCharacter);
         }
 
-        private static bool Validate(RulesetAttackMode attackMode)
-        {
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
-
-            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
-        }
-
-        private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
+        private void InflictCondition(RulesetCharacter rulesetCharacter)
         {
             rulesetCharacter.InflictCondition(
                 _conditionCleavingAttackFinish.Name,
@@ -721,12 +701,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
-
-            if (attackMode == null ||
-                attackMode.Ranged ||
-                !ValidatorsWeapon.IsMelee(itemDefinition) ||
-                !ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
+            if (!ValidateCleavingAttack(attackMode, true))
             {
                 return;
             }
@@ -749,6 +724,15 @@ internal static class MeleeCombatFeats
             damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
         }
+    }
+
+    private static bool ValidateCleavingAttack(RulesetAttackMode attackMode, bool validateHeavy = false)
+    {
+        return !attackMode.Ranged &&
+               ValidatorsWeapon.IsMelee(attackMode) &&
+               (!validateHeavy ||
+                ValidatorsWeapon.HasAnyWeaponTag(attackMode.SourceDefinition as ItemDefinition,
+                    TagsDefinitions.WeaponTagHeavy));
     }
 
     #endregion
@@ -1311,7 +1295,7 @@ internal static class MeleeCombatFeats
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetNotificationTag(GroupFeats.Piercer)
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     .SetIgnoreCriticalDoubleDice(true)

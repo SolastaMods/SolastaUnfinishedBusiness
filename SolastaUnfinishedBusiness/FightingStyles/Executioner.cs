@@ -19,12 +19,13 @@ internal sealed class Executioner : AbstractFightingStyle
     private static readonly FeatureDefinition FeatureFightingStyleExecutioner = FeatureDefinitionBuilder
         .Create("FeatureFightingStyleExecutioner")
         .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageFightingStyleExecutioner")
-            .SetGuiPresentation(ExecutionerName, Category.FightingStyle)
-            .SetNotificationTag(ExecutionerName)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .AddToDB()))
+        .SetCustomSubFeatures(new CustomAdditionalDamageExecutioner(
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageFightingStyleExecutioner")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag(ExecutionerName)
+                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                .AddToDB()))
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
@@ -38,9 +39,9 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class ExecutionerDamage : CustomAdditionalDamage
+    private sealed class CustomAdditionalDamageExecutioner : CustomAdditionalDamage
     {
-        public ExecutionerDamage(IAdditionalDamageProvider provider) : base(provider)
+        public CustomAdditionalDamageExecutioner(IAdditionalDamageProvider provider) : base(provider)
         {
         }
 

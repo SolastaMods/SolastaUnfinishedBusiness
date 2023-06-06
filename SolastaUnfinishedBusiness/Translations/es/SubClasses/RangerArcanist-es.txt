@@ -11,6 +11,6 @@ Feature/&MagicAffinityRangerArcanistTitle=Entrenamiento de combate arcano
 Feature/&PowerArcanistArcanePulseDescription=A partir del nivel 7, puedes provocar una erupción de energía arcana a una distancia de 30 pies. Las criaturas hostiles en un radio de 15 pies del punto de impacto reciben 4d8 de daño y obtienen una Marca de arcanista. Puedes usar esta habilidad un número de veces igual a tu modificador de Sabiduría por descanso prolongado. A nivel 15, el daño de tu Pulso Arcano aumenta a 8d8.
 Feature/&PowerArcanistArcanePulseTitle=Pulso Arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=¡Marca del arcanista!
-Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige daño adicional al objetivo!
+Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige +{2} de daño adicional al {1}!
 Subclass/&RangerArcanistDescription=El arcanista combina sus habilidades de guardabosques con habilidades arcanas. Sus armas pueden afectar a sus oponentes con la Marca del arcanista y han aprendido a lanzar algunos hechizos de mago como parte de su repertorio de hechizos de guardabosques.
 Subclass/&RangerArcanistTitle=Arcanista

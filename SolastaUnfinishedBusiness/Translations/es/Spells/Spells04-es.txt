@@ -1,7 +1,7 @@
 Condition/&ConditionBrainBulwarkDescription=Tienes resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
 Condition/&ConditionBrainBulwarkTitle=Baluarte del cerebro
-Feature/&AdditionalDamageStaggeringSmiteDescription=Eres golpeado por daño psíquico.
-Feature/&AdditionalDamageStaggeringSmiteTitle=Golpe asombroso
+Condition/&ConditionStaggeringSmiteEnemyDescription=Eres golpeado por daño psíquico.
+Condition/&ConditionStaggeringSmiteEnemyTitle=Golpe asombroso
 Feedback/&AdditionalDamageStaggeringSmiteFormat=¡Aplastamiento asombroso!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige más daño a {1} a través de un golpe asombroso (+{2})
 Spell/&BrainBulwarkDescription=Mientras dure, usted o una criatura voluntaria que pueda ver dentro del alcance tiene resistencia al daño psíquico, así como inmunidad a las condiciones Hechizado, Asustado, Miedo, Dominado por la mente y Controlado por la mente.
