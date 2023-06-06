@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=Ajoutez tous les dés des dégâts d'arme de base aux fonctionnalités qui ajoutent des dégâts d'arme de base (comme Attaque sauvage du demi-orque) au lieu de toujours 1 dé
 ModUi/&AddAllToStore=Ajouter tout au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajoutez la condition <color=#D89555>Saignement</color> à celles supprimées par <color=#D89555>Grande</color> et <color=#D89555>Petite restauration</color>
 ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux éléments officiels du jeu <i><color=#F0DAA0>[munitions, recettes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage] </color></i></b>

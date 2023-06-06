@@ -393,14 +393,14 @@ internal static class GameLocationBattleManagerTweaks
             /*
              * ######################################
              * [CE] EDIT START
-             * Support for accounting for all damage dice on savage criticals
-             * Base game uses only 1 dice, which makes Greatswords weak in this case
+             * Support for accounting for all damage dice on savage critical
+             * Base game uses only 1 dice, which makes Greatsword weak in this case
              */
             //Commented out original code
             //additionalDamageForm.DiceNumber = 1;
             additionalDamageForm.DiceNumber = Main.Settings.AccountForAllDiceOnSavageAttack ? damageForm.DiceNumber : 1;
             /*
-             * Support for accounting for all damage dice on savage criticals
+             * Support for accounting for all damage dice on savage critical
              * [CE] EDIT END
              * ######################################
              */

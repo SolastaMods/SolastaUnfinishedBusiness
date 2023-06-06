@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano básico da arma aos recursos que adicionam dano básico à arma (como Ataque Selvagem do Meio-orc) em vez de sempre 1 dado
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>

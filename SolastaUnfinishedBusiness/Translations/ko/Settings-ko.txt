@@ -1,3 +1,4 @@
+ModUi/&AccountForAllDiceOnSavageAttack=기본 무기 손상의 모든 주사위를 항상 1개의 주사위 대신 기본 무기 손상을 추가하는 기능(예: Half-orc의 Savage Attack)에 추가합니다
 ModUi/&AddAllToStore=스토어에 모두 추가
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>상급</color> 및 <color=#D89555>하급 복원</color>으로 제거된 상태에 <color=#D89555>출혈</color> 상태를 추가합니다.
 ModUi/&AddCustomIconsToOfficialItems=공식 게임 아이템에 맞춤 아이콘 추가 <i><color=#F0DAA0>[탄약, 레시피, 키트 등]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함] </color></i></b>

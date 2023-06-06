@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.5.49.7:
+
+- added "Add all dice from base weapon damage" setting for weapons with 2+ dice
+- fixed minor issues on Fairy's flight and translator changes
+
 1.5.49.6:
 
 - added a hidden setting, on by default, to allow a full level up process on POI as current one skips unlearn
