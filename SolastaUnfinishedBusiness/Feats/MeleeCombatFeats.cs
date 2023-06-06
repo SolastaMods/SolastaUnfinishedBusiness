@@ -559,7 +559,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")
                     .SetGuiPresentationNoContent(true)
-                    .SetActionType(ActionDefinitions.ActionType.Main)
+                    .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                     .SetMaxAttacksNumber(1)
                     .AddToDB())
@@ -620,12 +620,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
-                        new AddExtraMainHandAttack(
-                            ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.HasMeleeWeaponInMainHand,
-                            ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                    .SetCustomSubFeatures(new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish))
                     .AddToDB())
             .AddToDB();
 
@@ -660,7 +655,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (!Validate(attackMode))
+            if (!ValidateCleavingAttack(attackMode))
             {
                 return;
             }
@@ -674,7 +669,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!Validate(attackMode))
+            if (!ValidateCleavingAttack(attackMode))
             {
                 yield break;
             }
@@ -686,18 +681,6 @@ internal static class MeleeCombatFeats
             }
 
             TryToApplyCondition(attacker.RulesetCharacter);
-        }
-
-        private static bool Validate(RulesetAttackMode attackMode)
-        {
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
-
-            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
         }
 
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
@@ -729,12 +712,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
-
-            if (attackMode == null ||
-                attackMode.Ranged ||
-                !ValidatorsWeapon.IsMelee(itemDefinition) ||
-                !ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
+            if (!ValidateCleavingAttack(attackMode))
             {
                 return;
             }
@@ -757,6 +735,16 @@ internal static class MeleeCombatFeats
             damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
         }
+    }
+
+
+    private static bool ValidateCleavingAttack(RulesetAttackMode attackMode)
+    {
+        return !attackMode.Ranged &&
+               ValidatorsWeapon.IsMelee(attackMode) &&
+               ValidatorsWeapon.HasAnyWeaponTag(
+                   attackMode.SourceDefinition as ItemDefinition,
+                   TagsDefinitions.WeaponTagHeavy);
     }
 
     #endregion
