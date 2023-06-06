@@ -24,8 +24,7 @@ internal static class FairyRaceBuilder
 
     private static bool IsFlightValid(RulesetCharacter character)
     {
-        return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor() &&
-               !character.HasAnyConditionOfType(ConditionFlyingAdaptive);
+        return !character.IsWearingMediumArmor() && !character.IsWearingHeavyArmor();
     }
 
     internal static void OnItemEquipped([NotNull] RulesetCharacter character)
@@ -122,7 +121,8 @@ internal static class FairyRaceBuilder
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(IsFlightValid,
+                ValidatorsCharacter.HasNoneOfConditions(ConditionFlyingAdaptive)))
             .AddToDB();
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
