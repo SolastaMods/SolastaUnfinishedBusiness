@@ -1,4 +1,4 @@
-Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Você tem resistência a danos.
+Condition/&ConditionPathOfTheElementsElementalBlessingDescription=Você tem resistência a dano.
 Condition/&ConditionPathOfTheElementsElementalBlessingTitle=Bênção Elemental
 Feature/&AncestryPathOfTheElementsAllDescription=Enquanto você estiver em fúria, todas as criaturas inimigas a até 1,5 metro de você no final do seu turno recebem 1d6 {0} de dano. Este dano aumenta para 1d10 no 6º nível, 2d6 no 10º nível e 2d10 no 14º nível.
 Feature/&AncestryPathOfTheElementsBlizzardTitle=Nevasca

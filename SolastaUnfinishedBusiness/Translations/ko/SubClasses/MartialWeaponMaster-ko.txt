@@ -1,4 +1,4 @@
-Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=당신은 당신의 턴이 끝날 때까지 당신의 특화된 무기로 모든 공격에 유리합니다.
+Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=턴이 끝날 때까지 특수 무기로 모든 공격에 유리합니다.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=집중 공격
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=특수 무기 유형으로 적중 및 피해 굴림에 +1을 얻습니다. Martial Weapon Master는 다른 모든 무기 유형으로 공격하는 데 불리하지만 레벨 9부터 +2, 레벨 17부터 +3 보너스를 받습니다.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=무기 전문화

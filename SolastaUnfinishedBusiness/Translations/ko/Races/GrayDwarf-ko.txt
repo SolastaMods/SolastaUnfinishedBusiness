@@ -1,4 +1,4 @@
-Condition/&ConditionGrayDwarfStoneStrengthDescription=근력 체크와 세이브 드로우에 유리합니다. 근접 근력 무기로 +1d4 데미지.
+Condition/&ConditionGrayDwarfStoneStrengthDescription=근력 체크와 세이브 드로우에 유리합니다. 근거리 근력 무기로 +1d4 데미지.
 Condition/&ConditionGrayDwarfStoneStrengthTitle=스톤 강도
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=힘 +1
 Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=능력치 증가
@@ -6,7 +6,7 @@ Feature/&FeatureSetGrayDwarfAncestryDescription=매력, 마비 및 환상에 대
 Feature/&FeatureSetGrayDwarfAncestryTitle=회색 난쟁이 조상
 Feature/&PowerGrayDwarfInvisibilityDescription=최대 1분 동안 마법처럼 보이지 않게 할 수 있습니다. 공격적인 행동을 취하면 이 투명 상태가 해제됩니다. 이 능력을 사용하면 짧거나 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
 Feature/&PowerGrayDwarfInvisibilityTitle=보이지 않는
-Feature/&PowerGrayDwarfStoneStrengthDescription=추가 행동으로 1분 동안 돌의 힘을 받습니다. 근력 검사와 근력 내성 굴림에 이점이 있습니다. 또한 강도 기반 근접 무기로 추가 1d4 피해를 입힙니다. 이 능력을 사용하면 짧거나 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
+Feature/&PowerGrayDwarfStoneStrengthDescription=보너스 행동으로 1분 동안 돌의 힘을 받습니다. 근력 검사와 근력 내성 굴림에 이점이 있습니다. 또한 강도 기반 근접 무기로 추가 1d4 피해를 입힙니다. 이 능력을 사용하면 짧거나 긴 휴식을 마칠 때까지 다시 사용할 수 없습니다.
 Feature/&PowerGrayDwarfStoneStrengthTitle=스톤 강도
-Race/&RaceGrayDwarfDescription=회색 드워프는 황무지의 불가사의한 마법에 노출된 지 불과 몇 세대 만에 변화된 드워프입니다. 그들은 대부분 야행성이며 주로 묻힌 폐허에 거주합니다. 그들의 피부색은 회색 또는 심지어 흑색을 띠는 경향이 있습니다. 대부분의 드워프와 달리 수염을 기르지 않습니다.
+Race/&RaceGrayDwarfDescription=회색 드워프는 황무지의 불가사의한 마법에 노출된 지 불과 몇 세대 만에 변화된 드워프입니다. 그들은 주로 야행성이며 주로 묻힌 폐허에 거주합니다. 그들의 피부색은 회색 또는 심지어 흑색을 띠는 경향이 있습니다. 대부분의 드워프와 달리 수염을 기르지 않습니다.
 Race/&RaceGrayDwarfTitle=회색 왜성

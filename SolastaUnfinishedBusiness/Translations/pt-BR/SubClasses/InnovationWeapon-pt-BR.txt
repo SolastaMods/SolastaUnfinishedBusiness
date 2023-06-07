@@ -1,6 +1,6 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bônus de ataque mágico de seu criador
 Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Você pode atacar duas vezes, em vez de uma vez, ao usar as ações de ataque ou empurrão.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Ataque extra
+Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Ataque Extra
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Aprenda e esteja sempre preparado:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Feitiços de Armeiro
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Seu Arcane Jolt e seu defensor de aço ficam mais poderosos:\n• O dano extra e a cura de seu Arcane Jolt aumentam para 4d6.\n• Seu defensor de aço ganha +2 de bônus na Classe de Armadura.

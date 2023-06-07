@@ -1,8 +1,8 @@
-Feat/&FeatApothecaryChaDescription=Erhöhen Sie Ihr Charisma um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit dem Kräuterkunde-Set und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
+Feat/&FeatApothecaryChaDescription=Erhöhen Sie Ihr Charisma um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Kräuterheilmitteln und Medikamenten oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryChaTitle=Apotheker [Cha]
-Feat/&FeatApothecaryIntDescription=Erhöhen Sie Ihre Intelligenz um 1, bis zu einem Maximum von 20.\nSie erlangen Kenntnisse im Kräuterkunde-Set und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
+Feat/&FeatApothecaryIntDescription=Erhöhen Sie Ihre Intelligenz um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Kräuterheilmitteln und Medikamenten oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryIntTitle=Apotheker [Int]
-Feat/&FeatApothecaryWisDescription=Erhöhen Sie Ihre Weisheit um 1 auf maximal 20.\nSie erwerben Kenntnisse im Kräuterkunde-Set und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
+Feat/&FeatApothecaryWisDescription=Erhöhen Sie Ihre Weisheit um 1 auf maximal 20.\nSie erlangen Kenntnisse im Kräuterkunde-Set und Arcana oder in der Medizin, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatApothecaryWisTitle=Apotheker [Wis]
 Feat/&FeatCraftyScriberDescription=Erhöhen Sie Ihre Intelligenz um 1 auf maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schriftrollen und Arcana oder Fachwissen, wenn Sie bereits über Kenntnisse verfügen.
 Feat/&FeatCraftyScriberTitle=Schreiber

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=Dextérité +1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=Augmentation de l'attribut de Méphistophélès
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=Intelligence +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Augmentation de l'attribut d'langue du diable
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Augmentation des attributs de la langue du diable
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=Force +1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=Augmentation de l'attribut de Zariel
 Feature/&CastSpellTieflingDevilTongueDescription=Vous connaissez le sort mineur <b>Vicious Mockery</b>. Au niveau 3, vous apprenez <b>Charmer la personne</b> et au niveau 5, <b>Calmer les émotions</b>. Les deux peuvent être utilisés une fois par repos long.

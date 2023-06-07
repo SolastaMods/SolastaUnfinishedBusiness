@@ -1,4 +1,4 @@
-Condition/&ConditionWayOfTheDistantHandDistractDescription=Tiene desventaja en el siguiente ataque.
+Condition/&ConditionWayOfTheDistantHandDistractDescription=Tiene desventaja en el próximo ataque.
 Condition/&ConditionWayOfTheDistantHandDistractTitle=Distraído
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractDescription=Tiene desventaja en todos los ataques.
 Condition/&ConditionWayOfTheDistantHandUpgradedDistractTitle=Distraído

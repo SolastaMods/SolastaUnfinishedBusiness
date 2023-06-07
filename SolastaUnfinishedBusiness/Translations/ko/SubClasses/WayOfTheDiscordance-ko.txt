@@ -1,8 +1,8 @@
 Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=세 번째로 불협화음에 빠지면 정신이 괴사 피해를 입을 것입니다.
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=불화
-Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=세이브 드로우에 -1d4, 어택 롤에 -2를 받습니다. 각 턴이 끝날 때 저장을 시도할 수 있습니다.
+Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilDescription=세이브 드로우에 -1d4를, 어택 롤에 -2를 받습니다. 각 턴이 끝날 때 저장을 시도할 수 있습니다.
 Condition/&ConditionWayOfTheDiscordanceProfoundTurmoilTitle=심오한 혼란
-Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=3레벨부터 적의 내부 부조화를 조작하여 왜곡된 에너지의 파동을 만드는 방법을 배웁니다. 몽크 무기나 비무장 공격으로 생명체를 때릴 때마다 생명체는 1분 동안 불협화음 조건을 한 번 받습니다. 생물이 세 번째 인스턴스를 받으면 모든 인스턴스가 제거되고 생물은 당신의 무술 주사위 + 지혜 수정치만큼의 괴사 피해를 받습니다.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=3레벨부터 왜곡된 에너지의 파동을 생성하기 위해 적의 내부 부조화를 조작하는 방법을 배웁니다. 몽크 무기나 비무장 공격으로 생명체를 때릴 때마다 생명체는 1분 동안 불협화음 조건을 한 번 받습니다. 생물이 세 번째 인스턴스를 받으면 모든 인스턴스가 제거되고 생물은 당신의 무술 주사위 + 지혜 수정치만큼의 괴사 피해를 받습니다.
 Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=불화
 Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=6레벨부터 Stunning Strike 능력으로 생명체를 성공적으로 기절시킬 때 Discordance 조건의 추가 인스턴스를 하나 적용합니다. 또한 기절 상태가 지속되는 동안 기절한 생물은 공격과 능력으로 인해 추가 부조화 인스턴스를 받습니다.
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=분리

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=Destrezza +1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=Aumento degli attributi di Mefistofele
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=Intelligenza +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento degli attributi di lingua del diavolo
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento dell'attributo della lingua del diavolo
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=Forza +1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=Aumento degli attributi di Zariel
 Feature/&CastSpellTieflingDevilTongueDescription=Conosci il trucchetto <b>Vicious Mockery</b>. Al 3° livello impari <b>Fascino sulle Persone</b> e al 5° livello, <b>Calma le Emozioni</b>. Entrambi possono essere usati una volta per riposo lungo.

@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationArmorGuardianModeDescription=フリーハンドがある場合は<b>サンダー・ ガントレット</b> (1d8 サンダー・ダメージ) 武器を獲得し、 発明者レベルに等しい一時的な HP を得るために<b>ディフェンス・ フィールド</b> ボーナス・アクションを獲得します。
+Condition/&ConditionInnovationArmorGuardianModeDescription=フリーハンドがある場合は<b>サンダー・ ガントレット</b> (1d8 雷ダメージ) 武器を獲得し、 発明者レベルに等しい一時的な HP を得るために<b>ディフェンス・ フィールド</b> ボーナス・アクションを獲得します。
 Condition/&ConditionInnovationArmorGuardianModeTitle=ガーディアン
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=<b>ライトニング ランチャー</b> の遠距離攻撃を獲得します（1d6 の雷ダメージ、ラウンドの最初の攻撃は 2d6 を与えます）。
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=インフィルトレーター

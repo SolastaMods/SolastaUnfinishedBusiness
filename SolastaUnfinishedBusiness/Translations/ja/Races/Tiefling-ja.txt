@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=器用さ+1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=メフィストフェレス属性増加
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=知力+1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=アスモデウス属性増加
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=悪魔の舌属性増加
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=力+1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=ザリエル属性増加
 Feature/&CastSpellTieflingDevilTongueDescription=あなたは<b>悪質な嘲笑</b>のキャントリップを知っています。レベル3 では<b>魅力的な人物</b>を、レベル5 では<b>穏やかな感情</b>を学びます。どちらも長期休憩ごとに1回のみ使用できます。

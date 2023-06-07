@@ -1,8 +1,8 @@
-Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=10레벨에서는 Wild Shape을 두 번 사용하여 공기 정령, 대지 정령 또는 불 정령으로 변신할 수 있습니다.
+Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=10레벨에서는 Wild Shape을 두 번 사용하여 공기 정령, 대지 정령 또는 불 정령으로 변형할 수 있습니다.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=원소 형태
 Feature/&FeatureSetCircleOfTheNightMonstrousFormsDescription=14레벨에서 진홍 거미 또는 미노타우로스 엘리트로 변신하기 위해 와일드 셰이프를 두 번 사용할 수 있습니다.
-Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=괴상한 형태
-Feature/&PowerCircleOfTheNightPrimalStrikeDescription=6레벨부터 비마법 공격과 손상에 대한 저항과 면역을 극복하기 위해 야수 형태의 공격은 마법으로 간주됩니다. 드루이드 레벨을 3으로 나눈 값만큼 높은 도전 등급을 내림한 야수로 변신할 수도 있습니다.
+Feature/&FeatureSetCircleOfTheNightMonstrousFormsTitle=괴물 같은 형태
+Feature/&PowerCircleOfTheNightPrimalStrikeDescription=6레벨부터 비마법 공격과 손상에 대한 저항과 면역을 극복하기 위해 야수 형태의 공격은 마법으로 간주됩니다. 도전 등급이 드루이드 레벨을 3으로 나눈 값(내림)으로 야수로 변신할 수도 있습니다.
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=프라이멀 스트라이크
 Feature/&PowerCircleOfTheNightWildShapeCombatDescription=서클의 의식은 당신에게 더 빠르고 더 위험한 동물 형태로 변신할 수 있는 능력을 부여합니다. 와일드 셰이프에 대한 메인 액션 대신 보너스 액션을 사용하고 야수 형태 선택을 개선했습니다.
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=전투 야생 형태

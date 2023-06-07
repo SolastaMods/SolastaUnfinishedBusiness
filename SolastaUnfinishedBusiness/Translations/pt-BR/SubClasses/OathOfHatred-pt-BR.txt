@@ -1,6 +1,6 @@
 Condition/&ConditionDauntlessPursuerDescription=Você ganha 2 células de movimento extras e ignora as reações do oponente.
 Condition/&ConditionDauntlessPursuerTitle=Perseguidor destemido
-Condition/&ConditionHatredArdentHateDescription=Seus ataques com arma ignoram as resistências do alvo a danos. Uma vez por rodada, quando você faz um ataque com arma e erra, você pode fazer com que esse ataque acerte.
+Condition/&ConditionHatredArdentHateDescription=Seus ataques com arma ignoram as resistências do alvo a dano. Uma vez por rodada, quando você faz um ataque com arma e erra, você pode fazer com que esse ataque acerte.
 Condition/&ConditionHatredArdentHateTitle=Ódio ardente
 Condition/&ConditionScornfulPrayerDescription=A força e os vocais desaparecem à medida que a oração se desenvolve. Enquanto estiver sob os efeitos, a oração faz com que o inimigo seja enfraquecido e amaldiçoado nas jogadas de ataque.
 Condition/&ConditionScornfulPrayerTitle=Desprezado
@@ -16,7 +16,7 @@ Feature/&PowerHatredHatefulGazeDescription=Como uma ação bônus, use seu Canal
 Feature/&PowerHatredHatefulGazeTitle=Divindade do Canal: Olhar Odioso
 Feature/&PowerHatredScornfulPrayerDescription=Use seu Canalizar Divindade para realizar uma oração de desprezo em direção a um inimigo a até 18 metros de distância, amaldiçoando-o e enfraquecendo-o em uma falha no teste de resistência.
 Feature/&PowerHatredScornfulPrayerTitle=Canalizar Divindade: Oração desdenhosa
-Reaction/&CustomReactionHatredArdentHateDescription={0} erra {1} e pode usar Ódio Ardente para acertar.
+Reaction/&CustomReactionHatredArdentHateDescription={0} erra {1} e pode usar Ardent Hate para acertar em seu lugar.
 Reaction/&CustomReactionHatredArdentHateReactDescription=Em vez disso, bata.
 Reaction/&CustomReactionHatredArdentHateReactTitle=Hit
 Reaction/&CustomReactionHatredArdentHateTitle=Ódio ardente

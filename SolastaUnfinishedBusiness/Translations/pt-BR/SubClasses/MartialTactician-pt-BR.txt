@@ -42,5 +42,5 @@ Screen/&GambitDieDescription=Seu <b>dado de aposta</b> é um {0} e você tem {1}
 Screen/&InvocationPoolGambitHeader=Gambitos
 Subclass/&MartialTacticianDescription=O Estrategista usa seu conhecimento e poder no campo de batalha para realizar diferentes jogadas conforme necessário. Eles podem derrubar inimigos, inspirar seus aliados e realizar contra-ataques mortais contra seus inimigos.
 Subclass/&MartialTacticianTitle=Tático
-Tooltip/&CustomPortraitPoolPowerPoolTacticianGambit=<b>jogo de dados</b>
+Tooltip/&CustomPortraitPoolPowerPoolTacticianGambit=<b>jogar dados</b>
 UI/&CustomFeatureSelectionTooltipTypeGambit=Estratégia

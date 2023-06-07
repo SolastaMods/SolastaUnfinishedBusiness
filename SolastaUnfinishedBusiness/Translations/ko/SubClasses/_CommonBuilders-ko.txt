@@ -1,10 +1,10 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=당신은 추가 공격을 얻고 이제 당신의 차례에 최대 2번 공격할 수 있습니다.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=추가 공격
-Feature/&DamageAffinityGenericHardenToNecroticDescription=괴사 손상에 대한 면역이 있으며 최대 생명력을 줄일 수 없습니다.
-Feature/&DamageAffinityGenericHardenToNecroticTitle=괴사로 굳어지다
+Feature/&DamageAffinityGenericHardenToNecroticDescription=괴사 손상에 대한 면역이 있으며 최대 체력을 줄일 수 없습니다.
+Feature/&DamageAffinityGenericHardenToNecroticTitle=괴사로 강화
 Feature/&FeatureSetCasterFightingProficiencyDescription=경갑, 중갑, 방패를 착용할 수 있으며 무술 숙련도도 높일 수 있습니다.
 Feature/&FeatureSetCasterFightingProficiencyTitle=갑옷과 무기
-Feature/&MagicAffinityCasterFightingCombatMagicDescription=집중력 검사에 유리하고 무기를 주문 시전 초점으로 사용할 수 있으며 아이템을 들고 있는 동안 주문의 신체적 구성 요소를 수행할 수 있습니다.
+Feature/&MagicAffinityCasterFightingCombatMagicDescription=집중 검사에 유리하고 무기를 주문 시전 초점으로 사용할 수 있으며 항목을 들고 있는 동안 주문의 신체 구성 요소를 수행할 수 있습니다.
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedDescription=집중력 검사에서 이점이 있고, 무기를 주문 시전 초점으로 사용할 수 있고, 아이템을 들고 있는 동안 주문의 신체적 구성 요소를 수행할 수 있으며, 적이 근접 범위 내에 있을 때 불리하지 않습니다.
 Feature/&MagicAffinityCasterFightingCombatMagicImprovedTitle=향상된 전쟁 캐스팅
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=전쟁 캐스팅

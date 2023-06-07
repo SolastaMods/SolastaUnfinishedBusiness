@@ -20,5 +20,5 @@ Feature/&PowerWizardGraviturgistViolentAttractionDescription=Erhöhen Sie ab der
 Feature/&PowerWizardGraviturgistViolentAttractionTitle=Gewalttätige Anziehung
 Feedback/&AdditionalDamageViolentAttractionFormat=Gewalttätige Anziehung!
 Feedback/&AdditionalDamageViolentAttractionLine={0} führt einen heftigen Anziehungsangriff auf {1} (+{2}) durch.
-Subclass/&WizardGraviturgistDescription=Indem sie die Kräfte verstehen und beherrschen, die Körper aus Materie zusammenziehen oder auseinandertreiben, lernen die Schüler der arkanen Tradition der Graviturgie, die heftige Energie der Schwerkraft zu ihrem Vorteil und zum schrecklichen Nachteil ihrer Feinde weiter zu beugen und zu manipulieren.
-Subclass/&WizardGraviturgistTitle=Graviturgiker
+Subclass/&WizardGraviturgistDescription=Indem sie die Kräfte verstehen und beherrschen, die Körper aus Materie zusammenziehen oder auseinandertreiben, lernen die Schüler der arkanen Tradition der Graviturgie, die gewaltige Energie der Schwerkraft zu ihrem Vorteil und zum schrecklichen Schaden ihrer Feinde weiter zu beugen und zu manipulieren.
+Subclass/&WizardGraviturgistTitle=Graviturgist

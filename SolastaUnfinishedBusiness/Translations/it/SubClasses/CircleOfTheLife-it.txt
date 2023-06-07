@@ -1,11 +1,11 @@
 Condition/&ConditionCircleOfTheLifeRevitalizingBoonDescription=Ottieni vantaggio sui tiri salvezza di Costituzione e sulla resistenza ai danni necrotici.
-Condition/&ConditionCircleOfTheLifeRevitalizingBoonTitle=Dono Rivitalizzante
+Condition/&ConditionCircleOfTheLifeRevitalizingBoonTitle=Dono rivitalizzante
 Condition/&ConditionCircleOfTheLifeSeedOfLifeDescription=Ripristina un numero di punti ferita pari al bonus di competenza dell'incantatore, all'inizio del proprio turno, per 1 minuto. Sei guarito per 2 volte il livello dell'incantatore alla fine di questo.
 Condition/&ConditionCircleOfTheLifeSeedOfLifeTitle=Seme della vita
 Condition/&ConditionCircleOfTheLifeVerdancyDescription=Ripristina un numero di punti ferita pari al livello di lancio dell'incantesimo, all'inizio del turno del Druido, per 3 round.
 Condition/&ConditionCircleOfTheLifeVerdancyTitle=Verdeggiante
 Feature/&FeatureCircleOfTheLifeRevitalizingBoonDescription=A partire dal 10° livello, le creature influenzate da Verdancy o Seed of Life ottengono vantaggio ai tiri salvezza su Costituzione e resistenza ai danni necrotici.
-Feature/&FeatureCircleOfTheLifeRevitalizingBoonTitle=Dono Rivitalizzante
+Feature/&FeatureCircleOfTheLifeRevitalizingBoonTitle=Dono rivitalizzante
 Feature/&FeatureCircleOfTheLifeVerdancyDescription=A partire dal 2° livello, ogni volta che curi una creatura usando un incantesimo di guarigione di livello 1 o superiore, o la influenzi con incantesimi di Restauro Inferiore e Superiore, quella creatura ripristina anche un numero di punti ferita pari al livello di lancio dell'incantesimo, all'inizio del Il turno del druido, per 3 turni. Se una creatura perde i sensi, la guarigione viene rimossa. Questo effetto si accumula.
 Feature/&FeatureCircleOfTheLifeVerdancyTitle=Verdeggiante
 Feature/&MagicAffinityCircleOfTheLifeHarmoniousBloomDescription=A partire dal 14° livello, tutti gli incantesimi curativi che lanci contano come lanciati a uno slot di livello superiore.

@@ -1,8 +1,8 @@
-Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=14레벨부터 피가 영구적으로 오염되어 피와 접촉하는 생명체에게 피해를 줍니다. 5피트 이내의 생명체가 근접 공격으로 당신을 공격할 때마다 그 생명체는 당신의 건강 수정치만큼 괴사 피해를 입습니다.
+Feature/&FeaturePathOfTheReaverCorruptedBloodDescription=14레벨부터 피가 영구적으로 오염되어 피와 접촉하는 생명체에게 피해를 줍니다. 5피트 이내의 생명체가 근접 공격으로 당신을 공격할 때마다, 그 생명체는 당신의 건강 수정치만큼 괴사 피해를 입습니다.
 Feature/&FeaturePathOfTheReaverCorruptedBloodTitle=타락한 피
-Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=3레벨부터 내면의 타락을 근접 무기 공격으로 전환할 수 있습니다. 격노하는 동안 각 턴에 근접 무기 공격으로 적중한 첫 번째 생물은 숙련도 보너스와 동일한 추가 괴사 피해를 입으며 동일한 양의 체력을 회복합니다. 또한 이 기능의 추가 피해와 치유는 최대 체력의 절반 미만이거나 생물을 치명타로 칠 때 같은 양만큼 증가합니다. 이 보너스는 누적됩니다.
+Feature/&FeaturePathOfTheReaverVoraciousFuryDescription=3레벨부터 내면의 부패를 근접 무기 공격으로 전환할 수 있습니다. 격노하는 동안 각 턴에 근접 무기 공격으로 적중한 첫 번째 생물은 숙련도 보너스와 동일한 추가 괴사 피해를 입으며 동일한 양의 체력을 회복합니다. 또한 이 기능의 추가 피해와 치유는 최대 체력의 절반 미만이거나 생물을 치명타로 칠 때 같은 양만큼 증가합니다. 이 보너스는 누적됩니다.
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=게걸스러운 분노
-Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=6레벨부터 괴사 및 독 손상에 대한 저항력을 얻습니다. 또한 최대 체력이 야만인 수준만큼 증가합니다.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=6레벨부터 괴사 및 독 피해에 대한 저항력을 얻습니다. 또한 최대 체력이 야만인 레벨만큼 증가합니다.
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=세속적인 활력
 Feature/&PowerPathOfTheReaverBloodbathDescription=10레벨부터 시작하여 분노하는 동안 근접 무기 공격을 사용하여 생명체의 체력을 0으로 줄일 때마다 해당 생명체를 절개하여 바바리안 레벨의 2배에 해당하는 체력을 회복할 수 있습니다. 이 기능은 짧은 휴식당 한 번만 사용할 수 있습니다.
 Feature/&PowerPathOfTheReaverBloodbathTitle=피의 목욕

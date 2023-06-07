@@ -1,5 +1,5 @@
 Failure/&FailureFlagSpellMustBeOfTargetArea=주문은 원뿔, 정육면체, 원통 또는 구체 효과 영역을 가져야 합니다.
-Failure/&FailureFlagSpellMustHaveDamageForm=주문은 적어도 하나의 손상 형태를 가져야 합니다.
+Failure/&FailureFlagSpellMustHaveDamageForm=주문에는 적어도 하나의 손상 형태가 있어야 합니다.
 Failure/&FailureFlagSpellMustRequireConcentration=주문은 집중을 요구해야 합니다.
 Failure/&FailureFlagSpellRangeMustBeSelf=주문 범위는 자기 자신이어야 합니다.
 Feature/&MetamagicAltruisticSpellAllyDescription=자신이 아닌 30피트 내의 아군을 대상으로 하는 주문을 만듭니다.
@@ -13,4 +13,4 @@ Feature/&MetamagicFocusedSpellTitle=집중 주문
 Feature/&MetamagicPowerfulSpellDescription=주문 레벨당 마법 포인트 1점을 사용하여 피해 주사위 수를 1씩 늘릴 수 있습니다.
 Feature/&MetamagicPowerfulSpellTitle=강력한 주문
 Feature/&MetamagicWidenedSpellDescription=주문의 효과 범위를 늘리기 위해 마법 점수 2점을 사용할 수 있습니다. 원뿔, 정육면체, 원통 또는 구체 효과 영역이 있는 주문은 크기가 가장 가까운 5피트 단위로 증가합니다.
-Feature/&MetamagicWidenedSpellTitle=확대된 주문
+Feature/&MetamagicWidenedSpellTitle=확대 주문

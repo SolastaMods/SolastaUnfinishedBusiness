@@ -9,4 +9,4 @@ Feature/&FeatureSetSorcerousSpellBladeMartialTrainingTitle=Allenamento marziale
 Feedback/&AdditionalDamageWarSorcererFormat=Stregone di guerra
 Feedback/&AdditionalDamageWarSorcererLine={0} infligge danni da War Sorcerer su {1} (+{2})
 Subclass/&SorcerousSpellBladeDescription=I Forceblade combinano abilità marziali con talenti magici innati per sconfiggere i loro nemici.
-Subclass/&SorcerousSpellBladeTitle=Lama di forza
+Subclass/&SorcerousSpellBladeTitle=Lama di Forza

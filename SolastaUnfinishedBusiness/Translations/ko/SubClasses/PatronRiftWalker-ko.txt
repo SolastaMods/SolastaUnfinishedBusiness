@@ -16,5 +16,5 @@ Reaction/&SpendPowerPowerRiftWalkerRiftStrikeDescription=근접 공격으로 피
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactDescription=반응을 사용하여 대상을 추방하십시오.
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeReactTitle=리프트 스트라이크
 Reaction/&SpendPowerPowerRiftWalkerRiftStrikeTitle=리프트 스트라이크
-Subclass/&PatronRiftWalkerDescription=당신의 후원자는 세계 사이의 공허를 집이라고 부르는 희귀한 존재 중 하나입니다. 그들은 차원 사이를 쉽게 미끄러지며 그들과 상호 작용하여 얻은 지식을 통해 solasta 내에서 당신의 이익을 위해 오래 지속되는 균열 에너지를 활용할 수 있습니다. 때때로 여러분은 후원자의 먼 영역에 대한 그리움, 남은 시간 동안 차원 사이를 방황하고 싶은 욕구, 예방하거나 장려하기 위해 또 다른 Rift 이벤트의 징후를 지켜보고 싶은 욕구로 가득할 수 있습니다.
+Subclass/&PatronRiftWalkerDescription=당신의 후원자는 세계 사이의 공허를 집이라고 부르는 희귀한 존재 중 하나입니다. 그들은 차원 사이를 쉽게 미끄러지며 그들과 상호 작용하여 얻은 지식을 통해 solasta 내에서 남아 있는 균열 에너지를 활용하여 이익을 얻을 수 있습니다. 때때로 여러분은 후원자의 먼 영역에 대한 그리움, 남은 시간 동안 차원 사이를 방황하고 싶은 욕구, 예방하거나 장려하기 위해 또 다른 Rift 이벤트의 징후를 지켜보고 싶은 욕구로 가득할 수 있습니다.
 Subclass/&PatronRiftWalkerTitle=리프트워커

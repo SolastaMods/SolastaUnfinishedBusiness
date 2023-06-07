@@ -45,6 +45,6 @@ Spell/&SpiritShroudDamageNecroticTitle=Velo spirituale (necrotico)
 Spell/&SpiritShroudDamageRadiantDescription=Infliggi danni radianti bonus.
 Spell/&SpiritShroudDamageRadiantTitle=Manto Spirituale (Radiante)
 Spell/&SpiritShroudDescription=Evochi gli spiriti dei morti, che svolazzano intorno a te per la durata dell'incantesimo. Gli spiriti sono intangibili e invulnerabili.\nFino al termine dell'incantesimo, qualsiasi attacco che effettui infligge 1d8 danni extra quando colpisci una creatura entro 3 metri da te. Questo danno è radiante, necrotico o freddo (a tua scelta quando lanci l'incantesimo). Qualsiasi creatura che subisca questo danno non può riguadagnare punti ferita fino all'inizio del tuo prossimo turno.\nInoltre, qualsiasi creatura nemica entro 3 metri da te quando lanci o che entra o inizia il suo turno in quell'intervallo ha il suo movimento velocità ridotta di 3 metri fino all'inizio del turno successivo.\nQuando lanci questo incantesimo usando uno slot incantesimo di 4° livello o superiore, il danno aumenta di 1d8 per ogni due livelli di slot sopra il 3°.
-Spell/&SpiritShroudTitle=Spirito Sindone
+Spell/&SpiritShroudTitle=Sindone dello spirito
 Spell/&WinterBreathDescription=Crea una raffica di vento gelido per raffreddare i tuoi nemici e farli cadere proni.
 Spell/&WinterBreathTitle=Respiro d'inverno
