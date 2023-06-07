@@ -948,31 +948,64 @@ internal static class UpcastConjureElementalAndFey
 
 internal static class FlankingRules
 {
-    private static bool IsBehindMelee(GameLocationCharacter attacker, GameLocationCharacter defender)
+    private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
     {
-        var attackerPos = attacker.LocationPosition;
-        var defenderPos = defender.LocationPosition;
-        var delta = Math.Abs(attackerPos.x - defenderPos.x) +
-                    Math.Abs(attackerPos.y - defenderPos.y) +
-                    Math.Abs(attackerPos.z - defenderPos.z);
+        if ((side & CellFlags.Side.North) > 0)
+        {
+            yield return CellFlags.Side.North;
+        }
 
-        return attacker.Orientation == defender.Orientation && delta == 1;
+        if ((side & CellFlags.Side.South) > 0)
+        {
+            yield return CellFlags.Side.South;
+        }
+
+        if ((side & CellFlags.Side.East) > 0)
+        {
+            yield return CellFlags.Side.East;
+        }
+
+        if ((side & CellFlags.Side.West) > 0)
+        {
+            yield return CellFlags.Side.West;
+        }
+
+        if ((side & CellFlags.Side.Top) > 0)
+        {
+            yield return CellFlags.Side.Top;
+        }
+
+        if ((side & CellFlags.Side.Bottom) > 0)
+        {
+            yield return CellFlags.Side.Bottom;
+        }
     }
 
-    private static void AddHigherAttack(ActionModifier actionModifier)
+    private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&HigherAttack",
-            null));
-    }
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-    private static void AddBehindAttack(ActionModifier actionModifier)
-    {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&BehindAttack",
-            null));
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        var attackerPosition = attacker.LocationPosition;
+        var defenderPosition = defender.LocationPosition;
+        var attackerDirection = defenderPosition - attackerPosition;
+        var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+        var flankingSide = GetEachSide(attackerSide)
+            .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+        return gameLocationBattleService.Battle.AllContenders
+            .Where(x =>
+                x != attacker &&
+                x.Side == attacker.Side &&
+                x.CanAct() &&
+                gameLocationBattleService.IsWithin1Cell(x, defender))
+            .Select(ally => defenderPosition - ally.LocationPosition)
+            .Select(CellFlags.DirectionToAllSurfaceSides)
+            .Any(allySide => allySide == flankingSide);
     }
 
     private static void AddAdvantage(
@@ -990,27 +1023,42 @@ internal static class FlankingRules
         var alliesInMelee = Gui.Battle.AllContenders
             .Count(x => x.Side == attacker.Side && gameLocationBattleService.IsWithin1Cell(x, defender));
 
-        if (alliesInMelee >= 4)
+        if (alliesInMelee >= 3)
         {
             actionModifier.AttackAdvantageTrends.Add(
                 new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
         }
     }
 
+    private static void AddFlankingAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&FlankingAttack",
+            null));
+    }
+
+    private static void AddHigherGroundAttack(ActionModifier actionModifier)
+    {
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
+            "Feedback/&HigherGroundAttack",
+            null));
+    }
+
     internal static void HandlePhysicalAttack(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        ActionModifier actionModifier,
-        RulesetAttackMode rulesetAttackMode)
+        ActionModifier actionModifier)
     {
-        // ReSharper disable once ConvertIfStatementToSwitchStatement
-        if (rulesetAttackMode.ranged && attacker.LocationPosition.y > defender.LocationPosition.y)
+        if (attacker.LocationPosition.y > defender.LocationPosition.y)
         {
-            AddHigherAttack(actionModifier);
-        }
-        else if (!rulesetAttackMode.ranged && IsBehindMelee(attacker, defender))
+            AddHigherGroundAttack(actionModifier);
+        } 
+        
+        if (IsFlanking(attacker, defender))
         {
-            AddBehindAttack(actionModifier);
+            AddFlankingAttack(actionModifier);
         }
 
         AddAdvantage(attacker, defender, actionModifier);
@@ -1022,21 +1070,19 @@ internal static class FlankingRules
         ActionModifier actionModifier,
         RulesetEffect rulesetEffect)
     {
-        if (rulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
+        if (rulesetEffect is not RulesetEffectSpell)
         {
             return;
         }
 
-        var rangeType = rulesetEffectSpell.EffectDescription.rangeType;
-
-        // ReSharper disable once ConvertIfStatementToSwitchStatement
-        if (rangeType == RangeType.RangeHit && attacker.LocationPosition.y > defender.LocationPosition.z)
+        if (attacker.LocationPosition.y > defender.LocationPosition.z)
         {
-            AddHigherAttack(actionModifier);
+            AddHigherGroundAttack(actionModifier);
         }
-        else if (rangeType == RangeType.MeleeHit && IsBehindMelee(attacker, defender))
+        
+        if (IsFlanking(attacker, defender))
         {
-            AddBehindAttack(actionModifier);
+            AddFlankingAttack(actionModifier);
         }
 
         AddAdvantage(attacker, defender, actionModifier);
