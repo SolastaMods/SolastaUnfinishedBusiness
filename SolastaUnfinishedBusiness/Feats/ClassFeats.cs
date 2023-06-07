@@ -488,7 +488,7 @@ internal static class ClassFeats
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{Name}")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
                         device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
                     .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
