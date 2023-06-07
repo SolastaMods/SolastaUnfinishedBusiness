@@ -486,7 +486,13 @@ internal static class ClassFeats
             .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+                    .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
+                    .AddToDB(),
                 FeatureDefinitionCraftingAffinityBuilder
                     .Create($"CraftingAffinity{Name}")
                     .SetGuiPresentationNoContent(true)
@@ -500,47 +506,6 @@ internal static class ClassFeats
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
             .AddToDB();
-    }
-
-    internal static void TweakUseItemBonusActionId(
-        IControllableCharacter __instance,
-        ref ActionDefinitions.ActionStatus __result,
-        ActionDefinitions.Id actionId)
-    {
-        // no changes if not an available use item bonus action in battle
-        if (Gui.Battle == null ||
-            actionId != ActionDefinitions.Id.UseItemBonus ||
-            __result != ActionDefinitions.ActionStatus.Available)
-        {
-            return;
-        }
-
-        // no changes if character is Roguish Thief or Grenadier
-        var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
-                   __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-        if (hero == null ||
-            (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var rogueSub) &&
-             rogueSub.Name == "RoguishThief") ||
-            (hero.ClassesAndSubclasses.TryGetValue(InventorClass.Class, out var inventorSub) &&
-             inventorSub.Name == "InnovationAlchemy"))
-        {
-            return;
-        }
-
-        // no changes if device is poison
-        __instance.RulesetCharacter.RefreshUsableDeviceFunctions();
-
-        if (__instance.RulesetCharacter.EnumerateAvailableDevices(false)
-            .Where(enumerateAvailableDevice =>
-                __instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
-            .All(enumerateAvailableDevice =>
-                enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
-        {
-            return;
-        }
-
-        __result = ActionDefinitions.ActionStatus.CannotPerform;
     }
 
     #endregion
