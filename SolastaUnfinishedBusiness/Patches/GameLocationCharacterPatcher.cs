@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -189,9 +188,6 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
                 ignoreMovePoints);
-
-            //PATCH: support `Poisoner` feat to only allow poisons to be used on use item bonus
-            ClassFeats.TweakUseItemBonusActionId(__instance, ref __result, actionId);
         }
     }
 
