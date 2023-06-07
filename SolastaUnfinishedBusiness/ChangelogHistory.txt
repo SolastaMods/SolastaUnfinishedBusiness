@@ -2,7 +2,7 @@
 
 1.5.52.0:
 
-- changed flanking rules so both ranged and melee benefit from higher ground and flanking
+- fixed Soul Hex applying bonus damage and critical threshold against any target instead of cursed creature only
 - fixed Spell Sniper feats to grant 2 cantrips as stated in description
 - improved enchant weapon type powers to consider two handed ranged or polearm expert bonus attacks
 - improved flanking rules to check for a line that crosses the front and back of the target for triggering
