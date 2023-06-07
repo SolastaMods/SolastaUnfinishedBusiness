@@ -938,7 +938,7 @@ internal static class OtherFeats
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
                         .SetGuiPresentationNoContent(true)
-                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellList,
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)
