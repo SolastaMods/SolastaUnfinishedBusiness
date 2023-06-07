@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.5.52.0:
+
+- changed flanking rules so both ranged and melee benefit from higher ground and flanking
+- fixed Spell Sniper feats to grant 2 cantrips as stated in description
+- improved enchant weapon type powers to consider two handed ranged or polearm expert bonus attacks
+- improved flanking rules to check for a line that crosses the front and back of the target for triggering
+- improved how Poisoner feat adds bonus action to use poisons
+
 1.5.49.7:
 
 - added Gauntlet support to Dual Flurry triggering logic
