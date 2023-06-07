@@ -295,6 +295,40 @@ internal static class ClassFeats
 
     #endregion
 
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
+                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+                    .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
+                    .AddToDB(),
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
     #region Exploiter
 
     private static FeatDefinition BuildExploiter()
@@ -472,40 +506,6 @@ internal static class ClassFeats
                 TurnOccurenceType.EndOfTurn,
                 TemporaryHitPointsGuid);
         }
-    }
-
-    #endregion
-
-    #region Poisoner
-
-    private static FeatDefinition BuildPoisoner()
-    {
-        const string Name = "FeatPoisoner";
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create($"ActionAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ValidateDeviceFunctionUse((_, device, _) =>
-                        device.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
-                    .SetAuthorizedActions(ActionDefinitions.Id.UseItemBonus)
-                    .AddToDB(),
-                FeatureDefinitionCraftingAffinityBuilder
-                    .Create($"CraftingAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                        ToolTypeDefinitions.PoisonersKitType)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.ToolOrExpertise, PoisonersKitType)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
-            .AddToDB();
     }
 
     #endregion

@@ -97,13 +97,13 @@ public static class UsableDeviceFunctionBoxPatcher
             }
 
             var user = box.GuiCharacter.RulesetCharacter;
-            
+
             if (user.GetSubFeaturesByType<IActionPerformanceProvider>()
                 .Any(f => ValidPerformanceProvider(f, user, usableDevice, rulesetDeviceFunction)))
             {
                 return;
             }
-            
+
             if (user.GetSubFeaturesByType<IAdditionalActionsProvider>()
                 .Any(f => ValidAdditinalActionProvider(f, user, usableDevice, rulesetDeviceFunction)))
             {
@@ -134,7 +134,7 @@ public static class UsableDeviceFunctionBoxPatcher
             var validator = feature.GetFirstSubFeatureOfType<ValidateDeviceFunctionUse>();
             return validator == null || validator(user, device, deviceFunction);
         }
-        
+
         private static bool ValidAdditinalActionProvider(
             IAdditionalActionsProvider provider,
             RulesetCharacter user,

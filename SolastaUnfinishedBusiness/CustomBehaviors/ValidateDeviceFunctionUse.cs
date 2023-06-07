@@ -7,6 +7,6 @@
  * Can be extended to affect any specific device if needed
  */
 public delegate bool ValidateDeviceFunctionUse(
-    RulesetCharacter user,  
-    RulesetItemDevice device, 
+    RulesetCharacter user,
+    RulesetItemDevice device,
     RulesetDeviceFunction deviceFunction);

@@ -615,10 +615,12 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Call, tryModifyCrit));
         }
 
-        private static int TryModifyCritThreshold(RulesetAttribute attribute, RulesetCharacter me, RulesetCharacter target, BaseDefinition attackMethod)
+        private static int TryModifyCritThreshold(RulesetAttribute attribute, RulesetCharacter me,
+            RulesetCharacter target, BaseDefinition attackMethod)
         {
             var current = attribute.CurrentValue;
-            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m => current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
+            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m =>
+                current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
             return current;
         }
     }

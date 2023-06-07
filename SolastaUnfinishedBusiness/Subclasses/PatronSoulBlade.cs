@@ -81,7 +81,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetFeatures(additionalDamageHex)
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender, conditionHexAttacker.Name));
+        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender,
+            conditionHexAttacker.Name));
 
         //leaving for compatibility
         FeatureDefinitionBuilder
@@ -236,8 +237,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private sealed class NotifyConditionRemovalHex : INotifyConditionRemoval
     {
-        private readonly ConditionDefinition _conditionHexDefender;
         private readonly string _conditionHexAttacker;
+        private readonly ConditionDefinition _conditionHexDefender;
 
         public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender,
             string conditionHexAttacker)
@@ -252,7 +253,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             {
                 return;
             }
-            EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid)?.RemoveAllConditionsOfType(_conditionHexAttacker);
+
+            EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid)
+                ?.RemoveAllConditionsOfType(_conditionHexAttacker);
         }
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)

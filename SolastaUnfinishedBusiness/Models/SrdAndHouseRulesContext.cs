@@ -1054,8 +1054,8 @@ internal static class FlankingRules
         if (attacker.LocationPosition.y > defender.LocationPosition.y)
         {
             AddHigherGroundAttack(actionModifier);
-        } 
-        
+        }
+
         if (IsFlanking(attacker, defender))
         {
             AddFlankingAttack(actionModifier);
@@ -1079,7 +1079,7 @@ internal static class FlankingRules
         {
             AddHigherGroundAttack(actionModifier);
         }
-        
+
         if (IsFlanking(attacker, defender))
         {
             AddFlankingAttack(actionModifier);
