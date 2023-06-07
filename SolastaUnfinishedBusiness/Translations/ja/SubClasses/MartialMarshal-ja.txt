@@ -24,4 +24,4 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=攻撃
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=連携した攻撃
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=アクションの選択
 Subclass/&MartialMarshalDescription=敵の弱点を研究し、それを利用するために他のメンバーの攻撃を調整することに熟練しており、この武術的な部分で訓練を受けた戦闘機は戦場の有名な指揮者です。
-Subclass/&MartialMarshalTitle=元帥
+Subclass/&MartialMarshalTitle=マーシャル

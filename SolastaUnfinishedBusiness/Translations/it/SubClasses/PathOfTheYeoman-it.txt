@@ -20,4 +20,4 @@ Feature/&ProficiencyPathOfTheYeomanFletcherDescription=Acquisisci competenza con
 Feature/&ProficiencyPathOfTheYeomanFletcherTitle=Fletcher
 Subclass/&PathOfTheYeomanDescription=I barbari che seguono il Sentiero dello Yeoman ignorano le armi da mischia per padroneggiare l'arco lungo. Non meno forti dei barbari che seguono altri percorsi, le loro frecce abbattono il più potente dei nemici e la loro concentrazione risoluta aumenta le loro già formidabili difese a livelli incredibili.
 Subclass/&PathOfTheYeomanTitle=Sentiero dello Yeoman
-Tooltip/&BulwarkConcentration=Disattiva baluardo
+Tooltip/&BulwarkConcentration=Disattiva Baluardo

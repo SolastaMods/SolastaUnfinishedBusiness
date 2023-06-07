@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -58,29 +58,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         // Common Hex Feature
-
-        var additionalDamageHex = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageSoulBladeHex")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("Hex")
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .AddToDB();
-
-        var attributeModifierHex = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierSoulBladeHex")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.CriticalThreshold, -1)
-            .AddToDB();
-
-        var conditionHexAttacker = ConditionDefinitionBuilder
-            .Create("ConditionSoulBladeHexAttacker")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-            .SetFeatures(additionalDamageHex, attributeModifierHex)
-            .AddToDB();
-
         var conditionHexDefender = ConditionDefinitionBuilder
             .Create("ConditionSoulBladeHexDefender")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
@@ -88,29 +65,42 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender));
+        var additionalDamageHex = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageSoulBladeHex")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("Hex")
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetTargetCondition(conditionHexDefender, AdditionalDamageTriggerCondition.TargetHasCondition)
+            .SetCustomSubFeatures(new ModifyCritThresholdAgainstHexedTargets(conditionHexDefender.Name))
+            .AddToDB();
 
-        var featureHex = FeatureDefinitionBuilder
+        var conditionHexAttacker = ConditionDefinitionBuilder
+            .Create("ConditionSoulBladeHexAttacker")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(additionalDamageHex)
+            .AddToDB();
+
+        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender,
+            conditionHexAttacker.Name));
+
+        //leaving for compatibility
+        FeatureDefinitionBuilder
             .Create("FeatureSoulBladeHex")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new AttackOrMagicAttackInitiatedHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
-        var effectDescriptionHex = EffectDescriptionBuilder
-            .Create()
+        var effectDescriptionHex = EffectDescriptionBuilder.Create()
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
             .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add)
-                    .Build())
-            .Build();
+                EffectFormBuilder.ConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add),
+                EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true)
+            ).Build();
 
         // Soul Hex - Basic
 
@@ -185,7 +175,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddFeaturesAtLevel(1,
                 FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
-                featureHex,
                 powerHex,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,
@@ -207,116 +196,66 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private static bool CanWeaponBeEmpowered(RulesetAttackMode mode, RulesetItem item, RulesetCharacter character)
     {
-        if (item == null)
-        {
-            return false;
-        }
-
-        var definition = item.ItemDefinition;
-
-        if (definition == null ||
-            !definition.IsWeapon ||
-            !character.IsProficientWithItem(definition))
-        {
-            return false;
-        }
-
         if (character is not RulesetCharacterHero hero)
         {
             return false;
         }
 
-        if (mode.ActionType == ActionDefinitions.ActionType.Bonus &&
-            !hero.TrainedFightingStyles.Contains(GetDefinition<FightingStyleDefinition>("TwoWeapon")))
-        {
-            return false;
-        }
+        var canWeaponBeEmpowered = CanWeaponBeEnchanted(mode, item, character);
+        var canTwoHandedBeEmpowered =
+            ValidatorsWeapon.HasTwoHandedTag(mode) &&
+            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade));
 
-        if (hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
-        {
-            return true;
-        }
-
-        return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+        return canWeaponBeEmpowered || canTwoHandedBeEmpowered;
     }
 
-    private sealed class AttackOrMagicAttackInitiatedHex : IPhysicalAttackInitiated, IMagicalAttackInitiated
+    private sealed class ModifyCritThresholdAgainstHexedTargets : IModifyMyAttackCritThreshold
     {
-        private readonly ConditionDefinition _conditionHexAttacker;
-        private readonly ConditionDefinition _conditionHexDefender;
+        private readonly string hexCondition;
 
-        public AttackOrMagicAttackInitiatedHex(
-            ConditionDefinition conditionHexAttacker,
-            ConditionDefinition conditionHexDefender)
+        public ModifyCritThresholdAgainstHexedTargets(string hexCondition)
         {
-            _conditionHexAttacker = conditionHexAttacker;
-            _conditionHexDefender = conditionHexDefender;
+            this.hexCondition = hexCondition;
         }
 
-        public IEnumerator OnMagicalAttackInitiated(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier magicModifier,
-            RulesetEffect rulesetEffect,
-            List<EffectForm> actualEffectForms,
-            bool firstTarget,
-            bool criticalHit)
+        public int TryModifyMyAttackCritThreshold(int current, RulesetCharacter me, RulesetCharacter target,
+            BaseDefinition attackMethod)
         {
-            yield return ApplyCondition(attacker, defender);
-        }
-
-        public IEnumerator OnAttackInitiated(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
-        {
-            yield return ApplyCondition(attacker, defender);
-        }
-
-        private IEnumerator ApplyCondition(IControllableCharacter attacker, IControllableCharacter defender)
-        {
-            var rulesetDefender = defender.RulesetCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetDefender == null || rulesetAttacker == null || rulesetDefender.IsDeadOrDying)
+            if (target == null || attackMethod == null)
             {
-                yield break;
+                return current;
             }
 
-            if (rulesetDefender.HasAnyConditionOfType(_conditionHexDefender.Name))
+            if (target.HasConditionOfType(hexCondition))
             {
-                rulesetAttacker.InflictCondition(
-                    _conditionHexAttacker.Name,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
-                    rulesetAttacker.guid,
-                    rulesetAttacker.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
+                return current - 1;
             }
+
+            return current;
         }
     }
 
     private sealed class NotifyConditionRemovalHex : INotifyConditionRemoval
     {
+        private readonly string _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender)
+        public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender,
+            string conditionHexAttacker)
         {
             _conditionHexDefender = conditionHexDefender;
+            _conditionHexAttacker = conditionHexAttacker;
         }
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            // empty
+            if (rulesetCondition.ConditionDefinition != _conditionHexDefender)
+            {
+                return;
+            }
+
+            EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid)
+                ?.RemoveAllConditionsOfType(_conditionHexAttacker);
         }
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -326,12 +265,14 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 return;
             }
 
-            var sourceGuid = rulesetCondition.SourceGuid;
-
-            if (RulesetEntity.TryGetEntity<RulesetCharacter>(sourceGuid, out var rulesetCharacter))
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+            if (caster == null)
             {
-                ReceiveHealing(rulesetCharacter);
+                return;
             }
+
+            caster.RemoveAllConditionsOfType(_conditionHexAttacker);
+            ReceiveHealing(caster);
         }
 
         private static void ReceiveHealing(RulesetCharacter rulesetCharacter)

@@ -1,12 +1,12 @@
-Condition/&ConditionFarStepDescription=보너스 액션을 사용하여 볼 수 있는 빈 공간으로 최대 60피트 순간이동할 수 있습니다.
+Condition/&ConditionFarStepDescription=보너스 액션을 사용하여 볼 수 있는 비어 있는 공간으로 최대 60피트를 텔레포트할 수 있습니다.
 Condition/&ConditionFarStepTitle=파 스텝
 Feedback/&AdditionalDamageBanishingSmiteFormat=배니싱 스마이트!
 Feedback/&AdditionalDamageBanishingSmiteLine={0}는 배니싱 스마이트를 통해 {1}에게 더 많은 피해를 입힙니다(+{2}).
-Spell/&BanishingSmiteDescription=다음 공격은 무기로 추가 5d10의 힘 피해를 입힙니다. 추가로, 이 공격으로 대상의 체력이 50 이하로 줄어들면 대상을 1분 동안 추방합니다.
+Spell/&BanishingSmiteDescription=다음 공격은 무기로 추가 5d10의 힘 피해를 입힙니다. 추가로 이 공격으로 대상의 체력이 50점 이하로 감소하면 대상을 1분 동안 추방합니다.
 Spell/&BanishingSmiteTitle=배니싱 스마이트
 Spell/&FarStepDescription=볼 수 있는 빈 공간으로 최대 60피트 순간이동합니다. 주문이 끝나기 전에 각 턴마다 보너스 액션을 사용하여 이런 방식으로 다시 텔레포트할 수 있습니다.
 Spell/&FarStepTitle=파 스텝
-Spell/&MantleOfThornsDescription=가시의 기운으로 자신을 둘러싸십시오. 시작하거나 걸어가는 것은 2d8의 관통 피해를 입습니다. 이 손상은 더 높은 수준에서 슬롯당 1d8씩 확장됩니다.
+Spell/&MantleOfThornsDescription=가시의 기운으로 자신을 둘러싸십시오. 시작하거나 걸어가는 것은 2d8의 관통 피해를 입습니다. 이 피해는 더 높은 수준에서 슬롯당 1d8씩 증가합니다.
 Spell/&MantleOfThornsTitle=가시의 외투
 Spell/&SonicBoomDescription=사용된 풍선과 같은 색의 작은 구가 범위 내에서 선택한 지점에 나타난 다음 요란한 균열과 함께 힘의 폭발로 확장됩니다. 30피트 반경에 있는 각 생물은 힘 내성 굴림을 해야 합니다. 목표물은 중앙에서 최대 30피트까지 밀려나며 저장에 실패하면 6d8의 천둥 피해를 입히고, 저장에 성공하면 절반의 피해를 입히고 움직이지 않습니다.
 Spell/&SonicBoomTitle=소닉붐

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=Destreza +1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=Aumento do Atributo de Mefistófeles
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=Inteligência +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento do Atributo da Língua do Diabo
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento do Atributo Língua do Diabo
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=Força +1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=Aumento do Atributo Zariel
 Feature/&CastSpellTieflingDevilTongueDescription=Você conhece o truque <b>Vicious Zockery</b>. No 3º nível você aprende <b>Encantar Pessoa</b> e no 5º nível, <b>Acalmar Emoções</b>. Ambos podem ser usados uma vez por descanso longo.

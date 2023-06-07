@@ -1,4 +1,4 @@
-Condition/&AdditionalConditionEnsnaringStrikeDescription=蔓に絡まって移動が妨げられ、器用さのセーヴィングスローが不利になり、毎ターン貫通ダメージを受けることになります。ターンの終わりに、Strength 投げセーブを行って蔓から逃れます。
+Condition/&AdditionalConditionEnsnaringStrikeDescription=蔓に絡まって移動が妨げられ、器用さのセーヴィングスローが不利になり、毎ターン貫通ダメージを受けることになる。ターンの終わりに、Strength 投げセーブを行って蔓から逃れます。
 Condition/&AdditionalConditionEnsnaringStrikeTitle=罠にかかった
 Condition/&ConditionGiftOfAlacrityDescription=セレリティ・ブーン
 Condition/&ConditionGiftOfAlacrityTitle=セレリティ・ブーン
@@ -42,7 +42,7 @@ Spell/&MuleTitle=ラバ
 Spell/&RadiantMotesDescription=それぞれ 1d4 の放射ダメージを与える 4 つの放射弾の群れを放ちます。\n第 2 レベル以上の呪文スロットを使用してこの呪文を唱えると、この呪文は第 1 レベル以上のスロットごとにさらに 1 つの放射弾を生成します。
 Spell/&RadiantMotesTitle=放射モート
 Spell/&SanctuaryDescription=30 フィート以内の味方を監視します。監視対象のクリーチャーが攻撃を行うか、敵に影響を与える呪文を唱えると、監視は終了します。
-Spell/&SearingSmiteDescription=次の攻撃で武器が白熱の強度でフレアし、その攻撃によりターゲットに 1d6 の追加の火炎ダメージが与えられ、ターゲットが炎上します。\n各ターンの開始時に、ターゲットは次の行動をとらなければなりません。耐久セービングスローに成功すると燃焼を止めることができ、さもなければ 1d6 の火ダメージを受ける。\n<b>高レベル:</b> 1 つ目以降のスロット レベルごとに、攻撃によって与えられる最初の追加ダメージが 1d6 ずつ増加する。
+Spell/&SearingSmiteDescription=次の攻撃で武器が白熱の強度でフレアし、その攻撃によりターゲットに 1d6 の追加の火炎ダメージが与えられ、ターゲットが炎上します。\n各ターンの開始時に、ターゲットは次の行動をとらなければなりません。耐久セービングスローに成功すると燃焼が止まり、さもなければ 1d6 の火ダメージを受ける。\n<b>高レベル:</b> 1 つ目以降のスロット レベルごとに、攻撃によって与えられる最初の追加ダメージが 1d6 ずつ増加する。
 Spell/&SearingSmiteTitle=灼熱のスマイト
 Spell/&SkinOfRetributionDescription=酸、冷気、火、雷、毒、または雷のタイプを選択します。保護用のエレメンタルスキンがあなたを包み込み、あなたとあなたの装備を覆います。期間中、呪文レベルごとに 5 一時的なヒット ポイントを獲得します。さらに、あなたがこれらの一時的なヒットポイントを持っているときにクリーチャーが近接攻撃であなたを攻撃した場合、そのクリーチャーは呪文レベルごとに選択されたタイプの5ダメージを受けます。
 Spell/&SkinOfRetributionTitle=報復のスキン

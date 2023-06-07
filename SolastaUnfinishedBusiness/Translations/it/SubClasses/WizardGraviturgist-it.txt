@@ -20,5 +20,5 @@ Feature/&PowerWizardGraviturgistViolentAttractionDescription=A partire dal 10° 
 Feature/&PowerWizardGraviturgistViolentAttractionTitle=Attrazione violenta
 Feedback/&AdditionalDamageViolentAttractionFormat=Attrazione violenta!
 Feedback/&AdditionalDamageViolentAttractionLine={0} esegue un violento attacco di attrazione su {1} (+{2})
-Subclass/&WizardGraviturgistDescription=Comprendendo e padroneggiando le forze che uniscono i corpi di materia o li separano, gli studenti della tradizione arcana della Graviturgia imparano a piegare e manipolare ulteriormente la violenta energia della gravità a loro vantaggio e a terribile danno dei loro nemici.
+Subclass/&WizardGraviturgistDescription=Comprendendo e padroneggiando le forze che uniscono i corpi di materia o li separano, gli studenti della tradizione arcana della Graviturgia imparano a piegare e manipolare ulteriormente la violenta energia della gravità a proprio vantaggio e a terribile danno dei loro nemici.
 Subclass/&WizardGraviturgistTitle=Graviturgo

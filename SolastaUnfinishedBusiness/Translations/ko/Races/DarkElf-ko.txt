@@ -4,5 +4,5 @@ Feature/&CastSpellDarkelfMagicDescription=<b>댄싱 라이트</b> 캔트립을 �
 Feature/&CastSpellDarkelfMagicTitle=다크 엘프 마법
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=레이피어, 숏소드, 손 석궁에 능숙합니다.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=다크 엘프 무기 훈련
-Race/&RaceDarkelfDescription=다크 엘프는 불친절한 황무지에 살면서 시간이 지남에 따라 변화된 엘프의 후손입니다. 다크 엘프는 대부분 야행성이며 고대 배드랜드 폐허, 특히 지하에 묻힌 폐허에서 생활하는 데 적응했습니다. 그들은 어두운 피부와 창백한 머리카락을 갖는 경향이 있습니다.
+Race/&RaceDarkelfDescription=다크 엘프는 불친절한 황무지에 살면서 시간이 지남에 따라 변화된 엘프의 후손입니다. 다크 엘프는 주로 야행성이며 고대 배드랜드 폐허, 특히 지하에 묻힌 폐허에서 생활하는 데 적응했습니다. 그들은 어두운 피부와 창백한 머리카락을 갖는 경향이 있습니다.
 Race/&RaceDarkelfTitle=다크 엘프

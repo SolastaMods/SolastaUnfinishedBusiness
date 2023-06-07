@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Grundwaffenschaden zu Funktionen hinzu, die Grundwaffenschaden hinzufügen (wie der wilde Angriff des Halb-Orks), anstatt immer 1 Würfel
+ModUi/&AccountForAllDiceOnSavageAttack=Fügen Sie alle Würfel vom Basiswaffenschaden zu Funktionen hinzu, die Basiswaffenschaden hinzufügen, anstatt nur 1 Würfel <i><color=#F0DAA0>[Wilder Angriff, 2H-Waffen usw.]</color></i>
 ModUi/&AddAllToStore=Alles zum Speichern hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Blutung</color> zu den Zuständen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Fügen Sie benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzu <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
@@ -17,7 +17,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Alle Spieler in Erzählsequenzen
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Sylvan-Rüstung</color> oder <color=#D89555>Lichtbringer-Kleidung</color> zu tragen
 ModUi/&AllowAssigningOfficialSpells=Erlauben Sie die Anzeige offizieller Zaubersprüche in diesen Listen
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
-ModUi/&AllowClubsToBeThrown=Erlauben Sie, dass Keulen wie Dolche oder Handäxte geworfen werden
+ModUi/&AllowClubsToBeThrown=Ermöglichen Sie das Werfen von <color=#D89555>Keulen</color> wie <color=#D89555>Dolchen</color> oder <color=#D89555>Handäxten</color>
 ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit maximalem Level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>, um jegliche Prüfung beim Platzieren von Gadgets oder Requisiten zu umgehen
@@ -27,7 +27,7 @@ ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Ermögliche die Zielauswahl beim Wirken des Zaubers <color=#D89555>Kettenblitz</color>
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
+ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der <color=#D89555>Lebensmittelration</color> auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Angreifer mit <color=#D89555>Dunkelsicht</color> haben einen Vorteil gegenüber Verteidigern ohne
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
@@ -61,7 +61,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Levelvoraussetzu
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für die von diesem Mod bereitgestellten Leistungen
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktivieren Sie <color=#D89555>Superior Sense Dark Vision</color> für alle spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Start zu beschleunigen und die Speichernutzung zu verbessern <i><color=#F0DAA0>[es sei denn, ich spreche Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
+ModUi/&DisableUnofficialTranslations=Deaktivieren Sie die Unterstützung inoffizieller Übersetzungen, um den Mod zu beschleunigen <i><color=#F0DAA0>[es sei denn, ich spreche Chinesisch, Italienisch, Japanisch, Koreanisch oder Spanisch]</color></i>
 ModUi/&DisableUpdateMessage=Deaktivieren Sie Aktualisierungsnachrichten <i><color=#F0DAA0>[Benutzer der blauen Pille, dies ist Ihre letzte Chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Zeigt beim Levelaufstieg alle bekannten Zauber anderer Klassen an</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Paktslots für <color=#D89555>Hexenmeister</color> bei der Zauberauswahl statt im Charakterfenster anzeigen</i>
@@ -89,7 +89,7 @@ ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
-ModUi/&EnableFlankingRules=Aktivieren Sie die Flankierungsregeln <i><color=#F0DAA0>[+1 für Treffer bei Distanzangriff auf höherem Boden, +1 für Treffer bei Nahkampf von hinten, Vorteil, wenn der Feind von mehr als 4 Verbündeten umgeben ist]</color></i>
+ModUi/&EnableFlankingRules=Aktivieren Sie die Flankierungsregeln für alle Kampfteilnehmer <i><color=#F0DAA0>[+1 für Treffer, wenn sie höher gelegen sind, +1 für Treffer, wenn sie flankieren, Vorteil, wenn das Ziel von mehr als 3 Verbündeten umgeben ist]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
@@ -145,8 +145,8 @@ ModUi/&GeneralMenu=Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Verstecken Sie die visuellen Effekte von Ausgängen und Teleportern, wenn diese noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>
-ModUi/&IdentifyAfterRest=Fügen Sie während einer kurzen oder langen Pause die Fähigkeit hinzu, magische Gegenstände zu identifizieren
-ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von Handarmbrüsten ist keine freie Hand erforderlich
+ModUi/&IdentifyAfterRest=Füge während einer kurzen oder langen Pause eine Kraft hinzu, um <color=#D89555>magische Gegenstände zu identifizieren</color>
+ModUi/&IgnoreHandXbowFreeHandRequirements=Für die Verwendung von <color=#D89555>Handarmbrüsten</color> ist keine freie Hand erforderlich
 ModUi/&ImproveLevelUpFeaturesSelection=Verbesserung der Auswahl der Levelaufstiegsfunktionen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[Auswirkungen auf <color= #D89555>Waldläufer</color> Bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> Verwandtes Biest, <color=#D89555>Barbar</color> Pfad der Elemente und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl an abgestimmten Gegenständen auf Stufe 10 auf 4 und auf Stufe 18 auf 5

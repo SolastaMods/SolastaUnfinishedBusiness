@@ -20,5 +20,5 @@ Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription=숙련도 보너스�
 Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle=변환 힘
 Feature/&PowerSharedPoolCollegeOfLifeReviveDescription=Transmute Force를 사용하여 사망 후 1분 이내에 캐릭터를 부활시키십시오.
 Feature/&PowerSharedPoolCollegeOfLifeReviveTitle=소생
-Subclass/&CollegeOfLifeDescription=물질과 생명 에너지를 모두 조작하는 마스터.
+Subclass/&CollegeOfLifeDescription=물질과 생명 에너지를 모두 다루는 마스터.
 Subclass/&CollegeOfLifeTitle=생명대학

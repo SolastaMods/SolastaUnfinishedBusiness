@@ -6,6 +6,6 @@ Feat/&FeatElvenAccuracyIntelligenceDescription=Hai una mira straordinaria con at
 Feat/&FeatElvenAccuracyIntelligenceTitle=Precisione elfica [Int]
 Feat/&FeatElvenAccuracyWisdomDescription=Hai una mira straordinaria con attacchi che si basano sulla precisione piuttosto che sulla forza bruta. Aumenta la tua Saggezza di 1, fino a un massimo di 20. Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi ritirare uno dei dadi una volta.
 Feat/&FeatElvenAccuracyWisdomTitle=Precisione elfica [Sag]
-Feedback/&ElvenAccuracyTriggered={0} usa {1} per mantenere {2} e ripetere il tiro da {3} a {4}.
+Feedback/&ElvenAccuracyTriggered={0} utilizza {1} per mantenere {2} e ripetere il tiro da {3} a {4}.
 Tooltip/&FeatElvenAccuracyBaseDescription=Ogni volta che hai vantaggio su un tiro per colpire usando Destrezza, Intelligenza, Saggezza o Carisma, puoi ritirare uno dei dadi una volta.
 Tooltip/&FeatElvenAccuracyBaseTitle=Precisione elfica

@@ -7,4 +7,4 @@ Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Concentração Me
 Feedback/&AdditionalDamageArcaneFighterFormat=Lutador Arcano!
 Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter causa +{2} de dano extra!
 Subclass/&WizardArcaneFighterDescription=Arcane Fighters canalizam magia em suas armas para realizar ataques devastadores. Seus adversários costumam se surpreender com a ferocidade e implacabilidade desses lançadores de feitiços.
-Subclass/&WizardArcaneFighterTitle=Lutador Arcano
+Subclass/&WizardArcaneFighterTitle=Lutador arcano

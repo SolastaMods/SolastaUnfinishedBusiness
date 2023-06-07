@@ -13,5 +13,5 @@ Reaction/&SpendPowerRoyalKnightInspiringProtectionDescriptionSelf=<b>{0}</b> ha 
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactDescription=Spendi l'uso di questo potere per aiutare ad allearsi con il loro tiro salvezza.
 Reaction/&SpendPowerRoyalKnightInspiringProtectionReactTitle=Protezione ispiratrice
 Reaction/&SpendPowerRoyalKnightInspiringProtectionTitle=Protezione ispiratrice
-Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Cavaliere Reale è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
+Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Royal Knight è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
 Subclass/&MartialRoyalKnightTitle=Cavaliere Reale

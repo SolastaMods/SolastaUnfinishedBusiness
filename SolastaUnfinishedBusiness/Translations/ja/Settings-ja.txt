@@ -1,11 +1,11 @@
-ModUi/&AccountForAllDiceOnSavageAttack=常に 1 つのダイスではなく、基本武器ダメージを追加する機能 (ハーフオークのサベージ アタックなど) に、基本武器ダメージからのすべてのダイスを追加します
+ModUi/&AccountForAllDiceOnSavageAttack=基本武器ダメージからのすべてのダイスを、1 つのダイスのみではなく基本武器ダメージを追加する機能に追加します<i><color=#F0DAA0>[サベージ アタック、2H 武器など]</color></i>
 ModUi/&AddAllToStore=すべてをストアに追加
 ModUi/&AddBleedingToLesserRestoration=<color=#D89555>出血</color>状態を<color=#D89555>より大きな修復</color>と<color=#D89555>小さな修復</color>によって除去された状態に追加します。
 ModUi/&AddCustomIconsToOfficialItems=公式ゲーム アイテム <i><color=#F0DAA0>[弾薬、レシピ、キットなど]</color></i> <b><i><color=#C04040E0>[再起動が必要] にカスタム アイコンを追加します。 </color></i></b>
-ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[5フィート以内のクリーチャーを攻撃する味方クリーチャーを助けることができます]</color></i>
+ModUi/&AddHelpActionToAllRaces=すべてのプレイ可能な種族に<color=#D89555>助ける</color>アクションを追加<i><color=#F0DAA0>[味方のクリーチャーが自分から5フィート以内のクリーチャーを攻撃するのを助けることができます]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=<color=#D89555>レンジャー</color>に人型の優先敵を追加する
 ModUi/&AddNewBrightEyeColors=新しい明るい目の色を追加
-ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加 <i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0> [再起動が必要です]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=新しい武器とレシピをショップに追加します<i><color=#F0DAA0>[ハンドラップ、ハルバード、パイク、ロングメイス、ハンドクロスボウ]</color></i> <b><i><color=#C04040E0> [再起動が必要です]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=<color=#D89555>パラディン</color> がクリティカル ヒット時の打撃のみを有効にするためのトグルを追加しました<i><color=#F0DAA0>[反応プロンプトを最小限に抑えるのに役立ちます]</color></i>
 ModUi/&AddPickPocketableLoot=スリ可能な戦利品を追加<i><color=#F0DAA0>[<color=#D89555>スリ</color>特技が有効な場合に推奨]</color></i>
 ModUi/&AddToStore=ストアに追加
@@ -21,7 +21,7 @@ ModUi/&AllowClubsToBeThrown=<color=#D89555>こん棒</color>を<color=#D89555>�
 ModUi/&AllowDruidToWearMetalArmor=<color=#D89555>ドルイド</color>が金属鎧を着用できるようにする
 ModUi/&AllowDungeonsMaxLevel20=最大レベル20のダンジョンを許可します
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=<color=#1E81B0>CTRL</color> クリックを有効にして、ガジェットやプロップを配置する際のチェックを回避します
-ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可します<i><color=#F0DAA0>[種族、頭、角によってはひどい結果になる可能性があります]</color></i>
+ModUi/&AllowHornsOnAllRaces=すべての種族で角を許可<i><color=#F0DAA0>[種族、頭、角によってはひどい結果になる可能性があります]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=残りのパネルでより実際の状態を許可します<i><color=#F0DAA0>[前のパネルでは休憩後のアクションを非表示にし、後のパネルでは回復機能を非表示にします]</color></i>
 ModUi/&AllowStackedMaterialComponent=スタックされたマテリアル コンポーネントを許可します<i><color=#F0DAA0>[例: 2x500gp ダイヤモンドは 1000gp ダイヤモンドに相当します]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>チェインライトニング</color>呪文を唱えるときにターゲットの選択を許可する
@@ -61,7 +61,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=この MOD によって提供され�
 ModUi/&DisableRacePrerequisitesOnModFeats=この MOD によって提供される特技のレースの前提条件を無効にします
 ModUi/&DisableSenseDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>闇の視覚の感覚</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=プレイ可能なすべての種族の<color=#D89555>優れた感覚ダークビジョン</color>を無効にする<b><i><color=#C04040E0>[再起動が必要]</color></i></b>
-ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして、起動を高速化し、メモリ使用量を改善します<i><color=#F0DAA0>[イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
+ModUi/&DisableUnofficialTranslations=非公式翻訳サポートを無効にして MOD <i><color=#F0DAA0>[中国語、イタリア語、日本語、韓国語、またはスペイン語を話せない場合]</color></i>
 ModUi/&DisableUpdateMessage=アップデート メッセージを無効にする <i><color=#F0DAA0>[青薬をお使いの方、これが最後のチャンスです]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ レベルアップ中に他のクラスの既知の呪文をすべて表示</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ キャラクターパネルの代わりに呪文選択時に<color=#D89555>ウォーロック</color>の協定スロットを表示する</i>
@@ -89,7 +89,7 @@ ModUi/&EnableEpicPointsAndArray=壮大な 35 ポイント購入システムと�
 ModUi/&EnableFeatsAtEvenLevels=クラスレベル2、10、18で特技選択を有効にする
 ModUi/&EnableFeatsAtEvenLevelsMiddle=クラスレベル6および14で特技選択を有効にする
 ModUi/&EnableFighterWeaponSpecialization=クラスレベル8と16で<color=#D89555>ファイター</color>の<b>武器スペシャライゼーション</b>を有効にします<i><color=#F0DAA0>[ヒットとダメージに+1を獲得しますが、他のものでは不利になります。武器の種類]</color></i>
-ModUi/&EnableFlankingRules=側面ルールを有効にする <i><color=#F0DAA0>[高台から遠距離攻撃をした場合の命中率 +1、背後からの近接攻撃の場合は命中率 +1、敵が 4 人以上の味方に囲まれている場合に有利]</color></i>
+ModUi/&EnableFlankingRules=すべての戦闘参加者に側面攻撃ルールを有効にします<i><color=#F0DAA0>[高台にいる場合は攻撃力 +1、側面攻撃している場合は攻撃力 +1、ターゲットが 3 人以上の味方に囲まれている場合に有利]</color></i>
 ModUi/&EnableFlexibleBackgrounds=柔軟な背景を有効にする <i><color=#F0DAA0>[スキルとツールの習熟度を背景から選択]</color></i>
 ModUi/&EnableFlexibleRaces=柔軟な種族を有効にする <i><color=#F0DAA0>[種族のデフォルトの代わりに能力スコア ポイントを割り当てる]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=<color=#1E81B0>CTRL-SHIFT-(D)</color> を有効にしてデバッグ オーバーレイを表示します
@@ -196,7 +196,7 @@ ModUi/&RestockTowerOfKnowledge=知識の塔 <i><color=#F0DAA0>[マディ グリ�
 ModUi/&Rollback=<b><color=#D89555>ロールバック</color></b>
 ModUi/&Rules=ルール
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
-ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく/正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly=販売者の価格を正しく / 正確にスケールします<i><color=#F0DAA0>[コインの価値を変換する際に四捨五入エラーがなくなりました]</color></i>
 ModUi/&SelectAll=すべて選択
 ModUi/&SelectSuggested=提案されたものを選択してください
 ModUi/&Services=サービス
@@ -222,7 +222,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ ショップでレシピと作成ア�
 ModUi/&TargetLanguage=目標とする言語
 ModUi/&Tools=ツール
 ModUi/&TotalCraftingTimeModifier=<color=white>作成時間を短縮します</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>最初のレベルで付与された合計特技</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>最初のレベルで付与された特技の合計</color>
 ModUi/&Translate=翻訳
 ModUi/&TranslateCancel={1} で {0} をキャンセル
 ModUi/&Translations=翻訳

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=Geschicklichkeit +1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=Erhöhung des Mephistopheles-Attributs
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=Intelligenz +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Devil's Tongue-Attributerhöhung
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Erhöhung des Attributs „Teufelszunge“.
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=Stärke +1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=Erhöhung des Zariel-Attributs
 Feature/&CastSpellTieflingDevilTongueDescription=Sie kennen den <b>Vicious Mockery</b>-Cantrip. Auf der 3. Stufe lernen Sie <b>Person bezaubern</b> und auf der 5. Stufe <b>Gefühle beruhigen</b>. Beide können einmal pro langer Pause verwendet werden.

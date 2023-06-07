@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
 namespace SolastaUnfinishedBusiness.CustomValidators;
 
@@ -45,6 +46,20 @@ internal static class ValidatorsWeapon
     {
         return attackMode.Magical || (rulesetItem != null &&
                                       (rulesetItem.IsMagicalWeapon() || ShieldAttack.IsMagicalShield(rulesetItem)));
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsTwoHandedRanged([CanBeNull] RulesetAttackMode attackMode)
+    {
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
+               IsWeaponType(itemDefinition, LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool HasTwoHandedTag([CanBeNull] RulesetAttackMode attackMode)
+    {
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
+               HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagTwoHanded);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -99,6 +114,13 @@ internal static class ValidatorsWeapon
         params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return rulesetItem != null && IsWeaponType(rulesetItem.ItemDefinition, weaponTypeDefinitions);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsPolearmType([CanBeNull] RulesetAttackMode attackMode)
+    {
+        return IsOfWeaponType(QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType)(
+            attackMode, null, null);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -18,7 +18,7 @@
                 "curve": {
                   "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
                 },
-                "stringParameter": "ConditionGrappledRestrainedIceBound",
+                "stringParameter": "ConditionFlying",
                 "floatParameter": 2.0,
                 "intParameter": 2,
                 "byteParameter": 0,
@@ -26,7 +26,7 @@
                 "boolSecParameter": false,
                 "boolTerParameter": false
               },
-              "name": "HasConditionGrappledRestrainedIceBound"
+              "name": "HasConditionFlying"
             },
             "weight": 1.0
           },
@@ -49,6 +49,50 @@
                 "boolTerParameter": false
               },
               "name": "MainActionNotFullyConsumed"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "HasEnemiesInMeleeRange",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.9,
+                "intParameter": 1,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": true,
+                "boolTerParameter": false
+              },
+              "name": "HasEnemyInMeleeRange"
+            },
+            "weight": 1.0
+          },
+          {
+            "$type": "TA.AI.WeightedConsiderationDescription, Assembly-CSharp",
+            "consideration": {
+              "$type": "TA.AI.ConsiderationDefinition, Assembly-CSharp",
+              "consideration": {
+                "$type": "TA.AI.ConsiderationDescription, Assembly-CSharp",
+                "considerationType": "AltitudeFromGround",
+                "curve": {
+                  "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+                },
+                "stringParameter": "",
+                "floatParameter": 0.0,
+                "intParameter": 2,
+                "byteParameter": 0,
+                "boolParameter": false,
+                "boolSecParameter": false,
+                "boolTerParameter": false
+              },
+              "name": "IsNotFlyingTooHigh"
             },
             "weight": 1.0
           }

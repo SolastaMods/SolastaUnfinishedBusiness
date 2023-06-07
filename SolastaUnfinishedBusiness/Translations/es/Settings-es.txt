@@ -1,4 +1,4 @@
-ModUi/&AccountForAllDiceOnSavageAttack=Agregue todos los dados del daño de arma base a las características que agregan daño de arma base (como el Ataque salvaje de Half-orc) en lugar de siempre 1 dado
+ModUi/&AccountForAllDiceOnSavageAttack=Agregue todos los dados del daño de arma base a las características que agregan daño de arma base en lugar de 1 dado solamente <i><color=#F0DAA0>[Ataque salvaje, armas 2H, etc.]</color></i>
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
@@ -17,7 +17,7 @@ ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores e
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminado</color>
 ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Enanos</color> sin barba
-ModUi/&AllowClubsToBeThrown=Permitir que se arrojen garrotes como dagas o hachas de mano.
+ModUi/&AllowClubsToBeThrown=Permitir que se arrojen <color=#D89555>palos</color> como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>
 ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
@@ -27,7 +27,7 @@ ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
+ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la <color=#D89555>ración de alimentos</color> a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Los atacantes con <color=#D89555>Darkvision</color> tienen ventaja sobre los defensores sin
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
@@ -61,7 +61,7 @@ ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos d
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las proezas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el arranque y mejorar el uso de la memoria <i><color=#F0DAA0>[a menos que hable italiano, japonés, coreano o español]</color></i>
+ModUi/&DisableUnofficialTranslations=Desactive la compatibilidad con traducciones no oficiales para acelerar el mod <i><color=#F0DAA0>[a menos que hable chino, italiano, japonés, coreano o español]</color></i>
 ModUi/&DisableUpdateMessage=Deshabilitar los mensajes de actualización <i><color=#F0DAA0>[usuarios de la píldora azul, esta es su última oportunidad]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
@@ -89,7 +89,7 @@ ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 punto
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
-ModUi/&EnableFlankingRules=Habilita las reglas de flanqueo <i><color=#F0DAA0>[+1 para golpear si se encuentra a distancia en un terreno más alto, +1 para golpear si es cuerpo a cuerpo por detrás, ventaja si el enemigo está rodeado por más de 4 aliados]</color></i>
+ModUi/&EnableFlankingRules=Habilite las reglas de flanqueo para todos los contendientes de la batalla <i><color=#F0DAA0>[+1 para golpear si está en un terreno más alto, +1 para golpear si está flanqueando, ventaja si el objetivo está rodeado por más de 3 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
@@ -142,11 +142,11 @@ ModUi/&GameUi=Interfaz de usuario del juego
 ModUi/&Gameplay=Como se Juega
 ModUi/&General=<color=#F0DAA0>General:</color>
 ModUi/&GeneralMenu=General
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Oculte las salidas y los efectos visuales de los teletransportadores si aún no los ha descubierto.
 ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/50 %/75 %/100 % en lugar de puntos de vida exactos
 ModUi/&House=<color=#F0DAA0>Casa:</color>
-ModUi/&IdentifyAfterRest=Añade un poder para identificar objetos mágicos durante un descanso corto o largo
-ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar ballestas de mano
+ModUi/&IdentifyAfterRest=Añade un poder para <color=#D89555>identificar objetos mágicos</color> durante un descanso corto o largo
+ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar <color=#D89555>Ballestas de mano</color>
 ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
@@ -191,7 +191,7 @@ ModUi/&RemoveRecurringEffectOnEntangle=Solo aplica el efecto <color=#D89555>Enre
 ModUi/&RestockAntiquarians=Reponer anticuarios <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Reponer Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Reponer Círculo de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Anule los valores predeterminados para obligar a que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
+ModUi/&RestockHelp=. Anule los valores predeterminados para forzar que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
 ModUi/&RestockTowerOfKnowledge=Reponer Torre del Conocimiento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rollback=<b><color=#D89555>Restaurar</color></b>
 ModUi/&Rules=Normas

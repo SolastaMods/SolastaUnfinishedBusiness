@@ -1,6 +1,6 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=3레벨부터 이미 숙련도 보너스를 사용하지 않은 Charisma 검사에 숙련도 보너스의 절반을 추가합니다. 또한 카리스마 내성 굴림에 능숙해집니다.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=왕실 특사
-Feature/&PowerRoyalKnightInspiringProtectionDescription=15레벨부터 당신의 행동은 다른 사람들이 계속 싸우도록 영감을 줍니다. 60피트 내에서 볼 수 있는 동맹 중 하나가 내성 굴림에 실패할 때마다 반응을 사용하여 해당 동맹이 저장을 다시 굴리도록 할 수 있습니다. 긴 휴식마다 이 기능을 세 번 사용할 수 있습니다.
+Feature/&PowerRoyalKnightInspiringProtectionDescription=15레벨부터 당신의 행동은 다른 사람들이 계속 싸우도록 영감을 줍니다. 60피트 내에서 볼 수 있는 동료 중 한 명이 내성 굴림에 실패할 때마다 반응을 사용하여 해당 동맹이 저장을 다시 굴리도록 할 수 있습니다. 긴 휴식마다 이 기능을 세 번 사용할 수 있습니다.
 Feature/&PowerRoyalKnightInspiringProtectionTitle=고무적인 보호
 Feature/&PowerRoyalKnightInspiringSurgeDescription=10레벨부터 보너스 액션으로 아군에게 1라운드 동안 추가 메인 액션을 부여할 수 있습니다. 짧은 휴식마다 이 힘을 한 번 사용할 수 있습니다.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=영감을 주는 서지

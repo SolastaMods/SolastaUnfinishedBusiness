@@ -1,8 +1,8 @@
 Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationDescription=6레벨부터 Enchantment, Abjuration 및 Illusion 주문은 사용된 주문 슬롯보다 한 단계 높은 주문 수준에서 시전됩니다.
 Feature/&MagicAffinitySorcerousFieldManipulatorArcaneManipulationTitle=신비한 조작
-Feature/&PowerSorcerousFieldManipulatorDisplacementDescription=1레벨부터 행동을 사용하여 60피트 내에서 볼 수 있는 모든 셀에서 60피트 내 생물을 텔레포트할 수 있습니다. 적 생물은 카리스마 내성 굴림을 통과해야 하며 DC는 당신의 주문 DC입니다. 아군 생물은 내성 굴림을 할 필요가 없습니다. 이 기능은 숙달 수정치만큼 긴 휴식을 취할 때마다 여러 번 사용할 수 있습니다.
+Feature/&PowerSorcerousFieldManipulatorDisplacementDescription=1레벨부터 행동을 사용하여 60피트 내에서 볼 수 있는 모든 셀에서 60피트 내 생물을 텔레포트할 수 있습니다. 적 생물은 DC가 당신의 주문 DC가 되는 Charisma 내성 굴림을 통과해야 합니다. 아군 생물은 내성 굴림을 할 필요가 없습니다. 이 기능은 숙달 수정치만큼 긴 휴식을 취할 때마다 여러 번 사용할 수 있습니다.
 Feature/&PowerSorcerousFieldManipulatorDisplacementTitle=배수량
-Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=18레벨부터 보너스 액션을 사용하여 60피트 내에서 선택한 장소로 텔레포트할 수 있습니다. 당신이 도착한 목적지에서 10피트 이내에 있는 모든 적 생물은 당신의 주문 DC에 대해 힘 내성 굴림을 통과해야 합니다. 이 기능은 긴 휴식 1회당 3번 사용할 수 있으며, 사용하지 않을 경우 4마술 포인트를 지불할 수 있습니다.
+Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=18레벨부터 보너스 액션을 사용하여 60피트 내에서 선택한 장소로 텔레포트할 수 있습니다. 당신이 도착한 목적지로부터 10피트 이내에 있는 모든 적 생물은 당신의 주문 DC에 대해 힘 내성 굴림을 통과해야 합니다. 이 기능은 긴 휴식 1회당 3회 사용할 수 있으며, 사용하지 않을 경우 4마술 포인트를 지불할 수 있습니다.
 Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle=힘찬 발걸음
 Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription=14레벨부터 지능과 지혜 내성 굴림에 능숙해집니다.
 Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=정신적 저항

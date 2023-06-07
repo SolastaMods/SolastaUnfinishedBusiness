@@ -1,12 +1,25 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "CriticalThreshold",
-  "modifierOperation": "Additive",
-  "modifierValue": -1,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [
+    "UseItemBonus"
+  ],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -31,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f44b9888-7338-5f73-8496-aa65a040336e",
+  "guid": "84210b8c-a6cd-53b7-acde-c0424a98a02d",
   "contentPack": 9999,
-  "name": "AttributeModifierSoulBladeHex"
+  "name": "ActionAffinityFeatPoisoner"
 }

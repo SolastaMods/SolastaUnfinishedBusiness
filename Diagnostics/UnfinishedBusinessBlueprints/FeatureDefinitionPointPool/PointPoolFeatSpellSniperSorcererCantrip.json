@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
   "poolType": "Cantrip",
-  "poolAmount": 1,
+  "poolAmount": 2,
   "restrictedChoices": [],
   "uniqueChoices": false,
   "spellListOverride": "Definition:SpellListFeatSpellSniperSorcerer:f97d8390-e1d1-5e44-a5bc-d1c1d8fb08ed",

@@ -1858,18 +1858,18 @@ Gain proficiency with Smith's Tools.
 
 * Strong Bow
 
-You can use your Strength modifier for attack and damage when wielding a longbow and while raging add your rage damage bonus to attacks using longbows.
+You can use your Strength modifier for attack and damage when wielding a longbow, and while raging and not wearing heavy armor, add your rage damage bonus to attacks using longbows.
 
 
 ## Level 6
 
 * Keen Eye
 
-Reckless Attack gives advantage to your attacks using a longbow. When you unlock Brutal Critical, it also applies to your attacks made with longbows.
+Reckless Attack gives advantage to your attacks using a strength attack with a longbow. When you unlock Brutal Critical, it also applies to your strength attacks made with longbows.
 
 * Staggering Blow
 
-While raging and wielding a longbow, you may shove as a bonus action.
+While raging, not wearing heavy armor, and wielding a longbow, you may shove as a bonus action.
 
 
 ## Level 10
@@ -1886,7 +1886,7 @@ You may use a bonus action on your turn to assume a braced stance for one minute
 
 * Mighty Shot
 
-Increase the damage dice of longbows from d8 to d12. While raging, when you hit an enemy with an attack from a longbow, enemies within 15 feet of the target must make a Dexterity saving throw or take thunder damage equal to your rage damage bonus plus your Strength modifier.
+Increase the damage dice of longbows from d8 to d12. While raging and not wearing heavy armor, when you hit an enemy with an attack from a longbow, enemies within 15 feet of the target must make a Dexterity saving throw or take thunder damage equal to your rage damage bonus plus your Strength modifier.
 
 
 

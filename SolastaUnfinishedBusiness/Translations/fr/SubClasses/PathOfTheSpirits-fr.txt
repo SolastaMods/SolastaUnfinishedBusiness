@@ -1,5 +1,5 @@
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearDescription=Gagnez des désavantages sur les attaques contre tous sauf sur la source de cette aura.
-Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura d'ours aiguisée
+Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura d'ours aiguisé
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleDescription=Gagner la capacité de voler.
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Vol d'aigle aiguisé
 Condition/&ConditionPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Gagnez la capacité de bousculer en tant qu'action bonus.
@@ -33,7 +33,7 @@ Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerTitle=Marcheur spirituel
 Feature/&PowerPathOfTheSpiritsBearResistanceDescription=L'esprit de l'ours vous rend assez fort pour résister à n'importe quelle punition. Lorsque vous êtes en rage, vous avez une résistance à tous les dégâts sauf les dégâts psychiques.
 Feature/&PowerPathOfTheSpiritsBearResistanceTitle=Résistance à l'ours
 Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsBearDescription=Pendant qu'ils font rage, ceux qui se trouvent à 5 pieds de vous ont un désavantage aux jets d'attaque sur ceux autres que vous.
-Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura d'ours aiguisée
+Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsBearTitle=Aura d'ours aiguisé
 Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsEagleDescription=En faisant rage, obtenez la capacité de voler.
 Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsEagleTitle=Vol d'aigle aiguisé
 Feature/&PowerPathOfTheSpiritsHonedAnimalAspectsWolfDescription=Lorsque vous êtes en rage, gagnez la capacité de bousculer en tant qu'action bonus.

@@ -1,7 +1,7 @@
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseDescription=Destreza +1
 Feature/&AttributeModifierTieflingDexterityAbilityScoreIncreaseTitle=Aumento de atributo de Mefistófeles
 Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseDescription=Inteligencia +1
-Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento de atributo de la lengua del diablo
+Feature/&AttributeModifierTieflingIntelligenceAbilityScoreIncreaseTitle=Aumento del atributo de la lengua del diablo
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseDescription=Fuerza +1
 Feature/&AttributeModifierTieflingStrengthAbilityScoreIncreaseTitle=Aumento de atributo de Zariel
 Feature/&CastSpellTieflingDevilTongueDescription=Conoces el truco de la <b>burla viciosa</b>. En el 3er nivel aprendes <b>Encantar a la Persona</b> y en el 5to nivel, <b>Calmar las Emociones</b>. Ambos pueden usarse una vez por descanso prolongado.

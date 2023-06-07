@@ -1,6 +1,6 @@
 Condition/&ConditionDauntlessPursuerDescription=2개의 추가 이동 셀을 얻고 상대의 반응을 무시합니다.
 Condition/&ConditionDauntlessPursuerTitle=불굴의 추격자
-Condition/&ConditionHatredArdentHateDescription=무기 공격은 피해에 대한 대상의 저항을 무시합니다. 라운드당 한 번 무기 공격을 하고 빗나가면 해당 공격을 대신 명중시킬 수 있습니다.
+Condition/&ConditionHatredArdentHateDescription=당신의 무기 공격은 피해에 대한 대상의 저항을 무시합니다. 라운드당 한 번 무기 공격을 하고 빗나가면 해당 공격을 대신 명중시킬 수 있습니다.
 Condition/&ConditionHatredArdentHateTitle=열렬한 증오
 Condition/&ConditionScornfulPrayerDescription=기도가 감싸면서 힘과 목소리가 약해집니다. 효과가 있는 동안 기도는 적군을 약화시키고 명중굴림에 저주를 겁니다.
 Condition/&ConditionScornfulPrayerTitle=경멸

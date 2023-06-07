@@ -788,6 +788,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } = GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
     }
+    internal static class FightingStyleDefinitions
+    {
+        internal static FightingStyleDefinition TwoWeapon { get; } = GetDefinition<FightingStyleDefinition>("TwoWeapon");
+    }
     internal static class FormationDefinitions
     {
         internal static FormationDefinition Column2 { get; } = GetDefinition<FormationDefinition>("Column2");

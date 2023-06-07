@@ -129,7 +129,8 @@ internal static class TwoWeaponCombatFeats
             var hasGauntlet =
                 ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.ThunderGauntletType)(attackMode, null, null);
 
-            var isValid = (hasWeaponInMainHand || hasGauntlet) && ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
+            var isValid = (hasWeaponInMainHand || hasGauntlet) &&
+                          ((hasShield && hasShieldExpert) || hasWeaponInOffHand);
 
             if (attackMode == null || !isValid)
             {

@@ -1,8 +1,8 @@
-Feat/&FeatApothecaryChaDescription=Aumenta tu Carisma en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+Feat/&FeatApothecaryChaDescription=Aumenta tu Carisma en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y la medicina, o experiencia si ya eres competente.
 Feat/&FeatApothecaryChaTitle=Boticario [Cha]
-Feat/&FeatApothecaryIntDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+Feat/&FeatApothecaryIntDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y la medicina, o experiencia si ya eres competente.
 Feat/&FeatApothecaryIntTitle=Boticario [Ent]
-Feat/&FeatApothecaryWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+Feat/&FeatApothecaryWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y Arcana, o medicina si ya eres competente.
 Feat/&FeatApothecaryWisTitle=Boticario [Sab]
 Feat/&FeatCraftyScriberDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de pergaminos y arcanos, o experiencia si ya eres competente.
 Feat/&FeatCraftyScriberTitle=Punta de trazar

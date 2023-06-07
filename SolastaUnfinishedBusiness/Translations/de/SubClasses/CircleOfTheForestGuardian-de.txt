@@ -16,5 +16,5 @@ Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription=Auf Ihrem Rind
 Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle=Verbesserter Rindenschutz
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardDescription=Deine Fähigkeit „Bellenschutz“ reflektiert nun 3W8 Stichschaden auf Nahkampfangreifer. Darüber hinaus gewährt Ihnen „Bark Ward“ jetzt Immunität gegen Gift, solange es aktiv ist.
 Feature/&PowerSharedPoolForestGuardianSuperiorBarkWardTitle=Überlegener Bark-Bezirk
-Subclass/&CircleOfTheForestGuardianDescription=Die Druiden des Zirkels der Waldwächter haben geschworen, die Wälder und alles, was darin lebt, zu beschützen. Die Mitglieder dieses Druidenzirkels beherrschen die Abschwörungsmagie und den Kampf und sind furchterregende Gegner auf dem Schlachtfeld.
+Subclass/&CircleOfTheForestGuardianDescription=Die Druiden des Zirkels der Waldwächter haben geschworen, die Wälder und alles, was darin lebt, zu beschützen. Die Mitglieder dieses druidischen Zirkels beherrschen den Einsatz von Abschwörungsmagie und kriegerischen Kämpfen und sind furchterregende Gegner auf dem Schlachtfeld.
 Subclass/&CircleOfTheForestGuardianTitle=Kreis des Waldwächters

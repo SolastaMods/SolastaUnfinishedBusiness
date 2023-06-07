@@ -593,11 +593,35 @@ public static class RulesetCharacterPatcher
                 new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
                     .Method;
 
-            return instructions.ReplaceCall(currentValueMethod,
-                1, "RulesetCharacter.RollAttack",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldarg, 4),
-                new CodeInstruction(OpCodes.Call, method));
+            var tryModifyCrit = new Func<
+                RulesetAttribute, // attribute, 
+                RulesetCharacter, // me, 
+                RulesetCharacter, // target, 
+                BaseDefinition, // attackMethod,
+                int //result
+            >(TryModifyCritThreshold).Method;
+
+            return instructions
+                .ReplaceCall(currentValueMethod,
+                    1, "RulesetCharacter.RollAttack.AC",
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg, 4),
+                    new CodeInstruction(OpCodes.Call, method))
+                //technically second occurence of this getter, but first one is replced on prevoius call
+                .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg_3),
+                    new CodeInstruction(OpCodes.Call, tryModifyCrit));
+        }
+
+        private static int TryModifyCritThreshold(RulesetAttribute attribute, RulesetCharacter me,
+            RulesetCharacter target, BaseDefinition attackMethod)
+        {
+            var current = attribute.CurrentValue;
+            me.GetSubFeaturesByType<IModifyMyAttackCritThreshold>().ForEach(m =>
+                current = m.TryModifyMyAttackCritThreshold(current, me, target, attackMethod));
+            return current;
         }
     }
 

@@ -1,4 +1,4 @@
-Condition/&ConditionWayOfTheDragonAscensionDescription=Ganhe a habilidade de voar e +2 AC.
+Condition/&ConditionWayOfTheDragonAscensionDescription=Ganhe a habilidade de voar e +2 CA.
 Condition/&ConditionWayOfTheDragonAscensionTitle=Ascensão Dracônica
 Condition/&ConditionWayOfTheDragonDragonFuryAcidDescription=Ataques desarmados causam 2d6 de dano de ácido.
 Condition/&ConditionWayOfTheDragonDragonFuryAcidTitle=Fúria do Dragão - Ácido
@@ -20,7 +20,7 @@ Feature/&AdditionalDamageWayOfTheDragonDragonFuryFireDescription=Você é atingi
 Feature/&AdditionalDamageWayOfTheDragonDragonFuryFireTitle=Fúria do Dragão - Fogo
 Feature/&AdditionalDamageWayOfTheDragonDragonFuryLightningDescription=Você é atingido por um raio.
 Feature/&AdditionalDamageWayOfTheDragonDragonFuryLightningTitle=Fúria do Dragão - Relâmpago
-Feature/&AdditionalDamageWayOfTheDragonDragonFuryPoisonDescription=Você é atingido por um ataque venenoso.
+Feature/&AdditionalDamageWayOfTheDragonDragonFuryPoisonDescription=Você é atingido por um golpe venenoso.
 Feature/&AdditionalDamageWayOfTheDragonDragonFuryPoisonTitle=Fúria do Dragão - Veneno
 Feature/&FeatureSetWayOfTheDragonBreathDescription=Ganhe a habilidade de respirar seu dano do tipo dracônico um número de vezes por descanso longo igual ao seu bônus de proficiência.
 Feature/&FeatureSetWayOfTheDragonBreathTitle=Sopro Elemental

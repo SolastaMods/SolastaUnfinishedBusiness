@@ -5,6 +5,6 @@ Feature/&PowerSorcerousFieldManipulatorDisplacementTitle=Desplazamiento
 Feature/&PowerSorcerousFieldManipulatorForcefulStepDescription=A partir del nivel 18, puedes usar tu acción adicional para teletransportarte a un lugar de tu elección dentro de los 60 pies. Cualquier criatura enemiga a menos de 10 pies del destino al que llegas debe pasar una tirada de salvación de Fuerza contra la CD de tu conjuro o recibir 3d10 de daño por fuerza y quedar tumbado y empujado hacia atrás 10 pies. Puedes usar esta función tres veces por descanso prolongado, y puedes pagar 4 puntos de hechicería si te quedas sin uso.
 Feature/&PowerSorcerousFieldManipulatorForcefulStepTitle=Paso contundente
 Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceDescription=A partir del nivel 14, adquiere competencia en las tiradas de salvación de Inteligencia y Sabiduría.
-Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=Resistencia mental
+Feature/&ProficiencySorcerousFieldManipulatorMentalResistanceTitle=Resistencia Mental
 Subclass/&SorcerousFieldManipulatorDescription=Los manipuladores de campo sobresalen en el control del campo de batalla y evitan que sus enemigos puedan atacarlos.
 Subclass/&SorcerousFieldManipulatorTitle=Manipulador de campo
