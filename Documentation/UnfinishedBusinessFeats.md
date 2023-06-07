@@ -37,7 +37,7 @@ Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild 
 
 # 9. - Blade Mastery
 
-You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your armor class until the start of your next turn. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
+You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain a +1 bonus to attack rolls you make with the weapon, and a +1 bonus to your AC while you're wielding any of them. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
 
 # 10. - Blessed Soul
 
@@ -76,7 +76,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 # 17. - Cleaving Attack
 
 You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes:
-• On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.
+• On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a main action.
 • Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
 
 # 18. - Close Quarters
