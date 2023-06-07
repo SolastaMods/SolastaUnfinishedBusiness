@@ -535,4 +535,12 @@ internal static class RulesetCharacterExtensions
             effect.EffectDescription.EffectForms,
             totalAttack);
     }
+
+    internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
+    {
+        character?.AllConditions
+            .Where(c => c.conditionDefinition.Name == type)
+            .ToList()
+            .ForEach(c => character.RemoveCondition(c, true, false));
+    }
 }
