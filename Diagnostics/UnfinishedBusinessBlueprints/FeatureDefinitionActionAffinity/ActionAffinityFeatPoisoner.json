@@ -1,17 +1,28 @@
 {
-  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
-  "poolType": "Cantrip",
-  "poolAmount": 2,
-  "restrictedChoices": [],
-  "uniqueChoices": false,
-  "spellListOverride": "Definition:SpellListFeatSpellSniperSorcerer:f97d8390-e1d1-5e44-a5bc-d1c1d8fb08ed",
-  "ritualOnly": false,
-  "minSpellLevel": 0,
-  "maxSpellLevel": 0,
-  "extraSpellsTag": "Sniper",
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [
+    "UseItemBonus"
+  ],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
@@ -33,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "88df28aa-b72f-5b73-9414-9637486d054a",
+  "guid": "84210b8c-a6cd-53b7-acde-c0424a98a02d",
   "contentPack": 9999,
-  "name": "PointPoolFeatSpellSniperSorcererCantrip"
+  "name": "ActionAffinityFeatPoisoner"
 }
