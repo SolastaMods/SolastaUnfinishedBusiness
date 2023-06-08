@@ -42,7 +42,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttackImpactLightningBoltSpellVFX:ab4f5ba6-0441-52c5-8e67-1d560dddb143",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,

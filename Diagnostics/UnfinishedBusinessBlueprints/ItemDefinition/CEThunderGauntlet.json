@@ -40,7 +40,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttackImpactThunderwaveSpellVFX:d3f1e7b6-7e3c-5574-8b3b-7fa1099791c4",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,

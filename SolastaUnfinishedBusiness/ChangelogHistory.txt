@@ -2,10 +2,12 @@
 
 1.5.52.1:
 
-- added Innovation Vivisectionist subclass [beta, open for changes]
+- added Innovation Vivisectionist subclass [open for changes and looking for feedback]
 - changed Soulblade's summon pact weapon to use a bonus action instead of a free one
+- fixed custom weapons not getting the static properties bonuses
 - fixed Haste spell not allowing the sequence attack / cast spell
 - improved flanking rules to highlight advantage on hovering cursor tooltip
+- improved integration between Potent Spellcaster and Spell Sniper feats
 - improved Soulblade's soul hex to allow retargeting after target dies
 
 1.5.52.0:
