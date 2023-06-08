@@ -1021,7 +1021,7 @@ internal static class FlankingRules
         }
 
         var alliesInMelee = Gui.Battle.AllContenders
-            .Count(x => x.Side == attacker.Side 
+            .Count(x => x.Side == attacker.Side
                         && gameLocationBattleService.IsWithin1Cell(x, defender)
                         && x.CanAct());
 

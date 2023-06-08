@@ -140,8 +140,9 @@ internal class EffectDescriptionBuilder
         };
         return this;
     }
-    
-    internal EffectDescriptionBuilder AllowRetarget(ActionDefinitions.ActionType action = ActionDefinitions.ActionType.Bonus)
+
+    internal EffectDescriptionBuilder AllowRetarget(
+        ActionDefinitions.ActionType action = ActionDefinitions.ActionType.Bonus)
     {
         effect.retargetAfterDeath = true;
         effect.retargetActionType = action;

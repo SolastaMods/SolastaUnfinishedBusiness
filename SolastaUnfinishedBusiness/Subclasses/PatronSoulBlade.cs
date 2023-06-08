@@ -127,8 +127,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(SpiritualWeapon.EffectDescription)
-                    .Build())
+                .Create(SpiritualWeapon.EffectDescription)
+                .Build())
             .AddToDB();
 
         powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;

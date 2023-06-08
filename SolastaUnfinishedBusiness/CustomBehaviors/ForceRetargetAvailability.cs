@@ -6,9 +6,9 @@
  */
 public class ForceRetargetAvailability
 {
-    public static ForceRetargetAvailability Mark { get; } = new();
-
     private ForceRetargetAvailability()
     {
     }
+
+    public static ForceRetargetAvailability Mark { get; } = new();
 }

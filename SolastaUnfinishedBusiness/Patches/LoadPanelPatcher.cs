@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
