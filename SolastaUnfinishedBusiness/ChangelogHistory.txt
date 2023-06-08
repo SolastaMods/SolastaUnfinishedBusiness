@@ -2,11 +2,9 @@
 
 1.5.52.1:
 
-- added Innovation Vivisectionist subclass [beta, open for suggestions]
-- changed flanking rules so height bonus only apply to ranged, and flanking only to melee
+- added Innovation Vivisectionist subclass [beta, open for changes]
 - fixed Haste spell not allowing the sequence attack / cast spell
-- improved flanking rules to allow enemies to consider packing advantage
-- improved flanking rules to present advantage on hovering cursor tooltip
+- improved some features to present custom behavior advantage on hovering cursor tooltip
 
 1.5.52.0:
 
