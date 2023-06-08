@@ -1015,7 +1015,7 @@ internal static class FlankingRules
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (gameLocationBattleService is not {IsBattleInProgress: true})
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
         {
             return;
         }

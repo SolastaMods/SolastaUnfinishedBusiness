@@ -607,7 +607,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Ldarg, 4),
                     new CodeInstruction(OpCodes.Call, method))
-                //technically second occurence of this getter, but first one is replced on prevoius call
+                //technically second occurence of this getter, but first one is replaced on previous call
                 .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_2),
