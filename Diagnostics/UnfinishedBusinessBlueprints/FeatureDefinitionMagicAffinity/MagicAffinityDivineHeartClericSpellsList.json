@@ -47,12 +47,7 @@
   "preserveSlotThreshold": 20,
   "preserveSlotLevelCap": 5,
   "healingPerSpentSorceryPoint": 0,
-  "sorceryPointAlteredParticle": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "sorceryPointAlteredParticle": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
