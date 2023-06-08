@@ -1069,8 +1069,9 @@ internal static class FlankingRules
                     AddFlankingAttack(actionModifier);
                 }
 
-                AddSurroundedAdvantage(attacker, defender, actionModifier);
                 break;
         }
+
+        AddSurroundedAdvantage(attacker, defender, actionModifier);
     }
 }

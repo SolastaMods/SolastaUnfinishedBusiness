@@ -3,7 +3,9 @@
 1.5.52.1:
 
 - added Innovation Vivisectionist subclass [beta, open for suggestions]
-- improved flanking rules to present surrounded advantage on hovering cursor tooltip
+- changed flanking rules so height bonus only apply to ranged, and flanking only to melee
+- improved flanking rules to allow enemies to consider packing advantage
+- improved flanking rules to present advantage on hovering cursor tooltip
 
 1.5.52.0:
 
