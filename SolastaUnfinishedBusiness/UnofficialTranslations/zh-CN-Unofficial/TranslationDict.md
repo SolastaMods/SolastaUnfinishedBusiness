@@ -1,21 +1,23 @@
 # 翻译词典 - Translation Dictionary
 
+部分地名拆解来自搜索引擎，可能并非完全正确
+
 ## 地名
 
 * Manacalon - 魔纳卡隆
-    * mana（魔力）
-    * calon（心脏）
+  * mana（魔力）
+  * calon（心脏）
 * Caer Lem - 莱姆堡
-    * caer（城堡）
-    * lem（光明）
+  * caer（城堡）
+  * lem（光明）
 * Caer Cyflen - 塞弗伦堡
-    * caer（城堡）
-    * cyflen（平衡）
+  * caer（城堡）
+  * cyflen（平衡）
 * Caer Hyfryd - 海弗里德堡
-    * caer（城堡）
-    * hyfryd（美丽）
+  * caer（城堡）
+  * hyfryd（美丽）
 * Caer Elis - 伊利斯堡
-    * caer（城堡）
+  * caer（城堡）
 * Marches - 边境之地
 * Badlands - 恶土
 * Masgarth - 玛斯加斯
@@ -28,16 +30,16 @@
 * Kaupaapunki - 科帕普基
 * SANDREED - 沙芦滩
 * AER-ELAI - 艾尔-艾莱
-    * aer（空气）（拉丁语）
-    * elai（神圣的）（阿尔巴尼亚名字）
+  * aer（空气）（拉丁语）
+  * elai（神圣的）（阿尔巴尼亚名字）
 * Auld Cedar - 老雪松
 * Ferendragh - 飞龙格
-    * 游戏里高等精灵语中的 “龙之地”
+  * 游戏里高等精灵语中的 “龙之地”
 * Valkarokkupun - 瓦克普城
-    * 游戏里矮人语中的 “白岩城”
+  * 游戏里矮人语中的 “白岩城”
 * Fairview - 费尔维
 * Dinas Gessa - 迪纳斯格萨
-    * 也被称为“埋葬之城”
+  * 也被称为“埋葬之城”
 
 ## 人名
 
@@ -54,6 +56,9 @@
 * Harryn Surridge - 哈伦·苏里奇
 * Weyne Tayler - 韦恩·泰勒
 * Darol Granger - 达罗·格兰杰
+* Ildurial Stronghand - 伊杜瑞尔·强手
+* Elgador Keenspirit - 艾尔戈多·神锐
+* Lestoreth Steelarm - 莱斯托尔斯·钢臂
 
 ## 其他名词
 
