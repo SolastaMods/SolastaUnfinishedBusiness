@@ -1,4 +1,5 @@
 using System.Collections;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -9,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -57,7 +59,7 @@ public static class InnovationVivisectionist
 
         var powerEmergencySurgery = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmergencySurgery")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerDomainInsightForeknowledge)
             .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -82,7 +84,7 @@ public static class InnovationVivisectionist
 
         var powerEmergencyCure = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}EmergencyCure")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerOathOfJugementPurgeCorruption)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
@@ -94,7 +96,6 @@ public static class InnovationVivisectionist
                 EffectDescriptionBuilder
                     .Create(LesserRestoration)
                     .Build())
-            .SetCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         var powerEmergencyCureRemoveCurse = FeatureDefinitionPowerSharedPoolBuilder
@@ -105,7 +106,6 @@ public static class InnovationVivisectionist
                 EffectDescriptionBuilder
                     .Create(RemoveCurse)
                     .Build())
-            .SetCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerEmergencyCure, false,
@@ -140,9 +140,39 @@ public static class InnovationVivisectionist
 
         // LEVEL 15
 
-        // 300% Mortality Rate
+        // Master Emergency Surgery
 
-        // WIP
+        var powerMasterEmergencySurgery = FeatureDefinitionPowerBuilder
+            .Create(powerEmergencySurgery, $"Power{Name}MasterEmergencySurgery")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetCustomSubFeatures(new ModifyMagicEffectEmergencySurgery())
+            .SetOverriddenPower(powerEmergencySurgery)
+            .AddToDB();
+
+        // Master Emergency Cure
+
+        var powerMasterEmergencyCure = FeatureDefinitionPowerBuilder
+            .Create(powerEmergencyCure, $"Power{Name}MasterEmergencyCure")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.NoCost)
+            .SetOverriddenPower(powerEmergencyCure)
+            .AddToDB();
+
+        var powerMasterEmergencyCureLesserRestoration = FeatureDefinitionPowerSharedPoolBuilder
+            .Create(powerEmergencyCureLesserRestoration, $"Power{Name}MasterEmergencyCureLesserRestoration")
+            .SetSharedPool(ActivationTime.NoCost, powerMasterEmergencyCure)
+            .SetOverriddenPower(powerEmergencyCureLesserRestoration)
+            .AddToDB();
+
+        var powerMasterEmergencyCureRemoveCurse = FeatureDefinitionPowerSharedPoolBuilder
+            .Create(powerEmergencyCureRemoveCurse, $"Power{Name}MasterEmergencyCureRemoveCurse")
+            .SetSharedPool(ActivationTime.NoCost, powerMasterEmergencyCure)
+            .SetOverriddenPower(powerEmergencyCureRemoveCurse)
+            .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerMasterEmergencyCure, false,
+            powerMasterEmergencyCureLesserRestoration, powerMasterEmergencyCureRemoveCurse);
 
         // MAIN
 
@@ -159,6 +189,9 @@ public static class InnovationVivisectionist
             .AddFeaturesAtLevel(9,
                 dieRollModifierStableSurgery,
                 powerOrganDonation)
+            .AddFeaturesAtLevel(15,
+                powerMasterEmergencySurgery,
+                powerMasterEmergencyCure)
             .AddToDB();
     }
 

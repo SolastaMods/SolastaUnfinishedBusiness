@@ -646,6 +646,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerOathOfDevotionAuraDevotion { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionAuraDevotion");
         internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
         internal static FeatureDefinitionPower PowerOathOfJugementAuraRightenousness { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementAuraRightenousness");
+        internal static FeatureDefinitionPower PowerOathOfJugementPurgeCorruption { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementPurgeCorruption");
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
         internal static FeatureDefinitionPower PowerOathOfMotherlandVolcanicAura { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfMotherlandVolcanicAura");
         internal static FeatureDefinitionPower PowerOathOfTirmarAuraTruth { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarAuraTruth");

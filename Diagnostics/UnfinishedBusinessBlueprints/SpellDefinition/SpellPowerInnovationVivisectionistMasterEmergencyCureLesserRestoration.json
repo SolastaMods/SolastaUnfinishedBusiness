@@ -1,10 +1,7 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
   "spellsBundle": false,
-  "subspellsList": [
-    "Definition:SpellPowerInnovationVivisectionistEmergencyCureLesserRestoration:0015419d-c1a4-5932-89f8-6b208e3c59df",
-    "Definition:SpellPowerInnovationVivisectionistEmergencyCureRemoveCurse:84e9fd4a-aab5-50f9-a481-b268b0c7947d"
-  ],
+  "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolEvocation",
   "spellLevel": 0,
@@ -166,13 +163,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationVivisectionistEmergencyCureTitle",
-    "description": "Feature/&PowerInnovationVivisectionistEmergencyCureDescription",
+    "title": "Feature/&PowerInnovationVivisectionistEmergencyCureLesserRestorationTitle",
+    "description": "Feature/&PowerInnovationVivisectionistEmergencyCureLesserRestorationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4e1562494848bd148ace8c4485845e4d",
-      "m_SubObjectName": "PurgeCorruption",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -187,7 +184,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "15f4030d-cd5d-5e70-ac5f-d4ad4f77b466",
+  "guid": "ad3a32fa-e927-5432-b619-e781158806d8",
   "contentPack": 9999,
-  "name": "SpellPowerInnovationVivisectionistEmergencyCure"
+  "name": "SpellPowerInnovationVivisectionistMasterEmergencyCureLesserRestoration"
 }

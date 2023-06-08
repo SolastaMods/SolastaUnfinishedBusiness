@@ -290,7 +290,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -321,13 +321,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerInnovationVivisectionistEmergencySurgery:d9a25240-49a0-5ee5-b2cc-e0a4dceab2f0",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerInnovationVivisectionistEmergencySurgeryTitle",
-    "description": "Feature/&PowerInnovationVivisectionistEmergencySurgeryDescription",
+    "title": "Feature/&PowerInnovationVivisectionistMasterEmergencySurgeryTitle",
+    "description": "Feature/&PowerInnovationVivisectionistMasterEmergencySurgeryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2243d06e69e758d4c9191ef1c49c3ebf",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d9a25240-49a0-5ee5-b2cc-e0a4dceab2f0",
+  "guid": "0a2ae7dd-e91c-5136-839c-0400f3fec1f5",
   "contentPack": 9999,
-  "name": "PowerInnovationVivisectionistEmergencySurgery"
+  "name": "PowerInnovationVivisectionistMasterEmergencySurgery"
 }
