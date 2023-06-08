@@ -1462,9 +1462,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] InventorVivectionist {
+        public static byte[] InventorVivisectionist {
             get {
-                object obj = ResourceManager.GetObject("InventorVivectionist", resourceCulture);
+                object obj = ResourceManager.GetObject("InventorVivisectionist", resourceCulture);
                 return ((byte[])(obj));
             }
         }
