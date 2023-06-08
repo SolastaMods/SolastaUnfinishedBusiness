@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=其创造者的法术攻击加值
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=每个战斗回合, 当你使用攻击或 推撞动作时, 你可以额外攻击一次。
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=额外攻击
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=学习并始终准备：\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=武器匠法术
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=你的奥能震荡和钢铁守卫变得更加强大:\n•奥能震荡的额外伤害和生命恢复变为4d6。你的钢铁守卫获得+2护甲等级(AC)加成。

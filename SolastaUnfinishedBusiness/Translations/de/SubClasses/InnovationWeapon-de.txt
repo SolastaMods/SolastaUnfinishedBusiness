@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Zauberangriffsbonus seines Erstellers
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Sie können zweimal statt einmal angreifen, wenn Sie die Angriffs- oder Stoßaktionen verwenden.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Zusätzlicher Angriff
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Lernen Sie und seien Sie immer vorbereitet:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Waffenschmied-Zauber
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Ihr „Arkaner Stoß“ und Ihr Stahlverteidiger werden stärker:\n• Der zusätzliche Schaden und die Heilung Ihres „Arkanen Stoßes“ erhöhen sich beide auf 4W6.\n• Ihr Stahlverteidiger erhält einen Bonus von +2 auf die Rüstungsklasse.

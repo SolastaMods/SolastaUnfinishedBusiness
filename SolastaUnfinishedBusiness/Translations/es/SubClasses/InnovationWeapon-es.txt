@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonificación de ataque de hechizo de su creador
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Puedes atacar dos veces, en lugar de una, cuando usas las acciones de ataque o empujón.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Ataque adicional
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Aprende y ten siempre preparado:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Hechizos de armero
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Tu Arcane Jolt y el defensor de acero se vuelven más poderosos:\n• El daño adicional y la curación de tu Arcane Jolt aumentan a 4d6.\n• Tu defensor de acero obtiene una bonificación de +2 a la Clase de armadura.

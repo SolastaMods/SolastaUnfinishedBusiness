@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus d'attaque des sorts de son créateur
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Vous pouvez attaquer deux fois, au lieu d'une, lorsque vous utilisez les actions d'attaque ou de bousculade.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Attaque supplémentaire
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Apprenez et préparez-vous toujours :\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Sorts de forgeron d'armes
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Votre Secousse des arcanes et votre défenseur d'acier deviennent plus puissants :\n• Les dégâts supplémentaires et les soins de votre Secousse des arcanes passent tous deux à 4d6.\n• Votre défenseur d'acier bénéficie d'un bonus de +2 à la classe d'armure.

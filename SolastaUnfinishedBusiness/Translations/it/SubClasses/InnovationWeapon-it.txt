@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus di attacco magico del suo creatore
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Puoi attaccare due volte, anziché una volta, quando usi le azioni di attacco o spinta.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Attacco extra
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Impara e preparati sempre:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Incantesimi del fabbro
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Il tuo Scossa Arcana e il difensore d'acciaio diventano più potenti:\n• I danni extra e le cure fornite da Scossa Arcana aumentano entrambi a 4d6.\n• Il tuo difensore d'acciaio ottiene un bonus di +2 alla Classe Armatura.

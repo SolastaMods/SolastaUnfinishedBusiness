@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=제작자의 주문 공격 보너스
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=공격 또는 밀치기 동작을 사용할 때 한 번이 아닌 두 번 공격할 수 있습니다.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=추가 공격
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=배우고 항상 준비했습니다.\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=무기 제작자 주문
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Arcane Jolt와 강철 수비수가 더욱 강력해집니다.\n• Arcane Jolt의 추가 피해와 치유량이 모두 4d6으로 증가합니다.\n• 강철 수비수가 Armor Class에 +2 보너스를 얻습니다.
