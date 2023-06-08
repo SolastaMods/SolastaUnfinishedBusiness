@@ -152,10 +152,10 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(2, WildShapeBrownBear),
             ShapeBuilder(4, WildshapeDeepSpider),
             ShapeBuilder(4, HbWildShapeDireBear()),
-            ShapeBuilder(6, WildShapeApe),
+            ShapeBuilder(6, HbWildShapeApe()),
             ShapeBuilder(8, WildshapeTiger_Drake),
             ShapeBuilder(8, WildShapeGiant_Eagle),
-            ShapeBuilder(10, WildShapeTundraTiger),
+            ShapeBuilder(10, HbWildShapeTundraTiger()),
             ShapeBuilder(10, HbWildShapeAirElemental()),
             ShapeBuilder(10, HbWildShapeFireElemental()),
             ShapeBuilder(10, HbWildShapeEarthElemental()),
@@ -226,6 +226,36 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetChallengeRating(2)
             .SetOrUpdateGuiPresentation(Category.Monster, WildshapeBlackBear)
             .SetAttackIterations(biteAttack, clawAttack)
+            .AddToDB();
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeApe()
+    {
+        var shape = MonsterDefinitionBuilder
+            .Create(WildShapeApe, "WildshapeApe")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(WildShapeApe.MonsterPresentation)
+                    .SetModelScale(0.48f)
+                    .Build())
+            .AddToDB();
+
+        return shape;
+    }
+
+    private static MonsterDefinition HbWildShapeTundraTiger()
+    {
+        var shape = MonsterDefinitionBuilder
+            .Create(WildShapeTundraTiger, "WildShapeTundraTiger")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetMonsterPresentation(
+                MonsterPresentationBuilder.Create()
+                    .SetAllPrefab(WildShapeTundraTiger.MonsterPresentation)
+                    .SetModelScale(0.68f)
+                    .Build())
             .AddToDB();
 
         return shape;
