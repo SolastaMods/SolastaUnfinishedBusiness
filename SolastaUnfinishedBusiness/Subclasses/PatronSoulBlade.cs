@@ -81,8 +81,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetFeatures(additionalDamageHex)
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender,
-            conditionHexAttacker.Name));
+        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(conditionHexDefender));
 
         //leaving for compatibility
         FeatureDefinitionBuilder
@@ -97,6 +96,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
+            .AllowRetarget()
             .SetEffectForms(
                 EffectFormBuilder.ConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add),
                 EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true)
@@ -107,6 +107,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var powerHex = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeHex")
             .SetGuiPresentation(Category.Feature, spriteSoulHex)
+            .SetCustomSubFeatures(ForceRetargetAvailability.Mark)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(effectDescriptionHex)
@@ -123,10 +124,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
                     .Create(SpiritualWeapon.EffectDescription)
                     .Build())
             .AddToDB();
@@ -237,25 +237,15 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private sealed class NotifyConditionRemovalHex : INotifyConditionRemoval
     {
-        private readonly string _conditionHexAttacker;
         private readonly ConditionDefinition _conditionHexDefender;
 
-        public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender,
-            string conditionHexAttacker)
+        public NotifyConditionRemovalHex(ConditionDefinition conditionHexDefender)
         {
             _conditionHexDefender = conditionHexDefender;
-            _conditionHexAttacker = conditionHexAttacker;
         }
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
-            if (rulesetCondition.ConditionDefinition != _conditionHexDefender)
-            {
-                return;
-            }
-
-            EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid)
-                ?.RemoveAllConditionsOfType(_conditionHexAttacker);
         }
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
@@ -271,7 +261,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 return;
             }
 
-            caster.RemoveAllConditionsOfType(_conditionHexAttacker);
             ReceiveHealing(caster);
         }
 
