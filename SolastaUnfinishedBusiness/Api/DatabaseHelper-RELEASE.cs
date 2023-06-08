@@ -336,6 +336,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionAdditionalActions
     {
+        internal static FeatureDefinitionAdditionalAction AdditionalActionHasted { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHasted");
         internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
     }
     internal static class FeatureDefinitionAdditionalDamages
