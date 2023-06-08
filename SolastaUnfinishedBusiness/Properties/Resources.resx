@@ -1366,12 +1366,18 @@
             PublicKeyToken=b03f5f7f11d50a3a
         </value>
     </data>
-    <data name="InventorArtillerist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\Subclasses\InventorArtillerist.png;System.Byte[], mscorlib, Version=4.0.0.0,
-            Culture=neutral,
-            PublicKeyToken=b03f5f7f11d50a3a
-        </value>
-    </data>
+  <data name="InventorArtillerist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\InventorArtillerist.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>
+  <data name="InventorVivectionist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\InventorVivectionist.png;System.Byte[], mscorlib, Version=4.0.0.0,
+      Culture=neutral,
+      PublicKeyToken=b03f5f7f11d50a3a
+    </value>
+  </data>  
     <data name="InventorWeapon" type="System.Resources.ResXFileRef, System.Windows.Forms">
         <value>..\Resources\Subclasses\InventorWeapon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a
