@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
@@ -23,14 +24,14 @@ public static class AiLocationManagerPatcher
                      Assembly.GetExecutingAssembly().GetTypes()
                          .Where(t => t.IsSubclassOf(typeof(ActivityBase))))
             {
-                __instance.activitiesMap.Add(type.ToString().Split('.').Last(), type);
+                __instance.activitiesMap.TryAdd(type.ToString().Split('.').Last(), type);
 
                 foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
                 {
                     var parameters = method.GetParameters();
                     if (method.ReturnType == typeof(ContextType))
                     {
-                        __instance.activityContextsMap.Add(
+                        __instance.activityContextsMap.TryAdd(
                             type.ToString().Split('.').Last(),
                             (AiLocationDefinitions.GetContextTypeHandler)Delegate.CreateDelegate(
                                 typeof(AiLocationDefinitions.GetContextTypeHandler), method));
@@ -40,7 +41,7 @@ public static class AiLocationManagerPatcher
                              parameters[0].ParameterType.GetElementType() == typeof(ActionDefinitions.Id) &&
                              parameters[1].ParameterType.GetElementType() == typeof(ActionDefinitions.Id))
                     {
-                        __instance.activityActionIdsMap.Add(
+                        __instance.activityActionIdsMap.TryAdd(
                             type.ToString().Split('.').Last(),
                             (AiLocationDefinitions.GetActionIdHandler)Delegate.CreateDelegate(
                                 typeof(AiLocationDefinitions.GetActionIdHandler), method));
@@ -49,14 +50,14 @@ public static class AiLocationManagerPatcher
                              parameters.Length == 2 && parameters[0].ParameterType.GetElementType() ==
                              typeof(GameLocationCharacter))
                     {
-                        __instance.activityShouldBeSkippedMap.Add(
+                        __instance.activityShouldBeSkippedMap.TryAdd(
                             type.ToString().Split('.').Last(),
                             (AiLocationDefinitions.ShouldBeSkippedHandler)Delegate.CreateDelegate(
                                 typeof(AiLocationDefinitions.ShouldBeSkippedHandler), method));
                     }
                     else if (method.ReturnType == typeof(bool) && parameters.Length == 0)
                     {
-                        __instance.activityUsesMovementContextsMap.Add(
+                        __instance.activityUsesMovementContextsMap.TryAdd(
                             type.ToString().Split('.').Last(),
                             (AiLocationDefinitions.UsesMovementContextsHandler)Delegate.CreateDelegate(
                                 typeof(AiLocationDefinitions.UsesMovementContextsHandler), method));
