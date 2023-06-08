@@ -91,20 +91,14 @@ public static class InnovationVivisectionist
             .Create($"Power{Name}EmergencyCureLesserRestoration")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerEmergencyCure)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(LesserRestoration)
-                    .Build())
+            .SetEffectDescription(LesserRestoration.EffectDescription)
             .AddToDB();
 
         var powerEmergencyCureRemoveCurse = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{Name}EmergencyCureRemoveCurse")
             .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerEmergencyCure)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(RemoveCurse)
-                    .Build())
+            .SetEffectDescription(RemoveCurse.EffectDescription)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerEmergencyCure, false,
