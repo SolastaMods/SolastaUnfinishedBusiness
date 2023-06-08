@@ -19,5 +19,7 @@ Feedback/&AdditionalDamageMedicalAccuracyLine={0}은(는) {1}(+{2})에 의료 �
 Reaction/&CustomReactionOrganDonationReactDescription=응급 수술 및 응급 치료를 1회 사용할 수 있습니다.
 Reaction/&CustomReactionOrganDonationReactTitle=장기 기증
 Reaction/&CustomReactionOrganDonationTitle=장기 기증
+Screen/&InventorVivisectionistSpellDescription=이 Vivisectionist 주문은 항상 준비된 것으로 간주됩니다.\n주문 준비 제한에 포함되지 않습니다.
+Screen/&InventorVivisectionistSpellTitle=생체해부술사
 Subclass/&InnovationVivisectionistDescription=생체해부학자는 신체의 기능을 더 잘 이해하기 위해 신체를 연구합니다. 외과 의사와 달리 생체 해부사의 목표는 항상 치유와 관련된 것이 아니라 신체 부위에 대한 실험 및 지식과 관련이 있습니다.
 Subclass/&InnovationVivisectionistTitle=생체해부술사

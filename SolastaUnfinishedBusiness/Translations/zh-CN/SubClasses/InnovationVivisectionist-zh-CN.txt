@@ -19,5 +19,7 @@ Feedback/&AdditionalDamageMedicalAccuracyLine={0} 对 {1} (+{2}) 执行医学准
 Reaction/&CustomReactionOrganDonationReactDescription=您可以重新使用一次紧急手术和紧急治疗。
 Reaction/&CustomReactionOrganDonationReactTitle=器官捐献
 Reaction/&CustomReactionOrganDonationTitle=器官捐献
+Screen/&InventorVivisectionistSpellDescription=此活体解剖师法术始终被视为已准备好。\n它不计入您的法术准备限制。
+Screen/&InventorVivisectionistSpellTitle=活体解剖师
 Subclass/&InnovationVivisectionistDescription=活体解剖学家研究尸体以更好地了解它们的功能。与外科医生不同，活体解剖师的目标并不总是与治愈有关，而是与身体部位的实验和知识有关。
 Subclass/&InnovationVivisectionistTitle=活体解剖师

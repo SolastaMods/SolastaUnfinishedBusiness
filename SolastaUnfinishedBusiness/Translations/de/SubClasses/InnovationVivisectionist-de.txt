@@ -19,5 +19,7 @@ Feedback/&AdditionalDamageMedicalAccuracyLine={0} führt einen medizinischen Pr�
 Reaction/&CustomReactionOrganDonationReactDescription=Sie können die Notfallchirurgie und die Notfallheilung jeweils einmal nutzen.
 Reaction/&CustomReactionOrganDonationReactTitle=Organspende
 Reaction/&CustomReactionOrganDonationTitle=Organspende
+Screen/&InventorVivisectionistSpellDescription=Dieser Vivisektionisten-Zauber gilt immer als vorbereitet.\nEr zählt nicht zu Ihrem Zaubervorbereitungslimit.
+Screen/&InventorVivisectionistSpellTitle=Vivisektionist
 Subclass/&InnovationVivisectionistDescription=Ein Vivisektionist untersucht Körper, um ihre Funktion besser zu verstehen. Anders als ein Chirurg beziehen sich die Ziele eines Vivisektionisten nicht immer auf die Heilung, sondern vielmehr auf das Experimentieren und Wissen mit Körperteilen.
 Subclass/&InnovationVivisectionistTitle=Vivisektionist

@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.5.52.1:
+
+- added Innovation Vivisectionist subclass [beta, open for suggestions]
+- improved flanking rules to present surrounded advantage on hovering cursor tooltip
+
 1.5.52.0:
 
 - fixed Soul Hex applying bonus damage and critical threshold against any target instead of cursed creature only
