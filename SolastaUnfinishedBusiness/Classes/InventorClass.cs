@@ -708,6 +708,7 @@ internal static class InventorClass
     internal static void LateLoadSpellStoringItem()
     {
         Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(BuildSpellStoringItem(), 11));
+        Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private static FeatureDefinition BuildSpellStoringItem()
