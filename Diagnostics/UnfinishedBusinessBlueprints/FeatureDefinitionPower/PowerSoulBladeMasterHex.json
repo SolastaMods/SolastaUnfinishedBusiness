@@ -23,7 +23,7 @@
     "inviteOptionalAlly": false,
     "slotTypes": [],
     "recurrentEffect": "No",
-    "retargetAfterDeath": false,
+    "retargetAfterDeath": true,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 0,
     "poolFilterDieType": "D1",
