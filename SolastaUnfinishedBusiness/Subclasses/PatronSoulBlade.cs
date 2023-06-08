@@ -123,10 +123,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+            .SetEffectDescription(EffectDescriptionBuilder
                     .Create(SpiritualWeapon.EffectDescription)
                     .Build())
             .AddToDB();
