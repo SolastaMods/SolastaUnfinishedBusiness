@@ -105,7 +105,7 @@ public static class UsableDeviceFunctionBoxPatcher
             }
 
             if (user.GetSubFeaturesByType<IAdditionalActionsProvider>()
-                .Any(f => ValidAdditinalActionProvider(f, user, usableDevice, rulesetDeviceFunction)))
+                .Any(f => ValidAdditionalActionProvider(f, user, usableDevice, rulesetDeviceFunction)))
             {
                 return;
             }
@@ -135,7 +135,7 @@ public static class UsableDeviceFunctionBoxPatcher
             return validator == null || validator(user, device, deviceFunction);
         }
 
-        private static bool ValidAdditinalActionProvider(
+        private static bool ValidAdditionalActionProvider(
             IAdditionalActionsProvider provider,
             RulesetCharacter user,
             RulesetItemDevice device,

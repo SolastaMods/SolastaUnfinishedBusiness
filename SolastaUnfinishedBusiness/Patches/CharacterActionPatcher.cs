@@ -3,11 +3,13 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -82,13 +84,14 @@ public static class CharacterActionPatcher
         {
             var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
 
+            //PATCH: IActionInitiated
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                var modifyActionParams = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
+                var iActionsInitiated = rulesetCharacter.GetSubFeaturesByType<IActionInitiated>();
 
-                foreach (var modifyActionParam in modifyActionParams)
+                foreach (var iActionInitiated in iActionsInitiated)
                 {
-                    yield return modifyActionParam.OnActionInitiated(__instance);
+                    yield return iActionInitiated.OnActionInitiated(__instance);
                 }
             }
 
@@ -99,6 +102,22 @@ public static class CharacterActionPatcher
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
+                //BUGFIX: fix Haste spell not allowing the sequence attack / cast spell
+                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    rulesetCharacter.HasAnyConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHasted.Name))
+                {
+                    var gameLocationCharacter = __instance.ActingCharacter;
+
+                    if (gameLocationCharacter.UsedMainCantrip || gameLocationCharacter.UsedMainSpell)
+                    {
+                        AdditionalActionHasted.RestrictedActions.Remove(ActionDefinitions.Id.CastMain);
+                    }
+                    else
+                    {
+                        AdditionalActionHasted.RestrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
+                    }
+                }
+
                 //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
                 if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
                     rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
@@ -107,11 +126,12 @@ public static class CharacterActionPatcher
                     __instance.ActingCharacter.UsedMainCantrip = false;
                 }
 
-                var onAfterActions = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
+                //PATCH: IActionFinished
+                var iActionsFinished = rulesetCharacter.GetSubFeaturesByType<IActionFinished>();
 
-                foreach (var onAfterAction in onAfterActions)
+                foreach (var iActionFinished in iActionsFinished)
                 {
-                    yield return onAfterAction.OnActionFinished(__instance);
+                    yield return iActionFinished.OnActionFinished(__instance);
                 }
             }
 
