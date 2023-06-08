@@ -48,7 +48,7 @@ public static class InnovationVivisectionist
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("MedicalAccuracy")
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 6, 3)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4, 3)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
@@ -161,13 +161,11 @@ public static class InnovationVivisectionist
         var powerMasterEmergencyCureLesserRestoration = FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerEmergencyCureLesserRestoration, $"Power{Name}MasterEmergencyCureLesserRestoration")
             .SetSharedPool(ActivationTime.NoCost, powerMasterEmergencyCure)
-            .SetOverriddenPower(powerEmergencyCureLesserRestoration)
             .AddToDB();
 
         var powerMasterEmergencyCureRemoveCurse = FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerEmergencyCureRemoveCurse, $"Power{Name}MasterEmergencyCureRemoveCurse")
             .SetSharedPool(ActivationTime.NoCost, powerMasterEmergencyCure)
-            .SetOverriddenPower(powerEmergencyCureRemoveCurse)
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(powerMasterEmergencyCure, false,

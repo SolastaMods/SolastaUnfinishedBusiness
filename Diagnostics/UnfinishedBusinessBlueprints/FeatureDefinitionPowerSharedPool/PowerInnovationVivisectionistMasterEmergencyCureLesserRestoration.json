@@ -326,7 +326,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerInnovationVivisectionistEmergencyCureLesserRestoration:44ab3755-8d65-5029-8804-2d32690c9ed2",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

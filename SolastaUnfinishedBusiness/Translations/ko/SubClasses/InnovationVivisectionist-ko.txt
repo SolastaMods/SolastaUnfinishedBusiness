@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyDescription=턴당 한 번, 당신이 명중 굴림에 유리하다면 무기 공격으로 명중한 하나의 생물에게 추가로 1d6 피해를 줄 수 있습니다. 대상의 다른 적이 5피트 이내에 있고 해당 적이 무력화되지 않았으며 공격 굴림에 불이익이 없다면 공격 굴림에 이점이 필요하지 않습니다. 피해는 9레벨에서 2d6, 15레벨에서 3d6으로 증가합니다.
+Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyDescription=턴당 한 번, 당신이 명중 굴림에 유리하다면 무기 공격으로 명중한 하나의 생물에게 추가로 1d6 피해를 줄 수 있습니다. 대상의 다른 적이 5피트 이내에 있고 해당 적이 무력화되지 않았으며 공격 굴림에 불이익이 없다면 공격 굴림에 이점이 필요하지 않습니다. 피해는 7레벨에서 2d6, 11레벨에서 3d6, 15레벨에서 4d6, 19레벨에서 5d6으로 증가합니다.
 Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyTitle=의료 정확도
 Feature/&AutoPreparedSpellsInnovationVivisectionistDescription=배우고 항상 준비했습니다.\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationVivisectionistTitle=생체 해부술사 주문

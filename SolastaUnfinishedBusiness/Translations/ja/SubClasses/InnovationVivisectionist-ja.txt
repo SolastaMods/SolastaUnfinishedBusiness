@@ -1,4 +1,4 @@
-Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyDescription=攻撃ロールにアドバンテージがある場合、ターンごとに 1 回、武器攻撃で命中したクリーチャー 1 体に追加の 1d6 ダメージを与えることができます。ターゲットの別の敵がターゲットから 5 フィート以内にいて、その敵が無力化されておらず、攻撃ロールで不利にならない場合、攻撃ロールで有利になる必要はありません。ダメージは9レベルで2d6、15レベルで3d6に増加します。
+Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyDescription=攻撃ロールにアドバンテージがある場合、ターンごとに 1 回、武器攻撃で命中したクリーチャー 1 体に追加の 1d6 ダメージを与えることができます。ターゲットの別の敵がターゲットから 5 フィート以内にいて、その敵が無力化されておらず、攻撃ロールで不利にならない場合、攻撃ロールで有利になる必要はありません。ダメージは、7 レベルで 2d6、11 レベルで 3d6、15 レベルで 4d6、19 レベルで 5d6 に増加します。
 Feature/&AdditionalDamageInnovationVivisectionistMedicalAccuracyTitle=医療の正確さ
 Feature/&AutoPreparedSpellsInnovationVivisectionistDescription=以下のことを学び、常に準備してきました。\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationVivisectionistTitle=生体解剖者の呪文

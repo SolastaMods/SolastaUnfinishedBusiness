@@ -323,7 +323,7 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerInnovationVivisectionistEmergencyCureRemoveCurse:ed51e7b6-2f9b-5a68-b6cb-821f26dbee84",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
