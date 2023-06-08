@@ -1008,14 +1008,14 @@ internal static class FlankingRules
             .Any(allySide => allySide == flankingSide);
     }
 
-    private static void AddAdvantage(
+    private static void AddSurroundedAdvantage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier actionModifier)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        if (gameLocationBattleService is not {IsBattleInProgress: true})
         {
             return;
         }
@@ -1046,45 +1046,31 @@ internal static class FlankingRules
             null));
     }
 
-    internal static void HandlePhysicalAttack(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier)
+    internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        if (attacker.LocationPosition.y > defender.LocationPosition.y)
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var actionModifier = evaluationParams.attackModifier;
+
+        switch (evaluationParams.attackProximity)
         {
-            AddHigherGroundAttack(actionModifier);
+            case BattleDefinitions.AttackProximity.PhysicalRange:
+            case BattleDefinitions.AttackProximity.MagicRange:
+                if (attacker.LocationPosition.y > defender.LocationPosition.y)
+                {
+                    AddHigherGroundAttack(actionModifier);
+                }
+
+                break;
+            case BattleDefinitions.AttackProximity.PhysicalReach:
+            case BattleDefinitions.AttackProximity.MagicReach:
+                if (IsFlanking(attacker, defender))
+                {
+                    AddFlankingAttack(actionModifier);
+                }
+
+                AddSurroundedAdvantage(attacker, defender, actionModifier);
+                break;
         }
-
-        if (IsFlanking(attacker, defender))
-        {
-            AddFlankingAttack(actionModifier);
-        }
-
-        AddAdvantage(attacker, defender, actionModifier);
-    }
-
-    internal static void HandleMagicAttack(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier,
-        RulesetEffect rulesetEffect)
-    {
-        if (rulesetEffect is not RulesetEffectSpell)
-        {
-            return;
-        }
-
-        if (attacker.LocationPosition.y > defender.LocationPosition.z)
-        {
-            AddHigherGroundAttack(actionModifier);
-        }
-
-        if (IsFlanking(attacker, defender))
-        {
-            AddFlankingAttack(actionModifier);
-        }
-
-        AddAdvantage(attacker, defender, actionModifier);
     }
 }
