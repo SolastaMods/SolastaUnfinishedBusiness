@@ -785,14 +785,37 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        var spellLists = new List<SpellListDefinition>
+        var spellLists = new List<List<SpellListDefinition>>
         {
-            SpellListDefinitions.SpellListBard,
-            SpellListDefinitions.SpellListCleric,
-            SpellListDefinitions.SpellListDruid,
-            SpellListDefinitions.SpellListSorcerer,
-            SpellListDefinitions.SpellListWizard,
-            InventorClass.SpellList
+            new() { SpellListDefinitions.SpellListBard },
+            new()
+            {
+                SpellListDefinitions.SpellListCleric
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListDruid,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperDruid")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListSorcerer,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperSorcerer")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListWarlock,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWarlock")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListWizard,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
+            },
+            new()
+            {
+                InventorClass.SpellList
+            }
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
@@ -802,6 +825,7 @@ internal static class ClassFeats
             ValidatorsFeat.IsDruidLevel4,
             ValidatorsFeat.IsSorcererLevel4,
             ValidatorsFeat.IsWizardLevel4,
+            ValidatorsFeat.IsWarlockLevel4,
             ValidatorsFeat.IsInventorLevel4
         };
 
@@ -811,14 +835,14 @@ internal static class ClassFeats
         {
             var spellList = spellLists[i];
             var validator = validators[i];
-            var className = spellList.Name.Replace("SpellList", String.Empty);
+            var className = spellList[0].Name.Replace("SpellList", String.Empty);
             var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
             var featPotentSpellcaster = FeatDefinitionWithPrerequisitesBuilder
                 .Create($"{Name}{className}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList.ToArray()))
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -837,9 +861,9 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly SpellListDefinition _spellListDefinition;
+        private readonly SpellListDefinition[] _spellListDefinition;
 
-        public ModifyMagicEffectFeatPotentSpellcaster(SpellListDefinition spellListDefinition)
+        public ModifyMagicEffectFeatPotentSpellcaster(params SpellListDefinition[] spellListDefinition)
         {
             _spellListDefinition = spellListDefinition;
         }
@@ -851,8 +875,8 @@ internal static class ClassFeats
             RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.SpellsByLevel
-                    .Any(x => x.Level == 0 && x.Spells.Contains(spellDefinition)))
+                !_spellListDefinition.Any(x => x.SpellsByLevel
+                    .Any(y => y.Level == 0 && y.Spells.Contains(spellDefinition))))
             {
                 return effectDescription;
             }
@@ -866,19 +890,19 @@ internal static class ClassFeats
 
             string attribute;
 
-            if (_spellListDefinition == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition == SpellListDefinitions.SpellListSorcerer)
+            if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
+                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
 
             {
                 attribute = AttributeDefinitions.Charisma;
             }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListCleric ||
-                     _spellListDefinition == SpellListDefinitions.SpellListDruid)
+            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListCleric ||
+                     _spellListDefinition[0] == SpellListDefinitions.SpellListDruid)
             {
                 attribute = AttributeDefinitions.Wisdom;
             }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListWizard ||
-                     _spellListDefinition == InventorClass.SpellList)
+            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListWizard ||
+                     _spellListDefinition[0] == InventorClass.SpellList)
             {
                 attribute = AttributeDefinitions.Intelligence;
             }

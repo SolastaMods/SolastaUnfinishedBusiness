@@ -870,7 +870,7 @@ internal static class OtherFeats
         var castSpells = new List<FeatureDefinitionCastSpell>
         {
             // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellCleric,
+            // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
             CastSpellDruid,
             CastSpellSorcerer,
             CastSpellWarlock,
