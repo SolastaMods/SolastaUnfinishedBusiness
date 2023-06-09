@@ -34,7 +34,6 @@ internal static class RulesDisplay
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
             }
         }
-        
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
@@ -225,13 +224,6 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.IncreaseMaxAttunedItems = toggle;
-        }
-
-        toggle = Main.Settings.MakeLargeWildshapeFormsMedium;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeLargeWildshapeFormsMedium"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeLargeWildshapeFormsMedium = toggle;
-            SrdAndHouseRulesContext.SwitchMakeLargeWildshapeFormsMedium();
         }
 
         toggle = Main.Settings.EnableCharactersOnFireToEmitLight;

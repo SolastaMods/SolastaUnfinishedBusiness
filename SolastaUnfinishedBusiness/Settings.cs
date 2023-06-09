@@ -109,7 +109,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
-
     public bool EnumerateOriginSubFeatures
     {
         get => enumerateOriginSubFeatures && EnableBetaContent;
@@ -154,19 +153,15 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool IdentifyAfterRest { get; set; }
-
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
     public bool AttackersWithDarkvisionHaveAdvantageOverDefendersWithout { get; set; }
-
     public bool AllowTargetingSelectionWhenCastingChainLightningSpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
-
     public bool BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove { get; set; }
     public bool FixEldritchBlastRange { get; set; }
     public bool EnableUpcastConjureElementalAndFey { get; set; }
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
-
     public bool ChangeSleetStormToCube { get; set; }
     public bool RemoveRecurringEffectOnEntangle { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
@@ -182,11 +177,8 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCantripsTriggeringOnWarMagic { get; set; }
     public bool FullyControlConjurations { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
-    public bool MakeLargeWildshapeFormsMedium { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-
     public bool EnableCharactersOnFireToEmitLight { get; set; }
-
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
     public int CriticalHitModeEnemies { get; set; }
@@ -203,7 +195,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AddPickPocketableLoot { get; set; }
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
-    public bool RemoveIdentificationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int TotalCraftingTimeModifier { get; set; }
@@ -235,8 +226,8 @@ public class Settings : UnityModManager.ModSettings
     public List<string> RaceEnabled { get; } = new();
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> BackgroundEnabled { get; } = new();
-    public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
-    public List<string> DeityEnabled { get; } = new();
+    // public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    // public List<string> DeityEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> ClassEnabled { get; } = new();
     public int SubclassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -248,16 +239,12 @@ public class Settings : UnityModManager.ModSettings
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatEnabled { get; } = new();
-
     public int FeatGroupSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FeatGroupEnabled { get; } = new();
-
     public int FightingStyleSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> FightingStyleEnabled { get; } = new();
-
     public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> InvocationEnabled { get; } = new();
-
     public int MetamagicSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> MetamagicEnabled { get; } = new();
 
@@ -286,7 +273,6 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
-
     public int[][][] FormationGridSets { get; set; } =
     {
         new[]
@@ -338,7 +324,6 @@ public class Settings : UnityModManager.ModSettings
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-
     public bool ShowButtonWithControlledMonsterInfo
     {
         get => showButtonWithControlledMonsterInfo && EnableBetaContent;
