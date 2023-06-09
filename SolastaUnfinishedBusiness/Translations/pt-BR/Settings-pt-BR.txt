@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao lançar <color=#D89555>Tentáculos negros, emaranhado, graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555 >Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem do DnD <i><color=#F0DAA0>[se as circunstâncias fizerem com que uma rolagem tenha ambos, considera-se que você não tem nenhum deles]</color></i>
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento do DnD <i><color=#F0DAA0>[se um aliado estiver do lado oposto, o atacante tem vantagem]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=Também habilite para ataques à distância
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Também habilite para ataques à distância</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial DnD de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

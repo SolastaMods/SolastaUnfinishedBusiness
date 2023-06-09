@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Usa i modelli del volto di <color=#D89555>Elf
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555 >Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio DnD <i><color=#F0DAA0>[se le circostanze fanno sì che un tiro abbia entrambi, sei considerato non avere nessuno dei due]</color></i>
 ModUi/&UseOfficialFlankingRules=Usa le regole ufficiali per il fianco DnD <i><color=#F0DAA0>[se un alleato è dalla parte opposta, un attaccante ha vantaggio]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=Abilita anche per gli attacchi a distanza
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Abilita anche per gli attacchi a distanza</i>
 ModUi/&UseOfficialFoodRationsWeight=Usa <color=#D89555>razione di cibo</color> ufficiale DnD di 2 libbre
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

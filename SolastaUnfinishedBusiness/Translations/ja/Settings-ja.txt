@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>ティーフリング</color>�
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>黒い触手、絡み合い、グリース</color> <i><color=#F0DAA0>[square]</color></i> または <color=#D89555 をキャストするときに高さ 1 のシリンダー効果を使用します>スパイク成長</color> <i><color=#F0DAA0>[ラウンド]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=公式の DnD 有利 / 不利ルールを使用します <i><color=#F0DAA0>[状況によってロールに両方がある場合、どちらも持っていないとみなされます]</color></i>
 ModUi/&UseOfficialFlankingRules=公式の DnD フランキング ルールを使用する <i><color=#F0DAA0>[味方が反対側にいる場合、攻撃側が有利]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=遠距離攻撃も可能
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>遠距離攻撃も可能</i>
 ModUi/&UseOfficialFoodRationsWeight=公式の DnD <color=#D89555>食料配給</color>重量は 2 ポンドを使用してください
 ModUi/&Visuals=<color=#F0DAA0>ビジュアル:</color> <b><i><color=#C04040E0>[再起動が必要]</color></i></b>

@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=在<color=#D89555>提夫林</color>上使用<
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color><i><color=#F0DAA0>[方形]</color></i>或<color=#D89555>尖峰生长</color><i><color=#F0DAA0>[圆形]</color></i>时使用高度为1的立体效果
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方 DnD 优势/劣势规则<i><color=#F0DAA0>[如果同时具有优势和劣势，则视为既没有优势也没有劣势]</color></i>
 ModUi/&UseOfficialFlankingRules=使用官方 DnD 侧翼规则<i><color=#F0DAA0>[如果盟友在对面，攻击者就有优势]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=还可以进行远程攻击
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>还可以进行远程攻击</i>
 ModUi/&UseOfficialFoodRationsWeight=将食物配给的重量减少到2磅
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Ge
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555 wirken >Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen DnD-Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
 ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen DnD-Flankierungsregeln <i><color=#F0DAA0>[wenn ein Verbündeter auf der Gegenseite ist, hat ein Angreifer einen Vorteil]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=Auch für Fernangriffe aktivieren
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Auch für Fernangriffe aktivieren</i>
 ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle DnD-<color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

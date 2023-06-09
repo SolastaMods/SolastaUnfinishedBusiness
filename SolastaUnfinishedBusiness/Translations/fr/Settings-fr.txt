@@ -238,6 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=Utilisez des modèles de visage <color=#D8955
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555 >Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'avantage / désavantage de DnD <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
 ModUi/&UseOfficialFlankingRules=Utilisez les règles officielles de flanquement du DnD <i><color=#F0DAA0>[si un allié est du côté opposé, l'attaquant a l'avantage]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=Activer également pour les attaques à distance
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Activer également pour les attaques à distance</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle du DnD d'un poids de 2 livres
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

@@ -26,7 +26,7 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFlankingRules = toggle;
         }
 
-        if (Main.Settings.UseOfficialFlankingRulesAlsoForRanged)
+        if (Main.Settings.UseOfficialFlankingRules)
         {
             toggle = Main.Settings.UseOfficialFlankingRulesAlsoForRanged;
             if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForRanged"), ref toggle, UI.AutoWidth()))
