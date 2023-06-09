@@ -339,7 +339,7 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.Haste, "Kinesis")
             .AddToDB();
 
-        spellKinesis.EffectDescription.targetType = TargetType.Individuals;
+        spellKinesis.EffectDescription.targetType = TargetType.IndividualsUnique;
         spellKinesis.EffectDescription.targetParameter = 2;
 
         return InvocationDefinitionBuilder
