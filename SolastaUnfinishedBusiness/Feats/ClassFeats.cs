@@ -801,11 +801,6 @@ internal static class ClassFeats
             },
             new()
             {
-                SpellListDefinitions.SpellListWarlock,
-                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWarlock")
-            },
-            new()
-            {
                 SpellListDefinitions.SpellListWizard,
                 GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
             },
@@ -819,7 +814,6 @@ internal static class ClassFeats
             ValidatorsFeat.IsDruidLevel4,
             ValidatorsFeat.IsSorcererLevel4,
             ValidatorsFeat.IsWizardLevel4,
-            ValidatorsFeat.IsWarlockLevel4,
             ValidatorsFeat.IsInventorLevel4
         };
 
@@ -885,9 +879,7 @@ internal static class ClassFeats
             string attribute;
 
             if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListWarlock)
-
+                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
             {
                 attribute = AttributeDefinitions.Charisma;
             }
