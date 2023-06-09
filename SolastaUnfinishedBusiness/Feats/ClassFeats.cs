@@ -1121,7 +1121,7 @@ internal static class ClassFeats
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
             .SetNotificationTag("SlayTheEnemy")
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
@@ -1132,14 +1132,14 @@ internal static class ClassFeats
 
         var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Favorite")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
         
         var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Regular")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
             .SetMyAttackModifier(ExtraCombatAffinityValueDetermination.ConditionAmountIfNotFavoriteEnemy)
             .AddToDB();
 

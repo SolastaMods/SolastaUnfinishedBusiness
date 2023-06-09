@@ -104,6 +104,7 @@ Rules/&SituationalContext1005Format=Main weapon is specialized:
 Rules/&SituationalContext1006Format=Has longsword in hands:
 Rules/&SituationalContext1007Format=Main greatsword in hands:
 Rules/&SituationalContext1008Format=Is not in bright light:
+Rules/&SituationalContext1013Format=Target is favored enemy:
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
