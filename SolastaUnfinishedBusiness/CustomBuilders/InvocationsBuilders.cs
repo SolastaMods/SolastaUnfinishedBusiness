@@ -10,6 +10,10 @@ using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static RuleDefinitions;
+using SolastaUnfinishedBusiness.Subclasses;
+using System.Drawing.Text;
+using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -34,10 +38,37 @@ internal static class InvocationsBuilders
                 .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
                 .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
                 .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
-                .SetCustomSubFeatures(WarlockHolder.Instance)
+                //.SetConditionOperations(new ConditionOperationDescription
+                //{
+                //    operation = ConditionOperationDescription.ConditionOperation.Add,
+                //    conditionName = ConditionDefinitions.ConditionProne.name
+                //})
+                .SetCustomSubFeatures(
+                new object[] {
+                    WarlockHolder.Instance,
+                    new AdditionalEffectFormOnDamageHandler(HandleEldritchSmiteKnockProne)
+                })
                 .AddToDB())
             .AddToDB();
     }
+
+
+        internal static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
+    GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider)
+        {
+            var defend_character = defender.RulesetActor as RulesetCharacter;
+            if (defend_character.SizeDefinition.WieldingSize != CreatureSize.Gargantuan)
+            {
+                return new EffectForm[] {
+                    // Do we need a tooltip for this?
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build() };
+            }
+            else
+                return null;
+        }
+
 
     internal static InvocationDefinition BuildShroudOfShadow()
     {
