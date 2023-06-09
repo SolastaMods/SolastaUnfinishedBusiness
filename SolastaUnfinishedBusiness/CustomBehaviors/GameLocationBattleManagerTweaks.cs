@@ -162,6 +162,26 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT END
              * ######################################
              */
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for `ConditionAmount` damage progression
+             */
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.ConditionAmount)
+            {
+                var condition =
+                    attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                if (condition != null)
+                {
+                    diceNumber = provider.GetDiceOfRank(condition.Amount);
+                }
+            }
+            /*
+             * Support for `ConditionAmount` damage progression
+             * [CE] EDIT END
+             * ######################################
+             */
             else if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.SlotLevel)
             {
                 if (reactionParams != null)

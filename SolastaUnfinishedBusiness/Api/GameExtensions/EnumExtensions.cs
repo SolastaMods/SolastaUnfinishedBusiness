@@ -153,7 +153,8 @@ internal enum ExtraAdditionalDamageAdvancement
     // None = AdditionalDamageAdvancement.None,
     // ClassLevel = AdditionalDamageAdvancement.ClassLevel,
     // SlotLevel = AdditionalDamageAdvancement.SlotLevel,
-    CharacterLevel = 9000
+    CharacterLevel = 9000,
+    ConditionAmount
 }
 
 #if false
