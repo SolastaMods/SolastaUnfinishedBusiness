@@ -17,6 +17,13 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.specificDamageType = damageType;
         return this;
     }
+    
+    
+    internal FeatureDefinitionAdditionalDamageBuilder SetFlatDamageBonus(int bonus)
+    {
+        Definition.flatBonus = bonus;
+        return this;
+    }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
     {
@@ -183,6 +190,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
     {
         Definition.damageValueDetermination = determination;
         return this;
+    }
+
+    internal FeatureDefinitionAdditionalDamageBuilder SetDamageValueDetermination(
+        ExtraAdditionalDamageValueDetermination determination)
+    {
+        return SetDamageValueDetermination((RuleDefinitions.AdditionalDamageValueDetermination)determination);
     }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAddLightSource(bool addLightSource)

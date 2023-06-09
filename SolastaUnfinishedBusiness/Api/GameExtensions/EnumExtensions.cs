@@ -164,6 +164,11 @@ internal enum ExtraAdditionalDamageAdvancement
     ConditionAmount
 }
 
+internal enum ExtraAdditionalDamageValueDetermination
+{
+    FlatWithProgression = 1000
+}
+
 #if false
 internal enum ExtraAdvancementDuration
 {
