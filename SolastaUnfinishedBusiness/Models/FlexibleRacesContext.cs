@@ -39,6 +39,7 @@ internal static class FlexibleRacesContext
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceKobold", AttributeChoiceThree },
         { "RaceFairy", AttributeChoiceThree },
+        { "RaceOligath", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree }
     };
 
