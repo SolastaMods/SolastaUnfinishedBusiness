@@ -42,20 +42,20 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.AddBleedingToRestoration();
         }
 
-        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
-                UI.AutoWidth()))
-        {
-            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
-            SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
-        }
-
         toggle = Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout;
         if (UI.Toggle(Gui.Localize("ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.AttackersWithDarkvisionHaveAdvantageOverDefendersWithout = toggle;
             SrdAndHouseRulesContext.SwitchDarknessSpell();
+        }
+
+        toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
+        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+                UI.AutoWidth()))
+        {
+            Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
+            SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         }
 
         UI.Label();
