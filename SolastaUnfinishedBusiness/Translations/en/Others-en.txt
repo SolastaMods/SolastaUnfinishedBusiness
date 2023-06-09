@@ -108,6 +108,7 @@ Rules/&SituationalContext1009Format=Summoner is next to beast:
 Rules/&SituationalContext1010Format=Target is not effect source:
 Rules/&SituationalContext1011Format=Wearing no armor or light armor without shield:
 Rules/&SituationalContext1012Format=Wearing no armor or light armor with two handed quarterstaff:
+Rules/&SituationalContext1013Format=Target is favorite enemy:
 Screen/&ClassExtraSpellDescriptionFormat=You know this spell from {0} class.
 Screen/&EditorLocationSize3Title=Huge [MODDED]
 Screen/&EditorLocationSize4Title=Gargantuan [MODDED]
