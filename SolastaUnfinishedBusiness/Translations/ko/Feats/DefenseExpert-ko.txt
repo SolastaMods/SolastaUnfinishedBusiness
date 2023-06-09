@@ -1,6 +1,6 @@
 Feat/&FeatArcaneDefenseDescription=지능을 1 증가시켜 최대 20까지 올리십시오.\n갑옷이나 방패를 착용하지 않는 동안 갑옷 등급은 10 + 민첩 수정치 + 지능 수정치입니다.
 Feat/&FeatArcaneDefenseTitle=아케인 디펜스
-Feat/&FeatCharismaticDefenseDescription=카리스마를 1 올려 최대 20까지 올리세요.\n아머나 방패를 착용하지 않는 동안 아머 클래스는 10 + 민첩 수정치 + 카리스마 수정치입니다.
+Feat/&FeatCharismaticDefenseDescription=카리스마를 1 올려 최대 20까지 올리세요.\n갑옷이나 방패를 착용하고 있지 않은 동안 갑옷 등급은 10 + 민첩 수정치 + 매력 수정치입니다.
 Feat/&FeatCharismaticDefenseTitle=카리스마 디펜스
 Feat/&FeatWiseDefenseDescription=지혜를 1 증가시켜 최대 20까지 올리십시오.\n갑옷이나 방패를 착용하지 않는 동안 갑옷 등급은 10 + 민첩 수정치 + 지혜 수정치입니다.
 Feat/&FeatWiseDefenseTitle=현명한 수비

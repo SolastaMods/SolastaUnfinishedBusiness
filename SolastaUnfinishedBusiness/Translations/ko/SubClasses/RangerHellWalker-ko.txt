@@ -1,7 +1,7 @@
 Condition/&ConditionRangerHellWalkerDammingStrikeDescription=매 라운드마다 1d6의 화염 피해를 입습니다.
 Condition/&ConditionRangerHellWalkerDammingStrikeTitle=댐닝 스트라이크
 Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=당신은 당신의 턴이 끝날 때마다 1d6의 괴사 피해를 입고 겁에 질려 있으며 마커의 화염 공격은 당신의 저항을 우회합니다.
-Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=저주받은 자의 표시
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=저주받은 자의 표식
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=당신의 차례에 공격으로 생물을 처음 때렸을 때, 당신은 주문 DC에 대한 건강 내성 굴림에서 성공하도록 강제하거나 표시하도록 할 수 있습니다. 생물이 이런 식으로 표시되는 동안 1분 동안 각 턴이 시작될 때마다 1d6의 화염 피해를 입습니다. 각 차례가 끝날 때 생물은 이 내성 굴림을 반복하여 성공에 대한 효과를 끝낼 수 있습니다.
 Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=댐닝 스트라이크
 Feature/&AutoPreparedSpellsRangerHellWalkerDescription=액션으로 <b>Enduring Sting</b>을 시전하고 레인저 주문으로 간주되는 보너스 주문을 얻을 수 있으며 알고 있는 주문 수에 포함되지 않습니다.\n{0}
@@ -12,7 +12,7 @@ Feature/&PowerRangerHellWalkerFiendishSpawnDescription=당신의 지옥 같은 �
 Feature/&PowerRangerHellWalkerFiendishSpawnTitle=마귀의 산란
 Feature/&PowerRangerHellWalkerMarkOfTheDammedDescription=보너스 액션으로 Damning Strike 기능으로 표시된 생물을 선택할 수 있습니다. 표시가 있는 동안 선택된 생물은 다음과 같은 영향을 받습니다.\n• 추가로 1d6의 괴사 피해를 입습니다.\n• 당신을 두려워하게 됩니다.\n• 화염 피해 공격에 대한 저항력을 잃습니다.\n 이는 Damning Strike가 적용되는 동안 계속됩니다. 이 기능의 영향을 받는 생물은 동시에 하나만 가질 수 있습니다.
 Feature/&PowerRangerHellWalkerMarkOfTheDammedTitle=저주받은 자의 징표
-Feature/&ProficiencyRangerHellWalkerCursedTongueDescription=당신의 사악한 친화력은 당신이 낮은 차원의 언어를 이해할 수 있게 합니다. Abyssal과 Infernal을 말하고 읽고 쓸 수 있습니다.
+Feature/&ProficiencyRangerHellWalkerCursedTongueDescription=당신의 사악한 친화력은 당신이 낮은 차원의 언어를 이해할 수 있게 해줍니다. Abyssal과 Infernal을 말하고 읽고 쓸 수 있습니다.
 Feature/&ProficiencyRangerHellWalkerCursedTongueTitle=저주받은 혀
 Monster/&MonsterHezrouDescription=Hezrous는 거대한 악마 괴물이었습니다. 그들은 앞다리 대신 팔과 손이 있는 인간형 형태의 두꺼비와 피상적으로 닮았습니다. 그들의 넓은 주둥이에는 강력한 분쇄력을 가진 무딘 이빨이 줄지어 있었고 일련의 긴 가시가 등을 타고 내려왔습니다.
 Monster/&MonsterHezrouTitle=헤즈루
