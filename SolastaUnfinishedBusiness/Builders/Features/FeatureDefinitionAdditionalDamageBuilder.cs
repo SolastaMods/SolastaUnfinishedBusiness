@@ -47,6 +47,14 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.DiceByRankTable.SetRange(ranks);
         return this;
     }
+    
+    [UsedImplicitly]
+    internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
+        ExtraAdditionalDamageAdvancement advancement,
+        IEnumerable<DiceByRank> ranks)
+    {
+        return SetAdvancement((RuleDefinitions.AdditionalDamageAdvancement)advancement, ranks);
+    }
 
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
