@@ -20,8 +20,7 @@ public static class AttackEvaluationParamsPatcher
             // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
             ref BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
-            MetamagicOptionDefinition metamagicOption
-        )
+            MetamagicOptionDefinition metamagicOption)
         {
             //PATCH: allow for `Touch` effects to have reach changed, unless `Distant Spell` metamagic is used
             if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
@@ -44,8 +43,7 @@ public static class AttackEvaluationParamsPatcher
             // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
             ref BattleDefinitions.AttackEvaluationParams __instance,
             EffectDescription effectDescription,
-            MetamagicOptionDefinition metamagicOption
-        )
+            MetamagicOptionDefinition metamagicOption)
         {
             //PATCH: allow for `MeleeHit` effects to have reach changed, unless `Distant Spell` metamagic is used
             if (metamagicOption is { Type: RuleDefinitions.MetamagicType.DistantSpell })
@@ -56,10 +54,10 @@ public static class AttackEvaluationParamsPatcher
             __instance.maxRange = Math.Max(effectDescription.rangeParameter, 1f);
 
             //PATCH: apply flanking rules
-            if (Main.Settings.EnableFlankingRules)
-            {
-                FlankingRules.HandleFlanking(__instance);
-            }
+            FlankingAndHigherGroundRules.HandleFlanking(__instance);
+
+            //PATCH: apply higher ground rules
+            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
         }
     }
 
@@ -72,14 +70,10 @@ public static class AttackEvaluationParamsPatcher
         [UsedImplicitly]
         public static void Postfix(
             // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
-            ref BattleDefinitions.AttackEvaluationParams __instance
-        )
+            ref BattleDefinitions.AttackEvaluationParams __instance)
         {
-            //PATCH: apply flanking rules
-            if (Main.Settings.EnableFlankingRules)
-            {
-                FlankingRules.HandleFlanking(__instance);
-            }
+            //PATCH: apply higher ground rules
+            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
         }
     }
 
@@ -92,14 +86,13 @@ public static class AttackEvaluationParamsPatcher
         [UsedImplicitly]
         public static void Postfix(
             // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
-            ref BattleDefinitions.AttackEvaluationParams __instance
-        )
+            ref BattleDefinitions.AttackEvaluationParams __instance)
         {
             //PATCH: apply flanking rules
-            if (Main.Settings.EnableFlankingRules)
-            {
-                FlankingRules.HandleFlanking(__instance);
-            }
+            FlankingAndHigherGroundRules.HandleFlanking(__instance);
+
+            //PATCH: apply higher ground rules
+            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
         }
     }
 
@@ -112,14 +105,10 @@ public static class AttackEvaluationParamsPatcher
         [UsedImplicitly]
         public static void Postfix(
             // Since `AttackEvaluationParams` is a struct, we need to use ref to get actual object, instead of a copy
-            ref BattleDefinitions.AttackEvaluationParams __instance
-        )
+            ref BattleDefinitions.AttackEvaluationParams __instance)
         {
-            //PATCH: apply flanking rules
-            if (Main.Settings.EnableFlankingRules)
-            {
-                FlankingRules.HandleFlanking(__instance);
-            }
+            //PATCH: apply higher ground rules
+            FlankingAndHigherGroundRules.HandleHigherGround(__instance);
         }
     }
 }

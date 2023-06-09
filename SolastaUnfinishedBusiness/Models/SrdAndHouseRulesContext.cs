@@ -304,7 +304,7 @@ internal static class SrdAndHouseRulesContext
         var foodSrdWeight = Food_Ration;
         var foodForagedSrdWeight = Food_Ration_Foraged;
 
-        if (Main.Settings.ApplySrdWeightToFoodRations)
+        if (Main.Settings.UseOfficialFoodRationsWeight)
         {
             foodSrdWeight.weight = 2.0f;
             foodForagedSrdWeight.weight = 2.0f;
@@ -946,7 +946,7 @@ internal static class UpcastConjureElementalAndFey
     }
 }
 
-internal static class FlankingRules
+internal static class FlankingAndHigherGroundRules
 {
     private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
     {
@@ -1008,73 +1008,56 @@ internal static class FlankingRules
             .Any(allySide => allySide == flankingSide);
     }
 
-    private static void AddSurroundedAdvantage(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier)
-    {
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
-        {
-            return;
-        }
-
-        var alliesInMelee = Gui.Battle.AllContenders
-            .Count(x => x.Side == attacker.Side
-                        && gameLocationBattleService.IsWithin1Cell(x, defender)
-                        && x.CanAct());
-
-        if (alliesInMelee >= 3)
-        {
-            actionModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
-        }
-    }
-
-    private static void AddFlankingAttack(ActionModifier actionModifier)
-    {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&FlankingAttack",
-            null));
-    }
-
-    private static void AddHigherGroundAttack(ActionModifier actionModifier)
-    {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&HigherGroundAttack",
-            null));
-    }
-
     internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
         var attacker = evaluationParams.attacker;
         var defender = evaluationParams.defender;
         var actionModifier = evaluationParams.attackModifier;
 
-        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-        switch (evaluationParams.attackProximity)
+        if (!Main.Settings.UseOfficialFlankingRules)
         {
-            case BattleDefinitions.AttackProximity.PhysicalRange:
-            case BattleDefinitions.AttackProximity.MagicRange:
-                if (attacker.LocationPosition.y > defender.LocationPosition.y)
-                {
-                    AddHigherGroundAttack(actionModifier);
-                }
-
-                break;
-            case BattleDefinitions.AttackProximity.PhysicalReach:
-            case BattleDefinitions.AttackProximity.MagicReach:
-                if (IsFlanking(attacker, defender))
-                {
-                    AddFlankingAttack(actionModifier);
-                }
-
-                break;
+            return;
         }
 
-        AddSurroundedAdvantage(attacker, defender, actionModifier);
+        if (evaluationParams.attackProximity is
+            not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
+        {
+            return;
+        }
+
+        if (!IsFlanking(attacker, defender))
+        {
+            return;
+        }
+
+        actionModifier.AttackAdvantageTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+    }
+
+    internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var actionModifier = evaluationParams.attackModifier;
+
+        if (!Main.Settings.EnableHigherGroundRules)
+        {
+            return;
+        }
+
+        if (evaluationParams.attackProximity is not
+            (BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.MagicRange))
+        {
+            return;
+        }
+
+        if (attacker.LocationPosition.y <= defender.LocationPosition.y)
+        {
+            return;
+        }
+
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack", null));
     }
 }

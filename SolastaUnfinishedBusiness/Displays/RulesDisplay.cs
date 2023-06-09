@@ -13,23 +13,24 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
-        var toggle = Main.Settings.ApplySrdWeightToFoodRations;
-        if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.ApplySrdWeightToFoodRations = toggle;
-            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
-        }
-
-        toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
+        var toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
 
-        toggle = Main.Settings.IdentifyAfterRest;
-        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.UseOfficialFlankingRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRules"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.IdentifyAfterRest = toggle;
+            Main.Settings.UseOfficialFlankingRules = toggle;
+        }
+
+
+        toggle = Main.Settings.UseOfficialFoodRationsWeight;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseOfficialFoodRationsWeight = toggle;
+            SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
 
         UI.Label();
@@ -135,10 +136,10 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
-        toggle = Main.Settings.EnableFlankingRules;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlankingRules"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.IdentifyAfterRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableFlankingRules = toggle;
+            Main.Settings.IdentifyAfterRest = toggle;
         }
 
         toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
@@ -147,19 +148,31 @@ internal static class RulesDisplay
             Main.Settings.AccountForAllDiceOnSavageAttack = toggle;
         }
 
+        toggle = Main.Settings.AllowClubsToBeThrown;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowClubsToBeThrown = toggle;
+            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
+        toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
+        }
+
+        toggle = Main.Settings.EnableHigherGroundRules;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHigherGroundRules = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowStackedMaterialComponent;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowStackedMaterialComponent = toggle;
-        }
-
-        toggle = Main.Settings.AllowClubsToBeThrown;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowClubsToBeThrown"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowClubsToBeThrown = toggle;
-            SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
@@ -182,12 +195,11 @@ internal static class RulesDisplay
             Main.Settings.IgnoreHandXbowFreeHandRequirements = toggle;
         }
 
-        UI.Label();
-
-        toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
+        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
+            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
+            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
         UI.Label();
@@ -216,15 +228,6 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCharactersOnFireToEmitLight"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCharactersOnFireToEmitLight = toggle;
-            SrdAndHouseRulesContext.SwitchMagicStaffFoci();
-        }
-
-        UI.Label();
-
-        toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
             SrdAndHouseRulesContext.SwitchMagicStaffFoci();
         }
 
