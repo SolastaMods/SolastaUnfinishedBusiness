@@ -29,6 +29,13 @@ internal enum ExtraSituationalContext
     TargetIsFavoriteEnemy
 }
 
+internal enum ExtraCombatAffinityValueDetermination
+{
+    ConditionAmount = 1000,
+    ConditionAmountIfFavoriteEnemy,
+    ConditionAmountIfNotFavoriteEnemy
+}
+
 #if false
 internal enum ExtraEffectFormType
 {
