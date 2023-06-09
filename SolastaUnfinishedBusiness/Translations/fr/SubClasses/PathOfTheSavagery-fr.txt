@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Vous êtes inapte.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Blessure grave
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Votre portée de menace critique est augmentée de 1.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Férocité débridée
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=À partir du niveau 3, vous pouvez manier deux armes de mêlée non légères et ajouter votre bonus de capacité à l'attaque secondaire.
