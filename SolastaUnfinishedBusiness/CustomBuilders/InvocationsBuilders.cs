@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,8 +13,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static RuleDefinitions;
-using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
 
@@ -30,12 +30,12 @@ internal static class InvocationsBuilders
                 .Create("AdditionalDamageInvocationEldritchSmite")
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(EldritchSmiteTag)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
-                .SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage.OncePerTurn)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpendSpellSlot)
+                .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
                 .SetAttackModeOnly()
-                .SetDamageDice(RuleDefinitions.DieType.D8, 0)
-                .SetSpecificDamageType(RuleDefinitions.DamageTypeForce)
-                .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.SlotLevel, 2)
+                .SetDamageDice(DieType.D8, 0)
+                .SetSpecificDamageType(DamageTypeForce)
+                .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 2)
                 .SetImpactParticleReference(SpellDefinitions.EldritchBlast)
                 .SetCustomSubFeatures(
                     WarlockHolder.Instance,
@@ -44,23 +44,25 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-
-    internal static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
-GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamageProvider provider)
+    private static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        IAdditionalDamageProvider provider)
     {
-        var defend_character = defender.RulesetCharacter;
+        var rulesetDefender = defender.RulesetCharacter;
 
-        if (defend_character is not null && defend_character.SizeDefinition.WieldingSize <= CreatureSize.Huge)
+        if (rulesetDefender is null || rulesetDefender.SizeDefinition.WieldingSize > CreatureSize.Huge)
         {
-            GameConsoleHelper.LogCharacterAffectedByCondition(defend_character,
-                        ConditionDefinitions.ConditionProne);
-            return new EffectForm[] {
-                    EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.FallProne)
-                        .Build() };
-        }
-        else
             return null;
+        }
+
+        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender, ConditionDefinitions.ConditionProne);
+        return new[]
+        {
+            EffectFormBuilder.Create()
+                .SetMotionForm(MotionForm.MotionType.FallProne)
+                .Build()
+        };
     }
 
 
@@ -138,7 +140,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
             .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
-        spellTrickstersEscape.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
+        spellTrickstersEscape.EffectDescription.targetType = TargetType.Self;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -159,7 +161,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityInvocationEldritchMind")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
+                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
                     .AddToDB())
             .AddToDB();
     }
@@ -195,7 +197,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
             .SetGrantedFeature(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
                 .SetGuiPresentationNoContent(true)
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget)
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.SpellDamagesTarget)
                 .SetRequiredSpecificSpell(SpellDefinitions.EldritchBlast)
                 .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinitions.ConditionHindered_By_Frost)
@@ -242,7 +244,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
             .SetGuiPresentation(NAME, Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
-            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
                 .UseQuickAnimations()
@@ -337,8 +339,12 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
             .Create(SpellDefinitions.Haste, "Kinesis")
             .AddToDB();
 
-        spellKinesis.EffectDescription.targetType = RuleDefinitions.TargetType.Individuals;
-        spellKinesis.EffectDescription.targetParameter = 2;
+        var effect = spellKinesis.EffectDescription;
+        effect.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
+        effect.targetExcludeCaster = true;
+        effect.EffectForms.Add(EffectFormBuilder.ConditionForm(
+            ConditionDefinitions.ConditionHasted,
+            ConditionForm.ConditionOperation.Add, true));
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -377,7 +383,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeCold))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeCold))
                     .AddToDB())
             .AddToDB();
     }
@@ -393,7 +399,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeAcid))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeAcid))
                     .AddToDB())
             .AddToDB();
     }
@@ -409,7 +415,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeFire))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeFire))
                     .AddToDB())
             .AddToDB();
     }
@@ -425,7 +431,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
                 FeatureDefinitionBuilder
                     .Create($"Feature{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeLightning))
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(DamageTypeLightning))
                     .AddToDB())
             .AddToDB();
     }
@@ -643,7 +649,7 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
         {
             var actingCharacter = action.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (actingCharacter.RulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }
@@ -716,9 +722,9 @@ GameLocationCharacter attacker, GameLocationCharacter defender, IAdditionalDamag
         {
             rulesetCharacter.InflictCondition(
                 conditionDefinition.Name,
-                RuleDefinitions.DurationType.Minute,
+                DurationType.Minute,
                 1,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagEffect,
                 rulesetCharacter.guid,
                 rulesetCharacter.CurrentFaction.Name,
