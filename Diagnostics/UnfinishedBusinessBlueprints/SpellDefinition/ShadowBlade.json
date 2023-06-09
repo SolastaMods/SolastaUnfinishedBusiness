@@ -99,7 +99,7 @@
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,
           "decisionPackage": null,
-          "effectProxyDefinitionName": "ProxySpiritualWeapon"
+          "effectProxyDefinitionName": "ProxyFlamingSphere"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -424,7 +424,7 @@
     "description": "Spell/&ShadowBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d551ab8a-afc8-5c68-9f0e-69e73c98d04e",
+      "m_AssetGUID": "c75ac936-5e63-5d46-b484-8832b593e4eb",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
