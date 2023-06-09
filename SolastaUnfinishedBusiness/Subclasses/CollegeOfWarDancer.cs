@@ -321,6 +321,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         {
             var flag = true;
             var momentum = 1;
+            var cantrip_casted_main = false;
             if (actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
             {
                 if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
@@ -331,13 +332,17 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 {
                     if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
                     {
-                        if (spellEffect.slotLevel > 0 || spellEffect.SpellDefinition
-                                .HasSubFeatureOfType<IAttackAfterMagicEffect>())
+                        var check = spellEffect.slotLevel > 0 || spellEffect.SpellDefinition.HasSubFeatureOfType<IAttackAfterMagicEffect>();
+                        if (Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance)
+                            check = true ;
+                        if (check)
                         {
                             if (spellEffect.slotLevel / 2 > momentum)
                             {
                                 momentum = spellEffect.slotLevel / 2;
                             }
+                            if (spellEffect.slotLevel == 0)
+                                cantrip_casted_main = true;
                         }
                         else
                         {
@@ -388,7 +393,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             // apply action affinity
             hero.UsedMainSpell = true;
-            hero.UsedMainCantrip = false;
+            hero.UsedMainCantrip = cantrip_casted_main;
             ApplyActionAffinity(hero.RulesetCharacter);
 
             // apply momentum
@@ -475,9 +480,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
             // activeEffect != null means a magical attack
-            if (attackMode == null || activeEffect != null ||
-                !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
-                !ValidatorsWeapon.IsMelee(attackMode))
+            var check = !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance);
+            if (!Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance)
+                check = check || attackMode == null || activeEffect != null || !ValidatorsWeapon.IsMelee(attackMode);
+            if (check)
             {
                 yield break;
             }

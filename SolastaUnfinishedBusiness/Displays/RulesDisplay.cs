@@ -171,6 +171,12 @@ internal static class RulesDisplay
             Main.Settings.EnableCantripsTriggeringOnWarMagic = toggle;
         }
 
+        toggle = Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableNonMeleeCantripsTriggeringOnImprovedWarDance"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance = toggle;
+        }
+
         toggle = Main.Settings.EnableHigherGroundRules;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHigherGroundRules"), ref toggle, UI.AutoWidth()))
         {
