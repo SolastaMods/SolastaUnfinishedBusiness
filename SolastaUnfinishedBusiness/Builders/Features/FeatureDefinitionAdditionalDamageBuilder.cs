@@ -17,8 +17,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.specificDamageType = damageType;
         return this;
     }
-    
-    
+
     internal FeatureDefinitionAdditionalDamageBuilder SetFlatDamageBonus(int bonus)
     {
         Definition.flatBonus = bonus;
@@ -54,7 +53,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.DiceByRankTable.SetRange(ranks);
         return this;
     }
-    
+
     [UsedImplicitly]
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         ExtraAdditionalDamageAdvancement advancement,

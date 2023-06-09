@@ -30,7 +30,7 @@ internal static class DiceByRankBuilder
     [UsedImplicitly]
     internal static List<DiceByRank> Build(params (int rank, int dice)[] steps)
     {
-        return steps.Select(s => new DiceByRank {rank = s.rank, diceNumber = s.dice}).ToList();
+        return steps.Select(s => new DiceByRank { rank = s.rank, diceNumber = s.dice }).ToList();
     }
 
     /**

@@ -1119,7 +1119,8 @@ internal static class ClassFeats
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetIgnoreCriticalDoubleDice(true)
             .SetFlatDamageBonus(0)
-            .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount, DiceByRankBuilder.Build((1,1), (2,2), (3,3)))
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount,
+                DiceByRankBuilder.Build((1, 1), (2, 2), (3, 3)))
             .AddToDB();
 
         var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
@@ -1128,7 +1129,7 @@ internal static class ClassFeats
             .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
             .SetMyAttackAdvantage(AdvantageType.Advantage)
             .AddToDB();
-        
+
         var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{NAME}Regular")
             .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
@@ -1163,7 +1164,7 @@ internal static class ClassFeats
                             .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add))
-                        .Build())
+                    .Build())
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c =>

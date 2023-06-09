@@ -148,6 +148,7 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for `CharacterLevel` damage progression
              */
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {
@@ -249,7 +250,8 @@ internal static class GameLocationBattleManagerTweaks
          * [CE] EDIT START
          * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
          */
-        else if ((ExtraAdditionalDamageValueDetermination) provider.DamageValueDetermination == ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
+                 ExtraAdditionalDamageValueDetermination.FlatWithProgression)
         {
             var bonus = provider.FlatBonus;
 
@@ -264,6 +266,7 @@ internal static class GameLocationBattleManagerTweaks
                     bonus += provider.GetDiceOfRank(classLevel);
                 }
             }
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {

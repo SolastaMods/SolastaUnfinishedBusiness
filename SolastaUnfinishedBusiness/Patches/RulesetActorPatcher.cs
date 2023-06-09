@@ -439,10 +439,10 @@ public static class RulesetActorPatcher
 
         // TODO: make this more generic
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance, 
+        public static void Prefix(RulesetActor __instance,
             RuleDefinitions.DieType dieType,
             RuleDefinitions.RollContext rollContext,
-            ref bool enumerateFeatures, 
+            ref bool enumerateFeatures,
             ref bool canRerollDice)
         {
             if (dieType == RuleDefinitions.DieType.D1)

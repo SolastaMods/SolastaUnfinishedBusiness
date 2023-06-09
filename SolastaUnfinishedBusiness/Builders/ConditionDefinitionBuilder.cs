@@ -65,7 +65,7 @@ internal class ConditionDefinitionBuilder
 
         return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
     }
-    
+
     internal ConditionDefinitionBuilder SetFixedAmount(int value)
     {
         Definition.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;

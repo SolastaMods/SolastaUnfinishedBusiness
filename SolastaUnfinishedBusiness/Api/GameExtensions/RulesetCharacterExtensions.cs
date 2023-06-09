@@ -535,7 +535,7 @@ internal static class RulesetCharacterExtensions
             effect.EffectDescription.EffectForms,
             totalAttack);
     }
-    
+
     internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)
     {
         if (me == null || enemy == null)

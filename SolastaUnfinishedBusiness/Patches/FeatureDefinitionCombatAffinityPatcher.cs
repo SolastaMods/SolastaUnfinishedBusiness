@@ -28,6 +28,8 @@ public static class FeatureDefinitionCombatAffinityPatcher
         {
             //PATCH: supports custom attack roll determination
             var determination = (ExtraCombatAffinityValueDetermination)__instance.myAttackModifierValueDetermination;
+
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (determination)
             {
                 case ConditionAmount:
@@ -46,7 +48,7 @@ public static class FeatureDefinitionCombatAffinityPatcher
             }
         }
 
-        private static int GetConditionAmount(FeatureDefinitionCombatAffinity feature, RulesetCharacter myself)
+        private static int GetConditionAmount(FeatureDefinition feature, RulesetActor myself)
         {
             var condition = myself.FindFirstConditionHoldingFeature(feature);
             return condition?.Amount ?? 0;
