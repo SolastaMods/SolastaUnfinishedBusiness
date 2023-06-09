@@ -180,6 +180,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool EnableCantripsTriggeringOnWarMagic { get; set; }
+    public bool EnableNonMeleeCantripsTriggeringOnImprovedWarDance {get; set;}
     public bool FullyControlConjurations { get; set; }
     public bool IncreaseMaxAttunedItems { get; set; }
     public bool MakeLargeWildshapeFormsMedium { get; set; }

@@ -332,18 +332,17 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 {
                     if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
                     {
-                        if (spellEffect.slotLevel > 0 // || spellEffect.SpellDefinition
-                                //.HasSubFeatureOfType<IAttackAfterMagicEffect>()
-                                )
+                        var check = spellEffect.slotLevel > 0 || spellEffect.SpellDefinition.HasSubFeatureOfType<IAttackAfterMagicEffect>();
+                        if (Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance)
+                            check = true ;
+                        if (check)
                         {
                             if (spellEffect.slotLevel / 2 > momentum)
                             {
                                 momentum = spellEffect.slotLevel / 2;
                             }
-                        }
-                        else if (spellEffect.slotLevel == 0)
-                        {
-                            cantrip_casted_main = true;
+                            if (spellEffect.slotLevel == 0)
+                                cantrip_casted_main = true;
                         }
                         else
                         {
@@ -481,10 +480,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
             // activeEffect != null means a magical attack
-            if (//attackMode == null || activeEffect != null ||
-                !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance) //||
-                //!ValidatorsWeapon.IsMelee(attackMode)
-                )
+            var check = !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance);
+            if (!Main.Settings.EnableNonMeleeCantripsTriggeringOnImprovedWarDance)
+                check = check || attackMode == null || activeEffect != null || !ValidatorsWeapon.IsMelee(attackMode);
+            if (check)
             {
                 yield break;
             }
