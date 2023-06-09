@@ -1123,10 +1123,10 @@ internal static class ClassFeats
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("SlayTheEnemy")
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetDamageDice(DieType.D1, 1)
+            .SetFlatDamageBonus(0)
             .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount, DiceByRankBuilder.Build((1,1), (2,2), (3,3)))
             .AddToDB();
 
