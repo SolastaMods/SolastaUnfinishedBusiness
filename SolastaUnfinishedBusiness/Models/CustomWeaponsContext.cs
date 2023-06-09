@@ -606,7 +606,7 @@ internal static class CustomWeaponsContext
                 new ModifyWeaponProducedFlameDice(),
                 new AddThrowProducedFlameAttack()
             )
-            .AddToDB(), false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden));
+            .AddToDB(), false));
 
         flame.IsWeapon = true;
         flame.weaponDefinition = weapon;

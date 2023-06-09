@@ -871,10 +871,7 @@ internal static class OtherFeats
         {
             // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
             // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard
+            CastSpellDruid, CastSpellSorcerer, CastSpellWarlock, CastSpellWizard
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator

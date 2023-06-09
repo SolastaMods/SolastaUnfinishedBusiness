@@ -788,10 +788,7 @@ internal static class ClassFeats
         var spellLists = new List<List<SpellListDefinition>>
         {
             new() { SpellListDefinitions.SpellListBard },
-            new()
-            {
-                SpellListDefinitions.SpellListCleric
-            },
+            new() { SpellListDefinitions.SpellListCleric },
             new()
             {
                 SpellListDefinitions.SpellListDruid,
@@ -812,10 +809,7 @@ internal static class ClassFeats
                 SpellListDefinitions.SpellListWizard,
                 GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
             },
-            new()
-            {
-                InventorClass.SpellList
-            }
+            new() { InventorClass.SpellList }
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
