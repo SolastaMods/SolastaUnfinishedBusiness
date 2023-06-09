@@ -1019,8 +1019,8 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (evaluationParams.attackProximity is
-            not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForRanged && evaluationParams.attackProximity is
+                not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
         {
             return;
         }
@@ -1041,12 +1041,6 @@ internal static class FlankingAndHigherGroundRules
         var actionModifier = evaluationParams.attackModifier;
 
         if (!Main.Settings.EnableHigherGroundRules)
-        {
-            return;
-        }
-
-        if (evaluationParams.attackProximity is not
-            (BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.MagicRange))
         {
             return;
         }

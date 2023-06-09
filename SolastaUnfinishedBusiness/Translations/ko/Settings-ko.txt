@@ -238,5 +238,6 @@ ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다. >스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
 ModUi/&UseOfficialFlankingRules=공식 DnD 플랭킹 규칙을 사용하세요. <i><color=#F0DAA0>[아군이 반대편에 있으면 공격자가 유리합니다]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=원거리 공격도 가능
 ModUi/&UseOfficialFoodRationsWeight=공식 DnD <color=#D89555>식량 배급</color> 무게 2파운드를 사용하세요.
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>

@@ -17,6 +17,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
+            Main.Settings.UseOfficialFlankingRulesAlsoForRanged = false;
         }
 
         toggle = Main.Settings.UseOfficialFlankingRules;
@@ -25,6 +26,15 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFlankingRules = toggle;
         }
 
+        if (Main.Settings.UseOfficialFlankingRulesAlsoForRanged)
+        {
+            toggle = Main.Settings.UseOfficialFlankingRulesAlsoForRanged;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesAlsoForRanged"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
+            }
+        }
+        
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
         if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFoodRationsWeight"), ref toggle, UI.AutoWidth()))
