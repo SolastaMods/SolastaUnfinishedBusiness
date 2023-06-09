@@ -1123,8 +1123,6 @@ internal static class ClassFeats
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("SlayTheEnemy")
-            .SetAttackOnly()
-            .SetAttackModeOnly()
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetIgnoreCriticalDoubleDice(true)
