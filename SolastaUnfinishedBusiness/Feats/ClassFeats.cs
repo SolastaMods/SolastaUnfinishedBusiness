@@ -818,8 +818,8 @@ internal static class ClassFeats
             ValidatorsFeat.IsClericLevel4,
             ValidatorsFeat.IsDruidLevel4,
             ValidatorsFeat.IsSorcererLevel4,
-            ValidatorsFeat.IsWizardLevel4,
             ValidatorsFeat.IsWarlockLevel4,
+            ValidatorsFeat.IsWizardLevel4,
             ValidatorsFeat.IsInventorLevel4
         };
 
