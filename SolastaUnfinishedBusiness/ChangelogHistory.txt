@@ -4,6 +4,7 @@
 
 - added Innovation Vivisectionist subclass [looking for feedback]
 - added Potent Spellcaster feat to Warlock class [haven't tested if agonizing will stack]
+- changed Flanking rules to be by the book and added a separate higher ground house rule
 - changed Soulblade's summon pact weapon to use a bonus action instead of a free one
 - fixed custom weapons not getting the proper bonuses to hit and to damage
 - fixed vanilla Haste spell not allowing the sequence attack / cast spell
