@@ -236,6 +236,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(WildShapeApe, "WildshapeApe")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetSizeDefinition(Main.Settings.MakeLargeWildshapeFormsMedium
+                ? CharacterSizeDefinitions.Medium
+                : CharacterSizeDefinitions.Large)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder.Create()
                     .SetAllPrefab(WildShapeApe.MonsterPresentation)
@@ -251,6 +254,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         var shape = MonsterDefinitionBuilder
             .Create(WildShapeTundraTiger, "WildShapeTundraTiger")
             .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
+            .SetSizeDefinition(Main.Settings.MakeLargeWildshapeFormsMedium
+                ? CharacterSizeDefinitions.Medium
+                : CharacterSizeDefinitions.Large)
             .SetMonsterPresentation(
                 MonsterPresentationBuilder.Create()
                     .SetAllPrefab(WildShapeTundraTiger.MonsterPresentation)
