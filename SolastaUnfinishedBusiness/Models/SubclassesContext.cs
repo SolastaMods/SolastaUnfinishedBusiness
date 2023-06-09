@@ -60,6 +60,7 @@ internal static class SubclassesContext
         LoadSubclass(new OathOfAncients());
         LoadSubclass(new OathOfDread());
         LoadSubclass(new OathOfHatred());
+        LoadSubclass(new OathOfDemonHunter());
 
         // Ranger
         LoadSubclass(new RangerArcanist());

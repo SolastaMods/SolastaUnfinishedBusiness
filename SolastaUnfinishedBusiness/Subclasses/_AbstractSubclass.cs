@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal abstract class AbstractSubclass
+public abstract class AbstractSubclass
 {
     internal abstract CharacterSubclassDefinition Subclass { get; }
     internal abstract FeatureDefinitionSubclassChoice SubclassChoice { get; }

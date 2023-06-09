@@ -1,0 +1,2 @@
+Subclass/&OathOfDemonHunterDescription=猎魔之誓的圣武士致力于消灭邪恶，维护世间安宁。
+Subclass/&OathOfDemonHunterTitle=猎魔之誓

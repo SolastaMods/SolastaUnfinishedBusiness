@@ -1,0 +1,2 @@
+Subclass/&OathOfDemonHunterDescription=The Paladin of the Oath of the Hunt works to destroy evil and preserve peace.
+Subclass/&OathOfDemonHunterTitle=Oath Of Demon Hunter
