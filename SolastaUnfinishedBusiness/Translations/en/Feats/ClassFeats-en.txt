@@ -62,3 +62,5 @@ Feature/&PowerFeatSpiritualFluidityGainSlotDescription=Gain 1 additional slot le
 Feature/&PowerFeatSpiritualFluidityGainSlotPoolDescription=Gain 1 additional slot level 3 or lower by using one channel divinity point.
 Feature/&PowerFeatSpiritualFluidityGainSlotPoolTitle=Gain Spell Slot
 Feature/&PowerFeatSpiritualFluidityGainSlotTitle=Gain Slot Level {0}
+Feedback/&AdditionalDamageSlayTheEnemyFormat=Slay the Enemy!
+Feedback/&AdditionalDamageSlayTheEnemyLine={0} slays {1} for +{2} damage!
