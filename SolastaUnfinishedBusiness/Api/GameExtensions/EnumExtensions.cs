@@ -25,7 +25,8 @@ internal enum ExtraSituationalContext
     SummonerIsNextToBeast = 1009,
     TargetIsNotEffectSource = 1010,
     WearingNoArmorOrLightArmorWithoutShield = 1011,
-    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012
+    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
+    TargetIsFavoriteEnemy
 }
 
 #if false
