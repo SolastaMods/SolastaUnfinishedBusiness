@@ -127,20 +127,14 @@ public static class RulesetActorPatcher
                         AttributeDefinitions.ComputeAbilityScoreModifier(sourceCharacter.TryGetAttributeValue(source));
                     break;
 
+                //Do nothing for default origins
                 case ConditionDefinition.OriginOfAmount.None:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceDamage:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceGain:
-                    break;
                 case ConditionDefinition.OriginOfAmount.AddDice:
-                    break;
                 case ConditionDefinition.OriginOfAmount.Fixed:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceHalfHitPoints:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility:
-                    break;
                 case ConditionDefinition.OriginOfAmount.SourceSpellAttack:
                     break;
                 default:
@@ -445,9 +439,18 @@ public static class RulesetActorPatcher
 
         // TODO: make this more generic
         [UsedImplicitly]
-        public static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
-            ref bool enumerateFeatures, ref bool canRerollDice)
+        public static void Prefix(RulesetActor __instance, 
+            RuleDefinitions.DieType dieType,
+            RuleDefinitions.RollContext rollContext,
+            ref bool enumerateFeatures, 
+            ref bool canRerollDice)
         {
+            if (dieType == RuleDefinitions.DieType.D1)
+            {
+                canRerollDice = false;
+                return;
+            }
+
             //PATCH: support for `RoguishRaven` Rogue subclass
             if (!__instance.HasSubFeatureOfType<RoguishRaven.RavenRerollAnyDamageDieMarker>() ||
                 rollContext != RuleDefinitions.RollContext.AttackDamageValueRoll)

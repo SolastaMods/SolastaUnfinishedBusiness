@@ -25,7 +25,15 @@ internal enum ExtraSituationalContext
     SummonerIsNextToBeast = 1009,
     TargetIsNotEffectSource = 1010,
     WearingNoArmorOrLightArmorWithoutShield = 1011,
-    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012
+    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012,
+    TargetIsFavoriteEnemy
+}
+
+internal enum ExtraCombatAffinityValueDetermination
+{
+    ConditionAmount = 1000,
+    ConditionAmountIfFavoriteEnemy,
+    ConditionAmountIfNotFavoriteEnemy
 }
 
 #if false
@@ -152,7 +160,13 @@ internal enum ExtraAdditionalDamageAdvancement
     // None = AdditionalDamageAdvancement.None,
     // ClassLevel = AdditionalDamageAdvancement.ClassLevel,
     // SlotLevel = AdditionalDamageAdvancement.SlotLevel,
-    CharacterLevel = 9000
+    CharacterLevel = 9000,
+    ConditionAmount
+}
+
+internal enum ExtraAdditionalDamageValueDetermination
+{
+    FlatWithProgression = 1000
 }
 
 #if false
