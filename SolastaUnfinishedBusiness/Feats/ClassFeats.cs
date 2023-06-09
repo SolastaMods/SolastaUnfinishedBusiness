@@ -885,7 +885,8 @@ internal static class ClassFeats
             string attribute;
 
             if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
+                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer||
+                _spellListDefinition[0] == SpellListDefinitions.SpellListWarlock)
 
             {
                 attribute = AttributeDefinitions.Charisma;
