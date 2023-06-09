@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Você está incapacitado.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Ferimento Grave
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Seu alcance de ameaça crítica é aumentado em 1.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Ferocidade desenfreada
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=A partir do 3º nível, você pode empunhar armas corpo a corpo não leves, bem como adicionar seu bônus de habilidade ao ataque secundário.

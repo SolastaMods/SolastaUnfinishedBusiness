@@ -2,7 +2,7 @@ ModUi/&AccountForAllDiceOnSavageAttack=Adicione todos os dados do dano básico d
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 m de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
@@ -27,7 +27,6 @@ ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permita a seleção do alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marcas de origem e tatuagens
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=A tecla <color=#1E81B0>ALT</color> apenas destaca gadgets no campo de visão do grupo <i><color=#F0DAA0>[somente masmorras personalizadas]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduza o peso da <color=#D89555>ração alimentar</color> para 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permite que o <color=#D89555>Arcane Shieldstaff</color> seja sintonizado por qualquer classe
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Os atacantes com <color=#D89555>Darkvision</color> têm vantagem sobre os defensores sem
 ModUi/&Backgrounds=<color=#F0DAA0>Fundos</color>
@@ -59,8 +58,8 @@ ModUi/&Deities=<color=#F0DAA0>Divindades</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível nos talentos fornecidos por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Desabilite os pré-requisitos de corrida em talentos fornecidos por este mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis ​​<b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableUnofficialTranslations=Desative o suporte a traduções não oficiais para acelerar o mod <i><color=#F0DAA0>[a menos que eu fale chinês, italiano, japonês, coreano ou espanhol]</color></i>
 ModUi/&DisableUpdateMessage=Desative as mensagens de atualização <i><color=#F0DAA0>[usuários da pílula azul, esta é sua última chance]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante o aumento de nível</i>
@@ -85,13 +84,13 @@ ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para ex
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
-ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 >[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos níveis de classe 6 e 14
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
-ModUi/&EnableFlankingRules=Habilite as regras de flanqueamento para todos os contendores de batalha <i><color=#F0DAA0>[+1 para acertar se estiver em um terreno mais alto, +1 para acertar se flanquear, vantagem se o alvo estiver cercado por mais de 3 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecione proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite raças flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
+ModUi/&EnableHigherGroundRules=Habilitar regras de terreno mais alto <i><color=#F0DAA0>[+1 para acertar se atacar de um terreno mais alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
 ModUi/&EnableInventoryFilteringAndSorting=Ativar filtragem e classificação de inventário
@@ -150,7 +149,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar <colo
 ModUi/&ImproveLevelUpFeaturesSelection=Melhore a seleção de recursos de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color= #D89555>Ranger</color> Inimigo preferido e afinidade de terreno, <color=#D89555>Druida</color> Besta gémea, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color>< /i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -173,7 +172,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagens
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagens
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
@@ -183,7 +182,7 @@ ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM
-ModUi/&RelicForgeries=Falsificações de relíquias
+ModUi/&RelicForgeries=falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Gargalhada</color>
@@ -216,7 +215,7 @@ ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> 
 ModUi/&SpellsMenu=Feitiços
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Loja de estoque de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco
+ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club< /color> definido como itens de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&TargetLanguage=Idioma Alvo
@@ -236,6 +235,9 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem <color=
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualizar</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color> em <color=#D89555>Tieflings</color>
-ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao lançar <color=#D89555>Tentáculos negros, emaranhado, graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
+ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao lançar <color=#D89555>Tentáculos negros, emaranhado, graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555 >Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem do DnD <i><color=#F0DAA0>[se as circunstâncias fizerem com que uma rolagem tenha ambos, considera-se que você não tem nenhum deles]</color></i>
+ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento do DnD <i><color=#F0DAA0>[se um aliado estiver do lado oposto, o atacante tem vantagem]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Também habilite para ataques à distância</i>
+ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial DnD de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

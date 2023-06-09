@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Subclasses;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -29,29 +30,24 @@ internal static class CustomSituationalContext
                 contextParams.source.HasAnyConditionOfType(ConditionRaging) &&
                 ValidatorsCharacter.HasMeleeWeaponInMainAndOffhand(contextParams.source),
 
-            ExtraSituationalContext.IsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
+            ExtraSituationalContext.IsNotInBrightLight =>
+                ValidatorsCharacter.IsNotInBrightLight(contextParams.source),
 
-            ExtraSituationalContext.TargetIsNotInBrightLight => ValidatorsCharacter.IsNotInBrightLight(
-                contextParams.target),
-
-            ExtraSituationalContext.HasSpecializedWeaponInHands => MartialWeaponMaster.HasSpecializedWeapon(
-                contextParams.source),
+            ExtraSituationalContext.HasSpecializedWeaponInHands =>
+                MartialWeaponMaster.HasSpecializedWeapon(contextParams.source),
 
             ExtraSituationalContext.HasLongswordInHands =>
-                ValidatorsCharacter.HasWeaponType(LongswordType)
-                    (contextParams.source),
+                ValidatorsCharacter.HasWeaponType(LongswordType)(contextParams.source),
 
             ExtraSituationalContext.HasGreatswordInHands =>
-                ValidatorsCharacter.HasWeaponType(GreatswordType)
-                    (contextParams.source),
+                ValidatorsCharacter.HasWeaponType(GreatswordType)(contextParams.source),
 
             ExtraSituationalContext.HasBladeMasteryWeaponTypesInHands =>
-                ValidatorsCharacter.HasWeaponType(ShortswordType, LongswordType, ScimitarType, RapierType,
-                        GreatswordType)
-                    (contextParams.source),
+                ValidatorsCharacter.HasWeaponType(
+                    ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType)(contextParams.source),
 
-            ExtraSituationalContext.HasTwoHandedVersatileWeapon => ValidatorsCharacter
-                .HasTwoHandedVersatileWeapon(contextParams.source),
+            ExtraSituationalContext.HasVersatileWeaponInHands =>
+                ValidatorsCharacter.HasTwoHandedVersatileWeapon(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
@@ -122,19 +118,14 @@ internal static class CustomSituationalContext
 
     private static bool HasVisibleCharactersOfSideNextToCharacter(GameLocationCharacter character)
     {
+        var gridAccessor = GridAccessor.Default;
         var battleSizeParameters = character.BattleSizeParameters;
+        var characterLocation = character.LocationPosition;
         var minExtent = battleSizeParameters.minExtent;
         var maxExtent = battleSizeParameters.maxExtent;
-
-        minExtent.x -= 1;
-        minExtent.y -= 1;
-        minExtent.z -= 1;
-        maxExtent.x += 1;
-        maxExtent.y += 1;
-        maxExtent.z += 1;
-
-        var boxInt = new BoxInt(minExtent + character.LocationPosition, maxExtent + character.LocationPosition);
-        var gridAccessor = GridAccessor.Default;
+        var boxInt = new BoxInt(
+            minExtent - new int3(1, 1, 1) + characterLocation,
+            maxExtent + new int3(1, 1, 1) + characterLocation);
 
         foreach (var position in boxInt.EnumerateAllPositionsWithin())
         {
@@ -165,22 +156,18 @@ internal static class CustomSituationalContext
         return false;
     }
 
-    private static bool IsConsciousSummonerNextToBeast(GameLocationCharacter beast)
+    private static bool IsConsciousSummonerNextToBeast(GameLocationCharacter character)
     {
-        var battleSizeParameters = beast.BattleSizeParameters;
+        var gridAccessor = GridAccessor.Default;
+        var battleSizeParameters = character.BattleSizeParameters;
+        var characterLocation = character.LocationPosition;
         var minExtent = battleSizeParameters.minExtent;
         var maxExtent = battleSizeParameters.maxExtent;
+        var boxInt = new BoxInt(
+            minExtent - new int3(1, 1, 1) + characterLocation,
+            maxExtent + new int3(1, 1, 1) + characterLocation);
 
-        minExtent.x -= 1;
-        minExtent.y -= 1;
-        minExtent.z -= 1;
-        maxExtent.x += 1;
-        maxExtent.y += 1;
-        maxExtent.z += 1;
-
-        var boxInt = new BoxInt(minExtent + beast.LocationPosition, maxExtent + beast.LocationPosition);
-        var gridAccessor = GridAccessor.Default;
-        var summoner = beast.RulesetCharacter.GetMySummoner();
+        var summoner = character.RulesetCharacter.GetMySummoner();
 
         foreach (var position in boxInt.EnumerateAllPositionsWithin())
         {

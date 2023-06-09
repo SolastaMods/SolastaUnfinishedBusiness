@@ -55,7 +55,6 @@ Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} da una bonificación de {1},
 Feedback/&FlankingAttack=Flanqueando
 Feedback/&HigherGroundAttack=Terreno más alto
 Feedback/&ReturningWeaponActivates=¡{1} vuelve a {0}!
-Feedback/&Surrounded=Rodeado
 Feedback/&TriggerFeatureLine={0} activa {1}
 Feedback/&TriggerRerollLine={0} activa el poder {1} para volver a tirar {2} = {3}
 Format/&LevelAndExperienceFormat=Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}

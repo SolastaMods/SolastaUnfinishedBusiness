@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityShadowBlade:af98c62e-f92d-53ef-b65f-ae5baaae14ad"
+    "Definition:FeatureShadowBlade:aa9a0c6a-22d4-5f5a-b9c6-0bc354dd70f3"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -87,7 +87,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,9 +128,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Spell/&ShadowBladeTitle",
-    "description": "Spell/&ShadowBladeDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

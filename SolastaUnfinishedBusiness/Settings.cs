@@ -149,8 +149,10 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
-    public bool ApplySrdWeightToFoodRations { get; set; }
+    public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
+    public bool UseOfficialFlankingRules { get; set; }
+    public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool IdentifyAfterRest { get; set; }
 
     public bool AddBleedingToLesserRestoration { get; set; }
@@ -170,7 +172,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House
-    public bool EnableFlankingRules { get; set; }
+    public bool EnableHigherGroundRules { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowClubsToBeThrown { get; set; }

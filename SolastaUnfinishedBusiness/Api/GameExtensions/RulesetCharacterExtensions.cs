@@ -536,6 +536,7 @@ internal static class RulesetCharacterExtensions
             totalAttack);
     }
 
+#if false
     internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
     {
         character?.AllConditions
@@ -543,4 +544,5 @@ internal static class RulesetCharacterExtensions
             .ToList()
             .ForEach(c => character.RemoveCondition(c, true, false));
     }
+#endif
 }

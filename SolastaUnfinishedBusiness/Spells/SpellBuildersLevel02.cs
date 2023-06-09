@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -269,80 +270,6 @@ internal static partial class SpellBuilders
 
     #endregion
 
-    #region Shadowblade
-
-    [NotNull]
-    internal static SpellDefinition BuildShadowBlade()
-    {
-        const string NAME = "ShadowBlade";
-
-        var itemShadowBlade = ItemDefinitionBuilder
-            .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
-            .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
-            .AddToDB();
-
-        itemShadowBlade.itemTags.SetRange(TagsDefinitions.ItemTagConjured);
-        itemShadowBlade.activeTags.Clear();
-        itemShadowBlade.isLightSourceItem = false;
-        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.Scimitar.ItemPresentation.AssetReference;
-
-        var weaponDescription = itemShadowBlade.WeaponDescription;
-
-        weaponDescription.closeRange = 4;
-        weaponDescription.reachRange = 12;
-        weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
-        weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
-
-        var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
-
-        damageForm.damageType = DamageTypePsychic;
-        damageForm.dieType = DieType.D8;
-        damageForm.diceNumber = 2;
-
-        var spell = SpellDefinitionBuilder
-            .Create(FlameBlade, NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("", Resources.ShadeBlade, 128))
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
-            .AddToDB();
-
-        spell.EffectDescription.durationType = DurationType.Minute;
-        spell.EffectDescription.durationParameter = 1;
-
-        var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
-        var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
-
-        summonForm.itemDefinition = itemShadowBlade;
-        summonForm.effectProxyDefinitionName = "ProxySpiritualWeapon";
-        itemPropertyForm.FeatureBySlotLevel[1].level = 3;
-        itemPropertyForm.FeatureBySlotLevel[2].level = 5;
-        itemPropertyForm.FeatureBySlotLevel[3].level = 7;
-
-        var conditionShadowBlade = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetPossessive()
-            .SetFeatures(
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation($"Item{NAME}", Category.Item)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .SetSituationalContext(ExtraSituationalContext.TargetIsNotInBrightLight)
-                    .AddToDB())
-            .AddToDB();
-
-        spell.EffectDescription.EffectForms.Add(
-            EffectFormBuilder
-                .Create()
-                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add, true)
-                .Build());
-
-        return spell;
-    }
-
-    #endregion
-
     #region Web
 
     internal static SpellDefinition BuildWeb()
@@ -408,6 +335,121 @@ internal static partial class SpellBuilders
             Entangle.EffectDescription.EffectParticleParameters.conditionEndParticleReference;
 
         return spell;
+    }
+
+    #endregion
+
+    #region Shadowblade
+
+    [NotNull]
+    internal static SpellDefinition BuildShadowBlade()
+    {
+        const string NAME = "ShadowBlade";
+
+        var itemShadowBlade = ItemDefinitionBuilder
+            .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
+            .SetItemTags(TagsDefinitions.ItemTagConjured)
+            .MakeMagical()
+            .AddToDB();
+
+        itemShadowBlade.activeTags.Clear();
+        itemShadowBlade.isLightSourceItem = false;
+        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.Scimitar.ItemPresentation.AssetReference;
+
+        var weaponDescription = itemShadowBlade.WeaponDescription;
+
+        weaponDescription.closeRange = 4;
+        weaponDescription.reachRange = 12;
+        weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
+        weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
+
+        var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
+
+        damageForm.damageType = DamageTypePsychic;
+        damageForm.dieType = DieType.D8;
+        damageForm.diceNumber = 2;
+
+        var spell = SpellDefinitionBuilder
+            .Create(FlameBlade, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ShadeBlade, 128))
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FlameBlade)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .Build())
+            .AddToDB();
+
+        var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
+        var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
+
+        summonForm.itemDefinition = itemShadowBlade;
+        itemPropertyForm.FeatureBySlotLevel[1].level = 3;
+        itemPropertyForm.FeatureBySlotLevel[2].level = 5;
+        itemPropertyForm.FeatureBySlotLevel[3].level = 7;
+
+        var featureAdvantage = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell)
+            .AddToDB();
+
+        featureAdvantage.SetCustomSubFeatures(new AttackComputeModifierShadowBlade(itemShadowBlade, featureAdvantage));
+
+        var conditionShadowBlade = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(featureAdvantage)
+            .AddToDB();
+
+        spell.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add, true)
+                .Build());
+
+        return spell;
+    }
+
+    private sealed class AttackComputeModifierShadowBlade : IAttackComputeModifier
+    {
+        private readonly FeatureDefinition _featureAdvantage;
+        private readonly ItemDefinition _itemShadowBlade;
+
+        public AttackComputeModifierShadowBlade(ItemDefinition itemShadowBlade, FeatureDefinition featureAdvantage)
+        {
+            _itemShadowBlade = itemShadowBlade;
+            _featureAdvantage = featureAdvantage;
+        }
+
+        public void OnAttackComputeModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (myself is not { IsDeadOrDyingOrUnconscious: false } ||
+                defender is not { IsDeadOrDyingOrUnconscious: false })
+            {
+                return;
+            }
+
+            if (attackMode?.SourceDefinition != _itemShadowBlade)
+            {
+                return;
+            }
+
+            if (!ValidatorsCharacter.IsNotInBrightLight(defender))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureAdvantage.Name, _featureAdvantage));
+        }
     }
 
     #endregion

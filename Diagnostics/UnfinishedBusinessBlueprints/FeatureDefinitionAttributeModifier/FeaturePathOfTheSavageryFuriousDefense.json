@@ -4,7 +4,7 @@
   "modifierOperation": "Additive",
   "modifierValue": 2,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": 1009,
+  "situationalContext": 1006,
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {

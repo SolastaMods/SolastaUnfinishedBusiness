@@ -1,17 +1,10 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "Additive",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": 1005,
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityTitle",
-    "description": "Feature/&FeatureSetSorcerousSorrAkkathDarknessAffinityDescription",
+    "title": "Spell/&ShadowBladeTitle",
+    "description": "Spell/&ShadowBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e7705f1d-4447-5473-ab90-afc44a172f5d",
+  "guid": "aa9a0c6a-22d4-5f5a-b9c6-0bc354dd70f3",
   "contentPack": 9999,
-  "name": "AttributeModifierSorcerousSorrAkkathDarknessAffinity"
+  "name": "FeatureShadowBlade"
 }

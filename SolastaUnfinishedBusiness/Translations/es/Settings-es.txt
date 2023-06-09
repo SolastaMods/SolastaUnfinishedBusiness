@@ -27,7 +27,6 @@ ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la <color=#D89555>ración de alimentos</color> a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Los atacantes con <color=#D89555>Darkvision</color> tienen ventaja sobre los defensores sin
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
@@ -85,13 +84,13 @@ ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para
 ModUi/&EnableCharactersOnFireToEmitLight=Los personajes en llamas deberían emitir luz <i><color=#F0DAA0>[Cubo de luz, Elemental de fuego, Bufón de fuego, Águila pescadora de fuego, Araña de fuego y la familia de personas en llamas]</color></i>
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y recursos de mezcla sencillos de todos los entornos]</color></i>
-ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 >[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
-ModUi/&EnableFlankingRules=Habilite las reglas de flanqueo para todos los contendientes de la batalla <i><color=#F0DAA0>[+1 para golpear si está en un terreno más alto, +1 para golpear si está flanqueando, ventaja si el objetivo está rodeado por más de 3 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
+ModUi/&EnableHigherGroundRules=Habilitar reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si se ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la pantalla HUD
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtrado y clasificación de inventario
@@ -135,7 +134,7 @@ ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> representan las posicion
 ModUi/&FormationHelp3=. Haga clic en cualquiera de los 2 botones para intercambiar sus posiciones
 ModUi/&FormationHotkey=Activa <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para intercambiar conjuntos de formación en el juego
 ModUi/&FormationResetAllSets=Resetear todo
-ModUi/&FormationResetThisSet=Restablecer esto
+ModUi/&FormationResetThisSet=restablecer esto
 ModUi/&FormationSelected=Conjunto de formación {0} seleccionado
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
 ModUi/&GameUi=Interfaz de usuario del juego
@@ -150,7 +149,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar <colo
 ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Guardabosques</color> Enemigo preferido y afinidad de terreno, <color=#D89555>Druida</color> Bestia afín, <color=#D89555>Bárbaro</color> Camino de los Elementos y opciones de subclases Draconic]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color>< /i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 es ideal para evitar que los enemigos se unan desde demasiado lejos]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Creación:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -183,7 +182,7 @@ ModUi/&Progression=<color=#F0DAA0>Progresión:</color>
 ModUi/&Races=<color=#F0DAA0>Carreras</color>
 ModUi/&RecipeCost=<color=white>Coste de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM
-ModUi/&RelicForgeries=Falsificaciones de reliquias
+ModUi/&RelicForgeries=falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonización <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&RemoveBugVisualModels=Reemplace los modelos con forma de araña con imágenes alternativas en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
@@ -216,7 +215,7 @@ ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nivel de hechizo</color> <c
 ModUi/&SpellsMenu=Hechizos
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Almacene la tienda de Gorim con toda la ropa no mágica <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Almacene la tienda de Gorim con todos los instrumentos musicales no mágicos <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club</color> establecer como elementos de enfoque
+ModUi/&StockHugoStoreWithAdditionalFoci=Almacene la tienda de Hugo con <color=#D89555>Bastón arcano</color>, <color=#D89555>Cuello de druida</color>, <color=#D89555>Bastón</color> y <color=#D89555>Club< /color> establecer como elementos de enfoque
 ModUi/&Subclasses=<color=#F0DAA0>Subclases</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y artículos creados en la tienda</i>
 ModUi/&TargetLanguage=Lengua de llegada
@@ -236,6 +235,9 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloquea marcas de origen y tatuaj
 ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&Update=<b><color=#D89555>Actualizar</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Usa modelos de cara <color=#D89555>Elf</color> en <color=#D89555>Tieflings</color>
-ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
+ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555 >Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja de DnD <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
+ModUi/&UseOfficialFlankingRules=Usa las reglas oficiales de flanqueo de DnD <i><color=#F0DAA0>[si un aliado está en el lado opuesto, el atacante tiene ventaja]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>También habilitar para ataques a distancia</i>
+ModUi/&UseOfficialFoodRationsWeight=Use una <color=#D89555>ración de alimentos</color> oficial de DnD con un peso de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Sie sind arbeitsunfähig.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Schwere Wunde
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Ihre kritische Bedrohungsreichweite wird um 1 erhöht.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Ungezügelte Wildheit
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=Ab der 3. Stufe können Sie nicht-leichte Nahkampfwaffen beidhändig führen und Ihren Fähigkeitsbonus zum Sekundärangriff hinzufügen.

@@ -788,10 +788,7 @@ internal static class ClassFeats
         var spellLists = new List<List<SpellListDefinition>>
         {
             new() { SpellListDefinitions.SpellListBard },
-            new()
-            {
-                SpellListDefinitions.SpellListCleric
-            },
+            new() { SpellListDefinitions.SpellListCleric },
             new()
             {
                 SpellListDefinitions.SpellListDruid,
@@ -812,10 +809,7 @@ internal static class ClassFeats
                 SpellListDefinitions.SpellListWizard,
                 GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
             },
-            new()
-            {
-                InventorClass.SpellList
-            }
+            new() { InventorClass.SpellList }
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
@@ -891,7 +885,8 @@ internal static class ClassFeats
             string attribute;
 
             if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
+                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer||
+                _spellListDefinition[0] == SpellListDefinitions.SpellListWarlock)
 
             {
                 attribute = AttributeDefinitions.Charisma;

@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Sei incapace.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Ferita Grave
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Il tuo raggio di minaccia critico è aumentato di 1.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Ferocia sfrenata
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=A partire dal 3° livello, puoi impugnare due armi da mischia non leggere e aggiungere il tuo bonus di caratteristica all'attacco secondario.

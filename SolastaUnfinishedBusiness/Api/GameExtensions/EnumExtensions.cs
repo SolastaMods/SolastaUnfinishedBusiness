@@ -13,20 +13,19 @@ internal enum ExtraAncestryType
 
 internal enum ExtraSituationalContext
 {
-    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1000,
-    WearingNoArmorOrLightArmorWithoutShield = 1001,
-    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
-    TargetIsNotEffectSource = 1003,
-    SummonerIsNextToBeast = 1004,
-    HasSpecializedWeaponInHands = 1005,
-    HasLongswordInHands = 1006,
-    HasGreatswordInHands = 1007,
-    IsNotInBrightLight = 1008,
-    IsRagingAndDualWielding = 1009,
-    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1010,
-    TargetIsNotInBrightLight = 1011,
-    HasTwoHandedVersatileWeapon = 1012,
-    HasBladeMasteryWeaponTypesInHands = 1013
+    HasBladeMasteryWeaponTypesInHands = 1000,
+    HasGreatswordInHands = 1001,
+    HasLongswordInHands = 1002,
+    HasSpecializedWeaponInHands = 1003,
+    HasVersatileWeaponInHands = 1004,
+    IsNotInBrightLight = 1005,
+    IsRagingAndDualWielding = 1006,
+    MainWeaponIsMeleeOrUnarmedOrYeomanWithLongbow = 1007,
+    NextToWallWithShieldAndMaxMediumArmorAndConsciousAllyNextToTarget = 1008,
+    SummonerIsNextToBeast = 1009,
+    TargetIsNotEffectSource = 1010,
+    WearingNoArmorOrLightArmorWithoutShield = 1011,
+    WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1012
 }
 
 #if false

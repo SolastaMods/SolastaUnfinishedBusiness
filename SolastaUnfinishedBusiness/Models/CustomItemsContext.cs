@@ -33,14 +33,14 @@ internal static class CustomItemsContext
             .SetGold(1250)
             .SetWeight(2)
             .SetStaticProperties(
-                ItemPropertyDescriptionsContext.BuildFrom(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle,
-                    false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden),
+                ItemPropertyDescriptionsContext.BuildFrom(
+                    FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle, false),
                 ItemPropertyDescriptionsContext.BuildFrom(FeatureDefinitionPerceptionAffinityBuilder
                     .Create("PerceptionAffinityHelmOfAwareness")
                     .SetGuiPresentationNoContent()
                     .CannotBeSurprised()
-                    .AddToDB(), false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
-            )
+                    .AddToDB(),
+                    false))
             .AddToDB();
 
         MerchantContext.AddItem(item, ShopItemType.MagicItemRare);
@@ -69,8 +69,7 @@ internal static class CustomItemsContext
                         RuleDefinitions.DieType.D1, 5,
                         (AttributeDefinitions.Dexterity, SkillDefinitions.SleightOfHand),
                         (AttributeDefinitions.Dexterity, ToolDefinitions.ThievesToolsType))
-                    .AddToDB(), false, EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
-            )
+                    .AddToDB(), false))
             .AddToDB();
 
         MerchantContext.AddItem(item, ShopItemType.MagicItemUncommon);

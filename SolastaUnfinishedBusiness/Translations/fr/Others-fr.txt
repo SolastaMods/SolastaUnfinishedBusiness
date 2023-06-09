@@ -55,7 +55,6 @@ Feedback/&CharacterGivesBonusToSaveWithDCFormat={0} donne un bonus de {1}, le no
 Feedback/&FlankingAttack=Flanquant
 Feedback/&HigherGroundAttack=Un terrain plus élevé
 Feedback/&ReturningWeaponActivates={1} revient à {0} !
-Feedback/&Surrounded=Entouré
 Feedback/&TriggerFeatureLine={0} déclencheurs {1}
 Feedback/&TriggerRerollLine={0} active le pouvoir {1} pour relancer {2} = {3}
 Format/&LevelAndExperienceFormat=Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}

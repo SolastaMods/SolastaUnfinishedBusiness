@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=あなたは無能力者です。
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=重傷
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=クリティカル脅威範囲が 1 増加します。
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=抑制のない凶暴性
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=3 レベルからは、非軽量近接武器を二刀流で使用できるようになり、二次攻撃に能力ボーナスを追加できるようになります。

@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=당신은 무력합니다.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=고통스러운 상처
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=크리티컬 위협 범위가 1 증가합니다.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=억제되지 않은 흉포
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=3레벨부터 가벼운 근접 무기가 아닌 양손 무기를 휘두를 수 있을 뿐만 아니라 보조 공격에 능력 보너스를 추가할 수 있습니다.

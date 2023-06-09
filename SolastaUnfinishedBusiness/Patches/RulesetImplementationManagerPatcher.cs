@@ -680,7 +680,7 @@ public static class RulesetImplementationManagerPatcher
         public static void Prefix(
             RulesetCharacter caster,
             RulesetActor target,
-            string savingThrowAbility,
+            ref string savingThrowAbility,
             List<EffectForm> effectForms,
             BaseDefinition sourceDefinition)
         {
