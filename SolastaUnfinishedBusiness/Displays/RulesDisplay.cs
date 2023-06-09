@@ -141,6 +141,12 @@ internal static class RulesDisplay
             Main.Settings.EnableFlankingRules = toggle;
         }
 
+        toggle = Main.Settings.EnableFlankingRulesVariant;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFlankingRulesVariant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFlankingRulesVariant = toggle;
+        }
+
         toggle = Main.Settings.AccountForAllDiceOnSavageAttack;
         if (UI.Toggle(Gui.Localize("ModUi/&AccountForAllDiceOnSavageAttack"), ref toggle, UI.AutoWidth()))
         {

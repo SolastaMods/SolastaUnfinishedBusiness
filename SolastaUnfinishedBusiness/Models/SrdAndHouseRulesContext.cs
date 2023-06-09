@@ -1077,3 +1077,108 @@ internal static class FlankingRules
         AddSurroundedAdvantage(attacker, defender, actionModifier);
     }
 }
+
+//Inspired by FlankingRules, but closer to official variant rules
+internal static class FlankingRulesVariant
+{
+    private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
+    {
+        if ((side & CellFlags.Side.North) > 0)
+        {
+            yield return CellFlags.Side.North;
+        }
+
+        if ((side & CellFlags.Side.South) > 0)
+        {
+            yield return CellFlags.Side.South;
+        }
+
+        if ((side & CellFlags.Side.East) > 0)
+        {
+            yield return CellFlags.Side.East;
+        }
+
+        if ((side & CellFlags.Side.West) > 0)
+        {
+            yield return CellFlags.Side.West;
+        }
+
+        if ((side & CellFlags.Side.Top) > 0)
+        {
+            yield return CellFlags.Side.Top;
+        }
+
+        if ((side & CellFlags.Side.Bottom) > 0)
+        {
+            yield return CellFlags.Side.Bottom;
+        }
+    }
+
+    private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
+    {
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return false;
+        }
+
+        if (!gameLocationBattleService.IsWithin1Cell(attacker, defender))
+        {
+            return false;
+        }
+
+        var attackerPosition = attacker.LocationPosition;
+        var defenderPosition = defender.LocationPosition;
+        var attackerDirection = defenderPosition - attackerPosition;
+        var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+        var flankingSide = GetEachSide(attackerSide)
+            .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+        return gameLocationBattleService.Battle.AllContenders
+            .Where(x =>
+                x != attacker &&
+                x.Side == attacker.Side &&
+                x.CanAct() &&
+                gameLocationBattleService.IsWithin1Cell(x, defender))
+            .Select(ally => defenderPosition - ally.LocationPosition)
+            .Select(CellFlags.DirectionToAllSurfaceSides)
+            .Any(allySide => allySide == flankingSide);
+    }
+
+    private static void AddFlankingAdvantage(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier actionModifier)
+    {
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        {
+            return;
+        }
+
+        if (IsFlanking(attacker, defender))
+        {
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
+        }
+    }
+
+    internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var actionModifier = evaluationParams.attackModifier;
+
+        switch (evaluationParams.attackProximity)
+        {
+            case BattleDefinitions.AttackProximity.PhysicalReach:
+            case BattleDefinitions.AttackProximity.MagicReach:
+                    AddFlankingAdvantage(attacker, defender, actionModifier);
+                break;
+            default:
+                break;
+        }
+    }
+}

@@ -171,6 +171,7 @@ public class Settings : UnityModManager.ModSettings
 
     // House
     public bool EnableFlankingRules { get; set; }
+    public bool EnableFlankingRulesVariant { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowClubsToBeThrown { get; set; }

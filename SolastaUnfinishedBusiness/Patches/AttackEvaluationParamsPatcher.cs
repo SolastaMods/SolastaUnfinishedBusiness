@@ -60,6 +60,11 @@ public static class AttackEvaluationParamsPatcher
             {
                 FlankingRules.HandleFlanking(__instance);
             }
+
+            if (Main.Settings.EnableFlankingRulesVariant)
+            {
+                FlankingRulesVariant.HandleFlanking(__instance);
+            }
         }
     }
 
@@ -80,6 +85,12 @@ public static class AttackEvaluationParamsPatcher
             {
                 FlankingRules.HandleFlanking(__instance);
             }
+
+            if (Main.Settings.EnableFlankingRulesVariant)
+            {
+                FlankingRulesVariant.HandleFlanking(__instance);
+            }
+
         }
     }
 
@@ -100,6 +111,11 @@ public static class AttackEvaluationParamsPatcher
             {
                 FlankingRules.HandleFlanking(__instance);
             }
+
+            if (Main.Settings.EnableFlankingRulesVariant)
+            {
+                FlankingRulesVariant.HandleFlanking(__instance);
+            }
         }
     }
 
@@ -119,6 +135,11 @@ public static class AttackEvaluationParamsPatcher
             if (Main.Settings.EnableFlankingRules)
             {
                 FlankingRules.HandleFlanking(__instance);
+            }
+
+            if (Main.Settings.EnableFlankingRulesVariant)
+            {
+                FlankingRulesVariant.HandleFlanking(__instance);
             }
         }
     }
