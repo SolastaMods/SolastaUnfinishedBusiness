@@ -14,6 +14,7 @@ using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -25,11 +26,19 @@ public static class InnovationArmor
 
     public static CharacterSubclassDefinition Build()
     {
+        // BEGIN BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierInnovationArmorExtraAttack")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
+            .AddToDB();
+        // END BACKWARD COMPATIBILITY
+
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationArmor")
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorArmor", Resources.InventorArmor, 256))
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
-            .AddFeaturesAtLevel(5, BuildExtraAttack())
+            .AddFeaturesAtLevel(5, AttributeModifierCasterFightingExtraAttack)
             .AddFeaturesAtLevel(9, BuildArmorModification())
             .AddFeaturesAtLevel(15, BuildPerfectedArmor())
             .AddToDB();
@@ -178,15 +187,6 @@ public static class InnovationArmor
             .Create("FeatureSetInnovationArmorModes")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(pool, guardianMode, infiltratorMode, defensiveField)
-            .AddToDB();
-    }
-
-    private static FeatureDefinition BuildExtraAttack()
-    {
-        return FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierInnovationArmorExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
     }
 

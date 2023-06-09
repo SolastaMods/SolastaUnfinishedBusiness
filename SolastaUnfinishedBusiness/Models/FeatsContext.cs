@@ -29,6 +29,7 @@ internal static class FeatsContext
         // generate feats here and fill the list
         ArmorFeats.CreateFeats(feats);
         CasterFeats.CreateFeats(feats);
+        OtherFeats.CreateFeats(feats); // must come before Class Feats
         ClassFeats.CreateFeats(feats);
         CraftyFeats.CreateFeats(feats);
         CriticalVirtuosoFeats.CreateFeats(feats);
@@ -36,7 +37,6 @@ internal static class FeatsContext
         FightingStyleFeats.CreateFeats(feats);
         MeleeCombatFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
-        OtherFeats.CreateFeats(feats);
         RaceFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats);
         TwoWeaponCombatFeats.CreateFeats(feats);

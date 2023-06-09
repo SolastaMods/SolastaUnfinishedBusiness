@@ -15,6 +15,15 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifier(
+        ExtraCombatAffinityValueDetermination determination,
+        RuleDefinitions.AttackModifierSign modifierSign = RuleDefinitions.AttackModifierSign.Add)
+    {
+        Definition.myAttackModifierValueDetermination = (RuleDefinitions.CombatAffinityValueDetermination)determination;
+        Definition.myAttackModifierSign = modifierSign;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetMyAttackModifierSign(
         RuleDefinitions.AttackModifierSign modifierSign)
     {

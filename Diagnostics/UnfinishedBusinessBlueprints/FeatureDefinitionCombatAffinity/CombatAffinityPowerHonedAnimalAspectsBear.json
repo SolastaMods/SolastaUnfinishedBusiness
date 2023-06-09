@@ -21,7 +21,7 @@
   "myDamageReductionValueDetermination": "None",
   "myDamageReductionDiceNumber": 1,
   "myDamageReductionDieType": "D4",
-  "situationalContext": 1003,
+  "situationalContext": 1010,
   "requiredCondition": null,
   "nullifiedBySenses": [],
   "nullifiedBySelfSenses": [],

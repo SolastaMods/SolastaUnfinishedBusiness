@@ -22,7 +22,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .Create("AttributeModifierHandAndAHalf")
                 .SetGuiPresentation(HandAndAHalfName, Category.FightingStyle)
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
-                .SetSituationalContext(ExtraSituationalContext.HasTwoHandedVersatileWeapon)
+                .SetSituationalContext(ExtraSituationalContext.HasVersatileWeaponInHands)
                 .AddToDB(),
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")

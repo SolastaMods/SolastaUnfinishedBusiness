@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=あなたは無能力者です。
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=重傷
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=クリティカル脅威範囲が 1 増加します。
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=抑制のない凶暴性
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=3 レベルからは、非軽量近接武器を二刀流で使用できるようになり、二次攻撃に能力ボーナスを追加できるようになります。
@@ -8,7 +6,7 @@ Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=レベル 14 以降�
 Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=猛烈なディフェンス
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=レベル 10 から、あなたが激怒している間、近接武器攻撃でクリーチャーを攻撃し、クリティカル ヒットを与えなかったときはいつでも、クリティカルの脅威範囲が 1 増加します。この効果は重複します。クリティカル攻撃を与えると、ボーナスは 0 にリセットされます。
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=抑制のない凶暴性
-Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=6 レベルから、近接武器を二刀流で使用している間、装備されている各武器のダメージ カテゴリが 1 ずつ増加します (d4 が d6 に、d6 が d8 に、など)。さらに、近接武器攻撃でクリティカルヒットを与えると、そのクリーチャーに耐久力セーヴィングスローが課され、難易度は8 + 熟練度 + 筋力修正値になります。クリーチャーがそれに失敗すると、次のターンの終わりまで無力化される。
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=6 レベルから、近接武器を二刀流で使用している間、装備されている各武器のダメージ カテゴリが 1 ずつ増加します (d4 が d6 に、d6 が d8 に、など)。
 Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=怒りと怒り
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Rage はボーナス アクションの代わりにフリー アクションとして使用できます。
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=原初の本能

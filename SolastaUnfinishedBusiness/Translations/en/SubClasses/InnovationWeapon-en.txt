@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Spell attack bonus of its creator
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Extra Attack
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Weaponsmith Spells
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Your Arcane Jolt and steel defender become more powerful:\n• The extra damage and the healing of your Arcane Jolt both increase to 4d6.\n• Your steel defender gains a +2 bonus to Armor Class.

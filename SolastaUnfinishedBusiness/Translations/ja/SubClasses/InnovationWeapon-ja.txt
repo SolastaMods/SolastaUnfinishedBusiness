@@ -1,6 +1,4 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=作成者の呪文攻撃ボーナス
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=攻撃や突き飛ばしアクションを使用すると、1回ではなく2回攻撃することができます。
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=エクストラアタック
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=以下のことを学び、常に準備してきました。\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=武器鍛冶の呪文
 Feature/&FeatureSetInnovationWeaponImprovedDefenderDescription=Arcane Jolt と Steel Defender はより強力になります:\n• Arcane Jolt の追加ダメージと治癒は両方とも 4d6 に増加します。\n• あなたの Steel Defender はアーマー クラスに +2 ボーナスを獲得します。

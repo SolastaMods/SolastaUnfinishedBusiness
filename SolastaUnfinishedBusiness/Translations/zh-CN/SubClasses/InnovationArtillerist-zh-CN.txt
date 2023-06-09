@@ -1,6 +1,6 @@
 Condition/&ConditionInnovationArtilleristFortifiedPositionDescription=你和你的盟友在魔炮师制造的大炮 10 尺范围内有半掩护，这是大炮发射的闪闪发光的魔法保护力场的结果。
 Condition/&ConditionInnovationArtilleristFortifiedPositionTitle=坚守阵地
-Feature/&AutoPreparedSpellsInnovationArtilleristDescription=学习并始终做好准备：\n{0}\n\n
+Feature/&AutoPreparedSpellsInnovationArtilleristDescription=学习并始终准备：\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArtilleristTitle=魔炮师法术
 Feature/&FeatureSetInnovationArtilleristArcaneFirearmDescription=从第 5 级开始，你知道如何使用你擅长的武器作为你的巧匠法术的施法焦点。当你通过武器施展技师法术时，投掷 d8，你将在其中一次法术伤害检定中获得等于掷骰数的加值。该伤害在 15 级时增加到 2d8。
 Feature/&FeatureSetInnovationArtilleristArcaneFirearmTitle=奥法火器

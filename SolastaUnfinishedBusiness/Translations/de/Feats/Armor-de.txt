@@ -1,7 +1,7 @@
 Feat/&FeatHeavyArmorMasterDescription=Mit Ihrer Rüstung können Sie Schläge abwehren, die andere töten würden. Erhöhen Sie Ihren Stärkewert um 1 auf maximal 20. Während Sie schwere Rüstung tragen, wird der durch Angriffe erlittene Schlag-, Stich- und Hiebschaden um 3 verringert.
 Feat/&FeatHeavyArmorMasterTitle=Meister schwerer Rüstungen
 Feat/&FeatMediumArmorDexDescription=Erhöhen Sie Ihre Geschicklichkeit um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
-Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Dex]
+Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Geschick]
 Feat/&FeatMediumArmorStrDescription=Erhöhen Sie Ihre Stärke um 1 auf maximal 20.\nSie erlangen Kenntnisse im Umgang mit mittleren Rüstungen und Schilden.
 Feat/&FeatMediumArmorStrTitle=Mittlere Rüstung [Str]
 Feedback/&HeavyArmorMasterFormat=Meister der schweren Rüstung!

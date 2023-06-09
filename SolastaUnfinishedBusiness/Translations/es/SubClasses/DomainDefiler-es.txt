@@ -1,4 +1,4 @@
-Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Has sido maldecido por un Corruptor. Ya no puedes ganar puntos de golpe.
+Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Has sido maldecido por un Corruptor. You can no longer gain hits points.
 Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Magia de muerte insidiosa
 Condition/&ConditionDomainDefilerMarkForDeathDescription=Has sido marcado para la muerte, ganando vulnerabilidad al daño necrótico.
 Condition/&ConditionDomainDefilerMarkForDeathTitle=Marcado para morir

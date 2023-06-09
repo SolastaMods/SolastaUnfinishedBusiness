@@ -57,16 +57,6 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
-    private static readonly string[] LargeWildshapeForms =
-    {
-        "WildShapeAirElemental", //
-        "WildShapeFireElemental", //
-        "WildShapeEarthElemental", //
-        "WildShapeWaterElemental", //
-        "WildShapeApe", //
-        "WildShapeTundraTiger" //
-    };
-
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
     private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
@@ -99,7 +89,6 @@ internal static class SrdAndHouseRulesContext
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
         SwitchMagicStaffFoci();
-        SwitchMakeLargeWildshapeFormsMedium();
         SwitchRecurringEffectOnEntangle();
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
@@ -304,7 +293,7 @@ internal static class SrdAndHouseRulesContext
         var foodSrdWeight = Food_Ration;
         var foodForagedSrdWeight = Food_Ration_Foraged;
 
-        if (Main.Settings.ApplySrdWeightToFoodRations)
+        if (Main.Settings.UseOfficialFoodRationsWeight)
         {
             foodSrdWeight.weight = 2.0f;
             foodForagedSrdWeight.weight = 2.0f;
@@ -512,18 +501,6 @@ internal static class SrdAndHouseRulesContext
         foreach (var conjuredMonster in ConjuredMonsters)
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
-        }
-    }
-
-    internal static void SwitchMakeLargeWildshapeFormsMedium()
-    {
-        foreach (var monsterDefinitionName in LargeWildshapeForms)
-        {
-            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
-
-            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
-                ? CharacterSizeDefinitions.Medium
-                : CharacterSizeDefinitions.Large;
         }
     }
 
@@ -946,7 +923,7 @@ internal static class UpcastConjureElementalAndFey
     }
 }
 
-internal static class FlankingRules
+internal static class FlankingAndHigherGroundRules
 {
     private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
     {
@@ -1008,83 +985,50 @@ internal static class FlankingRules
             .Any(allySide => allySide == flankingSide);
     }
 
-    private static void AddAdvantage(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier)
+    internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var actionModifier = evaluationParams.attackModifier;
 
-        if (gameLocationBattleService is not { IsBattleInProgress: true })
+        if (!Main.Settings.UseOfficialFlankingRules)
         {
             return;
         }
 
-        var alliesInMelee = Gui.Battle.AllContenders
-            .Count(x => x.Side == attacker.Side && gameLocationBattleService.IsWithin1Cell(x, defender));
-
-        if (alliesInMelee >= 3)
-        {
-            actionModifier.AttackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&Surrounded", null));
-        }
-    }
-
-    private static void AddFlankingAttack(ActionModifier actionModifier)
-    {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&FlankingAttack",
-            null));
-    }
-
-    private static void AddHigherGroundAttack(ActionModifier actionModifier)
-    {
-        actionModifier.attackRollModifier += 1;
-        actionModifier.attackToHitTrends.Add(new TrendInfo(1, FeatureSourceType.Unknown,
-            "Feedback/&HigherGroundAttack",
-            null));
-    }
-
-    internal static void HandlePhysicalAttack(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier)
-    {
-        if (attacker.LocationPosition.y > defender.LocationPosition.y)
-        {
-            AddHigherGroundAttack(actionModifier);
-        }
-
-        if (IsFlanking(attacker, defender))
-        {
-            AddFlankingAttack(actionModifier);
-        }
-
-        AddAdvantage(attacker, defender, actionModifier);
-    }
-
-    internal static void HandleMagicAttack(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier actionModifier,
-        RulesetEffect rulesetEffect)
-    {
-        if (rulesetEffect is not RulesetEffectSpell)
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForRanged && evaluationParams.attackProximity is
+                not (BattleDefinitions.AttackProximity.PhysicalReach or BattleDefinitions.AttackProximity.MagicReach))
         {
             return;
         }
 
-        if (attacker.LocationPosition.y > defender.LocationPosition.z)
+        if (!IsFlanking(attacker, defender))
         {
-            AddHigherGroundAttack(actionModifier);
+            return;
         }
 
-        if (IsFlanking(attacker, defender))
+        actionModifier.AttackAdvantageTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+    }
+
+    internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
+    {
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+        var actionModifier = evaluationParams.attackModifier;
+
+        if (!Main.Settings.EnableHigherGroundRules)
         {
-            AddFlankingAttack(actionModifier);
+            return;
         }
 
-        AddAdvantage(attacker, defender, actionModifier);
+        if (attacker.LocationPosition.y <= defender.LocationPosition.y)
+        {
+            return;
+        }
+
+        actionModifier.attackRollModifier += 1;
+        actionModifier.attackToHitTrends.Add(
+            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&HigherGroundAttack", null));
     }
 }

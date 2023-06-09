@@ -1,4 +1,4 @@
-Condition/&ConditionInnovationArmorGuardianModeDescription=Erhalten Sie die Waffe <b>Donnerhandschuh</b> (1W8 Donnerschaden), wenn Sie freie Hand und die Bonusaktion <b>Verteidigungsfeld</b> haben, um vorübergehend HP in Höhe der Erfinderstufe zu erhalten.
+Condition/&ConditionInnovationArmorGuardianModeDescription=Erhalten Sie die Waffe „Donnerhandschuh“ (1W8 Donnerschaden), wenn Sie freie Hand und die Bonusaktion „Verteidigungsfeld“ haben, um vorübergehend HP in Höhe der Erfinderstufe zu erhalten.
 Condition/&ConditionInnovationArmorGuardianModeTitle=Wächter
 Condition/&ConditionInnovationArmorInfiltratorModeDescription=Erhalte einen <b>Blitzwerfer</b>-Fernangriff (1W6 Blitzschaden, der erste Angriff in der Runde verursacht 2W6).
 Condition/&ConditionInnovationArmorInfiltratorModeTitle=Eindringling
@@ -8,8 +8,6 @@ Condition/&ConditionInventorArmorerInfiltratorGlimmerDescription=Wirft schwaches
 Condition/&ConditionInventorArmorerInfiltratorGlimmerTitle=Glimmer: Abgelenkt
 Condition/&ConditionThunderGauntletDistractDescription=Eine vom Handschuh getroffene Kreatur hat bis zum Beginn Ihres nächsten Zuges einen Nachteil bei Angriffswürfen gegen andere Ziele als Sie, da die Rüstung auf magische Weise einen ablenkenden Impuls aussendet, wenn die Kreatur eine andere Person angreift.
 Condition/&ConditionThunderGauntletDistractTitle=Ablenkender Puls
-Feature/&AttributeModifierInnovationArmorExtraAttackDescription=Sie können zweimal statt einmal angreifen, wenn Sie in Ihrem Zug die Aktion „Angreifen“ ausführen.
-Feature/&AttributeModifierInnovationArmorExtraAttackTitle=Zusätzlicher Angriff
 Feature/&AutoPreparedSpellsInnovationArmorDescription=Lernen Sie und seien Sie immer vorbereitet:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationArmorTitle=Rüstungszauber
 Feature/&FeatureSetInnovationArmorArmoredUpDescription=Sie erwerben Kenntnisse im Umgang mit schweren Rüstungen und ignorieren die Stärkeanforderungen von Rüstungen.

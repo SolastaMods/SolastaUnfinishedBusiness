@@ -20,5 +20,5 @@ Feature/&PowerWizardGraviturgistViolentAttractionDescription=レベル 10 から
 Feature/&PowerWizardGraviturgistViolentAttractionTitle=暴力的な魅力
 Feedback/&AdditionalDamageViolentAttractionFormat=暴力的なアトラクション！
 Feedback/&AdditionalDamageViolentAttractionLine={0} は {1} に対して激しい誘引攻撃を実行します (+{2})
-Subclass/&WizardGraviturgistDescription=物質を引き寄せたり、引き離したりする力を理解し、習得することで、重力学の難解な伝統の生徒たちは、重力の暴力的なエネルギーをさらに曲げて操作して、自分たちの利益となるように、そして敵に恐ろしい損害をもたらすことを学びます。
+Subclass/&WizardGraviturgistDescription=物質の体を引き寄せたり、引き離したりする力を理解し、習得することで、重力学の難解な伝統の生徒たちは、重力の暴力的なエネルギーをさらに曲げて操作して、自分たちに利益をもたらし、敵に恐ろしい損害を与えることを学びます。
 Subclass/&WizardGraviturgistTitle=重力学者

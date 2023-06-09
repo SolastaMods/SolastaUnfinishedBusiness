@@ -43,7 +43,7 @@
       "type": "Feature",
       "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
       "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": false,

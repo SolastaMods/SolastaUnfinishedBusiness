@@ -370,9 +370,10 @@ internal static class InventorClass
             .SetSubclassSuffix("InventorInnovation")
             .SetFilterByDeity(false)
             .SetSubclasses(
+                InnovationAlchemy.Build(),
                 InnovationArmor.Build(),
                 InnovationArtillerist.Build(),
-                InnovationAlchemy.Build(),
+                InnovationVivisectionist.Build(),
                 InnovationWeapon.Build()
             )
             .AddToDB());
@@ -707,6 +708,7 @@ internal static class InventorClass
     internal static void LateLoadSpellStoringItem()
     {
         Class.FeatureUnlocks.Add(new FeatureUnlockByLevel(BuildSpellStoringItem(), 11));
+        Class.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
     }
 
     private static FeatureDefinition BuildSpellStoringItem()

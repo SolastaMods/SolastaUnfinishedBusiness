@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=Estás incapacitado.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Herida grave
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Tu rango de amenaza crítica aumenta en 1.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Ferocidad desenfrenada
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=A partir del 3er nivel, puedes empuñar dos armas cuerpo a cuerpo no ligeras y agregar tu bonificación de habilidad al ataque secundario.
@@ -8,7 +6,7 @@ Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=Comenzando en el nive
 Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=Defensa furiosa
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=Comenzando en el nivel 10, mientras estás en furia, cada vez que golpeas a una criatura con un ataque de arma cuerpo a cuerpo y no asestas un golpe crítico, aumentas tu rango de amenaza crítica en 1. Este efecto se acumula. Una vez que asestas un golpe crítico, la bonificación se restablece a 0.
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=Ferocidad desenfrenada
-Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Comenzando en el nivel 6, mientras empuñas dos armas cuerpo a cuerpo, aumenta la categoría de daño de cada arma equipada en 1 (d4 se convierte en d6, d6 se convierte en d8, etc.). Además, infligir un golpe crítico con un ataque de arma cuerpo a cuerpo impone una tirada de salvación de Constitución a esa criatura, con una CD de 8 + competencia + tu modificador de Fuerza. Si la criatura falla, queda incapacitada hasta el final de tu próximo turno.
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Comenzando en el nivel 6, mientras empuñas dos armas cuerpo a cuerpo, aumenta la categoría de daño de cada arma equipada en 1 (d4 se convierte en d6, d6 se convierte en d8, etc.).
 Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=Ira y Furia
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=Puedes usar Rabia como acción gratuita en lugar de una acción adicional.
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Instinto primario

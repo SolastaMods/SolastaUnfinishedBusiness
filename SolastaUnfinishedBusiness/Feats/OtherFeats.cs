@@ -870,11 +870,8 @@ internal static class OtherFeats
         var castSpells = new List<FeatureDefinitionCastSpell>
         {
             // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
-            CastSpellCleric,
-            CastSpellDruid,
-            CastSpellSorcerer,
-            CastSpellWarlock,
-            CastSpellWizard
+            // CastSpellCleric, // Cleric doesn't have any cantrips in Solasta that are RangeHit
+            CastSpellDruid, CastSpellSorcerer, CastSpellWarlock, CastSpellWizard
         };
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
@@ -938,7 +935,7 @@ internal static class OtherFeats
                     FeatureDefinitionPointPoolBuilder
                         .Create($"PointPool{NAME}{className}Cantrip")
                         .SetGuiPresentationNoContent(true)
-                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellList,
                             FeatSpellSniperTag)
                         .AddToDB())
                 .SetFeatFamily(NAME)

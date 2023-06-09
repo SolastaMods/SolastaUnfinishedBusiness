@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSavageryGrievousWoundDescription=You are incapacitated.
-Condition/&ConditionPathOfTheSavageryGrievousWoundTitle=Grievous Wound
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityDescription=Your critical threat range is increased by 1.
 Condition/&ConditionPathOfTheSavageryUnbridledFerocityTitle=Unbridled Ferocity
 Feature/&AttackModifierPathOfTheSavagerySavageStrengthDescription=Starting at 3rd level, you can dual-wield non-light melee weapons as well as add your ability bonus to the secondary attack.
@@ -8,7 +6,7 @@ Feature/&FeaturePathOfTheSavageryFuriousDefenseDescription=Starting at 14th leve
 Feature/&FeaturePathOfTheSavageryFuriousDefenseTitle=Furious Defense
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityDescription=Starting at 10th level, while you are raging, whenever you hit a creature with a melee weapon attack and don't deal a critical hit, you increase your critical threat range by 1. This effect stacks. Once you deal a critical strike, the bonus resets to 0.
 Feature/&FeaturePathOfTheSavageryUnbridledFerocityTitle=Unbridled Ferocity
-Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Additionally, dealing a critical hit with a melee weapon attack imposes a Constitution saving throw on that creature, with DC being 8 + proficiency + your Strength modifier. If the creature fails it, it becomes incapacitated until the end of your next turn.
+Feature/&FeaturePathOfTheSavageryWrathAndFuryDescription=Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc).
 Feature/&FeaturePathOfTheSavageryWrathAndFuryTitle=Wrath and Fury
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctDescription=You can use Rage as free action instead of a bonus action.
 Feature/&FeatureSetPathOfTheSavageryPrimalInstinctTitle=Primal Instinct

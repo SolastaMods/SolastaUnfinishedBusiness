@@ -785,14 +785,26 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
-        var spellLists = new List<SpellListDefinition>
+        var spellLists = new List<List<SpellListDefinition>>
         {
-            SpellListDefinitions.SpellListBard,
-            SpellListDefinitions.SpellListCleric,
-            SpellListDefinitions.SpellListDruid,
-            SpellListDefinitions.SpellListSorcerer,
-            SpellListDefinitions.SpellListWizard,
-            InventorClass.SpellList
+            new() { SpellListDefinitions.SpellListBard },
+            new() { SpellListDefinitions.SpellListCleric },
+            new()
+            {
+                SpellListDefinitions.SpellListDruid,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperDruid")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListSorcerer,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperSorcerer")
+            },
+            new()
+            {
+                SpellListDefinitions.SpellListWizard,
+                GetDefinition<SpellListDefinition>("SpellListFeatSpellSniperWizard")
+            },
+            new() { InventorClass.SpellList }
         };
 
         var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
@@ -811,14 +823,14 @@ internal static class ClassFeats
         {
             var spellList = spellLists[i];
             var validator = validators[i];
-            var className = spellList.Name.Replace("SpellList", String.Empty);
+            var className = spellList[0].Name.Replace("SpellList", String.Empty);
             var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
             var featPotentSpellcaster = FeatDefinitionWithPrerequisitesBuilder
                 .Create($"{Name}{className}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList.ToArray()))
                 .SetValidators(validator)
                 .SetFeatFamily("PotentSpellcaster")
                 .AddToDB();
@@ -837,9 +849,9 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly SpellListDefinition _spellListDefinition;
+        private readonly SpellListDefinition[] _spellListDefinition;
 
-        public ModifyMagicEffectFeatPotentSpellcaster(SpellListDefinition spellListDefinition)
+        public ModifyMagicEffectFeatPotentSpellcaster(params SpellListDefinition[] spellListDefinition)
         {
             _spellListDefinition = spellListDefinition;
         }
@@ -851,8 +863,8 @@ internal static class ClassFeats
             RulesetEffect rulesetEffect)
         {
             if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.SpellsByLevel
-                    .Any(x => x.Level == 0 && x.Spells.Contains(spellDefinition)))
+                !_spellListDefinition.Any(x => x.SpellsByLevel
+                    .Any(y => y.Level == 0 && y.Spells.Contains(spellDefinition))))
             {
                 return effectDescription;
             }
@@ -866,19 +878,18 @@ internal static class ClassFeats
 
             string attribute;
 
-            if (_spellListDefinition == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition == SpellListDefinitions.SpellListSorcerer)
-
+            if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
+                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
             {
                 attribute = AttributeDefinitions.Charisma;
             }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListCleric ||
-                     _spellListDefinition == SpellListDefinitions.SpellListDruid)
+            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListCleric ||
+                     _spellListDefinition[0] == SpellListDefinitions.SpellListDruid)
             {
                 attribute = AttributeDefinitions.Wisdom;
             }
-            else if (_spellListDefinition == SpellListDefinitions.SpellListWizard ||
-                     _spellListDefinition == InventorClass.SpellList)
+            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListWizard ||
+                     _spellListDefinition[0] == InventorClass.SpellList)
             {
                 attribute = AttributeDefinitions.Intelligence;
             }
@@ -1100,6 +1111,31 @@ internal static class ClassFeats
 
         var powerPoolList = new List<FeatureDefinitionPower>();
 
+        var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
+            .SetNotificationTag("SlayTheEnemy")
+            .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetIgnoreCriticalDoubleDice(true)
+            .SetFlatDamageBonus(0)
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.ConditionAmount,
+                DiceByRankBuilder.Build((1, 1), (2, 2), (3, 3)))
+            .AddToDB();
+
+        var advantageOnFavorite = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}Favorite")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetSituationalContext(ExtraSituationalContext.TargetIsFavoriteEnemy)
+            .SetMyAttackAdvantage(AdvantageType.Advantage)
+            .AddToDB();
+
+        var toHitOnRegular = FeatureDefinitionCombatAffinityBuilder
+            .Create($"CombatAffinity{NAME}Regular")
+            .SetGuiPresentation(NAME, Category.Feat, Gui.NoLocalization)
+            .SetMyAttackModifier(ExtraCombatAffinityValueDetermination.ConditionAmountIfNotFavoriteEnemy)
+            .AddToDB();
+
         for (var i = 3; i >= 1; i--)
         {
             // closure
@@ -1110,29 +1146,25 @@ internal static class ClassFeats
             var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{NAME}{i}")
                 .SetGuiPresentation(
-                    Gui.Format($"Feature/&Power{NAME}Title", i.ToString(), rounds.ToString()),
+                    Gui.Format($"Feature/&Power{NAME}Title", Gui.ToRoman(i)),
                     Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, powerPool)
-                .SetEffectDescription(
-                    EffectDescriptionBuilder
-                        .Create()
-                        .SetDurationData(DurationType.Round, rounds)
-                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                        .SetEffectForms(
-                            EffectFormBuilder
-                                .Create()
-                                .SetConditionForm(
-                                    ConditionDefinitionBuilder
-                                        .Create($"Condition{NAME}{i}")
-                                        .SetGuiPresentation(
-                                            "Condition/&ConditionFeatSlayTheEnemiesTitle",
-                                            Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
-                                                i.ToString()), ConditionDefinitions.ConditionTrueStrike)
-                                        .SetPossessive()
-                                        .AddToDB(),
-                                    ConditionForm.ConditionOperation.Add)
-                                .Build())
-                        .Build())
+                .SetEffectDescription(EffectDescriptionBuilder.Create()
+                    .SetDurationData(DurationType.Round, rounds)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder.ConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create($"Condition{NAME}{i}")
+                            .SetGuiPresentation(
+                                "Condition/&ConditionFeatSlayTheEnemiesTitle",
+                                Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
+                                    i.ToString()), ConditionDefinitions.ConditionTrueStrike)
+                            .SetPossessive()
+                            .SetFixedAmount(i)
+                            .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add))
+                    .Build())
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c =>
@@ -1142,10 +1174,10 @@ internal static class ClassFeats
                             c.GetClassSpellRepertoire(Ranger)?
                                 .GetSlotsNumber(a, out remaining, out _);
 
-                            var noCondition = ValidatorsCharacter.HasNoneOfConditions(
+                            var noCondition = !c.HasAnyConditionOfType(
                                 "ConditionFeatSlayTheEnemies1",
                                 "ConditionFeatSlayTheEnemies2",
-                                "ConditionFeatSlayTheEnemies3")(c);
+                                "ConditionFeatSlayTheEnemies3");
 
                             return remaining > 0 && noCondition;
                         }))
@@ -1161,99 +1193,8 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerPool)
             .SetValidators(ValidatorsFeat.IsRangerLevel1)
-            .SetCustomSubFeatures(
-                new OnComputeAttackModifierSlayTheEnemies(powerPool),
-                new ActionFinishedFeatSlayTheEnemies())
+            .SetCustomSubFeatures(new ActionFinishedFeatSlayTheEnemies())
             .AddToDB();
-    }
-
-    private sealed class OnComputeAttackModifierSlayTheEnemies : IPhysicalAttackInitiated
-    {
-        private readonly FeatureDefinition _featureDefinition;
-
-        public OnComputeAttackModifierSlayTheEnemies(FeatureDefinition featureDefinition)
-        {
-            _featureDefinition = featureDefinition;
-        }
-
-        public IEnumerator OnAttackInitiated(
-            GameLocationBattleManager __instance,
-            CharacterAction action,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetCharacter == null || rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            if (ValidatorsCharacter.HasNoneOfConditions(
-                    "ConditionFeatSlayTheEnemies1",
-                    "ConditionFeatSlayTheEnemies2",
-                    "ConditionFeatSlayTheEnemies3")(rulesetCharacter))
-            {
-                yield break;
-            }
-
-            if (attackerAttackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
-            {
-                yield break;
-            }
-
-            var damage = attackerAttackMode.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                yield break;
-            }
-
-            var spellLevel = 0;
-
-            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(rulesetCharacter))
-            {
-                spellLevel = 1;
-            }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(rulesetCharacter))
-            {
-                spellLevel = 2;
-            }
-            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(rulesetCharacter))
-            {
-                spellLevel = 3;
-            }
-
-            if (IsFavoriteEnemy(rulesetCharacter, rulesetDefender))
-            {
-                attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-            }
-            else
-            {
-                attackerAttackMode.ToHitBonus += spellLevel;
-                attackerAttackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                    _featureDefinition.Name, _featureDefinition));
-            }
-
-            damage.BonusDamage += spellLevel;
-            damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name, _featureDefinition));
-        }
-
-        private static bool IsFavoriteEnemy(RulesetActor attacker, RulesetCharacter defender)
-        {
-            var favoredEnemyChoices = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
-                .Cast<FeatureDefinitionAdditionalDamage>();
-            var characterAdditionalDamages = attacker.GetFeaturesByType<FeatureDefinitionAdditionalDamage>();
-
-            return favoredEnemyChoices
-                .Intersect(characterAdditionalDamages)
-                .Any(x => x.RequiredCharacterFamily.Name == defender.CharacterFamily);
-        }
     }
 
     private sealed class ActionFinishedFeatSlayTheEnemies : IActionFinished

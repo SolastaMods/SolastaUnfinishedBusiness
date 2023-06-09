@@ -1,6 +1,6 @@
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=9레벨부터 생물이 근접 공격 굴림으로 당신을 놓치면 반응을 사용하여 해당 생물에 대한 즉각적인 기회 공격을 할 수 있습니다.
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=소용돌이 춤
-Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=5피트 이내에 있고 5피트 이내에 다른 생물이 없고 공격 롤에 불이익이 없는 경우 생물에 대한 몰래 공격을 사용하기 위해 공격 롤에 이점이 필요하지 않습니다. 다른 모든 몰래 공격 규칙은 여전히 적용됩니다.
+Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=5피트 이내에 있고 5피트 이내에 다른 생물이 없고 공격 롤에 불이익이 없는 경우 생물에 대한 몰래 공격을 사용하기 위해 공격 롤에 이점이 필요하지 않습니다. 다른 모든 몰래 공격 규칙은 여전히 ​​적용됩니다.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=대담한 결투
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=+2 AC를 추가로 얻습니다.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=확실한 발

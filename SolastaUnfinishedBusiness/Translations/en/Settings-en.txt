@@ -27,7 +27,6 @@ ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of <color=#D89555>food ration</color> to 2 pounds
 ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Attackers with <color=#D89555>Darkvision</color> have advantage over defenders without
 ModUi/&Backgrounds=<color=#F0DAA0>Backgrounds</color>
@@ -89,9 +88,9 @@ ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i
 ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 10 and 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Enable feats selection at class levels 6 and 14
 ModUi/&EnableFighterWeaponSpecialization=Enable <color=#D89555>Fighter</color> <b>Weapon Specialization</b> at class levels 8 and 16 <i><color=#F0DAA0>[get +1 to hit and to damage but disadvantage with any other weapon type]</color></i>
-ModUi/&EnableFlankingRules=Enable flanking rules to all battle contenders <i><color=#F0DAA0>[+1 to hit if at a higher ground, +1 to hit if flanking, advantage if target surrounded by 3+ allies]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
+ModUi/&EnableHigherGroundRules=Enable higher ground rules <i><color=#F0DAA0>[+1 to hit if attacking from a higher ground]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
@@ -164,7 +163,6 @@ ModUi/&ItemsCraftingMerchants=Crafting, Items & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Make all large wildshape forms medium in size
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
@@ -237,5 +235,8 @@ ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use <color=#D89555>Elf</color> face models on <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use official DnD advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules <i><color=#F0DAA0>[if circumstances cause a roll to have both, you are considered to have neither of them]</color></i>
+ModUi/&UseOfficialFlankingRules=Use official flanking rules <i><color=#F0DAA0>[an attacker has advantage if an ally is on target's opposite side]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Also enable for ranged attacks</i>
+ModUi/&UseOfficialFoodRationsWeight=Use official <color=#D89555>food ration</color> weight of 2 pounds
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

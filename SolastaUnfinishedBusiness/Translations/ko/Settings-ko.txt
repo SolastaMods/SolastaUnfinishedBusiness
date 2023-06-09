@@ -27,7 +27,6 @@ ModUi/&AllowStackedMaterialComponent=적층된 재료 구성 요소 허용 <i><c
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=<color=#D89555>연쇄 번개</color> 주문 시전 시 대상 선택 허용
 ModUi/&AllowUnmarkedSorcerers=출처 표시 및 문신이 없는 <color=#D89555>마법사</color> 허용
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 키는 파티 시야에서 가젯만 강조 표시합니다. <i><color=#F0DAA0>[맞춤형 던전만 해당]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=<color=#D89555>식량 배급</color>의 무게를 2파운드로 줄입니다.
 ModUi/&ArcaneShieldstaffOptions=모든 클래스가 <color=#D89555>아케인 실드스태프</color>를 조율하도록 허용
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=<color=#D89555>다크 비전</color>이 있는 공격자는 없는 수비자보다 유리합니다.
 ModUi/&Backgrounds=<color=#F0DAA0>배경</color>
@@ -89,9 +88,9 @@ ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레�
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6 및 14에서 재주 선택 활성화
 ModUi/&EnableFighterWeaponSpecialization=클래스 레벨 8 및 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[적중 및 피해에 +1을 받지만 다른 모든 경우에는 불리합니다. 무기 유형]</color></i>
-ModUi/&EnableFlankingRules=모든 전투 경쟁자에게 플랭킹 규칙을 활성화합니다. <i><color=#F0DAA0>[높은 지대에 있는 경우 적중 시 +1, 측면 공격 시 적중 시 +1, 대상이 3명 이상의 아군에게 둘러싸여 있는 경우 유리함]</color></i>
 ModUi/&EnableFlexibleBackgrounds=유연한 배경 활성화 <i><color=#F0DAA0>[배경에서 기술 및 도구 숙련도 선택]</color></i>
 ModUi/&EnableFlexibleRaces=유연한 인종 활성화 <i><color=#F0DAA0>[기본 인종 대신 능력 점수 할당]</color></i>
+ModUi/&EnableHigherGroundRules=고지대 규칙 활성화 <i><color=#F0DAA0>[고지대에서 공격하는 경우 적중 시 +1]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=디버그 오버레이를 표시하려면 <color=#1E81B0>CTRL-SHIFT-(D)</color>를 활성화하세요.
 ModUi/&EnableHotkeyToggleHud=HUD 디스플레이를 전환하려면 <color=#1E81B0>CTRL-SHIFT-(H)</color>를 활성화하세요.
 ModUi/&EnableInventoryFilteringAndSorting=인벤토리 필터링 및 정렬 활성화
@@ -139,7 +138,7 @@ ModUi/&FormationResetThisSet=재설정
 ModUi/&FormationSelected=포메이션 세트 {0} 선택됨
 ModUi/&FullyControlConjurations=주문을 완벽하게 제어 <i><color=#F0DAA0>[동물, 정령 등]</color></i>
 ModUi/&GameUi=게임 UI
-ModUi/&Gameplay=게임플레이
+ModUi/&Gameplay=게임 플레이
 ModUi/&General=<color=#F0DAA0>일반:</color>
 ModUi/&GeneralMenu=일반적인
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=아직 발견되지 않은 경우 출구 및 텔레포터 시각 효과 숨기기
@@ -147,7 +146,7 @@ ModUi/&HideMonsterHitPoints=정확한 HP 대신 몬스터의 체력을 25% / 50%
 ModUi/&House=<color=#F0DAA0>집:</color>
 ModUi/&IdentifyAfterRest=짧거나 긴 휴식을 통해 <color=#D89555>마법 아이템을 식별</color>할 수 있는 능력을 추가하세요
 ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손 석궁</color>을 사용하기 위해 손이 자유로울 필요가 없습니다.
-ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>\n<i><color=#F0DAA0>[영향 <color= #D89555>레인저</color> 선호하는 적 및 지형 선호도, <color=#D89555>드루이드</color> 킨드레드 비스트, <color=#D89555>야만인</color> 요소 및 하위 클래스 드라코닉 선택의 경로]</color</i>
+ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>\n<i><color=#F0DAA0>[영향 <color= #D89555>레인저</color> 선호하는 적 및 지형 선호도, <color=#D89555>드루이드</color> 킨드레드 비스트, <color=#D89555>야만인</color> 요소 및 하위 클래스 드라코닉 선택의 경로]</color></i>
 ModUi/&IncreaseGameTimeBy=게임 시간 증가
 ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템을 레벨 10에서 4개, 레벨 18에서 5개로 증가
 ModUi/&IncreaseSenseNormalVision=<color=white><color=#D89555>일반 시야 감지</color> 범위를 늘려 장거리 공격 가능</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
@@ -164,8 +163,7 @@ ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>영웅에게 아이템을 추가하려면 캐릭터 검사 화면을 여세요...</color>
 ModUi/&ItemsHelp2=<b>그라운드 컨테이너에 항목을 추가하려면 +를 누르십시오</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 신비한 초점으로 <i><color=#F0DAA0>[보편적인 <color=#D89555>치유 지팡이</color> 제외]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=모든 큰 야생 형태를 중간 크기로 만듭니다.
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 표시</i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 ​​표시</i>
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>
@@ -216,7 +214,7 @@ ModUi/&SpellLevelFilter=<b><i><color=white>주문 수준 필터</color> <color=#
 ModUi/&SpellsMenu=주문
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=모든 비마법 의류로 고림의 상점을 비축합니다. <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=모든 비마법 악기가 있는 고림의 상점 재고 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<으로 휴고의 상점을 비축합니다. /color> 초점 항목으로 설정
+ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<이 있는 휴고의 상점 재고 확보 /color> 초점 항목으로 설정
 ModUi/&Subclasses=<color=#F0DAA0>하위 클래스</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교체</i>
 ModUi/&TargetLanguage=대상 언어
@@ -237,5 +235,8 @@ ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
 ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 이점/불이익 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 판정에 둘 다 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
+ModUi/&UseOfficialFlankingRules=공식 플랭킹 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 유리함]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 가능</i>
+ModUi/&UseOfficialFoodRationsWeight=2파운드의 공식 <color=#D89555>식량 배급량</color>을 사용하세요.
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>

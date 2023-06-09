@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -24,10 +23,13 @@ public static class LoadPanelPatcher
             }
 
             //PATCH: Allow import any campaign if override min max level is on
-            if (Main.Settings.OverrideMinMaxLevel)
-            {
-                __instance.CampaignForImportSaveMode.maxLevelImport = Level20Context.ModMaxLevel;
-            }
+
+            // this is causing issues loading games so had to disable until finding out why
+
+            // if (Main.Settings.OverrideMinMaxLevel)
+            // {
+            //     __instance.CampaignForImportSaveMode.maxLevelImport = Level20Context.ModMaxLevel;
+            // }
 
 #pragma warning disable IDE0031
             if (Dropdown != null && Dropdown.activeSelf)

@@ -536,6 +536,20 @@ internal static class RulesetCharacterExtensions
             totalAttack);
     }
 
+    internal static bool IsMyFavoriteEnemy(this RulesetCharacter me, RulesetCharacter enemy)
+    {
+        if (me == null || enemy == null)
+        {
+            return false;
+        }
+
+        return DatabaseHelper.FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
+            .OfType<FeatureDefinitionAdditionalDamage>()
+            .Intersect(me.GetFeaturesByType<FeatureDefinitionAdditionalDamage>())
+            .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
+    }
+
+#if false
     internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
     {
         character?.AllConditions
@@ -543,4 +557,5 @@ internal static class RulesetCharacterExtensions
             .ToList()
             .ForEach(c => character.RemoveCondition(c, true, false));
     }
+#endif
 }

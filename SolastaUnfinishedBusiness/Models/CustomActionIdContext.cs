@@ -319,7 +319,7 @@ public static class CustomActionIdContext
             : ActionStatus.Unavailable;
     }
 
-    private static bool IsInvocationActionId(Id id)
+    internal static bool IsInvocationActionId(Id id)
     {
         var extra = (ExtraActionId)id;
 

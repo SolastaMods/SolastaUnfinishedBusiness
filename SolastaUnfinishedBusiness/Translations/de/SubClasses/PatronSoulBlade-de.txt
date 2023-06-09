@@ -13,6 +13,6 @@ Feature/&PowerSoulBladeSoulShieldTitle=Seelenschild
 Feature/&PowerSoulBladeSummonPactWeaponDescription=Du kannst als freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion können Sie die Waffe nach Belieben ausrichten, um Ihre Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß weit, bevor sie zuschlägt.
 Feature/&PowerSoulBladeSummonPactWeaponTitle=Waffe des spirituellen Pakts
 Feedback/&AdditionalDamageHexFormat=Verhexen!
-Feedback/&AdditionalDamageHexLine={0} Seelenverhexungen {1} (+{2})
+Feedback/&AdditionalDamageHexLine=Seelenhex lässt {1} +{2} zusätzlichen Schaden erleiden!
 Subclass/&PatronSoulBladeDescription=Sie haben einen Handel mit einer empfindungsfähigen Waffe abgeschlossen, die Sie als Gegenleistung für Macht mit Seelen füttern.
 Subclass/&PatronSoulBladeTitle=Die Seelenklinge

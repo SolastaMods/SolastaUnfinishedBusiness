@@ -1,5 +1,7 @@
 # 翻译词典 - Translation Dictionary
 
+部分地名拆解来自搜索引擎，可能并非完全正确
+
 ## 地名
 
 * Manacalon - 魔纳卡隆
@@ -54,6 +56,9 @@
 * Harryn Surridge - 哈伦·苏里奇
 * Weyne Tayler - 韦恩·泰勒
 * Darol Granger - 达罗·格兰杰
+* Ildurial Stronghand - 伊杜瑞尔·强手
+* Elgador Keenspirit - 艾尔戈多·神锐
+* Lestoreth Steelarm - 莱斯托尔斯·钢臂
 
 ## 其他名词
 

@@ -18,7 +18,7 @@ ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D
 ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Enanos</color> sin barba
 ModUi/&AllowClubsToBeThrown=Permitir que se arrojen <color=#D89555>palos</color> como <color=#D89555>dagas</color> o <color=#D89555>hachas de mano</color>
-ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> use una armadura de metal
+ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druid</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite el clic <color=#1E81B0>CTRL</color> para omitir cualquier verificación al colocar dispositivos o accesorios
 ModUi/&AllowHornsOnAllRaces=Permitir cuernos en todas las razas <i><color=#F0DAA0>[los resultados pueden parecer terribles dependiendo de la raza, cabeza y cuerno]</color></i>
@@ -27,7 +27,6 @@ ModUi/&AllowStackedMaterialComponent=Permitir componente de material apilado <i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permitir la selección de objetivos al lanzar el hechizo <color=#D89555>Cadena de relámpagos</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Hechicero</color> sin marcas de origen ni tatuajes
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la <color=#D89555>ración de alimentos</color> a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Los atacantes con <color=#D89555>Darkvision</color> tienen ventaja sobre los defensores sin
 ModUi/&Backgrounds=<color=#F0DAA0>Fondos</color>
@@ -89,9 +88,9 @@ ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 punto
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 10 y 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilitar la selección de dotes en los niveles de clase 6 y 14
 ModUi/&EnableFighterWeaponSpecialization=Habilitar <color=#D89555>Luchador</color> <b>Especialización en armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[Obtiene +1 para golpear y dañar pero desventaja con cualquier otro tipo de arma]</color></i>
-ModUi/&EnableFlankingRules=Habilite las reglas de flanqueo para todos los contendientes de la batalla <i><color=#F0DAA0>[+1 para golpear si está en un terreno más alto, +1 para golpear si está flanqueando, ventaja si el objetivo está rodeado por más de 3 aliados]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
+ModUi/&EnableHigherGroundRules=Habilitar reglas básicas más altas <i><color=#F0DAA0>[+1 para golpear si se ataca desde un terreno más alto]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar la pantalla HUD
 ModUi/&EnableInventoryFilteringAndSorting=Habilitar filtrado y clasificación de inventario
@@ -164,13 +163,12 @@ ModUi/&ItemsCraftingMerchants=Fabricación, artículos y comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Haga que todas las formas grandes de forma salvaje sean de tamaño mediano.
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizos blancos y otros gastan verdes de pacto]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
@@ -202,7 +200,7 @@ ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&SettingsExport=Exportar
-ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo en <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=. Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar
@@ -222,7 +220,7 @@ ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Intercambia íconos de recetas y artí
 ModUi/&TargetLanguage=Lengua de llegada
 ModUi/&Tools=Herramientas
 ModUi/&TotalCraftingTimeModifier=<color=white>Reducir el tiempo de elaboración</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Proezas totales concedidas en el primer nivel</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Proezas totales otorgadas en el primer nivel</color>
 ModUi/&Translate=Traducir
 ModUi/&TranslateCancel=Cancelar {0} a las {1}
 ModUi/&Translations=Traducciones
@@ -237,5 +235,8 @@ ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&Update=<b><color=#D89555>Actualizar</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Usa modelos de cara <color=#D89555>Elf</color> en <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja de DnD <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Usa las reglas oficiales de ventaja/desventaja <i><color=#F0DAA0>[si las circunstancias hacen que una tirada tenga ambas, se considera que no tienes ninguna de ellas]</color></i>
+ModUi/&UseOfficialFlankingRules=Usa las reglas oficiales de flanqueo <i><color=#F0DAA0>[un atacante tiene ventaja si un aliado está en el lado opuesto del objetivo]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Habilitar también para ataques a distancia</i>
+ModUi/&UseOfficialFoodRationsWeight=Utilice <color=#D89555>ración de alimentos</color> con un peso oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>

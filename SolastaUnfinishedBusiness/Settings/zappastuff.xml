@@ -106,8 +106,10 @@
     <EnableSortingSubclasses>true</EnableSortingSubclasses>
     <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
     <KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>true</KeepCharactersPanelOpenAndHeroSelectedAfterLevelUp>
+    <DisableStreamlinedMultiLevelUp>true</DisableStreamlinedMultiLevelUp>
     <DisableUpdateMessage>false</DisableUpdateMessage>
-    <DisableUnofficialTranslationsMessage>true</DisableUnofficialTranslationsMessage>
+    <DisableUnofficialTranslations>false</DisableUnofficialTranslations>
+    <FixAsianLanguagesTextWrap>false</FixAsianLanguagesTextWrap>
     <EnableBetaContent>true</EnableBetaContent>
     <EnablePcgRandom>true</EnablePcgRandom>
     <EnableSaveByLocation>true</EnableSaveByLocation>
@@ -161,8 +163,10 @@
     <UnlockSkinColors>true</UnlockSkinColors>
     <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
     <UseElfFaceModelsOnTieflings>true</UseElfFaceModelsOnTieflings>
-    <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
+    <UseOfficialFoodRationsWeight>true</UseOfficialFoodRationsWeight>
     <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
+    <UseOfficialFlankingRules>true</UseOfficialFlankingRules>
+    <UseOfficialFlankingRulesAlsoForRanged>true</UseOfficialFlankingRulesAlsoForRanged>
     <IdentifyAfterRest>true</IdentifyAfterRest>
     <AddBleedingToLesserRestoration>true</AddBleedingToLesserRestoration>
     <BlindedConditionDontAllowAttackOfOpportunity>true</BlindedConditionDontAllowAttackOfOpportunity>
@@ -178,7 +182,8 @@
     <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
     <RemoveRecurringEffectOnEntangle>true</RemoveRecurringEffectOnEntangle>
     <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-    <EnableFlankingRules>true</EnableFlankingRules>
+    <EnableHigherGroundRules>false</EnableHigherGroundRules>
+    <AccountForAllDiceOnSavageAttack>false</AccountForAllDiceOnSavageAttack>
     <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
     <AllowClubsToBeThrown>false</AllowClubsToBeThrown>
     <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>

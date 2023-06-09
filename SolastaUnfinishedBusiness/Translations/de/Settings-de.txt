@@ -22,12 +22,11 @@ ModUi/&AllowDruidToWearMetalArmor=Erlaube <color=#D89555>Druiden</color>, Metall
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit maximalem Level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie <color=#1E81B0>STRG</color>, um jegliche Prüfung beim Platzieren von Gadgets oder Requisiten zu umgehen
 ModUi/&AllowHornsOnAllRaces=Erlaube Hörner bei allen Rennen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Hupe schrecklich aussehen]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=Ermöglichen Sie einen realistischeren Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach Ruhe im Bereich vor dem Bereich ausblenden und Wiederherstellungsfunktionen im Bereich nach dem Bereich ausblenden]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Rest-Panel <i><color=#F0DAA0>[Nach-Ruhe-Aktionen im Vor-Panel ausblenden und Wiederherstellungsfunktionen im Nach-Panel]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente <i><color=#F0DAA0> zulassen[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Ermögliche die Zielauswahl beim Wirken des Zaubers <color=#D89555>Kettenblitz</color>
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Sorcerer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der <color=#D89555>Lebensmittelration</color> auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=Ermöglichen Sie die Abstimmung von <color=#D89555>Arkaner Schildstab</color> durch jede Klasse
 ModUi/&AttackersWithDarkvisionHaveAdvantageOverDefendersWithout=Angreifer mit <color=#D89555>Dunkelsicht</color> haben einen Vorteil gegenüber Verteidigern ohne
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe</color>
@@ -89,9 +88,9 @@ ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 10 und 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Aktivieren Sie die Talentauswahl auf den Klassenstufen 6 und 14
 ModUi/&EnableFighterWeaponSpecialization=Aktiviere <color=#D89555>Kämpfer</color> <b>Waffenspezialisierung</b> auf den Klassenstufen 8 und 16 <i><color=#F0DAA0>[erhalte +1 auf Treffer und Schaden, aber einen Nachteil gegenüber allen anderen Waffentyp]</color></i>
-ModUi/&EnableFlankingRules=Aktivieren Sie die Flankierungsregeln für alle Kampfteilnehmer <i><color=#F0DAA0>[+1 für Treffer, wenn sie höher gelegen sind, +1 für Treffer, wenn sie flankieren, Vorteil, wenn das Ziel von mehr als 3 Verbündeten umgeben ist]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[wählen Sie Fähigkeiten und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[Weisen Sie Fähigkeitspunktepunkte anstelle der Rassenstandards zu]</color></i>
+ModUi/&EnableHigherGroundRules=Aktivieren Sie höhere Bodenregeln <i><color=#F0DAA0>[+1 für Treffer, wenn Sie von einem höheren Boden aus angreifen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Aktivieren Sie die Filterung und Sortierung des Inventars
@@ -164,7 +163,6 @@ ModUi/&ItemsCraftingMerchants=Handwerk, Gegenstände und Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffnen Sie den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle Zauberstäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer dem <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Machen Sie alle großen Wildform-Formen mittelgroß
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte.</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal zulässige Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
@@ -237,5 +235,8 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&Update=<b><color=#D89555>Update</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Verwenden Sie <color=#D89555>Elfen</color>-Gesichtsmodelle für <color=#D89555>Tieflings</color>
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> oder <color=#D89555 wirken>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen DnD-Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils-/Nachteilregeln <i><color=#F0DAA0>[Wenn Umstände dazu führen, dass ein Wurf beides hat, wird davon ausgegangen, dass Sie keines davon haben]</color></i>
+ModUi/&UseOfficialFlankingRules=Verwenden Sie die offiziellen Flankierungsregeln <i><color=#F0DAA0>[ein Angreifer hat einen Vorteil, wenn sich ein Verbündeter auf der gegenüberliegenden Seite des Ziels befindet]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Auch für Fernkampfangriffe aktivieren</i>
+ModUi/&UseOfficialFoodRationsWeight=Verwenden Sie die offizielle <color=#D89555>Lebensmittelration</color> mit einem Gewicht von 2 Pfund
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

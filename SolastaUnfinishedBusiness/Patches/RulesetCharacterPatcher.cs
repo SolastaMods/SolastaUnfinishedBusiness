@@ -88,6 +88,39 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.FindFirstRetargetableEffect))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class FindFirstRetargetableEffect_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref RulesetEffect __result)
+        {
+            //PATCH: allow effects retarget even if they have conditions applied to self
+            if (__result != null)
+            {
+                return;
+            }
+
+            var effects = __instance.EnumerateActiveEffectsActivatedByMe();
+            foreach (var effect in effects)
+            {
+                if (!effect.EffectDescription.RetargetAfterDeath)
+                {
+                    continue;
+                }
+
+                if (!effect.SourceDefinition.HasSubFeatureOfType<ForceRetargetAvailability>())
+                {
+                    continue;
+                }
+
+                __result = effect;
+                return;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -607,7 +640,7 @@ public static class RulesetCharacterPatcher
                     new CodeInstruction(OpCodes.Ldarg_2),
                     new CodeInstruction(OpCodes.Ldarg, 4),
                     new CodeInstruction(OpCodes.Call, method))
-                //technically second occurence of this getter, but first one is replced on prevoius call
+                //technically second occurence of this getter, but first one is replaced on previous call
                 .ReplaceCall(currentValueMethod, 1, "RulesetCharacter.RollAttack.CritThreshold",
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Ldarg_2),

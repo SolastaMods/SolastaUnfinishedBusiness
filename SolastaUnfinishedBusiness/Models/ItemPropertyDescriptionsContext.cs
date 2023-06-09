@@ -32,7 +32,7 @@ internal static class ItemPropertyDescriptionsContext
     internal static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,
         bool appliesOnItemOnly = true,
-        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.InactiveAndHidden)
+        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
     {
         return ItemPropertyDescriptionBuilder.From(feature, appliesOnItemOnly, knowledgeAffinity).Build();
     }
