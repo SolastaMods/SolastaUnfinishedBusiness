@@ -265,12 +265,13 @@ internal sealed class PathOfTheSavagery : AbstractSubclass
                 return;
             }
 
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (outcome == RollOutcome.CriticalSuccess)
             {
                 rulesetAttacker.RemoveAllConditionsOfCategoryAndType(
                     AttributeDefinitions.TagCombat, _conditionUnbridledFerocity.Name);
             }
-            else if (outcome != RollOutcome.CriticalFailure && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
+            else if (outcome == RollOutcome.Success && rulesetAttacker.HasAnyConditionOfType(ConditionRaging))
             {
                 rulesetAttacker.InflictCondition(
                     _conditionUnbridledFerocity.Name,
