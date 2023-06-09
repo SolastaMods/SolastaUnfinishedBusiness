@@ -46,7 +46,7 @@ internal static class InvocationsBuilders
 
     private static IEnumerable<EffectForm> HandleEldritchSmiteKnockProne(
         GameLocationCharacter attacker,
-        GameLocationCharacter defender, 
+        GameLocationCharacter defender,
         IAdditionalDamageProvider provider)
     {
         var rulesetDefender = defender.RulesetCharacter;
@@ -339,8 +339,12 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.Haste, "Kinesis")
             .AddToDB();
 
-        spellKinesis.EffectDescription.targetType = TargetType.IndividualsUnique;
-        spellKinesis.EffectDescription.targetParameter = 2;
+        var effect = spellKinesis.EffectDescription;
+        effect.targetFilteringMethod = TargetFilteringMethod.CharacterOnly;
+        effect.targetExcludeCaster = true;
+        effect.EffectForms.Add(EffectFormBuilder.ConditionForm(
+            ConditionDefinitions.ConditionHasted,
+            ConditionForm.ConditionOperation.Add, true));
 
         return InvocationDefinitionBuilder
             .Create(NAME)
