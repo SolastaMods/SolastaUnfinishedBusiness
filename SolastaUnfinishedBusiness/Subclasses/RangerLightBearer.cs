@@ -22,7 +22,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RangerLightBearer : AbstractSubclass
 {
-    private const string Name = "RangerLightBearer";
+    internal const string Name = "RangerLightBearer";
 
     internal RangerLightBearer()
     {
@@ -107,24 +107,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands, $"Power{Name}LifeBringer")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerLifeBringer", Resources.PowerLifeBringer, 256, 128))
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
-                    .SetDurationData(DurationType.Instantaneous)
-                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.IndividualsUnique)
-                    .SetRestrictedCreatureFamilies(
-                        DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
-                            .Where(x => x != CharacterFamilyDefinitions.Construct &&
-                                        x != CharacterFamilyDefinitions.Undead)
-                            .Select(x => x.Name)
-                            .ToArray())
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetHealingForm(HealingComputation.Pool, 0, DieType.D1, 0, true,
-                                HealingCap.HalfMaximumHitPoints)
-                            .Build())
-                    .Build())
             .AddToDB();
 
         // LEVEL 07

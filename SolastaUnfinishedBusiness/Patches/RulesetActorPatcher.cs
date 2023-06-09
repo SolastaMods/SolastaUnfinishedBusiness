@@ -509,12 +509,21 @@ public static class RulesetActorPatcher
                         modifier.Value = level;
                     }
 
-                    //TODO: make this more generic. it supports Ranger Light Bearer subclass
-                    if (modifier.Operation == AttributeModifierOperation.Additive &&
-                        attribute.Key == AttributeDefinitions.HealingPool)
+                    //TODO: make this more generic. it supports Ancient Forest and Light Bearer subclasses
+                    //this will also not work if both subclasses are present...
+                    if (modifier.Operation != AttributeModifierOperation.Additive ||
+                        attribute.Key != AttributeDefinitions.HealingPool)
                     {
-                        modifier.Value = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger) * 5;
+                        continue;
                     }
+
+                    var levels =
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Druid,
+                            CircleOfTheAncientForest.Name) +
+                        hero.GetSubclassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger,
+                            RangerLightBearer.Name);
+
+                    modifier.Value = levels * 5;
                 }
             }
         }
