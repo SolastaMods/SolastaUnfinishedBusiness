@@ -71,7 +71,6 @@ internal static partial class DatabaseHelper
     }
     internal static class CharacterSizeDefinitions
     {
-        internal static CharacterSizeDefinition Large { get; } = GetDefinition<CharacterSizeDefinition>("Large");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
         internal static CharacterSizeDefinition Tiny { get; } = GetDefinition<CharacterSizeDefinition>("Tiny");

@@ -23,7 +23,7 @@ public static class CursorLocationBattleActionExecutingPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: fixes target selection panel remaining open after casting some targeted spells through invocations
-            //was caused by CastInvocation action (and custom ones) being still marked as available by CustomActionIdContext and this cursor re-opened previous cusrsor
+            //was caused by CastInvocation action (and custom ones) being still marked as available by CustomActionIdContext and this cursor re-opened previous cursor
             //fixed by marking all invocation actions as unavailable for this method, so it won't try to reopen
 
             var method = typeof(GameLocationCharacter).GetMethod(nameof(GameLocationCharacter.GetActionStatus));
