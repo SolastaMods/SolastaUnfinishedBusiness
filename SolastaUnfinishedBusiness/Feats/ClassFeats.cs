@@ -1155,7 +1155,7 @@ internal static class ClassFeats
             var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
                 .Create($"Power{NAME}{i}")
                 .SetGuiPresentation(
-                    Gui.Format($"Feature/&Power{NAME}Title", i.ToString(), rounds.ToString()),
+                    Gui.Format($"Feature/&Power{NAME}Title", Gui.ToRoman(i)),
                     Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
                 .SetSharedPool(ActivationTime.BonusAction, powerPool)
                 .SetEffectDescription(EffectDescriptionBuilder.Create()
