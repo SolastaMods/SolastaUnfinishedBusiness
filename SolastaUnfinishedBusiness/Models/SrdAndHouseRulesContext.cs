@@ -1054,6 +1054,7 @@ internal static class FlankingRules
         var defender = evaluationParams.defender;
         var actionModifier = evaluationParams.attackModifier;
 
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (evaluationParams.attackProximity)
         {
             case BattleDefinitions.AttackProximity.PhysicalRange:

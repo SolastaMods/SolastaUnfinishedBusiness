@@ -110,11 +110,13 @@ public static class RulesetCharacterPatcher
                     continue;
                 }
 
-                if (effect.SourceDefinition.HasSubFeatureOfType<ForceRetargetAvailability>())
+                if (!effect.SourceDefinition.HasSubFeatureOfType<ForceRetargetAvailability>())
                 {
-                    __result = effect;
-                    return;
+                    continue;
                 }
+
+                __result = effect;
+                return;
             }
         }
     }
