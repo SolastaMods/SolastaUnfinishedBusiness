@@ -11,8 +11,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static RuleDefinitions;
-using SolastaUnfinishedBusiness.Subclasses;
-using System.Drawing.Text;
 using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.CustomBuilders;
