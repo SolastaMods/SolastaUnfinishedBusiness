@@ -3,15 +3,20 @@
 1.5.52.1:
 
 - added Innovation Vivisectionist subclass [looking for feedback]
-- changed flanking rules to be by the book, and added a separate higher ground house rule
+- changed flanking rules to be as tabletop, and added a separate higher ground house rule
 - changed Soulblade's summon pact weapon to use a bonus action instead of a free one
 - fixed custom weapons not getting the proper bonuses to hit and to damage
-- fixed vanilla Haste spell not allowing the sequence attack / cast spell
+- fixed Haste spell not allowing the sequence attack / cast spell
+- fixed Path of the Savagery not using strength on ability checks from level 14th
+- fixed Path of the Savagery triggering critical threshold increase on misses
+- fixed Piercer feat trying to reroll D1s
+- fixed target selection panel not closing after casting some targeted spells through invocations
 - fixed Shadow Blade spell granting advantage to any attack if blade in hands
 - improved flanking rules to highlight advantage on hovering cursor tooltip
 - improved integration between Potent Spellcaster and Spell Sniper feats
 - improved Soulblade's soul hex to allow retargeting after target dies
 - removed grievous wound from Path of the Savagery wrath and fury feature
+- removed "Make all wildshape medium in size" setting now that TA coded it officially
 
 1.5.52.0:
 

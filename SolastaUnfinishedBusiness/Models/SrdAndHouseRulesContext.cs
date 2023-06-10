@@ -57,16 +57,6 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
-    private static readonly string[] LargeWildshapeForms =
-    {
-        "WildShapeAirElemental", //
-        "WildShapeFireElemental", //
-        "WildShapeEarthElemental", //
-        "WildShapeWaterElemental", //
-        "WildShapeApe", //
-        "WildShapeTundraTiger" //
-    };
-
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
     private static readonly List<MonsterDefinition> MonstersThatEmitLight = new()
@@ -99,7 +89,6 @@ internal static class SrdAndHouseRulesContext
         SwitchFilterOnHideousLaughter();
         SwitchFullyControlConjurations();
         SwitchMagicStaffFoci();
-        SwitchMakeLargeWildshapeFormsMedium();
         SwitchRecurringEffectOnEntangle();
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
@@ -512,18 +501,6 @@ internal static class SrdAndHouseRulesContext
         foreach (var conjuredMonster in ConjuredMonsters)
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
-        }
-    }
-
-    internal static void SwitchMakeLargeWildshapeFormsMedium()
-    {
-        foreach (var monsterDefinitionName in LargeWildshapeForms)
-        {
-            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
-
-            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
-                ? CharacterSizeDefinitions.Medium
-                : CharacterSizeDefinitions.Large;
         }
     }
 

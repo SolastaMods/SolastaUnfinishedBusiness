@@ -13,6 +13,6 @@ Feature/&PowerSoulBladeSoulShieldTitle=Bouclier d'âme
 Feature/&PowerSoulBladeSummonPactWeaponDescription=Vous pouvez invoquer une forme spirituelle d'arme à partir de votre pacte par une action libre. Par une action bonus, vous pouvez diriger l'arme comme vous le souhaitez pour attaquer vos ennemis. L'arme se déplace jusqu'à 20 pieds à chaque fois avant de frapper.
 Feature/&PowerSoulBladeSummonPactWeaponTitle=Arme du pacte spirituel
 Feedback/&AdditionalDamageHexFormat=Hex !
-Feedback/&AdditionalDamageHexLine={0} hexagones d'âme {1} (+{2})
+Feedback/&AdditionalDamageHexLine=Soul Hex fait subir à {1} +{2} dégâts supplémentaires !
 Subclass/&PatronSoulBladeDescription=Vous avez conclu un marché avec une arme sensible que vous nourrissez des âmes en échange de pouvoir.
 Subclass/&PatronSoulBladeTitle=L'âmelame

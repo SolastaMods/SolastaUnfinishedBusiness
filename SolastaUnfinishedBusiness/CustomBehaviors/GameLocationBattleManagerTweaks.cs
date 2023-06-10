@@ -148,6 +148,7 @@ internal static class GameLocationBattleManagerTweaks
              * [CE] EDIT START
              * Support for `CharacterLevel` damage progression
              */
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
             else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
                      ExtraAdditionalDamageAdvancement.CharacterLevel)
             {
@@ -159,6 +160,26 @@ internal static class GameLocationBattleManagerTweaks
             }
             /*
              * Support for `CharacterLevel` damage progression
+             * [CE] EDIT END
+             * ######################################
+             */
+            /*
+             * ######################################
+             * [CE] EDIT START
+             * Support for `ConditionAmount` damage progression
+             */
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.ConditionAmount)
+            {
+                var condition =
+                    attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                if (condition != null)
+                {
+                    diceNumber = provider.GetDiceOfRank(condition.Amount);
+                }
+            }
+            /*
+             * Support for `ConditionAmount` damage progression
              * [CE] EDIT END
              * ######################################
              */
@@ -224,6 +245,73 @@ internal static class GameLocationBattleManagerTweaks
              */
             additionalDamageForm.DiceNumber = diceNumber;
         }
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         */
+        else if ((ExtraAdditionalDamageValueDetermination)provider.DamageValueDetermination ==
+                 ExtraAdditionalDamageValueDetermination.FlatWithProgression)
+        {
+            var bonus = provider.FlatBonus;
+
+            if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.ClassLevel)
+            {
+                // Find the character class which triggered this
+                var classDefinition = hero?.FindClassHoldingFeature(featureDefinition);
+
+                if (classDefinition != null)
+                {
+                    var classLevel = hero.ClassesAndLevels[classDefinition];
+                    bonus += provider.GetDiceOfRank(classLevel);
+                }
+            }
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.CharacterLevel)
+            {
+                if (hero != null)
+                {
+                    var characterLevel = hero.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+                    bonus += provider.GetDiceOfRank(characterLevel);
+                }
+            }
+            else if ((ExtraAdditionalDamageAdvancement)provider.DamageAdvancement ==
+                     ExtraAdditionalDamageAdvancement.ConditionAmount)
+            {
+                var condition =
+                    attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                if (condition != null)
+                {
+                    bonus += provider.GetDiceOfRank(condition.Amount);
+                }
+            }
+            else if (provider.DamageAdvancement == RuleDefinitions.AdditionalDamageAdvancement.SlotLevel)
+            {
+                if (reactionParams != null)
+                {
+                    bonus += provider.GetDiceOfRank(reactionParams.IntParameter);
+                }
+                else
+                {
+                    var condition =
+                        attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
+                    if (condition != null)
+                    {
+                        bonus += provider.GetDiceOfRank(condition.EffectLevel);
+                    }
+                }
+            }
+
+            additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
+            additionalDamageForm.DiceNumber = 0;
+            additionalDamageForm.BonusDamage = bonus;
+        }
+        /*
+         * Support for ExtraAdditionalDamageValueDetermination.FlatWithProgress
+         * [CE] EDIT END
+         * ######################################
+         */
         /*
         * ######################################
         * [CE] EDIT START

@@ -66,6 +66,13 @@ internal class ConditionDefinitionBuilder
         return SetAmountOrigin((ConditionDefinition.OriginOfAmount)value);
     }
 
+    internal ConditionDefinitionBuilder SetFixedAmount(int value)
+    {
+        Definition.amountOrigin = ConditionDefinition.OriginOfAmount.Fixed;
+        Definition.baseAmount = value;
+        return this;
+    }
+
     internal ConditionDefinitionBuilder AdditionalDiceDamageWhenHit(
         int dieNumber = 0,
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,

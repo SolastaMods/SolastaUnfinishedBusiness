@@ -6,7 +6,7 @@ Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription=1시간 동안 산�
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle=산성 보호 맥주
 Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription=1시간 동안 번개 피해에 대한 저항력을 얻습니다.
 Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle=번개 보호 맥주
-Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription=1시간 동안 괴사 피해에 대한 저항력을 얻습니다.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription=1시간 동안 괴사 손상에 대한 저항력을 얻습니다.
 Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle=괴저 보호 맥주
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription=1시간 동안 독 피해에 대한 저항력을 얻습니다.
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle=독 보호 맥주
@@ -40,4 +40,4 @@ Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTr
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0}은(는) {1}을 생성합니다.
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0}은(는) {1}을 생성합니다.
 Subclass/&CircleOfTheAncientForestDescription=고대 드라이어드, 대드루이드, 물질계로 피를 흘리는 페이와일드의 현신, 원시 시대의 잊혀진 신들과 같은 강력한 자연 독립체와 관계를 맺었습니다. 그것은 당신이 자연 세계를 보호하기를 원하거나, 할 수 없는 먼 땅으로 여행을 가거나, 수명이 짧은 필사자에게는 이해할 수 없는 또 다른 동기를 가질 수 있습니다.
-Subclass/&CircleOfTheAncientForestTitle=고대 숲의 고리
+Subclass/&CircleOfTheAncientForestTitle=고대 숲의 원

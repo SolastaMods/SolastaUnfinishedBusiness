@@ -13,6 +13,6 @@ Feature/&PowerSoulBladeSoulShieldTitle=Escudo da Alma
 Feature/&PowerSoulBladeSummonPactWeaponDescription=Você pode invocar uma forma espiritual de uma arma de seu pacto como uma ação livre. Como uma ação bônus, você pode direcionar a arma como desejar para atacar seus inimigos. A arma se move até 20 pés cada vez antes de atacar.
 Feature/&PowerSoulBladeSummonPactWeaponTitle=Arma do Pacto Espiritual
 Feedback/&AdditionalDamageHexFormat=Hex!
-Feedback/&AdditionalDamageHexLine={0} feitiços de alma {1} (+{2})
+Feedback/&AdditionalDamageHexLine=Soul Hex faz com que {1} sofra +{2} de dano adicional!
 Subclass/&PatronSoulBladeDescription=Você fez uma barganha com uma arma senciente que alimenta as almas em troca de poder.
 Subclass/&PatronSoulBladeTitle=A Lâmina da Alma

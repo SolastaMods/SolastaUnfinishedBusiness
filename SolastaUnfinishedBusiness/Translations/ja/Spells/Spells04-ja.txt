@@ -8,5 +8,5 @@ Spell/&BrainBulwarkDescription=期間中、あなたまたは範囲内で見え�
 Spell/&BrainBulwarkTitle=ブレインブルワーク
 Spell/&GravitySinkholeDescription=敵を引き寄せ、重力エネルギーで粉砕します。
 Spell/&GravitySinkholeTitle=重力シンクホール
-Spell/&StaggeringSmiteDescription=この呪文の持続時間中に次にあなたが武器攻撃でクリーチャーを攻撃すると、あなたの武器は体と精神の両方を貫通し、その攻撃はターゲットに追加の 4d6 精神的ダメージを与えます。ターゲットはウィズダム・セーヴィング・スローを行わなければなりません。セーブに失敗すると、次のターンの終了時まで、攻撃ロールと能力判定に不利になり、反応を取ることができません。
+Spell/&StaggeringSmiteDescription=この呪文の持続時間中に次にあなたが武器攻撃でクリーチャーを攻撃するとき、あなたの武器は体と精神の両方を貫通し、その攻撃はターゲットに追加の 4d6 精神的ダメージを与えます。ターゲットはウィズダム・セーヴィング・スローを行わなければなりません。セーブに失敗すると、次のターンの終了時まで、攻撃ロールと能力判定に不利になり、反応を取ることができません。
 Spell/&StaggeringSmiteTitle=よろめきのスマイト

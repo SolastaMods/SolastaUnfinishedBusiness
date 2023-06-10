@@ -1,10 +1,10 @@
 Feature/&CastSpellSpellShieldDescription=Lance feitiços e truques mágicos.
 Feature/&CastSpellSpellShieldTitle=Feitiço
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Adicione seu modificador de Força ou Destreza, o que for maior, à CD do teste de resistência à magia e à jogada de ataque à magia.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Adicione seu modificador de Força ou Destreza, o que for maior, à CD do seu teste de resistência à magia e à jogada de ataque à magia.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigor
 Feature/&PowerSpellShieldArcaneDeflectionDescription=Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +3 para sua classe de armadura até o próximo turno.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Deflexão Arcana
 Feature/&PowerSpellShieldRangedDeflectionDescription=Quando um atacante que você pode ver o atinge com um ataque à distância ou feitiço, você pode usar sua reação para reduzir pela metade o dano do ataque contra você.
-Feature/&PowerSpellShieldRangedDeflectionTitle=Deflexão à Distância
+Feature/&PowerSpellShieldRangedDeflectionTitle=Deflexão à distância
 Subclass/&MartialSpellShieldDescription=Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para auxiliar suas habilidades naturais.
 Subclass/&MartialSpellShieldTitle=Escudo Mágico

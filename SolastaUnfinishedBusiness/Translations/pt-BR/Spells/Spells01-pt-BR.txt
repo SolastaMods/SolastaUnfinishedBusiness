@@ -50,5 +50,5 @@ Spell/&SubSpellChromaticOrbDescription=A criatura sofre 3d8 {0} de dano.
 Spell/&SubSpellSkinOfRetributionDescription=A criatura leva 5 {0} por nível de magia.
 Spell/&ThunderousSmiteDescription=Em seu próximo golpe, sua arma ressoa com um trovão e o ataque causa 2d6 de dano trovejante extra ao alvo. Além disso, se o alvo for uma criatura, ele deve passar em um teste de resistência de Força ou será empurrado 3 metros para longe de você e cairá no chão.
 Spell/&ThunderousSmiteTitle=Thunderous Smite
-Spell/&WrathfulSmiteDescription=Seu próximo golpe causa 1d6 de dano psíquico adicional. Se o alvo falhar no teste de resistência de SAB, sua mente explode de dor e ele fica assustado.
+Spell/&WrathfulSmiteDescription=Seu próximo golpe causa 1d6 de dano psíquico adicional. Se o alvo falhar no teste de resistência de SAB, sua mente explode de dor e ele fica amedrontado.
 Spell/&WrathfulSmiteTitle=Punição Colérica

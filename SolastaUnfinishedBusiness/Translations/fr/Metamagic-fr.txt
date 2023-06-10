@@ -1,7 +1,7 @@
 Failure/&FailureFlagSpellMustBeOfTargetArea=Le sort doit avoir une zone d'effet conique, cube, cylindrique ou sphérique
 Failure/&FailureFlagSpellMustHaveDamageForm=Le sort doit avoir au moins une forme de dégâts
 Failure/&FailureFlagSpellMustRequireConcentration=Le sort doit demander de la concentration
-Failure/&FailureFlagSpellRangeMustBeSelf=La portée du sort doit être auto
+Failure/&FailureFlagSpellRangeMustBeSelf=La portée du sort doit être self
 Feature/&MetamagicAltruisticSpellAllyDescription=Créez un sort pour cibler un allié à moins de 9 mètres au lieu de vous-même.
 Feature/&MetamagicAltruisticSpellAllyTitle=Sort partagé, allié uniquement
 Feature/&MetamagicAltruisticSpellDescription=Lorsque vous lancez un sort vous ciblant, vous pouvez dépenser 1 point de sorcellerie pour affecter à la place un allié à moins de 9 mètres. Ou vous pouvez dépenser 3 points de sorcellerie pour vous affecter vous-même et un allié à 9 mètres.

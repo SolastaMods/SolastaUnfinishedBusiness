@@ -7,11 +7,11 @@ ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóid
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
-ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Carteirista</color> estiver ativado]</color></i>
+ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furtos <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore=Adicionar à loja
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
-ModUi/&AllItemInDm=Todos os itens na DM
+ModUi/&AllItemInDm=Todos os itens em DM
 ModUi/&AllRecipesInDm=Todas as receitas na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
@@ -72,7 +72,7 @@ ModUi/&DungeonMakerBasicHelp=. Essas configurações não exigirão que o jogado
 ModUi/&DungeonMakerMenu=Criador de Masmorras
 ModUi/&EmpressGarbAppearance=Aparência de <color=#D89555>Traje de Imperatriz</color>
 ModUi/&EnableAdditionalBackstoryDisplay=Ativar exibição adicional de histórico na inspeção de plano de fundo
-ModUi/&EnableAdditionalIconsOnLevelMap=Ativar ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
+ModUi/&EnableAdditionalIconsOnLevelMap=Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de níveis
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
 ModUi/&EnableBarbarianFightingStyle=Habilite a opção <color=#D89555>Bárbaro</color> <b>Estilo de luta</b> no nível 2
@@ -84,7 +84,7 @@ ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para ex
 ModUi/&EnableCharactersOnFireToEmitLight=Personagens em chamas devem emitir luz <i><color=#F0DAA0>[Cubo de Luz, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider e família de condição on fire]</color></i>
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
-ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 >[Requer reinicialização]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 10 e 18
 ModUi/&EnableFeatsAtEvenLevelsMiddle=Habilite a seleção de talentos nos níveis de classe 6 e 14
 ModUi/&EnableFighterWeaponSpecialization=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
@@ -149,7 +149,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar <colo
 ModUi/&ImproveLevelUpFeaturesSelection=Melhore a seleção de recursos de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color= #D89555>Ranger</color> Inimigo preferido e afinidade de terreno, <color=#D89555>Druida</color> Besta gémea, <color=#D89555>Bárbaro</color> Caminho dos Elementos e subclasses Escolhas dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color>< /i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -163,7 +163,6 @@ ModUi/&ItemsCraftingMerchants=Artesanato, itens e comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para adicionar itens aos heróis...</color>
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner de solo</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Transforme todos os cajados mágicos em focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Tornar todos os formulários de forma selvagem grandes de tamanho médio
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa de nível após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
@@ -172,7 +171,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagens
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
@@ -182,7 +181,7 @@ ModUi/&Progression=<color=#F0DAA0>Progressão:</color>
 ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM
-ModUi/&RelicForgeries=falsificações de relíquias
+ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Gargalhada</color>
@@ -213,9 +212,9 @@ ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dica
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellLevelFilter=<b><i><color=white>filtro de nível de feitiço</color> <color=#F0DAA0>[-1 exibe tudo]</color></i></b>
 ModUi/&SpellsMenu=Feitiços
-ModUi/&StockGorimStoreWithAllNonMagicalClothing=Loja de estoque de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=Armazene a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Loja de estoque de Gorim com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club< /color> definido como itens de foco
+ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&TargetLanguage=Idioma Alvo
@@ -227,7 +226,7 @@ ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&Translations=Traduções
 ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em dispositivos NPC
 ModUi/&UnleashNpcAsEnemy=Desbloqueie a seleção de monstros
-ModUi/&UnlockAllNpcFaces=Desbloqueie rostos de NPC
+ModUi/&UnlockAllNpcFaces=Desbloquear rostos NPC
 ModUi/&UnlockEyeStyles=Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes para todas as marcas e tatuagens
 ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes
@@ -235,9 +234,9 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Desbloqueie marcas de origem <color=
 ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&Update=<b><color=#D89555>Atualizar</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=Use modelos de face <color=#D89555>Elf</color> em <color=#D89555>Tieflings</color>
-ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao lançar <color=#D89555>Tentáculos negros, emaranhado, graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555 >Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem do DnD <i><color=#F0DAA0>[se as circunstâncias fizerem com que uma rolagem tenha ambos, considera-se que você não tem nenhum deles]</color></i>
-ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento do DnD <i><color=#F0DAA0>[se um aliado estiver do lado oposto, o atacante tem vantagem]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>Também habilite para ataques à distância</i>
-ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial DnD de 2 libras
+ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem <i><color=#F0DAA0>[se as circunstâncias fizerem com que um teste tenha ambos, considera-se que você não tem nenhum deles]</color></i>
+ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à distância</i>
+ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

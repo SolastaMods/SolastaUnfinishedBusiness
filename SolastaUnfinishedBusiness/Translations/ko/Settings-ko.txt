@@ -84,7 +84,7 @@ ModUi/&EnableCharacterExport=문자를 내보내려면 <color=#1E81B0>CTRL-SHIFT
 ModUi/&EnableCharactersOnFireToEmitLight=불이 붙은 캐릭터는 빛을 발산해야 합니다. <i><color=#F0DAA0>[Cube of Light, Fire Elemental, Fire Jester, Fire Osprey, Fire Spider, and on fire condition family]</color></i>
 ModUi/&EnableCheatMenu=치트 메뉴 활성화
 ModUi/&EnableDungeonMakerModdedContent=Dungeon Maker Pro 사용\n<i><color=#F0DAA0>[평평한 방, 150x150 및 200x200 던전 크기 포함, 모든 환경의 애셋 혼합 없음]</color></i>
-ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레이 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0 >[다시 시작해야 함]</color></i></b>
+ModUi/&EnableEpicPointsAndArray=에픽 35포인트 구매 시스템 및 어레이 활성화 <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=클래스 레벨 2, 10 및 18에서 재주 선택 활성화
 ModUi/&EnableFeatsAtEvenLevelsMiddle=클래스 레벨 6 및 14에서 재주 선택 활성화
 ModUi/&EnableFighterWeaponSpecialization=클래스 레벨 8 및 16에서 <color=#D89555>전투기</color> <b>무기 전문화</b>를 활성화합니다. <i><color=#F0DAA0>[적중 및 피해에 +1을 받지만 다른 모든 경우에는 불리합니다. 무기 유형]</color></i>
@@ -149,7 +149,7 @@ ModUi/&IgnoreHandXbowFreeHandRequirements=<color=#D89555>손 석궁</color>을 �
 ModUi/&ImproveLevelUpFeaturesSelection=레벨 업 기능 선택 개선 <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>\n<i><color=#F0DAA0>[영향 <color= #D89555>레인저</color> 선호하는 적 및 지형 선호도, <color=#D89555>드루이드</color> 킨드레드 비스트, <color=#D89555>야만인</color> 요소 및 하위 클래스 드라코닉 선택의 경로]</color></i>
 ModUi/&IncreaseGameTimeBy=게임 시간 증가
 ModUi/&IncreaseMaxAttunedItems=최대 조율 아이템을 레벨 10에서 4개, 레벨 18에서 5개로 증가
-ModUi/&IncreaseSenseNormalVision=<color=white><color=#D89555>일반 시야 감지</color> 범위를 늘려 장거리 공격 가능</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color>< /i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white><color=#D89555>일반 시야 감지</color> 범위를 늘려 장거리 공격 가능</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[적들이 너무 멀리서 합류하는 것을 피하려면 40이 이상적입니다.]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>만들기:</color>
 ModUi/&Input=<color=#F0DAA0>입력:</color>
@@ -163,7 +163,6 @@ ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>영웅에게 아이템을 추가하려면 캐릭터 검사 화면을 여세요...</color>
 ModUi/&ItemsHelp2=<b>그라운드 컨테이너에 항목을 추가하려면 +를 누르십시오</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 신비한 초점으로 <i><color=#F0DAA0>[보편적인 <color=#D89555>치유 지팡이</color> 제외]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=모든 큰 야생 형태를 중간 크기로 만듭니다.
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 ​​표시</i>
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
@@ -215,7 +214,7 @@ ModUi/&SpellLevelFilter=<b><i><color=white>주문 수준 필터</color> <color=#
 ModUi/&SpellsMenu=주문
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=모든 비마법 의류로 고림의 상점을 비축합니다. <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=모든 비마법 악기가 있는 고림의 상점 재고 <b><i><color=#C04040E0>[재시작 필요]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<으로 휴고의 상점을 비축합니다. /color> 초점 항목으로 설정
+ModUi/&StockHugoStoreWithAdditionalFoci=<color=#D89555>아케인 스태프</color>, <color=#D89555>드루이드 넥</color>, <color=#D89555>스태프</color> 및 <color=#D89555>클럽<이 있는 휴고의 상점 재고 확보 /color> 초점 항목으로 설정
 ModUi/&Subclasses=<color=#F0DAA0>하위 클래스</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ 상점에서 레시피와 제작 아이템 아이콘 교체</i>
 ModUi/&TargetLanguage=대상 언어
@@ -235,9 +234,9 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=모든 캐릭터의 <color=#D89555>�
 ModUi/&UnlockSkinColors=피부색 잠금 해제
 ModUi/&Update=<b><color=#D89555>업데이트</color></b>
 ModUi/&UseElfFaceModelsOnTieflings=<color=#D89555>티플링</color>에 <color=#D89555>엘프</color> 얼굴 모델 사용
-ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다. >스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 DnD 이점/불리점 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 두 가지가 모두 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
-ModUi/&UseOfficialFlankingRules=공식 DnD 플랭킹 규칙을 사용하세요. <i><color=#F0DAA0>[아군이 반대편에 있으면 공격자가 유리합니다]</color></i>
-ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>원거리 공격도 가능</i>
-ModUi/&UseOfficialFoodRationsWeight=공식 DnD <color=#D89555>식량 배급</color> 무게 2파운드를 사용하세요.
+ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> 또는 <color=#D89555를 시전할 때 높이 1 실린더 효과를 사용합니다.>스파이크 성장</color> <i><color=#F0DAA0>[라운드]</color></i>
+ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 이점/불이익 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 판정에 둘 다 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
+ModUi/&UseOfficialFlankingRules=공식 플랭킹 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 유리함]</color></i>
+ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 가능</i>
+ModUi/&UseOfficialFoodRationsWeight=2파운드의 공식 <color=#D89555>식량 배급량</color>을 사용하세요.
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>
