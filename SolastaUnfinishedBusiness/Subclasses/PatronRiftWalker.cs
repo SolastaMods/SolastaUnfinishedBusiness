@@ -64,13 +64,13 @@ internal class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment)
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
+            .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
                 .SetNoSavingThrow()
                 .Build())
             .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
-            .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
 
         var powerRiftWalkerRiftControl = FeatureDefinitionPowerBuilder
