@@ -238,5 +238,6 @@ ModUi/&UseHeightOneCylinderEffect=<color=#D89555>Black Tentacles, Entangle, Grea
 ModUi/&UseOfficialAdvantageDisadvantageRules=공식적인 이점/불이익 규칙을 사용하십시오. <i><color=#F0DAA0>[상황에 따라 판정에 둘 다 있는 경우 둘 다 없는 것으로 간주됩니다]</color></i>
 ModUi/&UseOfficialFlankingRules=공식 플랭킹 규칙 사용 <i><color=#F0DAA0>[아군이 대상의 반대편에 있으면 공격자가 유리함]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ 원거리 공격도 가능</i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ 범위 공격에도 사용 가능</i>
 ModUi/&UseOfficialFoodRationsWeight=2파운드의 공식 <color=#D89555>식량 배급량</color>을 사용하세요.
 ModUi/&Visuals=<color=#F0DAA0>영상:</color> <b><i><color=#C04040E0>[다시 시작해야 함]</color></i></b>

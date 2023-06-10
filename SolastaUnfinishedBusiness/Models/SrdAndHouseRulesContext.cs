@@ -1007,6 +1007,14 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
+            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
+        {
+            return;
+        }
+
         actionModifier.AttackAdvantageTrends.Add(
             new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
     }
