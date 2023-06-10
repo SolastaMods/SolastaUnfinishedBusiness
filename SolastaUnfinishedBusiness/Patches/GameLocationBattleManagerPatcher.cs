@@ -1259,9 +1259,8 @@ public static class GameLocationBattleManagerPatcher
         public static IEnumerator Postfix(
             IEnumerator values,
             GameLocationBattleManager __instance,
-            GameLocationCharacter attacker, 
-            GameLocationCharacter defender,
-            int damageAmount, 
+            GameLocationCharacter attacker, GameLocationCharacter damagedCharacter, 
+            int damageAmount,
             RulesetEffect rulesetEffect, 
             List<string> effectiveDamageTypes)
         {
@@ -1272,10 +1271,11 @@ public static class GameLocationBattleManagerPatcher
             }
 
             foreach (var attackInitiated in
-                     defender.RulesetCharacter.GetSubFeaturesByType<IDamageReceived>())
+                     damagedCharacter.RulesetCharacter.GetSubFeaturesByType<IDamageReceived>())
             {
-                yield return attackInitiated.OnDamageReceived(attacker, defender, damageAmount, rulesetEffect, effectiveDamageTypes);
+                yield return attackInitiated.OnDamageReceived(attacker, damagedCharacter, damageAmount, rulesetEffect, effectiveDamageTypes);
             }
+
         }
     }
 }

@@ -16,6 +16,7 @@ using SolastaUnfinishedBusiness.Properties;
 using TA;
 using TA.AI.Activities;
 using UnityEngine;
+using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -121,6 +122,7 @@ internal static class RaceOligathBuilder
             public int HitPoints;
             public bool Prone;
             public bool IsDeadOrDyingOrUnconscious;
+            public bool CanReact;
         }
 
         private readonly FeatureDefinitionPower featureDefinitionPower;
@@ -150,6 +152,7 @@ internal static class RaceOligathBuilder
             {
                 HitPoints = rulesetDefender.CurrentHitPoints,
                 Prone = defender.Prone,
+                CanReact = defender.CanReact(),
                 IsDeadOrDyingOrUnconscious = rulesetDefender.IsDeadOrDyingOrUnconscious
             };
         }
@@ -181,7 +184,9 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            if (rulesetDefender.isDead || prevStatus.IsDeadOrDyingOrUnconscious)
+            if (rulesetDefender.isDead 
+                || prevStatus.IsDeadOrDyingOrUnconscious 
+                || !prevStatus.CanReact)
             {
                 yield break;
             }
@@ -225,7 +230,7 @@ internal static class RaceOligathBuilder
             {
                 defender.SetProne(false);
             }
-
+            defender.SpendActionType(ActionType.Reaction);
         }
 
         private static int CalculateReducedDamage(RulesetActor rulesetDefender, int damageAmount = -1)
