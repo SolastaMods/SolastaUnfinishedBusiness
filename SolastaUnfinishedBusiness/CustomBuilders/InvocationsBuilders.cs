@@ -649,7 +649,7 @@ internal static class InvocationsBuilders
         {
             var actingCharacter = action.ActingCharacter;
 
-            if (actingCharacter.RulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
+            if (actingCharacter.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
                 yield break;
             }

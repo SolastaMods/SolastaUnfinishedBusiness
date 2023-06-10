@@ -22,8 +22,8 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
 
         foreach (var feature in defender.GetFeaturesByType<FeatureDefinitionReduceDamage>())
         {
-            if (feature.DamageTypes != null 
-                && !feature.DamageTypes.Empty() 
+            if (feature.DamageTypes != null
+                && !feature.DamageTypes.Empty()
                 && !feature.DamageTypes.Contains(damageType))
             {
                 continue;
@@ -31,13 +31,20 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
 
             var prefix = $"{feature.Name}:{defender.Guid}:";
             var k = formsParams.sourceTags.FindIndex(x => x.StartsWith(prefix));
-            if (k < 0) { continue; }
+
+            if (k < 0)
+            {
+                continue;
+            }
 
             var tag = formsParams.sourceTags[k];
+
             formsParams.sourceTags.RemoveAt(k);
+
             try
             {
                 var tmp = int.Parse(tag.Split(':')[2]);
+
                 if (reduction + tmp > damage)
                 {
                     tmp = reduction + tmp - damage;
@@ -53,7 +60,7 @@ internal sealed class FeatureDefinitionReduceDamage : FeatureDefinition
                 // ignored
             }
         }
-        
+
         return reduction;
     }
 }
