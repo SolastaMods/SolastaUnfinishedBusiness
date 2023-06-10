@@ -16,9 +16,8 @@ public sealed class Core
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
 {
-    private bool enumerateOriginSubFeatures;
-
-    private bool showButtonWithControlledMonsterInfo;
+    public bool enumerateOriginSubFeatures;
+    public bool showButtonWithControlledMonsterInfo;
 
     //
     // UI Saved State
@@ -109,6 +108,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEpicPointsAndArray { get; set; }
     public bool ImproveLevelUpFeaturesSelection { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
+
     public bool EnumerateOriginSubFeatures
     {
         get => enumerateOriginSubFeatures && EnableBetaContent;
@@ -225,7 +225,9 @@ public class Settings : UnityModManager.ModSettings
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
     public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+
     public List<string> BackgroundEnabled { get; } = new();
+
     // public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
     // public List<string> DeityEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -273,6 +275,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
+
     public int[][][] FormationGridSets { get; set; } =
     {
         new[]
@@ -324,6 +327,7 @@ public class Settings : UnityModManager.ModSettings
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
+
     public bool ShowButtonWithControlledMonsterInfo
     {
         get => showButtonWithControlledMonsterInfo && EnableBetaContent;
