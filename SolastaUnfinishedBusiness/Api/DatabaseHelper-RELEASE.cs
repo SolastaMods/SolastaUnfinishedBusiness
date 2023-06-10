@@ -348,7 +348,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
-        internal static FeatureDefinitionAdditionalDamage AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageOathOfJugementAuraOfRighteousnessWeapon");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinDivineSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_GhoulsCaress { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_GhoulsCaress");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyAberration { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyAberration");
