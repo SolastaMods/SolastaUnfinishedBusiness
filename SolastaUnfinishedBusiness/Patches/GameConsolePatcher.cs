@@ -50,7 +50,7 @@ public static class GameConsolePatcher
             console.AddEntry(entry, insertionIndex);
         }
     }
-    
+
     [HarmonyPatch(typeof(GameConsole), nameof(GameConsole.DamageReduced))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -65,20 +65,22 @@ public static class GameConsolePatcher
             //PATCH: allow damage reduction log to show damage types and show feature description on tooltip
             var prompt = "Feedback/&DamageReducedLine";
             var types = "";
-            var typenames = "";
-            if (feature is FeatureDefinitionReduceDamage {DamageTypes.Count: > 0} reduce)
+            var typeNames = "";
+
+            if (feature is FeatureDefinitionReduceDamage { DamageTypes.Count: > 0 } reduce)
             {
                 prompt = Gui.Localize("Feedback/&DamageReducedLine").Replace("{2}", "{2}{3}");
                 types = string.Join("", reduce.DamageTypes.Select(x => Gui.FormatDamageType(x)));
-                typenames = string.Join("\n", reduce.DamageTypes.Select(x => Gui.FormatDamageType(x, true)));
+                typeNames = string.Join("\n", reduce.DamageTypes.Select(x => Gui.FormatDamageType(x, true)));
             }
 
-            GameConsoleEntry entry = new GameConsoleEntry(prompt, __instance.consoleTableDefinition) {Indent = true};
+            var entry = new GameConsoleEntry(prompt, __instance.consoleTableDefinition) { Indent = true };
+
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower,
                 Gui.Localize(feature.GuiPresentation.Title), tooltipContent: feature.guiPresentation.Description);
             __instance.AddCharacterEntry(character, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, reductionAmount.ToString());
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Initiative, types, tooltipContent: typenames);
+            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Initiative, types, tooltipContent: typeNames);
 
             __instance.AddEntry(entry);
 
