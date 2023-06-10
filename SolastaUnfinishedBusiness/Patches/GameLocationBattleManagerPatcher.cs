@@ -688,11 +688,15 @@ public static class GameLocationBattleManagerPatcher
                         throw new ArgumentException("feature.TriggerCondition");
                 }
 
-                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,
-                    RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+                if (totalReducedDamage <= 0)
+                {
+                    continue;
+                }
 
-                damage.bonusDamage -= totalReducedDamage;
-                damage.DamageBonusTrends.Add(trendInfo);
+                var tag = $"{feature.Name}:{defender.Guid}:{totalReducedDamage}";
+                attackMode?.AttackTags.Add(tag);
+                rulesetEffect?.SourceTags.Add(tag);
+
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
             }
         }
