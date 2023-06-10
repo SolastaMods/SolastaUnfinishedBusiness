@@ -15,7 +15,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
-using TA.AI.Activities;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
