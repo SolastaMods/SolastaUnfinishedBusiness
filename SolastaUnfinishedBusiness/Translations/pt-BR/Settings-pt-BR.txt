@@ -238,5 +238,6 @@ ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conju
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem <i><color=#F0DAA0>[se as circunstâncias fizerem com que um teste tenha ambos, considera-se que você não tem nenhum deles]</color></i>
 ModUi/&UseOfficialFlankingRules=Use as regras oficiais de flanqueamento <i><color=#F0DAA0>[um atacante tem vantagem se um aliado estiver no lado oposto do alvo]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Ativar também para ataques à distância</i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Ativar também para ataques de alcance</i>
 ModUi/&UseOfficialFoodRationsWeight=Use <color=#D89555>ração alimentar</color> oficial de 2 libras
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
