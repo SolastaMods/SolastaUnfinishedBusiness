@@ -15,6 +15,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using TA;
+using TA.AI.Activities;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -534,6 +535,13 @@ public static class GameLocationBattleManagerPatcher
             }
 
             var defenderCharacter = defender.RulesetCharacter;
+            
+            // Process early for features that can apply if dead or dying
+            foreach (var attackInitiated in
+                     defenderCharacter.GetSubFeaturesByType<IBeforeDamageReceived>())
+            {
+                yield return attackInitiated.OnBeforeReceivedDamage(attacker, defender, attackMode, rulesetEffect, attackModifier, rolledSavingThrow, saveOutcomeSuccess);
+            }
 
             if (defenderCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -604,46 +612,46 @@ public static class GameLocationBattleManagerPatcher
 
                     // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
                     case RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot:
-                    {
-                        if (!canReact)
                         {
-                            continue;
+                            if (!canReact)
+                            {
+                                continue;
+                            }
+
+                            var repertoire = defenderCharacter.SpellRepertoires
+                                .Find(x => x.spellCastingClass == feature.SpellCastingClass);
+
+                            if (repertoire == null)
+                            {
+                                continue;
+                            }
+
+                            if (!repertoire.AtLeastOneSpellSlotAvailable())
+                            {
+                                continue;
+                            }
+
+                            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+                            var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
+                            var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
+                            {
+                                IntParameter = 1,
+                                StringParameter = feature.NotificationTag,
+                                SpellRepertoire = repertoire
+                            };
+
+                            actionService.ReactToSpendSpellSlot(reactionParams);
+
+                            yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
+
+                            if (!reactionParams.ReactionValidated)
+                            {
+                                continue;
+                            }
+
+                            totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
+                            break;
                         }
-
-                        var repertoire = defenderCharacter.SpellRepertoires
-                            .Find(x => x.spellCastingClass == feature.SpellCastingClass);
-
-                        if (repertoire == null)
-                        {
-                            continue;
-                        }
-
-                        if (!repertoire.AtLeastOneSpellSlotAvailable())
-                        {
-                            continue;
-                        }
-
-                        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-                        var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
-                        var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendSpellSlot)
-                        {
-                            IntParameter = 1,
-                            StringParameter = feature.NotificationTag,
-                            SpellRepertoire = repertoire
-                        };
-
-                        actionService.ReactToSpendSpellSlot(reactionParams);
-
-                        yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
-
-                        if (!reactionParams.ReactionValidated)
-                        {
-                            continue;
-                        }
-
-                        totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
-                        break;
-                    }
 
                     case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
                         break;
@@ -1238,6 +1246,35 @@ public static class GameLocationBattleManagerPatcher
                         __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
                         damageAmount);
                 }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleDefenderOnDamageReceived))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleDefenderOnDamageReceived_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker, 
+            GameLocationCharacter defender,
+            int damageAmount, 
+            RulesetEffect rulesetEffect, 
+            List<string> effectiveDamageTypes)
+        {
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            foreach (var attackInitiated in
+                     defender.RulesetCharacter.GetSubFeaturesByType<IDamageReceived>())
+            {
+                yield return attackInitiated.OnDamageReceived(attacker, defender, damageAmount, rulesetEffect, effectiveDamageTypes);
             }
         }
     }
