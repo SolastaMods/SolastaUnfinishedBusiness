@@ -562,13 +562,13 @@ internal static class RulesetCharacterExtensions
     internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
     {
         if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
-                .TryFindWorldCharacter(character, out var worlsCharacter))
+                .TryFindWorldCharacter(character, out var worldCharacter))
         {
             return;
         }
 
         var labels = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
-        if (!labels.characterLabelsMap.TryGetValue(worlsCharacter, out var label))
+        if (!labels.characterLabelsMap.TryGetValue(worldCharacter, out var label))
         {
             return;
         }

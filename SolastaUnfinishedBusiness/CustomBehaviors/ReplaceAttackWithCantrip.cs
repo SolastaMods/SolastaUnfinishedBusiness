@@ -86,10 +86,12 @@ internal static class ReplaceAttackWithCantrip
         rulesetCharacter.ExecutedAttacks++;
         rulesetCharacter.RefreshAttackModes();
 
-        if (character.UsedMainAttacks >= maxAllowedAttacks)
+        if (character.UsedMainAttacks < maxAllowedAttacks)
         {
-            character.currentActionRankByType[ACTION_TYPE]++;
-            character.UsedMainAttacks = 0;
+            return;
         }
+
+        character.currentActionRankByType[ACTION_TYPE]++;
+        character.UsedMainAttacks = 0;
     }
 }

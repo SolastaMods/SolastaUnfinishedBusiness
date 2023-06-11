@@ -74,11 +74,13 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionActionAffinityBuilder SetMaxAttackNumber(int maxAttack)
     {
         Definition.maxAttacksNumber = maxAttack;
         return this;
     }
+#endif
 
     #region Constructors
 

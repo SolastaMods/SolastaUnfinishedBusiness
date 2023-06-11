@@ -14,7 +14,8 @@ public static class FeatureDefinitionPatcher
     [UsedImplicitly]
     public static class AllowsDuplicate_Getter_Patch
     {
-        public static void Postfix(FeatureDefinition __instance, ref bool __result)
+        [UsedImplicitly]
+        public static void Postfix(FeatureDefinition __instance, out bool __result)
         {
             __result = __instance.HasSubFeatureOfType<AllowDuplicates>();
         }

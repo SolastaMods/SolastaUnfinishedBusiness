@@ -59,16 +59,17 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
         .AddToDB();
 
-    //Leaving this to not break some
-    private static readonly ConditionDefinition MomentumAlreadyApplied = ConditionDefinitionBuilder
-        .Create("ConditionWarDanceMomentumAlreadyApplied")
-        .SetGuiPresentationNoContent()
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-        .AddToDB();
-
     internal CollegeOfWarDancer()
     {
+        // BEGIN BACKWARD COMPATIBILITY
+        _ = ConditionDefinitionBuilder
+            .Create("ConditionWarDanceMomentumAlreadyApplied")
+            .SetGuiPresentationNoContent()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+        // END BACKWARD COMPATIBILITY
+
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
@@ -222,7 +223,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         return GetMomentumStacks(rulesetCharacter) >= (pb + 1) / 2;
     }
 
-    private static int GetMomentumStacks(RulesetCharacter character)
+    private static int GetMomentumStacks(RulesetActor character)
     {
         return character?.ConditionsByCategory
             .SelectMany(x => x.Value)

@@ -3,7 +3,7 @@
 public interface IActionExecutionHandled
 {
     /**
-     * Called after action execution has been accounted for - actions spent, attack numbers upodated, etc
+     * Called after action execution has been accounted for - actions spent, attack numbers updated, etc
      */
     void OnActionExecutionHandled(
         GameLocationCharacter character,
