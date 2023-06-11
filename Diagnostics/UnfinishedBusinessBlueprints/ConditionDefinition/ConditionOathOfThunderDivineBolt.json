@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:MovementAffinityOathOfHammerDivineBolt:2d81b905-81e1-5aa6-a6c3-7ac07152d9cd"
+    "Definition:MovementAffinityOathOfThunderDivineBolt:83304832-5725-5899-b26a-7e8b59426f7e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -264,8 +264,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionOathOfHammerDivineBoltTitle",
-    "description": "Condition/&ConditionOathOfHammerDivineBoltDescription",
+    "title": "Condition/&ConditionOathOfThunderDivineBoltTitle",
+    "description": "Condition/&ConditionOathOfThunderDivineBoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "37a0b9c04d666bc4eaf93a2a5ad0e2d2",
@@ -285,7 +285,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "64845a9c-e535-520a-9c85-db7aa0b4145d",
+  "guid": "a2795ab8-7c2f-5033-a937-ec9e598cce03",
   "contentPack": 9999,
-  "name": "ConditionOathOfHammerDivineBolt"
+  "name": "ConditionOathOfThunderDivineBolt"
 }

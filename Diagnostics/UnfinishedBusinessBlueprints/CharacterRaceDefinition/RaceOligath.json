@@ -1,0 +1,285 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "Neutral",
+  "dualSex": true,
+  "minimalAge": 120,
+  "maximalAge": 99,
+  "baseHeight": 3,
+  "baseWeight": 35,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierOligathStrengthAbilityScoreIncrease:9c0290d6-3f02-5069-9864-d5f629004c60",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierOligathConstitutionAbilityScoreIncrease:188a254c-13bd-5d2e-a799-235e24674bcd",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityOligathHotBlooded:49794b8d-bffb-5cdc-8d10-54789fb7ebce",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyOligathLanguages:b4c55bc0-1663-5e3c-a660-3858df85ea98",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyOligathNaturalAthlete:027ff7ae-3d0b-5451-a89c-95f3d4a5df64",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:EquipmentAffinityOligathPowerfulBuild:c325468a-cbb7-5dc4-8576-6923fb20b7e7",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOligathStoneEndurance:aedeb1f8-1203-5fd3-8e13-4a32a06a6dc4",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HumanFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 6.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "armorAssetPrefix": "Elf",
+    "helmetAssetPrefix": "Elf",
+    "faceShapeAssetPrefix": "Elf",
+    "hairShapeAssetPrefix": "Elf",
+    "beardShapeAssetPrefix": "Elf",
+    "hornsTailAssetPrefix": "",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
+    "availableMorphotypeCategories": [
+      "FaceShape",
+      "Skin",
+      "HairShape",
+      "BeardShape",
+      "BodyDecoration",
+      "HairColor",
+      "EyeColor",
+      "Age",
+      "Voice",
+      "Backstory",
+      "Pronoun",
+      "BodyDecorationColor",
+      "Scars",
+      "Musculature"
+    ],
+    "needBeard": false,
+    "defaultMusculature": 0,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Daliat_Sunbird",
+      "FaceShape_NPC_Ilastar_Keenmind_Airgetine",
+      "FaceShape_NPC_Iolair_Faisech",
+      "FaceShape_NPC_Llygath_Steelmind",
+      "FaceShape_NPC_Mardracht",
+      "FaceShape_NPC_Medwal_Strongfire",
+      "FaceShape_NPC_Nobleman",
+      "FaceShape_NPC_Orenetis",
+      "FaceShape_NPC_Serafiel_Anfarel",
+      "FaceShape_NPC_Lysantir",
+      "FaceShape_NPC_Esfalad_Graymas",
+      "FaceShape_NPC_Telerien_Purevoice",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_Dyssalim",
+      "FaceShape_NPC_Estorgath",
+      "FaceShape_NPC_Graybear",
+      "FaceShape_NPC_RhuadSwiftHand"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Ceiwad_Silverflower",
+      "FaceShape_NPC_Adrasteia_Epimeles_Aspis",
+      "FaceShape_NPC_Idriel_Fair_Brow",
+      "FaceShape_NPC_Joriel_Fox_Eye",
+      "FaceShape_NPC_Kiaradth_BrightSpark",
+      "FaceShape_NPC_Kythaela_Wildspring",
+      "FaceShape_NPC_Lizzaria_of_Grimhold",
+      "FaceShape_NPC_Ellaria_Anfarel",
+      "FaceShape_NPC_Finaliel_SharpMind",
+      "FaceShape_NPC_Malariel_Brogarad",
+      "FaceShape_NPC_Samko_Flint",
+      "FaceShape_G",
+      "FaceShape_H",
+      "FaceShape_I",
+      "FaceShape_NPC_LeralynGhost"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleHornsOptions": [
+      "Horns_None"
+    ],
+    "femaleHornsOptions": [
+      "Horns_None"
+    ],
+    "maleTailOptions": [
+      "Tail_None"
+    ],
+    "femaleTailOptions": [
+      "Tail_None"
+    ],
+    "maleBeardShapeOptions": [],
+    "showHelmet": true,
+    "showGauntlets": true,
+    "showShoes": true,
+    "hasGenderRelatedBodyDecoration": false,
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    },
+    "tailLengthScale": {
+      "$type": "TA.RangedFloat, Assembly-CSharp",
+      "minValue": 0.75,
+      "maxValue": 1.25
+    },
+    "musicalInstrumentScale": 1.0,
+    "raceAnimationTag": "Elf"
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&RaceOligathTitle",
+    "description": "Race/&RaceOligathDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6aeb82af-7acf-5379-a04b-40ad05a06fad",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9776b9fd-4499-5970-a666-e60cda3b1740",
+  "contentPack": 9999,
+  "name": "RaceOligath"
+}

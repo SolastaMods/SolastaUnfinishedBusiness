@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.5.52.3:
+
+- added Oligath race [by Otearaisu]
+- changed Oath of Hammers to Oath of Thunders [still beta and incomplete]
+- fixed Ready feat skipping next contender turn 
+- fixed Widen Spell increasing AoE size inconsistently
+- fixed Flanking rules miscalculating against larger targets
+
 1.5.52.2:
 
 - added Oath of Hammer subclass [beta, only level 3 implemented so far]

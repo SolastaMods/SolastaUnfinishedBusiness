@@ -15,15 +15,17 @@ using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroup
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-//Paladin Oath inspired from 5e Oath of Vengeance
-internal sealed class OathOfHammer : AbstractSubclass
+internal sealed class OathOfThunder : AbstractSubclass
 {
-    internal const string Name = "OathOfHammer";
+    internal const string Name = "OathOfThunder";
 
-    internal static readonly IsWeaponValidHandler IsBludgeoningDamage =
-        ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning);
+    internal static readonly IsWeaponValidHandler IsValidWeapon = (mode, item, character) =>
+        character.GetClassLevel(CharacterClassDefinitions.Paladin) >= 7
+            ? ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType, WeaponTypeDefinitions.WarhammerType)
+                (mode, item, character)
+            : ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType)(mode, item, character);
 
-    internal OathOfHammer()
+    internal OathOfThunder()
     {
         //
         // LEVEL 03
@@ -31,7 +33,7 @@ internal sealed class OathOfHammer : AbstractSubclass
 
         var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
-            .SetGuiPresentation("Subclass/&OathOfHammerTitle", "Feature/&DomainSpellsDescription")
+            .SetGuiPresentation("Subclass/&OathOfThunderTitle", "Feature/&DomainSpellsDescription")
             .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Thunderwave, SpellsContext.ThunderousSmite),
@@ -42,7 +44,7 @@ internal sealed class OathOfHammer : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 
-        // HammersBoon
+        // Hammer's Boon
 
         var featureHammersBoon = FeatureDefinitionBuilder
             .Create($"Feature{Name}HammersBoon")
@@ -51,7 +53,7 @@ internal sealed class OathOfHammer : AbstractSubclass
 
         featureHammersBoon.SetCustomSubFeatures(
             ReturningWeapon.Instance,
-            new ModifyWeaponAttackModeHammersBoon(featureHammersBoon));
+            new ModifyWeaponAttackModeHammerAndAxeBoon(featureHammersBoon));
 
         // ThunderousRebuke
 
@@ -67,7 +69,7 @@ internal sealed class OathOfHammer : AbstractSubclass
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.IndividualsUnique)
                     .SetSavingThrowData(false, AttributeDefinitions.Dexterity, true,
                         EffectDifficultyClassComputation.SpellCastingFeature)
-                    .SetParticleEffectParameters(Thunderwave)
+                    .SetParticleEffectParameters(ShockingGrasp)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -125,15 +127,25 @@ internal sealed class OathOfHammer : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // LEVEL 07
+
+        // Axe's Boom
+
+        var featureAxesBoon = FeatureDefinitionBuilder
+            .Create($"Feature{Name}AxesBoon")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfHammer, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.OathOfThunder, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells,
                 featureHammersBoon,
                 powerThunderousRebuke,
                 powerDivineBolt)
-            .AddFeaturesAtLevel(7)
+            .AddFeaturesAtLevel(7,
+                featureAxesBoon)
             .AddFeaturesAtLevel(15)
             .AddFeaturesAtLevel(20)
             .AddToDB();
@@ -147,11 +159,11 @@ internal sealed class OathOfHammer : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyWeaponAttackModeHammersBoon : IModifyWeaponAttackMode, IAttackComputeModifier
+    private sealed class ModifyWeaponAttackModeHammerAndAxeBoon : IModifyWeaponAttackMode, IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureHammersBoon;
 
-        public ModifyWeaponAttackModeHammersBoon(FeatureDefinition featureHammersBoon)
+        public ModifyWeaponAttackModeHammerAndAxeBoon(FeatureDefinition featureHammersBoon)
         {
             _featureHammersBoon = featureHammersBoon;
         }
@@ -163,7 +175,7 @@ internal sealed class OathOfHammer : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (IsBludgeoningDamage(attackMode, null, null))
+            if (IsValidWeapon(attackMode, null, null))
             {
                 return;
             }
@@ -174,7 +186,7 @@ internal sealed class OathOfHammer : AbstractSubclass
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!IsBludgeoningDamage(attackMode, null, null))
+            if (!IsValidWeapon(attackMode, null, null))
             {
                 return;
             }
