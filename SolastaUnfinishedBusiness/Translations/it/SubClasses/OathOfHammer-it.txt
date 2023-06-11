@@ -1,0 +1,14 @@
+Condition/&ConditionOathOfHammerDivineBoltDescription=La tua velocità di movimento è dimezzata.
+Condition/&ConditionOathOfHammerDivineBoltTitle=Bullone Divino
+Feature/&FeatureOathOfHammerHammersBoonDescription=Beneficerai dello stile di combattimento Rope It Up fintanto che impugni un'arma da mischia che infligge danni contundenti. Tutte le armi contundenti hanno proprietà di lancio per te con portata 20/60 e la tua funzione Punizione divina può essere utilizzata su tutti gli attacchi effettuati con queste armi. Hai lo svantaggio di attaccare con tutte le armi che non infliggono danni contundenti.
+Feature/&FeatureOathOfHammerHammersBoonTitle=Vantaggio dei martelli
+Feature/&PowerOathOfHammerDivineBoltDescription=Come azione bonus, puoi richiamare un fulmine per colpire una creatura nemica che puoi vedere entro 18 metri da te. La creatura deve superare un tiro salvezza su Destrezza o subire danni da fulmine pari alla metà del tuo livello da paladino (arrotondato per eccesso) in d6s e la sua velocità di movimento deve essere dimezzata fino all'inizio del tuo prossimo turno.
+Feature/&PowerOathOfHammerDivineBoltTitle=Incanalare Divinità: Fulmine Divino
+Feature/&PowerOathOfHammerThunderousRebukeDescription=Quando una creatura nemica ti colpisce con un attacco in mischia mentre ti trovi a una distanza massima di 1,5 metri da te, puoi usare Incanalare Divinità come reazione per colpirla con un tuono ruggente. La creatura prende il tuo livello da paladino come danno da tuono e deve superare il tiro salvezza su Forza o essere respinta indietro di 9 metri.
+Feature/&PowerOathOfHammerThunderousRebukeTitle=Channel Divinity: fragoroso rimprovero
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeDescription=Quando vieni danneggiato da un attacco in mischia, puoi usare la tua reazione per rimproverare il bersaglio.
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactDescription=Usa una reazione per rimproverare il bersaglio.
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactTitle=Fragoroso rimprovero
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeTitle=Fragoroso rimprovero
+Subclass/&OathOfHammerDescription=I Paladini del Martello sono nati per porre fine alla guerra eterna con i Giganti. Anche coloro che viaggiano lontano da casa sono ancora desiderosi di compiere il loro dovere, colpendo i loro nemici con la furia del tuono e il potere degli antichi dei.
+Subclass/&OathOfHammerTitle=Giuramento di martello

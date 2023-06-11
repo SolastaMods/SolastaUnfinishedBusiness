@@ -958,6 +958,14 @@ internal static class FlankingAndHigherGroundRules
         }
     }
 
+    private static void Log(string message)
+    {
+        if (Main.Settings.EnableFlankingLogging)
+        {
+            Main.Info(message);
+        }
+    }
+    
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -973,16 +981,44 @@ internal static class FlankingAndHigherGroundRules
         var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
         var flankingSide = GetEachSide(attackerSide)
             .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
-
-        return gameLocationBattleService.Battle.AllContenders
+        var allies = gameLocationBattleService.Battle.AllContenders
             .Where(x =>
                 x != attacker &&
                 x.Side == attacker.Side &&
                 x.CanAct() &&
                 gameLocationBattleService.IsWithin1Cell(x, defender))
-            .Select(ally => defenderPosition - ally.LocationPosition)
-            .Select(CellFlags.DirectionToAllSurfaceSides)
-            .Any(allySide => allySide == flankingSide);
+            .ToList();
+
+        if (allies.Count == 0)
+        {
+            return false;
+        }
+
+        Log("FLANKING DETERMINATION STARTED");
+        Log($"ATTACKER: {attacker.Name} POS: {attackerPosition} SIDE: {attackerSide}");
+        Log($"DEFENDER: {defender.Name} POS: {attackerPosition} SIZE: {defender.SizeParameters.maxExtent}");
+
+        foreach (var ally in allies)
+        {
+            var allyPosition = ally.LocationPosition;
+            var allyDirection = defenderPosition - allyPosition;
+            var allySide = CellFlags.DirectionToAllSurfaceSides(allyDirection);
+
+            Log($"ALLY: {ally.Name} POS: {allyPosition} SIDE: {allySide}");
+
+            if (allySide != flankingSide)
+            {
+                continue;
+            }
+
+            Log("FLANKING DETERMINATION SUCCEED");
+
+            return true;
+        }
+
+        Log("FLANKING DETERMINATION FAILED");
+
+        return false;
     }
 
     internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
@@ -1003,6 +1039,14 @@ internal static class FlankingAndHigherGroundRules
         }
 
         if (!IsFlanking(attacker, defender))
+        {
+            return;
+        }
+
+        var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+
+        if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
+            (gameLocationBattleService == null || !gameLocationBattleService.IsWithin1Cell(attacker, defender)))
         {
             return;
         }

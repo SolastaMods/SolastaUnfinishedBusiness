@@ -1113,7 +1113,7 @@ internal static class ClassFeats
 
         var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature, Gui.NoLocalization)
+            .SetGuiPresentationNoContent(true)
             .SetNotificationTag("SlayTheEnemy")
             .SetDamageValueDetermination(ExtraAdditionalDamageValueDetermination.FlatWithProgression)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)

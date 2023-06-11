@@ -163,8 +163,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Slay the Enemies 1",
-    "description": "You gain +1 to hit and damage rolls against non favored enemies for 3 rounds. You gain advantage against favored ones instead.",
+    "title": "Slay the Enemies I",
+    "description": "Consume level 1 spell slot to gain +1 to attack and damage rolls for 3 rounds. Against favored enemies attack roll bonus is replaced with advantage.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

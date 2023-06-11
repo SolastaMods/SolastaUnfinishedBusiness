@@ -33,6 +33,14 @@
         "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
         "Definition:DreadfulOmen:a06863ee662908a47a95ca334aa24b99"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 17,
+      "spellsList": [
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+        "Definition:DispelEvilAndGood:e901e74132f97ac458cc80e09da39c88"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",

@@ -238,5 +238,6 @@ ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lor
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utilisez les règles officielles d'avantage/désavantage <i><color=#F0DAA0>[si les circonstances font qu'un jet a les deux, vous êtes considéré comme n'ayant aucun des deux]</color></i>
 ModUi/&UseOfficialFlankingRules=Utilisez les règles officielles de flanquement <i><color=#F0DAA0>[un attaquant a l'avantage si un allié est du côté opposé de la cible]</color></i>
 ModUi/&UseOfficialFlankingRulesAlsoForRanged=<i>+ Activer également pour les attaques à distance</i>
+ModUi/&UseOfficialFlankingRulesAlsoForReach=<i>+ Activer également pour les attaques par portée</i>
 ModUi/&UseOfficialFoodRationsWeight=Utilisez la <color=#D89555>ration alimentaire</color> officielle d'un poids de 2 livres
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

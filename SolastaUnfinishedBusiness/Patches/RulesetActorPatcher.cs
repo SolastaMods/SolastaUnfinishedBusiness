@@ -59,6 +59,26 @@ public static class RulesetActorPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class InflictDamage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            ref int rolledDamage,
+            string damageType,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+            RollInfo rollInfo
+        )
+        {
+            //PATCH: support for FeatureDefinitionReduceDamage
+            var reduction = FeatureDefinitionReduceDamage.DamageReduction(formsParams, rolledDamage, damageType);
+            rolledDamage -= reduction;
+            rollInfo.modifier -= reduction;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictCondition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
