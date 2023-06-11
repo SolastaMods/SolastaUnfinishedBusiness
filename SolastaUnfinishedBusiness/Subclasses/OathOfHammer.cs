@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static TagsDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -115,7 +114,8 @@ internal sealed class OathOfHammer : AbstractSubclass
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeLightning, 1, DieType.D6)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.ClassLevelHalfUp)
+                            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice,
+                                LevelSourceType.ClassLevelHalfUp)
                             .Build(),
                         EffectFormBuilder
                             .Create()
@@ -123,7 +123,6 @@ internal sealed class OathOfHammer : AbstractSubclass
                             .SetConditionForm(conditionDivineBolt, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(new PaladinHolder())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -148,11 +147,6 @@ internal sealed class OathOfHammer : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class PaladinHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Paladin;
-    }
-    
     private sealed class ModifyWeaponAttackModeHammersBoon : IModifyWeaponAttackMode, IAttackComputeModifier
     {
         private readonly FeatureDefinition _featureHammersBoon;
