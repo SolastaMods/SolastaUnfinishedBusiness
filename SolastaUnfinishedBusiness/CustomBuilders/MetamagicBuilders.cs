@@ -259,10 +259,13 @@ internal static class MetamagicBuilders
 
     private sealed class ModifyMagicEffectMetamagicWidened : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effectDescription,
-            RulesetCharacter character, RulesetEffect rulesetEffect)
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effectDescription,
+            RulesetCharacter character,
+            RulesetEffect rulesetEffect)
         {
-            effectDescription.targetParameter += 1;
+            effectDescription.targetParameter += effectDescription.TargetType == TargetType.Cube ? 2 : 1;
 
             return effectDescription;
         }
