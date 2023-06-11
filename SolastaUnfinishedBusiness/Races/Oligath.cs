@@ -34,7 +34,7 @@ internal static class RaceOligathBuilder
     private static CharacterRaceDefinition BuildOligath()
     {
 
-        var oligathSpriteReference = Sprites.GetSprite("Bolgrif", SolastaUnfinishedBusiness.Properties.Resources.Bolgrif, 1024, 512);
+        var oligathSpriteReference = Sprites.GetSprite("Oligath", SolastaUnfinishedBusiness.Properties.Resources.Oligath, 1024, 512);
 
         var attributeModifierOligathStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierOligathStrengthAbilityScoreIncrease")
