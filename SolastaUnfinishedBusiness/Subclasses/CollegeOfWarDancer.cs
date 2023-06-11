@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -10,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -36,20 +38,28 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageWarDanceMomentum")
-            .SetGuiPresentationNoContent(true)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetDamageDice(DieType.D6, 2)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-            .SetAttackModeOnly()
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetNotificationTag("Momentum")
-            .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
-            .AddToDB())
+                .Create("AdditionalDamageWarDanceMomentum")
+                .SetGuiPresentationNoContent(true)
+                .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+                .SetDamageDice(DieType.D6, 2)
+                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+                .SetAttackModeOnly()
+                .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+                .SetNotificationTag("Momentum")
+                .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+                .AddToDB(),
+            FeatureDefinitionAdditionalActionBuilder
+                .Create("AdditionalActionWarDanceMomentum")
+                .SetCustomSubFeatures(AllowDuplicates.Mark)
+                .SetActionType(ActionType.Main)
+                .SetMaxAttacksNumber(1)
+                .SetRestrictedActions(Id.AttackMain, Id.CastMain, Id.Shove, Id.DashMain, Id.DisengageMain)
+                .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
         .AddToDB();
 
+    //Leaving this to not break some
     private static readonly ConditionDefinition MomentumAlreadyApplied = ConditionDefinitionBuilder
         .Create("ConditionWarDanceMomentumAlreadyApplied")
         .SetGuiPresentationNoContent()
@@ -68,21 +78,15 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionWarDance, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(ConditionDefinitions.ConditionBardicInspiration,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build()
+                .SetEffectForms(
+                    EffectFormBuilder.ConditionForm(ConditionWarDance),
+                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
                 )
                 .Build())
             .SetCustomSubFeatures(
                 ValidatorsCharacter.HasMeleeWeaponInMainHand,
                 ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
-                new WarDanceRefundOneAttackOfMainAction())
+                new WarDanceMomentumExtraAttacks())
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
@@ -167,9 +171,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static int GetMomentumDiceNum(RulesetCharacter character)
     {
-        var momentum = character.ConditionsByCategory
-            .SelectMany(x => x.Value)
-            .Count(x => x.ConditionDefinition == WarDanceMomentum);
+        var momentum = GetMomentumStacks(character);
 
         var item = character.GetMainWeapon();
 
@@ -178,14 +180,14 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             return 0;
         }
 
-        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagLight);
+        var isLight = ValidatorsWeapon.HasAnyWeaponTag(item.itemDefinition, TagsDefinitions.WeaponTagLight);
 
         if (isLight)
         {
             return momentum;
         }
 
-        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy);
+        var isHeavy = ValidatorsWeapon.HasAnyWeaponTag(item.itemDefinition, TagsDefinitions.WeaponTagHeavy);
 
         if (isHeavy)
         {
@@ -205,15 +207,26 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static bool RemoveMomentumAnyway(IControllableCharacter hero)
     {
-        var currentMomentum = new List<RulesetCondition>();
-        var pb = hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        var rulesetCharacter = hero?.RulesetCharacter;
+        if (rulesetCharacter == null)
+        {
+            return true;
+        }
 
-        currentMomentum.AddRange(
-            hero.RulesetCharacter.ConditionsByCategory
-                .SelectMany(x => x.Value)
-                .Where(x => x.conditionDefinition == WarDanceMomentum));
+        var pb = rulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+        if (pb == 0)
+        {
+            return true;
+        }
 
-        return currentMomentum.Count >= (pb + 1) / 2 || pb == 0;
+        return GetMomentumStacks(rulesetCharacter) >= (pb + 1) / 2;
+    }
+
+    private static int GetMomentumStacks(RulesetCharacter character)
+    {
+        return character?.ConditionsByCategory
+            .SelectMany(x => x.Value)
+            .Count(x => x.conditionDefinition == WarDanceMomentum) ?? 0;
     }
 
     private sealed class RemoveOnAttackMissOrAttackWithNonMeleeWeapon
@@ -245,11 +258,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             {
                 // spend bardic inspiration dice to keep war dance condition
                 var description = Gui.Format(Format, attacker.Name);
-                var reactionParams =
-                    new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
-                    {
-                        StringParameter = description
-                    };
+                var reactionParams = new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = description
+                };
                 var reactionRequest = new ReactionRequestCustom("DanceOfWarOnMiss", reactionParams);
 
                 var service = ServiceRepository.GetService<IGameLocationActionService>();
@@ -285,7 +297,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private sealed class WarDanceRefundOneAttackOfMainAction : IMightRefundOneAttackOfMainAction
+    private sealed class WarDanceMomentumExtraAttacks : IActionExecutionHandled
     {
         private static readonly ConditionDefinition WarDanceMomentumExtraAction = ConditionDefinitionBuilder
             .Create("ConditionWarDanceMomentumExtraAction")
@@ -295,11 +307,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetMaxAttackNumber(1)
-                    .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
-                        ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
+                    .SetForbiddenActions(Id.CastMain)
                     .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
@@ -307,83 +318,46 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
+                FeatureDefinitionBuilder //using old name to not break characters that are under war dance when update hits
                     .Create("ActionAffinityImprovedWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetMaxAttackNumber(1)
-                    .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
-                        ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
                     .SetCustomSubFeatures(new WarDanceFlurryWeaponAttackModifier())
                     .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
-        public bool MightRefundOneAttackOfMainAction(GameLocationCharacter hero, CharacterActionParams actionParams)
+
+        public void OnActionExecutionHandled(
+            GameLocationCharacter hero,
+            CharacterActionParams actionParams,
+            ActionScope scope)
         {
-            var flag = true;
-            var momentum = 1;
-            if (actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
+            var actionDefinition = actionParams.ActionDefinition;
+            var rulesetHero = hero.RulesetCharacter;
+
+            //Wrong scope or type of action, skip
+            if (scope != ActionScope.Battle
+                || actionDefinition.ActionType != ActionType.Main)
             {
-                if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
-                {
-                    flag = false;
-                }
-                else
-                {
-                    if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
-                    {
-                        if (spellEffect.slotLevel > 0 || spellEffect.SpellDefinition
-                                .HasSubFeatureOfType<IAttackAfterMagicEffect>())
-                        {
-                            if (spellEffect.slotLevel / 2 > momentum)
-                            {
-                                momentum = spellEffect.slotLevel / 2;
-                            }
-                        }
-                        else
-                        {
-                            flag = false;
-                        }
-                    }
-                }
+                return;
             }
 
-            // only apply if number of momentum less than PB
-            var rulesetHero = hero.RulesetCharacter;
-            var currentMomentum = new List<RulesetCondition>();
-            var pb = rulesetHero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            currentMomentum.AddRange(
-                rulesetHero.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
-                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction ||
-                                x.conditionDefinition == WarDanceMomentum));
-
-            if (!flag ||
-                RemoveMomentumAnyway(hero) ||
-                pb == 0 ||
-                !rulesetHero.HasConditionOfType(ConditionWarDance) ||
-                rulesetHero.HasConditionOfType(MomentumAlreadyApplied))
+            //Still has attacks, skip
+            if (hero.GetActionAvailableIterations(Id.AttackMain) > 0)
             {
-                foreach (var cond in currentMomentum)
-                {
-                    hero.RulesetCharacter.RemoveCondition(cond);
-                }
+                return;
+            }
 
-                rulesetHero.InflictCondition(
-                    MomentumAlreadyApplied.Name,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    AttributeDefinitions.TagCombat,
-                    rulesetHero.guid,
-                    rulesetHero.CurrentFaction.Name,
-                    1,
-                    null,
-                    0,
-                    0,
-                    0);
+            //Wrong action after momentum started, skip
+            if (actionDefinition.Id is not (Id.AttackMain or Id.CastMain) && GetMomentumStacks(rulesetHero) > 0)
+            {
+                return;
+            }
 
-                return false;
+            //No active War Dance or too many Momentum stacks, skip
+            if (!rulesetHero.HasConditionOfType(ConditionWarDance) || RemoveMomentumAnyway(hero))
+            {
+                return;
             }
 
             // apply action affinity
@@ -391,13 +365,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             hero.UsedMainCantrip = false;
             ApplyActionAffinity(hero.RulesetCharacter);
 
-            // apply momentum
-            for (var i = 0; i < momentum; i++)
-            {
-                GrantWarDanceMomentum(hero);
-            }
+            GrantWarDanceMomentum(hero);
 
-            return true;
+            var text = WarDanceMomentum.GuiPresentation.Title;
+            rulesetHero.ShowLabel(text, Gui.ColorPositive);
+            GameConsoleHelper.LogCharacterActivatesAbility(rulesetHero, text, "Feedback/&ActivateMomentum", true);
         }
 
         private static void ApplyActionAffinity(RulesetCharacter rulesetCharacter)

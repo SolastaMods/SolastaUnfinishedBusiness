@@ -16,6 +16,7 @@ Feature/&PowerCollegeOfWarDancerImprovedWarDanceDescription=Enemies within 30' o
 Feature/&PowerCollegeOfWarDancerImprovedWarDanceTitle=Alluring Dancer
 Feature/&PowerWarDancerWarDanceDescription=You are inspired until the start of your next turn, and can use your Charisma on to hit bonus. You are immune to difficult terrain, your speed also increase by 15', and you can switch your weapon freely.\nAfter spending your main action you gain a Momentum that can be use to attack, dodge, disengage and dash. It makes your attack stronger but less accurate and the effect varies between weapons you use to make attack. You can have a maximum Momentum equal to half of your proficiency bonus rounded up.\nYour dance ends when you use a non-melee weapon or miss an attack unless you spend a bardic die to prolong it.\nThe Momentum duration is also extended by 1 round if you reduce your enemy to 0 HP.
 Feature/&PowerWarDancerWarDanceTitle=Dance Of War
+Feedback/&ActivateMomentum={1} grants {0} extra attack! 
 Feedback/&AdditionalDamageMomentumFormat=Momentum Strike
 Feedback/&AdditionalDamageMomentumLine={0} deals a momentum strike on {1} (+{2})
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} have missed an attack and can spend Bardic Inspiration Die to keep the effect of War Dance and all the momentum.
