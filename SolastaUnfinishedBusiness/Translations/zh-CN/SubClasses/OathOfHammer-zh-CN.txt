@@ -1,0 +1,14 @@
+Condition/&ConditionOathOfHammerDivineBoltDescription=你的移动速度减半。
+Condition/&ConditionOathOfHammerDivineBoltTitle=神圣之箭
+Feature/&FeatureOathOfHammerHammersBoonDescription=只要您使用能造成钝击伤害的近战武器，您就会受益于 Rope It Up 战斗风格。所有的钝击武器都为你投掷了 20/60 射程​​的属性，你的神圣打击功能可以用于使用这些武器进行的所有攻击。使用所有不造成钝击伤害的武器进行攻击时，您处于劣势。
+Feature/&FeatureOathOfHammerHammersBoonTitle=锤恩
+Feature/&PowerOathOfHammerDivineBoltDescription=作为一个附赠动作，你可以召唤一道闪电来击打你周围 60 英尺内你能看到的敌方生物。该生物必须通过敏捷豁免，否则在 d6 秒内受到等于你圣武士等级一半（四舍五入）的闪电伤害，并使其移动速度减半，直到你的下一轮开始。
+Feature/&PowerOathOfHammerDivineBoltTitle=引导神力：神圣之箭
+Feature/&PowerOathOfHammerThunderousRebukeDescription=当一个敌方生物在离你最远 5 英尺的地方用近战攻击击中你时，你可以使用你的引导神力作为反应，用咆哮的雷声打击它。该生物将你的圣武士等级视为雷电伤害并且必须通过力量豁免检定否则将被击退 30 英尺。
+Feature/&PowerOathOfHammerThunderousRebukeTitle=引导神力：雷鸣般的斥责
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeDescription=当受到近战攻击伤害时，你可以用你的反应斥责目标。
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactDescription=使用反应来斥责目标。
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactTitle=雷鸣般的斥责
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeTitle=雷鸣般的斥责
+Subclass/&OathOfHammerDescription=圣锤圣骑士的诞生是为了结束与巨人的永恒战争。即使是那些远离家乡的人，仍然渴望履行他们的职责，用雷霆之怒和上古诸神的力量打击他们的敌人。
+Subclass/&OathOfHammerTitle=锤之誓言

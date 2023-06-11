@@ -1,0 +1,14 @@
+Condition/&ConditionOathOfHammerDivineBoltDescription=이동 속도가 절반으로 감소합니다.
+Condition/&ConditionOathOfHammerDivineBoltTitle=신성한 볼트
+Feature/&FeatureOathOfHammerHammersBoonDescription=타격 피해를 입히는 근접 무기를 사용하는 한 Rope It Up 전투 스타일의 이점을 누릴 수 있습니다. 모든 곤봉 무기는 20/60 범위의 투척 속성을 가지며, 이러한 무기로 수행되는 모든 공격에 신성한 강타 기능을 사용할 수 있습니다. 타격 피해를 입히지 않는 모든 무기로 공격하는 데 불리합니다.
+Feature/&FeatureOathOfHammerHammersBoonTitle=망치의 은혜
+Feature/&PowerOathOfHammerDivineBoltDescription=추가 행동으로 번개를 불러내어 60피트 내에서 볼 수 있는 적 생물을 강타할 수 있습니다. 생물은 민첩 내성 굴림을 통과하거나 d6s에 팔라딘 레벨의 절반(반올림)에 해당하는 번개 피해를 입고 다음 턴이 시작될 때까지 이동 속도가 절반으로 감소해야 합니다.
+Feature/&PowerOathOfHammerDivineBoltTitle=채널 신성: 신성한 볼트
+Feature/&PowerOathOfHammerThunderousRebukeDescription=적 생물이 당신에게서 최대 5피트 떨어져 있는 동안 근접 공격으로 당신을 공격할 때, 당신은 포효하는 천둥으로 공격하기 위한 반응으로 채널 신성을 사용할 수 있습니다. 생물은 성기사 수준을 천둥 피해로 받아들이고 힘 내성 굴림을 통과하지 못하면 30피트 뒤로 밀려납니다.
+Feature/&PowerOathOfHammerThunderousRebukeTitle=채널 신성: 우레와 같은 질책
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeDescription=근접 공격으로 피해를 입으면 반응을 사용하여 대상을 꾸짖을 수 있습니다.
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactDescription=반응을 사용하여 대상을 꾸짖으십시오.
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeReactTitle=천둥 같은 책망
+Reaction/&SpendPowerPowerOathOfHammerThunderousRebukeTitle=천둥 같은 책망
+Subclass/&OathOfHammerDescription=망치의 팔라딘은 자이언트와의 영원한 전쟁을 끝내기 위해 태어났습니다. 집에서 멀리 떨어진 곳으로 여행을 떠나는 사람들도 여전히 자신의 의무를 다하기 위해 열심이며 고대 신들의 힘과 천둥의 분노로 적을 공격합니다.
+Subclass/&OathOfHammerTitle=망치의 맹세
