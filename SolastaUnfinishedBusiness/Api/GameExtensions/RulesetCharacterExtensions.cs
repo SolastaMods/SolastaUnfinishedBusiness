@@ -558,4 +558,21 @@ internal static class RulesetCharacterExtensions
             .ForEach(c => character.RemoveCondition(c, true, false));
     }
 #endif
+
+    internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
+    {
+        if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
+                .TryFindWorldCharacter(character, out var worlsCharacter))
+        {
+            return;
+        }
+
+        var labels = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
+        if (!labels.characterLabelsMap.TryGetValue(worlsCharacter, out var label))
+        {
+            return;
+        }
+
+        label.EnqueueCaption(new CharacterLabel.CaptionInfo {caption = text, colorString = color});
+    }
 }
