@@ -9,13 +9,9 @@
     true
   ],
   "eitherMainOrBonus": false,
-  "maxAttacksNumber": 1,
+  "maxAttacksNumber": -1,
   "forbiddenActions": [
-    "CastMain",
-    "HideMain",
-    "PowerMain",
-    "UseItemMain",
-    "Ready"
+    "CastMain"
   ],
   "authorizedActions": [],
   "restrictedActions": [],
