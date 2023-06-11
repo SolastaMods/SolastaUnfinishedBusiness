@@ -113,17 +113,8 @@ internal static class RaceOligathBuilder
         return powerOligathStoneEndurance;
     }
 
-    private class PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance : IDamageReceived, IBeforeDamageReceived
+    private class PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicalAttackInitiated
     {
-        private static Dictionary<ulong, CharacterStatus> StatusBeforeDamageMap = new Dictionary<ulong, CharacterStatus>();
-
-        class CharacterStatus
-        {
-            public int HitPoints;
-            public bool Prone;
-            public bool IsDeadOrDyingOrUnconscious;
-            public bool CanReact;
-        }
 
         private readonly FeatureDefinitionPower featureDefinitionPower;
 
@@ -133,71 +124,44 @@ internal static class RaceOligathBuilder
             this.featureDefinitionPower = featureDefinitionPower;
         }
 
-        public IEnumerator OnBeforeReceivedDamage(GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode,
+        public IEnumerator OnAttackBeforeHitConfirmed(
+            GameLocationBattleManager battle, 
+            GameLocationCharacter attacker, 
+            GameLocationCharacter me, 
+            ActionModifier attackModifier, 
+            RulesetAttackMode attackMode, 
+            bool rangedAttack, 
+            AdvantageType advantageType, 
+            List<EffectForm> actualEffectForms, 
             RulesetEffect rulesetEffect,
-            ActionModifier attackModifier,
-            bool rolledSavingThrow,
-            bool saveOutcomeSuccess)
+            bool criticalHit, 
+            bool firstTarget)
         {
-            var rulesetDefender = defender.RulesetCharacter;
-
-            if (rulesetDefender == null)
-            {
-                yield break;
-            }
-
-            StatusBeforeDamageMap[rulesetDefender.guid] = new CharacterStatus()
-            {
-                HitPoints = rulesetDefender.CurrentHitPoints,
-                Prone = defender.Prone,
-                CanReact = defender.CanReact(),
-                IsDeadOrDyingOrUnconscious = rulesetDefender.IsDeadOrDyingOrUnconscious
-            };
+            yield return HandlePowerStoneEndurance(me, attackModifier);
         }
 
-        public IEnumerator OnDamageReceived(
-                GameLocationCharacter attacker,
-                GameLocationCharacter defender,
-                int damageAmount,
-                RulesetEffect rulesetEffect,
-                List<string> effectiveDamageTypes)
+        public IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me, ActionModifier attackModifier)
         {
+
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
-            var rulesetDefender = defender.RulesetCharacter;
+            var rulesetMe = me.RulesetCharacter;
 
-            
-            if (rulesetDefender == null)
+            if (rulesetMe == null)
             {
                 yield break;
             }
 
-            var prevStatus = StatusBeforeDamageMap[rulesetDefender.guid];
-
-            if (prevStatus == null)
-            {
-                yield break;
-            }
-
-            if (rulesetDefender.isDead 
-                || prevStatus.IsDeadOrDyingOrUnconscious 
-                || !prevStatus.CanReact)
-            {
-                yield break;
-            }
-
-            if (rulesetDefender.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
+            if (rulesetMe.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
             {
                 yield break;
             }
 
             var reactionParams =
-                new CharacterActionParams(defender, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {
                     StringParameter =
                         Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription")
@@ -208,29 +172,22 @@ internal static class RaceOligathBuilder
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
             yield return gameLocationBattleService.WaitForReactions(
-                defender, gameLocationActionService, previousReactionCount);
+                me, gameLocationActionService, previousReactionCount);
 
             if (!reactionParams.ReactionValidated)
             {
                 yield break;
             }
 
-            int totalReducedDamage = CalculateReducedDamage(rulesetDefender, damageAmount);
-            GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, featureDefinitionPower);
-            rulesetDefender.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+            int totalReducedDamage = CalculateReducedDamage(rulesetMe);
 
-            int prevHitpoints = StatusBeforeDamageMap[rulesetDefender.guid]?.HitPoints ?? 0;
-            int currentHitpoints = prevHitpoints + totalReducedDamage - damageAmount;
-            rulesetDefender.DamageReduced(rulesetDefender, featureDefinitionPower, totalReducedDamage);
+            attackModifier.DamageRollReduction += totalReducedDamage;
 
-            rulesetDefender.ForceSetHealth(currentHitpoints, false);
-            rulesetDefender.ComputeHealthCondition();
-            // in case character falls prone when reduced hp to 0
-            if (defender.Prone && !rulesetDefender.IsDeadOrDying && !prevStatus.Prone)
-            {
-                defender.SetProne(false);
-            }
-            defender.SpendActionType(ActionType.Reaction);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, featureDefinitionPower);
+            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
+
+            rulesetMe.DamageReduced(rulesetMe, featureDefinitionPower, totalReducedDamage);
+            me.SpendActionType(ActionType.Reaction);
         }
 
         private static int CalculateReducedDamage(RulesetActor rulesetDefender, int damageAmount = -1)
@@ -243,7 +200,6 @@ internal static class RaceOligathBuilder
 
             var totalReducedDamage = result + constitutionModifier;
 
-
             if (totalReducedDamage < 0)
             {
                 totalReducedDamage = 0;
@@ -255,6 +211,17 @@ internal static class RaceOligathBuilder
             }
 
             return totalReducedDamage;
+        }
+
+        public IEnumerator OnMagicalAttackInitiated(GameLocationCharacter attacker,
+            GameLocationCharacter defender, 
+            ActionModifier magicModifier, 
+            RulesetEffect rulesetEffect, 
+            List<EffectForm> actualEffectForms,
+            bool firstTarget, 
+            bool criticalHit)
+        {
+            yield return HandlePowerStoneEndurance(defender, magicModifier);
         }
     }
 }

@@ -534,13 +534,6 @@ public static class GameLocationBattleManagerPatcher
             }
 
             var defenderCharacter = defender.RulesetCharacter;
-            
-            // Process early for features that can apply if dead or dying
-            foreach (var attackInitiated in
-                     defenderCharacter.GetSubFeaturesByType<IBeforeDamageReceived>())
-            {
-                yield return attackInitiated.OnBeforeReceivedDamage(attacker, defender, attackMode, rulesetEffect, attackModifier, rolledSavingThrow, saveOutcomeSuccess);
-            }
 
             if (defenderCharacter is not { IsDeadOrDyingOrUnconscious: false })
             {
@@ -1246,35 +1239,6 @@ public static class GameLocationBattleManagerPatcher
                         damageAmount);
                 }
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleDefenderOnDamageReceived))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class HandleDefenderOnDamageReceived_Patch
-    {
-        [UsedImplicitly]
-        public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            GameLocationCharacter attacker, GameLocationCharacter damagedCharacter, 
-            int damageAmount,
-            RulesetEffect rulesetEffect, 
-            List<string> effectiveDamageTypes)
-        {
-
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            foreach (var attackInitiated in
-                     damagedCharacter.RulesetCharacter.GetSubFeaturesByType<IDamageReceived>())
-            {
-                yield return attackInitiated.OnDamageReceived(attacker, damagedCharacter, damageAmount, rulesetEffect, effectiveDamageTypes);
-            }
-
         }
     }
 }
