@@ -244,7 +244,7 @@ Once per short rest you can select one of 2 armor modes:
 
 * Extra Attack
 
-You can attack twice, rather than once, whenever you take the Attack action on your turn.
+You gain an extra attack and can now attack up to 2 times in your turn.
 
 
 ## Level 9
@@ -930,7 +930,7 @@ Your connection to the divine allows you to learn and cast Cleric spells as Sorc
 
 * Divine Fount
 
-As a Bonus Action, regain 1 sorcerery point. Usable a number of times equal to your Wisdom bonus and all uses recharge after a long rest.
+As a Bonus Action, regain 1 sorcery point. Usable a number of times equal to your Wisdom bonus and all uses recharge after a long rest.
 
 * Empowered Healing
 
@@ -1588,6 +1588,8 @@ In your list and always prepared:
 
 	IV	Banishment, Dreadful Omen
 
+	V	Hold Monster, Dispel Evil and Good
+
 
 ## Level 7
 
@@ -1616,7 +1618,49 @@ Once you use this feature, you can't use it again until you finish a long rest.
 
 
 
-# 31. - Opportunist
+# 31. - Oath of Thunder
+
+Paladins of the Thunder were born to end the everlasting war across the planes. Even those, travelling far from home, are still eager to fulfil their duty, striking their enemies with the fury of thunder and power of the ancient gods.
+
+
+## Level 3
+
+* Channel Divinity: Divine Bolt
+
+As a bonus action, you can call down a bolt of lightning to smite an enemy creature you can see within 60 feet of you.
+
+* Channel Divinity: Thunderous Rebuke
+
+When an enemy creature hits you with a melee attack while being up to 5 feet away from you, you can use your Channel Divinity as a reaction to strike it with roaring thunder.
+
+* Mjolnir
+
+When wielding a War Hammer, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than War Hammers.
+
+* Oath of Thunder
+
+In your list and always prepared: 
+ 
+	I	Thunderwave, Thunderous Smite
+
+	II	Shatter, Misty Step
+
+	III	Call Lightning, Lightning Bolt
+
+	IV	Freedom of Movement, Stoneskin
+
+	V	Far Step, Sonic Boom
+
+
+## Level 7
+
+* Stormbreaker
+
+When wielding Battle Axes or War Hammers, they can be thrown with a 20/60 range, and return to your hand immediately after it is used to make a thrown attack. Also, your Divine Smite feature can be used on all attacks made with them but you have disadvantage to attack with any other weapon type different than Battle Axes and War Hammers.
+
+
+
+# 32. - Opportunist
 
 Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 
@@ -1650,7 +1694,7 @@ Starting at 17th level, any attack against a creature that fails the saving thro
 
 
 
-# 32. - Path of the Elements
+# 33. - Path of the Elements
 
 Barbarians who follow the Path of the Elements learned to harness the destructive powers of nature, transforming their rage into a mantle of primal magic that swirls around them. When in a fury, a barbarian of this path taps into nature to create devastating elemental calamities.
 
@@ -1693,7 +1737,7 @@ Starting at 10th level, you gain additional powers depending on the elemental ca
 
 
 
-# 33. - Path of the Light
+# 34. - Path of the Light
 
 Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 
@@ -1735,7 +1779,7 @@ On the turn that you enter your rage, you can choose to illuminate up to three e
 
 
 
-# 34. - Path of the Reaver
+# 35. - Path of the Reaver
 
 All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
 
@@ -1769,7 +1813,7 @@ Starting at 14th level, your blood becomes permanently corrupted, damaging creat
 
 
 
-# 35. - Path of the Savagery
+# 36. - Path of the Savagery
 
 Barbarians who walk the Path of the Savage are forces of nature, fighting less like men, and more like wild beasts. They strike with explosive speed and power, leveraging twin blades akin to a wild animal fighting with claws and fangs.
 
@@ -1789,7 +1833,7 @@ Starting at 3rd level, you can dual-wield non-light melee weapons as well as add
 
 * Wrath and Fury
 
-Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc). Additionally, dealing a critical hit with a melee weapon attack imposes a Constitution saving throw on that creature, with DC being 8 + proficiency + your Strength modifier. If the creature fails it, it becomes incapacitated until the end of your next turn.
+Starting at 6th level, while you are dual-wielding melee weapons, increase the damage category of each equipped weapon by 1 (d4 turns to d6, d6 turns to d8, etc).
 
 
 ## Level 10
@@ -1807,7 +1851,7 @@ Starting at 14th level, while you are raging, whenever you roll a Dexterity savi
 
 
 
-# 36. - Path Of the Spirits
+# 37. - Path Of the Spirits
 
 Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 
@@ -1845,7 +1889,7 @@ Starting at 14th level, choose an animal to hone your spiritual connection to, g
 
 
 
-# 37. - Path of the Yeoman
+# 38. - Path of the Yeoman
 
 Barbarians following the Path of the Yeoman ignore melee weapons to master the longbow. No less strong than barbarians that follow other paths, their arrows fell the mightiest of foes and their single-minded focus increases their already formidable defenses to incredible heights.
 
@@ -1890,7 +1934,7 @@ Increase the damage dice of longbows from d8 to d12. While raging and not wearin
 
 
 
-# 38. - Raven
+# 39. - Raven
 
 Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 
@@ -1932,7 +1976,7 @@ You reroll any 1s or 2s when rolling for damage. You must keep the second roll.
 
 
 
-# 39. - Royal Knight
+# 40. - Royal Knight
 
 A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 
@@ -1973,7 +2017,7 @@ Starting at 18th level, your Inspiring Surge also grants advantage on all attack
 
 
 
-# 40. - Slayer
+# 41. - Slayer
 
 Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 
@@ -2007,7 +2051,7 @@ Starting at 17th level, you become a master of instant death. When you attack an
 
 
 
-# 41. - Smith
+# 42. - Smith
 
 Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 
@@ -2105,7 +2149,7 @@ Your blessed affinity with fire and metal becomes more powerful. While wearing a
 
 
 
-# 42. - Sorr-Akkath
+# 43. - Sorr-Akkath
 
 Your innate spellcasting ability comes from Sorr-Akkath magic that was mingled with your blood, or that of your ancestors. As possible origins of these sorcerers, perhaps you have undergone an experiment that involved using blood of a Sorak, an ancestor made a bargain with a Sorak, or you are simply an offspring of a Sorak parent.
 
@@ -2164,7 +2208,7 @@ Starting at 18th level, your gain the ability to corrupt creatures on touch and 
 
 
 
-# 43. - Spell Shield
+# 44. - Spell Shield
 
 Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 
@@ -2213,7 +2257,7 @@ When an attacker that you can see hits you with a ranged attack or spell, you ca
 
 
 
-# 44. - Spellmaster
+# 45. - Spellmaster
 
 Spellmasters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 
@@ -2259,7 +2303,7 @@ Your training with magic gives you advantage on saving throws against spells.
 
 
 
-# 45. - Survivalist
+# 46. - Survivalist
 
 Rangers who live far beyond the reaches of civilization understand that the most successful hunts are those where the prey can neither flee nor fight back. Survivalists are capable of analyzing every weakness in potential targets and call upon the natural world to hinder their foes while shredding their defenses with precise attacks.
 
@@ -2317,7 +2361,7 @@ Gain proficiency in Wisdom saving throws.
 
 
 
-# 46. - Tactician
+# 47. - Tactician
 
 The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 
@@ -2401,7 +2445,7 @@ While you are not incapacitated, you gain the following benefits:
 
 
 
-# 47. - The Elementalist
+# 48. - The Elementalist
 
 You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 
@@ -2452,7 +2496,7 @@ Your control of elemental energies has increased to the point than you now have 
 
 
 
-# 48. - The Moonlit
+# 49. - The Moonlit
 
 Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 
@@ -2517,7 +2561,7 @@ Your control of moon light has increased to a new level. You can cast the spells
 
 
 
-# 49. - The Riftwalker
+# 50. - The Riftwalker
 
 Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 
@@ -2578,7 +2622,7 @@ Your control of rift portals has increased to the point than you can now grant t
 
 
 
-# 50. - The Soulblade
+# 51. - The Soulblade
 
 You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 
@@ -2638,7 +2682,73 @@ You can use Soul Hex twice times per short rest now.
 
 
 
-# 51. - Way of Discordance
+# 52. - Vivisectionist
+
+A vivisectionist studies bodies to better understand their function. Unlike a surgeon, a vivisectionist’s goals are not always related to healing, but rather to experimentation and knowledge with body parts.
+
+
+## Level 3
+
+* Vivisectionist Spells
+
+Learn and have always prepared:
+
+	I	Bless, Inflict Wounds
+
+	II	Enhance Ability, Lesser Restoration
+
+	III	Remove Curse, Revivify
+
+	IV	Death Ward, Identify Creatures
+
+	V	Contagion, Raise Dead
+
+
+
+* Medical Accuracy
+
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with a weapon attack if you have advantage on the attack roll. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The damage increases to 2d6 at 7th level, 3d6 at 11th, 4d6 at 15th, and 5d6 at 19th level.
+
+* Emergency Surgery
+
+You can take an action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+
+## Level 5
+
+* Extra Attack
+
+You gain an extra attack and can now attack up to 2 times in your turn.
+
+* Emergency Cure
+
+You can take a bonus action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+
+## Level 9
+
+* Stable Surgery
+
+When casting a healing spell your minimum healing dice roll is 2.
+
+* Organ Donation
+
+Regain one use of your Emergency Surgery and your Emergency Cure when you reduce a hostile creature to 0 hit points. You may do this once per short rest.
+
+
+## Level 15
+
+* Master Emergency Surgery
+
+You can take a bonus action to heal an ally within 5 feet for an amount equal to your medical accuracy dice + your Intelligence modifier. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+* Master Emergency Cure
+
+You can take a free action to use Lesser Restoration or Remove Curse on an ally within 5 feet. You may do this a number of times equal to your proficiency bonus. All uses recharge after a long rest.
+
+
+
+# 53. - Way of Discordance
 
 While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
 
@@ -2672,7 +2782,7 @@ Starting at 17th level, when a creature receives damage from your Discordance fe
 
 
 
-# 52. - Way of Distant Hand
+# 54. - Way of Distant Hand
 
 Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 
@@ -2720,7 +2830,7 @@ Your Wisdom score increases by 2, and your Wisdom score maximum becomes 22. Addi
 
 
 
-# 53. - Way of Dragon
+# 55. - Way of Dragon
 
 Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 
@@ -2762,7 +2872,7 @@ Spend 4 Ki points to take flight. Gain the abilities of the fly spell without co
 
 
 
-# 54. - Way of Silhouette
+# 56. - Way of Silhouette
 
 Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 
@@ -2804,7 +2914,7 @@ When a creature is about to hit you with an attack, you can pay 3 Ki and use you
 
 
 
-# 55. - Way of Tempest
+# 57. - Way of Tempest
 
 Monks of the Way of the Tempest push their bodies beyond its physical limitations by utilizing ki-manipulating techniques passed down by their masters and teachers. These martial artists effortlessly maneuver the battlefield, rushing from one enemy to the next and raining countless blows upon them.
 
@@ -2838,7 +2948,7 @@ Starting at 17th level, whenever you hit a creature with a monk weapon or unarme
 
 
 
-# 56. - Weapon Master
+# 58. - Weapon Master
 
 Weapon Masters are first-rate warriors who devoted all their time and energy into Mastery a single weapon type. They are extraordinarily adept at exploiting weaknesses and can cut through enemy lines with deadly efficiency.
 
@@ -2892,7 +3002,7 @@ Your Focused Strikes also grants you advantage on all damage rolls while attacki
 
 
 
-# 57. - Weaponsmith
+# 59. - Weaponsmith
 
 Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 
@@ -2930,7 +3040,7 @@ Your experiments with weapons has borne you a Defending Blade companion. It is i
 
 * Extra Attack
 
-You can attack twice, rather than once, when you use the attack or shove actions.
+You gain an extra attack and can now attack up to 2 times in your turn.
 
 
 ## Level 9
@@ -2950,7 +3060,7 @@ Your Arcane Jolt and steel defender become more powerful:
 
 
 
-# 58. - Wildmaster
+# 60. - Wildmaster
 
 The Wildmaster archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 

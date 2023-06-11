@@ -39,6 +39,7 @@ internal static class FlexibleRacesContext
         { "RaceHalfElfVariant", AttributeChoiceFour },
         { "RaceKobold", AttributeChoiceThree },
         { "RaceFairy", AttributeChoiceThree },
+        { "RaceOligath", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree }
     };
 
@@ -88,6 +89,14 @@ internal static class FlexibleRacesContext
         { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
         { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceFairy", new List<string> { "FeatureSetFairyAbilityScoreIncrease" } },
+        {
+            "RaceOligath",
+            new List<string>
+            {
+                "AttributeModifierOligathStrengthAbilityScoreIncrease",
+                "AttributeModifierOligathConstitutionAbilityScoreIncrease"
+            }
+        },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
         { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
         { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } }

@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 1,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
@@ -31,9 +31,9 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "Instantaneous",
-    "durationParameter": 0,
-    "endOfEffect": "EndOfTurn",
+    "durationType": "Round",
+    "durationParameter": 1,
+    "endOfEffect": "EndOfSourceTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -65,22 +65,22 @@
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
+        "applyLevel": "MultiplyDice",
+        "levelType": "ClassLevelHalfUp",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "damageForm": {
           "$type": "DamageForm, Assembly-CSharp",
           "versatile": false,
-          "diceNumber": 0,
-          "dieType": "D1",
+          "diceNumber": 1,
+          "dieType": "D6",
           "overrideWithBardicInspirationDie": false,
           "versatileDieType": "D1",
           "bonusDamage": 0,
@@ -98,7 +98,7 @@
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Motion",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -111,12 +111,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "motionForm": {
-          "$type": "MotionForm, Assembly-CSharp",
-          "type": "PushFromOrigin",
-          "distance": 6,
-          "forceTurnTowardsSourceCharacterAfterPush": false,
-          "forceSourceCharacterTurnTowardsTargetAfterPush": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionOathOfThunderDivineBolt",
+          "conditionDefinition": "Definition:ConditionOathOfThunderDivineBolt:a2795ab8-7c2f-5033-a937-ec9e598cce03",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -148,7 +150,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d26797bf421dbc2448872162f23d8fd3",
+        "m_AssetGUID": "dc1201f792720b1498deb67bf89ba950",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -172,7 +174,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a4f56b2661c287488e2ab7d0b226944",
+        "m_AssetGUID": "01c27e9b409ff8e40b7c03a799d418c5",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -196,7 +198,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3e25fca5d3585174f9b7e20aca6ef3d9",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -323,13 +325,13 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Reaction",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "HitByMelee",
+  "reactionContext": "None",
   "damageTypes": [],
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
@@ -359,13 +361,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfHammerThunderousRebukeTitle",
-    "description": "Feature/&PowerOathOfHammerThunderousRebukeDescription",
+    "title": "Feature/&PowerOathOfThunderDivineBoltTitle",
+    "description": "Feature/&PowerOathOfThunderDivineBoltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "5d796a573ab04c24ca19b2a51d782e55",
+      "m_SubObjectName": "PrimevalAwareness",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -380,7 +382,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c884ae82-1537-5501-8ed0-399788e4c901",
+  "guid": "d2414494-8eb2-54d4-ab62-77db180e7d17",
   "contentPack": 9999,
-  "name": "PowerOathOfHammerThunderousRebuke"
+  "name": "PowerOathOfThunderDivineBolt"
 }

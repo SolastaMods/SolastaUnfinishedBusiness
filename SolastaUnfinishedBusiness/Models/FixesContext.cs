@@ -35,6 +35,7 @@ internal static class FixesContext
         FixStunningStrikeForAnyMonkWeapon();
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
+        FixHastedCasting();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
     }
@@ -51,12 +52,12 @@ internal static class FixesContext
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfHammer);
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
 
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinImprovedDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfHammer);
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
         AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
@@ -231,5 +232,11 @@ internal static class FixesContext
         ActionAffinityUncannyDodge.SetCustomSubFeatures(new ValidatorsDefinitionApplication(
             character => character.GetSubclassLevel(Rogue, RoguishDuelist.Name) < 13 ||
                          character.HasConditionOfType(RoguishDuelist.ConditionReflexiveParry)));
+    }
+
+    private static void FixHastedCasting()
+    {
+        //BUGFIX: Allow Casting spell using additional Main action from haste
+        FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions.Add(ActionDefinitions.Id.CastMain);
     }
 }

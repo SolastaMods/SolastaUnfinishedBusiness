@@ -3,23 +3,28 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfHammerDivineBolt:3808b949-cae5-5792-9b77-f235f5df6c90",
+      "featureDefinition": "Definition:PowerOathOfThunderDivineBolt:d2414494-8eb2-54d4-ab62-77db180e7d17",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfHammerThunderousRebuke:c884ae82-1537-5501-8ed0-399788e4c901",
+      "featureDefinition": "Definition:PowerOathOfThunderThunderousRebuke:6d50efaf-5fe1-5b34-b5c0-4a61b69267db",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureOathOfHammerHammersBoon:6e56732c-8793-5852-9c5f-04197e29a98a",
+      "featureDefinition": "Definition:FeatureOathOfThunderHammersBoon:b76affeb-a5b0-5de8-a8ab-a81e435452a2",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AutoPreparedSpellsOathOfHammer:131ba025-d552-57f7-9b78-9b40912cd5f6",
+      "featureDefinition": "Definition:AutoPreparedSpellsOathOfThunder:b327df77-bb97-5791-9867-465208939daa",
       "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureOathOfThunderAxesBoon:e6fb9b46-0cb3-5027-b909-c424f204cb6e",
+      "level": 7
     }
   ],
   "personalityFlagOccurences": [],
@@ -27,11 +32,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&OathOfHammerTitle",
-    "description": "Subclass/&OathOfHammerDescription",
+    "title": "Subclass/&OathOfThunderTitle",
+    "description": "Subclass/&OathOfThunderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6be75f57-5d7e-53b5-a2fc-dc99fef87642",
+      "m_AssetGUID": "691ac805-e297-5e45-aef1-4b2f5d372d20",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -48,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8b9d9f72-ae2c-5165-ac7c-8a67b22d69d2",
+  "guid": "f4161907-69d2-5452-adb9-24a9e89876ba",
   "contentPack": 9999,
-  "name": "OathOfHammer"
+  "name": "OathOfThunder"
 }

@@ -48,7 +48,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&OathOfHammerTitle",
+    "title": "Subclass/&OathOfThunderTitle",
     "description": "Feature/&DomainSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "131ba025-d552-57f7-9b78-9b40912cd5f6",
+  "guid": "b327df77-bb97-5791-9867-465208939daa",
   "contentPack": 9999,
-  "name": "AutoPreparedSpellsOathOfHammer"
+  "name": "AutoPreparedSpellsOathOfThunder"
 }

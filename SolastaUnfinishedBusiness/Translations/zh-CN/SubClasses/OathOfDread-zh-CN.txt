@@ -27,4 +27,4 @@ Reaction/&ReactionAttackHarrowingCrusadeReactDescription=用你的反应来攻�
 Reaction/&ReactionAttackHarrowingCrusadeReactTitle=攻击
 Reaction/&ReactionAttackHarrowingCrusadeTitle=恐惧征伐
 Subclass/&OathOfDreadDescription=宣誓征服誓言的圣骑士是狂热的战士，他们运用神圣的力量恐吓敌人屈服，或驱散他们。
-Subclass/&OathOfDreadTitle=征服誓言
+Subclass/&OathOfDreadTitle=征服之誓

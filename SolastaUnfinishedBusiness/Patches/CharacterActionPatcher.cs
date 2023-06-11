@@ -3,13 +3,11 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Subclasses.MartialRoyalKnight;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -102,28 +100,20 @@ public static class CharacterActionPatcher
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //BUGFIX: fix Haste spell not allowing the sequence attack / cast spell
-                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                    rulesetCharacter.HasAnyConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHasted.Name))
-                {
-                    var gameLocationCharacter = __instance.ActingCharacter;
-
-                    if (gameLocationCharacter.UsedMainCantrip || gameLocationCharacter.UsedMainSpell)
-                    {
-                        AdditionalActionHasted.RestrictedActions.Remove(ActionDefinitions.Id.CastMain);
-                    }
-                    else
-                    {
-                        AdditionalActionHasted.RestrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
-                    }
-                }
-
                 //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
                 if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    Gui.Battle != null &&
                     rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
                 {
                     __instance.ActingCharacter.UsedMainSpell = false;
                     __instance.ActingCharacter.UsedMainCantrip = false;
+                }
+
+                //PATCH: clear determination cache on every action end
+                if (Main.Settings.UseOfficialFlankingRules &&
+                    Gui.Battle != null)
+                {
+                    FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
                 }
 
                 //PATCH: IActionFinished

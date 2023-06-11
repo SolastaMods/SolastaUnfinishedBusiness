@@ -457,14 +457,8 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var actionParams = new CharacterActionParams(locationCharacter, ActionDefinitions.Id.Ready)
-            {
-                readyActionType = ActionDefinitions.ReadyActionType.Melee
-            };
-
             GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
-            locationCharacter.RefundActionUse(ActionDefinitions.ActionType.Main);
-            ServiceRepository.GetService<ICommandService>()?.ExecuteAction(actionParams, null, false);
+            locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
         }
     }
 

@@ -1,10 +1,16 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Language",
+  "proficiencies": [
+    "Language_Common",
+    "Language_Giant"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureOathOfHammerHammersBoonTitle",
-    "description": "Feature/&FeatureOathOfHammerHammersBoonDescription",
+    "title": "Feature/&ProficiencyOligathLanguagesTitle",
+    "description": "Feature/&ProficiencyOligathLanguagesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6e56732c-8793-5852-9c5f-04197e29a98a",
+  "guid": "b4c55bc0-1663-5e3c-a660-3858df85ea98",
   "contentPack": 9999,
-  "name": "FeatureOathOfHammerHammersBoon"
+  "name": "ProficiencyOligathLanguages"
 }

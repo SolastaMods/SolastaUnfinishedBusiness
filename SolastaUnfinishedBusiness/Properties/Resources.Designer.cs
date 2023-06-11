@@ -1785,9 +1785,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] OathOfHammer {
+        public static byte[] OathOfHatred {
             get {
-                object obj = ResourceManager.GetObject("OathOfHammer", resourceCulture);
+                object obj = ResourceManager.GetObject("OathOfHatred", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1795,9 +1795,19 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] OathOfHatred {
+        public static byte[] OathOfThunder {
             get {
-                object obj = ResourceManager.GetObject("OathOfHatred", resourceCulture);
+                object obj = ResourceManager.GetObject("OathOfThunder", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Oligath {
+            get {
+                object obj = ResourceManager.GetObject("Oligath", resourceCulture);
                 return ((byte[])(obj));
             }
         }

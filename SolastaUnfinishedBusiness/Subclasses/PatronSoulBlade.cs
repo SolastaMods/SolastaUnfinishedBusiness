@@ -98,7 +98,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetParticleEffectParameters(Bane)
             .AllowRetarget()
             .SetEffectForms(
-                EffectFormBuilder.ConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add),
+                EffectFormBuilder.ConditionForm(conditionHexDefender),
                 EffectFormBuilder.ConditionForm(conditionHexAttacker, ConditionForm.ConditionOperation.Add, true)
             ).Build();
 

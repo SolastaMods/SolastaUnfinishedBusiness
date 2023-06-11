@@ -220,7 +220,7 @@ public static class InnovationArmor
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .HasSavingThrow(AttributeDefinitions.Constitution, EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
-                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed, ConditionOperation.Add))
+                    EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionSlowed))
                 .Build())
             .AddToDB();
 
@@ -257,7 +257,7 @@ public static class InnovationArmor
                         .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                         .SetSituationalContext(SituationalContext.TargetIsEffectSource)
                         .AddToDB())
-                    .AddToDB(), ConditionOperation.Add))
+                    .AddToDB()))
                 .AddEffectForms(EffectFormBuilder.ConditionForm(ConditionDefinitionBuilder
                     .Create("ConditionInventorArmorerInfiltratorDamage")
                     .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
@@ -270,7 +270,7 @@ public static class InnovationArmor
                         .SetGuiPresentation("ConditionInventorArmorerInfiltratorDamage", Category.Condition)
                         .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                         .AddToDB())
-                    .AddToDB(), ConditionOperation.Add))
+                    .AddToDB()))
                 .Build())
             .AddToDB();
 

@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:AdditionalActionWarDanceMomentum:a006baff-03c1-5aff-bee2-bb67bbe36642",
     "Definition:AdditionalDamageWarDanceMomentum:4b25829c-0d5f-5cd3-ad19-8dcfe7bec141"
   ],
   "allowMultipleInstances": true,
