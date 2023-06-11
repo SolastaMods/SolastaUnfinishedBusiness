@@ -237,15 +237,17 @@ public static class GameLocationCharacterPatcher
             CharacterActionParams actionParams,
             ActionDefinitions.ActionScope scope)
         {
-            if (__instance?.RulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
+            var rulesetCharacter = __instance?.RulesetCharacter;
+            if (rulesetCharacter?.IsDeadOrDyingOrUnconscious == true)
             {
                 return;
             }
 
             //PATCH: support for `IReplaceAttackWithCantrip` - counts cantrip casting as 1 main attack
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
-            ReplaceAttackWithCantrip.MightRefundOneAttackOfMainAction(__instance, actionParams, scope);
-        }
+            //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
+            rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
+                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));        }
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GetActionAvailableIterations))]

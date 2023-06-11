@@ -126,7 +126,7 @@ internal class EffectFormBuilder
 
     internal static EffectForm ConditionForm(
         ConditionDefinition condition,
-        ConditionForm.ConditionOperation operation,
+        ConditionForm.ConditionOperation operation = global::ConditionForm.ConditionOperation.Add,
         bool applyToSelf = false,
         bool forceOnSelf = false,
         params ConditionDefinition[] conditionsList)
