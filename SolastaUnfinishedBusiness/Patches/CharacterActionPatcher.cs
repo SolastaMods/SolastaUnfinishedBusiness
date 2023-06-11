@@ -104,6 +104,7 @@ public static class CharacterActionPatcher
             {
                 //BUGFIX: fix Haste spell not allowing the sequence attack / cast spell
                 if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    Gui.Battle != null &&
                     rulesetCharacter.HasAnyConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHasted.Name))
                 {
                     var gameLocationCharacter = __instance.ActingCharacter;
@@ -120,10 +121,18 @@ public static class CharacterActionPatcher
 
                 //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
                 if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
+                    Gui.Battle != null &&
                     rulesetCharacter.HasAnyConditionOfType(ConditionInspiringSurge, ConditionSpiritedSurge))
                 {
                     __instance.ActingCharacter.UsedMainSpell = false;
                     __instance.ActingCharacter.UsedMainCantrip = false;
+                }
+
+                //PATCH: clear determination cache on every action end
+                if (Main.Settings.UseOfficialFlankingRules &&
+                    Gui.Battle != null)
+                {
+                    FlankingAndHigherGroundRules.ClearFlankingDeterminationCache();
                 }
 
                 //PATCH: IActionFinished

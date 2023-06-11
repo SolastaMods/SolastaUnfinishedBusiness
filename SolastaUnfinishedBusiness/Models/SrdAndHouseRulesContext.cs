@@ -918,7 +918,7 @@ internal static class UpcastConjureElementalAndFey
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
         // ReSharper disable once InvocationIsSkipped
-        _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
+        _filteredSubspells.ForEach(s => Main.Info($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return _filteredSubspells;
     }
@@ -926,6 +926,13 @@ internal static class UpcastConjureElementalAndFey
 
 internal static class FlankingAndHigherGroundRules
 {
+    private static readonly Dictionary<(ulong, ulong), bool> FlankingDeterminationCache = new();
+
+    internal static void ClearFlankingDeterminationCache()
+    {
+        FlankingDeterminationCache.Clear();
+    }
+
     private static IEnumerable<CellFlags.Side> GetEachSide(CellFlags.Side side)
     {
         if ((side & CellFlags.Side.North) > 0)
@@ -959,16 +966,34 @@ internal static class FlankingAndHigherGroundRules
         }
     }
 
-    private static void Log(string message)
+    private static IEnumerable<int3> GetPositions(GameLocationCharacter gameLocationCharacter)
     {
-        if (Main.Settings.EnableFlankingLogging)
+        // collect all positions in the character cube surface
+        var basePosition = gameLocationCharacter.LocationPosition;
+        var maxExtents = gameLocationCharacter.SizeParameters.maxExtent;
+
+        // traverse by horizontal planes as most common use case in battles
+        for (var x = 0; x <= maxExtents.x; x++)
         {
-            Main.Info(message);
+            for (var z = 0; z <= maxExtents.z; z++)
+            {
+                for (var y = 0; y <= maxExtents.y; y++)
+                {
+                    yield return (basePosition + new int3(x, y, z));
+                }
+            }
         }
     }
 
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out bool result))
+        {
+            return result;
+        }
+
+        FlankingDeterminationCache.Add((attacker.Guid, defender.Guid), false);
+
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
         if (gameLocationBattleService is not { IsBattleInProgress: true })
@@ -989,68 +1014,37 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        // collect all positions in the defender cube surface
-        var defenderPositions = new List<int3>();
-        var maxExtents = defender.SizeParameters.maxExtent;
+        // collect all possible flanking sides from all attacker cells against all enemy cells
 
-        for (var x = 0; x <= maxExtents.x; x++)
+        var attackerFlankingSides = new HashSet<CellFlags.Side>();
+
+        foreach (var attackerPosition in GetPositions(attacker))
         {
-            for (var y = 0; y <= maxExtents.y; y++)
+            foreach (var defenderPosition in GetPositions(defender))
             {
-                for (var z = 0; z <= maxExtents.z; z++)
-                {
-                    // only collect positions on the cube surface
-                    if (x == 0 || y == 0 || z == 0 || x == maxExtents.x || y == maxExtents.y || z == maxExtents.z)
-                    {
-                        defenderPositions.Add(defender.LocationPosition + new int3(x, y, z));
-                    }
-                }
+                var attackerDirection = defenderPosition - attackerPosition;
+                var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+                var flankingSide = GetEachSide(attackerSide)
+                    .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+                attackerFlankingSides.Add(flankingSide);
             }
         }
 
-        var attackerPosition = attacker.LocationPosition;
+        result = allies
+            .Any(ally => GetPositions(ally)
+                .Any(allyPosition => GetPositions(defender)
+                    .Any(defenderPosition =>
+                        attackerFlankingSides.Contains(
+                            CellFlags.DirectionToAllSurfaceSides(defenderPosition - allyPosition)))));
 
-        foreach (var defenderPosition in defenderPositions)
-        {
-            var attackerDirection = defenderPosition - attackerPosition;
-            var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
-            var flankingSide = GetEachSide(attackerSide)
-                .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+        FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
 
-            Log("FLANKING DETERMINATION STARTED");
-            Log($"ATTACKER: {attacker.Name} POS: {attackerPosition} SIDE: {attackerSide}");
-            Log($"DEFENDER: {defender.Name} POS: {attackerPosition} SIZE: {defender.SizeParameters.maxExtent}");
-
-            foreach (var ally in allies)
-            {
-                var allyPosition = ally.LocationPosition;
-                var allyDirection = defenderPosition - allyPosition;
-                var allySide = CellFlags.DirectionToAllSurfaceSides(allyDirection);
-
-                Log($"ALLY: {ally.Name} POS: {allyPosition} SIDE: {allySide}");
-
-                if (allySide != flankingSide)
-                {
-                    continue;
-                }
-
-                Log("FLANKING DETERMINATION SUCCEED");
-
-                return true;
-            }
-        }
-
-        Log("FLANKING DETERMINATION FAILED");
-
-        return false;
+        return result;
     }
 
     internal static void HandleFlanking(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        var attacker = evaluationParams.attacker;
-        var defender = evaluationParams.defender;
-        var actionModifier = evaluationParams.attackModifier;
-
         if (!Main.Settings.UseOfficialFlankingRules)
         {
             return;
@@ -1062,11 +1056,8 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (!IsFlanking(attacker, defender))
-        {
-            return;
-        }
-
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
 
         if (!Main.Settings.UseOfficialFlankingRulesAlsoForReach &&
@@ -1075,25 +1066,33 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
+        if (!IsFlanking(attacker, defender))
+        {
+            return;
+        }
+
+        var actionModifier = evaluationParams.attackModifier;
+
         actionModifier.AttackAdvantageTrends.Add(
             new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
     }
 
     internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
     {
-        var attacker = evaluationParams.attacker;
-        var defender = evaluationParams.defender;
-        var actionModifier = evaluationParams.attackModifier;
-
         if (!Main.Settings.EnableHigherGroundRules)
         {
             return;
         }
 
+        var attacker = evaluationParams.attacker;
+        var defender = evaluationParams.defender;
+
         if (attacker.LocationPosition.y <= defender.LocationPosition.y)
         {
             return;
         }
+
+        var actionModifier = evaluationParams.attackModifier;
 
         actionModifier.attackRollModifier += 1;
         actionModifier.attackToHitTrends.Add(
