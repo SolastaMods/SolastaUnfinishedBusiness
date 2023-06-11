@@ -51,12 +51,12 @@ internal static class FixesContext
         AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfHammer);
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
 
         AdditionalDamagePaladinImprovedDivineSmite.attackModeOnly = true;
         AdditionalDamagePaladinImprovedDivineSmite.requiredProperty = RestrictedContextRequiredProperty.Weapon;
         AdditionalDamagePaladinImprovedDivineSmite.SetCustomSubFeatures(
-            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfHammer);
+            ValidatorsRestrictedContext.MeleeWeaponAttackOrOathOfThunder);
 
         AdditionalDamageBrandingSmite.attackModeOnly = true;
         AdditionalDamageBrandingSmite.requiredProperty = RestrictedContextRequiredProperty.MeleeWeapon;
