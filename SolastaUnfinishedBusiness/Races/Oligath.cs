@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
@@ -8,14 +7,10 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using TA;
-using TA.AI.Activities;
-using UnityEngine;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -28,45 +23,44 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class RaceOligathBuilder
 {
+    private const string Name = "Oligath";
+
     internal static CharacterRaceDefinition RaceOligath { get; } = BuildOligath();
 
     [NotNull]
     private static CharacterRaceDefinition BuildOligath()
     {
-
-        var oligathSpriteReference = Sprites.GetSprite("Oligath", SolastaUnfinishedBusiness.Properties.Resources.Oligath, 1024, 512);
-
         var attributeModifierOligathStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierOligathStrengthAbilityScoreIncrease")
+            .Create($"AttributeModifier{Name}StrengthAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 2)
             .AddToDB();
 
         var attributeModifierOligathConstitutionAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierOligathConstitutionAbilityScoreIncrease")
+            .Create($"AttributeModifier{Name}ConstitutionAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Constitution, 1)
             .AddToDB();
 
         var equipmentAffinityOligathPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
-            .Create(EquipmentAffinityFeatHauler, "EquipmentAffinityOligathPowerfulBuild")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .Create(EquipmentAffinityFeatHauler, $"EquipmentAffinity{Name}PowerfulBuild")
+            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var proficiencyOligathLanguages = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyOligathLanguages")
+            .Create($"Proficiency{Name}Languages")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Giant")
             .AddToDB();
 
         var proficiencyOligathNaturalAthlete = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyOligathNaturalAthlete")
+            .Create($"Proficiency{Name}NaturalAthlete")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Athletics)
             .AddToDB();
 
         var damageAffinityOligathHotBlooded = FeatureDefinitionDamageAffinityBuilder
-            .Create("DamageAffinityOligathHotBlooded")
+            .Create($"DamageAffinity{Name}HotBlooded")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
             .SetDamageType(DamageTypeCold)
@@ -75,8 +69,8 @@ internal static class RaceOligathBuilder
         var powerOligathStoneEndurance = BuildPowerOligathStoneEndurance();
 
         var raceOligath = CharacterRaceDefinitionBuilder
-            .Create(Human, "RaceOligath")
-            .SetGuiPresentation(Category.Race, oligathSpriteReference)
+            .Create(Human, $"Race{Name}")
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Oligath, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(Elf.RacePresentation.DeepCopy())
             .SetBaseWeight(35)
@@ -94,6 +88,7 @@ internal static class RaceOligathBuilder
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 proficiencyOligathLanguages)
             .AddToDB();
+
         RacesContext.RaceScaleMap[raceOligath] = 7.6f / 6.4f;
 
         return raceOligath;
@@ -104,68 +99,82 @@ internal static class RaceOligathBuilder
         var powerOligathStoneEndurance = FeatureDefinitionPowerBuilder
             .Create("PowerOligathStoneEndurance")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Reaction)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
         powerOligathStoneEndurance
             .SetCustomSubFeatures(new PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance(powerOligathStoneEndurance));
+
         return powerOligathStoneEndurance;
     }
 
-    private class PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance : IPhysicalAttackBeforeHitConfirmedOnMe, IMagicalAttackInitiated
+    private class PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance :
+        IPhysicalAttackBeforeHitConfirmedOnMe, IMagicalAttackInitiated
     {
-
-        private readonly FeatureDefinitionPower featureDefinitionPower;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
         public PhysicalAttackBeforeHitConfirmedOnMeStoneEndurance(
             FeatureDefinitionPower featureDefinitionPower)
         {
-            this.featureDefinitionPower = featureDefinitionPower;
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public IEnumerator OnMagicalAttackInitiated(GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit)
+        {
+            yield return HandlePowerStoneEndurance(defender, magicModifier);
         }
 
         public IEnumerator OnAttackBeforeHitConfirmed(
-            GameLocationBattleManager battle, 
-            GameLocationCharacter attacker, 
-            GameLocationCharacter me, 
-            ActionModifier attackModifier, 
-            RulesetAttackMode attackMode, 
-            bool rangedAttack, 
-            AdvantageType advantageType, 
-            List<EffectForm> actualEffectForms, 
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
-            bool criticalHit, 
+            bool criticalHit,
             bool firstTarget)
         {
             yield return HandlePowerStoneEndurance(me, attackModifier);
         }
 
-        public IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me, ActionModifier attackModifier)
+        private IEnumerator HandlePowerStoneEndurance(GameLocationCharacter me, ActionModifier attackModifier)
         {
-
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
                 ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
+            if (gameLocationActionService == null || gameLocationBattleService is not { IsBattleInProgress: true })
+            {
+                yield break;
+            }
+
             var rulesetMe = me.RulesetCharacter;
 
-            if (rulesetMe == null)
+            if (rulesetMe is not { IsDeadOrUnconscious: false })
             {
                 yield break;
             }
 
-            if (rulesetMe.GetRemainingPowerCharges(featureDefinitionPower) <= 0)
+            if (rulesetMe.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
             {
                 yield break;
             }
 
-            var reactionParams =
-                new CharacterActionParams(me, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
-                {
-                    StringParameter =
-                        Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription")
-                };
+            var reactionParams = new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction)
+            {
+                StringParameter = Gui.Format("Reaction/&CustomReactionStoneEnduranceDescription")
+            };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("StoneEndurance", reactionParams);
 
@@ -179,15 +188,13 @@ internal static class RaceOligathBuilder
                 yield break;
             }
 
-            int totalReducedDamage = CalculateReducedDamage(rulesetMe);
+            var totalReducedDamage = CalculateReducedDamage(rulesetMe);
 
             attackModifier.DamageRollReduction += totalReducedDamage;
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, featureDefinitionPower);
-            rulesetMe.UpdateUsageForPower(featureDefinitionPower, featureDefinitionPower.CostPerUse);
-
-            rulesetMe.DamageReduced(rulesetMe, featureDefinitionPower, totalReducedDamage);
-            me.SpendActionType(ActionType.Reaction);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetMe, _featureDefinitionPower);
+            rulesetMe.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            rulesetMe.DamageReduced(rulesetMe, _featureDefinitionPower, totalReducedDamage);
         }
 
         private static int CalculateReducedDamage(RulesetActor rulesetDefender, int damageAmount = -1)
@@ -195,8 +202,8 @@ internal static class RaceOligathBuilder
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
 
-            var result = rulesetDefender.RollDie(DieType.D12, RollContext.None, false,
-                AdvantageType.None, out _, out _);
+            var result = rulesetDefender.RollDie(
+                DieType.D12, RollContext.None, false, AdvantageType.None, out _, out _);
 
             var totalReducedDamage = result + constitutionModifier;
 
@@ -211,17 +218,6 @@ internal static class RaceOligathBuilder
             }
 
             return totalReducedDamage;
-        }
-
-        public IEnumerator OnMagicalAttackInitiated(GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
-            ActionModifier magicModifier, 
-            RulesetEffect rulesetEffect, 
-            List<EffectForm> actualEffectForms,
-            bool firstTarget, 
-            bool criticalHit)
-        {
-            yield return HandlePowerStoneEndurance(defender, magicModifier);
         }
     }
 }
