@@ -387,7 +387,7 @@ When you hit a creature with an attack that deals slashing damage, you can reduc
 
 # 84. - Slay thy Enemies
 
-You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Instead, if a favored enemy, you get advantage on attack and bonus to damage roll. This effect lasts for 2 + the slot level rounds.
+You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. Against favored enemies you gain advantage on attack rolls instead pf attack roll bonus. This effect lasts for 2 rounds, plus 1 round per slot level used.
 
 # 85. - Spear Mastery
 
