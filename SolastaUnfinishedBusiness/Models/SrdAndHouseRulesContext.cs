@@ -979,7 +979,7 @@ internal static class FlankingAndHigherGroundRules
             {
                 for (var y = 0; y <= maxExtents.y; y++)
                 {
-                    yield return (basePosition + new int3(x, y, z));
+                    yield return basePosition + new int3(x, y, z);
                 }
             }
         }
@@ -987,7 +987,7 @@ internal static class FlankingAndHigherGroundRules
 
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
-        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out bool result))
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
         {
             return result;
         }

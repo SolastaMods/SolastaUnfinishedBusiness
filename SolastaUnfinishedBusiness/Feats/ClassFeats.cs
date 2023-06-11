@@ -1162,8 +1162,7 @@ internal static class ClassFeats
                             .SetPossessive()
                             .SetFixedAmount(i)
                             .SetFeatures(additionalDamage, advantageOnFavorite, toHitOnRegular)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add))
+                            .AddToDB()))
                     .Build())
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(

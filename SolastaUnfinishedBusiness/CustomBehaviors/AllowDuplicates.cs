@@ -2,9 +2,9 @@
 
 public class AllowDuplicates
 {
-    public static AllowDuplicates Mark { get; } = new();
-
     private AllowDuplicates()
     {
     }
+
+    public static AllowDuplicates Mark { get; } = new();
 }

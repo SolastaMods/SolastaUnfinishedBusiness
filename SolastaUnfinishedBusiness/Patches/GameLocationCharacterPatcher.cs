@@ -247,7 +247,8 @@ public static class GameLocationCharacterPatcher
             ReplaceAttackWithCantrip.AllowAttacksAfterCantrip(__instance, actionParams, scope);
             //PATCH: support for `IActionExecutionHandled` - allows processing after action has been fully accounted for
             rulesetCharacter?.GetSubFeaturesByType<IActionExecutionHandled>()
-                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));        }
+                .ForEach(f => f.OnActionExecutionHandled(__instance, actionParams, scope));
+        }
     }
 
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GetActionAvailableIterations))]

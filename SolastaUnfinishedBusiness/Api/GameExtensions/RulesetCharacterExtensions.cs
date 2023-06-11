@@ -573,6 +573,6 @@ internal static class RulesetCharacterExtensions
             return;
         }
 
-        label.EnqueueCaption(new CharacterLabel.CaptionInfo {caption = text, colorString = color});
+        label.EnqueueCaption(new CharacterLabel.CaptionInfo { caption = text, colorString = color });
     }
 }

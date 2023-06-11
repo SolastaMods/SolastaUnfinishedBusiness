@@ -6,7 +6,7 @@ public interface IActionExecutionHandled
      * Called after action execution has been accounted for - actions spent, attack numbers upodated, etc
      */
     void OnActionExecutionHandled(
-        GameLocationCharacter character, 
+        GameLocationCharacter character,
         CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope);
 }

@@ -71,8 +71,8 @@ internal static class ReplaceAttackWithCantrip
 
         const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
         var rank = --character.currentActionRankByType[ACTION_TYPE];
-        
-        int maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
+
+        var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
         var maxAttacksNumber = rulesetCharacter.AttackModes
             .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
             .Max(attackMode => attackMode.AttacksNumber);
