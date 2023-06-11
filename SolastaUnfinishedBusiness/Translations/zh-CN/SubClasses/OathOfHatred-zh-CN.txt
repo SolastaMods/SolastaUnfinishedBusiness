@@ -21,4 +21,4 @@ Reaction/&CustomReactionHatredArdentHateReactDescription=而是打。
 Reaction/&CustomReactionHatredArdentHateReactTitle=Hit
 Reaction/&CustomReactionHatredArdentHateTitle=炽热的仇恨
 Subclass/&OathOfHatredDescription=仇恨誓言圣武士致力于通过引导仇恨来惩罚作恶者。
-Subclass/&OathOfHatredTitle=仇恨誓言
+Subclass/&OathOfHatredTitle=仇恨之誓
