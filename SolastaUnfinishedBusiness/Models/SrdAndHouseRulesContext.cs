@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using TA;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -965,7 +966,7 @@ internal static class FlankingAndHigherGroundRules
             Main.Info(message);
         }
     }
-    
+
     private static bool IsFlanking(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
@@ -975,12 +976,6 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        var attackerPosition = attacker.LocationPosition;
-        var defenderPosition = defender.LocationPosition;
-        var attackerDirection = defenderPosition - attackerPosition;
-        var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
-        var flankingSide = GetEachSide(attackerSide)
-            .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
         var allies = gameLocationBattleService.Battle.AllContenders
             .Where(x =>
                 x != attacker &&
@@ -994,26 +989,55 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        Log("FLANKING DETERMINATION STARTED");
-        Log($"ATTACKER: {attacker.Name} POS: {attackerPosition} SIDE: {attackerSide}");
-        Log($"DEFENDER: {defender.Name} POS: {attackerPosition} SIZE: {defender.SizeParameters.maxExtent}");
+        // collect all positions in the defender cube surface
+        var defenderPositions = new List<int3>();
+        var maxExtents = defender.SizeParameters.maxExtent;
 
-        foreach (var ally in allies)
+        for (var x = 0; x <= maxExtents.x; x++)
         {
-            var allyPosition = ally.LocationPosition;
-            var allyDirection = defenderPosition - allyPosition;
-            var allySide = CellFlags.DirectionToAllSurfaceSides(allyDirection);
-
-            Log($"ALLY: {ally.Name} POS: {allyPosition} SIDE: {allySide}");
-
-            if (allySide != flankingSide)
+            for (var y = 0; y <= maxExtents.y; y++)
             {
-                continue;
+                for (var z = 0; z <= maxExtents.z; z++)
+                {
+                    // only collect positions on the cube surface
+                    if (x == 0 || y == 0 || z == 0 || x == maxExtents.x || y == maxExtents.y || z == maxExtents.z)
+                    {
+                        defenderPositions.Add(defender.LocationPosition + new int3(x, y, z));
+                    }
+                }
             }
+        }
 
-            Log("FLANKING DETERMINATION SUCCEED");
+        var attackerPosition = attacker.LocationPosition;
 
-            return true;
+        foreach (var defenderPosition in defenderPositions)
+        {
+            var attackerDirection = defenderPosition - attackerPosition;
+            var attackerSide = CellFlags.DirectionToAllSurfaceSides(attackerDirection);
+            var flankingSide = GetEachSide(attackerSide)
+                .Aggregate(CellFlags.Side.None, (current, side) => current | CellFlags.InvertSide(side));
+
+            Log("FLANKING DETERMINATION STARTED");
+            Log($"ATTACKER: {attacker.Name} POS: {attackerPosition} SIDE: {attackerSide}");
+            Log($"DEFENDER: {defender.Name} POS: {attackerPosition} SIZE: {defender.SizeParameters.maxExtent}");
+
+            foreach (var ally in allies)
+            {
+                var allyPosition = ally.LocationPosition;
+                var allyDirection = defenderPosition - allyPosition;
+                var allySide = CellFlags.DirectionToAllSurfaceSides(allyDirection);
+
+                Log($"ALLY: {ally.Name} POS: {allyPosition} SIDE: {allySide}");
+
+                if (allySide != flankingSide)
+                {
+                    continue;
+                }
+
+                Log("FLANKING DETERMINATION SUCCEED");
+
+                return true;
+            }
         }
 
         Log("FLANKING DETERMINATION FAILED");
