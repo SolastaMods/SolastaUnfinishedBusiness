@@ -58,6 +58,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinLayOnHands, "PowerAncientForestRegrowth")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.HealingPool, 0)
             .AddToDB();
 
         var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
