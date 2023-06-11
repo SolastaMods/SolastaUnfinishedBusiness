@@ -4,9 +4,11 @@
 
 - added Oligath race [by Otearaisu]
 - changed Oath of Hammers to Oath of Thunders [still beta and incomplete]
-- fixed Ready feat skipping next contender turn 
-- fixed Widen Spell increasing AoE size inconsistently
+- fixed Circle of the Ancient Forest missing the regrowth power
 - fixed Flanking rules miscalculating against larger targets
+- fixed Ready feat skipping next contender turn
+- fixed War Dancer momentum extra attacks interactions
+- fixed Widen Spell increasing AoE size inconsistently
 
 1.5.52.2:
 
