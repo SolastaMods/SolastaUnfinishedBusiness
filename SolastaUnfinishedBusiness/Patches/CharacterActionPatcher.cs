@@ -102,23 +102,6 @@ public static class CharacterActionPatcher
 
             if (rulesetCharacter is { IsDeadOrDyingOrUnconscious: false })
             {
-                //BUGFIX: fix Haste spell not allowing the sequence attack / cast spell
-                if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
-                    Gui.Battle != null &&
-                    rulesetCharacter.HasAnyConditionOfType(DatabaseHelper.ConditionDefinitions.ConditionHasted.Name))
-                {
-                    var gameLocationCharacter = __instance.ActingCharacter;
-
-                    if (gameLocationCharacter.UsedMainCantrip || gameLocationCharacter.UsedMainSpell)
-                    {
-                        AdditionalActionHasted.RestrictedActions.Remove(ActionDefinitions.Id.CastMain);
-                    }
-                    else
-                    {
-                        AdditionalActionHasted.RestrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
-                    }
-                }
-
                 //PATCH: allows characters surged from Royal Knight to be able to cast spell main on each action
                 if (__instance.ActionType == ActionDefinitions.ActionType.Main &&
                     Gui.Battle != null &&
