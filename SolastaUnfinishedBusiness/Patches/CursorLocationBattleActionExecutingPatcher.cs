@@ -57,6 +57,12 @@ public static class CursorLocationBattleActionExecutingPatcher
                 return ActionDefinitions.ActionStatus.Unavailable;
             }
 
+            //Do not allow chain-casting, since cursor parameters are invalid after first cast
+            if (actionId is ActionDefinitions.Id.CastBonus or ActionDefinitions.Id.CastMain)
+            {
+                return ActionDefinitions.ActionStatus.Unavailable;
+            }
+
             return instance.GetActionStatus(actionId, scope, actionTypeStatus, optionalAttackMode, ignoreMovePoints,
                 allowUsingDelegatedPowersAsPowers);
         }

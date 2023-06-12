@@ -265,11 +265,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 };
                 var reactionRequest = new ReactionRequestCustom("DanceOfWarOnMiss", reactionParams);
 
-                var service = ServiceRepository.GetService<IGameLocationActionService>();
-                var count = service.PendingReactionRequestGroups.Count;
+                var count = manager.PendingReactionRequestGroups.Count;
 
                 manager.AddInterruptRequest(reactionRequest);
-                yield return battleManager.WaitForReactions(attacker, service, count);
+                yield return battleManager.WaitForReactions(attacker, manager, count);
 
                 if (reactionParams.ReactionValidated)
                 {
@@ -486,9 +485,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 return;
             }
 
-            var momentum = character.ConditionsByCategory
-                .SelectMany(x => x.Value)
-                .Count(x => x.ConditionDefinition == WarDanceMomentum);
+            var momentum = GetMomentumStacks(character);
 
             if (momentum == 0)
             {

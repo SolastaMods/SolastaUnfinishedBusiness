@@ -1,5 +1,29 @@
 ﻿CHANGES:
 
+1.5.52.5 (re-release):
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
+1.5.52.4:
+
+ATTENTION: 
+
+- TA will release a new patch this week. This version should work there
+- in transit this week so next release won't happen until at least Friday [wish I had a SteamDeck ;-(]
+
+CHANGES:
+
+- added hidden setting to enable experimental flanking rules [by @andargor]
+- fixed Paladin ranged attack soft locking the combat
+
 1.5.52.3:
 
 - added Oligath race [by Otearaisu]
