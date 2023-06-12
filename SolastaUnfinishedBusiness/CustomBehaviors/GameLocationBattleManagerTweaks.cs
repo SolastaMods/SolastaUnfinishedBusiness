@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.CustomBuilders;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -1101,6 +1102,15 @@ internal static class GameLocationBattleManagerTweaks
                         validTrigger = attackMode != null &&
                                        attackMode.AttackTags.Contains(TagsDefinitions.FlurryOfBlows);
 
+                        break;
+                    }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
+                    ExtraAdditionalDamageTriggerCondition.TargetHasLowerInitiativeOnFirstRound:
+                    {
+                        validTrigger = instance.Battle.CurrentRound == 1 &&
+                            instance.Battle.InitiativeSortedContenders.IndexOf(attacker) 
+                            < instance.Battle.InitiativeSortedContenders.IndexOf(defender);
                         break;
                     }
                     /*

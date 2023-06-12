@@ -135,7 +135,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
 
     TargetWithin10Ft = 9000,
     TargetIsDuelingWithYou = 9002,
-    FlurryOfBlows = 9003
+    FlurryOfBlows = 9003,
+    TargetHasLowerInitiativeOnFirstRound = 9004
 }
 
 public enum ExtraConditionInterruption
