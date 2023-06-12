@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using TA;
+using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -1066,9 +1067,19 @@ internal static class FlankingAndHigherGroundRules
             return;
         }
 
-        if (!IsFlankingEXPERIMENTAL(attacker, defender))
+        if (Main.Settings.UseExperimentalFlankingRules)
         {
-            return;
+            if (!IsFlankingExperimental(attacker, defender))
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (!IsFlanking(attacker, defender))
+            {
+                return;
+            }
         }
 
         var actionModifier = evaluationParams.attackModifier;
@@ -1103,10 +1114,9 @@ internal static class FlankingAndHigherGroundRules
     //EXPERIMENTAL FLANKING IMPLEMENTATION WITH MATH
     // Uses custom classes
 
-    private static bool IsFlankingEXPERIMENTAL(GameLocationCharacter attacker, GameLocationCharacter defender)
+    private static bool IsFlankingExperimental(GameLocationCharacter attacker, GameLocationCharacter defender)
     {
-
-        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out bool result))
+        if (FlankingDeterminationCache.TryGetValue((attacker.Guid, defender.Guid), out var result))
         {
             return result;
         }
@@ -1120,27 +1130,33 @@ internal static class FlankingAndHigherGroundRules
             return false;
         }
 
-        Point3D attackerCenter = new Point3D(attacker.LocationBattleBoundingBox.Center);
-        Cube defenderCube = new Cube(new Point3D(defender.LocationBattleBoundingBox.Min),
-                             new Point3D(defender.LocationBattleBoundingBox.Max + 1));
+        var attackerCenter = new Point3D(attacker.LocationBattleBoundingBox.Center);
+        var defenderCube = new Cube(new Point3D(defender.LocationBattleBoundingBox.Min),
+            new Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
-        foreach (GameLocationCharacter ally in gameLocationBattleService.Battle.AllContenders)
+        foreach (var ally in gameLocationBattleService.Battle.AllContenders)
         {
             if (ally == attacker
                 || ally == defender
-                || !(ally.Side == attacker.Side)
+                || ally.Side != attacker.Side
                 || !ally.CanAct()
                 || !gameLocationBattleService.IsWithin1Cell(ally, defender)
-                ) continue;
+               )
+            {
+                continue;
+            }
 
-            Point3D allyCenter = new Point3D(ally.LocationBattleBoundingBox.Center);
+            var allyCenter = new Point3D(ally.LocationBattleBoundingBox.Center);
             result = LineIntersectsCubeOppositeSides(attackerCenter, allyCenter, defenderCube);
 
             //Main.Log("IsFlanking " + result + " attacker " + attacker.Name + " center " + attackerCenter.ToString()
             //            + " defender " + defender.Name + " cube " + defenderCube.ToString()
             //            + " ally " + ally.Name + " center " + allyCenter.ToString());
 
-            if (result) break;
+            if (result)
+            {
+                break;
+            }
         }
 
         FlankingDeterminationCache[(attacker.Guid, defender.Guid)] = result;
@@ -1148,13 +1164,96 @@ internal static class FlankingAndHigherGroundRules
         return result;
     }
 
+    private static bool LineIntersectsCubeOppositeSides(Point3D p1, Point3D p2, Cube cube)
+    {
+        // Check if the line intersects opposite sides of the cube
+        var intersectsFrontBack =
+            LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
+        
+        if (intersectsFrontBack)
+        {
+            return true;
+        }
+
+        var intersectsLeftRight =
+            LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
+        
+        if (intersectsLeftRight)
+        {
+            return true;
+        }
+
+        var intersectsTopBottom =
+            LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
+        
+        if (intersectsTopBottom)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
+    {
+        // Check if the line intersects the plane of the face
+        if (!LineIntersectsPlane(p1, p2, face))
+        {
+            return false;
+        }
+
+        // Find the intersection point on the plane
+        var intersection = GetIntersectionPoint(p1, p2, face);
+
+        // Check if the intersection point is within the boundaries of the face
+        return PointIsWithinFace(intersection, face);
+    }
+
+    private static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the dot product of the line direction and the normal vector of the plane
+        var dotProduct = direction.DotProduct(plane.Normal);
+
+        // If the dot product is close to zero, the line is parallel to the plane
+        if (Math.Abs(dotProduct) < double.Epsilon)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
+    {
+        // Compute the direction vector of the line
+        var direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+
+        // Compute the distance from p1 to the intersection point
+        var t = (plane.D - plane.Normal.DotProduct(new Vector3D(p1.X, p1.Y, p1.Z))) /
+                plane.Normal.DotProduct(direction);
+
+        // Compute the intersection point
+        var x = p1.X + (direction.X * t);
+        var y = p1.Y + (direction.Y * t);
+        var z = p1.Z + (direction.Z * t);
+
+        return new Point3D(x, y, z);
+    }
+
+    private static bool PointIsWithinFace(Point3D point, Plane face)
+    {
+        // Check if the point is within the boundaries of the face
+        return point.X >= face.MinX && point.X <= face.MaxX &&
+               point.Y >= face.MinY && point.Y <= face.MaxY &&
+               point.Z >= face.MinZ && point.Z <= face.MaxZ;
+    }
+
     private class Point3D
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-
-        public Point3D(UnityEngine.Vector3 pt)
+        public Point3D(Vector3 pt)
         {
             X = pt.x;
             Y = pt.y;
@@ -1175,6 +1274,10 @@ internal static class FlankingAndHigherGroundRules
             Z = z;
         }
 
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
         public override String ToString()
         {
             return "(" + X + "," + Y + "," + Z + ")";
@@ -1183,10 +1286,6 @@ internal static class FlankingAndHigherGroundRules
 
     private class Vector3D
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-
         public Vector3D(double x, double y, double z)
         {
             X = x;
@@ -1194,24 +1293,20 @@ internal static class FlankingAndHigherGroundRules
             Z = z;
         }
 
+        public double X { get; }
+        public double Y { get; }
+        public double Z { get; }
+
         public double DotProduct(Vector3D other)
         {
-            return X * other.X + Y * other.Y + Z * other.Z;
+            return (X * other.X) + (Y * other.Y) + (Z * other.Z);
         }
     }
 
     private class Plane
     {
-        public double MinX { get; set; }
-        public double MaxX { get; set; }
-        public double MinY { get; set; }
-        public double MaxY { get; set; }
-        public double MinZ { get; set; }
-        public double MaxZ { get; set; }
-        public Vector3D Normal { get; set; }
-        public double D { get; set; }
-
-        public Plane(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, Vector3D normal, double d)
+        public Plane(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, Vector3D normal,
+            double d)
         {
             MinX = minX;
             MaxX = maxX;
@@ -1222,21 +1317,26 @@ internal static class FlankingAndHigherGroundRules
             Normal = normal;
             D = d;
         }
+
+        public double MinX { get; }
+        public double MaxX { get; }
+        public double MinY { get; }
+        public double MaxY { get; }
+        public double MinZ { get; }
+        public double MaxZ { get; }
+        public Vector3D Normal { get; }
+        public double D { get; }
     }
 
     private class Cube
     {
-        public Plane FrontFace { get; set; }
-        public Plane BackFace { get; set; }
-        public Plane LeftFace { get; set; }
-        public Plane RightFace { get; set; }
-        public Plane TopFace { get; set; }
-        public Plane BottomFace { get; set; }
+        private readonly Point3D min;
+        private readonly Point3D max;
 
-        public Point3D min, max;
         public Cube(Point3D minPoint, Point3D maxPoint)
         {
-            min = minPoint; max = maxPoint;
+            min = minPoint;
+            max = maxPoint;
 
             // Define the six faces of the cube
             FrontFace = new Plane(minPoint.X, maxPoint.X, minPoint.Y, maxPoint.Y, maxPoint.Z, maxPoint.Z,
@@ -1253,77 +1353,16 @@ internal static class FlankingAndHigherGroundRules
                 new Vector3D(0, -1, 0), -minPoint.Y);
         }
 
+        public Plane FrontFace { get; }
+        public Plane BackFace { get; }
+        public Plane LeftFace { get; }
+        public Plane RightFace { get; }
+        public Plane TopFace { get; }
+        public Plane BottomFace { get; }
+
         public override String ToString()
         {
             return "(" + min + ":" + max + ")";
         }
-    }
-
-    private static bool LineIntersectsCubeOppositeSides(Point3D p1, Point3D p2, Cube cube)
-    {
-        // Check if the line intersects opposite sides of the cube
-        bool intersectsFrontBack = LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
-        if (intersectsFrontBack) { return true; }
-
-        bool intersectsLeftRight = LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
-        if (intersectsLeftRight) { return true; }
-
-        bool intersectsTopBottom = LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
-        if (intersectsTopBottom) { return true; }
-
-        return false;
-    }
-
-    private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
-    {
-        // Check if the line intersects the plane of the face
-        if (!LineIntersectsPlane(p1, p2, face))
-            return false;
-
-        // Find the intersection point on the plane
-        Point3D intersection = GetIntersectionPoint(p1, p2, face);
-
-        // Check if the intersection point is within the boundaries of the face
-        return PointIsWithinFace(intersection, face);
-    }
-
-    private static bool LineIntersectsPlane(Point3D p1, Point3D p2, Plane plane)
-    {
-        // Compute the direction vector of the line
-        Vector3D direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
-
-        // Compute the dot product of the line direction and the normal vector of the plane
-        double dotProduct = direction.DotProduct(plane.Normal);
-
-        // If the dot product is close to zero, the line is parallel to the plane
-        if (Math.Abs(dotProduct) < double.Epsilon)
-            return false;
-
-        return true;
-    }
-
-    private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
-    {
-        // Compute the direction vector of the line
-        Vector3D direction = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
-
-        // Compute the distance from p1 to the intersection point
-        double t = (plane.D - plane.Normal.DotProduct(new Vector3D(p1.X, p1.Y, p1.Z))) /
-                   plane.Normal.DotProduct(direction);
-
-        // Compute the intersection point
-        double x = p1.X + direction.X * t;
-        double y = p1.Y + direction.Y * t;
-        double z = p1.Z + direction.Z * t;
-
-        return new Point3D(x, y, z);
-    }
-
-    private static bool PointIsWithinFace(Point3D point, Plane face)
-    {
-        // Check if the point is within the boundaries of the face
-        return (point.X >= face.MinX && point.X <= face.MaxX &&
-                point.Y >= face.MinY && point.Y <= face.MaxY &&
-                point.Z >= face.MinZ && point.Z <= face.MaxZ);
     }
 }
