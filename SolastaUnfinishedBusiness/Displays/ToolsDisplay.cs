@@ -202,9 +202,9 @@ internal static class ToolsDisplay
             return;
         }
 
-        var gameTime = Gui.GameCampaign.GameTime;
+        var gameCampaign = Gui.GameCampaign;
 
-        if (gameTime == null)
+        if (gameCampaign == null)
         {
             return;
         }
@@ -214,10 +214,10 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width((float)300));
-            UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width((float)100));
-            UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width((float)100));
-            UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width((float)100));
-            UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width((float)100));
+            UI.ActionButton("1 hour", () => gameCampaign.UpdateTime(60 * 60), UI.Width((float)100));
+            UI.ActionButton("6 hours", () => gameCampaign.UpdateTime(60 * 60 * 6), UI.Width((float)100));
+            UI.ActionButton("12 hours", () => gameCampaign.UpdateTime(60 * 60 * 12), UI.Width((float)100));
+            UI.ActionButton("24 hours", () => gameCampaign.UpdateTime(60 * 60 * 24), UI.Width((float)100));
         }
     }
 
