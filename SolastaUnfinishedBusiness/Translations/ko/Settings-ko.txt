@@ -163,7 +163,7 @@ ModUi/&ItemsCraftingMerchants=제작, 아이템 및 상인
 ModUi/&ItemsHelp1=<color=#C04040E0>영웅에게 아이템을 추가하려면 캐릭터 검사 화면을 여세요...</color>
 ModUi/&ItemsHelp2=<b>그라운드 컨테이너에 항목을 추가하려면 +를 누르십시오</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=모든 마법 지팡이를 신비한 초점으로 <i><color=#F0DAA0>[보편적인 <color=#D89555>치유 지팡이</color> 제외]</color></i>
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 ​​표시</i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 또한 발견 후 레벨 맵에 보이지 않는 텔레포터의 위치를 표시</i>
 ModUi/&MaxAllowedClasses=<color=white>최대 허용 클래스</color>
 ModUi/&Merchants=<color=#F0DAA0>상인:</color>
 ModUi/&Metamagic=<color=#F0DAA0>메타매직</color>

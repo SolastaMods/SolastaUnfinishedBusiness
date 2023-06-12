@@ -1,6 +1,6 @@
 Condition/&ConditionFeatCallForChargeDescription=속도가 15피트 증가하고 공격에 유리합니다.
 Condition/&ConditionFeatCallForChargeTitle=요금 청구
-Condition/&ConditionFeatSlayTheEnemiesDescription={0}와 ​​동일한 공격 및 피해 굴림에 보너스가 있습니다. 목표가 우호적이라면 공격 굴림 보너스 대신 이점이 있습니다.
+Condition/&ConditionFeatSlayTheEnemiesDescription={0}와 동일한 공격 및 피해 굴림에 보너스가 있습니다. 목표가 우호적이라면 공격 굴림 보너스 대신 이점이 있습니다.
 Condition/&ConditionFeatSlayTheEnemiesTitle=적 처치
 Feat/&FeatAwakenTheBeastWithinDescription={0} 점수를 1 올려 최대 20까지 올리십시오. Wild Shape 능력을 사용하여 야수로 변신할 때마다 드루이드 레벨의 두 배에 해당하는 일시적인 체력을 얻습니다.
 Feat/&FeatAwakenTheBeastWithinTitle=야수 깨우기 [{0}]
@@ -26,7 +26,7 @@ Feat/&FeatHardyStrDescription=Strength 점수를 1씩 최대 20까지 올립니�
 Feat/&FeatHardyStrTitle=하디 [Str]
 Feat/&FeatNaturalFluidityDescription=WildShape 형태를 사용하여 사용한 주문 슬롯을 최대 3레벨 주문 슬롯까지 복원할 수 있습니다. 또는 3레벨 이상의 주문 슬롯을 사용하여 최대 2개의 WildShape 형태를 회복할 수 있습니다. 긴 휴식마다 한 번 사용할 수 있습니다.
 Feat/&FeatNaturalFluidityTitle=자연스러운 유동성
-Feat/&FeatPoisonerDescription=독극물을 조작하는 방법에 대해 깊이 이해하고 있습니다.\n• 독살자 키트에 대한 숙련도를 얻거나 이미 숙련된 ​​경우 전문 지식을 얻습니다.\n• 보너스 액션으로 무기에 독을 적용할 수 있는 능력을 얻습니다.\n• 99}• 독을 만들기 위해 수행하는 모든 능력 검사에 두 배의 숙련도 보너스를 추가하면 절반의 시간에 독을 만들 수 있습니다.
+Feat/&FeatPoisonerDescription=독극물을 조작하는 방법에 대해 깊이 이해하고 있습니다.\n• 독살자 키트에 대한 숙련도를 얻거나 이미 숙련된 경우 전문 지식을 얻습니다.\n• 보너스 액션으로 무기에 독을 적용할 수 있는 능력을 얻습니다.\n• 99}• 독을 만들기 위해 수행하는 모든 능력 검사에 두 배의 숙련도 보너스를 추가하면 절반의 시간에 독을 만들 수 있습니다.
 Feat/&FeatPoisonerTitle=독 전문가
 Feat/&FeatPotentSpellcasterDescription=레퍼토리의 모든 {0} 캔트립으로 처리하는 피해에 스펠캐스터 속성 수정자를 추가할 수 있습니다.
 Feat/&FeatPotentSpellcasterTitle=강력한 마법사 [{0}]

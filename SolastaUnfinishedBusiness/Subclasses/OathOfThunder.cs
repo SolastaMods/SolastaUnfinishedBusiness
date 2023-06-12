@@ -20,10 +20,12 @@ internal sealed class OathOfThunder : AbstractSubclass
     internal const string Name = "OathOfThunder";
 
     internal static readonly IsWeaponValidHandler IsValidWeapon = (mode, item, character) =>
-        character.GetClassLevel(CharacterClassDefinitions.Paladin) >= 7
-            ? ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType, WeaponTypeDefinitions.WarhammerType)
+        character.GetSubclassLevel(CharacterClassDefinitions.Paladin, Name) >= 7
+            ? mode.thrown && ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType,
+                    WeaponTypeDefinitions.WarhammerType)
                 (mode, item, character)
-            : ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType)(mode, item, character);
+            : mode.thrown &&
+              ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.WarhammerType)(mode, item, character);
 
     internal OathOfThunder()
     {
@@ -175,7 +177,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (IsValidWeapon(attackMode, null, null))
+            if (IsValidWeapon(attackMode, null, myself))
             {
                 return;
             }
@@ -186,7 +188,7 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!IsValidWeapon(attackMode, null, null))
+            if (!IsValidWeapon(attackMode, null, character))
             {
                 return;
             }
