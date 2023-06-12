@@ -23,7 +23,7 @@ internal sealed class OathOfThunder : AbstractSubclass
         character.GetClassLevel(CharacterClassDefinitions.Paladin) >= 7
             ? ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType, WeaponTypeDefinitions.WarhammerType)
                 (mode, item, character)
-            : ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.BattleaxeType)(mode, item, character);
+            : ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.WarhammerType)(mode, item, character);
 
     internal OathOfThunder()
     {
@@ -175,7 +175,7 @@ internal sealed class OathOfThunder : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (IsValidWeapon(attackMode, null, null))
+            if (IsValidWeapon(attackMode, null, myself))
             {
                 return;
             }
@@ -186,7 +186,7 @@ internal sealed class OathOfThunder : AbstractSubclass
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!IsValidWeapon(attackMode, null, null))
+            if (!IsValidWeapon(attackMode, null, character))
             {
                 return;
             }
