@@ -1134,6 +1134,7 @@ internal static class FlankingAndHigherGroundRules
         var defenderCube = new Cube(new Point3D(defender.LocationBattleBoundingBox.Min),
             new Point3D(defender.LocationBattleBoundingBox.Max + 1));
 
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var ally in gameLocationBattleService.Battle.AllContenders)
         {
             if (ally == attacker
@@ -1186,12 +1187,7 @@ internal static class FlankingAndHigherGroundRules
         var intersectsTopBottom =
             LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
         
-        if (intersectsTopBottom)
-        {
-            return true;
-        }
-
-        return false;
+        return intersectsTopBottom;
     }
 
     private static bool LineIntersectsFace(Point3D p1, Point3D p2, Plane face)
@@ -1218,12 +1214,7 @@ internal static class FlankingAndHigherGroundRules
         var dotProduct = direction.DotProduct(plane.Normal);
 
         // If the dot product is close to zero, the line is parallel to the plane
-        if (Math.Abs(dotProduct) < double.Epsilon)
-        {
-            return false;
-        }
-
-        return true;
+        return !(Math.Abs(dotProduct) < double.Epsilon);
     }
 
     private static Point3D GetIntersectionPoint(Point3D p1, Point3D p2, Plane plane)
