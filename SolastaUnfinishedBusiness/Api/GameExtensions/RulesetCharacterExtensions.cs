@@ -314,14 +314,14 @@ internal static class RulesetCharacterExtensions
 
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(classDefinition) ?? 0;
     }
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+        var hero = instance as RulesetCharacterHero ?? instance?.OriginalFormCharacter as RulesetCharacterHero;
 
         return hero?.GetClassLevel(className) ?? 0;
     }

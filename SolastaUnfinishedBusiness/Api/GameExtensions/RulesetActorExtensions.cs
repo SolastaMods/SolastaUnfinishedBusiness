@@ -39,8 +39,7 @@ internal static class RulesetActorExtensions
         actor?.EnumerateFeaturesToBrowse<T>(list);
 
         return list
-            .Select(s => s as T)
-            .Where(f => f != null)
+            .OfType<T>()
             .ToList();
     }
 
