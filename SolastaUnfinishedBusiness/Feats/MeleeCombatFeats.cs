@@ -553,6 +553,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAdditionalActionBuilder
                     .Create($"AdditionalAction{Name}Finish")
                     .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(AdditionalActionAttackValidator.MeleeOnly)
                     .SetActionType(ActionDefinitions.ActionType.Main)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
                     .SetMaxAttacksNumber(1)
