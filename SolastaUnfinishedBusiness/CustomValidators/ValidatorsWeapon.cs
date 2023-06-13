@@ -66,7 +66,9 @@ internal static class ValidatorsWeapon
     internal static bool IsMelee(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
     {
         var item = attackMode?.sourceObject as RulesetItem ?? rulesetItem;
-        return IsMelee(item);
+        return item != null
+            ? IsMelee(item)
+            : IsMelee(attackMode?.SourceDefinition as ItemDefinition);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
