@@ -122,7 +122,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                 featureBlastOverload)
             .AddFeaturesAtLevel(14,
                 featureBlastReload)
-            .AddFeaturesAtLevel(17,
+            .AddFeaturesAtLevel(18,
                 featurePursuitPermanency
             )
             .AddToDB();
