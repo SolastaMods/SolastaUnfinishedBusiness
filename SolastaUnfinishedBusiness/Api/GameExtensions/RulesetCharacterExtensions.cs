@@ -571,6 +571,11 @@ internal static class RulesetCharacterExtensions
 
     internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
     {
+        if (character == null)
+        {
+            return;
+        }
+
         if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
                 .TryFindWorldCharacter(character, out var worldCharacter))
         {
