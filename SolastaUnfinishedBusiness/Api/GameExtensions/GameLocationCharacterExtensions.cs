@@ -218,4 +218,46 @@ public static class GameLocationCharacterExtensions
         return ranks.TryGetValue(type, out var value) ? value : 0;
     }
 #endif
+    internal static FeatureDefinition GetCurrentAdditionalActionFeature(this GameLocationCharacter instance,
+        ActionType type)
+    {
+        if (!instance.currentActionRankByType.TryGetValue(type, out var rank))
+        {
+            rank = 0;
+        }
+
+        if (rank <= 0)
+        {
+            return null;
+        }
+
+        instance.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(instance.RulesetCharacter
+            .FeaturesToBrowse);
+        var i = 0;
+        foreach (var feature in instance.RulesetCharacter.FeaturesToBrowse)
+        {
+            //this condition should never trigger, this is just for Rider to not complain about types
+            if (feature is not IAdditionalActionsProvider provider) { continue; }
+
+            var valid = provider.TriggerCondition == RuleDefinitions.AdditionalActionTriggerCondition.None;
+            if (!valid && provider.TriggerCondition ==
+                RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy)
+            {
+                valid = instance.enemiesDownedByAttack > 0;
+            }
+
+            if (!valid)
+            {
+                continue;
+            }
+
+            i++;
+            if (i == rank)
+            {
+                return feature;
+            }
+        }
+
+        return null;
+    }
 }
