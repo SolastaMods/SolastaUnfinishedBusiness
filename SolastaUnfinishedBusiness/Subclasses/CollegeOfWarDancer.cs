@@ -43,6 +43,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .SetDamageDice(DieType.D6, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
             .SetAttackModeOnly()
+            .SetIgnoreCriticalDoubleDice(true)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
             .SetNotificationTag("Momentum")
             .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
