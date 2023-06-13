@@ -327,7 +327,7 @@
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
     <string>RaceTiefling</string>
-      <string>RaceOligath</string>
+    <string>RaceOligath</string>
     <string>RaceWendigo</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
