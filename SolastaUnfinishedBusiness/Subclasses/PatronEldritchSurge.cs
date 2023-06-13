@@ -112,7 +112,7 @@ internal class PatronEldritchSurge : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronEldritchSurge")
             .SetGuiPresentation(Category.Subclass,
-                Sprites.GetSprite("PatronRiftWalker", Resources.PatronRiftWalker, 256))
+                Sprites.GetSprite("PatronEldritchSurge", Resources.PatronEldritchSurge, 256))
             .AddFeaturesAtLevel(1,
                 featureEldritchSurgeBlastExlucsive)
             .AddFeaturesAtLevel(6,
@@ -216,7 +216,7 @@ internal class PatronEldritchSurge : AbstractSubclass
                     .AddToDB(),
                 FeatureDefinitionMagicAffinityBuilder
                     .Create("MagicAffinityBlastOverload")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
                     .AddToDB()
             )
