@@ -8,7 +8,7 @@ internal static class GameConsoleHelper
     private const string TriggerFeature = "Feedback/&TriggerFeatureLine";
 
     internal static void LogCharacterUsedPower(
-        [NotNull] RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power,
         string text = DefaultUseText,
         bool indent = false,
@@ -22,8 +22,8 @@ internal static class GameConsoleHelper
     }
 
     internal static void LogCharacterUsedFeature(
-        [NotNull] RulesetCharacter character,
-        [NotNull] FeatureDefinition feature,
+        [NotNull] this RulesetCharacter character,
+        [NotNull] BaseDefinition feature,
         string text = TriggerFeature,
         bool indent = false,
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
@@ -34,7 +34,7 @@ internal static class GameConsoleHelper
     }
 
     internal static void LogCharacterActivatesAbility(
-        [NotNull] RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         string abilityName,
         string text = DefaultUseText,
         bool indent = false,
@@ -57,7 +57,7 @@ internal static class GameConsoleHelper
     }
 
     internal static void LogCharacterAffectsTarget(
-        [NotNull] RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         [NotNull] RulesetCharacter target,
         string notificationTag,
         bool indent = false)
@@ -72,7 +72,7 @@ internal static class GameConsoleHelper
     }
 
     internal static void LogCharacterAffectsTarget(
-        [NotNull] RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         [NotNull] RulesetCharacter target,
         string abilityName,
         string text = DefaultUseText,
@@ -97,7 +97,7 @@ internal static class GameConsoleHelper
     }
 
     internal static void LogCharacterAffectedByCondition(
-        [NotNull] RulesetCharacter character,
+        [NotNull] this RulesetCharacter character,
         [NotNull] ConditionDefinition condition)
     {
         var console = Gui.Game.GameConsole;
