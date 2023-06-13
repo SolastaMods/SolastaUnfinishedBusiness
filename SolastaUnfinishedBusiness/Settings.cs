@@ -154,6 +154,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFlankingRules { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
+    public bool DontEndTurnAfterReady { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
