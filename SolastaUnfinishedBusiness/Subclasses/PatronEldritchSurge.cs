@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Mono.CSharp;
-using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -18,11 +13,6 @@ using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -219,11 +209,16 @@ internal class PatronEldritchSurge : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeroism)
             .AddFeatures(
                 FeatureDefinitionAdditionalDamageBuilder
-                .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageInvocationAgonizingBlast,
-                    "AdditionalDamageBlastOverload")
-                .SetNotificationTag("BlastOverload")
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                .AddToDB()
+                    .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageInvocationAgonizingBlast,
+                        "AdditionalDamageBlastOverload")
+                    .SetNotificationTag("BlastOverload")
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+                    .AddToDB(),
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create("MagicAffinityBlastOverload")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
+                    .AddToDB()
             )
             .AddToDB();
     }
