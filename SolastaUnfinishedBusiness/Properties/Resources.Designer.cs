@@ -533,9 +533,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Bogre {
+        public static byte[] Wendigo {
             get {
-                object obj = ResourceManager.GetObject("Bogre", resourceCulture);
+                object obj = ResourceManager.GetObject("Wendigo", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -1,19 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
-using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -23,44 +18,44 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionEquip
 
 namespace SolastaUnfinishedBusiness.Races;
 
-internal static class RaceBogreBuilder
+internal static class RaceWendigoBuilder
 {
-    private const string Name = "Bogre";
+    private const string Name = "Wendigo";
 
-    internal static CharacterRaceDefinition RaceBogre { get; } = BuildBogre();
+    internal static CharacterRaceDefinition RaceWendigo { get; } = BuildWendigo();
 
     [NotNull]
-    private static CharacterRaceDefinition BuildBogre()
+    private static CharacterRaceDefinition BuildWendigo()
     {
-        var attributeModifierBogreStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierWendigoStrengthAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}StrengthAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 2)
             .AddToDB();
 
-        var attributeModifierBogreDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierWendigoDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}DexterityAbilityScoreIncrease")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1)
             .AddToDB();
 
-        var equipmentAffinityBogrePowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
+        var equipmentAffinityWendigoPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
             .Create(EquipmentAffinityFeatHauler, $"EquipmentAffinity{Name}PowerfulBuild")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        var proficiencyBogreLanguages = FeatureDefinitionProficiencyBuilder
+        var proficiencyWendigoLanguages = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Languages")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Language, "Language_Common", "Language_Goblin")
             .AddToDB();
 
-        var proficiencyBogreStalker = FeatureDefinitionProficiencyBuilder
+        var proficiencyWendigoStalker = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Stalker")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
             .AddToDB();
-        var additionalDamageBogreSuckerPunch = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageWendigoSuckerPunch = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}SuckerPunch")
             .SetGuiPresentation(Category.Feature)
             .SetDamageDice(DieType.D6, 2)
@@ -68,19 +63,19 @@ internal static class RaceBogreBuilder
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetHasLowerInitiativeOnFirstRound)
             .SetNotificationTag("SuckerPunch")
             .AddToDB();
+        
 
-        var featureBogreNaturalLunger = FeatureDefinitionBuilder
-                .Create("FeatureBogreNaturalLunger")
+        var featureWendigoNaturalLunger = FeatureDefinitionBuilder
+                .Create("FeatureWendigoNaturalLunger")
                 .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(new ModifyWeaponAttackModeBogreNaturalLunger())
+                .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
                 .AddToDB();
         var racePresentation = Tiefling.RacePresentation.DeepCopy();
-        racePresentation.preferedSkinColors = new RangedInt(40, 47);
-        racePresentation.preferedHairColors = new RangedInt(35, 41);
-        
-        var raceBogre = CharacterRaceDefinitionBuilder
+        racePresentation.preferedSkinColors = new RangedInt(28, 47);
+
+        var raceWendigo = CharacterRaceDefinitionBuilder
             .Create(Human, $"Race{Name}")
-            .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Bogre, 1024, 512))
+            .SetGuiPresentation(Category.Race, Sprites.GetSprite(Name, Resources.Wendigo, 1024, 512))
             .SetSizeDefinition(CharacterSizeDefinitions.Medium)
             .SetRacePresentation(racePresentation)
             .SetBaseWeight(35)
@@ -90,22 +85,22 @@ internal static class RaceBogreBuilder
             .SetFeaturesAtLevel(1,
                 FeatureDefinitionSenses.SenseNormalVision,
                 FeatureDefinitionSenses.SenseDarkvision,
-                attributeModifierBogreStrengthAbilityScoreIncrease,
-                attributeModifierBogreDexterityAbilityScoreIncrease,
+                attributeModifierWendigoStrengthAbilityScoreIncrease,
+                attributeModifierWendigoDexterityAbilityScoreIncrease,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                equipmentAffinityBogrePowerfulBuild,
-                proficiencyBogreStalker,
-                additionalDamageBogreSuckerPunch,
-                featureBogreNaturalLunger,
-                proficiencyBogreLanguages)
+                equipmentAffinityWendigoPowerfulBuild,
+                proficiencyWendigoStalker,
+                additionalDamageWendigoSuckerPunch,
+                featureWendigoNaturalLunger,
+                proficiencyWendigoLanguages)
             .AddToDB();
 
 
-        RacesContext.RaceScaleMap[raceBogre] = 7.8f / 6.4f;
-        return raceBogre;
+        RacesContext.RaceScaleMap[raceWendigo] = 7.8f / 6.4f;
+        return raceWendigo;
     }
 
-    private class ModifyWeaponAttackModeBogreNaturalLunger :
+    private class ModifyWeaponAttackModeWendigoNaturalLunger :
         IModifyWeaponAttackMode
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
@@ -120,7 +115,8 @@ internal static class RaceBogreBuilder
             if (attackMode.reach)
             {
                 attackMode.reachRange = 3;
-            } else
+            } 
+            else
             {
                 attackMode.reach = true;
                 attackMode.reachRange = 2;

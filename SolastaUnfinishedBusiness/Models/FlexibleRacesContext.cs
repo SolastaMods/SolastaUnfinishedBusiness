@@ -40,7 +40,7 @@ internal static class FlexibleRacesContext
         { "RaceKobold", AttributeChoiceThree },
         { "RaceFairy", AttributeChoiceThree },
         { "RaceOligath", AttributeChoiceThree },
-        { "RaceBogre", AttributeChoiceThree },
+        { "RaceWendigo", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree }
     };
 
@@ -99,11 +99,11 @@ internal static class FlexibleRacesContext
             }
         },
         {
-            "RaceBogre",
+            "RaceWendigo",
             new List<string>
             {
-                "AttributeModifierBogreStrengthAbilityScoreIncrease",
-                "AttributeModifierBogreDexterityAbilityScoreIncrease"
+                "AttributeModifierWendigoStrengthAbilityScoreIncrease",
+                "AttributeModifierWendigoDexterityAbilityScoreIncrease"
             }
         },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingAbilityScoreIncreaseCha" } },
