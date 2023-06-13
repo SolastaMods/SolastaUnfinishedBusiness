@@ -59,8 +59,8 @@ internal class PatronEldritchSurge : AbstractSubclass
             new SpendPactSlotOnActivation(featureBlastPursuit)
             );
 
-        var featureConstantBlastPursuit = FeatureDefinitionPowerBuilder
-            .Create("PowerConstantBlastPursuit")
+        var featurePursuitPermanency = FeatureDefinitionPowerBuilder
+            .Create("PowerPursuitPermanency")
             .SetUsesFixed(ActivationTime.Permanent)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.EldritchBlast)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -122,7 +122,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             .AddFeaturesAtLevel(14,
                 featureBlastReload)
             .AddFeaturesAtLevel(17,
-                featureConstantBlastPursuit
+                featurePursuitPermanency
             )
             .AddToDB();
     }
