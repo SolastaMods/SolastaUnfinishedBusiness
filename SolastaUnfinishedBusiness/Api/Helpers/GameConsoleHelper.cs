@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
 
@@ -43,7 +44,7 @@ internal static class GameConsoleHelper
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         console.AddCharacterEntry(character, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
@@ -64,7 +65,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
@@ -82,7 +83,7 @@ internal static class GameConsoleHelper
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
@@ -102,7 +103,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
 
         var type = condition.ConditionType switch
         {
@@ -125,6 +126,67 @@ internal static class GameConsoleHelper
             baseType: ConsoleStyleDuplet.ParameterType.Banter);
 
         entry.AddParameter(type, character);
+        console.AddEntry(entry);
+    }
+
+    internal static void LogConcentrationCheckRoll(this RulesetCharacter character,
+        RulesetEffect effect,
+        RuleDefinitions.RollOutcome outcome,
+        int totalRoll,
+        int rawRoll,
+        int modifier,
+        int saveDC,
+        List<RuleDefinitions.TrendInfo> modifierTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends)
+    {
+        const string RolledAnyAdvantage = "Feedback/&ConcentrationEffectCheckRolledAnyAdvantageLine";
+        const string Rolled = "Feedback/&ConcentrationEffectCheckRolledLine";
+
+        var advantage = RuleDefinitions.ComputeAdvantage(advantageTrends);
+        var hasAnyAdvantage = advantage != RuleDefinitions.AdvantageType.None;
+
+        var console = Gui.Game.GameConsole;
+        var entry =
+            new GameConsoleEntry(hasAnyAdvantage ? RolledAnyAdvantage : Rolled, console.consoleTableDefinition)
+            {
+                Indent = true
+            };
+
+        console.AddCharacterEntry(character, entry);
+        var gui = effect.SourceDefinition.GuiPresentation;
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, gui.Title,
+            tooltipContent: gui.Description);
+
+        if (hasAnyAdvantage)
+        {
+            var type = advantage == RuleDefinitions.AdvantageType.Advantage
+                ? ConsoleStyleDuplet.ParameterType.Advantage
+                : ConsoleStyleDuplet.ParameterType.Disadvantage;
+            var localizedAdvantage = Gui.Localize(GameConsole.AdvantageRollDescription);
+            var localizedTrends = Gui.FormatAdvantageTrends(advantageTrends);
+
+            entry.AddParameter(type, GameConsole.AdvantageRollOutcome,
+                tooltipContent: $"{localizedAdvantage}\n{localizedTrends}");
+        }
+
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDC.ToString());
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Base, $"{rawRoll}{modifier:+0;-#}",
+            tooltipContent: Gui.FormatSavingThrowTrends(modifier, modifierTrends));
+
+        switch (outcome)
+        {
+            case RuleDefinitions.RollOutcome.CriticalSuccess:
+            case RuleDefinitions.RollOutcome.Success:
+                entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll,
+                    Gui.Format(GameConsole.SaveSuccessOutcome, totalRoll.ToString()));
+                break;
+            case RuleDefinitions.RollOutcome.CriticalFailure:
+            case RuleDefinitions.RollOutcome.Failure:
+                entry.AddParameter(ConsoleStyleDuplet.ParameterType.FailedRoll,
+                    Gui.Format(GameConsole.SaveFailureOutcome, totalRoll.ToString()));
+                break;
+        }
+
         console.AddEntry(entry);
     }
 }
