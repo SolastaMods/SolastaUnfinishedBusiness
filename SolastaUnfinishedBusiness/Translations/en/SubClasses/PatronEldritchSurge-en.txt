@@ -20,3 +20,6 @@ Feature/&PowerBlastReloadTitle=Blast Reload
 Feature/&PowerBlastReloadDescription=Your excellence in <b>Eldritch Blast</b> allows you cast twice in a row.\nIf you cast a cantrip using your main action, in this turn you can also cast the same cantrip using your bonus action.
 Feature/&PowerPursuitPermanencyTitle=Pursuit Permanency
 Feature/&PowerPursuitPermanencyDescription=If you have no remaining pact slot uses, you are in constant <b>Blast Pursuit</b> state, but you must cast <b>Eldritch Blast</b> to regain one extra main action and up to twice per turn.
+Feedback/&BlastPursuitExtraAction={1} grants {0} extra attack! 
+Feedback/&AdditionalDamageBlastOverloadFormat=Blast Overload
+Feedback/&AdditionalDamageBlastOverloadLine={0} pours arcane power into {1} (+{2})
