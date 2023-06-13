@@ -157,7 +157,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             effectDescription.effectAdvancement.Clear();
             var stackNum = GetPursuitStacks(character);
             int overloadStatus = character.HasConditionOfType(ConditionBlastOverload)? 1 : 0;
-            effectDescription.rangeParameter -= 6 * (stackNum + overloadStatus);
+            effectDescription.rangeParameter = 24 - 6 * (stackNum + overloadStatus);
             return effectDescription;
 
         }
