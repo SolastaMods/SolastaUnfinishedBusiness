@@ -108,7 +108,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     EffectFormBuilder.ConditionForm(ConditionDefinitions.ConditionBardicInspiration)
                 )
                 .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
+            .SetCustomSubFeatures(EffectWithConcentrationCheck.Mark,
+                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name))
             .AddToDB();
 
         var focusedWarDance = FeatureDefinitionBuilder
@@ -155,6 +156,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetAttackRollModifier(0, AttackModifierMethod.AddAbilityScoreBonus, AttributeDefinitions.Charisma)
                     .SetCustomSubFeatures(
                         new SwitchWeaponFreely(),
+                        new StopMomentumAndAttacksWhenRemoved(),
                         new WarDanceFlurryPhysicalAttack(),
                         new WarDanceFlurryWeaponAttackModifier(),
                         new WarDanceExtraAttacks()
@@ -386,6 +388,18 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
     {
+    }
+
+    private sealed class StopMomentumAndAttacksWhenRemoved : ICustomConditionFeature
+    {
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            target.RemoveAllConditionsOfType(WarDanceMomentum.Name, WarDanceExtraAttack.Name);
+        }
     }
 
     private sealed class FocusedWarDance : IChangeConcentrationAttribute
