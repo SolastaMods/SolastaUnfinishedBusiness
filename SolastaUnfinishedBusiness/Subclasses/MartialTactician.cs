@@ -420,12 +420,25 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
+            var locCharacter = GameLocationCharacter.GetFromActor(character);
+            if (locCharacter == null)
+            {
+                return;
+            }
+
+            // once per round
+            if (locCharacter.UsedSpecialFeatures.ContainsKey("OvercomingStrategy"))
+            {
+                return;
+            }
+
             if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
             {
                 return;
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }
 
