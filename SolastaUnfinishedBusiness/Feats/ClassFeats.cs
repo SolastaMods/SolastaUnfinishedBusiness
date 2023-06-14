@@ -254,7 +254,7 @@ internal static class ClassFeats
                 return additionalDamage.DamageDieType;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(attacker.RulesetCharacter, featureCloseQuarters);
+            attacker.RulesetCharacter.LogCharacterUsedFeature(featureCloseQuarters);
 
             return DieType.D8;
         }
@@ -425,7 +425,7 @@ internal static class ClassFeats
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(me.RulesetCharacter, _featureExploiter);
+            me.RulesetCharacter.LogCharacterUsedFeature(_featureExploiter);
         }
     }
 

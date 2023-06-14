@@ -374,7 +374,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
             var ability = GuiPresentationBuilder.CreateTitleKey(LifeSapName, Category.Feature);
 
-            GameConsoleHelper.LogCharacterActivatesAbility(caster, ability);
+            caster.LogCharacterActivatesAbility(ability);
             RulesetCharacter.Heal(healing, caster, caster, cap, caster.Guid);
         }
     }

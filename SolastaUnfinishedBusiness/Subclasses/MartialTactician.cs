@@ -327,7 +327,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("AdaptiveStrategy", 1);
             character.UpdateUsageForPower(power, -1);
             Main.Info("AdaptiveStrategy: refueled.");
@@ -387,7 +387,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             attacker.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
             Main.Info("OvercomingStrategy: refueled.");
@@ -437,7 +437,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 return;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.LogCharacterUsedFeature(feature, indent: true);
             locCharacter.UsedSpecialFeatures.TryAdd("OvercomingStrategy", 1);
             character.UpdateUsageForPower(power, -1);
         }

@@ -398,7 +398,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+            rulesetAttacker.LogCharacterUsedPower(_featureDefinitionPower);
 
             var usablePower = UsablePowersProvider.Get(_featureDefinitionPower, rulesetAttacker);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);

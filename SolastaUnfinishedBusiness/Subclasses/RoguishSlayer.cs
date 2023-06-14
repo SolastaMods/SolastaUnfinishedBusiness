@@ -346,7 +346,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 return false;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinitionTrigger);
+            rulesetAttacker.LogCharacterUsedFeature(_featureDefinitionTrigger);
 
             var rulesetCondition =
                 rulesetAttacker.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);

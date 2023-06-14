@@ -457,7 +457,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
             locationCharacter.ReadiedAction = ActionDefinitions.ReadyActionType.Melee;
         }
     }
@@ -1051,7 +1051,7 @@ internal static class MeleeCombatFeats
                 rolls.Add(dieRoll);
             }
 
-            GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+            rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
                 DevastatingStrikesTitle,
                 "Feedback/&FeatFeatFellHandedDisadvantage",
                 tooltipContent: DevastatingStrikesDescription);
@@ -1217,8 +1217,7 @@ internal static class MeleeCombatFeats
                             .InstantiateEffectPower(rulesetAttacker, usablePower, false)
                             .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
-                            ConditionDefinitions.ConditionProne);
+                        rulesetDefender.LogCharacterAffectedByCondition(ConditionDefinitions.ConditionProne);
                     }
 
                     break;
@@ -1241,7 +1240,7 @@ internal static class MeleeCombatFeats
                         break;
                     }
 
-                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                    rulesetAttacker.LogCharacterAffectsTarget(rulesetDefender,
                         SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
 
                     damage.BonusDamage = strengthMod;

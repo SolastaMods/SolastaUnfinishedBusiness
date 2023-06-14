@@ -513,7 +513,7 @@ internal static partial class SpellBuilders
 
                 if (!string.IsNullOrEmpty(_notificationTag))
                 {
-                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetCaster, rulesetTarget, _notificationTag, true);
+                    rulesetCaster.LogCharacterAffectsTarget(rulesetTarget, _notificationTag, true);
                 }
 
                 effectSpell.ApplyEffectOnCharacter(rulesetTarget, true, targets[i].LocationPosition);

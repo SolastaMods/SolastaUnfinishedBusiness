@@ -388,7 +388,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             }
 
             attacker.UsedSpecialFeatures.TryAdd(_featureDefinition.Name, 1);
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinition);
+            rulesetAttacker.LogCharacterUsedFeature(_featureDefinition);
             rulesetAttacker.InflictCondition(
                 _conditionDefinition.Name,
                 DurationType.Round,
@@ -450,7 +450,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, powerFocusedStrikes, Line);
+            rulesetCharacter.LogCharacterUsedPower(powerFocusedStrikes, Line);
             rulesetUsablePower.RepayUse();
         }
     }
@@ -524,7 +524,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             ref int firstRoll,
             ref int secondRoll)
         {
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetCharacter, _featureDefinition);
+            rulesetCharacter.LogCharacterUsedFeature(_featureDefinition);
         }
     }
 }
