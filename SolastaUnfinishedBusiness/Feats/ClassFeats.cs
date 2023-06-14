@@ -862,9 +862,18 @@ internal static class ClassFeats
             RulesetCharacter character,
             RulesetEffect rulesetEffect)
         {
-            if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.Any(x => x.SpellsByLevel
-                    .Any(y => y.Level == 0 && y.Spells.Contains(spellDefinition))))
+            if (definition is not SpellDefinition spellDefinition || spellDefinition.SpellLevel > 0)
+            {
+                return effectDescription;
+            }
+
+            // this might not be correct if same spell is learned from different classes
+            // if we follow other patches we should ideally identify all repertoires that can cast spell
+            // and use the one with highest attribute. will revisit if this ever becomes a thing
+            var spellRepertoire =
+                character.SpellRepertoires.FirstOrDefault(x => x.HasKnowledgeOfSpell(spellDefinition));
+
+            if (spellRepertoire == null)
             {
                 return effectDescription;
             }
@@ -876,28 +885,7 @@ internal static class ClassFeats
                 return effectDescription;
             }
 
-            string attribute;
-
-            if (_spellListDefinition[0] == SpellListDefinitions.SpellListBard ||
-                _spellListDefinition[0] == SpellListDefinitions.SpellListSorcerer)
-            {
-                attribute = AttributeDefinitions.Charisma;
-            }
-            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListCleric ||
-                     _spellListDefinition[0] == SpellListDefinitions.SpellListDruid)
-            {
-                attribute = AttributeDefinitions.Wisdom;
-            }
-            else if (_spellListDefinition[0] == SpellListDefinitions.SpellListWizard ||
-                     _spellListDefinition[0] == InventorClass.SpellList)
-            {
-                attribute = AttributeDefinitions.Intelligence;
-            }
-            else
-            {
-                return effectDescription;
-            }
-
+            var attribute = spellRepertoire.SpellCastingAbility;
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(character.TryGetAttributeValue(attribute));
 
             damage.BonusDamage += bonus;
