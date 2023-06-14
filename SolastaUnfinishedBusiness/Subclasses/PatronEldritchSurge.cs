@@ -144,7 +144,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     {
         public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effectDescription, RulesetCharacter character, RulesetEffect rulesetEffect)
         {
-            var characterHero = character as RulesetCharacterHero;
+            var characterHero = GetOriginalHero(character);
             var WarlockClass = CharacterClassDefinitions.Warlock;
             if (characterHero is null) return effectDescription;
             if (characterHero.GetSubclassLevel(WarlockClass, "PatronEldritchSurge") == 0) return effectDescription;
@@ -166,7 +166,7 @@ internal class PatronEldritchSurge : AbstractSubclass
     {
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            var hero = character as RulesetCharacterHero;
+            var hero = GetOriginalHero(character);
             var warlockRepertoire = hero.spellRepertoires.Where(s => s.spellCastingClass == CharacterClassDefinitions.Warlock).First();
             var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
             var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
@@ -303,7 +303,7 @@ internal class PatronEldritchSurge : AbstractSubclass
             {
                 yield break;
             }
-            var hero = characterAction.ActingCharacter.RulesetCharacter as RulesetCharacterHero;
+            var hero = GetOriginalHero(characterAction.ActingCharacter.RulesetCharacter);
             var slotLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
             SharedSpellsContext.GetWarlockSpellRepertoire(hero).SpendSpellSlot(slotLevel);
         }
@@ -311,11 +311,11 @@ internal class PatronEldritchSurge : AbstractSubclass
 
     private sealed class ExtraActionBlastPursuit: IActionExecutionHandled
     {
-        public void OnActionExecutionHandled(GameLocationCharacter hero, CharacterActionParams actionParams, ActionDefinitions.ActionScope scope)
+        public void OnActionExecutionHandled(GameLocationCharacter gameLocationCharacter, CharacterActionParams actionParams, ActionDefinitions.ActionScope scope)
         {
             var actionDefinition = actionParams.ActionDefinition;
-            var rulesetHero = hero.RulesetCharacter;
-            var stacks = GetPursuitStacks(rulesetHero);
+            var character = gameLocationCharacter.RulesetCharacter;
+            var stacks = GetPursuitStacks(character);
             //Wrong scope or type of action, skip
             if (scope != ActionScope.Battle
                 || actionDefinition.ActionType != ActionType.Main)
@@ -324,30 +324,30 @@ internal class PatronEldritchSurge : AbstractSubclass
             }
 
             //Still has attacks, skip
-            if (hero.GetActionAvailableIterations(Id.AttackMain) > 0)
+            if (gameLocationCharacter.GetActionAvailableIterations(Id.AttackMain) > 0)
             {
                 return;
             }
-            var rch = rulesetHero as RulesetCharacterHero;
-            var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(rch);
-            var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(rch);
-            if (rulesetHero.HasConditionOfType(ConditionConstantBlastPursuit) && stacks <= 1
+            var hero = GetOriginalHero(character);
+            var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var pactMagicUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+            if (character.HasConditionOfType(ConditionConstantBlastPursuit) && stacks <= 1
                 && pactMagicMaxSlots - pactMagicUsedSlots <= 0)
             {
                 if (actionParams.activeEffect is not RulesetEffectSpell spell ||
                     spell.spellDefinition != SpellDefinitions.EldritchBlast) return;
             }
-            else if (rulesetHero.HasConditionOfType(ConditionBlastPursuit) && stacks == 0) { }
+            else if (character.HasConditionOfType(ConditionBlastPursuit) && stacks == 0) { }
             else return;
 
-            rulesetHero.InflictCondition(
+            character.InflictCondition(
                 ConditionBlastPursuitExtraAction.Name,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
                 AttributeDefinitions.TagCombat,
-                rulesetHero.guid,
-                rulesetHero.CurrentFaction.Name,
+                character.guid,
+                character.CurrentFaction.Name,
                 1,
                 null,
                 0,
@@ -355,8 +355,8 @@ internal class PatronEldritchSurge : AbstractSubclass
                 0
                 );
             var text = ConditionBlastPursuitExtraAction.GuiPresentation.Title;
-            rulesetHero.ShowLabel(text, Gui.ColorPositive);
-            GameConsoleHelper.LogCharacterActivatesAbility(rulesetHero, text, "Feedback/&BlastPursuitExtraAction", true);
+            character.ShowLabel(text, Gui.ColorPositive);
+            GameConsoleHelper.LogCharacterActivatesAbility(character, text, "Feedback/&BlastPursuitExtraAction", true);
         }
 
 
@@ -411,5 +411,10 @@ internal class PatronEldritchSurge : AbstractSubclass
         return character?.ConditionsByCategory
             .SelectMany(x => x.Value)
             .Count(x => x.conditionDefinition == ConditionBlastPursuitExtraAction) ?? 0;
+    }
+
+    private static RulesetCharacterHero GetOriginalHero(RulesetCharacter character)
+    {
+        return character as RulesetCharacterHero ?? character?.OriginalFormCharacter as RulesetCharacterHero;
     }
 }
