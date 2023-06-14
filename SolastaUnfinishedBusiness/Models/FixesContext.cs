@@ -14,6 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -37,8 +38,19 @@ internal static class FixesContext
         FixTwinnedMetamagic();
         FixUncannyDodgeForRoguishDuelist();
         FixEagerForBattleTexts();
+        FixHastedCasting();
+        FixWarlockMissingLvl18Invocation();
 
         Main.Settings.OverridePartySize = Math.Min(Main.Settings.OverridePartySize, ToolsContext.MaxPartySize);
+    }
+
+    private static void FixWarlockMissingLvl18Invocation()
+    {
+        var pointPoolWarlockInvocation18 = FeatureDefinitionPointPoolBuilder
+                                            .Create(FeatureDefinitionPointPools.PointPoolWarlockInvocation15, "PointPoolWarlockInvocation18")
+                                            .AddToDB();
+        Warlock.featureUnlocks.Add(new FeatureUnlockByLevel(pointPoolWarlockInvocation18, 18));
+        Warlock.featureUnlocks.Sort((item1, item2) => item1.level > item2.level ? 1 : -1);
     }
 
     private static void FixAdditionalDamageRestrictions()
