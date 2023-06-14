@@ -351,7 +351,7 @@ internal sealed class MartialTactician : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (downedCreature.RulesetCharacter is not { IsDeadOrDyingOrUnconscious: false })
+            if (attacker.RulesetCharacter is not {IsDeadOrDyingOrUnconscious: false})
             {
                 yield break;
             }
