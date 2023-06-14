@@ -136,8 +136,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
-    // ReSharper disable once UnassignedGetOnlyAutoProperty
-    internal override DeityDefinition DeityDefinition { get; }
+    internal override DeityDefinition DeityDefinition => null;
 
     private static ConditionDefinition BuildConditionWarDance()
     {
