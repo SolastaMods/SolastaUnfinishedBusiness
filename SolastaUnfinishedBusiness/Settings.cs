@@ -173,6 +173,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHigherGroundRules { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
+    public bool AllowHasteCasting { get; set; }
     public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }

@@ -176,6 +176,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
         }
 
+        toggle = Main.Settings.AllowHasteCasting;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHasteCasting = toggle;
+            SrdAndHouseRulesContext.SwitchHastedCasing();
+        }
+
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCantripsTriggeringOnWarMagic"), ref toggle, UI.AutoWidth()))
         {

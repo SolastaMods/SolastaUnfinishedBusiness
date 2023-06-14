@@ -95,6 +95,7 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
+        SwitchHastedCasing();
     }
 
     internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
@@ -442,6 +443,20 @@ internal static class SrdAndHouseRulesContext
                 sd.EffectDescription.targetParameter2 = 0;
             }
         }
+    }
+    
+    internal static void SwitchHastedCasing()
+    {
+        var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
+        if (Main.Settings.AllowHasteCasting)
+        {
+            restrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
+        }
+        else
+        {
+            restrictedActions.RemoveAll(id => id == ActionDefinitions.Id.CastMain);
+        }
+
     }
 
     internal static void AddBleedingToRestoration()
