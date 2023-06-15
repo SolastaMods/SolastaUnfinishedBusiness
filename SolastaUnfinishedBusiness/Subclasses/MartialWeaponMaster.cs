@@ -281,12 +281,12 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var classLevel = character.GetClassLevel(CharacterClassDefinitions.Fighter);
             var bonus = !IsWeaponMaster(character)
                 ? 1
-                : characterLevel >= 17
+                : classLevel >= 17
                     ? 3
-                    : characterLevel >= 9
+                    : classLevel >= 9
                         ? 2
                         : 1;
 
