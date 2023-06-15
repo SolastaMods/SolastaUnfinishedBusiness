@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -8,16 +9,16 @@ internal static class ReplaceAttackWithCantrip
 {
     internal static void AllowCastDuringMainAttack(
         GameLocationCharacter character,
-        ActionDefinitions.Id actionId,
-        ActionDefinitions.ActionScope scope,
-        ref ActionDefinitions.ActionStatus result)
+        Id actionId,
+        ActionScope scope,
+        ref ActionStatus result)
     {
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        if (scope != ActionScope.Battle)
         {
             return;
         }
 
-        if (actionId != ActionDefinitions.Id.CastMain)
+        if (actionId != Id.CastMain)
         {
             return;
         }
@@ -37,16 +38,16 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (result == ActionDefinitions.ActionStatus.NoLongerAvailable)
+        if (result == ActionStatus.NoLongerAvailable)
         {
-            result = ActionDefinitions.ActionStatus.Available;
+            result = ActionStatus.Available;
         }
     }
 
     internal static void AllowAttacksAfterCantrip(GameLocationCharacter character, CharacterActionParams actionParams,
-        ActionDefinitions.ActionScope scope)
+        ActionScope scope)
     {
-        if (scope != ActionDefinitions.ActionScope.Battle)
+        if (scope != ActionScope.Battle)
         {
             return;
         }
@@ -58,7 +59,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
+        if (actionParams.actionDefinition.Id != Id.CastMain)
         {
             return;
         }
@@ -69,12 +70,20 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        const ActionDefinitions.ActionType ACTION_TYPE = ActionDefinitions.ActionType.Main;
+        const ActionType ACTION_TYPE = ActionType.Main;
         var rank = --character.currentActionRankByType[ACTION_TYPE];
+        
+        //If character can't attack on this action - do not refund it
+        if (character.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
+        {
+            character.currentActionRankByType[ACTION_TYPE]++;
+            return;
+        }
+
 
         var maxAllowedAttacks = character.actionPerformancesByType[ACTION_TYPE][rank].MaxAttacksNumber;
         var maxAttacksNumber = rulesetCharacter.AttackModes
-            .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
+            .Where(attackMode => attackMode.ActionType == ActionType.Main)
             .Max(attackMode => attackMode.AttacksNumber);
 
         if (maxAllowedAttacks < 0 || maxAllowedAttacks >= maxAttacksNumber)
