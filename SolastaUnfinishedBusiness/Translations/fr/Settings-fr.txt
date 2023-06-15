@@ -21,6 +21,7 @@ ModUi/&AllowClubsToBeThrown=Autoriser les <color=#D89555>clubs</color> à lancer
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
+ModUi/&AllowHasteCasting=Autoriser le lancement de sorts avec une action supplémentaire à partir de la hâte <color=#F0DAA0>(vous êtes toujours limité à 1 sort d'action principale par tour)</color>
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent sembler terribles selon la race, la tête et la corne]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser plus d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer après les actions de repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
@@ -66,6 +67,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus de
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte <color=#D89555>Warlock</color> lors de la sélection de sorts au lieu du panneau de personnage</i>
 ModUi/&Donate=<b><color=#D89555>Faire un don :</color></b> <i>{0}</i>
 ModUi/&DontDisplayHelmets=Ne pas afficher les casques sur les caractères graphiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DontEndTurnAfterReady=Ne terminez pas le tour après avoir utilisé l'action prêt <i><color=#F0DAA0>[permet d'utiliser l'action bonus ou toute action principale supplémentaire de la hâte ou d'autres sources]</color></i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
 ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
