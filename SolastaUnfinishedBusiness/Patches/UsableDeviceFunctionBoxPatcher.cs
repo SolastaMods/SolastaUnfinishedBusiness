@@ -79,6 +79,12 @@ public static class UsableDeviceFunctionBoxPatcher
             RulesetDeviceFunction rulesetDeviceFunction)
         {
             var panel = box.transform.GetComponentInParent<DeviceSelectionPanel>();
+            if (panel == null)
+            {
+                Main.Error("Couldn't find DeviceSelectionPanel for Poisoner feat patch!");
+                return;
+            }
+
             var actionType = panel.ActionType;
             if (actionType != ActionDefinitions.ActionType.Bonus)
             {
