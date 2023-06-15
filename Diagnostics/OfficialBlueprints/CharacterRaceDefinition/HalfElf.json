@@ -159,6 +159,7 @@
       "FaceShape_HalfElf_H",
       "FaceShape_HalfElf_NPC_LenaSwiftHand"
     ],
+    "dontSortFaceShapes": false,
     "maleHairShapeOptions": [
       "HairShape_A",
       "HairShape_B",
@@ -242,6 +243,7 @@
     "showGauntlets": true,
     "showShoes": true,
     "hasGenderRelatedBodyDecoration": false,
+    "hasSpecificBodyDecorationForFaceshape": false,
     "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
     "maleVoiceDefinition": "MAL1",
     "femaleVoiceDefinition": "FEM2",

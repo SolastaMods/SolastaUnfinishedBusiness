@@ -79,7 +79,8 @@
     "PoisonersKitType"
   ],
   "featsOverride": [
-    "TakeAim"
+    "TakeAim",
+    "Creed_Of_Misaye"
   ],
   "invocationsOverride": [],
   "expertisesOverride": [

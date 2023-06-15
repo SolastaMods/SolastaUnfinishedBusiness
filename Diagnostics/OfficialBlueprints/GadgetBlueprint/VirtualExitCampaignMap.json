@@ -32,7 +32,17 @@
       "gadgetExecutionFilter": ""
     }
   ],
-  "interactionNodes": [],
+  "interactionNodes": [
+    {
+      "$type": "InteractionNodeDescription, Assembly-CSharp",
+      "position": {
+        "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+        "x": 0.0,
+        "y": -1.0
+      },
+      "orientation": "North"
+    }
+  ],
   "canBeActivated": true,
   "customizableDimensions": false,
   "minCustomizableDimensions": {

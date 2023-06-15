@@ -125,7 +125,7 @@
       "environment": "Town",
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "767bb6c3b453cc044a130d45425887e7",
+        "m_AssetGUID": "e6df8f8e2d280a2478a6a0029dab7d91",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

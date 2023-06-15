@@ -18,7 +18,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Monster/&MutatedBear_Regeneration_Title",
+    "title": "Monster/&MutatedMinotaur_Regeneration_Title",
     "description": "Monster/&MutatedBear_Regeneration_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SmiteTheHidden",
+  "notificationTag": "SmiteTheHiddenSuperiorDarkvision",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",

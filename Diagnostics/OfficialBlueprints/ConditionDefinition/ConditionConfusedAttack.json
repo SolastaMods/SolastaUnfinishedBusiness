@@ -232,6 +232,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": true,
+  "addBehavior": false,
   "fearSource": false,
   "battlePackage": "Definition:Confused_Attack:6a5baea55ca7cb64bb3d4182a21e1c80",
   "explorationPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",

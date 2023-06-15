@@ -4,7 +4,9 @@
   "type": "Battle",
   "challengeRating": 7,
   "locationOverride": null,
-  "locationBlacklist": [],
+  "locationBlacklist": [
+    "Definition:DLC1_Encounter_Swamp_Bridge_LocationDB:5d48578c0e1475f4b8516ee45c336adb"
+  ],
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",

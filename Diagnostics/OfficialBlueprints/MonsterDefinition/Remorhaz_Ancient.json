@@ -240,7 +240,7 @@
       "z": 0.0
     }
   },
-  "forceCombatStartsAnimation": true,
+  "forceCombatStartsAnimation": false,
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,

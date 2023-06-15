@@ -19,7 +19,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "Equiped",
-    "targetParameter": 12,
+    "targetParameter": 8,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
