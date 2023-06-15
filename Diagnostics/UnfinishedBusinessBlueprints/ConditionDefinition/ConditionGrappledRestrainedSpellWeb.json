@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionGrappled:b9e3fa435129c33459a4847c9c551265",
+  "parentCondition": "Definition:ConditionRestrainedByWeb:0a8efc601f1a64144905a95acf388a97",
   "conditionType": "Detrimental",
   "features": [
     "Definition:MovementAffinityConditionRestrained:ed9d9d5986e47f845819579f936ee8cc",
@@ -240,6 +240,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": false,
+  "addBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,

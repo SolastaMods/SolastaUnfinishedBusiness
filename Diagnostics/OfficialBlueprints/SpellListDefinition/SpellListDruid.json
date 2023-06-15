@@ -111,7 +111,8 @@
       "spells": [
         "Definition:Resurrection:f796a243f664c73409cca137f137f5f3",
         "Definition:Regenerate:11ce287bdf5b59d46bc8a992186ed349",
-        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a"
+        "Definition:FireStorm:6d8d659df5d60734d8c276777fba855a",
+        "Definition:GravitySlam:265ad14a4c626d840bb1fb3be0ec4706"
       ]
     },
     {
@@ -120,7 +121,8 @@
       "spells": [
         "Definition:Sunburst:ae5f8354abadb0d448df8951b9488354",
         "Definition:Earthquake:6d56eb08908625f4bac4b98fd7ddc60d",
-        "Definition:Feeblemind:d116a54565935514a9437c1a79397182"
+        "Definition:Feeblemind:d116a54565935514a9437c1a79397182",
+        "Definition:Thunderstorm:a1f409e76434597449d0379d6d36539e"
       ]
     }
   ],

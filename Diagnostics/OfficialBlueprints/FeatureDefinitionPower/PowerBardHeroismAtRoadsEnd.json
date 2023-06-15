@@ -64,7 +64,7 @@
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Healing",
-        "addBonusMode": "None",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
@@ -79,8 +79,8 @@
         "healingForm": {
           "$type": "HealingForm, Assembly-CSharp",
           "healingComputation": "Dice",
-          "diceNumber": 1,
-          "dieType": "D1",
+          "diceNumber": 4,
+          "dieType": "D12",
           "bonusHealing": 0,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"

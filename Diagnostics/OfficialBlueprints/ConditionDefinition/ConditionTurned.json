@@ -238,6 +238,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": true,
+  "addBehavior": false,
   "fearSource": true,
   "battlePackage": "Definition:TurnUndead:6a2eeece52411df40a1d70734888a5fa",
   "explorationPackage": "Definition:Idle:47dfd6fd3d22b214cb8c446f2438f3c6",

@@ -510,8 +510,8 @@
     "description": "Equipment/&Enchanted_WeaponOfAcuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "042d55f3ddd9cc448a90daa3bf66ed35",
-      "m_SubObjectName": "StandardMaul",
+      "m_AssetGUID": "eb0234608f356d54ea901885f21ae0ca",
+      "m_SubObjectName": "Maul+1",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

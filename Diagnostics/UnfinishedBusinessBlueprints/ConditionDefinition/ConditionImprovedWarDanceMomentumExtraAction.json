@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:ActionAffinityImprovedWarDanceExtraAction:dadf1cd5-9522-54af-aff3-57b97b6bdac0"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -101,6 +99,7 @@
   "subsequentDCIncrease": 5,
   "effectFormsOnRemoved": [],
   "forceBehavior": false,
+  "addBehavior": false,
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,

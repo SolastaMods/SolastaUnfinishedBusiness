@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "KiPoints",
-  "modifierOperation": "Additive",
+  "modifierOperation": "AddHalfProficiencyBonus",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "NotWearingArmorOrShield",

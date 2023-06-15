@@ -12,7 +12,7 @@
   "monsterOccurences": [
     {
       "$type": "MonsterOccurenceDescription, Assembly-CSharp",
-      "monsterDefinition": "Definition:Giant_Frost:24ce4946c0d776b44b6bf7370147ccb7",
+      "monsterDefinition": "Definition:Giant_Storm:771dc5dcddcf7a24f827ef94fff5335f",
       "number": 1,
       "encounterPlacementDecision": "Definition:EncounterSpawn_PackSmall_PenalizeAltitude:c80d21582cba9af45af18c8b417c2af3",
       "creatureSex": "Male",

@@ -1,7 +1,4 @@
-// automatically generated on 5/19/2023 12:00:00 AM
-// ReSharper disable IdentifierTypo
-// ReSharper disable InconsistentNaming
-// ReSharper disable StringLiteralTypo
+// automatically generated on 6/15/2023 12:00:00 AM
 
 using TA.AI;
 
@@ -8467,6 +8464,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencyPeriaptOfTheMasterEnchanterSkillsTool { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyPeriaptOfTheMasterEnchanterSkillsTool");
 
+        internal static FeatureDefinitionProficiency ProficiencyPeriaptOfTheMasterEnchanterSkillsTool_DM { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyPeriaptOfTheMasterEnchanterSkillsTool_DM");
+
         internal static FeatureDefinitionProficiency ProficiencyPhilosopherSkills { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyPhilosopherSkills");
 
@@ -9167,6 +9167,9 @@ internal static partial class DatabaseHelper
 
         internal static FormationDefinition PinchTrap { get; } =
             GetDefinition<FormationDefinition>("PinchTrap");
+
+        internal static FormationDefinition SafeLocationInSquare3 { get; } =
+            GetDefinition<FormationDefinition>("SafeLocationInSquare3");
 
         internal static FormationDefinition SingleCreature { get; } =
             GetDefinition<FormationDefinition>("SingleCreature");
@@ -10329,8 +10332,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CloakOfArachnida { get; } =
             GetDefinition<ItemDefinition>("CloakOfArachnida");
 
-        internal static ItemDefinition CloakOfBat_DONOTUSE { get; } =
-            GetDefinition<ItemDefinition>("CloakOfBat_DONOTUSE");
+        internal static ItemDefinition CloakOfBat { get; } =
+            GetDefinition<ItemDefinition>("CloakOfBat");
 
         internal static ItemDefinition CloakOfDisplacement { get; } =
             GetDefinition<ItemDefinition>("CloakOfDisplacement");
@@ -13074,8 +13077,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Ingredient_Enchant_VolcanicTear { get; } =
             GetDefinition<ItemDefinition>("Ingredient_Enchant_VolcanicTear");
 
-        internal static ItemDefinition Ingredient_FireSpiderVenomGland_DONOTUSE { get; } =
-            GetDefinition<ItemDefinition>("Ingredient_FireSpiderVenomGland_DONOTUSE");
+        internal static ItemDefinition Ingredient_FireSpiderVenomGland { get; } =
+            GetDefinition<ItemDefinition>("Ingredient_FireSpiderVenomGland");
 
         internal static ItemDefinition Ingredient_GallivanAmaranth { get; } =
             GetDefinition<ItemDefinition>("Ingredient_GallivanAmaranth");
@@ -13397,6 +13400,9 @@ internal static partial class DatabaseHelper
 
         internal static ItemDefinition PeriaptOfTheMasterEnchanter { get; } =
             GetDefinition<ItemDefinition>("PeriaptOfTheMasterEnchanter");
+
+        internal static ItemDefinition PeriaptOfTheMasterEnchanter_DM { get; } =
+            GetDefinition<ItemDefinition>("PeriaptOfTheMasterEnchanter_DM");
 
         internal static ItemDefinition PickupQuest_Item_Aquila { get; } =
             GetDefinition<ItemDefinition>("PickupQuest_Item_Aquila");
@@ -14436,17 +14442,68 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition TemplateDM_Document_Book07 { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_Book07");
 
+        internal static ItemDefinition TemplateDM_Document_Book08 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book08");
+
+        internal static ItemDefinition TemplateDM_Document_Book09 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book09");
+
+        internal static ItemDefinition TemplateDM_Document_Book10 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book10");
+
+        internal static ItemDefinition TemplateDM_Document_Book11 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book11");
+
+        internal static ItemDefinition TemplateDM_Document_Book12 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book12");
+
+        internal static ItemDefinition TemplateDM_Document_Book13 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Book13");
+
         internal static ItemDefinition TemplateDM_Document_Letter { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_Letter");
 
         internal static ItemDefinition TemplateDM_Document_Letter02 { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_Letter02");
 
+        internal static ItemDefinition TemplateDM_Document_Letter03 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter03");
+
+        internal static ItemDefinition TemplateDM_Document_Letter04 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter04");
+
+        internal static ItemDefinition TemplateDM_Document_Letter05 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter05");
+
+        internal static ItemDefinition TemplateDM_Document_Letter06 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter06");
+
+        internal static ItemDefinition TemplateDM_Document_Letter07 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter07");
+
+        internal static ItemDefinition TemplateDM_Document_Letter08 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter08");
+
+        internal static ItemDefinition TemplateDM_Document_Letter09 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter09");
+
+        internal static ItemDefinition TemplateDM_Document_Letter10 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter10");
+
+        internal static ItemDefinition TemplateDM_Document_Letter11 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Letter11");
+
         internal static ItemDefinition TemplateDM_Document_Notes { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_Notes");
 
+        internal static ItemDefinition TemplateDM_Document_Notes03 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_Notes03");
+
         internal static ItemDefinition TemplateDM_Document_RolledLetter { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_RolledLetter");
+
+        internal static ItemDefinition TemplateDM_Document_RolledLetter02 { get; } =
+            GetDefinition<ItemDefinition>("TemplateDM_Document_RolledLetter02");
 
         internal static ItemDefinition TemplateDM_Document_Scroll { get; } =
             GetDefinition<ItemDefinition>("TemplateDM_Document_Scroll");
@@ -21633,6 +21690,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition BodyDecoration_Tattoo_15 { get; } =
             GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_15");
 
+        internal static MorphotypeElementDefinition BodyDecoration_Tattoo_16 { get; } =
+            GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_16");
+
         internal static MorphotypeElementDefinition BodyDecoration_Tattoo_Dragonborn_01 { get; } =
             GetDefinition<MorphotypeElementDefinition>("BodyDecoration_Tattoo_Dragonborn_01");
 
@@ -22457,6 +22517,9 @@ internal static partial class DatabaseHelper
 
         internal static MorphotypeElementDefinition FaceShape_I { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_I");
+
+        internal static MorphotypeElementDefinition FaceShape_J { get; } =
+            GetDefinition<MorphotypeElementDefinition>("FaceShape_J");
 
         internal static MorphotypeElementDefinition FaceShape_NPC_Adrasteia_Epimeles_Aspis { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Adrasteia_Epimeles_Aspis");
@@ -25582,6 +25645,9 @@ internal static partial class DatabaseHelper
 
         internal static DecisionPackageDefinition BanditPackTacticsCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("BanditPackTacticsCombatDecisions");
+
+        internal static DecisionPackageDefinition BreakFree { get; } =
+            GetDefinition<DecisionPackageDefinition>("BreakFree");
 
         internal static DecisionPackageDefinition BroodCombatDecisions { get; } =
             GetDefinition<DecisionPackageDefinition>("BroodCombatDecisions");

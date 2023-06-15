@@ -16,7 +16,7 @@ internal static class GreatSwordData
             BaseItems =
                 new List<(ItemDefinition item, ItemDefinition presentation)>
                 {
-                    (ItemDefinitions.Greatsword, ItemDefinitions.GreataxePlus2)
+                    (ItemDefinitions.Greatsword, ItemDefinitions.GreatswordPlus2)
                 },
             PossiblePrimedItemsToReplace = new List<ItemDefinition> { ItemDefinitions.Primed_Battleaxe },
             MagicToCopy = new List<ItemCollection.MagicItemDataHolder>

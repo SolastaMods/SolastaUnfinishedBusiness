@@ -507,8 +507,8 @@
     "description": "Item/&Greataxe_Acuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3dab7e358bf41a6418ead8ce55ed11c3",
-      "m_SubObjectName": "StandardGreataxe",
+      "m_AssetGUID": "636b8d3e329b7bf46a3a8f2603071ae5",
+      "m_SubObjectName": "Greataxe+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

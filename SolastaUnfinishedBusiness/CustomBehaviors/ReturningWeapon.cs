@@ -64,7 +64,7 @@ internal class ReturningWeapon
 
         proximity = RuleDefinitions.AttackProximity.Melee;
 
-        GameConsoleHelper.LogCharacterActivatesAbility(hero, droppedItem.ItemDefinition.GuiPresentation.Title,
+        hero.LogCharacterActivatesAbility(droppedItem.ItemDefinition.GuiPresentation.Title,
             ActivateReturningFormat, tooltipClass: "ItemDefinition", tooltipContent: droppedItem.Name);
 
         return proximity;

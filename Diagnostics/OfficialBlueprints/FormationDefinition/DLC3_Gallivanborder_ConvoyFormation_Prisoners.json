@@ -1,6 +1,7 @@
 {
   "$type": "FormationDefinition, Assembly-CSharp",
   "defaultFormation": false,
+  "formationToFixStuckLocation": false,
   "formationPositions": [
     {
       "$type": "TA.int3, Assembly-CSharp",

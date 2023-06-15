@@ -343,7 +343,7 @@ internal sealed class PathOfTheYeoman : AbstractSubclass
                                      AttributeDefinitions.ComputeAbilityScoreModifier(
                                          rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Strength));
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _powerMightyShot);
+            rulesetAttacker.LogCharacterUsedPower(_powerMightyShot);
 
             foreach (var target in gameLocationBattleService.Battle.AllContenders
                          .Where(x =>

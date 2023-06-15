@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.5.74.0:
+
+- added Wendigo race
+- added additional setting to tweak flanking rules
+- fixed many issues around extra attacks
+- updated to game code base 1.5.74
+- fixed almost all reported issues since previous version
+
 1.5.52.5 (re-release):
 
 ATTENTION: 

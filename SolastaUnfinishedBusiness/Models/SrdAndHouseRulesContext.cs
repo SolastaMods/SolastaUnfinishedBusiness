@@ -95,6 +95,7 @@ internal static class SrdAndHouseRulesContext
         SwitchUniversalSylvanArmorAndLightbringer();
         UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
+        SwitchHastedCasing();
     }
 
     internal static void AddLightSourceIfNeeded(GameLocationCharacter gameLocationCharacter)
@@ -441,6 +442,19 @@ internal static class SrdAndHouseRulesContext
                 // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
                 sd.EffectDescription.targetParameter2 = 0;
             }
+        }
+    }
+
+    internal static void SwitchHastedCasing()
+    {
+        var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
+        if (Main.Settings.AllowHasteCasting)
+        {
+            restrictedActions.TryAdd(ActionDefinitions.Id.CastMain);
+        }
+        else
+        {
+            restrictedActions.RemoveAll(id => id == ActionDefinitions.Id.CastMain);
         }
     }
 
@@ -1084,8 +1098,17 @@ internal static class FlankingAndHigherGroundRules
 
         var actionModifier = evaluationParams.attackModifier;
 
-        actionModifier.AttackAdvantageTrends.Add(
-            new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        if (Main.Settings.UseOfficialFlankingRulesButAddAttackModifier)
+        {
+            actionModifier.attackRollModifier += 1;
+            actionModifier.attackToHitTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
+        else
+        {
+            actionModifier.AttackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Unknown, "Feedback/&FlankingAttack", null));
+        }
     }
 
     internal static void HandleHigherGround(BattleDefinitions.AttackEvaluationParams evaluationParams)
@@ -1170,7 +1193,7 @@ internal static class FlankingAndHigherGroundRules
         // Check if the line intersects opposite sides of the cube
         var intersectsFrontBack =
             LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
-        
+
         if (intersectsFrontBack)
         {
             return true;
@@ -1178,7 +1201,7 @@ internal static class FlankingAndHigherGroundRules
 
         var intersectsLeftRight =
             LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
-        
+
         if (intersectsLeftRight)
         {
             return true;
@@ -1186,7 +1209,7 @@ internal static class FlankingAndHigherGroundRules
 
         var intersectsTopBottom =
             LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
-        
+
         return intersectsTopBottom;
     }
 
@@ -1321,8 +1344,8 @@ internal static class FlankingAndHigherGroundRules
 
     private class Cube
     {
-        private readonly Point3D min;
         private readonly Point3D max;
+        private readonly Point3D min;
 
         public Cube(Point3D minPoint, Point3D maxPoint)
         {

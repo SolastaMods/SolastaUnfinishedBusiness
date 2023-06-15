@@ -107,7 +107,8 @@
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
     "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
-    "Definition:PowerBerserkerFrenzy:28c7303e7742ef94fb6a3780c3033759"
+    "Definition:PowerBerserkerFrenzy:28c7303e7742ef94fb6a3780c3033759",
+    "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056"
   ],
   "attackIterations": [
     {

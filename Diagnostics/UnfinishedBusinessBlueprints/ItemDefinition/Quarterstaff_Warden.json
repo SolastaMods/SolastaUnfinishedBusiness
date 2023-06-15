@@ -553,8 +553,8 @@
     "description": "Item/&Quarterstaff_Warden_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b5eda306c433b36418c6dfad754d9f72",
-      "m_SubObjectName": "StandardQuarterstaff",
+      "m_AssetGUID": "af376f8e2ae3b4a4eaa12e745e56b954",
+      "m_SubObjectName": "Quarterstaff+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

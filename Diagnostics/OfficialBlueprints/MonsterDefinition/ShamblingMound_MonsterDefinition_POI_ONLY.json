@@ -78,8 +78,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:ShamblingMound_MonsterDefinition:946e3ee1b3a9c094f8d5654ba68b7a7b",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,

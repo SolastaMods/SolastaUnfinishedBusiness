@@ -1155,9 +1155,7 @@ internal static partial class SpellBuilders
             gameLocationScreenBattle.initiativeTable.ContenderModified(locationCharacter,
                 GameLocationBattle.ContenderModificationMode.Add, false, false);
 
-            GameConsoleHelper.LogCharacterUsedFeature(
-                locationCharacter.RulesetCharacter,
-                _featureDefinition,
+            locationCharacter.RulesetCharacter.LogCharacterUsedFeature(_featureDefinition,
                 TEXT,
                 false,
                 (ConsoleStyleDuplet.ParameterType.Initiative, roll.ToString()));

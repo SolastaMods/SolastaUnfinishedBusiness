@@ -39,6 +39,13 @@ internal static class RulesDisplay
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
             }
+
+            toggle = Main.Settings.UseOfficialFlankingRulesButAddAttackModifier;
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesButAddAttackModifier"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.UseOfficialFlankingRulesButAddAttackModifier = toggle;
+            }
         }
 
         toggle = Main.Settings.UseOfficialFoodRationsWeight;
@@ -46,6 +53,12 @@ internal static class RulesDisplay
         {
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
             SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
+        }
+
+        toggle = Main.Settings.DontEndTurnAfterReady;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontEndTurnAfterReady = toggle;
         }
 
         UI.Label();
@@ -168,6 +181,13 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowClubsToBeThrown = toggle;
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
+        toggle = Main.Settings.AllowHasteCasting;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHasteCasting = toggle;
+            SrdAndHouseRulesContext.SwitchHastedCasing();
         }
 
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;

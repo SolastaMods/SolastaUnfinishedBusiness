@@ -302,4 +302,20 @@ public static class GameLocationCharacterPatcher
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckConcentration))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CheckConcentration_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(GameLocationCharacter __instance,
+            int damage,
+            string damageType,
+            bool stillConscious)
+        {
+            //PATCH: support for EffectWithConcentrationCheck
+            EffectWithConcentrationCheck.ProcessConcentratedEffects(__instance, damage, damageType, stillConscious);
+        }
+    }
 }

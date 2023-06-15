@@ -78,7 +78,7 @@
         "saveOccurence": "StartOfTurn",
         "temporaryHitPointsForm": {
           "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 5,
+          "diceNumber": 4,
           "dieType": "D1",
           "bonusHitPoints": 0,
           "applyToSelf": true
@@ -103,7 +103,7 @@
         "saveOccurence": "StartOfTurn",
         "temporaryHitPointsForm": {
           "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 5,
+          "diceNumber": 4,
           "dieType": "D1",
           "bonusHitPoints": 0,
           "applyToSelf": false

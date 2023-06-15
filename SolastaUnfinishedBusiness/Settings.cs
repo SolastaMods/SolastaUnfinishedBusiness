@@ -152,8 +152,10 @@ public class Settings : UnityModManager.ModSettings
     public bool UseOfficialFoodRationsWeight { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool UseOfficialFlankingRules { get; set; }
+    public bool UseOfficialFlankingRulesButAddAttackModifier { get; set; }
     public bool UseOfficialFlankingRulesAlsoForRanged { get; set; }
     public bool UseOfficialFlankingRulesAlsoForReach { get; set; }
+    public bool DontEndTurnAfterReady { get; set; }
     public bool IdentifyAfterRest { get; set; }
     public bool AddBleedingToLesserRestoration { get; set; }
     public bool BlindedConditionDontAllowAttackOfOpportunity { get; set; }
@@ -172,6 +174,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHigherGroundRules { get; set; }
     public bool AccountForAllDiceOnSavageAttack { get; set; }
     public bool AllowStackedMaterialComponent { get; set; }
+    public bool AllowHasteCasting { get; set; }
     public bool AllowClubsToBeThrown { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }

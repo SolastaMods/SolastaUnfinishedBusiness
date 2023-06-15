@@ -230,8 +230,8 @@
     "description": "Item/&HalfPlate_Sturdiness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3664841f5b48cf14fbe7ee637c845ccf",
-      "m_SubObjectName": "Halfplate_a",
+      "m_AssetGUID": "d6733645757f5454b852ae60777e45ab",
+      "m_SubObjectName": "Halfplate_c",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

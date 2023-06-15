@@ -912,7 +912,7 @@ internal sealed class ModifyWeaponProducedFlameDice : ModifyWeaponAttackModeBase
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        [NotNull] RulesetAttackMode attackMode,
+        RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         DamageForm damage = null;

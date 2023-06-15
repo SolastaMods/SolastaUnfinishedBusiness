@@ -205,8 +205,8 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "Full",
-  "bestiaryReference": null,
+  "bestiaryEntry": "Reference",
+  "bestiaryReference": "Definition:Sessroth_01:5ca66db3272ae1e4b8d8f96d44eeb672",
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
     "x": 0.0,
