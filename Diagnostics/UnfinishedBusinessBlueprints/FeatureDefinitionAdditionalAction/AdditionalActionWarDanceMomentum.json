@@ -4,11 +4,7 @@
   "forbiddenActions": [],
   "authorizedActions": [],
   "restrictedActions": [
-    "AttackMain",
-    "CastMain",
-    "DashMain",
-    "DisengageMain",
-    "Shove"
+    "AttackMain"
   ],
   "maxAttacksNumber": 1,
   "triggerCondition": "None",

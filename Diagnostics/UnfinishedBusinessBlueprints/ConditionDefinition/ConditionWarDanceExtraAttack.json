@@ -3,8 +3,10 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
-  "allowMultipleInstances": false,
+  "features": [
+    "Definition:AdditionalActionWarDanceMomentum:a006baff-03c1-5aff-bee2-bb67bbe36642"
+  ],
+  "allowMultipleInstances": true,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "silentWhenRefreshed": false,
@@ -15,7 +17,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "AnyBattleTurnEnd"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -149,7 +153,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "daddf18b-40ff-5b13-aecc-779a47363bac",
+  "guid": "8c20ffc8-55d6-5052-8919-5aa4c5cd6d0c",
   "contentPack": 9999,
-  "name": "ConditionInnovationAlchemyMarkerDamageThunder"
+  "name": "ConditionWarDanceExtraAttack"
 }
