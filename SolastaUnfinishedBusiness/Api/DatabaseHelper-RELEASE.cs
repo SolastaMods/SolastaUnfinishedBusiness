@@ -950,6 +950,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition GreataxePlus1 { get; } = GetDefinition<ItemDefinition>("Greataxe+1");
         internal static ItemDefinition GreataxePlus2 { get; } = GetDefinition<ItemDefinition>("Greataxe+2");
         internal static ItemDefinition Greatsword { get; } = GetDefinition<ItemDefinition>("Greatsword");
+        internal static ItemDefinition GreatswordPlus2 { get; } = GetDefinition<ItemDefinition>("Greatsword+2");
         internal static ItemDefinition GreenmageArmor { get; } = GetDefinition<ItemDefinition>("GreenmageArmor");
         internal static ItemDefinition HalfPlate { get; } = GetDefinition<ItemDefinition>("HalfPlate");
         internal static ItemDefinition HalfPlatePlus2 { get; } = GetDefinition<ItemDefinition>("HalfPlate+2");
