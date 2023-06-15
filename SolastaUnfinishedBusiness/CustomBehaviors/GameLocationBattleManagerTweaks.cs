@@ -1104,15 +1104,6 @@ internal static class GameLocationBattleManagerTweaks
 
                         break;
                     }
-
-                    case (RuleDefinitions.AdditionalDamageTriggerCondition)
-                    ExtraAdditionalDamageTriggerCondition.TargetHasLowerInitiativeOnFirstRound:
-                    {
-                        validTrigger = instance.Battle.CurrentRound == 1 &&
-                            instance.Battle.InitiativeSortedContenders.IndexOf(attacker) 
-                            < instance.Battle.InitiativeSortedContenders.IndexOf(defender);
-                        break;
-                    }
                     /*
                      * Support for extra types of trigger conditions
                      * [CE] EDIT END

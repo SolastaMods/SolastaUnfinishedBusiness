@@ -1,8 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.CustomValidators;
@@ -55,13 +57,19 @@ internal static class RaceWendigoBuilder
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Skill, SkillDefinitions.Stealth)
             .AddToDB();
-        var additionalDamageWendigoSuckerPunch = FeatureDefinitionAdditionalDamageBuilder
+
+        var additionalDamageWendigoSuckerPunch = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{Name}SuckerPunch")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageDice(DieType.D6, 2)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetHasLowerInitiativeOnFirstRound)
-            .SetNotificationTag("SuckerPunch")
+            .SetCustomSubFeatures(
+                new CustomAdditionalDamageSuckerPunch(
+                    FeatureDefinitionAdditionalDamageBuilder
+                        .Create("AdditionalDamageSuckerPunch")
+                        .SetGuiPresentationNoContent(true)
+                        .SetDamageDice(DieType.D6, 2)
+                        .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+                        .SetNotificationTag("SuckerPunch")
+                        .AddToDB()
+            ))
             .AddToDB();
         
 
@@ -98,6 +106,35 @@ internal static class RaceWendigoBuilder
 
         RacesContext.RaceScaleMap[raceWendigo] = 7.8f / 6.4f;
         return raceWendigo;
+    }
+    private class CustomAdditionalDamageSuckerPunch : CustomAdditionalDamage
+    {
+        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage;
+        public CustomAdditionalDamageSuckerPunch(IAdditionalDamageProvider provider) : base(provider)
+        {
+            _featureDefinitionAdditionalDamage = provider;  
+        }
+
+        internal override bool IsValid(GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender, 
+            ActionModifier attackModifier, 
+            RulesetAttackMode attackMode, 
+            bool rangedAttack, 
+            AdvantageType advantageType, 
+            List<EffectForm> actualEffectForms, 
+            RulesetEffect rulesetEffect, 
+            bool criticalHit, 
+            bool firstTarget, 
+            out CharacterActionParams reactionParams)
+        {
+
+            reactionParams = null;
+
+            return battleManager.Battle.CurrentRound == 1 &&
+                            battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
+                            < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
+        }
     }
 
     private class ModifyWeaponAttackModeWendigoNaturalLunger :
