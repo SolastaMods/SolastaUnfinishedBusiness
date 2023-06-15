@@ -60,6 +60,7 @@ internal static class RaceWendigoBuilder
 
         var additionalDamageWendigoSuckerPunch = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{Name}SuckerPunch")
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new CustomAdditionalDamageSuckerPunch(
                     FeatureDefinitionAdditionalDamageBuilder
