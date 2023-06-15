@@ -47,6 +47,12 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
             SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
+        
+        toggle = Main.Settings.DontEndTurnAfterReady;
+        if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DontEndTurnAfterReady = toggle;
+        }
 
         UI.Label();
 
@@ -168,6 +174,13 @@ internal static class RulesDisplay
         {
             Main.Settings.AllowClubsToBeThrown = toggle;
             SrdAndHouseRulesContext.SwitchAllowClubsToBeThrown();
+        }
+
+        toggle = Main.Settings.AllowHasteCasting;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHasteCasting"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHasteCasting = toggle;
+            SrdAndHouseRulesContext.SwitchHastedCasing();
         }
 
         toggle = Main.Settings.EnableCantripsTriggeringOnWarMagic;

@@ -532,7 +532,7 @@ internal sealed class PathOfTheElements : AbstractSubclass
                     out _,
                     out _);
 
-                GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _ancestry);
+                rulesetAttacker.LogCharacterUsedFeature(_ancestry);
             }
         }
     }

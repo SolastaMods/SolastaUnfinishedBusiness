@@ -1198,7 +1198,7 @@ internal static class GambitsBuilders
             );
 
 
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, Line,
+            character.LogCharacterUsedFeature(feature, Line,
                 extra: new[]
                 {
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
@@ -1302,7 +1302,7 @@ internal static class GambitsBuilders
                 title: feature.GuiPresentation.Title,
                 displayModifier: true, modifier: pb);
 
-            GameConsoleHelper.LogCharacterUsedFeature(character, feature, Line,
+            character.LogCharacterUsedFeature(feature, Line,
                 extra: new[]
                 {
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),

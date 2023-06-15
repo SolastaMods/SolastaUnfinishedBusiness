@@ -354,7 +354,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
 
-            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, feature, indent: true);
+            rulesetAttacker.LogCharacterUsedFeature(feature, indent: true);
 
             if (rulesetAttacker.MissingHitPoints > 0)
             {

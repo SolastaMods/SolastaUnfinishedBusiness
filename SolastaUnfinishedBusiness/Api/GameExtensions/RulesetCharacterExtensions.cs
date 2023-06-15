@@ -549,18 +549,33 @@ internal static class RulesetCharacterExtensions
             .Any(x => x.RequiredCharacterFamily.Name == enemy.CharacterFamily);
     }
 
-#if false
-    internal static void RemoveAllConditionsOfType(this RulesetCharacter character, string type)
+    /**
+     * Removes all matching conditions and returns true if any was removed, false otherwise
+     */
+    internal static bool RemoveAllConditionsOfType(this RulesetCharacter character, params string[] types)
     {
-        character?.AllConditions
-            .Where(c => c.conditionDefinition.Name == type)
-            .ToList()
-            .ForEach(c => character.RemoveCondition(c, true, false));
+        //should we return number of removed conditions, instead of whther we removed any?
+        var conditions = character?.AllConditions
+            .Where(c => types.Contains(c.conditionDefinition.Name))
+            .ToList();
+
+        if (conditions == null || conditions.Empty())
+        {
+            return false;
+        }
+
+        conditions.ForEach(c => character.RemoveCondition(c, false, false));
+        character.RefreshAll();
+        return true;
     }
-#endif
 
     internal static void ShowLabel(this RulesetCharacter character, string text, string color = Gui.ColorBrokenWhite)
     {
+        if (character == null)
+        {
+            return;
+        }
+
         if (!ServiceRepository.GetService<IWorldLocationEntityFactoryService>()
                 .TryFindWorldCharacter(character, out var worldCharacter))
         {

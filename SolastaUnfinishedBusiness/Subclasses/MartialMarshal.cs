@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.CustomValidators;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -392,7 +393,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             [NotNull] RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            // melee only
+            // non-reaction melee hits only
             if (attackMode.ranged || outcome is RollOutcome.CriticalFailure or RollOutcome.Failure ||
                 actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
             {
@@ -435,32 +436,29 @@ internal sealed class MartialMarshal : AbstractSubclass
 
             foreach (var partyCharacter in allies)
             {
-                var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
-                var attackParams = default(BattleDefinitions.AttackEvaluationParams);
-                var actionModifierBefore = new ActionModifier();
-                var canAttack = true;
+                RulesetAttackMode mode;
+                ActionModifier modifier;
 
-                if (allAttackMode == null)
-                {
-                    continue;
-                }
+                //prefer melee if main hand is melee or if enemy is close
+                var preferMelee = ValidatorsWeapon.IsMelee(partyCharacter.RulesetCharacter.GetMainWeapon())
+                                  || (battleManager != null && battleManager.IsWithin1Cell(partyCharacter, defender));
 
-                if (allAttackMode.Ranged)
+                var (meleeMode, meleeModifier) = partyCharacter.GetFirstMeleeModeThatCanAttack(defender);
+                var (rangedMode, rangedModifier) = partyCharacter.GetFirstRangedModeThatCanAttack(defender);
+
+                if (preferMelee)
                 {
-                    attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition,
-                        allAttackMode,
-                        defender, defender.LocationPosition, actionModifierBefore);
+                    mode = meleeMode ?? rangedMode;
+                    modifier = meleeModifier ?? rangedModifier;
                 }
                 else
                 {
-                    attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition,
-                        allAttackMode,
-                        defender, defender.LocationPosition, actionModifierBefore);
+                    mode = rangedMode ?? meleeMode;
+                    modifier = rangedModifier ?? meleeModifier;
                 }
 
-                if (!gameLocationBattleService.CanAttack(attackParams))
+                if (mode == null)
                 {
-                    canAttack = false;
 
                     var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
 
@@ -469,12 +467,18 @@ internal sealed class MartialMarshal : AbstractSubclass
                         continue;
                     }
                 }
-
-                var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
-                    allAttackMode, defender, actionModifierBefore)
+                
+                var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = !canAttack
+                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode !=null
                 };
+                reactionParams.targetCharacters.Add(defender);
+                reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());
+                if (mode != null)
+                {
+                    reactionParams.attackMode = RulesetAttackMode.AttackModesPool.Get();
+                    reactionParams.attackMode.Copy(mode);
+                }
 
                 reactions.Add(reactionParams);
             }

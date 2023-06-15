@@ -127,8 +127,9 @@ internal abstract class ModifyWeaponAttackModeBase : IModifyWeaponAttackMode
     }
 
     protected abstract void TryModifyAttackMode(
-        RulesetCharacter character,
-        RulesetAttackMode attackMode,
+        [NotNull] RulesetCharacter character,
+        [NotNull] RulesetAttackMode attackMode,
+        //TODO: remove weapon - it is always null
         RulesetItem weapon);
 }
 
