@@ -10,5 +10,3 @@ Condition/&ChildOfDarkness3_Description=This Sorak is more powerful and regenera
 Condition/&ChildOfDarkness0_Description=This Sorak is more powerful and regenerates in darkness.
 Condition/&AllyOfDarkness_Title=Ally of Darkness
 Condition/&AllyOfDarkness_Description=Demon Generals have been granted Sorak powers, including the ability to regenerate in darkness.
-Conditions/&ConditionPOI_Title=Palace of Ice Lair Effect
-Conditions/&ConditionPOI_Description=While in the Palace of Ice and Demon Realms, non-fiends suffer from multiple penalties.
