@@ -554,7 +554,7 @@ internal static class RulesetCharacterExtensions
      */
     internal static bool RemoveAllConditionsOfType(this RulesetCharacter character, params string[] types)
     {
-        //should we return number of removed conditions, instead of whther we removed any?
+        //should we return number of removed conditions, instead of whether we removed any?
         var conditions = character?.AllConditions
             .Where(c => types.Contains(c.conditionDefinition.Name))
             .ToList();

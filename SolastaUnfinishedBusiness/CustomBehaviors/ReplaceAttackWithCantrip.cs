@@ -72,7 +72,7 @@ internal static class ReplaceAttackWithCantrip
 
         const ActionType ACTION_TYPE = ActionType.Main;
         var rank = --character.currentActionRankByType[ACTION_TYPE];
-        
+
         //If character can't attack on this action - do not refund it
         if (character.GetActionStatus(Id.AttackMain, ActionScope.Battle) != ActionStatus.Available)
         {

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -70,15 +69,15 @@ internal static class RaceWendigoBuilder
                         .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                         .SetNotificationTag("SuckerPunch")
                         .AddToDB()
-            ))
+                ))
             .AddToDB();
-        
+
 
         var featureWendigoNaturalLunger = FeatureDefinitionBuilder
-                .Create("FeatureWendigoNaturalLunger")
-                .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
-                .AddToDB();
+            .Create("FeatureWendigoNaturalLunger")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new ModifyWeaponAttackModeWendigoNaturalLunger())
+            .AddToDB();
         var racePresentation = Tiefling.RacePresentation.DeepCopy();
         racePresentation.preferedSkinColors = new RangedInt(28, 47);
 
@@ -108,33 +107,31 @@ internal static class RaceWendigoBuilder
         RacesContext.RaceScaleMap[raceWendigo] = 7.8f / 6.4f;
         return raceWendigo;
     }
+
     private class CustomAdditionalDamageSuckerPunch : CustomAdditionalDamage
     {
-        private readonly IAdditionalDamageProvider _featureDefinitionAdditionalDamage;
         public CustomAdditionalDamageSuckerPunch(IAdditionalDamageProvider provider) : base(provider)
         {
-            _featureDefinitionAdditionalDamage = provider;  
         }
 
         internal override bool IsValid(GameLocationBattleManager battleManager,
             GameLocationCharacter attacker,
-            GameLocationCharacter defender, 
-            ActionModifier attackModifier, 
-            RulesetAttackMode attackMode, 
-            bool rangedAttack, 
-            AdvantageType advantageType, 
-            List<EffectForm> actualEffectForms, 
-            RulesetEffect rulesetEffect, 
-            bool criticalHit, 
-            bool firstTarget, 
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
             out CharacterActionParams reactionParams)
         {
-
             reactionParams = null;
 
             return battleManager.Battle.CurrentRound == 1 &&
-                            battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
-                            < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
+                   battleManager.Battle.InitiativeSortedContenders.IndexOf(attacker)
+                   < battleManager.Battle.InitiativeSortedContenders.IndexOf(defender);
         }
     }
 
@@ -150,10 +147,11 @@ internal static class RaceWendigoBuilder
             {
                 return;
             }
+
             if (attackMode.reach)
             {
                 attackMode.reachRange = 3;
-            } 
+            }
             else
             {
                 attackMode.reach = true;

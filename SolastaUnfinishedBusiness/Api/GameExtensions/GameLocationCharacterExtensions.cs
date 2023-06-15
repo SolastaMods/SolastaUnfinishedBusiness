@@ -238,6 +238,7 @@ public static class GameLocationCharacterExtensions
         {
             //this condition should never trigger, this is just for Rider to not complain about types
             if (feature is not IAdditionalActionsProvider provider) { continue; }
+
             if (provider.ActionType != type) { continue; }
 
             //Since non-triggered ones are removed on FeatureApplicationValidation.EnumerateAdditionalActionProviders

@@ -459,7 +459,6 @@ internal sealed class MartialMarshal : AbstractSubclass
 
                 if (mode == null)
                 {
-
                     var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
 
                     if (cantrips == null || cantrips.Empty())
@@ -467,10 +466,10 @@ internal sealed class MartialMarshal : AbstractSubclass
                         continue;
                     }
                 }
-                
+
                 var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity)
                 {
-                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode !=null
+                    StringParameter2 = MarshalCoordinatedAttackName, BoolParameter4 = mode != null
                 };
                 reactionParams.targetCharacters.Add(defender);
                 reactionParams.actionModifiers.Add(modifier ?? new ActionModifier());

@@ -227,6 +227,28 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .Count(x => x.conditionDefinition == WarDanceExtraAttack) ?? 0;
     }
 
+    private static void GrantWarDanceCondition(RulesetCharacter rulesetCharacter, BaseDefinition condition)
+    {
+        if (rulesetCharacter is not RulesetCharacterHero)
+        {
+            return;
+        }
+
+        rulesetCharacter.InflictCondition(
+            condition.Name,
+            DurationType.Round,
+            1,
+            TurnOccurenceType.StartOfTurn,
+            AttributeDefinitions.TagCombat,
+            rulesetCharacter.guid,
+            rulesetCharacter.CurrentFaction.Name,
+            1,
+            null,
+            0,
+            0,
+            0);
+    }
+
     private sealed class WarDanceFlurryPhysicalAttack : IPhysicalAttackFinished
     {
         public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
@@ -318,28 +340,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private static void GrantWarDanceCondition(RulesetCharacter rulesetCharacter, ConditionDefinition condition)
-    {
-        if (rulesetCharacter is not RulesetCharacterHero)
-        {
-            return;
-        }
-
-        rulesetCharacter.InflictCondition(
-            condition.Name,
-            DurationType.Round,
-            1,
-            TurnOccurenceType.StartOfTurn,
-            AttributeDefinitions.TagCombat,
-            rulesetCharacter.guid,
-            rulesetCharacter.CurrentFaction.Name,
-            1,
-            null,
-            0,
-            0,
-            0);
-    }
-
     private sealed class WarDanceFlurryWeaponAttackModifier : ModifyWeaponAttackModeBase
     {
         private const int LightMomentumModifier = -2;
@@ -349,8 +349,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         public WarDanceFlurryWeaponAttackModifier() : base(ValidatorsWeapon.IsMelee)
         {
         }
-        
-        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+
+        protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+            RulesetItem weapon)
         {
             var momentum = GetMomentumStacks(character);
 

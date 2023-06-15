@@ -13,14 +13,19 @@ internal interface IAdditionalActionAttackValidator
 
 internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidator
 {
-    private readonly IsWeaponValidHandler validator;
-
     internal static readonly IAdditionalActionAttackValidator MeleeOnly =
         new AdditionalActionAttackValidator(ValidatorsWeapon.IsMelee);
 
-    internal AdditionalActionAttackValidator(IsWeaponValidHandler validator)
+    private readonly IsWeaponValidHandler validator;
+
+    private AdditionalActionAttackValidator(IsWeaponValidHandler validator)
     {
         this.validator = validator;
+    }
+
+    public bool ValidateAttackMode(RulesetCharacter character, RulesetAttackMode mode)
+    {
+        return validator == null || validator(mode, null, character);
     }
 
     internal static void ValidateAttackModes(RulesetCharacter character)
@@ -52,16 +57,12 @@ internal class AdditionalActionAttackValidator : IAdditionalActionAttackValidato
         }
 
         character.RulesetCharacter?.AttackModes
-            .ForEach(m => {
+            .ForEach(m =>
+            {
                 if (m.ActionType == type && !validator.ValidateAttackMode(character.RulesetCharacter, m))
                 {
                     m.attacksNumber = 0;
                 }
             });
-    }
-
-    public bool ValidateAttackMode(RulesetCharacter character, RulesetAttackMode mode)
-    {
-        return validator == null || validator(mode, null, character);
     }
 }

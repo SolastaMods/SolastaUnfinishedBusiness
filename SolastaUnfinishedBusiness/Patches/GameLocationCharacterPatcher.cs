@@ -302,7 +302,7 @@ public static class GameLocationCharacterPatcher
             return false;
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CheckConcentration))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

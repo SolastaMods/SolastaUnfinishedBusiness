@@ -60,7 +60,7 @@ internal static class FeatureApplicationValidation
             return validator != null && !validator.IsValid(f, character);
         });
 
-        //remove non-triggered features to have only one placve that requires those checks
+        //remove non-triggered features to have only one place that requires those checks
         var locChar = GameLocationCharacter.GetFromActor(actor);
         if (locChar == null || locChar.enemiesDownedByAttack > 0)
         {
@@ -68,9 +68,9 @@ internal static class FeatureApplicationValidation
         }
 
         features.RemoveAll(f =>
-                locChar.enemiesDownedByAttack <= 0
-                && (f as IAdditionalActionsProvider)?.TriggerCondition ==
-                RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
+            locChar.enemiesDownedByAttack <= 0
+            && (f as IAdditionalActionsProvider)?.TriggerCondition ==
+            RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy);
     }
 
     internal static FeatureDefinition ValidateAttributeModifier(FeatureDefinition feature,

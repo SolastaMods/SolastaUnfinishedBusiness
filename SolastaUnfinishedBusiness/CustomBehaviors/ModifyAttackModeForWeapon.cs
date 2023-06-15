@@ -147,7 +147,7 @@ internal sealed class UpgradeWeaponDice : ModifyWeaponAttackModeBase
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        [NotNull] RulesetAttackMode attackMode,
+        RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         var effectDescription = attackMode.EffectDescription;
@@ -196,8 +196,8 @@ internal sealed class AddTagToWeaponWeaponAttack : ModifyWeaponAttackModeBase
         this.tag = tag;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
-        RulesetItem weapon)
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     {
         attackMode.AddAttackTagAsNeeded(tag);
     }
@@ -228,8 +228,8 @@ internal sealed class BumpWeaponWeaponAttackRangeToMax : ModifyWeaponAttackModeB
     {
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
-        RulesetItem weapon)
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
     {
         attackMode.closeRange = attackMode.maxRange;
     }
@@ -247,7 +247,7 @@ internal sealed class IncreaseMeleeWeaponAttackReach : ModifyWeaponAttackModeBas
 
     protected override void TryModifyAttackMode(
         RulesetCharacter character,
-        [NotNull] RulesetAttackMode attackMode,
+        RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         //this getter also checks is this is not thrown/ranged mode

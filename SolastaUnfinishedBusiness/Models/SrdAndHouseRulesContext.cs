@@ -444,7 +444,7 @@ internal static class SrdAndHouseRulesContext
             }
         }
     }
-    
+
     internal static void SwitchHastedCasing()
     {
         var restrictedActions = FeatureDefinitionAdditionalActions.AdditionalActionHasted.RestrictedActions;
@@ -456,7 +456,6 @@ internal static class SrdAndHouseRulesContext
         {
             restrictedActions.RemoveAll(id => id == ActionDefinitions.Id.CastMain);
         }
-
     }
 
     internal static void AddBleedingToRestoration()
@@ -1096,7 +1095,7 @@ internal static class FlankingAndHigherGroundRules
                 return;
             }
         }
-        
+
         var actionModifier = evaluationParams.attackModifier;
 
         if (Main.Settings.UseOfficialFlankingRulesButAddAttackModifier)
@@ -1194,7 +1193,7 @@ internal static class FlankingAndHigherGroundRules
         // Check if the line intersects opposite sides of the cube
         var intersectsFrontBack =
             LineIntersectsFace(p1, p2, cube.FrontFace) && LineIntersectsFace(p1, p2, cube.BackFace);
-        
+
         if (intersectsFrontBack)
         {
             return true;
@@ -1202,7 +1201,7 @@ internal static class FlankingAndHigherGroundRules
 
         var intersectsLeftRight =
             LineIntersectsFace(p1, p2, cube.LeftFace) && LineIntersectsFace(p1, p2, cube.RightFace);
-        
+
         if (intersectsLeftRight)
         {
             return true;
@@ -1210,7 +1209,7 @@ internal static class FlankingAndHigherGroundRules
 
         var intersectsTopBottom =
             LineIntersectsFace(p1, p2, cube.TopFace) && LineIntersectsFace(p1, p2, cube.BottomFace);
-        
+
         return intersectsTopBottom;
     }
 
@@ -1345,8 +1344,8 @@ internal static class FlankingAndHigherGroundRules
 
     private class Cube
     {
-        private readonly Point3D min;
         private readonly Point3D max;
+        private readonly Point3D min;
 
         public Cube(Point3D minPoint, Point3D maxPoint)
         {

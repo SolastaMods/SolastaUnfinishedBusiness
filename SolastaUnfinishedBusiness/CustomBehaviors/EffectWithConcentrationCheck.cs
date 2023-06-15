@@ -25,7 +25,7 @@ public class EffectWithConcentrationCheck
         }
 
         var service = ServiceRepository.GetService<IGameSettingsService>();
-        if (service is {NeverLoseConcentrationOnSpells: true} && rulesetCharacter.Side == RuleDefinitions.Side.Ally)
+        if (service is { NeverLoseConcentrationOnSpells: true } && rulesetCharacter.Side == RuleDefinitions.Side.Ally)
         {
             return;
         }

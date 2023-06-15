@@ -44,7 +44,7 @@ internal static class GameConsoleHelper
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
         console.AddCharacterEntry(character, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
@@ -65,7 +65,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
@@ -83,7 +83,7 @@ internal static class GameConsoleHelper
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
@@ -103,7 +103,7 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
 
         var type = condition.ConditionType switch
         {
@@ -173,6 +173,7 @@ internal static class GameConsoleHelper
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Base, $"{rawRoll}{modifier:+0;-#}",
             tooltipContent: Gui.FormatSavingThrowTrends(modifier, modifierTrends));
 
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (outcome)
         {
             case RuleDefinitions.RollOutcome.CriticalSuccess:

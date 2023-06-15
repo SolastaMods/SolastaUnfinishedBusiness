@@ -39,9 +39,10 @@ internal static class RulesDisplay
             {
                 Main.Settings.UseOfficialFlankingRulesAlsoForRanged = toggle;
             }
-            
+
             toggle = Main.Settings.UseOfficialFlankingRulesButAddAttackModifier;
-            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesButAddAttackModifier"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialFlankingRulesButAddAttackModifier"), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.UseOfficialFlankingRulesButAddAttackModifier = toggle;
             }
@@ -53,7 +54,7 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialFoodRationsWeight = toggle;
             SrdAndHouseRulesContext.ApplySrdWeightToFoodRations();
         }
-        
+
         toggle = Main.Settings.DontEndTurnAfterReady;
         if (UI.Toggle(Gui.Localize("ModUi/&DontEndTurnAfterReady"), ref toggle, UI.AutoWidth()))
         {

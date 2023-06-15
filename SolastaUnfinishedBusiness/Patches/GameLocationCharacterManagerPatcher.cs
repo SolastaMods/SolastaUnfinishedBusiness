@@ -59,7 +59,7 @@ public static class GameLocationCharacterManagerPatcher
                 return true;
             }
 
-            //no wildshape power - kill shapeshifted form and skip default method
+            //no wildshape power - kill shape shifted form and skip default method
             __instance.KillCharacter(character, false, true, true, true, false);
             __result = true;
 
