@@ -246,8 +246,8 @@
     "description": "Item/&Breastplate_FrostWalking_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f14bc29eb6b773348b02c8afa67f768e",
-      "m_SubObjectName": "Breastplate_a",
+      "m_AssetGUID": "a76f4b34a13707e40b9d569e5cf9400a",
+      "m_SubObjectName": "Breastplate_c",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

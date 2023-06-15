@@ -36,8 +36,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "03f240d193ed634429bece83e31ae758",
-      "m_SubObjectName": "Druid_Leather_Armor",
+      "m_AssetGUID": "e3bda647a37e26a45b85f270f9083a20",
+      "m_SubObjectName": "DLC1_ArmorOfTheForest",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

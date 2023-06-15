@@ -511,9 +511,9 @@
     "description": "Item/&CEHandXbow_Sharpshooting_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2f6f5efb-b382-515b-897b-264fdc648c36",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "cc2162ba-fb2b-51cb-9f4e-9e79dfd309c7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

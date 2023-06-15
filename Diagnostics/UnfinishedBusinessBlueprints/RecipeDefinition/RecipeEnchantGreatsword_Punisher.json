@@ -31,8 +31,8 @@
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ef9f134df3d7d49418bd980c0830cbf2",
-      "m_SubObjectName": "StandardGreatsword",
+      "m_AssetGUID": "bddc3ed4ff7d7f94c990c26544b4806f",
+      "m_SubObjectName": "Greatsword+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

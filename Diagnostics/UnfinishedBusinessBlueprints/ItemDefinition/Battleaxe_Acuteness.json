@@ -508,8 +508,8 @@
     "description": "Item/&Battleaxe_Acuteness_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "67ecd5cd7bd8a2a40886d729e52c84f3",
-      "m_SubObjectName": "StandardBattleaxe",
+      "m_AssetGUID": "e0c77262257f1b7439b5da99e068bcba",
+      "m_SubObjectName": "BattleAxe+2",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
